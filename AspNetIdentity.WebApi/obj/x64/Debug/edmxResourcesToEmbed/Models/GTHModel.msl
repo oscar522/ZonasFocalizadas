@@ -1,0 +1,585 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AspNetIdentityModelStoreContainer" CdmEntityContainer="AspNetIdentityEntities">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.Accounts">
+        <MappingFragment StoreEntitySet="Accounts">
+          <ScalarProperty Name="Id_Account" ColumnName="Id_Account" />
+          <ScalarProperty Name="Id_Country" ColumnName="Id_Country" />
+          <ScalarProperty Name="Id_Code" ColumnName="Id_Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+          <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Accounts_AdditionalInformation">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.Accounts_AdditionalInformation">
+        <MappingFragment StoreEntitySet="Accounts_AdditionalInformation">
+          <ScalarProperty Name="Id_AdditionalInformation" ColumnName="Id_AdditionalInformation" />
+          <ScalarProperty Name="Id_Account" ColumnName="Id_Account" />
+          <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+          <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+          <ScalarProperty Name="AboutActive" ColumnName="AboutActive" />
+          <ScalarProperty Name="AboutTitle" ColumnName="AboutTitle" />
+          <ScalarProperty Name="AboutDescription" ColumnName="AboutDescription" />
+          <ScalarProperty Name="PrivPoliActive" ColumnName="PrivPoliActive" />
+          <ScalarProperty Name="PrivPoliTitle" ColumnName="PrivPoliTitle" />
+          <ScalarProperty Name="PrivPoliDescription" ColumnName="PrivPoliDescription" />
+          <ScalarProperty Name="PrivPoliButton" ColumnName="PrivPoliButton" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+          <ScalarProperty Name="Id_Account" ColumnName="Id_Account" />
+          <ScalarProperty Name="Id_Hash" ColumnName="Id_Hash" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+          <ScalarProperty Name="CreationUser" ColumnName="CreationUser" />
+          <ScalarProperty Name="LastChangeUser" ColumnName="LastChangeUser" />
+          <ScalarProperty Name="RootUser" ColumnName="RootUser" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CT_Tests">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.CT_Tests">
+        <MappingFragment StoreEntitySet="CT_Tests">
+          <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+          <ScalarProperty Name="ApplicationTime" ColumnName="ApplicationTime" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Test" ColumnName="Test" />
+          <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+          <ScalarProperty Name="Id_Account" ColumnName="Id_Account" />
+          <ScalarProperty Name="Id_Test" ColumnName="Id_Test" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CT_Answers">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.CT_Answers">
+        <MappingFragment StoreEntitySet="CT_Answers">
+          <ScalarProperty Name="CorrectAnswer" ColumnName="CorrectAnswer" />
+          <ScalarProperty Name="Has_CorrectAnswer" ColumnName="Has_CorrectAnswer" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Has_Weight" ColumnName="Has_Weight" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="Id_Question" ColumnName="Id_Question" />
+          <ScalarProperty Name="Id_Answer" ColumnName="Id_Answer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CT_Dimensions">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.CT_Dimensions">
+        <MappingFragment StoreEntitySet="CT_Dimensions">
+          <ScalarProperty Name="Visible" ColumnName="Visible" />
+          <ScalarProperty Name="B" ColumnName="B" />
+          <ScalarProperty Name="G" ColumnName="G" />
+          <ScalarProperty Name="R" ColumnName="R" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Has_Time" ColumnName="Has_Time" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Has_Weight" ColumnName="Has_Weight" />
+          <ScalarProperty Name="Dimension" ColumnName="Dimension" />
+          <ScalarProperty Name="Id_Test" ColumnName="Id_Test" />
+          <ScalarProperty Name="Id_Dimension" ColumnName="Id_Dimension" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CT_Factors">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.CT_Factors">
+        <MappingFragment StoreEntitySet="CT_Factors">
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Has_Time" ColumnName="Has_Time" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Has_Weight" ColumnName="Has_Weight" />
+          <ScalarProperty Name="Factor" ColumnName="Factor" />
+          <ScalarProperty Name="Id_Dimension" ColumnName="Id_Dimension" />
+          <ScalarProperty Name="Id_Factor" ColumnName="Id_Factor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CT_Questions">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.CT_Questions">
+        <MappingFragment StoreEntitySet="CT_Questions">
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Has_Time" ColumnName="Has_Time" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Has_Weight" ColumnName="Has_Weight" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Id_Type" ColumnName="Id_Type" />
+          <ScalarProperty Name="Id_Factor" ColumnName="Id_Factor" />
+          <ScalarProperty Name="Id_Question" ColumnName="Id_Question" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Temp_AspNetUsersTests">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.Temp_AspNetUsersTests">
+        <MappingFragment StoreEntitySet="Temp_AspNetUsersTests">
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Id_StatusTest" ColumnName="Id_StatusTest" />
+          <ScalarProperty Name="Id_Test" ColumnName="Id_Test" />
+          <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+          <ScalarProperty Name="Id_UserTest" ColumnName="Id_UserTest" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Temp_AspNetUsersTests_Details">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.Temp_AspNetUsersTests_Details">
+        <MappingFragment StoreEntitySet="Temp_AspNetUsersTests_Details">
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="Id_Question" ColumnName="Id_Question" />
+          <ScalarProperty Name="Id_UserTest" ColumnName="Id_UserTest" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERFIL">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.PERFIL">
+        <MappingFragment StoreEntitySet="PERFIL">
+          <ScalarProperty Name="ID_ACCOUNTS" ColumnName="ID_ACCOUNTS" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="OBJETIVO" ColumnName="OBJETIVO" />
+          <ScalarProperty Name="SUPERVISA" ColumnName="SUPERVISA" />
+          <ScalarProperty Name="REPORTA" ColumnName="REPORTA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_CT_SUB_AREA" ColumnName="ID_CT_SUB_AREA" />
+          <ScalarProperty Name="ID_CT_AREA" ColumnName="ID_CT_AREA" />
+          <ScalarProperty Name="ID_PERFIL" ColumnName="ID_PERFIL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERFIL_COMPETENCIAS">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.PERFIL_COMPETENCIAS">
+        <MappingFragment StoreEntitySet="PERFIL_COMPETENCIAS">
+          <ScalarProperty Name="ID_PERFIL" ColumnName="ID_PERFIL" />
+          <ScalarProperty Name="ID_PERFI_COMPE" ColumnName="ID_PERFI_COMPE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERFIL_CONOCIMIENTOS">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.PERFIL_CONOCIMIENTOS">
+        <MappingFragment StoreEntitySet="PERFIL_CONOCIMIENTOS">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_PERFIL" ColumnName="ID_PERFIL" />
+          <ScalarProperty Name="ID_CONOCIMIENTO" ColumnName="ID_CONOCIMIENTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERFIL_CT_AREA">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.PERFIL_CT_AREA">
+        <MappingFragment StoreEntitySet="PERFIL_CT_AREA">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="ID_CT_AREA" ColumnName="ID_CT_AREA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERFIL_CT_COMPETENCIAS">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.PERFIL_CT_COMPETENCIAS">
+        <MappingFragment StoreEntitySet="PERFIL_CT_COMPETENCIAS">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_TIPO_COMPET" ColumnName="ID_TIPO_COMPET" />
+          <ScalarProperty Name="ID_CT_COMPETENCIA" ColumnName="ID_CT_COMPETENCIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERFIL_CT_ESCOLARIDAD">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.PERFIL_CT_ESCOLARIDAD">
+        <MappingFragment StoreEntitySet="PERFIL_CT_ESCOLARIDAD">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_ESCOLARIDAD" ColumnName="ID_ESCOLARIDAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERFIL_CT_ESPECIALIDAD">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.PERFIL_CT_ESPECIALIDAD">
+        <MappingFragment StoreEntitySet="PERFIL_CT_ESPECIALIDAD">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_ESPECIALIDAD" ColumnName="ID_ESPECIALIDAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERFIL_CT_IDIOM_NIVEL">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.PERFIL_CT_IDIOM_NIVEL">
+        <MappingFragment StoreEntitySet="PERFIL_CT_IDIOM_NIVEL">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_IDIOM_NIVEL" ColumnName="ID_IDIOM_NIVEL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERFIL_CT_IDIOMAS">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.PERFIL_CT_IDIOMAS">
+        <MappingFragment StoreEntitySet="PERFIL_CT_IDIOMAS">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_IDIOMA" ColumnName="ID_IDIOMA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERFIL_CT_SUB_AREA">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.PERFIL_CT_SUB_AREA">
+        <MappingFragment StoreEntitySet="PERFIL_CT_SUB_AREA">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="ID_CT_AREA" ColumnName="ID_CT_AREA" />
+          <ScalarProperty Name="ID_CT_SUB_AREA" ColumnName="ID_CT_SUB_AREA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERFIL_CT_TIPOS_COMPETENCIAS">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.PERFIL_CT_TIPOS_COMPETENCIAS">
+        <MappingFragment StoreEntitySet="PERFIL_CT_TIPOS_COMPETENCIAS">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_TIPO_COMPET" ColumnName="ID_TIPO_COMPET" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERFIL_FINALIDADES">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.PERFIL_FINALIDADES">
+        <MappingFragment StoreEntitySet="PERFIL_FINALIDADES">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="RESULTADOS" ColumnName="RESULTADOS" />
+          <ScalarProperty Name="FUNCION" ColumnName="FUNCION" />
+          <ScalarProperty Name="ACCION" ColumnName="ACCION" />
+          <ScalarProperty Name="ID_PERFIL" ColumnName="ID_PERFIL" />
+          <ScalarProperty Name="ID_FINALIDAD" ColumnName="ID_FINALIDAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERFIL_FORMA_IDIOMAS">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.PERFIL_FORMA_IDIOMAS">
+        <MappingFragment StoreEntitySet="PERFIL_FORMA_IDIOMAS">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="ID_IDIOM_NIVEL" ColumnName="ID_IDIOM_NIVEL" />
+          <ScalarProperty Name="ID_IDIOMA" ColumnName="ID_IDIOMA" />
+          <ScalarProperty Name="ID_PERFIL" ColumnName="ID_PERFIL" />
+          <ScalarProperty Name="ID_FORMA_IDIOM" ColumnName="ID_FORMA_IDIOM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERFIL_FORMACION">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.PERFIL_FORMACION">
+        <MappingFragment StoreEntitySet="PERFIL_FORMACION">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="EXPERIENCIA" ColumnName="EXPERIENCIA" />
+          <ScalarProperty Name="ID_ESPECIALIDAD" ColumnName="ID_ESPECIALIDAD" />
+          <ScalarProperty Name="ID_ESCOLARIDAD" ColumnName="ID_ESCOLARIDAD" />
+          <ScalarProperty Name="ID_PERFIL" ColumnName="ID_PERFIL" />
+          <ScalarProperty Name="ID_FORMACION" ColumnName="ID_FORMACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERFIL_PROCESOS">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.PERFIL_PROCESOS">
+        <MappingFragment StoreEntitySet="PERFIL_PROCESOS">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_PERFIL" ColumnName="ID_PERFIL" />
+          <ScalarProperty Name="ID_PROCESO" ColumnName="ID_PROCESO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERFIL_RELACIONES">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.PERFIL_RELACIONES">
+        <MappingFragment StoreEntitySet="PERFIL_RELACIONES">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="MOTIVO" ColumnName="MOTIVO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+          <ScalarProperty Name="ID_PERFIL" ColumnName="ID_PERFIL" />
+          <ScalarProperty Name="ID_RELACION" ColumnName="ID_RELACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HV_ACTITUDES">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.HV_ACTITUDES">
+        <MappingFragment StoreEntitySet="HV_ACTITUDES">
+          <ScalarProperty Name="ID_CT_ACTITUDES" ColumnName="ID_CT_ACTITUDES" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="ID_DATOS_BASICOS" ColumnName="ID_DATOS_BASICOS" />
+          <ScalarProperty Name="ID_ACTITUDES" ColumnName="ID_ACTITUDES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HV_CONOCIMIENTOS">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.HV_CONOCIMIENTOS">
+        <MappingFragment StoreEntitySet="HV_CONOCIMIENTOS">
+          <ScalarProperty Name="ID_CT_CONOCIMIENTOS" ColumnName="ID_CT_CONOCIMIENTOS" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="ID_DATOS_BASICOS" ColumnName="ID_DATOS_BASICOS" />
+          <ScalarProperty Name="ID_CONOCIMIENTOS" ColumnName="ID_CONOCIMIENTOS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HV_CT_ACTITUDES">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.HV_CT_ACTITUDES">
+        <MappingFragment StoreEntitySet="HV_CT_ACTITUDES">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_ACTITUDES" ColumnName="ID_ACTITUDES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HV_CT_CARGO">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.HV_CT_CARGO">
+        <MappingFragment StoreEntitySet="HV_CT_CARGO">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_CT_CARGO" ColumnName="ID_CT_CARGO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HV_CT_CIUDAD">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.HV_CT_CIUDAD">
+        <MappingFragment StoreEntitySet="HV_CT_CIUDAD">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_CT_DEPTO" ColumnName="ID_CT_DEPTO" />
+          <ScalarProperty Name="ID_CT_PAIS" ColumnName="ID_CT_PAIS" />
+          <ScalarProperty Name="ID_CT_CIUDAD" ColumnName="ID_CT_CIUDAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HV_CT_CONOCIMIENTOS">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.HV_CT_CONOCIMIENTOS">
+        <MappingFragment StoreEntitySet="HV_CT_CONOCIMIENTOS">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="CT_SECTOR" ColumnName="CT_SECTOR" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_CT_CONOCIMIENTOS" ColumnName="ID_CT_CONOCIMIENTOS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HV_CT_DEPTO">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.HV_CT_DEPTO">
+        <MappingFragment StoreEntitySet="HV_CT_DEPTO">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_CT_PAIS" ColumnName="ID_CT_PAIS" />
+          <ScalarProperty Name="ID_CT_DEPTO" ColumnName="ID_CT_DEPTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HV_CT_DISIPLINA">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.HV_CT_DISIPLINA">
+        <MappingFragment StoreEntitySet="HV_CT_DISIPLINA">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_CT_DISIPLINA" ColumnName="ID_CT_DISIPLINA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HV_CT_EMPRESAS">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.HV_CT_EMPRESAS">
+        <MappingFragment StoreEntitySet="HV_CT_EMPRESAS">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+          <ScalarProperty Name="CIUDAD" ColumnName="CIUDAD" />
+          <ScalarProperty Name="DEPTO" ColumnName="DEPTO" />
+          <ScalarProperty Name="PAIS" ColumnName="PAIS" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_CT_EMPRESA" ColumnName="ID_CT_EMPRESA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HV_CT_ESTADO_CIVIL">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.HV_CT_ESTADO_CIVIL">
+        <MappingFragment StoreEntitySet="HV_CT_ESTADO_CIVIL">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_CT_ESTADO_CIVIL" ColumnName="ID_CT_ESTADO_CIVIL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HV_CT_INSTITUCION">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.HV_CT_INSTITUCION">
+        <MappingFragment StoreEntitySet="HV_CT_INSTITUCION">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_CT_CIUDAD" ColumnName="ID_CT_CIUDAD" />
+          <ScalarProperty Name="ID_CT_DEPTO" ColumnName="ID_CT_DEPTO" />
+          <ScalarProperty Name="ID_CT_PAIS" ColumnName="ID_CT_PAIS" />
+          <ScalarProperty Name="ID_CT_INSTITUCION" ColumnName="ID_CT_INSTITUCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HV_CT_PAIS">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.HV_CT_PAIS">
+        <MappingFragment StoreEntitySet="HV_CT_PAIS">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_CT_PAIS" ColumnName="ID_CT_PAIS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HV_CT_TIPO_IDENTIFICACION">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.HV_CT_TIPO_IDENTIFICACION">
+        <MappingFragment StoreEntitySet="HV_CT_TIPO_IDENTIFICACION">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_CT_TIPO_IDENTIFICACION" ColumnName="ID_CT_TIPO_IDENTIFICACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HV_CT_TITULOS">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.HV_CT_TITULOS">
+        <MappingFragment StoreEntitySet="HV_CT_TITULOS">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_CT_CIUDAD" ColumnName="ID_CT_CIUDAD" />
+          <ScalarProperty Name="ID_CT_DEPTO" ColumnName="ID_CT_DEPTO" />
+          <ScalarProperty Name="ID_CT_PAIS" ColumnName="ID_CT_PAIS" />
+          <ScalarProperty Name="ID_CT_TITULOS" ColumnName="ID_CT_TITULOS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HV_DATOS_BASICOS">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.HV_DATOS_BASICOS">
+        <MappingFragment StoreEntitySet="HV_DATOS_BASICOS">
+          <ScalarProperty Name="ID_PERFIL" ColumnName="ID_PERFIL" />
+          <ScalarProperty Name="ID_USERS" ColumnName="ID_USERS" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+          <ScalarProperty Name="F_NACIMIENTO" ColumnName="F_NACIMIENTO" />
+          <ScalarProperty Name="IDENTIFICACION" ColumnName="IDENTIFICACION" />
+          <ScalarProperty Name="APELLIDOS" ColumnName="APELLIDOS" />
+          <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
+          <ScalarProperty Name="ID_CT_TIPO_IDENTIFICACION" ColumnName="ID_CT_TIPO_IDENTIFICACION" />
+          <ScalarProperty Name="ID_CT_ESTADO_CIVIL" ColumnName="ID_CT_ESTADO_CIVIL" />
+          <ScalarProperty Name="ID_CT_CIUDAD" ColumnName="ID_CT_CIUDAD" />
+          <ScalarProperty Name="ID_CT_DEPTO" ColumnName="ID_CT_DEPTO" />
+          <ScalarProperty Name="ID_CT_PAIS" ColumnName="ID_CT_PAIS" />
+          <ScalarProperty Name="ID_DATOS_BASICOS" ColumnName="ID_DATOS_BASICOS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HV_ESTUDIOS">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.HV_ESTUDIOS">
+        <MappingFragment StoreEntitySet="HV_ESTUDIOS">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="ACTIVIDADES" ColumnName="ACTIVIDADES" />
+          <ScalarProperty Name="ARCHIVO_RUTA" ColumnName="ARCHIVO_RUTA" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="NOTA" ColumnName="NOTA" />
+          <ScalarProperty Name="HASTA" ColumnName="HASTA" />
+          <ScalarProperty Name="DESDE" ColumnName="DESDE" />
+          <ScalarProperty Name="ID_CT_DISIPLINA" ColumnName="ID_CT_DISIPLINA" />
+          <ScalarProperty Name="ID_CT_TITULOS" ColumnName="ID_CT_TITULOS" />
+          <ScalarProperty Name="ID_CT_INSTITUCION" ColumnName="ID_CT_INSTITUCION" />
+          <ScalarProperty Name="ID_DATOS_BASICOS" ColumnName="ID_DATOS_BASICOS" />
+          <ScalarProperty Name="ID_ESTUDIOS" ColumnName="ID_ESTUDIOS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HV_EXPERIENCIA">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.HV_EXPERIENCIA">
+        <MappingFragment StoreEntitySet="HV_EXPERIENCIA">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="ARCHIVO_RUTA" ColumnName="ARCHIVO_RUTA" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="TRABAJO_ACTUAL" ColumnName="TRABAJO_ACTUAL" />
+          <ScalarProperty Name="HASTA" ColumnName="HASTA" />
+          <ScalarProperty Name="DESDE" ColumnName="DESDE" />
+          <ScalarProperty Name="ID_CT_CARGO" ColumnName="ID_CT_CARGO" />
+          <ScalarProperty Name="ID_CT_EMPRESA" ColumnName="ID_CT_EMPRESA" />
+          <ScalarProperty Name="ID_DATOS_BASICOS" ColumnName="ID_DATOS_BASICOS" />
+          <ScalarProperty Name="ID_EXPERIENCIA" ColumnName="ID_EXPERIENCIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HV_UBICACION">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.HV_UBICACION">
+        <MappingFragment StoreEntitySet="HV_UBICACION">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
+          <ScalarProperty Name="NOMENCLATURA" ColumnName="NOMENCLATURA" />
+          <ScalarProperty Name="ID_HV_HUBICACION" ColumnName="ID_HV_HUBICACION" />
+          <ScalarProperty Name="ID_CT_CIUDAD" ColumnName="ID_CT_CIUDAD" />
+          <ScalarProperty Name="ID_CT_DEPTO" ColumnName="ID_CT_DEPTO" />
+          <ScalarProperty Name="ID_CT_PAIS" ColumnName="ID_CT_PAIS" />
+          <ScalarProperty Name="ID_DATOS_BASICOS" ColumnName="ID_DATOS_BASICOS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cat_StatusTest">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.Cat_StatusTest">
+        <MappingFragment StoreEntitySet="Cat_StatusTest">
+          <ScalarProperty Name="StatusTest" ColumnName="StatusTest" />
+          <ScalarProperty Name="Id_StatusTest" ColumnName="Id_StatusTest" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HV_CT_GENERO">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.HV_CT_GENERO">
+        <MappingFragment StoreEntitySet="HV_CT_GENERO">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_GENERO" ColumnName="ID_GENERO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CT_Dimension_Notes">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.CT_Dimension_Notes">
+        <MappingFragment StoreEntitySet="CT_Dimension_Notes">
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="W_Max" ColumnName="W_Max" />
+          <ScalarProperty Name="W_Min" ColumnName="W_Min" />
+          <ScalarProperty Name="Id_Dimension" ColumnName="Id_Dimension" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="AspNetIdentityModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

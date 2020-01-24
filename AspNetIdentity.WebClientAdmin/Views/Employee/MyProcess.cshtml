@@ -1,0 +1,79 @@
+﻿@model IEnumerable<AspNetIdentity.WebClientAdmin.Models.ProcessModel>
+@{
+    ViewBag.Title = "MyProcess";
+}
+
+<!-- Heading -->
+<div class="card mb-4 wow fadeIn">
+
+    <!--Card content-->
+    <div class="card-body d-sm-flex justify-content-between">
+        <h4 class="mb-2 mb-sm-0 pt-1">
+            <span>Mis procesos</span>
+        </h4>
+    </div>
+
+</div>
+<!-- Heading -->
+
+<div class="card">
+    <div class="card-body">
+        <div class="alert alert-info" role="alert">
+            A continuación se enlistan las evaluaciones que te han sido asignadas, podrás comenzar en el orden deseado y una vez terminada la evaluación de tener más evaluaciones volveras a esta pantalla para continuar con la siguiente.
+        </div>
+        <div class="row">
+            <dic class="col-md-7">
+                <div class="list-group">
+
+                    @foreach (AspNetIdentity.WebClientAdmin.Models.ProcessModel process in Model)
+                    {
+                        <a href="#" onclick="evaluationSelected('@Json.Encode(process)');" class="list-group-item @(process.Id_StatusTest == 2 ? "list-group-item-warning" : "") list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">@process.Test</h5>
+                                <small class="text-muted"> @process.ApplicationTime min aprox</small>
+                            </div>
+                            @*<p class="mb-1 text-justify">@process.Description</p>
+                                <small class="text-muted">@process.Version</small>*@
+                        </a>
+                    }
+
+                </div>
+            </dic>
+            <dic class="col-md-5">
+                <div id="cardEvaluation" class="card invisible">
+                    <h5 class="card-header primary-color white-text"><span id="cardEvaluationTitle"></span></h5>
+                    <div class="card-body">
+                        <h6 class="card-title"><span id="cardEvaluationVersion"></span></h6>
+                        <p class="card-text text-justify"><span id="cardEvaluationDescription"></span></p>
+                        @*<a class="btn btn-primary">Comenzar la evaluación</a>*@
+                        <input type="submit" id="cardEvaluationAction" value="Comenzar la evaluación" class="btn btn-primary" />
+                        <input type="hidden" id="cardEvaluationId" />
+                        @*@Html.ActionLink("Comenzar la evaluación", "TechnicalTest", "Employee", new { Id = 1 }, new { @class = "btn btn-primary" })*@
+                    </div>
+                </div>
+            </dic>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+
+        function evaluationSelected(eval) {
+            var objEval = $.parseJSON(eval);
+
+            $('#cardEvaluation').removeClass('invisible');
+            $('#cardEvaluationTitle').html(objEval.Test);
+            $('#cardEvaluationVersion').html(objEval.Version);
+            $('#cardEvaluationDescription').html(objEval.Description);
+            $('#cardEvaluationId').val(objEval.Id_UserTest);
+
+        }
+
+        $('#cardEvaluationAction').click(function () {
+            window.location = '@Url.Action("TechnicalTest", "Employee")/' + $('#cardEvaluationId').val();
+        });
+
+    </script>
+}
+

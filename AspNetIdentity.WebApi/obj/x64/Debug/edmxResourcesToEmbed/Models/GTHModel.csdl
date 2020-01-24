@@ -1,0 +1,819 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AspNetIdentityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Accounts">
+    <Key>
+      <PropertyRef Name="Id_Account" />
+    </Key>
+    <Property Name="Id_Account" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Country" Type="Int32" Nullable="false" />
+    <Property Name="Id_Code" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ImageName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="LastChangeDate" Type="DateTime" Precision="3" />
+    <Property Name="LastChangeUser" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Accounts_AdditionalInformation">
+    <Key>
+      <PropertyRef Name="Id_AdditionalInformation" />
+    </Key>
+    <Property Name="Id_AdditionalInformation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Account" Type="Int32" Nullable="false" />
+    <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastChangeUser" Type="Int32" Nullable="false" />
+    <Property Name="AboutActive" Type="Boolean" Nullable="false" />
+    <Property Name="AboutTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AboutDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PrivPoliActive" Type="Boolean" Nullable="false" />
+    <Property Name="PrivPoliTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PrivPoliDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PrivPoliButton" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id_User" />
+    </Key>
+    <Property Name="Id_User" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Account" Type="Int32" Nullable="false" />
+    <Property Name="Id_Hash" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreationUser" Type="Int32" Nullable="false" />
+    <Property Name="LastChangeUser" Type="Int32" Nullable="false" />
+    <Property Name="RootUser" Type="Boolean" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="ImageName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="AspNetIdentityEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="Self.Accounts" />
+    <EntitySet Name="Accounts_AdditionalInformation" EntityType="Self.Accounts_AdditionalInformation" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <EntitySet Name="CT_Tests" EntityType="AspNetIdentityModel.CT_Tests" />
+    <EntitySet Name="CT_Answers" EntityType="AspNetIdentityModel.CT_Answers" />
+    <EntitySet Name="CT_Dimensions" EntityType="AspNetIdentityModel.CT_Dimensions" />
+    <EntitySet Name="CT_Factors" EntityType="AspNetIdentityModel.CT_Factors" />
+    <EntitySet Name="CT_Questions" EntityType="AspNetIdentityModel.CT_Questions" />
+    <EntitySet Name="Temp_AspNetUsersTests" EntityType="AspNetIdentityModel.Temp_AspNetUsersTests" />
+    <EntitySet Name="Temp_AspNetUsersTests_Details" EntityType="AspNetIdentityModel.Temp_AspNetUsersTests_Details" />
+    <EntitySet Name="PERFIL" EntityType="AspNetIdentityModel.PERFIL" />
+    <EntitySet Name="PERFIL_COMPETENCIAS" EntityType="AspNetIdentityModel.PERFIL_COMPETENCIAS" />
+    <EntitySet Name="PERFIL_CONOCIMIENTOS" EntityType="AspNetIdentityModel.PERFIL_CONOCIMIENTOS" />
+    <EntitySet Name="PERFIL_CT_AREA" EntityType="AspNetIdentityModel.PERFIL_CT_AREA" />
+    <EntitySet Name="PERFIL_CT_COMPETENCIAS" EntityType="AspNetIdentityModel.PERFIL_CT_COMPETENCIAS" />
+    <EntitySet Name="PERFIL_CT_ESCOLARIDAD" EntityType="AspNetIdentityModel.PERFIL_CT_ESCOLARIDAD" />
+    <EntitySet Name="PERFIL_CT_ESPECIALIDAD" EntityType="AspNetIdentityModel.PERFIL_CT_ESPECIALIDAD" />
+    <EntitySet Name="PERFIL_CT_IDIOM_NIVEL" EntityType="AspNetIdentityModel.PERFIL_CT_IDIOM_NIVEL" />
+    <EntitySet Name="PERFIL_CT_IDIOMAS" EntityType="AspNetIdentityModel.PERFIL_CT_IDIOMAS" />
+    <EntitySet Name="PERFIL_CT_SUB_AREA" EntityType="AspNetIdentityModel.PERFIL_CT_SUB_AREA" />
+    <EntitySet Name="PERFIL_CT_TIPOS_COMPETENCIAS" EntityType="AspNetIdentityModel.PERFIL_CT_TIPOS_COMPETENCIAS" />
+    <EntitySet Name="PERFIL_FINALIDADES" EntityType="AspNetIdentityModel.PERFIL_FINALIDADES" />
+    <EntitySet Name="PERFIL_FORMA_IDIOMAS" EntityType="AspNetIdentityModel.PERFIL_FORMA_IDIOMAS" />
+    <EntitySet Name="PERFIL_FORMACION" EntityType="AspNetIdentityModel.PERFIL_FORMACION" />
+    <EntitySet Name="PERFIL_PROCESOS" EntityType="AspNetIdentityModel.PERFIL_PROCESOS" />
+    <EntitySet Name="PERFIL_RELACIONES" EntityType="AspNetIdentityModel.PERFIL_RELACIONES" />
+    <AssociationSet Name="FK_PERFI_CO_RELATIONS_PERFIL" Association="AspNetIdentityModel.FK_PERFI_CO_RELATIONS_PERFIL">
+      <End Role="PERFIL" EntitySet="PERFIL" />
+      <End Role="PERFIL_COMPETENCIAS" EntitySet="PERFIL_COMPETENCIAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PERFIL_C_RELATIONS_PERFIL" Association="AspNetIdentityModel.FK_PERFIL_C_RELATIONS_PERFIL">
+      <End Role="PERFIL" EntitySet="PERFIL" />
+      <End Role="PERFIL_CONOCIMIENTOS" EntitySet="PERFIL_CONOCIMIENTOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PERFIL_F_RELATIONS_PERFIL2" Association="AspNetIdentityModel.FK_PERFIL_F_RELATIONS_PERFIL2">
+      <End Role="PERFIL" EntitySet="PERFIL" />
+      <End Role="PERFIL_FINALIDADES" EntitySet="PERFIL_FINALIDADES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PERFIL_P_RELATIONS_PERFIL" Association="AspNetIdentityModel.FK_PERFIL_P_RELATIONS_PERFIL">
+      <End Role="PERFIL" EntitySet="PERFIL" />
+      <End Role="PERFIL_PROCESOS" EntitySet="PERFIL_PROCESOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PERFIL_R_RELATIONS_PERFIL" Association="AspNetIdentityModel.FK_PERFIL_R_RELATIONS_PERFIL">
+      <End Role="PERFIL" EntitySet="PERFIL" />
+      <End Role="PERFIL_RELACIONES" EntitySet="PERFIL_RELACIONES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PERFIL_C_RELATIONS_PERFIL_C" Association="AspNetIdentityModel.FK_PERFIL_C_RELATIONS_PERFIL_C">
+      <End Role="PERFIL_CT_AREA" EntitySet="PERFIL_CT_AREA" />
+      <End Role="PERFIL_CT_SUB_AREA" EntitySet="PERFIL_CT_SUB_AREA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PERFIL_C_RELATIONS_PERFIL_C2" Association="AspNetIdentityModel.FK_PERFIL_C_RELATIONS_PERFIL_C2">
+      <End Role="PERFIL_CT_TIPOS_COMPETENCIAS" EntitySet="PERFIL_CT_TIPOS_COMPETENCIAS" />
+      <End Role="PERFIL_CT_COMPETENCIAS" EntitySet="PERFIL_CT_COMPETENCIAS" />
+    </AssociationSet>
+    <EntitySet Name="HV_ACTITUDES" EntityType="AspNetIdentityModel.HV_ACTITUDES" />
+    <EntitySet Name="HV_CONOCIMIENTOS" EntityType="AspNetIdentityModel.HV_CONOCIMIENTOS" />
+    <EntitySet Name="HV_CT_ACTITUDES" EntityType="AspNetIdentityModel.HV_CT_ACTITUDES" />
+    <EntitySet Name="HV_CT_CARGO" EntityType="AspNetIdentityModel.HV_CT_CARGO" />
+    <EntitySet Name="HV_CT_CIUDAD" EntityType="AspNetIdentityModel.HV_CT_CIUDAD" />
+    <EntitySet Name="HV_CT_CONOCIMIENTOS" EntityType="AspNetIdentityModel.HV_CT_CONOCIMIENTOS" />
+    <EntitySet Name="HV_CT_DEPTO" EntityType="AspNetIdentityModel.HV_CT_DEPTO" />
+    <EntitySet Name="HV_CT_DISIPLINA" EntityType="AspNetIdentityModel.HV_CT_DISIPLINA" />
+    <EntitySet Name="HV_CT_EMPRESAS" EntityType="AspNetIdentityModel.HV_CT_EMPRESAS" />
+    <EntitySet Name="HV_CT_ESTADO_CIVIL" EntityType="AspNetIdentityModel.HV_CT_ESTADO_CIVIL" />
+    <EntitySet Name="HV_CT_INSTITUCION" EntityType="AspNetIdentityModel.HV_CT_INSTITUCION" />
+    <EntitySet Name="HV_CT_PAIS" EntityType="AspNetIdentityModel.HV_CT_PAIS" />
+    <EntitySet Name="HV_CT_TIPO_IDENTIFICACION" EntityType="AspNetIdentityModel.HV_CT_TIPO_IDENTIFICACION" />
+    <EntitySet Name="HV_CT_TITULOS" EntityType="AspNetIdentityModel.HV_CT_TITULOS" />
+    <EntitySet Name="HV_DATOS_BASICOS" EntityType="AspNetIdentityModel.HV_DATOS_BASICOS" />
+    <EntitySet Name="HV_ESTUDIOS" EntityType="AspNetIdentityModel.HV_ESTUDIOS" />
+    <EntitySet Name="HV_EXPERIENCIA" EntityType="AspNetIdentityModel.HV_EXPERIENCIA" />
+    <EntitySet Name="HV_UBICACION" EntityType="AspNetIdentityModel.HV_UBICACION" />
+    <AssociationSet Name="FK_HV_EXPER_RELATIONS_HV_CT_CA" Association="AspNetIdentityModel.FK_HV_EXPER_RELATIONS_HV_CT_CA">
+      <End Role="HV_CT_CARGO" EntitySet="HV_CT_CARGO" />
+      <End Role="HV_EXPERIENCIA" EntitySet="HV_EXPERIENCIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HV_ESTUD_RELATIONS_HV_CT_DI" Association="AspNetIdentityModel.FK_HV_ESTUD_RELATIONS_HV_CT_DI">
+      <End Role="HV_CT_DISIPLINA" EntitySet="HV_CT_DISIPLINA" />
+      <End Role="HV_ESTUDIOS" EntitySet="HV_ESTUDIOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HV_EXPER_RELATIONS_HV_CT_EM" Association="AspNetIdentityModel.FK_HV_EXPER_RELATIONS_HV_CT_EM">
+      <End Role="HV_CT_EMPRESAS" EntitySet="HV_CT_EMPRESAS" />
+      <End Role="HV_EXPERIENCIA" EntitySet="HV_EXPERIENCIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HV_ESTUD_RELATIONS_HV_CT_IN" Association="AspNetIdentityModel.FK_HV_ESTUD_RELATIONS_HV_CT_IN">
+      <End Role="HV_CT_INSTITUCION" EntitySet="HV_CT_INSTITUCION" />
+      <End Role="HV_ESTUDIOS" EntitySet="HV_ESTUDIOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HV_CT_TI_RELATIONS_HV_CT_PA" Association="AspNetIdentityModel.FK_HV_CT_TI_RELATIONS_HV_CT_PA">
+      <End Role="HV_CT_PAIS" EntitySet="HV_CT_PAIS" />
+      <End Role="HV_CT_TITULOS" EntitySet="HV_CT_TITULOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HV_ESTUD_RELATIONS_HV_CT_TI" Association="AspNetIdentityModel.FK_HV_ESTUD_RELATIONS_HV_CT_TI">
+      <End Role="HV_CT_TITULOS" EntitySet="HV_CT_TITULOS" />
+      <End Role="HV_ESTUDIOS" EntitySet="HV_ESTUDIOS" />
+    </AssociationSet>
+    <EntitySet Name="HV_CT_GENERO" EntityType="AspNetIdentityModel.HV_CT_GENERO" />
+    <EntitySet Name="Cat_StatusTest" EntityType="AspNetIdentityModel.Cat_StatusTest" />
+    <EntitySet Name="CT_Dimension_Notes" EntityType="AspNetIdentityModel.CT_Dimension_Notes" />
+    <EntitySet Name="AspNetUsers" EntityType="AspNetIdentityModel.AspNetUsers" />
+  </EntityContainer>
+  <EntityType Name="CT_Tests">
+    <Key>
+      <PropertyRef Name="Id_Test" />
+    </Key>
+    <Property Name="Id_Test" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Account" Type="Int32" Nullable="false" />
+    <Property Name="Id_User" Type="Int32" Nullable="false" />
+    <Property Name="Test" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Version" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ApplicationTime" Type="Int32" />
+    <Property Name="ImageName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CT_Answers">
+    <Key>
+      <PropertyRef Name="Id_Answer" />
+    </Key>
+    <Property Name="Id_Answer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Question" Type="Int32" />
+    <Property Name="Answer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Has_Weight" Type="Boolean" />
+    <Property Name="Weight" Type="Int32" />
+    <Property Name="Has_CorrectAnswer" Type="Boolean" />
+    <Property Name="CorrectAnswer" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="CT_Dimensions">
+    <Key>
+      <PropertyRef Name="Id_Dimension" />
+    </Key>
+    <Property Name="Id_Dimension" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Test" Type="Int32" Nullable="false" />
+    <Property Name="Dimension" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Has_Weight" Type="Boolean" Nullable="false" />
+    <Property Name="Weight" Type="Int32" />
+    <Property Name="Has_Time" Type="Boolean" Nullable="false" />
+    <Property Name="Time" Type="Int32" />
+    <Property Name="R" Type="Int32" />
+    <Property Name="G" Type="Int32" />
+    <Property Name="B" Type="Int32" />
+    <Property Name="Visible" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="CT_Factors">
+    <Key>
+      <PropertyRef Name="Id_Factor" />
+    </Key>
+    <Property Name="Id_Factor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Dimension" Type="Int32" Nullable="false" />
+    <Property Name="Factor" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Has_Weight" Type="Boolean" Nullable="false" />
+    <Property Name="Weight" Type="Int32" />
+    <Property Name="Has_Time" Type="Boolean" Nullable="false" />
+    <Property Name="Time" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CT_Questions">
+    <Key>
+      <PropertyRef Name="Id_Question" />
+    </Key>
+    <Property Name="Id_Question" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Factor" Type="Int32" Nullable="false" />
+    <Property Name="Id_Type" Type="Int32" Nullable="false" />
+    <Property Name="Question" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Has_Weight" Type="Boolean" Nullable="false" />
+    <Property Name="Weight" Type="Int32" />
+    <Property Name="Has_Time" Type="Boolean" Nullable="false" />
+    <Property Name="Time" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Temp_AspNetUsersTests">
+    <Key>
+      <PropertyRef Name="Id_UserTest" />
+    </Key>
+    <Property Name="Id_UserTest" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_User" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Id_Test" Type="Int32" Nullable="false" />
+    <Property Name="Id_StatusTest" Type="Int32" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Temp_AspNetUsersTests_Details">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_UserTest" Type="Int32" Nullable="false" />
+    <Property Name="Id_Question" Type="Int32" Nullable="false" />
+    <Property Name="Answer" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PERFIL">
+    <Key>
+      <PropertyRef Name="ID_PERFIL" />
+    </Key>
+    <Property Name="ID_PERFIL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_CT_AREA" Type="Int32" Nullable="false" />
+    <Property Name="ID_CT_SUB_AREA" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="REPORTA" Type="Int32" Nullable="false" />
+    <Property Name="SUPERVISA" Type="Int32" Nullable="false" />
+    <Property Name="OBJETIVO" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" />
+    <NavigationProperty Name="PERFIL_COMPETENCIAS" Relationship="AspNetIdentityModel.FK_PERFI_CO_RELATIONS_PERFIL" FromRole="PERFIL" ToRole="PERFIL_COMPETENCIAS" />
+    <NavigationProperty Name="PERFIL_CONOCIMIENTOS" Relationship="AspNetIdentityModel.FK_PERFIL_C_RELATIONS_PERFIL" FromRole="PERFIL" ToRole="PERFIL_CONOCIMIENTOS" />
+    <NavigationProperty Name="PERFIL_FINALIDADES" Relationship="AspNetIdentityModel.FK_PERFIL_F_RELATIONS_PERFIL2" FromRole="PERFIL" ToRole="PERFIL_FINALIDADES" />
+    <NavigationProperty Name="PERFIL_PROCESOS" Relationship="AspNetIdentityModel.FK_PERFIL_P_RELATIONS_PERFIL" FromRole="PERFIL" ToRole="PERFIL_PROCESOS" />
+    <NavigationProperty Name="PERFIL_RELACIONES" Relationship="AspNetIdentityModel.FK_PERFIL_R_RELATIONS_PERFIL" FromRole="PERFIL" ToRole="PERFIL_RELACIONES" />
+    <Property Name="ID_ACCOUNTS" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PERFIL_COMPETENCIAS">
+    <Key>
+      <PropertyRef Name="ID_PERFI_COMPE" />
+    </Key>
+    <Property Name="ID_PERFI_COMPE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_PERFIL" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PERFIL" Relationship="AspNetIdentityModel.FK_PERFI_CO_RELATIONS_PERFIL" FromRole="PERFIL_COMPETENCIAS" ToRole="PERFIL" />
+  </EntityType>
+  <EntityType Name="PERFIL_CONOCIMIENTOS">
+    <Key>
+      <PropertyRef Name="ID_CONOCIMIENTO" />
+    </Key>
+    <Property Name="ID_CONOCIMIENTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_PERFIL" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PERFIL" Relationship="AspNetIdentityModel.FK_PERFIL_C_RELATIONS_PERFIL" FromRole="PERFIL_CONOCIMIENTOS" ToRole="PERFIL" />
+  </EntityType>
+  <EntityType Name="PERFIL_CT_AREA">
+    <Key>
+      <PropertyRef Name="ID_CT_AREA" />
+    </Key>
+    <Property Name="ID_CT_AREA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" />
+    <NavigationProperty Name="PERFIL_CT_SUB_AREA" Relationship="AspNetIdentityModel.FK_PERFIL_C_RELATIONS_PERFIL_C" FromRole="PERFIL_CT_AREA" ToRole="PERFIL_CT_SUB_AREA" />
+  </EntityType>
+  <EntityType Name="PERFIL_CT_COMPETENCIAS">
+    <Key>
+      <PropertyRef Name="ID_CT_COMPETENCIA" />
+    </Key>
+    <Property Name="ID_CT_COMPETENCIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_TIPO_COMPET" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PERFIL_CT_TIPOS_COMPETENCIAS" Relationship="AspNetIdentityModel.FK_PERFIL_C_RELATIONS_PERFIL_C2" FromRole="PERFIL_CT_COMPETENCIAS" ToRole="PERFIL_CT_TIPOS_COMPETENCIAS" />
+  </EntityType>
+  <EntityType Name="PERFIL_CT_ESCOLARIDAD">
+    <Key>
+      <PropertyRef Name="ID_ESCOLARIDAD" />
+    </Key>
+    <Property Name="ID_ESCOLARIDAD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PERFIL_CT_ESPECIALIDAD">
+    <Key>
+      <PropertyRef Name="ID_ESPECIALIDAD" />
+    </Key>
+    <Property Name="ID_ESPECIALIDAD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PERFIL_CT_IDIOM_NIVEL">
+    <Key>
+      <PropertyRef Name="ID_IDIOM_NIVEL" />
+    </Key>
+    <Property Name="ID_IDIOM_NIVEL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PERFIL_CT_IDIOMAS">
+    <Key>
+      <PropertyRef Name="ID_IDIOMA" />
+    </Key>
+    <Property Name="ID_IDIOMA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PERFIL_CT_SUB_AREA">
+    <Key>
+      <PropertyRef Name="ID_CT_SUB_AREA" />
+    </Key>
+    <Property Name="ID_CT_SUB_AREA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_CT_AREA" Type="Int32" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" />
+    <NavigationProperty Name="PERFIL_CT_AREA" Relationship="AspNetIdentityModel.FK_PERFIL_C_RELATIONS_PERFIL_C" FromRole="PERFIL_CT_SUB_AREA" ToRole="PERFIL_CT_AREA" />
+  </EntityType>
+  <EntityType Name="PERFIL_CT_TIPOS_COMPETENCIAS">
+    <Key>
+      <PropertyRef Name="ID_TIPO_COMPET" />
+    </Key>
+    <Property Name="ID_TIPO_COMPET" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" />
+    <NavigationProperty Name="PERFIL_CT_COMPETENCIAS" Relationship="AspNetIdentityModel.FK_PERFIL_C_RELATIONS_PERFIL_C2" FromRole="PERFIL_CT_TIPOS_COMPETENCIAS" ToRole="PERFIL_CT_COMPETENCIAS" />
+  </EntityType>
+  <EntityType Name="PERFIL_FINALIDADES">
+    <Key>
+      <PropertyRef Name="ID_FINALIDAD" />
+    </Key>
+    <Property Name="ID_FINALIDAD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_PERFIL" Type="Int32" Nullable="false" />
+    <Property Name="ACCION" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FUNCION" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RESULTADOS" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" />
+    <NavigationProperty Name="PERFIL" Relationship="AspNetIdentityModel.FK_PERFIL_F_RELATIONS_PERFIL2" FromRole="PERFIL_FINALIDADES" ToRole="PERFIL" />
+  </EntityType>
+  <EntityType Name="PERFIL_FORMA_IDIOMAS">
+    <Key>
+      <PropertyRef Name="ID_FORMA_IDIOM" />
+    </Key>
+    <Property Name="ID_FORMA_IDIOM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_PERFIL" Type="Int32" Nullable="false" />
+    <Property Name="ID_IDIOMA" Type="Int32" Nullable="false" />
+    <Property Name="ID_IDIOM_NIVEL" Type="Int32" Nullable="false" />
+    <Property Name="ESTADO" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PERFIL_FORMACION">
+    <Key>
+      <PropertyRef Name="ID_FORMACION" />
+    </Key>
+    <Property Name="ID_FORMACION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_PERFIL" Type="Int32" Nullable="false" />
+    <Property Name="ID_ESCOLARIDAD" Type="Int32" Nullable="false" />
+    <Property Name="ID_ESPECIALIDAD" Type="Int32" Nullable="false" />
+    <Property Name="EXPERIENCIA" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PERFIL_PROCESOS">
+    <Key>
+      <PropertyRef Name="ID_PROCESO" />
+    </Key>
+    <Property Name="ID_PROCESO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_PERFIL" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" />
+    <NavigationProperty Name="PERFIL" Relationship="AspNetIdentityModel.FK_PERFIL_P_RELATIONS_PERFIL" FromRole="PERFIL_PROCESOS" ToRole="PERFIL" />
+  </EntityType>
+  <EntityType Name="PERFIL_RELACIONES">
+    <Key>
+      <PropertyRef Name="ID_RELACION" />
+    </Key>
+    <Property Name="ID_RELACION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_PERFIL" Type="Int32" Nullable="false" />
+    <Property Name="TIPO" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MOTIVO" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" />
+    <NavigationProperty Name="PERFIL" Relationship="AspNetIdentityModel.FK_PERFIL_R_RELATIONS_PERFIL" FromRole="PERFIL_RELACIONES" ToRole="PERFIL" />
+  </EntityType>
+  <Association Name="FK_PERFI_CO_RELATIONS_PERFIL">
+    <End Type="AspNetIdentityModel.PERFIL" Role="PERFIL" Multiplicity="1" />
+    <End Type="AspNetIdentityModel.PERFIL_COMPETENCIAS" Role="PERFIL_COMPETENCIAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERFIL">
+        <PropertyRef Name="ID_PERFIL" />
+      </Principal>
+      <Dependent Role="PERFIL_COMPETENCIAS">
+        <PropertyRef Name="ID_PERFIL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PERFIL_C_RELATIONS_PERFIL">
+    <End Type="AspNetIdentityModel.PERFIL" Role="PERFIL" Multiplicity="1" />
+    <End Type="AspNetIdentityModel.PERFIL_CONOCIMIENTOS" Role="PERFIL_CONOCIMIENTOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERFIL">
+        <PropertyRef Name="ID_PERFIL" />
+      </Principal>
+      <Dependent Role="PERFIL_CONOCIMIENTOS">
+        <PropertyRef Name="ID_PERFIL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PERFIL_F_RELATIONS_PERFIL2">
+    <End Type="AspNetIdentityModel.PERFIL" Role="PERFIL" Multiplicity="1" />
+    <End Type="AspNetIdentityModel.PERFIL_FINALIDADES" Role="PERFIL_FINALIDADES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERFIL">
+        <PropertyRef Name="ID_PERFIL" />
+      </Principal>
+      <Dependent Role="PERFIL_FINALIDADES">
+        <PropertyRef Name="ID_PERFIL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PERFIL_P_RELATIONS_PERFIL">
+    <End Type="AspNetIdentityModel.PERFIL" Role="PERFIL" Multiplicity="1" />
+    <End Type="AspNetIdentityModel.PERFIL_PROCESOS" Role="PERFIL_PROCESOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERFIL">
+        <PropertyRef Name="ID_PERFIL" />
+      </Principal>
+      <Dependent Role="PERFIL_PROCESOS">
+        <PropertyRef Name="ID_PERFIL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PERFIL_R_RELATIONS_PERFIL">
+    <End Type="AspNetIdentityModel.PERFIL" Role="PERFIL" Multiplicity="1" />
+    <End Type="AspNetIdentityModel.PERFIL_RELACIONES" Role="PERFIL_RELACIONES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERFIL">
+        <PropertyRef Name="ID_PERFIL" />
+      </Principal>
+      <Dependent Role="PERFIL_RELACIONES">
+        <PropertyRef Name="ID_PERFIL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PERFIL_C_RELATIONS_PERFIL_C">
+    <End Type="AspNetIdentityModel.PERFIL_CT_AREA" Role="PERFIL_CT_AREA" Multiplicity="1" />
+    <End Type="AspNetIdentityModel.PERFIL_CT_SUB_AREA" Role="PERFIL_CT_SUB_AREA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERFIL_CT_AREA">
+        <PropertyRef Name="ID_CT_AREA" />
+      </Principal>
+      <Dependent Role="PERFIL_CT_SUB_AREA">
+        <PropertyRef Name="ID_CT_AREA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PERFIL_C_RELATIONS_PERFIL_C2">
+    <End Type="AspNetIdentityModel.PERFIL_CT_TIPOS_COMPETENCIAS" Role="PERFIL_CT_TIPOS_COMPETENCIAS" Multiplicity="1" />
+    <End Type="AspNetIdentityModel.PERFIL_CT_COMPETENCIAS" Role="PERFIL_CT_COMPETENCIAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERFIL_CT_TIPOS_COMPETENCIAS">
+        <PropertyRef Name="ID_TIPO_COMPET" />
+      </Principal>
+      <Dependent Role="PERFIL_CT_COMPETENCIAS">
+        <PropertyRef Name="ID_TIPO_COMPET" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="HV_ACTITUDES">
+    <Key>
+      <PropertyRef Name="ID_ACTITUDES" />
+    </Key>
+    <Property Name="ID_ACTITUDES" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_DATOS_BASICOS" Type="Int32" Nullable="false" />
+    <Property Name="ESTADO" Type="Int32" />
+    <Property Name="ID_CT_ACTITUDES" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HV_CONOCIMIENTOS">
+    <Key>
+      <PropertyRef Name="ID_CONOCIMIENTOS" />
+    </Key>
+    <Property Name="ID_CONOCIMIENTOS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_DATOS_BASICOS" Type="Int32" Nullable="false" />
+    <Property Name="ESTADO" Type="Int32" />
+    <Property Name="ID_CT_CONOCIMIENTOS" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HV_CT_ACTITUDES">
+    <Key>
+      <PropertyRef Name="ID_ACTITUDES" />
+    </Key>
+    <Property Name="ID_ACTITUDES" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HV_CT_CARGO">
+    <Key>
+      <PropertyRef Name="ID_CT_CARGO" />
+    </Key>
+    <Property Name="ID_CT_CARGO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" />
+    <NavigationProperty Name="HV_EXPERIENCIA" Relationship="AspNetIdentityModel.FK_HV_EXPER_RELATIONS_HV_CT_CA" FromRole="HV_CT_CARGO" ToRole="HV_EXPERIENCIA" />
+  </EntityType>
+  <EntityType Name="HV_CT_CIUDAD">
+    <Key>
+      <PropertyRef Name="ID_CT_CIUDAD" />
+    </Key>
+    <Property Name="ID_CT_CIUDAD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_CT_PAIS" Type="Int32" Nullable="false" />
+    <Property Name="ID_CT_DEPTO" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ESTADO" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HV_CT_CONOCIMIENTOS">
+    <Key>
+      <PropertyRef Name="ID_CT_CONOCIMIENTOS" />
+    </Key>
+    <Property Name="ID_CT_CONOCIMIENTOS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CT_SECTOR" Type="Int32" Nullable="false" />
+    <Property Name="ESTADO" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HV_CT_DEPTO">
+    <Key>
+      <PropertyRef Name="ID_CT_DEPTO" />
+    </Key>
+    <Property Name="ID_CT_DEPTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_CT_PAIS" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HV_CT_DISIPLINA">
+    <Key>
+      <PropertyRef Name="ID_CT_DISIPLINA" />
+    </Key>
+    <Property Name="ID_CT_DISIPLINA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" />
+    <NavigationProperty Name="HV_ESTUDIOS" Relationship="AspNetIdentityModel.FK_HV_ESTUD_RELATIONS_HV_CT_DI" FromRole="HV_CT_DISIPLINA" ToRole="HV_ESTUDIOS" />
+  </EntityType>
+  <EntityType Name="HV_CT_EMPRESAS">
+    <Key>
+      <PropertyRef Name="ID_CT_EMPRESA" />
+    </Key>
+    <Property Name="ID_CT_EMPRESA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PAIS" Type="Int32" Nullable="false" />
+    <Property Name="DEPTO" Type="Int32" Nullable="false" />
+    <Property Name="CIUDAD" Type="Int32" Nullable="false" />
+    <Property Name="TIPO" Type="Int32" Nullable="false" />
+    <Property Name="ESTADO" Type="Int32" />
+    <NavigationProperty Name="HV_EXPERIENCIA" Relationship="AspNetIdentityModel.FK_HV_EXPER_RELATIONS_HV_CT_EM" FromRole="HV_CT_EMPRESAS" ToRole="HV_EXPERIENCIA" />
+  </EntityType>
+  <EntityType Name="HV_CT_ESTADO_CIVIL">
+    <Key>
+      <PropertyRef Name="ID_CT_ESTADO_CIVIL" />
+    </Key>
+    <Property Name="ID_CT_ESTADO_CIVIL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HV_CT_INSTITUCION">
+    <Key>
+      <PropertyRef Name="ID_CT_INSTITUCION" />
+    </Key>
+    <Property Name="ID_CT_INSTITUCION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_CT_PAIS" Type="Int32" Nullable="false" />
+    <Property Name="ID_CT_DEPTO" Type="Int32" Nullable="false" />
+    <Property Name="ID_CT_CIUDAD" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO" Type="Int32" Nullable="false" />
+    <Property Name="ESTADO" Type="Int32" />
+    <NavigationProperty Name="HV_ESTUDIOS" Relationship="AspNetIdentityModel.FK_HV_ESTUD_RELATIONS_HV_CT_IN" FromRole="HV_CT_INSTITUCION" ToRole="HV_ESTUDIOS" />
+  </EntityType>
+  <EntityType Name="HV_CT_PAIS">
+    <Key>
+      <PropertyRef Name="ID_CT_PAIS" />
+    </Key>
+    <Property Name="ID_CT_PAIS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" />
+    <NavigationProperty Name="HV_CT_TITULOS" Relationship="AspNetIdentityModel.FK_HV_CT_TI_RELATIONS_HV_CT_PA" FromRole="HV_CT_PAIS" ToRole="HV_CT_TITULOS" />
+  </EntityType>
+  <EntityType Name="HV_CT_TIPO_IDENTIFICACION">
+    <Key>
+      <PropertyRef Name="ID_CT_TIPO_IDENTIFICACION" />
+    </Key>
+    <Property Name="ID_CT_TIPO_IDENTIFICACION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HV_CT_TITULOS">
+    <Key>
+      <PropertyRef Name="ID_CT_TITULOS" />
+    </Key>
+    <Property Name="ID_CT_TITULOS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_CT_PAIS" Type="Int32" Nullable="false" />
+    <Property Name="ID_CT_DEPTO" Type="Int32" Nullable="false" />
+    <Property Name="ID_CT_CIUDAD" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO" Type="Int32" Nullable="false" />
+    <Property Name="ESTADO" Type="Int32" />
+    <NavigationProperty Name="HV_CT_PAIS" Relationship="AspNetIdentityModel.FK_HV_CT_TI_RELATIONS_HV_CT_PA" FromRole="HV_CT_TITULOS" ToRole="HV_CT_PAIS" />
+    <NavigationProperty Name="HV_ESTUDIOS" Relationship="AspNetIdentityModel.FK_HV_ESTUD_RELATIONS_HV_CT_TI" FromRole="HV_CT_TITULOS" ToRole="HV_ESTUDIOS" />
+  </EntityType>
+  <EntityType Name="HV_DATOS_BASICOS">
+    <Key>
+      <PropertyRef Name="ID_DATOS_BASICOS" />
+    </Key>
+    <Property Name="ID_DATOS_BASICOS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_CT_PAIS" Type="Int32" Nullable="false" />
+    <Property Name="ID_CT_DEPTO" Type="Int32" Nullable="false" />
+    <Property Name="ID_CT_CIUDAD" Type="Int32" Nullable="false" />
+    <Property Name="ID_CT_ESTADO_CIVIL" Type="Int32" Nullable="false" />
+    <Property Name="ID_CT_TIPO_IDENTIFICACION" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRES" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="APELLIDOS" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IDENTIFICACION" Type="Int32" Nullable="false" />
+    <Property Name="F_NACIMIENTO" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="GENERO" Type="Int32" Nullable="false" />
+    <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" />
+    <Property Name="ID_USERS" Type="Int32" />
+    <Property Name="ID_PERFIL" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HV_ESTUDIOS">
+    <Key>
+      <PropertyRef Name="ID_ESTUDIOS" />
+    </Key>
+    <Property Name="ID_ESTUDIOS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_DATOS_BASICOS" Type="Int32" Nullable="false" />
+    <Property Name="ID_CT_INSTITUCION" Type="Int32" Nullable="false" />
+    <Property Name="ID_CT_TITULOS" Type="Int32" Nullable="false" />
+    <Property Name="ID_CT_DISIPLINA" Type="Int32" Nullable="false" />
+    <Property Name="DESDE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="HASTA" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NOTA" Type="Int32" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ARCHIVO_RUTA" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ACTIVIDADES" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" />
+    <NavigationProperty Name="HV_CT_DISIPLINA" Relationship="AspNetIdentityModel.FK_HV_ESTUD_RELATIONS_HV_CT_DI" FromRole="HV_ESTUDIOS" ToRole="HV_CT_DISIPLINA" />
+    <NavigationProperty Name="HV_CT_INSTITUCION" Relationship="AspNetIdentityModel.FK_HV_ESTUD_RELATIONS_HV_CT_IN" FromRole="HV_ESTUDIOS" ToRole="HV_CT_INSTITUCION" />
+    <NavigationProperty Name="HV_CT_TITULOS" Relationship="AspNetIdentityModel.FK_HV_ESTUD_RELATIONS_HV_CT_TI" FromRole="HV_ESTUDIOS" ToRole="HV_CT_TITULOS" />
+  </EntityType>
+  <EntityType Name="HV_EXPERIENCIA">
+    <Key>
+      <PropertyRef Name="ID_EXPERIENCIA" />
+    </Key>
+    <Property Name="ID_EXPERIENCIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_DATOS_BASICOS" Type="Int32" Nullable="false" />
+    <Property Name="ID_CT_EMPRESA" Type="Int32" Nullable="false" />
+    <Property Name="ID_CT_CARGO" Type="Int32" Nullable="false" />
+    <Property Name="DESDE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="HASTA" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TRABAJO_ACTUAL" Type="Int32" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ARCHIVO_RUTA" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" />
+    <NavigationProperty Name="HV_CT_CARGO" Relationship="AspNetIdentityModel.FK_HV_EXPER_RELATIONS_HV_CT_CA" FromRole="HV_EXPERIENCIA" ToRole="HV_CT_CARGO" />
+    <NavigationProperty Name="HV_CT_EMPRESAS" Relationship="AspNetIdentityModel.FK_HV_EXPER_RELATIONS_HV_CT_EM" FromRole="HV_EXPERIENCIA" ToRole="HV_CT_EMPRESAS" />
+  </EntityType>
+  <EntityType Name="HV_UBICACION">
+    <Key>
+      <PropertyRef Name="ID_HV_HUBICACION" />
+    </Key>
+    <Property Name="ID_DATOS_BASICOS" Type="Int32" Nullable="false" />
+    <Property Name="ID_CT_PAIS" Type="Int32" />
+    <Property Name="ID_CT_DEPTO" Type="Int32" />
+    <Property Name="ID_CT_CIUDAD" Type="Int32" />
+    <Property Name="ID_HV_HUBICACION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMENCLATURA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LOCALIDAD" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_HV_EXPER_RELATIONS_HV_CT_CA">
+    <End Type="AspNetIdentityModel.HV_CT_CARGO" Role="HV_CT_CARGO" Multiplicity="1" />
+    <End Type="AspNetIdentityModel.HV_EXPERIENCIA" Role="HV_EXPERIENCIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HV_CT_CARGO">
+        <PropertyRef Name="ID_CT_CARGO" />
+      </Principal>
+      <Dependent Role="HV_EXPERIENCIA">
+        <PropertyRef Name="ID_CT_CARGO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HV_ESTUD_RELATIONS_HV_CT_DI">
+    <End Type="AspNetIdentityModel.HV_CT_DISIPLINA" Role="HV_CT_DISIPLINA" Multiplicity="1" />
+    <End Type="AspNetIdentityModel.HV_ESTUDIOS" Role="HV_ESTUDIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HV_CT_DISIPLINA">
+        <PropertyRef Name="ID_CT_DISIPLINA" />
+      </Principal>
+      <Dependent Role="HV_ESTUDIOS">
+        <PropertyRef Name="ID_CT_DISIPLINA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HV_EXPER_RELATIONS_HV_CT_EM">
+    <End Type="AspNetIdentityModel.HV_CT_EMPRESAS" Role="HV_CT_EMPRESAS" Multiplicity="1" />
+    <End Type="AspNetIdentityModel.HV_EXPERIENCIA" Role="HV_EXPERIENCIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HV_CT_EMPRESAS">
+        <PropertyRef Name="ID_CT_EMPRESA" />
+      </Principal>
+      <Dependent Role="HV_EXPERIENCIA">
+        <PropertyRef Name="ID_CT_EMPRESA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HV_ESTUD_RELATIONS_HV_CT_IN">
+    <End Type="AspNetIdentityModel.HV_CT_INSTITUCION" Role="HV_CT_INSTITUCION" Multiplicity="1" />
+    <End Type="AspNetIdentityModel.HV_ESTUDIOS" Role="HV_ESTUDIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HV_CT_INSTITUCION">
+        <PropertyRef Name="ID_CT_INSTITUCION" />
+      </Principal>
+      <Dependent Role="HV_ESTUDIOS">
+        <PropertyRef Name="ID_CT_INSTITUCION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HV_CT_TI_RELATIONS_HV_CT_PA">
+    <End Type="AspNetIdentityModel.HV_CT_PAIS" Role="HV_CT_PAIS" Multiplicity="1" />
+    <End Type="AspNetIdentityModel.HV_CT_TITULOS" Role="HV_CT_TITULOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HV_CT_PAIS">
+        <PropertyRef Name="ID_CT_PAIS" />
+      </Principal>
+      <Dependent Role="HV_CT_TITULOS">
+        <PropertyRef Name="ID_CT_PAIS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HV_ESTUD_RELATIONS_HV_CT_TI">
+    <End Type="AspNetIdentityModel.HV_CT_TITULOS" Role="HV_CT_TITULOS" Multiplicity="1" />
+    <End Type="AspNetIdentityModel.HV_ESTUDIOS" Role="HV_ESTUDIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HV_CT_TITULOS">
+        <PropertyRef Name="ID_CT_TITULOS" />
+      </Principal>
+      <Dependent Role="HV_ESTUDIOS">
+        <PropertyRef Name="ID_CT_TITULOS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Cat_StatusTest">
+    <Key>
+      <PropertyRef Name="Id_StatusTest" />
+    </Key>
+    <Property Name="Id_StatusTest" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StatusTest" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HV_CT_GENERO">
+    <Key>
+      <PropertyRef Name="ID_GENERO" />
+    </Key>
+    <Property Name="ID_GENERO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ESTADO" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CT_Dimension_Notes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Dimension" Type="Int32" Nullable="false" />
+    <Property Name="W_Min" Type="Int32" Nullable="false" />
+    <Property Name="W_Max" Type="Int32" Nullable="false" />
+    <Property Name="Score" Type="Int32" Nullable="false" />
+    <Property Name="Note" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Level" Type="Byte" Nullable="false" />
+    <Property Name="JoinDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

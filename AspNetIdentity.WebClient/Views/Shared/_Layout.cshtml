@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@ViewBag.Title - My ASP.NET Application - Material Admin</title>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+        @Styles.Render("~/Content/css")
+
+        <link rel="shortcut icon" href="images/favicon.png" />
+
+    </head>
+    <body class="grey lighten-3">
+        <!--Main Navigation-->
+        <header>
+            <!-- Navbar -->
+            @{Html.RenderAction("Navbar", "Layout"); }
+            <!-- Navbar -->
+            <!-- Sidebar -->
+            @{Html.RenderAction("Sidebar", "Layout"); }
+            <!-- Sidebar -->
+        </header>
+        <!--Main Navigation-->
+
+        <!--Main layout-->
+        <main class="pt-5 mx-lg-5">
+            <div class="container-fluid mt-5">
+                @RenderBody()
+            </div>
+        </main>
+        <!--Main layout-->
+
+        <!-- SCRIPTS -->
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+
+        <script type="text/javascript">
+            // Animations initialization
+            new WOW().init();
+        </script>
+
+    </body>
+</html>

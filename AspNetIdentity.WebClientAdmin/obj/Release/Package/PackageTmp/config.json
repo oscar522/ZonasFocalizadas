@@ -1,0 +1,88 @@
+{
+  "menus": [
+    {
+      "role": "Abogados",
+      "links": [
+        {
+          "order": 1,
+          "controllerName": "BaldiosPersonaNatural",
+          "actionName": "Index",
+          "linkText": "Tipificación",
+          "iconText": "fa fa-file mr-3"
+        },
+        {
+          "order": 1,
+          "controllerName": "Registro",
+          "actionName": "Index",
+          "linkText": "Registro",
+          "iconText": "fa fa-file mr-3"
+        }
+       
+      ]
+    },
+    {
+      "role": "Administrator",
+      "links": [
+        {
+          "order": 1,
+          "controllerName": "BaldiosPersonaNatural",
+          "actionName": "Index",
+          "linkText": "Mesa de Trabajo",
+          "iconText": "fa fa-file mr-3"
+        },
+        {
+          "order": 1,
+          "controllerName": "Assessments",
+          "actionName": "Index",
+          "linkText": "Usuarios",
+          "iconText": "fa fa-file mr-3"
+        },
+        {
+          "order": 1,
+          "controllerName": "Registro",
+          "actionName": "Index",
+          "linkText": "Registro",
+          "iconText": "fa fa-file mr-3"
+        }
+      ]
+    },
+    {
+      "role": "Agronomo",
+      "links": [
+        {
+          "order": 1,
+          "controllerName": "BaldiosPersonaNatural",
+          "actionName": "Index",
+          "linkText": "Tipificación",
+          "iconText": "fa fa-file mr-3"
+        },
+        {
+          "order": 1,
+          "controllerName": "Registro",
+          "actionName": "Index",
+          "linkText": "Registro",
+          "iconText": "fa fa-file mr-3"
+        }
+      ]
+    },
+    {
+      "role": "Catastral",
+      "links": [
+        {
+          "order": 1,
+          "controllerName": "BaldiosPersonaNatural",
+          "actionName": "Index",
+          "linkText": "Tipificación",
+          "iconText": "fa fa-file mr-3"
+        },
+        {
+          "order": 1,
+          "controllerName": "Registro",
+          "actionName": "Index",
+          "linkText": "Registro",
+          "iconText": "fa fa-file mr-3"
+        }
+      ]
+    }
+  ]
+}

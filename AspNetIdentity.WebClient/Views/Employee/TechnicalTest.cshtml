@@ -1,0 +1,138 @@
+﻿@model List<AspNetIdentity.WebClient.Models.TechnicalTestQuestion>
+@{
+    ViewBag.Title = "TechnicalTest";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+
+            @using (Html.BeginForm("TechnicalTest", "Employee", null, FormMethod.Post, new { role = "form" }))
+            {
+                @Html.Hidden("Id_UserTest", Url.RequestContext.RouteData.Values["Id"], new { id = "Id_UserTest" })
+                @Html.Hidden("Answers", null, new { id = "Answers" })
+
+                <input type="submit" value="enviar" class="invisible" />
+
+                foreach (AspNetIdentity.WebClient.Models.TechnicalTestQuestion technicalTestQuestion in Model)
+                {
+
+                    <!-- Card -->
+                    <div class="card z-depth-5" id="card_@technicalTestQuestion.Id_Question">
+
+                        <!-- Card content -->
+                        <div class="card-body">
+                            
+                            <!-- Title -->
+                            @*<h4 class="card-title"><a><i class="fa fa-quote-left"></i> Mi primer pregunta, para ver sonde y como sale</a></h4>*@
+                            <!-- Text -->
+
+                            <blockquote class="blockquote bq-primary">
+                                <p class="bq-title">@technicalTestQuestion.Question </p>
+                                <div class="list-group  btn-group-toggle" data-toggle="buttons">
+
+                                    @foreach (AspNetIdentity.WebClient.Models.TechnicalTestAnswer technicalTestAnswer in technicalTestQuestion.Answers)
+                                    {
+                                        <label class="btn btn-light-blue" onclick="answerSelected('@Html.Raw(technicalTestQuestion.Id_Question)', '@Html.Raw(technicalTestAnswer.Id_Answer)');">
+                                            <input type="radio" autocomplete="off" name="grp1"> @technicalTestAnswer.Answer
+                                        </label>
+                                    }
+
+                                </div>
+                            </blockquote>
+
+                        </div>
+
+                        <div class="card-footer">
+                            <div id="clock" class="pull-right"></div>
+                            <p class="text-sm-left">@technicalTestQuestion.Id_Question de @Model.Count</p>
+                        </div>
+
+                    </div>
+                    <!-- Card -->
+                }
+            }
+
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.countdown.min.js"></script>
+    <script>
+        
+        var numQuestionIdx = 0;
+        var numQuestions = 0;
+        var setSeconds = new Date().getTime();
+        var questions = @Html.Raw(@Json.Encode(Model));
+
+        $('div#clock').countdown(setSeconds, function (event) {
+            $(this).html(event.strftime('%S'));
+        }).on('finish.countdown', function (event) {
+            answerSelected(questions[numQuestionIdx].Id_Question, 0);
+        });
+
+        function questionsLoad() {
+            
+            numQuestions = questions.length;
+
+            for (var i = 0; i < questions.length; i++)
+            {
+                var idQ = questions[i].Id_Question;
+
+                if (numQuestionIdx == i)
+                    $('#card_' + idQ).show();
+                else
+                    $('#card_' + idQ).hide();
+            }
+
+
+            if (numQuestionIdx < numQuestions && questions[numQuestionIdx].Has_Time) {
+                setSeconds = new Date().getTime() + (questions[numQuestionIdx].Time * 1000);
+                $('div#clock').countdown(setSeconds, function (event) {
+                    $(this).html(event.strftime('%S'));
+                });
+            }
+        }
+
+        function answerSelected(idQ, idA) {
+
+            var attr = new Array();
+            numQuestionIdx++;
+
+            if (numQuestionIdx <= numQuestions) {
+                if (numQuestionIdx > 1) {
+                    attr = $.parseJSON(localStorage.getItem("ls_resp"));
+                }
+
+                attr.push({ q: idQ, a: idA });
+                localStorage.setItem("ls_resp", JSON.stringify(attr));
+
+                questionsLoad();
+
+                if (numQuestionIdx == numQuestions) {
+                    //save();
+                    $('#Answers').val(localStorage.getItem("ls_resp"));
+                    $('input[type=submit]').click();
+                }
+            }
+        }
+
+        @*function save() {
+
+            $.ajax({
+                url: "@Url.Action("TechnicalTest", "Employee")",
+                data: {
+                    Id: '@Request.Url.Segments.Last()',
+                    Answers: localStorage.getItem("ls_resp")
+                },
+                success: function (data) { console.log(data); }
+            });
+        }*@
+
+        questionsLoad();
+
+
+        //});
+    </script>
+}

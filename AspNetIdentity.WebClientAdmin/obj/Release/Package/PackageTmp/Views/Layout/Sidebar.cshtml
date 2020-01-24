@@ -1,0 +1,57 @@
+﻿@model List<AspNetIdentity.WebClientAdmin.Models.SidebarItem>
+
+<div id="SidebarCustom" class="sidebar-fixed position-fixed">
+
+    <a class="waves-effect">
+        <img src="http://sit.agenciadetierras.gov.co/web/Content/Images/login-logos.png" class="img-fluid" alt="">
+    </a>
+
+    <div class="list-group list-group-flush">
+        @foreach (AspNetIdentity.WebClientAdmin.Models.SidebarItem sidebarItem in Model)
+        {
+            <a href="@Url.Action(sidebarItem.actionName, sidebarItem.controllerName)" class="list-group-item list-group-item-action waves-effect" id="@sidebarItem.id">
+                <i class="@sidebarItem.iconText"></i>@sidebarItem.linkText
+            </a>
+        }
+    </div>
+</div>
+<div class="modal fade" id="centralModalLGInfoDemoSlim" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-white blue darken-">
+                <div id="HeaderSlim" class="heading lead 3"></div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text" >×</span>
+                </button>
+            </div>
+            <div class="modal-body" id="BodySlim">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="centralModalLGInfoDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg modal-notify modal-info" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <p class="heading lead">Modal Info</p>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">×</span>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body">
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+                <a type="button" class="btn btn-outline-info waves-effect" data-dismiss="modal" onclick="location.reload()">Cerrar</a>
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+<!-- Modal: modalCart -->
