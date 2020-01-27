@@ -1,0 +1,149 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@*<div class="jumbotron">
+        <h1>GESTORES TALENTO HUMANO</h1>
+        <p class="lead text-justify">
+            Compañía con 10 años en el mercado, orientada a la comercialización de herramientas de evaluación online, facilitando tus procesos de selección, desarrollo y retención del Talento Humano. También aportamos valor a nuestros clientes, ofreciendo diversas soluciones on-line para elevar la cultura ética organizacional.
+        </p>
+    </div>*@
+<!-- Jumbotron -->
+
+<div class="row">
+    <div class="col-md-6">
+        <!-- Card -->
+        <div class="card">
+
+            <!-- Card image -->
+            @*<img class="card-img-top" src="https://image.freepik.com/vector-gratis/gente-negocios-lupa-graficos_1262-18918.jpg" alt="Card image cap">*@
+
+            <!-- Card content -->
+            <div class="card-body text-center">
+
+                <!-- Title -->
+                <h6 class="card-title">Expedientes por Departamento</h6>
+                <!-- Text -->
+                <h4 class="card-title text-center" id="total">
+                </h4>
+                <!-- Button -->
+                <table id="table_id" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th> Id </th>
+                            <th> Departamento </th>
+                            <th>Numero de Expedientes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <!-- Card -->
+    </div>
+    <div class="col-md-6">
+        <!-- Card -->
+        <div class="card">
+
+            <!-- Card image -->
+            @*<img class="card-img-top" src="https://image.freepik.com/vector-gratis/gente-negocios-lupa-graficos_1262-18918.jpg" alt="Card image cap">*@
+
+            <!-- Card content -->
+            <div class="card-body text-center">
+
+                <!-- Title -->
+                <h6 class="card-title">Numero de Expedientes en Gestion</h6>
+                <!-- Text -->
+                <h4 class="card-title text-center" id="totalEdit">
+                </h4>
+                <!-- Button -->
+
+                <a href="@Url.Action("IndexUser", "BaldiosPersonaNatural")" class="btn btn-primary">Ver Más &raquo;</a>
+
+            </div>
+
+        </div>
+        <!-- Card -->
+    </div>
+
+</div>
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+@Scripts.Render("~/Scripts/ModalControl.js")
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        
+
+        @*$.ajax({
+            type: 'POST',
+            url: '@Url.Action("Count")',
+            dataType: 'json',
+            success: function(states) {
+                $("#total").text(states) ;
+            },
+            error: function (ex) {
+                console.log(ex.responseText);
+            }
+        });*@
+
+        @*$.ajax({
+            type: 'POST',
+            url: '@Url.Action("CountDeptos")',
+            dataType: 'json',
+            success: function(states) {
+                $("#totalEdit").text(states) ;
+            },
+            error: function (ex) {
+                console.log(ex.responseText);
+            }
+        });*@
+
+        var oTable = $('#table_id').dataTable({
+                "order": [[1, "desc"]],
+                "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
+                "pageLength": 10,
+                "paging": false,
+                "searching": false
+            });  //Initialize the datatable
+
+        function tabla() {
+            $('#centralModalLGInfoDemoSlim').modal({backdrop: 'static', keyboard: false})
+            $("#centralModalLGInfoDemoSlim").modal();
+            $('#HeaderSlim').html("")
+            $('#BodySlim').html("Cargando");
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("CountDeptos")',
+                dataType: 'json',
+                success: function (s) {
+                    debugger;
+                    oTable.fnClearTable();
+                    $.each(s, function (i, obj) {
+                        oTable.fnAddData([
+                            obj.ID_CT_DEPTO,
+                            obj.NOMBRE,
+                            obj.ID_CT_PAIS + "  |  <a Data = '"+obj.ID_CT_PAIS+"' href='#' title='Modificar' style='color: #013ADF;' class = 'Municipio' > <i class='fa fa-eye'>  </i></a>  ",
+                        ]);
+                    });
+                    $("#centralModalLGInfoDemoSlim").modal('hide');
+                },
+                error: function(e){
+                     oTable.fnClearTable();
+                }
+            });
+            };
+
+        tabla();
+       $('#table_id td').on(function () {
+    alert( 'You clicked on ' );
+} );
+
+    });
+
+</script>
+
+
