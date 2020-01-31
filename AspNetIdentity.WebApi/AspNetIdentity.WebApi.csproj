@@ -331,6 +331,9 @@
     <Compile Include="Models\Registro.cs">
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ResumenTipificacion.cs">
+      <DependentUpon>ZonasFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\RetencionDocumental.cs">
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>

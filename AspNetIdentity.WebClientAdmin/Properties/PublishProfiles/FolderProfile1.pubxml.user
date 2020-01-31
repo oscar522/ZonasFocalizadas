@@ -22,16 +22,16 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/15/2019 13:29:52</publishTime>
     </File>
     <File Include="bin/AspNetIdentity.Models.dll">
-      <publishTime>01/22/2020 15:22:38</publishTime>
+      <publishTime>01/31/2020 11:44:13</publishTime>
     </File>
     <File Include="bin/AspNetIdentity.Models.pdb">
-      <publishTime>01/22/2020 15:22:38</publishTime>
+      <publishTime>01/31/2020 11:44:13</publishTime>
     </File>
     <File Include="bin/AspNetIdentity.WebClientAdmin.dll">
-      <publishTime>01/27/2020 09:14:16</publishTime>
+      <publishTime>01/31/2020 11:44:29</publishTime>
     </File>
     <File Include="bin/AspNetIdentity.WebClientAdmin.pdb">
-      <publishTime>01/27/2020 09:14:16</publishTime>
+      <publishTime>01/31/2020 11:44:29</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/23/2017 13:15:18</publishTime>
@@ -259,7 +259,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/15/2019 13:30:44</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>02/11/2014 15:26:04</publishTime>
+      <publishTime>11/02/2014 15:26:04</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
       <publishTime>11/15/2019 13:30:44</publishTime>
@@ -493,40 +493,40 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/15/2019 13:29:59</publishTime>
     </File>
     <File Include="Content/login/fonts/JosefinSans/JosefinSans-ThinItalic.ttf">
-      <publishTime>11/15/2019 13:30:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/login/fonts/JosefinSans/OFL.txt">
-      <publishTime>11/15/2019 13:30:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/login/fonts/source-sans-pro/OFL.txt">
-      <publishTime>11/15/2019 13:30:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/login/fonts/source-sans-pro/SourceSansPro-Black.ttf">
-      <publishTime>11/15/2019 13:30:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/login/fonts/source-sans-pro/SourceSansPro-BlackItalic.ttf">
-      <publishTime>11/15/2019 13:30:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/login/fonts/source-sans-pro/SourceSansPro-Bold.ttf">
-      <publishTime>11/15/2019 13:30:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/login/fonts/source-sans-pro/SourceSansPro-BoldItalic.ttf">
-      <publishTime>11/15/2019 13:30:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/login/fonts/source-sans-pro/SourceSansPro-ExtraLight.ttf">
-      <publishTime>11/15/2019 13:30:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/login/fonts/source-sans-pro/SourceSansPro-ExtraLightItalic.ttf">
-      <publishTime>11/15/2019 13:30:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/login/fonts/source-sans-pro/SourceSansPro-Italic.ttf">
-      <publishTime>11/15/2019 13:30:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/login/fonts/source-sans-pro/SourceSansPro-Light.ttf">
       <publishTime>11/15/2019 13:30:01</publishTime>
     </File>
     <File Include="Content/login/fonts/source-sans-pro/SourceSansPro-LightItalic.ttf">
-      <publishTime>11/15/2019 13:30:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/login/fonts/source-sans-pro/SourceSansPro-Regular.ttf">
       <publishTime>11/15/2019 13:30:01</publishTime>
@@ -928,7 +928,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/15/2019 13:30:13</publishTime>
     </File>
     <File Include="Scripts/ModalControl.js">
-      <publishTime>12/04/2019 21:43:25</publishTime>
+      <publishTime>04/12/2019 21:43:25</publishTime>
     </File>
     <File Include="Scripts/modules/chart.js">
       <publishTime>11/15/2019 13:30:15</publishTime>
@@ -2218,7 +2218,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/26/2019 21:09:53</publishTime>
     </File>
     <File Include="Views/DatosBasicos/Crear.cshtml">
-      <publishTime>12/05/2019 15:54:02</publishTime>
+      <publishTime>05/12/2019 15:54:02</publishTime>
     </File>
     <File Include="Views/DatosBasicos/Delete.cshtml">
       <publishTime>11/26/2019 12:20:02</publishTime>
@@ -2227,7 +2227,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/19/2019 12:01:25</publishTime>
     </File>
     <File Include="Views/DatosBasicos/Edit.cshtml">
-      <publishTime>12/05/2019 15:52:56</publishTime>
+      <publishTime>05/12/2019 15:52:56</publishTime>
     </File>
     <File Include="Views/DatosBasicos/Index - Copia.cshtml">
       <publishTime>11/15/2019 13:30:22</publishTime>
@@ -2257,7 +2257,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/27/2019 12:32:16</publishTime>
     </File>
     <File Include="Views/HomeAdministrator/Index.cshtml">
-      <publishTime>01/14/2020 09:06:12</publishTime>
+      <publishTime>01/31/2020 11:04:13</publishTime>
+    </File>
+    <File Include="Views/HomeAdministrator/ResumenIndex.cshtml">
+      <publishTime>01/31/2020 11:17:51</publishTime>
     </File>
     <File Include="Views/HomeTipificacion/Index.cshtml">
       <publishTime>01/13/2020 12:05:30</publishTime>
@@ -2299,7 +2302,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/27/2019 12:24:11</publishTime>
     </File>
     <File Include="Views/Users/Index.cshtml">
-      <publishTime>12/04/2019 21:45:25</publishTime>
+      <publishTime>04/12/2019 21:45:25</publishTime>
     </File>
     <File Include="Views/Users/UserModal.cshtml">
       <publishTime>11/27/2019 12:24:11</publishTime>

@@ -34,5 +34,6 @@ namespace AspNetIdentity.WebApi.Models
         public string NombreArchivo { get; set; }
         public Nullable<int> ArchivoVerificado { get; set; }
         public Nullable<int> RutaVerificado { get; set; }
+        public Nullable<int> FiltroJairo { get; set; }
     }
 }

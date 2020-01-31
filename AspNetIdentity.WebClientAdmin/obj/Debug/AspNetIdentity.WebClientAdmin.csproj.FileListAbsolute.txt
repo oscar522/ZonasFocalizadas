@@ -602,3 +602,4 @@ C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocaliz
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebClientAdmin\obj\Debug\AspNetIdentity.WebClientAdmin.csproj.CopyComplete
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebClientAdmin\obj\Debug\AspNetIdentity.WebClientAdmin.dll
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebClientAdmin\obj\Debug\AspNetIdentity.WebClientAdmin.pdb
+C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebClientAdmin\obj\Debug\AspNetIdentity.WebClientAdmin.csprojAssemblyReference.cache

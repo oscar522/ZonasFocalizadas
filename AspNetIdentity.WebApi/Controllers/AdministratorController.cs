@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Web.Http;
 using AspNetIdentity.WebApi.Logic;
 using System.Threading.Tasks;
+using AspNetIdentity.WebApi.Models;
 
 namespace AspNetIdentity.WebApi.Controllers
 {
@@ -45,11 +46,21 @@ namespace AspNetIdentity.WebApi.Controllers
         }
 
         [Authorize]
-        [Route("getAdministratorCountDeptos")]
-        public List<CtDeptoModel> GetCount()
+        [Route("getResumen/{IdP}")]
+        public List<ResumenTipificacionModel> GetRegumen(string IdP)
         {
             AdministratorLogic a = new AdministratorLogic();
-            List<CtDeptoModel> model = a.ConsultarIdPCountDepto();
+            var model = new List<ResumenTipificacionModel>();
+            model = a.ConsultarResumen(IdP);
+            return model;
+        }
+
+        [Authorize]
+        [Route("getAdministratorCountDeptos")]
+        public List<CtCiudadModel> GetCount()
+        {
+            AdministratorLogic a = new AdministratorLogic();
+            List<CtCiudadModel> model = a.ConsultarIdPCountDepto();
             return model;
         }
 

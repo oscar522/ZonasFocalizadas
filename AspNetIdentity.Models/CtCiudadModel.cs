@@ -21,5 +21,6 @@ namespace AspNetIdentity.Models
         [Required(ErrorMessage = "Debe ingresar el Descripion ")]
 
         public string Nombre { get; set; }
+        public bool ZonaFocalizada { get; set; }
     }
 }

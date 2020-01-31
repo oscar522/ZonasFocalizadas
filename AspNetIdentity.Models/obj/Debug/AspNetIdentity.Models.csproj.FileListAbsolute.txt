@@ -15,3 +15,8 @@ C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Proyecto\AspNetI
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Proyecto\AspNetIdentity.Models\obj\Debug\AspNetIdentity.Models.csprojAssemblyReference.cache
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Proyecto\AspNetIdentity.Models\obj\Debug\AspNetIdentity.Models.dll
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Proyecto\AspNetIdentity.Models\obj\Debug\AspNetIdentity.Models.pdb
+C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.Models\bin\Debug\AspNetIdentity.Models.dll
+C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.Models\bin\Debug\AspNetIdentity.Models.pdb
+C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.Models\obj\Debug\AspNetIdentity.Models.csprojAssemblyReference.cache
+C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.Models\obj\Debug\AspNetIdentity.Models.dll
+C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.Models\obj\Debug\AspNetIdentity.Models.pdb

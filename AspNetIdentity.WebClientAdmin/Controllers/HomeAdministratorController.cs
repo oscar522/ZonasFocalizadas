@@ -37,8 +37,30 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             string Method = "getAdministratorCountDeptos";
             string result = await employeeProvider.Get(Id, Controller, Method);
             var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
-            List<CtDeptoModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CtDeptoModel>>(jsonResult.ToString());
+            List<CtCiudadModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CtCiudadModel>>(jsonResult.ToString());
             return Json(processModel, JsonRequestBehavior.AllowGet);
+        }
+
+        public async Task<ActionResult> Resumen(int IdDepto, int IdCiudad)
+        {
+            string Id = IdDepto+"_"+IdCiudad+"_" + GetTokenObject().nameid;
+            string Controller = "Administrator";
+            string Method = "getResumen";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            List<ResumenTipificacionModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ResumenTipificacionModel>>(jsonResult.ToString());
+
+            var Resumen = processModel
+                          .GroupBy(z => z.Grupo)
+                          .Select(c => new ResumenTipificacionVistaModel
+                          {
+                              Total = c.Count(),
+                              Grupo = c.Select(v => v.Grupo).FirstOrDefault(),
+                              Plano = processModel.Where(x => x.Plano == 21 && x.Grupo == c.Select(v => v.Grupo).FirstOrDefault()).Count()
+                          }).ToList();
+
+
+            return View("ResumenIndex", Resumen);
         }
 
         public async Task<ActionResult> CountEdit()
@@ -50,6 +72,11 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
             int processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<int>(jsonResult.ToString());
             return Json(processModel);
+        }
+
+        public ActionResult ResumenIndex(int IdDeptoIn, int IdCiudadIn)
+        {
+            return Json(new { result = "Redirect", url = Url.Action("Resumen", "HomeAdministrator", new { IdDepto = IdDeptoIn, IdCiudad = IdCiudadIn }) });
         }
         public ActionResult Index()
         {

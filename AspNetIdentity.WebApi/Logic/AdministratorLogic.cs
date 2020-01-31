@@ -12,21 +12,61 @@ namespace AspNetIdentity.WebApi.Logic
     {
         BaldiosPersonaNatural ModCtx = new BaldiosPersonaNatural();
 
-        public List<CtDeptoModel> ConsultarIdPCountDepto()
+        public List<CtCiudadModel> ConsultarIdPCountDepto()
         {
             ZonasFEntities Ctx = new ZonasFEntities();
-            var Deptos = Ctx.BaldiosPersonaNatural.Where(f => f.RutaVerificado == 1)
-                .ToList();
-            var de = Deptos.Join(Ctx.CtDepto, b => b.IdDepto, c => c.ID_CT_DEPTO, (b, c) =>
-                 new { c.ID_CT_DEPTO, c.ID_CT_PAIS, c.NOMBRE }).GroupBy(x => x.ID_CT_DEPTO)
-                .Select(c => new CtDeptoModel
+
+            //var Expedientes = Ctx.BaldiosPersonaNatural.ToList();
+
+            var MunicipiosFocalidas = Ctx.BaldiosPersonaNatural
+                .Join(Ctx.CtDepto, b => b.IdDepto, c => c.ID_CT_DEPTO, (b, c) =>
+                 new { c.ID_CT_DEPTO, NOMBRE_DEPTO = c.NOMBRE, MuniExp = b.IdCiudad, DeptoExp = b.IdDepto, b.RutaVerificado })
+                .Join(Ctx.CtCiudad, b => b.MuniExp, c => c.IdCtMuncipio, (b, c) =>
+                 new
+                 {
+                     Muni_id = c.Id,
+                     Muni_IdCtMuncipio = c.IdCtMuncipio,
+                     Muni_IdCtDepto = c.IdCtDepto,
+                     Muni_NOMBRE_DEPTO = b.NOMBRE_DEPTO,
+                     Muni_Nombre = c.Nombre,
+                     Muni_ZonaFocalizada = c.ZonaFocalizada,
+                     b.MuniExp,
+                     b.DeptoExp,
+                     b.RutaVerificado
+                 })
+                .Where(x => x.Muni_ZonaFocalizada == true && x.Muni_IdCtDepto == x.DeptoExp)
+                .GroupBy(x => x.Muni_id)
+                .Select(c => new CtCiudadModel
                 {
-                    ID_CT_DEPTO = c.Select(v => v.ID_CT_DEPTO).FirstOrDefault(),
-                    ID_CT_PAIS = c.Count(),
-                    NOMBRE = c.Select(v => v.NOMBRE).FirstOrDefault(),
-                    NOMBRE_PAIS = c.Select(v => v.NOMBRE).FirstOrDefault(),
-                }).ToList();
-            return de;
+                    id = c.Select(v => v.Muni_id).FirstOrDefault(),
+                    IdCtMuncipio = c.Select(v => v.Muni_IdCtMuncipio).FirstOrDefault(),
+                    Nombre = c.Select(v => v.Muni_Nombre).FirstOrDefault(),
+                    IdCtDepto = c.Select(v => v.Muni_IdCtDepto).FirstOrDefault(),
+                    NOMBRE_DEPTO = c.Select(v => v.Muni_NOMBRE_DEPTO).FirstOrDefault(),
+                    IdCtPais = c.Count(),
+                    NOMBRE_PAIS = "",
+                })
+                .ToList();
+
+            List<CtCiudadModel> listaModel = new List<CtCiudadModel>();
+
+            foreach (var Model in MunicipiosFocalidas)
+            {
+
+                var NumeroPdf = Ctx.BaldiosPersonaNatural
+                                    .Where(x => x.IdCiudad == Model.IdCtMuncipio
+                                    && x.IdDepto == Model.IdCtDepto
+                                    && x.RutaVerificado == 1).Count().ToString();
+
+                var NumeroTipificacion = Ctx.BaldiosPersonaNatural
+                                    .Where(x => x.IdCiudad == Model.IdCtMuncipio
+                                   && Model.IdCtDepto == Model.IdCtDepto
+                                   && x.EstadoCaracterizacion == true  && x.RutaVerificado == 1).Count().ToString();
+                Model.NOMBRE_PAIS = NumeroPdf + "-" + NumeroTipificacion;
+
+                listaModel.Add(Model);
+            }
+            return listaModel;
         }
         public List<BaldiosPersonaNaturalModel> Consulta()
         {
@@ -343,6 +383,28 @@ namespace AspNetIdentity.WebApi.Logic
 
             #endregion
             return lista.ToList();
+        }
+
+        public List<ResumenTipificacionModel> ConsultarResumen(string IdP)
+        {
+            var Resumen = new List<ResumenTipificacionModel>();
+            using (ZonasFEntities context = new ZonasFEntities())
+            {
+                string[] Parametros = IdP.Split('_');
+                int IdDepto = Convert.ToInt32(Parametros[0]);
+                int IdCiudad = Convert.ToInt32(Parametros[1]);
+                string IdAspNetUser = Parametros[2];
+                Resumen = context.PlResumenTipificacion(IdDepto, IdCiudad, IdAspNetUser)
+                            .Select(c => new ResumenTipificacionModel
+                            {
+                                 Id = c.Id,
+                                 IdExpediente = c.IdExpediente, 
+                                 IdAspNetUser = c.IdAspNetUser,
+                                 Grupo = c.Grupo,
+                                 Plano = context.ExpedienteDocumentos.Where(x =>x.IdExpediente == c.IdExpediente && x.IdRetencionDocumental == 21).Select(y =>y.IdRetencionDocumental).FirstOrDefault()
+                            }).ToList();
+            }
+                return Resumen;
         }
 
         public List<BaldiosPersonaNaturalModel> ConsultarIdPUser(string IdP)
@@ -744,6 +806,6 @@ namespace AspNetIdentity.WebApi.Logic
             return a.FirstOrDefault();
         }
 
-       
+
     }
 }

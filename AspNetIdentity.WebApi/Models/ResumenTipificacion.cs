@@ -12,14 +12,11 @@ namespace AspNetIdentity.WebApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class CtCiudad
+    public partial class ResumenTipificacion
     {
         public int Id { get; set; }
-        public int IdCtPais { get; set; }
-        public int IdCtDepto { get; set; }
-        public int IdCtMuncipio { get; set; }
-        public string Nombre { get; set; }
-        public int Estado { get; set; }
-        public Nullable<bool> ZonaFocalizada { get; set; }
+        public int IdExpediente { get; set; }
+        public string IdAspNetUser { get; set; }
+        public string Grupo { get; set; }
     }
 }

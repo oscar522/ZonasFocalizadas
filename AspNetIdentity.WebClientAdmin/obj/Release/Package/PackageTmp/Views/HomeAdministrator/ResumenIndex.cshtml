@@ -1,0 +1,61 @@
+﻿@model IEnumerable<AspNetIdentity.Models.ResumenTipificacionVistaModel>
+
+<div class="jumbotron">
+    <h1>MUNICIPIOS FOCALIZADOS</h1>
+    <p class="lead text-justify">
+    </p>
+</div>
+
+
+<div class="row">
+    <div class="col-md-7">
+        <!-- Card -->
+        <div class="card">
+
+            <!-- Card image -->
+            @*<img class="card-img-top" src="https://image.freepik.com/vector-gratis/gente-negocios-lupa-graficos_1262-18918.jpg" alt="Card image cap">*@
+
+            <!-- Card content -->
+            <div class="card-body">
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Total)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Grupo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Plano)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Total)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Grupo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Plano)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Ver", "Edit", new { /* id=item.PrimaryKey */ }) |
+                               
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+
+        </div>
+        <!-- Card -->
+    </div>
+
+
+</div>

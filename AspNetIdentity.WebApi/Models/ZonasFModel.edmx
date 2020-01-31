@@ -164,6 +164,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
           <Property Name="NombreArchivo" Type="varchar(max)" />
           <Property Name="ArchivoVerificado" Type="int" />
           <Property Name="RutaVerificado" Type="int" />
+          <Property Name="FiltroJairo" Type="int" />
         </EntityType>
         <EntityType Name="CtCiudad">
           <Key>
@@ -175,6 +176,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
           <Property Name="IdCtMuncipio" Type="int" Nullable="false" />
           <Property Name="Nombre" Type="varchar(max)" Nullable="false" />
           <Property Name="Estado" Type="int" Nullable="false" />
+          <Property Name="ZonaFocalizada" Type="bit" />
         </EntityType>
         <EntityType Name="CtDepto">
           <Key>
@@ -249,6 +251,15 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
           <Property Name="EstadoRegistro" Type="bit" />
           <Property Name="UsuarioModifica" Type="nvarchar" MaxLength="128" />
           <Property Name="UsuarioActualiza" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="ResumenTipificacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdExpediente" Type="int" Nullable="false" />
+          <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="182" Nullable="false" />
+          <Property Name="Grupo" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="RetencionDocumental">
           <Key>
@@ -341,6 +352,11 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Parameter Name="PasswordHash" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="Id" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="PlResumenTipificacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdDeptoIn" Type="int" Mode="In" />
+          <Parameter Name="IdCiudadIn" Type="int" Mode="In" />
+          <Parameter Name="IdAspNetUser" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="ZonasFModelStoreContainer">
           <EntitySet Name="BaldiosPersonaNatural" EntityType="Self.BaldiosPersonaNatural" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CtCiudad" EntityType="Self.CtCiudad" Schema="dbo" store:Type="Tables" />
@@ -350,6 +366,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <EntitySet Name="CtTipoIdentificacion" EntityType="Self.CtTipoIdentificacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ExpedienteDocumentos" EntityType="Self.ExpedienteDocumentos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Registro" EntityType="Self.Registro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResumenTipificacion" EntityType="Self.ResumenTipificacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RetencionDocumental" EntityType="Self.RetencionDocumental" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RetencionDocumentalGrupo" EntityType="Self.RetencionDocumentalGrupo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
@@ -478,6 +495,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Property Name="IdCtMuncipio" Type="Int32" Nullable="false" />
           <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
+          <Property Name="ZonaFocalizada" Type="Boolean" />
         </EntityType>
         <EntityType Name="CtDepto">
           <Key>
@@ -720,6 +738,12 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <EntitySet Name="RetencionDocumental" EntityType="ZonasFModel.RetencionDocumental" />
           <EntitySet Name="BaldiosPersonaNatural" EntityType="ZonasFModel.BaldiosPersonaNatural" />
           <EntitySet Name="Registro" EntityType="ZonasFModel.Registro" />
+          <EntitySet Name="ResumenTipificacion" EntityType="ZonasFModel.ResumenTipificacion" />
+          <FunctionImport Name="PlResumenTipificacion" EntitySet="ResumenTipificacion" ReturnType="Collection(ZonasFModel.ResumenTipificacion)">
+            <Parameter Name="IdDeptoIn" Mode="In" Type="Int32" />
+            <Parameter Name="IdCiudadIn" Mode="In" Type="Int32" />
+            <Parameter Name="IdAspNetUser" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="ExpedienteDocumentos">
           <Key>
@@ -781,6 +805,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Property Name="NombreArchivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ArchivoVerificado" Type="Int32" />
           <Property Name="RutaVerificado" Type="Int32" />
+          <Property Name="FiltroJairo" Type="Int32" />
         </EntityType>
         <EntityType Name="Registro">
           <Key>
@@ -806,6 +831,15 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Property Name="UsuarioModifica" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="UsuarioActualiza" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="ResumenTipificacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdExpediente" Type="Int32" Nullable="false" />
+          <Property Name="IdAspNetUser" Type="String" Nullable="false" MaxLength="182" FixedLength="false" Unicode="true" />
+          <Property Name="Grupo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -815,6 +849,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <EntitySetMapping Name="CtCiudad">
             <EntityTypeMapping TypeName="ZonasFModel.CtCiudad">
               <MappingFragment StoreEntitySet="CtCiudad">
+                <ScalarProperty Name="ZonaFocalizada" ColumnName="ZonaFocalizada" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdCtPais" ColumnName="IdCtPais" />
                 <ScalarProperty Name="IdCtDepto" ColumnName="IdCtDepto" />
@@ -1056,6 +1091,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <EntitySetMapping Name="BaldiosPersonaNatural">
             <EntityTypeMapping TypeName="ZonasFModel.BaldiosPersonaNatural">
               <MappingFragment StoreEntitySet="BaldiosPersonaNatural">
+                <ScalarProperty Name="FiltroJairo" ColumnName="FiltroJairo" />
                 <ScalarProperty Name="RutaVerificado" ColumnName="RutaVerificado" />
                 <ScalarProperty Name="ArchivoVerificado" ColumnName="ArchivoVerificado" />
                 <ScalarProperty Name="NombreArchivo" ColumnName="NombreArchivo" />
@@ -1104,6 +1140,17 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ResumenTipificacion">
+            <EntityTypeMapping TypeName="ZonasFModel.ResumenTipificacion">
+              <MappingFragment StoreEntitySet="ResumenTipificacion">
+                <ScalarProperty Name="Grupo" ColumnName="Grupo" />
+                <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />
+                <ScalarProperty Name="IdExpediente" ColumnName="IdExpediente" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PlResumenTipificacion" FunctionName="ZonasFModel.Store.PlResumenTipificacion" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
