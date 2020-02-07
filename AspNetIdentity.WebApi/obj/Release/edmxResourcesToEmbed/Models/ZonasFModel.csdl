@@ -354,5 +354,6 @@
     <Property Name="IdExpediente" Type="Int32" Nullable="false" />
     <Property Name="IdAspNetUser" Type="String" Nullable="false" MaxLength="182" FixedLength="false" Unicode="true" />
     <Property Name="Grupo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Orden" Type="Int32" />
   </EntityType>
 </Schema>

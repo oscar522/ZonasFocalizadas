@@ -298,6 +298,7 @@
     <EntitySetMapping Name="ResumenTipificacion">
       <EntityTypeMapping TypeName="ZonasFModel.ResumenTipificacion">
         <MappingFragment StoreEntitySet="ResumenTipificacion">
+          <ScalarProperty Name="Orden" ColumnName="Orden" />
           <ScalarProperty Name="Grupo" ColumnName="Grupo" />
           <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />
           <ScalarProperty Name="IdExpediente" ColumnName="IdExpediente" />

@@ -22,16 +22,16 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/15/2019 13:29:52</publishTime>
     </File>
     <File Include="bin/AspNetIdentity.Models.dll">
-      <publishTime>01/31/2020 11:44:13</publishTime>
+      <publishTime>02/07/2020 08:30:14</publishTime>
     </File>
     <File Include="bin/AspNetIdentity.Models.pdb">
-      <publishTime>01/31/2020 11:44:13</publishTime>
+      <publishTime>02/07/2020 08:30:14</publishTime>
     </File>
     <File Include="bin/AspNetIdentity.WebClientAdmin.dll">
-      <publishTime>01/31/2020 11:44:29</publishTime>
+      <publishTime>02/07/2020 08:30:38</publishTime>
     </File>
     <File Include="bin/AspNetIdentity.WebClientAdmin.pdb">
-      <publishTime>01/31/2020 11:44:29</publishTime>
+      <publishTime>02/07/2020 08:30:38</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/23/2017 13:15:18</publishTime>
@@ -259,7 +259,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/15/2019 13:30:44</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>11/02/2014 15:26:04</publishTime>
+      <publishTime>02/11/2014 15:26:04</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
       <publishTime>11/15/2019 13:30:44</publishTime>
@@ -928,7 +928,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/15/2019 13:30:13</publishTime>
     </File>
     <File Include="Scripts/ModalControl.js">
-      <publishTime>04/12/2019 21:43:25</publishTime>
+      <publishTime>12/04/2019 21:43:25</publishTime>
     </File>
     <File Include="Scripts/modules/chart.js">
       <publishTime>11/15/2019 13:30:15</publishTime>
@@ -2134,7 +2134,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/27/2019 12:24:11</publishTime>
     </File>
     <File Include="Views/Assessments/Index.cshtml">
-      <publishTime>01/14/2020 22:03:23</publishTime>
+      <publishTime>02/04/2020 09:05:12</publishTime>
     </File>
     <File Include="Views/BaldiosPersonaNatural/Crear.cshtml">
       <publishTime>12/27/2019 11:28:10</publishTime>
@@ -2146,7 +2146,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>12/27/2019 16:16:04</publishTime>
     </File>
     <File Include="Views/BaldiosPersonaNatural/Edit.cshtml">
-      <publishTime>01/24/2020 10:33:59</publishTime>
+      <publishTime>01/31/2020 13:10:37</publishTime>
     </File>
     <File Include="Views/BaldiosPersonaNatural/EditOld2.cshtml">
       <publishTime>01/08/2020 16:11:35</publishTime>
@@ -2218,7 +2218,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/26/2019 21:09:53</publishTime>
     </File>
     <File Include="Views/DatosBasicos/Crear.cshtml">
-      <publishTime>05/12/2019 15:54:02</publishTime>
+      <publishTime>12/05/2019 15:54:02</publishTime>
     </File>
     <File Include="Views/DatosBasicos/Delete.cshtml">
       <publishTime>11/26/2019 12:20:02</publishTime>
@@ -2227,7 +2227,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/19/2019 12:01:25</publishTime>
     </File>
     <File Include="Views/DatosBasicos/Edit.cshtml">
-      <publishTime>05/12/2019 15:52:56</publishTime>
+      <publishTime>12/05/2019 15:52:56</publishTime>
     </File>
     <File Include="Views/DatosBasicos/Index - Copia.cshtml">
       <publishTime>11/15/2019 13:30:22</publishTime>
@@ -2239,7 +2239,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>12/29/2019 19:07:19</publishTime>
     </File>
     <File Include="Views/ExpedienteDocumentos/ViewerPdf.cshtml">
-      <publishTime>01/23/2020 16:19:55</publishTime>
+      <publishTime>02/04/2020 11:49:42</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>11/15/2019 13:30:17</publishTime>
@@ -2257,13 +2257,13 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/27/2019 12:32:16</publishTime>
     </File>
     <File Include="Views/HomeAdministrator/Index.cshtml">
-      <publishTime>01/31/2020 11:04:13</publishTime>
+      <publishTime>02/04/2020 15:33:24</publishTime>
     </File>
     <File Include="Views/HomeAdministrator/ResumenIndex.cshtml">
-      <publishTime>01/31/2020 11:17:51</publishTime>
+      <publishTime>02/05/2020 15:43:45</publishTime>
     </File>
     <File Include="Views/HomeTipificacion/Index.cshtml">
-      <publishTime>01/13/2020 12:05:30</publishTime>
+      <publishTime>02/05/2020 16:20:36</publishTime>
     </File>
     <File Include="Views/Layout/Navbar.cshtml">
       <publishTime>01/15/2020 22:44:01</publishTime>
@@ -2302,7 +2302,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/27/2019 12:24:11</publishTime>
     </File>
     <File Include="Views/Users/Index.cshtml">
-      <publishTime>04/12/2019 21:45:25</publishTime>
+      <publishTime>12/04/2019 21:45:25</publishTime>
     </File>
     <File Include="Views/Users/UserModal.cshtml">
       <publishTime>11/27/2019 12:24:11</publishTime>
