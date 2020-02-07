@@ -57,7 +57,7 @@ namespace AspNetIdentity.WebClientAdmin.Providers
             }
             catch (InvalidCastException e)
             {
-               
+                throw new Exception(e.Message);
             }
             return MyDictionary;
         }

@@ -56,11 +56,34 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
                           {
                               Total = c.Count(),
                               Grupo = c.Select(v => v.Grupo).FirstOrDefault(),
-                              Plano = processModel.Where(x => x.Plano == 21 && x.Grupo == c.Select(v => v.Grupo).FirstOrDefault()).Count()
+                              Plano = processModel.Where(x => x.Plano == 21 && x.Grupo == c.Select(v => v.Grupo).FirstOrDefault()).Count(),
+                              Orden = c.Select(v => v.Orden).FirstOrDefault(),
                           }).ToList();
 
-
             return View("ResumenIndex", Resumen);
+        }
+
+        public async Task<ActionResult> ResumenRegistro(int IdDepto, int IdCiudad)
+        {
+            string Id = IdDepto + "_" + IdCiudad + "_" + GetTokenObject().nameid;
+            string Controller = "Administrator";
+            string Method = "getResumenRegistro";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            List<ResumenTipificacionModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ResumenTipificacionModel>>(jsonResult.ToString());
+
+            var Resumen = processModel
+                          .GroupBy(z => z.Grupo)
+                          .Select(c => new ResumenTipificacionVistaModel
+                          {
+                              Total = c.Count(),
+                              Grupo = c.Select(v => v.Grupo).FirstOrDefault(),
+                              Plano = processModel.Where(x => x.Plano == 21 && x.Grupo == c.Select(v => v.Grupo).FirstOrDefault()).Count(),
+                              Orden = c.Select(v => v.Orden).FirstOrDefault(),
+                              
+                          }).ToList();
+
+            return Json(Resumen, JsonRequestBehavior.AllowGet);
         }
 
         public async Task<ActionResult> CountEdit()

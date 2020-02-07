@@ -45,6 +45,16 @@ namespace AspNetIdentity.WebApi.Controllers
         }
 
         [Authorize]
+        [Route("getBaldiosPersonaNaturalUserMal/{IdP}")]
+        public List<BaldiosPersonaNaturalModel> GetUserMal(string IdP)
+        {
+            BaldiosPersonaNaturalLogic a = new BaldiosPersonaNaturalLogic();
+            var model = new List<BaldiosPersonaNaturalModel>();
+            model = a.ConsultarIdPUserMal(IdP);
+            return model;
+        }
+
+        [Authorize]
         [Route("getBaldiosPersonaNaturalCount/{IdP}")]
         public int GetCount(string IdP)
         {
@@ -59,6 +69,15 @@ namespace AspNetIdentity.WebApi.Controllers
         {
             BaldiosPersonaNaturalLogic a = new BaldiosPersonaNaturalLogic();
             int model = a.ConsultarIdPCountEdit(IdP);
+            return model;
+        }
+
+        [Authorize]
+        [Route("getBaldiosPersonaNaturalCountMal/{IdP}")]
+        public int GetCountMal(string IdP)
+        {
+            BaldiosPersonaNaturalLogic a = new BaldiosPersonaNaturalLogic();
+            int model = a.ConsultarIdPCountMal(IdP);
             return model;
         }
 

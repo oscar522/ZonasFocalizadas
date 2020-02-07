@@ -260,6 +260,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
           <Property Name="IdExpediente" Type="int" Nullable="false" />
           <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="182" Nullable="false" />
           <Property Name="Grupo" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Orden" Type="int" />
         </EntityType>
         <EntityType Name="RetencionDocumental">
           <Key>
@@ -839,6 +840,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Property Name="IdExpediente" Type="Int32" Nullable="false" />
           <Property Name="IdAspNetUser" Type="String" Nullable="false" MaxLength="182" FixedLength="false" Unicode="true" />
           <Property Name="Grupo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Orden" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1143,6 +1145,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <EntitySetMapping Name="ResumenTipificacion">
             <EntityTypeMapping TypeName="ZonasFModel.ResumenTipificacion">
               <MappingFragment StoreEntitySet="ResumenTipificacion">
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
                 <ScalarProperty Name="Grupo" ColumnName="Grupo" />
                 <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />
                 <ScalarProperty Name="IdExpediente" ColumnName="IdExpediente" />

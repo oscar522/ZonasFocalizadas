@@ -18,5 +18,6 @@ namespace AspNetIdentity.WebApi.Models
         public int IdExpediente { get; set; }
         public string IdAspNetUser { get; set; }
         public string Grupo { get; set; }
+        public Nullable<int> Orden { get; set; }
     }
 }

@@ -4,7 +4,7 @@
     .pdfobject-container {
         height: 53rem;
         border: 1rem solid rgba(0,0,0,.1);
-         background-color: #ffffff;
+        background-color: #ffffff;
     }
 </style>
 
@@ -28,32 +28,36 @@
                             <div class="col-md-12">
                                 <div id="PdfViewer"></div>
                                 <input type="hidden" id="ArchivoActual" name="ArchivoActual" />
+                                <input type="hidden" id="InputUriPdf" name="InputUriPdf" />
                                 @section Scripts
                                 {
 
                                     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.js"></script>
                                     <script type="text/javascript">
 
-                                    $(document).ready(function () {
+                                        $(document).ready(function () {
                                          // obtiene la url de los pdf
                                         $.getJSON( '@Url.Content("~/Content/ConfigPdfUri.json")', function(data){
-                                              var UriPdf = data.result[0].Uri;
-                                        });
-                                        var url = '@Model.Archivo';
-                                        var pageurlIni = '@Model.PagInicial';
-                                        var pageurlFin = '@Model.PagFinal';
-                                        var options = {
-                                            page: pageurlIni,
-                                            pdfOpenParams: {
-                                                navpanes: 1,
-                                                view: "FitH",
-                                                pagemode: "thumbs"
-                                            }
-                                         };
-
+                                            var UriPdf = data.result[0].Uri;
+                                            var url = '@Model.Archivo';
+                                            var pageurlIni = '@Model.PagInicial';
+                                            var pageurlFin = '@Model.PagFinal';
+                                            var options = {
+                                                page: pageurlIni,
+                                                pdfOpenParams: {
+                                                    navpanes: 1,
+                                                    view: "FitH",
+                                                    pagemode: "thumbs",
+                                                    toolbar: '1',
+                                                    statusbar: '1',
+                                                    messages: '1', 
+                                                }
+                                            };
                                         // pagelength().
                                         $("#pagelength").text(pageurlFin);
-                                         PDFObject.embed("http://"+UriPdf+"/Content/Pdfs/" + url, "#PdfViewer", options);
+                                        PDFObject.embed("http://"+UriPdf+"/Content/Pdfs/" + url, "#PdfViewer", options);
+
+                                        });
 
                                          console.log("ready!");
                                      });

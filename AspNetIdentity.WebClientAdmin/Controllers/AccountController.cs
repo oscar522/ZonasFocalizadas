@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using AspNetIdentity.WebClientAdmin.Models;
 using AspNetIdentity.Models;
+using System;
 
 namespace AspNetIdentity.WebClientAdmin.Controllers
 {
@@ -535,8 +536,7 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             }
             catch (System.Exception ex)
             {
-
-                throw;
+                throw new Exception(ex.Message);
             }
            
         }

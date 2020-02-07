@@ -255,6 +255,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="IdExpediente" Type="int" Nullable="false" />
     <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="182" Nullable="false" />
     <Property Name="Grupo" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Orden" Type="int" />
   </EntityType>
   <EntityType Name="RetencionDocumental">
     <Key>

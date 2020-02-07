@@ -51,10 +51,20 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             int processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<int>(jsonResult.ToString());
             return Json(processModel);
         }
+
+        public async Task<ActionResult> CountMalNombrados()
+        {
+            string Id = GetTokenObject().nameid;
+            string Controller = "BaldiosPersonaNatural";
+            string Method = "getBaldiosPersonaNaturalCountMal";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            int processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<int>(jsonResult.ToString());
+            return Json(processModel);
+        }
         public ActionResult Index()
         {
             return View();
-
         }
     
     }

@@ -56,6 +56,17 @@ namespace AspNetIdentity.WebApi.Controllers
         }
 
         [Authorize]
+        [Route("getResumenRegistro/{IdP}")]
+        public List<ResumenTipificacionModel> GetRegumenRegistro(string IdP)
+        {
+            AdministratorLogic a = new AdministratorLogic();
+            var model = new List<ResumenTipificacionModel>();
+            model = a.ConsultarResumenRegistro(IdP);
+            return model;
+        }
+
+
+        [Authorize]
         [Route("getAdministratorCountDeptos")]
         public List<CtCiudadModel> GetCount()
         {

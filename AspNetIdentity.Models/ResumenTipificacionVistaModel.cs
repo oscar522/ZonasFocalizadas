@@ -8,5 +8,6 @@ namespace AspNetIdentity.Models
         public int Total { get; set; }
         public string Grupo { get; set; }
         public Nullable<int> Plano { get; set; }
+        public Nullable<int> Orden { get; set; }
     }
 }

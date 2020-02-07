@@ -10,5 +10,7 @@ namespace AspNetIdentity.Models
         public string IdAspNetUser { get; set; }
         public string Grupo { get; set; }
         public Nullable<int> Plano { get; set; }
+        public Nullable<int> Orden { get; set; }
+
     }
 }

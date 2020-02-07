@@ -62,7 +62,19 @@ namespace AspNetIdentity.WebApi.Logic
                                     .Where(x => x.IdCiudad == Model.IdCtMuncipio
                                    && Model.IdCtDepto == Model.IdCtDepto
                                    && x.EstadoCaracterizacion == true  && x.RutaVerificado == 1).Count().ToString();
-                Model.NOMBRE_PAIS = NumeroPdf + "-" + NumeroTipificacion;
+
+                var NumeroAsociados = Ctx.BaldiosPersonaNatural.Join(Ctx.AspNetUsers, b => b.IdAspNetUser, c => c.Id, (b, c) =>
+                                    new { b.IdAspNetUser, b.IdCiudad, b.RutaVerificado })
+                                    .Where(x => x.IdCiudad == Model.IdCtMuncipio
+                                    && Model.IdCtDepto == Model.IdCtDepto && x.RutaVerificado == 1).Count().ToString();
+
+                var Malnombrados = Ctx.BaldiosPersonaNatural.Join(Ctx.AspNetUsers, b => b.IdAspNetUser, c => c.Id, (b, c) =>
+                                    new { b.IdAspNetUser, b.IdCiudad, b.RutaVerificado, b.ArchivoVerificado })
+                                    .Where(x => x.IdCiudad == Model.IdCtMuncipio
+                                    && Model.IdCtDepto == Model.IdCtDepto && x.RutaVerificado == 1 && x.ArchivoVerificado == 2).Count().ToString();
+
+
+                Model.NOMBRE_PAIS = NumeroPdf + "-" + NumeroTipificacion + "-" +NumeroAsociados + "-" + Malnombrados;
 
                 listaModel.Add(Model);
             }
@@ -401,10 +413,44 @@ namespace AspNetIdentity.WebApi.Logic
                                  IdExpediente = c.IdExpediente, 
                                  IdAspNetUser = c.IdAspNetUser,
                                  Grupo = c.Grupo,
-                                 Plano = context.ExpedienteDocumentos.Where(x =>x.IdExpediente == c.IdExpediente && x.IdRetencionDocumental == 21).Select(y =>y.IdRetencionDocumental).FirstOrDefault()
+                                 Plano = context.ExpedienteDocumentos.Where(x =>x.IdExpediente == c.IdExpediente && x.IdRetencionDocumental == 21).Select(y =>y.IdRetencionDocumental).FirstOrDefault(),
+                                 Orden = c.Orden
                             }).ToList();
             }
                 return Resumen;
+        }
+
+        public List<ResumenTipificacionModel> ConsultarResumenRegistro(string IdP)
+        {
+            var Resumen = new List<ResumenTipificacionModel>();
+            using (ZonasFEntities context = new ZonasFEntities())
+            {
+                string[] Parametros = IdP.Split('_');
+                int IdDepto = Convert.ToInt32(Parametros[0]);
+                int IdCiudad = Convert.ToInt32(Parametros[1]);
+                string IdAspNetUser = Parametros[2];
+                Resumen = context.PlResumenTipificacion(IdDepto, IdCiudad, IdAspNetUser)
+                            .Where(x => x.Grupo.Equals("Decide Adjudica") | x.Grupo.Equals("Registro"))
+                            .Join(context.Registro, b => b.IdExpediente, c => c.IdExpediente, (b, c) =>
+                             new { c.Estado, c.IdExpediente, c.Id })
+                            .Join(context.BaldiosPersonaNatural, b => b.IdExpediente, c => c.id, (b, c) =>
+                             new { b.Estado, b.IdExpediente, b.Id, c.IdCiudad, c.IdDepto })
+                            .Join(context.CtDepto, b => b.IdDepto, c => c.ID_CT_DEPTO, (b, c) =>
+                             new {b.IdDepto, b.Estado, b.IdExpediente, b.Id, b.IdCiudad, NombreDepto = c.NOMBRE, c.ID_CT_DEPTO, })
+                            .Join(context.CtCiudad, b => b.IdCiudad, c => c.IdCtMuncipio, (b, c) =>
+                             new { b.IdDepto, b.Estado, b.IdExpediente, b.Id, b.NombreDepto, NombreCiudad = c.Nombre, DeptoCiudad = c.IdCtDepto, c.IdCtMuncipio, })
+                            .Where(r => r.IdDepto == r.DeptoCiudad)
+                            .Select(c => new ResumenTipificacionModel
+                            {
+                                Id = Convert.ToInt32(c.Id),
+                                IdExpediente = Convert.ToInt32(c.IdExpediente),
+                                IdAspNetUser = c.NombreCiudad + "-" +c.NombreDepto,
+                                Grupo = c.Estado.ToString()+"-"+c.NombreCiudad+"-"+c.NombreDepto,
+                                Plano = context.ExpedienteDocumentos.Where(x => x.IdExpediente == c.IdExpediente && x.IdRetencionDocumental == 21).Select(y => y.IdRetencionDocumental).FirstOrDefault(),
+                                Orden = 1
+                            }).ToList();
+            }
+            return Resumen;
         }
 
         public List<BaldiosPersonaNaturalModel> ConsultarIdPUser(string IdP)

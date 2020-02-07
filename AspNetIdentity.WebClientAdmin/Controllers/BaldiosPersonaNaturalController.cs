@@ -232,8 +232,10 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
                 }
                 catch (InvalidCastException e)
                 {
-                    ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+                    ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator." + e);
                     return Json(ModelState);
+                    
+
                 }
             }
             else
@@ -293,6 +295,17 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
             List<BaldiosPersonaNaturalModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<BaldiosPersonaNaturalModel>>(jsonResult.ToString());
             return View(processModel);
+        }
+
+        public async Task<ActionResult> IndexUserMal()
+        {
+            string Id = GetTokenObject().nameid;
+            string Controller = "BaldiosPersonaNatural";
+            string Method = "getBaldiosPersonaNaturalUserMal";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            List<BaldiosPersonaNaturalModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<BaldiosPersonaNaturalModel>>(jsonResult.ToString());
+            return View("IndexUser", processModel);
         }
 
         public ActionResult Crear()
