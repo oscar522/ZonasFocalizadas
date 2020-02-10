@@ -5,6 +5,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+
             var UriPdf = "";
             $.getJSON( '@Url.Content("~/Content/ConfigPdfUri.json")', function(data){
                 UriPdf = data.result[0].Uri;
@@ -20,7 +21,7 @@
                     estadoSelect = 'False';
                 }
 
-                if (estadoSelect =='@Model.Estado' ){        
+                if (estadoSelect =='@Model.Estado' ){
                     $(this).attr("selected", true);
                     debugger;
                 }
@@ -35,8 +36,7 @@
                 $("#FVerificacion").val('@Model.FVerificacion');
             }
 
-            debugger;
-           var oTable = $('#table_id').dataTable({
+            var oTable = $('#table_id').dataTable({
                 "order": [[1]],
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
                 "pageLength": 10,
@@ -74,7 +74,7 @@
                     url: '@Url.Action("ExpedienteInfo")', // we are calling json method
                     dataType: 'json',
                     data: { Id: @Model.IdExpediente },
-                    success: function(states) {
+                success: function (states) {
                         var Data = " <p class='card-text'>" +
                             "<span style='color: #013ADF;'> Nombre Depto : </span>  " + states.NombreIdDepto + " | " +
                             "<span style='color: #013ADF;'> Nombre Municipio : </span>" + states.NombreIdCiudad +
@@ -136,12 +136,16 @@
                 });
                 return false;
             });
+            var DeptoIn = '@Model.IdDepto' + '1';
 
+            if (DeptoIn == '1') {
+                DeptoIn = 0;
+            }
             $.ajax({
                 type: 'POST',
                 url: '@Url.Action("ListCiudadId")', // we are calling json method
                 dataType: 'json',
-                data: { IdP: @Model.IdDepto },
+                data: { IdP: DeptoIn },
                 success: function(states) {
                     //  alert("okdepto" + $("#ID_CT_DEPTO").val());
                     $.each(states, function (i, state) {
