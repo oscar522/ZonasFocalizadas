@@ -5,13 +5,14 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+
             var UriPdf = "";
             $.getJSON( '@Url.Content("~/Content/ConfigPdfUri.json")', function(data){
                 UriPdf = data.result[0].Uri;
             });
 
             $("#Estado option").each(function () {
-                alert($(this).val() + "--" + '@Model.Estado');
+               // alert($(this).val() + "--" + '@Model.Estado');
                 var estadoSelect = "";
 
                 if ($(this).val() == 'true') {
@@ -20,7 +21,7 @@
                     estadoSelect = 'False';
                 }
 
-                if (estadoSelect =='@Model.Estado' ){        
+                if (estadoSelect =='@Model.Estado' ){
                     $(this).attr("selected", true);
                     debugger;
                 }
@@ -35,8 +36,7 @@
                 $("#FVerificacion").val('@Model.FVerificacion');
             }
 
-            debugger;
-           var oTable = $('#table_id').dataTable({
+            var oTable = $('#table_id').dataTable({
                 "order": [[1]],
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
                 "pageLength": 10,
@@ -74,7 +74,7 @@
                     url: '@Url.Action("ExpedienteInfo")', // we are calling json method
                     dataType: 'json',
                     data: { Id: @Model.IdExpediente },
-                    success: function(states) {
+                success: function (states) {
                         var Data = " <p class='card-text'>" +
                             "<span style='color: #013ADF;'> Nombre Depto : </span>  " + states.NombreIdDepto + " | " +
                             "<span style='color: #013ADF;'> Nombre Municipio : </span>" + states.NombreIdCiudad +
@@ -136,12 +136,16 @@
                 });
                 return false;
             });
+            var DeptoIn = '@Model.IdDepto' + '1';
 
+            if (DeptoIn == '1') {
+                DeptoIn = 0;
+            }
             $.ajax({
                 type: 'POST',
                 url: '@Url.Action("ListCiudadId")', // we are calling json method
                 dataType: 'json',
-                data: { IdP: @Model.IdDepto },
+                data: { IdP: DeptoIn },
                 success: function(states) {
                     //  alert("okdepto" + $("#ID_CT_DEPTO").val());
                     $.each(states, function (i, state) {
@@ -162,7 +166,7 @@
             $("#Estado").change(function () {
                 if ($(this).val() == "true") {
 
-                    $("#FVerificacion").prop('disabled', false);
+                    //$("#FVerificacion").prop('disabled', false);
                     $("#Matricula").prop('disabled', false);
                     $("#Fapertura").prop('disabled', false);
                     $("#TipoDocumento").prop('disabled', false);
@@ -177,7 +181,7 @@
 
                 } else {
 
-                    $("#FVerificacion").prop('disabled', true);
+                    //$("#FVerificacion").prop('disabled', true);
                     $("#Matricula").prop('disabled', true);
                     $("#Fapertura").prop('disabled', true);
                     $("#TipoDocumento").prop('disabled', true);
@@ -220,10 +224,7 @@
     <div class="card-body d-sm-flex justify-content-between">
         <h3 class="card-title">Registro </h3>
         <div id="Info_Expediente" class="card-text">
-
         </div>
-
-
     </div>
 </div>
 
@@ -253,7 +254,7 @@
                     @Html.EditorFor(model => model.NombreIdMunicipio, new { htmlAttributes = new { @class = "form-control", @Style = "display:none", @Value = @Model.NombreIdMunicipio } })
                     @Html.EditorFor(model => model.NombreIdDepto, new { htmlAttributes = new { @class = "form-control", @Style = "display:none", @Value = @Model.NombreIdDepto } })
                     @Html.EditorFor(model => model.EstadoRegistro, new { htmlAttributes = new { @class = "form-control", @Value = "true", @Style = "display:none" } })
-                    @Html.EditorFor(model => model.FVerificacion, new { htmlAttributes = new { @class = "form-control", disabled = "true", @Style = "display:none" } })
+                    @Html.EditorFor(model => model.FVerificacion, new { htmlAttributes = new { @class = "form-control", @Style = "display:none" } })
 
                     <div class="form-horizontal">
                         <div class="row">

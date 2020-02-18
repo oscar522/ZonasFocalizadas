@@ -5,19 +5,33 @@
       "links": [
         {
           "order": 1,
-          "controllerName": "BaldiosPersonaNatural",
+          "controllerName": "HomeTipificacion",
           "actionName": "Index",
-          "linkText": "Tipificación",
-          "iconText": "fa fa-file mr-3"
+          "linkText": "Tipificacion",
+          "iconText": "fa fa-bar-chart mr-3"
         },
         {
-          "order": 1,
-          "controllerName": "Registro",
-          "actionName": "Index",
+          "order": 2,
+          "controllerName": "HomeUsuarios",
+          "actionName": "IndexRegistro",
           "linkText": "Registro",
-          "iconText": "fa fa-file mr-3"
+          "iconText": "fa fa-registered mr-3"
+        },
+        {
+          "order": 3,
+          "controllerName": "HomeAdministrator",
+          "actionName": "Index",
+          "linkText": "Expe. Consolidados",
+          "iconText": "fa fa-tasks mr-3"
+        },
+        {
+          "order": 4,
+          "controllerName": "HomeUsuarios",
+          "actionName": "BuscarExpedientes",
+          "linkText": "Buscar Expedientes",
+          "iconText": "fa fa-search mr-3"
         }
-       
+
       ]
     },
     {
@@ -25,24 +39,31 @@
       "links": [
         {
           "order": 1,
-          "controllerName": "BaldiosPersonaNatural",
+          "controllerName": "HomeTipificacion",
           "actionName": "Index",
-          "linkText": "Mesa de Trabajo",
-          "iconText": "fa fa-file mr-3"
+          "linkText": "Tipificacion",
+          "iconText": "fa fa-bar-chart mr-3"
         },
         {
-          "order": 1,
-          "controllerName": "Assessments",
-          "actionName": "Index",
-          "linkText": "Usuarios",
-          "iconText": "fa fa-file mr-3"
-        },
-        {
-          "order": 1,
-          "controllerName": "Registro",
-          "actionName": "Index",
+          "order": 2,
+          "controllerName": "HomeUsuarios",
+          "actionName": "IndexRegistro",
           "linkText": "Registro",
-          "iconText": "fa fa-file mr-3"
+          "iconText": "fa fa-registered mr-3"
+        },
+        {
+          "order": 3,
+          "controllerName": "HomeAdministrator",
+          "actionName": "Index",
+          "linkText": "Expe. Consolidados",
+          "iconText": "fa fa-tasks mr-3"
+        },
+        {
+          "order": 4,
+          "controllerName": "HomeUsuarios",
+          "actionName": "BuscarExpedientes",
+          "linkText": "Buscar Expedientes",
+          "iconText": "fa fa-search mr-3"
         }
       ]
     },
@@ -51,17 +72,31 @@
       "links": [
         {
           "order": 1,
-          "controllerName": "BaldiosPersonaNatural",
+          "controllerName": "HomeTipificacion",
           "actionName": "Index",
-          "linkText": "Tipificación",
-          "iconText": "fa fa-file mr-3"
+          "linkText": "Tipificacion",
+          "iconText": "fa fa-bar-chart mr-3"
         },
         {
-          "order": 1,
-          "controllerName": "Registro",
-          "actionName": "Index",
+          "order": 2,
+          "controllerName": "HomeUsuarios",
+          "actionName": "IndexRegistro",
           "linkText": "Registro",
-          "iconText": "fa fa-file mr-3"
+          "iconText": "fa fa-registered mr-3"
+        },
+        {
+          "order": 3,
+          "controllerName": "HomeAdministrator",
+          "actionName": "Index",
+          "linkText": "Expe. Consolidados",
+          "iconText": "fa fa-tasks mr-3"
+        },
+        {
+          "order": 4,
+          "controllerName": "HomeUsuarios",
+          "actionName": "BuscarExpedientes",
+          "linkText": "Buscar Expedientes",
+          "iconText": "fa fa-search mr-3"
         }
       ]
     },
@@ -70,17 +105,31 @@
       "links": [
         {
           "order": 1,
-          "controllerName": "BaldiosPersonaNatural",
+          "controllerName": "HomeTipificacion",
           "actionName": "Index",
-          "linkText": "Tipificación",
-          "iconText": "fa fa-file mr-3"
+          "linkText": "Tipificacion",
+          "iconText": "fa fa-bar-chart mr-3"
         },
         {
-          "order": 1,
-          "controllerName": "Registro",
-          "actionName": "Index",
+          "order": 2,
+          "controllerName": "HomeUsuarios",
+          "actionName": "IndexRegistro",
           "linkText": "Registro",
-          "iconText": "fa fa-file mr-3"
+          "iconText": "fa fa-registered mr-3"
+        },
+        {
+          "order": 3,
+          "controllerName": "HomeAdministrator",
+          "actionName": "Index",
+          "linkText": "Expe. Consolidados",
+          "iconText": "fa fa-tasks mr-3"
+        },
+        {
+          "order": 4,
+          "controllerName": "HomeUsuarios",
+          "actionName": "BuscarExpedientes",
+          "linkText": "Buscar Expedientes",
+          "iconText": "fa fa-search mr-3"
         }
       ]
     }

@@ -9,6 +9,11 @@
     @Scripts.Render("~/Scripts/ModalControl.js")
     <script type="text/javascript">
         $(document).ready(function () {
+             $('#TableID').dataTable({
+                "order": [[2,'asc']],
+                "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
+                "pageLength": 10,
+            });  //Initialize the datatable
 
             $("#TableID tbody tr").each(function (index) {
                 var estado = $(this).find("td").eq(2).html().trim();
@@ -19,11 +24,10 @@
                 } else {
 
                 }
-                debugger;
 
             });
 
-
+            
 
         });
     </script>
@@ -45,7 +49,7 @@
             <div class="card-header">  <a href="#" onclick="EjecutarModalSlim ('','Registro','Crear','CREAR'); return false;">Crear</a></div>
             <div class="card-body">
                 <div class="table-responsive text-nowrap">
-                    <table class="table table-hover tableData" id="TableID">
+                    <table class="table table-hover " id="TableID">
                         <thead>
                             <tr>
                                 <th>
@@ -113,11 +117,9 @@
                                     <td>
                                         <a href='@Url.Action("../Registro/Edit", "Edit", new { IdTable = item.Id })' title='Modificar' style='color: #013ADF;'><i class='fa fa-refresh' aria-hidden='true'></i></a>
                                         <a href="#" onclick="EjecutarModalSlim ('@item.IdExpediente','BaldiosPersonaNatural','Details','Detalle Expedientes'); return false;" title="Detalle" style="color: #013ADF;"><i class="fa fa-search" aria-hidden="true"></i> </a> |
-
                                     </td>
                                 </tr>
                             }
-
                         </tbody>
                     </table>
                 </div>

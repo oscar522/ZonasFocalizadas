@@ -2,12 +2,16 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>MUNICIPIOS FOCALIZADOS</h1>
-    <p class="lead text-justify">
-    </p>
+<div class="row">
+    <div class="col-md-12 ">
+        <div class="card">
+            <div class="card-body">
+                MUNICIPIOS FOCALIZADOS
+            </div>
+        </div>
+    </div>
 </div>
-
+<br />
 
 <div class="row">
     <div class="col-md-12">
@@ -21,7 +25,7 @@
             <div class="card-body">
                 <div class="form-horizontal">
                     <div class="row  justify-content-center">
-                        <div class="form-group col-md-11" >
+                        <div class="form-group col-md-11">
                             <div class="table-responsive text-nowrap">
                                 <table id="table_id" class="table table-hover center" cellspacing="0" width="100%">
                                     <thead class="green white-text title">
@@ -66,12 +70,12 @@
     </div>
 
 
-    </div>
+</div>
 
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-    @Scripts.Render("~/Scripts/ModalControl.js")
-    <script type="text/javascript">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+@Scripts.Render("~/Scripts/ModalControl.js")
+<script type="text/javascript">
     $(document).ready(function () {
 
         var oTable = $('#table_id').dataTable({
@@ -105,7 +109,7 @@
                             i : 0;
                 };
 
-                // computing column Total of the complete result 
+                // computing column Total of the complete result
 
                 var Total5 = api
                     .column(5)
@@ -157,13 +161,13 @@
             $('#centralModalLGInfoDemoSlim').modal({backdrop: 'static', keyboard: false})
             $("#centralModalLGInfoDemoSlim").modal();
             $('#HeaderSlim').html("")
-            $('#BodySlim').html("Cargando");
+            $('#BodySlim').html('<div class="loading">Cargando ... <img src="http://localhost:50213/Content/loader.gif" alt="loading" /></div>');
+            //$('#BodySlim').html("Cargando");
             $.ajax({
                 type: 'POST',
                 url: '@Url.Action("CountDeptos")',
                 dataType: 'json',
                 success: function (s) {
-                    debugger;
                     oTable.fnClearTable();
                     $.each(s, function (i, obj) {
                         var res = obj.NOMBRE_PAIS.split("-");
@@ -178,7 +182,7 @@
                             res[2],
                             res[1],
                             res[3],
-                           "<z1 Data1='" + obj.IdCtDepto + "' Data2='" + obj.IdCtMuncipio + "' title='Modificar' style='color: #013ADF;' class = 'Municipio' > <i class='fa fa-eye'>  </i></z1>  "
+                           "<z1 Data1='" + obj.IdCtDepto + "' Data2='" + obj.IdCtMuncipio + "'  style='color: #013ADF;' class = 'Municipio' > <i class='fa fa-eye'>  </i></z1>  "
                         ]);
                     });
                     $("#centralModalLGInfoDemoSlim").modal('hide');
@@ -211,6 +215,6 @@
 
     });
 
-    </script>
+</script>
 
 
