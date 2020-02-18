@@ -9,5 +9,9 @@ namespace AspNetIdentity.Models
         public string Grupo { get; set; }
         public Nullable<int> Plano { get; set; }
         public Nullable<int> Orden { get; set; }
+        public string Municipio { get; set; }
+        public int IdMunicipio { get; set; }
+        public string Depto { get; set; }
+        public int IdDepto { get; set; }
     }
 }

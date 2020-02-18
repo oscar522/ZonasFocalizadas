@@ -17,7 +17,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-
+            
             function getParameterByName(name) {
                 name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
                 var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -146,16 +146,25 @@
                                 Registro = "Con Registro";
                             } else if (Tipo == "False") {
                                 Registro = "Sin Registro";
+                            } else {
+                                Registro = "Sin Gestion";
                             }
+
+                            var url = '@Url.Action("../HomeAdministrator/ResumenListaPlano", "ResumenRegistroLista", new { IdDepto = "IdDeptoIn", IdCiudad = "IdCiudadIn", Grupo = "GrupoIn" })';
+                            url = url.replace("IdDeptoIn", obj.IdDepto)
+                                     .replace("IdCiudadIn", obj.IdMunicipio)
+                                     .replace("GrupoIn", Tipo);
                             oTable.fnAddData([
                                 Registro,
-                                obj.Total,
+                                '<a target="_blank" href='+url+'  style="color: #013ADF;"><i class="fa fa-search" aria-hidden="true"></i>'+ obj.Total +'</a>',
                                 obj.Plano,
                                 obj.Orden
                             ]);
+                            debugger;
+
                         });
                         debugger;
-                        $('#info').html('<p class="card-text"> Depto : '+Depto+'  <br /> Municipio : '+Munic+' </p>');
+                       
                         $("#centralModalLGInfoDemoSlim").modal('hide');
                     },
                     error: function(e){
@@ -201,20 +210,24 @@
                                     <tbody>
                                         @foreach (var item in Model)
                                         {
-                                            <tr>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Grupo)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Total)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Plano)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Orden)
-                                                </td>
-                                            </tr>
+
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Grupo)
+                                            </td>
+                                            <td>
+                                                <a target="_blank" href='@Url.Action("../HomeAdministrator/ResumenLista", "ResumenLista", new { IdDepto = item.IdDepto, IdCiudad = item.IdMunicipio, Grupo = item.Grupo  })' style='color: #013ADF;'><i class='fa fa-search' aria-hidden='true'></i>  @Html.DisplayFor(modelItem => item.Total)</a>
+                                            </td>
+                                            <td>
+                                                <a target="_blank" href='@Url.Action("../HomeAdministrator/ResumenListaPlano", "ResumenListaPlano", new { IdDepto = item.IdDepto, IdCiudad = item.IdMunicipio, Grupo = item.Grupo  })'  style='color: #013ADF;'><i class='fa fa-search' aria-hidden='true'></i>  @Html.DisplayFor(modelItem => item.Plano)</a>
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Orden)
+                                                <script type="text/javascript">
+                                                    document.getElementById('info').innerHTML='<p class="card-text"> Depto : @item.Depto  <br /> Municipio : @item.Municipio </p>';
+                                                </script>
+                                            </td>
+                                        </tr>
                                         }
                                     </tbody>
                                     <tfoot class="green white-text title">

@@ -84,7 +84,17 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
             List<RegistroModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<RegistroModel>>(jsonResult.ToString());
             return View(processModel);
+        }
 
+        public async Task<ActionResult> IndexRevisados()
+        {
+            string Id = GetTokenObject().nameid;
+            string Controller = "Registro";
+            string Method = "getRegistroidRevisados";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            List<RegistroModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<RegistroModel>>(jsonResult.ToString());
+            return View("Index",processModel);
         }
 
         public ActionResult Crear()

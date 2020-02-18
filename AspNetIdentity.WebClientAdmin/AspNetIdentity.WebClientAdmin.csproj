@@ -193,6 +193,7 @@
     <Compile Include="Controllers\AssessmentsController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BaldiosPersonaNaturalController.cs" />
+    <Compile Include="Controllers\HomeUsuariosController.cs" />
     <Compile Include="Controllers\RegistroController.cs" />
     <Compile Include="Controllers\ExpedienteDocumentosController.cs" />
     <Compile Include="Controllers\HomeAdministratorController.cs" />
@@ -931,6 +932,13 @@
     <Content Include="Views\Registro\Delete.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <Content Include="Views\HomeAdministrator\ResumenIndex.cshtml" />
+    <Content Include="Views\HomeTipificacion\IndexRegistro.cshtml" />
+    <Content Include="Views\HomeUsuarios\Index.cshtml" />
+    <Content Include="Views\HomeUsuarios\IndexRegistro.cshtml" />
+    <Content Include="Views\HomeUsuarios\BuscarExpedientes.cshtml" />
+    <Content Include="Views\HomeUsuarios\ResultadoBusqueda.cshtml" />
+    <Content Include="Views\HomeUsuarios\Details.cshtml" />
+    <Content Include="Views\HomeAdministrator\ResumenLista.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

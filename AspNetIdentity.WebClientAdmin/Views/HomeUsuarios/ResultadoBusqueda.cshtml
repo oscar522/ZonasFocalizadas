@@ -2,58 +2,30 @@
 @{
     ViewBag.Title = "Index";
 }
-@section Scripts
-             {
+@section Scripts {
+
     @Scripts.Render("~/Scripts/ModalControl.js")
 
-        <script type="text/javascript">
-        $(document).ready(function () {
-
-            $(".BuscarArchivo").click(function () {
-                $('#content').html('<div class="loading"><img src="http://localhost:50213/Content/loader.gif" alt="loading" /></div>');
- 
-                $.ajax({
-                type: 'POST',
-                url: '@Url.Action("BuscaArchivos")',
-                dataType: 'json',
-                data: { IdTable : 1 },
-                success: function(states) {
-                     $('#content').hide();
-                    alert(' Fin ');
-                },
-                error: function (ex) {
-                    console.log(ex.responseText);
-                }
-                });
-            });
-
-            $('#table_idd').dataTable({
-                "order": [[6, "asc"]],
-                "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
-                "pageLength": 10,
-                "paging": true
-            });  //Initialize the datatable
-
-        console.log("ready!");
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('#table_idd').dataTable({
+            "order": [[6, "asc"]],
+            "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
+            "pageLength": 10,
+            "paging": true
+        }); 
     });
-        </script>
-
-
+    </script>
 
 }
 <div class="card mb-4 wow fadeIn">
-
-    <!--Card content-->
     <div class="card-body d-sm-flex justify-content-between">
-        <h3 class="card-title">Expedientes Asociados </h3>
-        <p class="card-text"> <div id="content"></div> @*<a href="#" class="BuscarArchivo">Buscar Archivo</a>*@</p>
+        <h3 class="card-title">Resultados de la busqueda </h3>
     </div>
-
 </div>
 <div class="row wow fadeIn">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-header">  <a href="#" id="Crear_" onclick="Ejecutar ('','HvCtCiudad','Crear'); return false;">Crear Expediente</a></div>
             <div class="card-body">
                 <div class="table-responsive text-nowrap">
                     <table class="table table-hover " id="table_idd">
@@ -117,9 +89,8 @@
                                     </td>
 
                                     <td>
-                                        <a href='@Url.Action("../BaldiosPersonaNatural/Edit", "Edit", new { IdTable = item.id })' title='Modificar' style='color: #013ADF;'><i class='fa fa-refresh' aria-hidden='true'></i></a>
-                                        @*<a href="#" onclick="EjecutarModalSlim ('@item.id','BaldiosPersonaNatural','Edit','MODIFICAR CIUDAD'); return false;" title="Modificar" style="color: #013ADF;"><i class="fa fa-refresh" aria-hidden="true"></i></a> |*@
-                                        <a href="#" onclick="EjecutarModalSlim ('@item.id','BaldiosPersonaNatural','Details','Detalle Expedientes'); return false;" title="Detalle" style="color: #013ADF;"><i class="fa fa-search" aria-hidden="true"></i> </a> |
+                                        <a href='@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = item.id })' title='Modificar' style='color: #013ADF;'><i class='fa fa-refresh' aria-hidden='true'></i></a>
+                                        <a href="#" onclick="Ejecutar ('@item.id','HomeUsuarios','Details','Detalle Expedientes'); return false;" title="Detalle" style="color: #013ADF;"><i class="fa fa-search" aria-hidden="true"></i> </a> |
                                     </td>
                                 </tr>
                             }

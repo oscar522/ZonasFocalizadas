@@ -56,12 +56,42 @@ namespace AspNetIdentity.WebApi.Controllers
         }
 
         [Authorize]
+        [Route("getResumenLista/{IdP}")]
+        public List<BaldiosPersonaNaturalModel> GetRegumenLista(string IdP)
+        {
+            AdministratorLogic a = new AdministratorLogic();
+            var model = new List<BaldiosPersonaNaturalModel>();
+            model = a.ConsultarResumenLista(IdP);
+            return model;
+        }
+
+        [Authorize]
+        [Route("getResumenListaPlano/{IdP}")]
+        public List<BaldiosPersonaNaturalModel> GetRegumenListaPlano(string IdP)
+        {
+            AdministratorLogic a = new AdministratorLogic();
+            var model = new List<BaldiosPersonaNaturalModel>();
+            model = a.ConsultarResumenListaPlano(IdP);
+            return model;
+        }
+
+        [Authorize]
         [Route("getResumenRegistro/{IdP}")]
         public List<ResumenTipificacionModel> GetRegumenRegistro(string IdP)
         {
             AdministratorLogic a = new AdministratorLogic();
             var model = new List<ResumenTipificacionModel>();
             model = a.ConsultarResumenRegistro(IdP);
+            return model;
+        }
+
+        [Authorize]
+        [Route("getResumenRegistroLista/{IdP}")]
+        public List<BaldiosPersonaNaturalModel> GetRegumenRegistroLista(string IdP)
+        {
+            AdministratorLogic a = new AdministratorLogic();
+            var model = new List<BaldiosPersonaNaturalModel>();
+            model = a.ConsultarResumenRegistroLista(IdP);
             return model;
         }
 

@@ -12,7 +12,6 @@ namespace AspNetIdentity.WebApi.Controllers
         [Authorize]
         [Route("getRegistroid/{id}")]
         public List<RegistroModel> Get(string id)
-           
         {
             var model = new List<RegistroModel>();
             if (!id.Equals("")) {
@@ -20,6 +19,20 @@ namespace AspNetIdentity.WebApi.Controllers
                 model=  a.Consulta(id);
             }
            
+            return model;
+        }
+
+        [Authorize]
+        [Route("getRegistroidRevisados/{id}")]
+        public List<RegistroModel> GetRevisados(string id)
+        {
+            var model = new List<RegistroModel>();
+            if (!id.Equals(""))
+            {
+                RegistroLogic a = new RegistroLogic();
+                model = a.ConsultaRevisados(id);
+            }
+
             return model;
         }
 
