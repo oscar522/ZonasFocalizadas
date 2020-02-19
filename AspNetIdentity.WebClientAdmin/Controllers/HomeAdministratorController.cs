@@ -206,6 +206,28 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             return View();
 
         }
-    
+
+        public async Task<ActionResult> ResumenListaSinPlano(int IdDepto, int IdCiudad, string Grupo)
+        {
+            string Id = IdDepto + "_" + IdCiudad + "_" + GetTokenObject().nameid + "_" + Grupo;
+            string Controller = "Administrator";
+            string Method = "getResumenListaSinPlano";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            List<BaldiosPersonaNaturalModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<BaldiosPersonaNaturalModel>>(jsonResult.ToString());
+            return View("ResumenLista", processModel);
+        }
+
+        public async Task<ActionResult> ResumenListaConPlano(int IdDepto, int IdCiudad, string Grupo)
+        {
+            string Id = IdDepto + "_" + IdCiudad + "_" + GetTokenObject().nameid + "_" + Grupo;
+            string Controller = "Administrator";
+            string Method = "getResumenListaConPlano";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            List<BaldiosPersonaNaturalModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<BaldiosPersonaNaturalModel>>(jsonResult.ToString());
+            return View("ResumenLista", processModel);
+        }
+
     }
 }

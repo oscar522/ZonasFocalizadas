@@ -79,6 +79,11 @@
     $(document).ready(function () {
 
         var oTable = $('#table_id').dataTable({
+             dom: "Bfrtip",
+                buttons: [
+                    'print',    
+                    'excel',
+                ],
                 "order": [[1, "desc"]],
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
                 "pageLength": 10,
@@ -184,6 +189,8 @@
                             res[3],
                            "<z1 Data1='" + obj.IdCtDepto + "' Data2='" + obj.IdCtMuncipio + "'  style='color: #013ADF;' class = 'Municipio' > <i class='fa fa-eye'>  </i></z1>  "
                         ]);
+                //Model.NOMBRE_PAIS = NumeroPdf + "-" + NumeroTipificacion + "-" + NumeroAsociados + "-" + Malnombrados;
+                        //
                     });
                     $("#centralModalLGInfoDemoSlim").modal('hide');
                 },

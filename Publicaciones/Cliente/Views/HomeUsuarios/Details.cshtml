@@ -14,6 +14,11 @@
             });
 
             var oTable = $('#table_id').dataTable({
+                 dom: "Bfrtip",
+                buttons: [
+                    'print',    
+                    'excel',
+                ],
                 "order": [[1]],
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
                 "pageLength": 5,
@@ -53,6 +58,11 @@
             tabla();
 
             var oTableRegistro = $('#table_Registro').dataTable({
+                 dom: "Bfrtip",
+                buttons: [
+                    'print',    
+                    'excel',
+                ],
                 "order": [[1]],
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
                 "pageLength": 5,

@@ -29,13 +29,28 @@
                 "order": [[3, "desc"]],
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
                 "paging": false,
-                "searching":false,
+                "searching": false,
+                dom: "Bfrtip",
+                buttons: [
+                    'print',    
+                    'excel',
+                ],
                 "columnDefs": [
                 {
                     "targets": [ 3 ],
                     "visible": false,
                     "searchable": false
-                    }],
+                },
+                {
+                    "targets": [ 4 ],
+                    "visible": false,
+                    "searchable": false
+                },
+                {
+                    "targets": [ 5 ],
+                    "visible": false,
+                    "searchable": false
+                }],
                 "footerCallback": function (row, data, start, end, display) {
                     var api = this.api(), data;
                     var intVal = function (i) {
@@ -45,25 +60,20 @@
                                 i : 0;
                     };
                     var monTotal = api
-                        .column(1)
+                        .column(4)
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
 
                     var tueTotal = api
-                        .column(2)
+                        .column(5)
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
 
-                    var wedTotal = api
-                        .column(3)
-                        .data()
-                        .reduce(function (a, b) {
-                            return intVal(a) + intVal(b);
-                        }, 0);
+                 
 
                     $( api.column( 0 ).footer() ).html('Total');
                     $( api.column( 1 ).footer() ).html(monTotal);
@@ -81,7 +91,20 @@
                     "targets": [ 3 ],
                     "visible": false,
                     "searchable": false
-                }],
+                }, {
+                    "targets": [4 ],
+                    "visible": false,
+                    "searchable": false
+                }, {
+                    "targets": [ 5 ],
+                    "visible": false,
+                    "searchable": false
+                    }],
+                 dom: "Bfrtip",
+                buttons: [
+                    'print',    
+                    'excel',
+                ],
                 "footerCallback": function (row, data, start, end, display) {
                     var api = this.api(), data;
                     var intVal = function (i) {
@@ -93,21 +116,14 @@
 
                     // computing column Total of the complete result
                     var monTotal = api
-                        .column(1)
+                        .column(4)
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
 
                     var tueTotal = api
-                        .column(2)
-                        .data()
-                        .reduce(function (a, b) {
-                            return intVal(a) + intVal(b);
-                        }, 0);
-
-                    var wedTotal = api
-                        .column(3)
+                        .column(5)
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
@@ -150,15 +166,24 @@
                                 Registro = "Sin Gestion";
                             }
 
-                            var url = '@Url.Action("../HomeAdministrator/ResumenListaPlano", "ResumenRegistroLista", new { IdDepto = "IdDeptoIn", IdCiudad = "IdCiudadIn", Grupo = "GrupoIn" })';
+                            var url = '@Url.Action("../HomeAdministrator/ResumenListaSinPlano", "ResumenRegistroLista", new { IdDepto = "IdDeptoIn", IdCiudad = "IdCiudadIn", Grupo = "GrupoIn" })';
                             url = url.replace("IdDeptoIn", obj.IdDepto)
-                                     .replace("IdCiudadIn", obj.IdMunicipio)
-                                     .replace("GrupoIn", Tipo);
+                                .replace("IdCiudadIn", obj.IdMunicipio)
+                                .replace("GrupoIn", Tipo);
+
+                            var urlPlano = '@Url.Action("../HomeAdministrator/ResumenListaConPlano", "ResumenRegistroLista", new { IdDepto = "IdDeptoIn", IdCiudad = "IdCiudadIn", Grupo = "GrupoIn" })';
+                            urlPlano = urlPlano.replace("IdDeptoIn", obj.IdDepto)
+                                .replace("IdCiudadIn", obj.IdMunicipio)
+                                .replace("GrupoIn", Tipo);
+
                             oTable.fnAddData([
                                 Registro,
                                 '<a target="_blank" href='+url+'  style="color: #013ADF;"><i class="fa fa-search" aria-hidden="true"></i>'+ obj.Total +'</a>',
-                                obj.Plano,
-                                obj.Orden
+                                '<a target="_blank" href='+urlPlano+'  style="color: #013ADF;"><i class="fa fa-search" aria-hidden="true"></i>'+ obj.Plano +'</a>',
+                                //obj.Plano,
+                                obj.Orden,
+                                obj.Total,
+                                obj.Plano
                             ]);
                             debugger;
 
@@ -205,6 +230,12 @@
                                             <th>
                                                 @Html.DisplayNameFor(model => model.Orden)
                                             </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Total)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Plano)
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -219,7 +250,7 @@
                                                 <a target="_blank" href='@Url.Action("../HomeAdministrator/ResumenLista", "ResumenLista", new { IdDepto = item.IdDepto, IdCiudad = item.IdMunicipio, Grupo = item.Grupo  })' style='color: #013ADF;'><i class='fa fa-search' aria-hidden='true'></i>  @Html.DisplayFor(modelItem => item.Total)</a>
                                             </td>
                                             <td>
-                                                <a target="_blank" href='@Url.Action("../HomeAdministrator/ResumenListaPlano", "ResumenListaPlano", new { IdDepto = item.IdDepto, IdCiudad = item.IdMunicipio, Grupo = item.Grupo  })'  style='color: #013ADF;'><i class='fa fa-search' aria-hidden='true'></i>  @Html.DisplayFor(modelItem => item.Plano)</a>
+                                                <a target="_blank" href='@Url.Action("../HomeAdministrator/ResumenListaPlano", "ResumenListaPlano", new { IdDepto = item.IdDepto, IdCiudad = item.IdMunicipio, Grupo = item.Grupo  })' style='color: #013ADF;'><i class='fa fa-search' aria-hidden='true'></i>  @Html.DisplayFor(modelItem => item.Plano)</a>
                                             </td>
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.Orden)
@@ -227,11 +258,19 @@
                                                     document.getElementById('info').innerHTML='<p class="card-text"> Depto : @item.Depto  <br /> Municipio : @item.Municipio </p>';
                                                 </script>
                                             </td>
+                                            <td>
+                                                 @Html.DisplayFor(modelItem => item.Total)
+                                            </td>
+                                            <td>
+                                                 @Html.DisplayFor(modelItem => item.Plano)
+                                            </td>
                                         </tr>
                                         }
                                     </tbody>
                                     <tfoot class="green white-text title">
                                         <tr>
+                                            <th></th>
+                                            <th></th>
                                             <th></th>
                                             <th></th>
                                             <th></th>
@@ -270,12 +309,20 @@
                                             <th>
                                                 @Html.DisplayNameFor(model => model.Orden)
                                             </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Total)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Plano)
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     </tbody>
                                     <tfoot class="green white-text title">
                                         <tr>
+                                            <th></th>
+                                            <th></th>
                                             <th></th>
                                             <th></th>
                                             <th></th>

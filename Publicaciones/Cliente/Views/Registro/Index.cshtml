@@ -9,7 +9,12 @@
     @Scripts.Render("~/Scripts/ModalControl.js")
     <script type="text/javascript">
         $(document).ready(function () {
-             $('#TableID').dataTable({
+            $('#TableID').dataTable({
+                  dom: "Bfrtip",
+                buttons: [
+                    'print',    
+                    'excel',
+                ],
                 "order": [[2,'asc']],
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
                 "pageLength": 10,
