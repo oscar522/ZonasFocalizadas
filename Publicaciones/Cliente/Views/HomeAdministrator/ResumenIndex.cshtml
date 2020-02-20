@@ -32,8 +32,9 @@
                 "searching": false,
                 dom: "Bfrtip",
                 buttons: [
-                    'print',    
-                    'excel',
+                    { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
+                    { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
+                    { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
                 ],
                 "columnDefs": [
                 {
@@ -102,8 +103,9 @@
                     }],
                  dom: "Bfrtip",
                 buttons: [
-                    'print',    
-                    'excel',
+                    { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
+                    { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
+                    { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
                 ],
                 "footerCallback": function (row, data, start, end, display) {
                     var api = this.api(), data;

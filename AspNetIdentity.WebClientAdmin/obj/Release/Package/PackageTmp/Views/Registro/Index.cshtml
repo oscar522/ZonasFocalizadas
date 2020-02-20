@@ -12,8 +12,9 @@
             $('#TableID').dataTable({
                   dom: "Bfrtip",
                 buttons: [
-                    'print',    
-                    'excel',
+                    { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
+                    { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
+                    { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
                 ],
                 "order": [[2,'asc']],
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
@@ -51,7 +52,7 @@
 <div class="row wow fadeIn">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-header">  <a href="#" onclick="EjecutarModalSlim ('','Registro','Crear','CREAR'); return false;">Crear</a></div>
+            <div class="card-header">  </div>
             <div class="card-body">
                 <div class="table-responsive text-nowrap">
                     <table class="table table-hover " id="TableID">
@@ -121,7 +122,7 @@
                                     </td>
                                     <td>
                                         <a href='@Url.Action("../Registro/Edit", "Edit", new { IdTable = item.Id })' title='Modificar' style='color: #013ADF;'><i class='fa fa-refresh' aria-hidden='true'></i></a>
-                                        <a href="#" onclick="EjecutarModalSlim ('@item.IdExpediente','BaldiosPersonaNatural','Details','Detalle Expedientes'); return false;" title="Detalle" style="color: #013ADF;"><i class="fa fa-search" aria-hidden="true"></i> </a> |
+                                        <a href="#" onclick="EjecutarModalSlim ('@item.IdExpediente','BaldiosPersonaNatural','Details','Detalle Expedientes'); return false;" title="Detalle" style="color: #013ADF;"><i class="fa fa-search" aria-hidden="true"></i> </a> 
                                     </td>
                                 </tr>
                             }

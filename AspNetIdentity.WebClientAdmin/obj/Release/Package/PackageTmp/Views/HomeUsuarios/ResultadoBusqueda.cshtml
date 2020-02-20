@@ -11,8 +11,9 @@
         $('#table_idd').dataTable({
              dom: "Bfrtip",
                 buttons: [
-                    'print',    
-                    'excel',
+                   { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
+                    { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
+                    { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
                 ],
             "order": [[6, "asc"]],
             "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
@@ -95,7 +96,6 @@
 
                                     <td>
                                         <a href='@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = item.id })' title='Modificar' style='color: #013ADF;'><i class='fa fa-refresh' aria-hidden='true'></i></a>
-                                        <a href="#" onclick="Ejecutar ('@item.id','HomeUsuarios','Details','Detalle Expedientes'); return false;" title="Detalle" style="color: #013ADF;"><i class="fa fa-search" aria-hidden="true"></i> </a> |
                                     </td>
                                 </tr>
                             }

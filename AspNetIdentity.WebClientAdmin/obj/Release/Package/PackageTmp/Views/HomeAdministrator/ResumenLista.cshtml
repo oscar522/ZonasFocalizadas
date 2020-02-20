@@ -11,8 +11,9 @@
         $('#table_idd').dataTable({
              dom: "Bfrtip",
                 buttons: [
-                    'print',    
-                    'excel',
+                    { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
+                    { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
+                    { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
                 ],
             "order": [[6, "asc"]],
             "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
