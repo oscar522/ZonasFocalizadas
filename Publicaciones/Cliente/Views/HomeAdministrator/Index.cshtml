@@ -79,12 +79,7 @@
     $(document).ready(function () {
 
         var oTable = $('#table_id').dataTable({
-             dom: "Bfrtip",
-                buttons: [
-                   { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
-                    { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
-                    { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
-                ],
+             
                 "order": [[1, "desc"]],
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
                 "pageLength": 10,
@@ -105,6 +100,12 @@
                         "visible": false,
                         "searchable": false
                     }
+            ],
+                dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
+                buttons: [
+                   { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
+                    { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
+                    { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
                 ],
                 "footerCallback": function (row, data, start, end, display) {
                 var api = this.api(), data;
@@ -118,35 +119,35 @@
                 // computing column Total of the complete result
 
                 var Total5 = api
-                    .column(5)
+                    .column(5,  { page: 'current'})
                     .data()
                     .reduce(function (a, b) {
                         return intVal(a) + intVal(b);
                     }, 0);
 
                 var Total6 = api
-                    .column(6)
+                    .column(6,  { page: 'current'})
                     .data()
                     .reduce(function (a, b) {
                         return intVal(a) + intVal(b);
                     }, 0);
 
                 var Total7 = api
-                    .column(7)
+                    .column(7,  { page: 'current'})
                     .data()
                     .reduce(function (a, b) {
                         return intVal(a) + intVal(b);
                     }, 0);
 
                 var Total8 = api
-                    .column(8)
+                    .column(8,  { page: 'current'})
                     .data()
                     .reduce(function (a, b) {
                         return intVal(a) + intVal(b);
                     }, 0);
 
                 var Total9 = api
-                    .column(9)
+                    .column(9,  { page: 'current'})
                     .data()
                     .reduce(function (a, b) {
                         return intVal(a) + intVal(b);
@@ -226,3 +227,4 @@
 </script>
 
 
+    

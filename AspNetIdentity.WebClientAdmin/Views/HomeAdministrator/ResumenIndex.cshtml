@@ -30,7 +30,7 @@
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
                 "paging": false,
                 "searching": false,
-                dom: "Bfrtip",
+                dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
                 buttons: [
                     { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
                     { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
@@ -61,14 +61,14 @@
                                 i : 0;
                     };
                     var monTotal = api
-                        .column(4)
+                        .column(4 ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
 
                     var tueTotal = api
-                        .column(5)
+                        .column(5  ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
@@ -101,7 +101,7 @@
                     "visible": false,
                     "searchable": false
                     }],
-                 dom: "Bfrtip",
+                 dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
                 buttons: [
                     { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
                     { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
@@ -118,14 +118,14 @@
 
                     // computing column Total of the complete result
                     var monTotal = api
-                        .column(4)
+                        .column(4 ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
 
                     var tueTotal = api
-                        .column(5)
+                        .column(5 ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
