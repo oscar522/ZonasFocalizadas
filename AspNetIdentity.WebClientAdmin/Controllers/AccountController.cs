@@ -104,6 +104,11 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
                         ViewPage = "Index";
                         Controller = "HomeTipificacion";
                     }
+                    else if (IdRol.Equals("Social"))
+                    {
+                        ViewPage = "Index";
+                        Controller = "HomeTipificacion";
+                    }
 
                     return RedirectToAction(ViewPage, Controller);
                 case SignInStatus.LockedOut:

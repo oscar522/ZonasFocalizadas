@@ -992,7 +992,8 @@ namespace AspNetIdentity.WebApi.Logic
             ZonasFEntities Ctx = new ZonasFEntities(); // contesto 
 
             //var lista = Ctx.BaldiosPersonaNatural.Where(xa => xa.NumeroExpediente.Equals("B95000100012009")).Select(x => x.NumeroExpediente).Take(1).ToList(); // lista de expedientes 
-            var lista = Ctx.BaldiosPersonaNatural.Where(xa => xa.NumeroExpediente.Contains("B") && xa.IdCiudad == 90 && xa.IdDepto == 44).Select(x => x.NumeroExpediente).ToList(); // lista de expedientes 
+            //var lista = Ctx.BaldiosPersonaNatural.Where(xa => xa.NumeroExpediente.Contains("B") && xa.IdCiudad == 90 && xa.IdDepto == 44).Select(x => x.NumeroExpediente).ToList(); // lista de expedientes 
+            var lista = Ctx.BaldiosPersonaNatural.Where(xa => xa.RutaVerificado == null && xa.NumeroExpediente.Contains("B")).Select(x => x.NumeroExpediente).ToList(); // lista de expedientes 
 
             string ResultConcat = "error";
             int i = 0;

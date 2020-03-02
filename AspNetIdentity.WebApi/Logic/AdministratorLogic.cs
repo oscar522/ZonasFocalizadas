@@ -492,7 +492,7 @@ namespace AspNetIdentity.WebApi.Logic
                         b.EstadoCaracterizacion,
                         b.RutaArchivoOriginal,
                         NombrDepto = c.NOMBRE
-                    }).Where(v => v.IdDepto == IdDepto).ToList();
+                    }).ToList();
 
                 var CiudadBal = DeptoBal
                     .Join(context.CtCiudad, b => b.IdCiudad, c => c.IdCtMuncipio, (b, c) => new
