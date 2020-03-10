@@ -165,6 +165,39 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
           <Property Name="ArchivoVerificado" Type="int" />
           <Property Name="RutaVerificado" Type="int" />
           <Property Name="FiltroJairo" Type="int" />
+          <Property Name="IdAsignacion" Type="int" />
+        </EntityType>
+        <EntityType Name="Concepto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="IdAspNetUsers" Type="nvarchar" MaxLength="128" />
+          <Property Name="IdCausa" Type="int" />
+          <Property Name="IdExpediente" Type="int" />
+          <Property Name="Soporte" Type="text" />
+          <Property Name="Anexo" Type="text" />
+          <Property Name="IdOrfeo" Type="text" />
+          <Property Name="Estado" Type="bit" />
+          <Property Name="FechaCreacion" Type="date" />
+        </EntityType>
+        <EntityType Name="ConceptoAsociado">
+          <Key>
+            <PropertyRef Name="IdAsociacion" />
+          </Key>
+          <Property Name="IdAsociacion" Type="int" Nullable="false" />
+          <Property Name="IdConcepto" Type="int" />
+          <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" />
+          <Property Name="FechaInsercion" Type="date" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="CtCausas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="text" />
+          <Property Name="Estado" Type="bit" />
         </EntityType>
         <EntityType Name="CtCiudad">
           <Key>
@@ -262,6 +295,28 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
           <Property Name="Grupo" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Orden" Type="int" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ZonasF.dbo.ResumenTipificacionAll' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ResumenTipificacionAll">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="IdExpediente" />
+            <PropertyRef Name="IdAspNetUser" />
+            <PropertyRef Name="Grupo" />
+            <PropertyRef Name="DeptoNombre" />
+            <PropertyRef Name="MunicNombre" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="IdExpediente" Type="int" Nullable="false" />
+          <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="182" Nullable="false" />
+          <Property Name="Grupo" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Plano" Type="int" />
+          <Property Name="Orden" Type="int" />
+          <Property Name="DeptoNombre" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DeptoId" Type="int" />
+          <Property Name="MunicNombre" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MunicId" Type="int" />
+        </EntityType>
         <EntityType Name="RetencionDocumental">
           <Key>
             <PropertyRef Name="Id" />
@@ -358,8 +413,16 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Parameter Name="IdCiudadIn" Type="int" Mode="In" />
           <Parameter Name="IdAspNetUser" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="PlResumenTipificacionAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdDeptoIn" Type="int" Mode="In" />
+          <Parameter Name="IdCiudadIn" Type="int" Mode="In" />
+          <Parameter Name="IdAspNetUser" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="ZonasFModelStoreContainer">
           <EntitySet Name="BaldiosPersonaNatural" EntityType="Self.BaldiosPersonaNatural" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Concepto" EntityType="Self.Concepto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConceptoAsociado" EntityType="Self.ConceptoAsociado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CtCausas" EntityType="Self.CtCausas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CtCiudad" EntityType="Self.CtCiudad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CtDepto" EntityType="Self.CtDepto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CtGenero" EntityType="Self.CtGenero" Schema="dbo" store:Type="Tables" />
@@ -453,6 +516,20 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
     [AspNetUsers].[AccessFailedCount] AS [AccessFailedCount], 
     [AspNetUsers].[UserName] AS [UserName]
     FROM [dbo].[AspNetUsers] AS [AspNetUsers]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ResumenTipificacionAll" EntityType="Self.ResumenTipificacionAll" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ResumenTipificacionAll].[Id] AS [Id], 
+    [ResumenTipificacionAll].[IdExpediente] AS [IdExpediente], 
+    [ResumenTipificacionAll].[IdAspNetUser] AS [IdAspNetUser], 
+    [ResumenTipificacionAll].[Grupo] AS [Grupo], 
+    [ResumenTipificacionAll].[Plano] AS [Plano], 
+    [ResumenTipificacionAll].[Orden] AS [Orden], 
+    [ResumenTipificacionAll].[DeptoNombre] AS [DeptoNombre], 
+    [ResumenTipificacionAll].[DeptoId] AS [DeptoId], 
+    [ResumenTipificacionAll].[MunicNombre] AS [MunicNombre], 
+    [ResumenTipificacionAll].[MunicId] AS [MunicId]
+    FROM [dbo].[ResumenTipificacionAll] AS [ResumenTipificacionAll]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -745,6 +822,15 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
             <Parameter Name="IdCiudadIn" Mode="In" Type="Int32" />
             <Parameter Name="IdAspNetUser" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="Concepto" EntityType="ZonasFModel.Concepto" />
+          <EntitySet Name="CtCausas" EntityType="ZonasFModel.CtCausas" />
+          <EntitySet Name="ConceptoAsociado" EntityType="ZonasFModel.ConceptoAsociado" />
+          <FunctionImport Name="PlResumenTipificacionAll" EntitySet="ResumenTipificacionAll" ReturnType="Collection(ZonasFModel.ResumenTipificacionAll)">
+            <Parameter Name="IdDeptoIn" Mode="In" Type="Int32" />
+            <Parameter Name="IdCiudadIn" Mode="In" Type="Int32" />
+            <Parameter Name="IdAspNetUser" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="ResumenTipificacionAll" EntityType="ZonasFModel.ResumenTipificacionAll" />
         </EntityContainer>
         <EntityType Name="ExpedienteDocumentos">
           <Key>
@@ -807,6 +893,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Property Name="ArchivoVerificado" Type="Int32" />
           <Property Name="RutaVerificado" Type="Int32" />
           <Property Name="FiltroJairo" Type="Int32" />
+          <Property Name="IdAsignacion" Type="Int32" />
         </EntityType>
         <EntityType Name="Registro">
           <Key>
@@ -841,6 +928,58 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Property Name="IdAspNetUser" Type="String" Nullable="false" MaxLength="182" FixedLength="false" Unicode="true" />
           <Property Name="Grupo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Orden" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Concepto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IdAspNetUsers" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IdCausa" Type="Int32" />
+          <Property Name="IdExpediente" Type="Int32" />
+          <Property Name="Soporte" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Anexo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IdOrfeo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="CtCausas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ConceptoAsociado">
+          <Key>
+            <PropertyRef Name="IdAsociacion" />
+          </Key>
+          <Property Name="IdAsociacion" Type="Int32" Nullable="false" />
+          <Property Name="IdConcepto" Type="Int32" />
+          <Property Name="IdAspNetUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="FechaInsercion" Type="DateTime" Precision="0" />
+          <Property Name="Estado" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ResumenTipificacionAll">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="IdExpediente" />
+            <PropertyRef Name="IdAspNetUser" />
+            <PropertyRef Name="Grupo" />
+            <PropertyRef Name="DeptoNombre" />
+            <PropertyRef Name="MunicNombre" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IdExpediente" Type="Int32" Nullable="false" />
+          <Property Name="IdAspNetUser" Type="String" Nullable="false" MaxLength="182" FixedLength="false" Unicode="true" />
+          <Property Name="Grupo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Plano" Type="Int32" />
+          <Property Name="Orden" Type="Int32" />
+          <Property Name="DeptoNombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DeptoId" Type="Int32" />
+          <Property Name="MunicNombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MunicId" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1093,6 +1232,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <EntitySetMapping Name="BaldiosPersonaNatural">
             <EntityTypeMapping TypeName="ZonasFModel.BaldiosPersonaNatural">
               <MappingFragment StoreEntitySet="BaldiosPersonaNatural">
+                <ScalarProperty Name="IdAsignacion" ColumnName="IdAsignacion" />
                 <ScalarProperty Name="FiltroJairo" ColumnName="FiltroJairo" />
                 <ScalarProperty Name="RutaVerificado" ColumnName="RutaVerificado" />
                 <ScalarProperty Name="ArchivoVerificado" ColumnName="ArchivoVerificado" />
@@ -1154,6 +1294,58 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="PlResumenTipificacion" FunctionName="ZonasFModel.Store.PlResumenTipificacion" />
+          <EntitySetMapping Name="Concepto">
+            <EntityTypeMapping TypeName="ZonasFModel.Concepto">
+              <MappingFragment StoreEntitySet="Concepto">
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdOrfeo" ColumnName="IdOrfeo" />
+                <ScalarProperty Name="Anexo" ColumnName="Anexo" />
+                <ScalarProperty Name="Soporte" ColumnName="Soporte" />
+                <ScalarProperty Name="IdExpediente" ColumnName="IdExpediente" />
+                <ScalarProperty Name="IdCausa" ColumnName="IdCausa" />
+                <ScalarProperty Name="IdAspNetUsers" ColumnName="IdAspNetUsers" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CtCausas">
+            <EntityTypeMapping TypeName="ZonasFModel.CtCausas">
+              <MappingFragment StoreEntitySet="CtCausas">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConceptoAsociado">
+            <EntityTypeMapping TypeName="ZonasFModel.ConceptoAsociado">
+              <MappingFragment StoreEntitySet="ConceptoAsociado">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="FechaInsercion" ColumnName="FechaInsercion" />
+                <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />
+                <ScalarProperty Name="IdConcepto" ColumnName="IdConcepto" />
+                <ScalarProperty Name="IdAsociacion" ColumnName="IdAsociacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PlResumenTipificacionAll" FunctionName="ZonasFModel.Store.PlResumenTipificacionAll" />
+          <EntitySetMapping Name="ResumenTipificacionAll">
+            <EntityTypeMapping TypeName="ZonasFModel.ResumenTipificacionAll">
+              <MappingFragment StoreEntitySet="ResumenTipificacionAll">
+                <ScalarProperty Name="MunicId" ColumnName="MunicId" />
+                <ScalarProperty Name="MunicNombre" ColumnName="MunicNombre" />
+                <ScalarProperty Name="DeptoId" ColumnName="DeptoId" />
+                <ScalarProperty Name="DeptoNombre" ColumnName="DeptoNombre" />
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
+                <ScalarProperty Name="Plano" ColumnName="Plano" />
+                <ScalarProperty Name="Grupo" ColumnName="Grupo" />
+                <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />
+                <ScalarProperty Name="IdExpediente" ColumnName="IdExpediente" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

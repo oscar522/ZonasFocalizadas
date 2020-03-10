@@ -259,6 +259,15 @@
       <Parameter Name="IdCiudadIn" Mode="In" Type="Int32" />
       <Parameter Name="IdAspNetUser" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="Concepto" EntityType="ZonasFModel.Concepto" />
+    <EntitySet Name="CtCausas" EntityType="ZonasFModel.CtCausas" />
+    <EntitySet Name="ConceptoAsociado" EntityType="ZonasFModel.ConceptoAsociado" />
+    <FunctionImport Name="PlResumenTipificacionAll" EntitySet="ResumenTipificacionAll" ReturnType="Collection(ZonasFModel.ResumenTipificacionAll)">
+      <Parameter Name="IdDeptoIn" Mode="In" Type="Int32" />
+      <Parameter Name="IdCiudadIn" Mode="In" Type="Int32" />
+      <Parameter Name="IdAspNetUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="ResumenTipificacionAll" EntityType="ZonasFModel.ResumenTipificacionAll" />
   </EntityContainer>
   <EntityType Name="ExpedienteDocumentos">
     <Key>
@@ -321,6 +330,7 @@
     <Property Name="ArchivoVerificado" Type="Int32" />
     <Property Name="RutaVerificado" Type="Int32" />
     <Property Name="FiltroJairo" Type="Int32" />
+    <Property Name="IdAsignacion" Type="Int32" />
   </EntityType>
   <EntityType Name="Registro">
     <Key>
@@ -355,5 +365,57 @@
     <Property Name="IdAspNetUser" Type="String" Nullable="false" MaxLength="182" FixedLength="false" Unicode="true" />
     <Property Name="Grupo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Orden" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Concepto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="IdAspNetUsers" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IdCausa" Type="Int32" />
+    <Property Name="IdExpediente" Type="Int32" />
+    <Property Name="Soporte" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Anexo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IdOrfeo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Boolean" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="CtCausas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ConceptoAsociado">
+    <Key>
+      <PropertyRef Name="IdAsociacion" />
+    </Key>
+    <Property Name="IdAsociacion" Type="Int32" Nullable="false" />
+    <Property Name="IdConcepto" Type="Int32" />
+    <Property Name="IdAspNetUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="FechaInsercion" Type="DateTime" Precision="0" />
+    <Property Name="Estado" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ResumenTipificacionAll">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="IdExpediente" />
+      <PropertyRef Name="IdAspNetUser" />
+      <PropertyRef Name="Grupo" />
+      <PropertyRef Name="DeptoNombre" />
+      <PropertyRef Name="MunicNombre" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="IdExpediente" Type="Int32" Nullable="false" />
+    <Property Name="IdAspNetUser" Type="String" Nullable="false" MaxLength="182" FixedLength="false" Unicode="true" />
+    <Property Name="Grupo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Plano" Type="Int32" />
+    <Property Name="Orden" Type="Int32" />
+    <Property Name="DeptoNombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeptoId" Type="Int32" />
+    <Property Name="MunicNombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MunicId" Type="Int32" />
   </EntityType>
 </Schema>

@@ -52,6 +52,10 @@
     <Compile Include="AccountTableModel.cs" />
     <Compile Include="BaldiosPersonaNaturalModel.cs" />
     <Compile Include="ArchivosModel.cs" />
+    <Compile Include="ConceptoModel.cs" />
+    <Compile Include="ConceptoAsociadoModel.cs" />
+    <Compile Include="CtCausasModel.cs" />
+    <Compile Include="ResumenTipificacionAllModel.cs" />
     <Compile Include="ResumenTipificacionVistaModel.cs" />
     <Compile Include="ResumenTipificacionModel.cs" />
     <Compile Include="RegistroModel.cs" />

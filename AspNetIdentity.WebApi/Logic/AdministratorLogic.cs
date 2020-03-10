@@ -436,6 +436,34 @@ namespace AspNetIdentity.WebApi.Logic
             return Resumen;
         }
 
+        public List<ResumenTipificacionAllModel> ConsultarResumenAll(string IdP)
+        {
+            var Resumen = new List<ResumenTipificacionAllModel>();
+            using (ZonasFEntities context = new ZonasFEntities())
+            {
+                string[] Parametros = IdP.Split('_');
+                int IdDepto = Convert.ToInt32(Parametros[0]);
+                int IdCiudad = Convert.ToInt32(Parametros[1]);
+                string IdAspNetUser = Parametros[2];
+
+                Resumen = context.PlResumenTipificacionAll(IdDepto, IdCiudad, IdAspNetUser)
+                            .Select(c => new ResumenTipificacionAllModel
+                            {
+                                Id = c.Id,
+                                IdExpediente = c.IdExpediente,
+                                IdAspNetUser = c.IdAspNetUser,
+                                Grupo = c.Grupo,
+                                Plano = c.Plano,
+                                Orden = c.Orden,
+                                DeptoNombre = c.DeptoNombre,
+                                DeptoId = c.DeptoId,
+                                MunicId = c.MunicId,
+                                MunicNombre = c.MunicNombre,
+                            }).ToList();
+            }
+            return Resumen;
+        }
+
         public List<BaldiosPersonaNaturalModel> ConsultarResumenLista(string IdP)
         {
             List<BaldiosPersonaNaturalModel> Resumen = new List<BaldiosPersonaNaturalModel>();
@@ -519,6 +547,198 @@ namespace AspNetIdentity.WebApi.Logic
                         IdMunicipioCiudad = c.IdCtMuncipio,
                         IdDeptoCiudad = c.IdCtDepto
                     }).Where(v => v.IdCiudad == IdCiudad && v.IdDeptoCiudad == IdDepto).ToList();
+
+                var TipoIdBal = CiudadBal
+                    .Join(context.CtTipoIdentificacion, b => b.IdTipoIdentificacion, c => c.ID_CT_TIPO_IDENTIFICACION, (b, c) => new
+                    {
+                        b.id,
+                        b.NumeroExpediente,
+                        b.IdDepto,
+                        b.IdCiudad,
+                        b.Vereda,
+                        b.NombrePredio,
+                        b.NombreBeneficiario,
+                        b.IdTipoIdentificacion,
+                        b.Identificacion,
+                        b.IdGenero,
+                        b.IdTipoIdentificacionConyuge,
+                        b.IdentificacionConyuge,
+                        b.NombreConyuge,
+                        b.EstadoInicialMigracion,
+                        b.IdAspNetUser,
+                        b.EstadoCaracterizacion,
+                        b.RutaArchivoOriginal,
+                        b.NombrDepto,
+                        b.NombreMunicipio,
+                        NombreTipoIdentificacion = c.NOMBRE
+                    }).ToList();
+
+                var GeneroBal = TipoIdBal
+                    .Join(context.CtGenero, b => b.IdGenero, c => c.ID_GENERO, (b, c) => new
+                    {
+                        b.id,
+                        b.NumeroExpediente,
+                        b.IdDepto,
+                        b.IdCiudad,
+                        b.Vereda,
+                        b.NombrePredio,
+                        b.NombreBeneficiario,
+                        b.IdTipoIdentificacion,
+                        b.Identificacion,
+                        b.IdGenero,
+                        b.IdTipoIdentificacionConyuge,
+                        b.IdentificacionConyuge,
+                        b.NombreConyuge,
+                        b.EstadoInicialMigracion,
+                        b.IdAspNetUser,
+                        b.EstadoCaracterizacion,
+                        b.RutaArchivoOriginal,
+                        b.NombrDepto,
+                        b.NombreMunicipio,
+                        b.NombreTipoIdentificacion,
+                        NombreGenero = c.NOMBRE
+                    }).ToList();
+
+                var TipoIdConyugeBal = GeneroBal
+                    .Join(context.CtTipoIdentificacion, b => b.IdTipoIdentificacionConyuge, c => c.ID_CT_TIPO_IDENTIFICACION, (b, c) => new
+                    {
+                        b.id,
+                        b.NumeroExpediente,
+                        b.IdDepto,
+                        b.IdCiudad,
+                        b.Vereda,
+                        b.NombrePredio,
+                        b.NombreBeneficiario,
+                        b.IdTipoIdentificacion,
+                        b.Identificacion,
+                        b.IdGenero,
+                        b.IdTipoIdentificacionConyuge,
+                        b.IdentificacionConyuge,
+                        b.NombreConyuge,
+                        b.EstadoInicialMigracion,
+                        b.IdAspNetUser,
+                        b.EstadoCaracterizacion,
+                        b.RutaArchivoOriginal,
+                        b.NombrDepto,
+                        b.NombreMunicipio,
+                        b.NombreTipoIdentificacion,
+                        b.NombreGenero,
+                        NombreTipoIdentificacionConyuge = c.NOMBRE
+                    }).ToList();
+
+                Resumen = TipoIdConyugeBal
+                    .Select(c => new BaldiosPersonaNaturalModel
+                    {
+                        id = c.id,
+                        NumeroExpediente = c.NumeroExpediente,
+                        IdDepto = c.IdDepto,
+                        IdCiudad = c.IdCiudad,
+                        Vereda = c.Vereda,
+                        NombrePredio = c.NombrePredio,
+                        NombreBeneficiario = c.NombreBeneficiario,
+                        IdTipoIdentificacion = c.IdTipoIdentificacion,
+                        Identificacion = c.Identificacion,
+                        IdGenero = c.IdGenero,
+                        IdTipoIdentificacionConyuge = c.IdTipoIdentificacionConyuge,
+                        IdentificacionConyuge = c.IdentificacionConyuge,
+                        NombreConyuge = c.NombreConyuge,
+                        EstadoInicialMigracion = c.EstadoInicialMigracion,
+                        IdAspNetUser = c.IdAspNetUser,
+                        EstadoCaracterizacion = c.EstadoCaracterizacion,
+                        RutaArchivoOriginal = c.RutaArchivoOriginal,
+                        NombreIdDepto = c.NombrDepto,
+                        NombreIdCiudad = c.NombreMunicipio,
+                        NombreIdTipoIdentificacion = c.NombreTipoIdentificacion,
+                        NombreIdGenero = c.NombreGenero,
+                        NombreIdTipoIdentificacionConyuge = c.NombreTipoIdentificacionConyuge,
+                    }).ToList();
+            }
+            return Resumen;
+        }
+
+        public List<BaldiosPersonaNaturalModel> ConsultarResumenListaAll(string IdP)
+        {
+            List<BaldiosPersonaNaturalModel> Resumen = new List<BaldiosPersonaNaturalModel>();
+            using (ZonasFEntities context = new ZonasFEntities())
+            {
+                string[] Parametros = IdP.Split('_');
+                int IdDepto = Convert.ToInt32(Parametros[0]);
+                int IdCiudad = Convert.ToInt32(Parametros[1]);
+                string IdAspNetUser = Parametros[2];
+                string Grupo = Parametros[3];
+
+                var InforPl = context.PlResumenTipificacionAll(IdDepto, IdCiudad, IdAspNetUser).Where(x => x.Grupo == Grupo).ToList();
+
+                var Baldios = InforPl
+                    .Join(context.BaldiosPersonaNatural, l => l.IdExpediente, m => m.id, (l, m) => new
+                    {
+                        m.id,
+                        m.NumeroExpediente,
+                        m.IdDepto,
+                        m.IdCiudad,
+                        m.Vereda,
+                        m.NombrePredio,
+                        m.NombreBeneficiario,
+                        m.IdTipoIdentificacion,
+                        m.Identificacion,
+                        m.IdGenero,
+                        m.IdTipoIdentificacionConyuge,
+                        m.IdentificacionConyuge,
+                        m.NombreConyuge,
+                        m.EstadoInicialMigracion,
+                        m.IdAspNetUser,
+                        m.EstadoCaracterizacion,
+                        m.RutaArchivoOriginal
+                    }).ToList();
+
+                var DeptoBal = Baldios
+                    .Join(context.CtDepto, b => b.IdDepto, c => c.ID_CT_DEPTO, (b, c) => new
+                    {
+                        b.id,
+                        b.NumeroExpediente,
+                        b.IdDepto,
+                        b.IdCiudad,
+                        b.Vereda,
+                        b.NombrePredio,
+                        b.NombreBeneficiario,
+                        b.IdTipoIdentificacion,
+                        b.Identificacion,
+                        b.IdGenero,
+                        b.IdTipoIdentificacionConyuge,
+                        b.IdentificacionConyuge,
+                        b.NombreConyuge,
+                        b.EstadoInicialMigracion,
+                        b.IdAspNetUser,
+                        b.EstadoCaracterizacion,
+                        b.RutaArchivoOriginal,
+                        NombrDepto = c.NOMBRE
+                    }).ToList();
+
+                var CiudadBal = DeptoBal
+                    .Join(context.CtCiudad, b => b.IdCiudad, c => c.IdCtMuncipio, (b, c) => new
+                    {
+                        b.id,
+                        b.NumeroExpediente,
+                        b.IdDepto,
+                        b.IdCiudad,
+                        b.Vereda,
+                        b.NombrePredio,
+                        b.NombreBeneficiario,
+                        b.IdTipoIdentificacion,
+                        b.Identificacion,
+                        b.IdGenero,
+                        b.IdTipoIdentificacionConyuge,
+                        b.IdentificacionConyuge,
+                        b.NombreConyuge,
+                        b.EstadoInicialMigracion,
+                        b.IdAspNetUser,
+                        b.EstadoCaracterizacion,
+                        b.RutaArchivoOriginal,
+                        b.NombrDepto,
+                        NombreMunicipio = c.Nombre,
+                        IdMunicipioCiudad = c.IdCtMuncipio,
+                        IdDeptoCiudad = c.IdCtDepto
+                    }).Where(v => v.IdDeptoCiudad == v.IdDepto).ToList();
 
                 var TipoIdBal = CiudadBal
                     .Join(context.CtTipoIdentificacion, b => b.IdTipoIdentificacion, c => c.ID_CT_TIPO_IDENTIFICACION, (b, c) => new
@@ -824,6 +1044,202 @@ namespace AspNetIdentity.WebApi.Logic
             return Resumen;
         }
 
+        public List<BaldiosPersonaNaturalModel> ConsultarResumenListaPlanoAll(string IdP)
+        {
+            List<BaldiosPersonaNaturalModel> Resumen = new List<BaldiosPersonaNaturalModel>();
+            using (ZonasFEntities context = new ZonasFEntities())
+            {
+                string[] Parametros = IdP.Split('_');
+                int IdDepto = Convert.ToInt32(Parametros[0]);
+                int IdCiudad = Convert.ToInt32(Parametros[1]);
+                string IdAspNetUser = Parametros[2];
+                string Grupo = Parametros[3];
+
+                var InforPl = context.PlResumenTipificacionAll(IdDepto, IdCiudad, IdAspNetUser).Where(x => x.Grupo == Grupo).ToList();
+
+                var Plano = InforPl
+                            .Join(context.ExpedienteDocumentos, l => l.Plano, m => m.Id, (l, m) => new { m.Estado, l.IdExpediente, m.IdRetencionDocumental })
+                            .ToList();
+
+                var Baldios = Plano
+                    .Join(context.BaldiosPersonaNatural, l => l.IdExpediente, m => m.id, (l, m) => new
+                    {
+                        m.id,
+                        m.NumeroExpediente,
+                        m.IdDepto,
+                        m.IdCiudad,
+                        m.Vereda,
+                        m.NombrePredio,
+                        m.NombreBeneficiario,
+                        m.IdTipoIdentificacion,
+                        m.Identificacion,
+                        m.IdGenero,
+                        m.IdTipoIdentificacionConyuge,
+                        m.IdentificacionConyuge,
+                        m.NombreConyuge,
+                        m.EstadoInicialMigracion,
+                        m.IdAspNetUser,
+                        m.EstadoCaracterizacion,
+                        m.RutaArchivoOriginal
+                    }).ToList();
+
+                var DeptoBal = Baldios
+                    .Join(context.CtDepto, b => b.IdDepto, c => c.ID_CT_DEPTO, (b, c) => new
+                    {
+                        b.id,
+                        b.NumeroExpediente,
+                        b.IdDepto,
+                        b.IdCiudad,
+                        b.Vereda,
+                        b.NombrePredio,
+                        b.NombreBeneficiario,
+                        b.IdTipoIdentificacion,
+                        b.Identificacion,
+                        b.IdGenero,
+                        b.IdTipoIdentificacionConyuge,
+                        b.IdentificacionConyuge,
+                        b.NombreConyuge,
+                        b.EstadoInicialMigracion,
+                        b.IdAspNetUser,
+                        b.EstadoCaracterizacion,
+                        b.RutaArchivoOriginal,
+                        NombrDepto = c.NOMBRE
+                    }).ToList();
+
+                var CiudadBal = DeptoBal
+                    .Join(context.CtCiudad, b => b.IdCiudad, c => c.IdCtMuncipio, (b, c) => new
+                    {
+                        b.id,
+                        b.NumeroExpediente,
+                        b.IdDepto,
+                        b.IdCiudad,
+                        b.Vereda,
+                        b.NombrePredio,
+                        b.NombreBeneficiario,
+                        b.IdTipoIdentificacion,
+                        b.Identificacion,
+                        b.IdGenero,
+                        b.IdTipoIdentificacionConyuge,
+                        b.IdentificacionConyuge,
+                        b.NombreConyuge,
+                        b.EstadoInicialMigracion,
+                        b.IdAspNetUser,
+                        b.EstadoCaracterizacion,
+                        b.RutaArchivoOriginal,
+                        b.NombrDepto,
+                        NombreMunicipio = c.Nombre,
+                        IdMunicipioCiudad = c.IdCtMuncipio,
+                        IdDeptoCiudad = c.IdCtDepto
+                    }).Where(v =>  v.IdDeptoCiudad == v.IdDepto).ToList();
+
+                var TipoIdBal = CiudadBal
+                    .Join(context.CtTipoIdentificacion, b => b.IdTipoIdentificacion, c => c.ID_CT_TIPO_IDENTIFICACION, (b, c) => new
+                    {
+                        b.id,
+                        b.NumeroExpediente,
+                        b.IdDepto,
+                        b.IdCiudad,
+                        b.Vereda,
+                        b.NombrePredio,
+                        b.NombreBeneficiario,
+                        b.IdTipoIdentificacion,
+                        b.Identificacion,
+                        b.IdGenero,
+                        b.IdTipoIdentificacionConyuge,
+                        b.IdentificacionConyuge,
+                        b.NombreConyuge,
+                        b.EstadoInicialMigracion,
+                        b.IdAspNetUser,
+                        b.EstadoCaracterizacion,
+                        b.RutaArchivoOriginal,
+                        b.NombrDepto,
+                        b.NombreMunicipio,
+                        NombreTipoIdentificacion = c.NOMBRE
+                    }).ToList();
+
+                var GeneroBal = TipoIdBal
+                    .Join(context.CtGenero, b => b.IdGenero, c => c.ID_GENERO, (b, c) => new
+                    {
+                        b.id,
+                        b.NumeroExpediente,
+                        b.IdDepto,
+                        b.IdCiudad,
+                        b.Vereda,
+                        b.NombrePredio,
+                        b.NombreBeneficiario,
+                        b.IdTipoIdentificacion,
+                        b.Identificacion,
+                        b.IdGenero,
+                        b.IdTipoIdentificacionConyuge,
+                        b.IdentificacionConyuge,
+                        b.NombreConyuge,
+                        b.EstadoInicialMigracion,
+                        b.IdAspNetUser,
+                        b.EstadoCaracterizacion,
+                        b.RutaArchivoOriginal,
+                        b.NombrDepto,
+                        b.NombreMunicipio,
+                        b.NombreTipoIdentificacion,
+                        NombreGenero = c.NOMBRE
+                    }).ToList();
+
+                var TipoIdConyugeBal = GeneroBal
+                    .Join(context.CtTipoIdentificacion, b => b.IdTipoIdentificacionConyuge, c => c.ID_CT_TIPO_IDENTIFICACION, (b, c) => new
+                    {
+                        b.id,
+                        b.NumeroExpediente,
+                        b.IdDepto,
+                        b.IdCiudad,
+                        b.Vereda,
+                        b.NombrePredio,
+                        b.NombreBeneficiario,
+                        b.IdTipoIdentificacion,
+                        b.Identificacion,
+                        b.IdGenero,
+                        b.IdTipoIdentificacionConyuge,
+                        b.IdentificacionConyuge,
+                        b.NombreConyuge,
+                        b.EstadoInicialMigracion,
+                        b.IdAspNetUser,
+                        b.EstadoCaracterizacion,
+                        b.RutaArchivoOriginal,
+                        b.NombrDepto,
+                        b.NombreMunicipio,
+                        b.NombreTipoIdentificacion,
+                        b.NombreGenero,
+                        NombreTipoIdentificacionConyuge = c.NOMBRE
+                    }).ToList();
+
+                Resumen = TipoIdConyugeBal
+                    .Select(c => new BaldiosPersonaNaturalModel
+                    {
+                        id = c.id,
+                        NumeroExpediente = c.NumeroExpediente,
+                        IdDepto = c.IdDepto,
+                        IdCiudad = c.IdCiudad,
+                        Vereda = c.Vereda,
+                        NombrePredio = c.NombrePredio,
+                        NombreBeneficiario = c.NombreBeneficiario,
+                        IdTipoIdentificacion = c.IdTipoIdentificacion,
+                        Identificacion = c.Identificacion,
+                        IdGenero = c.IdGenero,
+                        IdTipoIdentificacionConyuge = c.IdTipoIdentificacionConyuge,
+                        IdentificacionConyuge = c.IdentificacionConyuge,
+                        NombreConyuge = c.NombreConyuge,
+                        EstadoInicialMigracion = c.EstadoInicialMigracion,
+                        IdAspNetUser = c.IdAspNetUser,
+                        EstadoCaracterizacion = c.EstadoCaracterizacion,
+                        RutaArchivoOriginal = c.RutaArchivoOriginal,
+                        NombreIdDepto = c.NombrDepto,
+                        NombreIdCiudad = c.NombreMunicipio,
+                        NombreIdTipoIdentificacion = c.NombreTipoIdentificacion,
+                        NombreIdGenero = c.NombreGenero,
+                        NombreIdTipoIdentificacionConyuge = c.NombreTipoIdentificacionConyuge,
+                    }).ToList();
+            }
+            return Resumen;
+        }
+
         public List<ResumenTipificacionModel> ConsultarResumenRegistro(string IdP)
         {
             var Resumen = new List<ResumenTipificacionModel>();
@@ -855,6 +1271,48 @@ namespace AspNetIdentity.WebApi.Logic
                                 IdDepto = Convert.ToInt32(c.IdDepto),
                                 IdMunicipio = c.IdCtMuncipio
                             }).ToList();
+            }
+            return Resumen;
+        }
+
+        public List<ResumenTipificacionAllModel> ConsultarResumenRegistroAll(string IdP)
+        {
+            var Resumen = new List<ResumenTipificacionAllModel>();
+            using (ZonasFEntities context = new ZonasFEntities())
+            {
+                string[] Parametros = IdP.Split('_');
+                int IdDepto = Convert.ToInt32(Parametros[0]);
+                int IdCiudad = Convert.ToInt32(Parametros[1]);
+                string IdAspNetUser = Parametros[2];
+
+                //Resumen = context.PlResumenTipificacionAll(IdDepto, IdCiudad, IdAspNetUser)
+                //            .Join(context.Registro, b => b.IdExpediente, c => c.IdExpediente, (b, c) =>
+                //             new { c.Estado, b.Id, b.IdExpediente, b.IdAspNetUser, b.Grupo, b.Plano, b.Orden, b.DeptoNombre, b.DeptoId, b.MunicNombre, b.MunicId })
+                //            .Select(c => new ResumenTipificacionAllModel
+                //            {
+                //                Id = Convert.ToInt32(c.Id),
+                //                IdExpediente = Convert.ToInt32(c.IdExpediente),
+                //                IdAspNetUser = c.IdAspNetUser,
+                //                Grupo = c.Estado.ToString(),
+                //                Plano = c.Plano,
+                //                Orden = 1,
+                //                DeptoId = Convert.ToInt32(c.DeptoId),
+                //                DeptoNombre = c.DeptoNombre,
+                //                MunicId = c.MunicId,
+                //                MunicNombre = c.MunicNombre
+                //            }).ToList();
+                Resumen = context.BaldiosPersonaNatural
+                           .Join(context.Registro, b => b.id, c => c.IdExpediente, (b, c) =>
+                            new {EstadoRegistro = c.Estado.Value, b.IdDepto,  b.id, b.IdAspNetUser, c.IdExpediente})
+                           .Select(c => new ResumenTipificacionAllModel
+                           {
+                               Id = c.id,
+                               IdExpediente = c.IdExpediente.Value,
+                               IdAspNetUser = c.IdAspNetUser,
+                               Grupo = c.EstadoRegistro.ToString(),
+                               Plano = context.ExpedienteDocumentos.Where(x => x.IdExpediente == c.id & x.Estado == true & x.IdRetencionDocumental == 21).Select(f => f.IdExpediente.Value).FirstOrDefault(),
+                               Orden = 1,
+                           }).ToList();
             }
             return Resumen;
         }
@@ -1693,6 +2151,265 @@ namespace AspNetIdentity.WebApi.Logic
             return Resumen;
         }
 
+        public List<BaldiosPersonaNaturalModel> ConsultarResumenListaSinPlanoAll(string IdP)
+        {
+            string[] Parametros = IdP.Split('_');
+            int IdDepto = Convert.ToInt32(Parametros[0]);
+            int IdCiudad = Convert.ToInt32(Parametros[1]);
+            string IdAspNetUser = Parametros[2];
+            string Grupo = Parametros[3];
+            List<BaldiosPersonaNaturalModel> Resumen = new List<BaldiosPersonaNaturalModel>();
+
+            using (ZonasFEntities context = new ZonasFEntities())
+            {
+                List<RegistroModel> RegistroQ = new List<RegistroModel>();
+
+                var Plano = context.BaldiosPersonaNatural
+                            .Join(context.Registro, l => l.id, m => m.IdExpediente, (l, m) => new
+                            {
+                                l.id,
+                                l.NumeroExpediente,
+                                l.IdDepto,
+                                l.IdCiudad,
+                                l.Vereda,
+                                l.NombrePredio,
+                                l.NombreBeneficiario,
+                                l.IdTipoIdentificacion,
+                                l.Identificacion,
+                                l.IdGenero,
+                                l.IdTipoIdentificacionConyuge,
+                                l.IdentificacionConyuge,
+                                l.NombreConyuge,
+                                l.EstadoInicialMigracion,
+                                l.IdAspNetUser,
+                                l.EstadoCaracterizacion,
+                                l.RutaArchivoOriginal,
+                                EstadoRegistro = m.Estado
+                            }).ToList();
+
+                var DeptoBal = Plano
+                    .Join(context.CtDepto, b => b.IdDepto, c => c.ID_CT_DEPTO, (b, c) => new
+                    {
+                        b.id,
+                        b.NumeroExpediente,
+                        b.IdDepto,
+                        b.IdCiudad,
+                        b.Vereda,
+                        b.NombrePredio,
+                        b.NombreBeneficiario,
+                        b.IdTipoIdentificacion,
+                        b.Identificacion,
+                        b.IdGenero,
+                        b.IdTipoIdentificacionConyuge,
+                        b.IdentificacionConyuge,
+                        b.NombreConyuge,
+                        b.EstadoInicialMigracion,
+                        b.IdAspNetUser,
+                        b.EstadoCaracterizacion,
+                        b.RutaArchivoOriginal,
+                        NombrDepto = c.NOMBRE,
+                        b.EstadoRegistro
+                    }).ToList();
+
+                var CiudadBal = DeptoBal
+                    .Join(context.CtCiudad, b => b.IdCiudad, c => c.IdCtMuncipio, (b, c) => new
+                    {
+                        b.id,
+                        b.NumeroExpediente,
+                        b.IdDepto,
+                        b.IdCiudad,
+                        b.Vereda,
+                        b.NombrePredio,
+                        b.NombreBeneficiario,
+                        b.IdTipoIdentificacion,
+                        b.Identificacion,
+                        b.IdGenero,
+                        b.IdTipoIdentificacionConyuge,
+                        b.IdentificacionConyuge,
+                        b.NombreConyuge,
+                        b.EstadoInicialMigracion,
+                        b.IdAspNetUser,
+                        b.EstadoCaracterizacion,
+                        b.RutaArchivoOriginal,
+                        b.NombrDepto,
+                        NombreMunicipio = c.Nombre,
+                        IdMunicipioCiudad = c.IdCtMuncipio,
+                        IdDeptoCiudad = c.IdCtDepto,
+                        b.EstadoRegistro
+                    }).Where(v => v.IdDepto == v.IdDeptoCiudad).ToList();
+
+                var TipoIdBal = CiudadBal
+                    .Join(context.CtTipoIdentificacion, b => b.IdTipoIdentificacion, c => c.ID_CT_TIPO_IDENTIFICACION, (b, c) => new
+                    {
+                        b.id,
+                        b.NumeroExpediente,
+                        b.IdDepto,
+                        b.IdCiudad,
+                        b.Vereda,
+                        b.NombrePredio,
+                        b.NombreBeneficiario,
+                        b.IdTipoIdentificacion,
+                        b.Identificacion,
+                        b.IdGenero,
+                        b.IdTipoIdentificacionConyuge,
+                        b.IdentificacionConyuge,
+                        b.NombreConyuge,
+                        b.EstadoInicialMigracion,
+                        b.IdAspNetUser,
+                        b.EstadoCaracterizacion,
+                        b.RutaArchivoOriginal,
+                        b.NombrDepto,
+                        b.NombreMunicipio,
+                        NombreTipoIdentificacion = c.NOMBRE,
+                        b.EstadoRegistro
+                    }).ToList();
+
+                var GeneroBal = TipoIdBal
+                    .Join(context.CtGenero, b => b.IdGenero, c => c.ID_GENERO, (b, c) => new
+                    {
+                        b.id,
+                        b.NumeroExpediente,
+                        b.IdDepto,
+                        b.IdCiudad,
+                        b.Vereda,
+                        b.NombrePredio,
+                        b.NombreBeneficiario,
+                        b.IdTipoIdentificacion,
+                        b.Identificacion,
+                        b.IdGenero,
+                        b.IdTipoIdentificacionConyuge,
+                        b.IdentificacionConyuge,
+                        b.NombreConyuge,
+                        b.EstadoInicialMigracion,
+                        b.IdAspNetUser,
+                        b.EstadoCaracterizacion,
+                        b.RutaArchivoOriginal,
+                        b.NombrDepto,
+                        b.NombreMunicipio,
+                        b.NombreTipoIdentificacion,
+                        NombreGenero = c.NOMBRE,
+                        b.EstadoRegistro
+                    }).ToList();
+
+                var TipoIdConyugeBal = GeneroBal
+                    .Join(context.CtTipoIdentificacion, b => b.IdTipoIdentificacionConyuge, c => c.ID_CT_TIPO_IDENTIFICACION, (b, c) => new
+                    {
+                        b.id,
+                        b.NumeroExpediente,
+                        b.IdDepto,
+                        b.IdCiudad,
+                        b.Vereda,
+                        b.NombrePredio,
+                        b.NombreBeneficiario,
+                        b.IdTipoIdentificacion,
+                        b.Identificacion,
+                        b.IdGenero,
+                        b.IdTipoIdentificacionConyuge,
+                        b.IdentificacionConyuge,
+                        b.NombreConyuge,
+                        b.EstadoInicialMigracion,
+                        b.IdAspNetUser,
+                        b.EstadoCaracterizacion,
+                        b.RutaArchivoOriginal,
+                        b.NombrDepto,
+                        b.NombreMunicipio,
+                        b.NombreTipoIdentificacion,
+                        b.NombreGenero,
+                        NombreTipoIdentificacionConyuge = c.NOMBRE,
+                        b.EstadoRegistro
+                    }).ToList();
+
+                if (Grupo == "True")
+                {
+                    Resumen = TipoIdConyugeBal.Where(x => x.EstadoRegistro == true).Select(c => new BaldiosPersonaNaturalModel
+                    {
+                        id = c.id,
+                        NumeroExpediente = c.NumeroExpediente,
+                        IdDepto = c.IdDepto,
+                        IdCiudad = c.IdCiudad,
+                        Vereda = c.Vereda,
+                        NombrePredio = c.NombrePredio,
+                        NombreBeneficiario = c.NombreBeneficiario,
+                        IdTipoIdentificacion = c.IdTipoIdentificacion,
+                        Identificacion = c.Identificacion,
+                        IdGenero = c.IdGenero,
+                        IdTipoIdentificacionConyuge = c.IdTipoIdentificacionConyuge,
+                        IdentificacionConyuge = c.IdentificacionConyuge,
+                        NombreConyuge = c.NombreConyuge,
+                        EstadoInicialMigracion = c.EstadoInicialMigracion,
+                        IdAspNetUser = c.IdAspNetUser,
+                        EstadoCaracterizacion = c.EstadoCaracterizacion,
+                        RutaArchivoOriginal = c.RutaArchivoOriginal,
+                        NombreIdDepto = c.NombrDepto,
+                        NombreIdCiudad = c.NombreMunicipio,
+                        NombreIdTipoIdentificacion = c.NombreTipoIdentificacion,
+                        NombreIdGenero = c.NombreGenero,
+                        NombreIdTipoIdentificacionConyuge = c.NombreTipoIdentificacionConyuge,
+                    }).ToList();
+                }
+                else if (Grupo == "False")
+                {
+                    Resumen = TipoIdConyugeBal.Where(x => x.EstadoRegistro == false).Select(c => new BaldiosPersonaNaturalModel
+                    {
+                        id = c.id,
+                        NumeroExpediente = c.NumeroExpediente,
+                        IdDepto = c.IdDepto,
+                        IdCiudad = c.IdCiudad,
+                        Vereda = c.Vereda,
+                        NombrePredio = c.NombrePredio,
+                        NombreBeneficiario = c.NombreBeneficiario,
+                        IdTipoIdentificacion = c.IdTipoIdentificacion,
+                        Identificacion = c.Identificacion,
+                        IdGenero = c.IdGenero,
+                        IdTipoIdentificacionConyuge = c.IdTipoIdentificacionConyuge,
+                        IdentificacionConyuge = c.IdentificacionConyuge,
+                        NombreConyuge = c.NombreConyuge,
+                        EstadoInicialMigracion = c.EstadoInicialMigracion,
+                        IdAspNetUser = c.IdAspNetUser,
+                        EstadoCaracterizacion = c.EstadoCaracterizacion,
+                        RutaArchivoOriginal = c.RutaArchivoOriginal,
+                        NombreIdDepto = c.NombrDepto,
+                        NombreIdCiudad = c.NombreMunicipio,
+                        NombreIdTipoIdentificacion = c.NombreTipoIdentificacion,
+                        NombreIdGenero = c.NombreGenero,
+                        NombreIdTipoIdentificacionConyuge = c.NombreTipoIdentificacionConyuge,
+                    }).ToList();
+                }
+                else
+                {
+                    Resumen = TipoIdConyugeBal.Where(x => x.EstadoRegistro == null).Select(c => new BaldiosPersonaNaturalModel
+                    {
+                        id = c.id,
+                        NumeroExpediente = c.NumeroExpediente,
+                        IdDepto = c.IdDepto,
+                        IdCiudad = c.IdCiudad,
+                        Vereda = c.Vereda,
+                        NombrePredio = c.NombrePredio,
+                        NombreBeneficiario = c.NombreBeneficiario,
+                        IdTipoIdentificacion = c.IdTipoIdentificacion,
+                        Identificacion = c.Identificacion,
+                        IdGenero = c.IdGenero,
+                        IdTipoIdentificacionConyuge = c.IdTipoIdentificacionConyuge,
+                        IdentificacionConyuge = c.IdentificacionConyuge,
+                        NombreConyuge = c.NombreConyuge,
+                        EstadoInicialMigracion = c.EstadoInicialMigracion,
+                        IdAspNetUser = c.IdAspNetUser,
+                        EstadoCaracterizacion = c.EstadoCaracterizacion,
+                        RutaArchivoOriginal = c.RutaArchivoOriginal,
+                        NombreIdDepto = c.NombrDepto,
+                        NombreIdCiudad = c.NombreMunicipio,
+                        NombreIdTipoIdentificacion = c.NombreTipoIdentificacion,
+                        NombreIdGenero = c.NombreGenero,
+                        NombreIdTipoIdentificacionConyuge = c.NombreTipoIdentificacionConyuge,
+                    }).ToList();
+                }
+
+            }
+
+            
+            return Resumen;
+        }
+        
         public List<BaldiosPersonaNaturalModel> ConsultarResumenListaConPlano(string IdP)
         {
             List<BaldiosPersonaNaturalModel> Resumen = new List<BaldiosPersonaNaturalModel>();
@@ -1935,6 +2652,320 @@ namespace AspNetIdentity.WebApi.Logic
                         NombreIdGenero = c.NombreGenero,
                         NombreIdTipoIdentificacionConyuge = c.NombreTipoIdentificacionConyuge,
                     }).ToList();
+            }
+            return Resumen;
+        }
+
+        public List<BaldiosPersonaNaturalModel> ConsultarResumenListaConPlanoAll(string IdP)
+        {
+            List<BaldiosPersonaNaturalModel> Resumen = new List<BaldiosPersonaNaturalModel>();
+
+            using (ZonasFEntities context = new ZonasFEntities())
+            {
+                string[] Parametros = IdP.Split('_');
+                int IdDepto = Convert.ToInt32(Parametros[0]);
+                int IdCiudad = Convert.ToInt32(Parametros[1]);
+                string IdAspNetUser = Parametros[2];
+                string Grupo = Parametros[3];
+            
+
+                var Baldios = context.BaldiosPersonaNatural
+                            .Join(context.Registro, l => l.id, m => m.IdExpediente, (l, m) => new
+                            {
+                                l.id,
+                                l.NumeroExpediente,
+                                l.IdDepto,
+                                l.IdCiudad,
+                                l.Vereda,
+                                l.NombrePredio,
+                                l.NombreBeneficiario,
+                                l.IdTipoIdentificacion,
+                                l.Identificacion,
+                                l.IdGenero,
+                                l.IdTipoIdentificacionConyuge,
+                                l.IdentificacionConyuge,
+                                l.NombreConyuge,
+                                l.EstadoInicialMigracion,
+                                l.IdAspNetUser,
+                                l.EstadoCaracterizacion,
+                                l.RutaArchivoOriginal,
+                                estadoResgistro = m.Estado
+                            }).ToList();
+
+                var plano = Baldios.Join(context.ExpedienteDocumentos, l => l.id, m => m.IdExpediente.Value, (l, m) => new
+                {
+                    l.id,
+                    l.NumeroExpediente,
+                    l.IdDepto,
+                    l.IdCiudad,
+                    l.Vereda,
+                    l.NombrePredio,
+                    l.NombreBeneficiario,
+                    l.IdTipoIdentificacion,
+                    l.Identificacion,
+                    l.IdGenero,
+                    l.IdTipoIdentificacionConyuge,
+                    l.IdentificacionConyuge,
+                    l.NombreConyuge,
+                    l.EstadoInicialMigracion,
+                    l.IdAspNetUser,
+                    l.EstadoCaracterizacion,
+                    l.RutaArchivoOriginal,
+                    m.Estado,
+                    m.IdRetencionDocumental,
+                    EstadoRetencion = m.Estado,
+                    l.estadoResgistro
+                })
+                       .Where(x => x.IdRetencionDocumental == 21 && x.Estado == true)
+                       .GroupBy(x => x.id)
+                       .ToList();
+
+                var DeptoBal = plano
+                    .Join(context.CtDepto, b => b.Select(x => x.IdDepto).FirstOrDefault(), c => c.ID_CT_DEPTO, (b, c) => new
+                    {
+                        NumeroExpediente = b.Select(x => x.NumeroExpediente).FirstOrDefault(),
+                        IdDepto = b.Select(x => x.IdDepto).FirstOrDefault(),
+                        IdCiudad = b.Select(x => x.IdCiudad).FirstOrDefault(),
+                        Vereda = b.Select(x => x.Vereda).FirstOrDefault(),
+                        NombrePredio = b.Select(x => x.NombrePredio).FirstOrDefault(),
+                        NombreBeneficiario = b.Select(x => x.NombreBeneficiario).FirstOrDefault(),
+                        IdTipoIdentificacion = b.Select(x => x.IdTipoIdentificacion).FirstOrDefault(),
+                        Identificacion = b.Select(x => x.Identificacion).FirstOrDefault(),
+                        IdGenero = b.Select(x => x.IdGenero).FirstOrDefault(),
+                        IdTipoIdentificacionConyuge = b.Select(x => x.IdTipoIdentificacionConyuge).FirstOrDefault(),
+                        IdentificacionConyuge = b.Select(x => x.IdentificacionConyuge).FirstOrDefault(),
+                        NombreConyuge = b.Select(x => x.NombreConyuge).FirstOrDefault(),
+                        EstadoInicialMigracion = b.Select(x => x.EstadoInicialMigracion).FirstOrDefault(),
+                        IdAspNetUser = b.Select(x => x.IdAspNetUser).FirstOrDefault(),
+                        EstadoCaracterizacion = b.Select(x => x.EstadoCaracterizacion).FirstOrDefault(),
+                        RutaArchivoOriginal = b.Select(x => x.RutaArchivoOriginal).FirstOrDefault(),
+                        NombrDepto = c.NOMBRE,
+                        estadoResgistro = b.Select(x => x.estadoResgistro).FirstOrDefault(),
+                        id = b.Select(x => x.id).FirstOrDefault(),
+
+                    }).ToList();
+
+                var CiudadBal = DeptoBal
+                    .Join(context.CtCiudad, b => b.IdCiudad, c => c.IdCtMuncipio, (b, c) => new
+                    {
+                        b.id,
+                        b.NumeroExpediente,
+                        b.IdDepto,
+                        b.IdCiudad,
+                        b.Vereda,
+                        b.NombrePredio,
+                        b.NombreBeneficiario,
+                        b.IdTipoIdentificacion,
+                        b.Identificacion,
+                        b.IdGenero,
+                        b.IdTipoIdentificacionConyuge,
+                        b.IdentificacionConyuge,
+                        b.NombreConyuge,
+                        b.EstadoInicialMigracion,
+                        b.IdAspNetUser,
+                        b.EstadoCaracterizacion,
+                        b.RutaArchivoOriginal,
+                        b.NombrDepto,
+                        NombreMunicipio = c.Nombre,
+                        IdMunicipioCiudad = c.IdCtMuncipio,
+                        IdDeptoCiudad = c.IdCtDepto,
+                        b.estadoResgistro
+                    }).Where(t => t.IdDepto == t.IdDeptoCiudad).ToList();
+
+                var TipoIdBal = CiudadBal
+                    .Join(context.CtTipoIdentificacion, b => b.IdTipoIdentificacion, c => c.ID_CT_TIPO_IDENTIFICACION, (b, c) => new
+                    {
+                        b.id,
+                        b.NumeroExpediente,
+                        b.IdDepto,
+                        b.IdCiudad,
+                        b.Vereda,
+                        b.NombrePredio,
+                        b.NombreBeneficiario,
+                        b.IdTipoIdentificacion,
+                        b.Identificacion,
+                        b.IdGenero,
+                        b.IdTipoIdentificacionConyuge,
+                        b.IdentificacionConyuge,
+                        b.NombreConyuge,
+                        b.EstadoInicialMigracion,
+                        b.IdAspNetUser,
+                        b.EstadoCaracterizacion,
+                        b.RutaArchivoOriginal,
+                        b.NombrDepto,
+                        b.NombreMunicipio,
+                        NombreTipoIdentificacion = c.NOMBRE,
+                        b.estadoResgistro
+                    }).ToList();
+
+                var GeneroBal = TipoIdBal
+                    .Join(context.CtGenero, b => b.IdGenero, c => c.ID_GENERO, (b, c) => new
+                    {
+                        b.id,
+                        b.NumeroExpediente,
+                        b.IdDepto,
+                        b.IdCiudad,
+                        b.Vereda,
+                        b.NombrePredio,
+                        b.NombreBeneficiario,
+                        b.IdTipoIdentificacion,
+                        b.Identificacion,
+                        b.IdGenero,
+                        b.IdTipoIdentificacionConyuge,
+                        b.IdentificacionConyuge,
+                        b.NombreConyuge,
+                        b.EstadoInicialMigracion,
+                        b.IdAspNetUser,
+                        b.EstadoCaracterizacion,
+                        b.RutaArchivoOriginal,
+                        b.NombrDepto,
+                        b.NombreMunicipio,
+                        b.NombreTipoIdentificacion,
+                        NombreGenero = c.NOMBRE,
+                        b.estadoResgistro
+                    }).ToList();
+
+                var TipoIdConyugeBal = GeneroBal
+                    .Join(context.CtTipoIdentificacion, b => b.IdTipoIdentificacionConyuge, c => c.ID_CT_TIPO_IDENTIFICACION, (b, c) => new
+                    {
+                        b.id,
+                        b.NumeroExpediente,
+                        b.IdDepto,
+                        b.IdCiudad,
+                        b.Vereda,
+                        b.NombrePredio,
+                        b.NombreBeneficiario,
+                        b.IdTipoIdentificacion,
+                        b.Identificacion,
+                        b.IdGenero,
+                        b.IdTipoIdentificacionConyuge,
+                        b.IdentificacionConyuge,
+                        b.NombreConyuge,
+                        b.EstadoInicialMigracion,
+                        b.IdAspNetUser,
+                        b.EstadoCaracterizacion,
+                        b.RutaArchivoOriginal,
+                        b.NombrDepto,
+                        b.NombreMunicipio,
+                        b.NombreTipoIdentificacion,
+                        b.NombreGenero,
+                        NombreTipoIdentificacionConyuge = c.NOMBRE,
+                        b.estadoResgistro
+                    }).ToList();
+
+                //Resumen = TipoIdConyugeBal
+                //    .Select(c => new BaldiosPersonaNaturalModel
+                //    {
+                //        id = c.id,
+                //        NumeroExpediente = c.NumeroExpediente,
+                //        IdDepto = c.IdDepto,
+                //        IdCiudad = c.IdCiudad,
+                //        Vereda = c.Vereda,
+                //        NombrePredio = c.NombrePredio,
+                //        NombreBeneficiario = c.NombreBeneficiario,
+                //        IdTipoIdentificacion = c.IdTipoIdentificacion,
+                //        Identificacion = c.Identificacion,
+                //        IdGenero = c.IdGenero,
+                //        IdTipoIdentificacionConyuge = c.IdTipoIdentificacionConyuge,
+                //        IdentificacionConyuge = c.IdentificacionConyuge,
+                //        NombreConyuge = c.NombreConyuge,
+                //        EstadoInicialMigracion = c.EstadoInicialMigracion,
+                //        IdAspNetUser = c.IdAspNetUser,
+                //        EstadoCaracterizacion = c.EstadoCaracterizacion,
+                //        RutaArchivoOriginal = c.RutaArchivoOriginal,
+                //        NombreIdDepto = c.NombrDepto,
+                //        NombreIdCiudad = c.NombreMunicipio,
+                //        NombreIdTipoIdentificacion = c.NombreTipoIdentificacion,
+                //        NombreIdGenero = c.NombreGenero,
+                //        NombreIdTipoIdentificacionConyuge = c.NombreTipoIdentificacionConyuge,
+                //        b.estadoResgistro
+                //    }).ToList();
+
+                if (Grupo == "True")
+                {
+                    Resumen = TipoIdConyugeBal.Where(x => x.estadoResgistro == true).Select(c => new BaldiosPersonaNaturalModel
+                    {
+                        id = c.id,
+                        NumeroExpediente = c.NumeroExpediente,
+                        IdDepto = c.IdDepto,
+                        IdCiudad = c.IdCiudad,
+                        Vereda = c.Vereda,
+                        NombrePredio = c.NombrePredio,
+                        NombreBeneficiario = c.NombreBeneficiario,
+                        IdTipoIdentificacion = c.IdTipoIdentificacion,
+                        Identificacion = c.Identificacion,
+                        IdGenero = c.IdGenero,
+                        IdTipoIdentificacionConyuge = c.IdTipoIdentificacionConyuge,
+                        IdentificacionConyuge = c.IdentificacionConyuge,
+                        NombreConyuge = c.NombreConyuge,
+                        EstadoInicialMigracion = c.EstadoInicialMigracion,
+                        IdAspNetUser = c.IdAspNetUser,
+                        EstadoCaracterizacion = c.EstadoCaracterizacion,
+                        RutaArchivoOriginal = c.RutaArchivoOriginal,
+                        NombreIdDepto = c.NombrDepto,
+                        NombreIdCiudad = c.NombreMunicipio,
+                        NombreIdTipoIdentificacion = c.NombreTipoIdentificacion,
+                        NombreIdGenero = c.NombreGenero,
+                        NombreIdTipoIdentificacionConyuge = c.NombreTipoIdentificacionConyuge,
+                    }).ToList();
+                }
+                else if (Grupo == "False")
+                {
+                    Resumen = TipoIdConyugeBal.Where(x => x.estadoResgistro == false).Select(c => new BaldiosPersonaNaturalModel
+                    {
+                        id = c.id,
+                        NumeroExpediente = c.NumeroExpediente,
+                        IdDepto = c.IdDepto,
+                        IdCiudad = c.IdCiudad,
+                        Vereda = c.Vereda,
+                        NombrePredio = c.NombrePredio,
+                        NombreBeneficiario = c.NombreBeneficiario,
+                        IdTipoIdentificacion = c.IdTipoIdentificacion,
+                        Identificacion = c.Identificacion,
+                        IdGenero = c.IdGenero,
+                        IdTipoIdentificacionConyuge = c.IdTipoIdentificacionConyuge,
+                        IdentificacionConyuge = c.IdentificacionConyuge,
+                        NombreConyuge = c.NombreConyuge,
+                        EstadoInicialMigracion = c.EstadoInicialMigracion,
+                        IdAspNetUser = c.IdAspNetUser,
+                        EstadoCaracterizacion = c.EstadoCaracterizacion,
+                        RutaArchivoOriginal = c.RutaArchivoOriginal,
+                        NombreIdDepto = c.NombrDepto,
+                        NombreIdCiudad = c.NombreMunicipio,
+                        NombreIdTipoIdentificacion = c.NombreTipoIdentificacion,
+                        NombreIdGenero = c.NombreGenero,
+                        NombreIdTipoIdentificacionConyuge = c.NombreTipoIdentificacionConyuge,
+                    }).ToList();
+                }
+                else
+                {
+                    Resumen = TipoIdConyugeBal.Where(x => x.estadoResgistro == null).Select(c => new BaldiosPersonaNaturalModel
+                    {
+                        id = c.id,
+                        NumeroExpediente = c.NumeroExpediente,
+                        IdDepto = c.IdDepto,
+                        IdCiudad = c.IdCiudad,
+                        Vereda = c.Vereda,
+                        NombrePredio = c.NombrePredio,
+                        NombreBeneficiario = c.NombreBeneficiario,
+                        IdTipoIdentificacion = c.IdTipoIdentificacion,
+                        Identificacion = c.Identificacion,
+                        IdGenero = c.IdGenero,
+                        IdTipoIdentificacionConyuge = c.IdTipoIdentificacionConyuge,
+                        IdentificacionConyuge = c.IdentificacionConyuge,
+                        NombreConyuge = c.NombreConyuge,
+                        EstadoInicialMigracion = c.EstadoInicialMigracion,
+                        IdAspNetUser = c.IdAspNetUser,
+                        EstadoCaracterizacion = c.EstadoCaracterizacion,
+                        RutaArchivoOriginal = c.RutaArchivoOriginal,
+                        NombreIdDepto = c.NombrDepto,
+                        NombreIdCiudad = c.NombreMunicipio,
+                        NombreIdTipoIdentificacion = c.NombreTipoIdentificacion,
+                        NombreIdGenero = c.NombreGenero,
+                        NombreIdTipoIdentificacionConyuge = c.NombreTipoIdentificacionConyuge,
+                    }).ToList();
+                }
+
             }
             return Resumen;
         }

@@ -50,6 +50,10 @@ namespace AspNetIdentity.WebApi.Models
         public virtual DbSet<BaldiosPersonaNatural> BaldiosPersonaNatural { get; set; }
         public virtual DbSet<Registro> Registro { get; set; }
         public virtual DbSet<ResumenTipificacion> ResumenTipificacion { get; set; }
+        public virtual DbSet<Concepto> Concepto { get; set; }
+        public virtual DbSet<CtCausas> CtCausas { get; set; }
+        public virtual DbSet<ConceptoAsociado> ConceptoAsociado { get; set; }
+        public virtual DbSet<ResumenTipificacionAll> ResumenTipificacionAll { get; set; }
     
         public virtual int AspNetUsers_Insertar(string firstName, string lastName, string email, string passwordHash, string id)
         {
@@ -108,6 +112,40 @@ namespace AspNetIdentity.WebApi.Models
                 new ObjectParameter("IdAspNetUser", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ResumenTipificacion>("PlResumenTipificacion", mergeOption, idDeptoInParameter, idCiudadInParameter, idAspNetUserParameter);
+        }
+    
+        public virtual ObjectResult<ResumenTipificacionAll> PlResumenTipificacionAll(Nullable<int> idDeptoIn, Nullable<int> idCiudadIn, string idAspNetUser)
+        {
+            var idDeptoInParameter = idDeptoIn.HasValue ?
+                new ObjectParameter("IdDeptoIn", idDeptoIn) :
+                new ObjectParameter("IdDeptoIn", typeof(int));
+    
+            var idCiudadInParameter = idCiudadIn.HasValue ?
+                new ObjectParameter("IdCiudadIn", idCiudadIn) :
+                new ObjectParameter("IdCiudadIn", typeof(int));
+    
+            var idAspNetUserParameter = idAspNetUser != null ?
+                new ObjectParameter("IdAspNetUser", idAspNetUser) :
+                new ObjectParameter("IdAspNetUser", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ResumenTipificacionAll>("PlResumenTipificacionAll", idDeptoInParameter, idCiudadInParameter, idAspNetUserParameter);
+        }
+    
+        public virtual ObjectResult<ResumenTipificacionAll> PlResumenTipificacionAll(Nullable<int> idDeptoIn, Nullable<int> idCiudadIn, string idAspNetUser, MergeOption mergeOption)
+        {
+            var idDeptoInParameter = idDeptoIn.HasValue ?
+                new ObjectParameter("IdDeptoIn", idDeptoIn) :
+                new ObjectParameter("IdDeptoIn", typeof(int));
+    
+            var idCiudadInParameter = idCiudadIn.HasValue ?
+                new ObjectParameter("IdCiudadIn", idCiudadIn) :
+                new ObjectParameter("IdCiudadIn", typeof(int));
+    
+            var idAspNetUserParameter = idAspNetUser != null ?
+                new ObjectParameter("IdAspNetUser", idAspNetUser) :
+                new ObjectParameter("IdAspNetUser", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ResumenTipificacionAll>("PlResumenTipificacionAll", mergeOption, idDeptoInParameter, idCiudadInParameter, idAspNetUserParameter);
         }
     }
 }

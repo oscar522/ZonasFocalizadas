@@ -21,7 +21,14 @@
           "order": 3,
           "controllerName": "HomeAdministrator",
           "actionName": "Index",
-          "linkText": "Expe. Consolidados",
+          "linkText": "Mun. Focalizados",
+          "iconText": "fa fa-tasks mr-3"
+        },
+        {
+          "order": 3,
+          "controllerName": "HomeAdministrator",
+          "actionName": "ResumenAll",
+          "linkText": "Exp. Consolidados",
           "iconText": "fa fa-tasks mr-3"
         },
         {
@@ -29,6 +36,13 @@
           "controllerName": "HomeUsuarios",
           "actionName": "BuscarExpedientes",
           "linkText": "Buscar Expedientes",
+          "iconText": "fa fa-search mr-3"
+        },
+        {
+          "order": 5,
+          "controllerName": "Concepto",
+          "actionName": "Index",
+          "linkText": "Conceptos",
           "iconText": "fa fa-search mr-3"
         }
 
@@ -55,7 +69,14 @@
           "order": 3,
           "controllerName": "HomeAdministrator",
           "actionName": "Index",
-          "linkText": "Expe. Consolidados",
+          "linkText": "Mun. Focalizados",
+          "iconText": "fa fa-tasks mr-3"
+        },
+        {
+          "order": 3,
+          "controllerName": "HomeAdministrator",
+          "actionName": "ResumenAll",
+          "linkText": "Exp. Consolidados",
           "iconText": "fa fa-tasks mr-3"
         },
         {
@@ -63,6 +84,13 @@
           "controllerName": "HomeUsuarios",
           "actionName": "BuscarExpedientes",
           "linkText": "Buscar Expedientes",
+          "iconText": "fa fa-search mr-3"
+        },
+        {
+          "order": 5,
+          "controllerName": "Concepto",
+          "actionName": "Index",
+          "linkText": "Conceptos",
           "iconText": "fa fa-search mr-3"
         }
       ]
@@ -88,11 +116,18 @@
           "order": 3,
           "controllerName": "HomeAdministrator",
           "actionName": "Index",
-          "linkText": "Expe. Consolidados",
+          "linkText": "Mun. Focalizados",
           "iconText": "fa fa-tasks mr-3"
         },
         {
           "order": 4,
+          "controllerName": "HomeAdministrator",
+          "actionName": "ResumenAll",
+          "linkText": "Exp. Consolidados",
+          "iconText": "fa fa-tasks mr-3"
+        },
+        {
+          "order": 5 ,
           "controllerName": "HomeUsuarios",
           "actionName": "BuscarExpedientes",
           "linkText": "Buscar Expedientes",
@@ -121,7 +156,14 @@
           "order": 3,
           "controllerName": "HomeAdministrator",
           "actionName": "Index",
-          "linkText": "Expe. Consolidados",
+          "linkText": "Mun. Focalizados",
+          "iconText": "fa fa-tasks mr-3"
+        },
+        {
+          "order": 3,
+          "controllerName": "HomeAdministrator",
+          "actionName": "ResumenAll",
+          "linkText": "Exp. Consolidados",
           "iconText": "fa fa-tasks mr-3"
         },
         {
@@ -129,6 +171,13 @@
           "controllerName": "HomeUsuarios",
           "actionName": "BuscarExpedientes",
           "linkText": "Buscar Expedientes",
+          "iconText": "fa fa-search mr-3"
+        },
+        {
+          "order": 5,
+          "controllerName": "Concepto",
+          "actionName": "Index",
+          "linkText": "Conceptos",
           "iconText": "fa fa-search mr-3"
         }
       ]

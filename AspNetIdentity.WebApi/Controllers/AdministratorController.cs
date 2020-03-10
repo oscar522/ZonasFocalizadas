@@ -56,12 +56,32 @@ namespace AspNetIdentity.WebApi.Controllers
         }
 
         [Authorize]
+        [Route("getResumenAll/{IdP}")]
+        public List<ResumenTipificacionAllModel> GetRegumenAll(string IdP)
+        {
+            AdministratorLogic a = new AdministratorLogic();
+            var model = new List<ResumenTipificacionAllModel>();
+            model = a.ConsultarResumenAll(IdP);
+            return model;
+        }
+
+        [Authorize]
         [Route("getResumenLista/{IdP}")]
         public List<BaldiosPersonaNaturalModel> GetRegumenLista(string IdP)
         {
             AdministratorLogic a = new AdministratorLogic();
             var model = new List<BaldiosPersonaNaturalModel>();
             model = a.ConsultarResumenLista(IdP);
+            return model;
+        }
+
+        [Authorize]
+        [Route("getResumenListaAll/{IdP}")]
+        public List<BaldiosPersonaNaturalModel> GetRegumenListaAll(string IdP)
+        {
+            AdministratorLogic a = new AdministratorLogic();
+            var model = new List<BaldiosPersonaNaturalModel>();
+            model = a.ConsultarResumenListaAll(IdP);
             return model;
         }
 
@@ -76,12 +96,32 @@ namespace AspNetIdentity.WebApi.Controllers
         }
 
         [Authorize]
+        [Route("getResumenListaPlanoAll/{IdP}")]
+        public List<BaldiosPersonaNaturalModel> GetRegumenListaPlanoAll(string IdP)
+        {
+            AdministratorLogic a = new AdministratorLogic();
+            var model = new List<BaldiosPersonaNaturalModel>();
+            model = a.ConsultarResumenListaPlanoAll(IdP);
+            return model;
+        }
+
+        [Authorize]
         [Route("getResumenRegistro/{IdP}")]
         public List<ResumenTipificacionModel> GetRegumenRegistro(string IdP)
         {
             AdministratorLogic a = new AdministratorLogic();
             var model = new List<ResumenTipificacionModel>();
             model = a.ConsultarResumenRegistro(IdP);
+            return model;
+        }
+
+        [Authorize]
+        [Route("getResumenRegistroAll/{IdP}")]
+        public List<ResumenTipificacionAllModel> GetRegumenRegistroAll(string IdP)
+        {
+            AdministratorLogic a = new AdministratorLogic();
+            var model = new List<ResumenTipificacionAllModel>();
+            model = a.ConsultarResumenRegistroAll(IdP);
             return model;
         }
 
@@ -135,12 +175,32 @@ namespace AspNetIdentity.WebApi.Controllers
         }
 
         [Authorize]
+        [Route("getResumenListaSinPlanoAll/{IdP}")]
+        public List<BaldiosPersonaNaturalModel> GetRegumenListaSinPlanoAll(string IdP)
+        {
+            AdministratorLogic a = new AdministratorLogic();
+            var model = new List<BaldiosPersonaNaturalModel>();
+            model = a.ConsultarResumenListaSinPlanoAll(IdP);
+            return model;
+        }
+
+        [Authorize]
         [Route("getResumenListaConPlano/{IdP}")]
         public List<BaldiosPersonaNaturalModel> GetRegumenListaConPlano(string IdP)
         {
             AdministratorLogic a = new AdministratorLogic();
             var model = new List<BaldiosPersonaNaturalModel>();
             model = a.ConsultarResumenListaConPlano(IdP);
+            return model;
+        }
+
+        [Authorize]
+        [Route("getResumenListaConPlanoAll/{IdP}")]
+        public List<BaldiosPersonaNaturalModel> GetRegumenListaConPlanoAll(string IdP)
+        {
+            AdministratorLogic a = new AdministratorLogic();
+            var model = new List<BaldiosPersonaNaturalModel>();
+            model = a.ConsultarResumenListaConPlanoAll(IdP);
             return model;
         }
 

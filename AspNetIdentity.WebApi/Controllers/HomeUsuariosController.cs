@@ -45,9 +45,5 @@ namespace AspNetIdentity.WebApi.Controllers
             return model;
         }
 
-
-
-        //BuscarExpediente
-
     }
 }

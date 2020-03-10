@@ -160,6 +160,39 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="ArchivoVerificado" Type="int" />
     <Property Name="RutaVerificado" Type="int" />
     <Property Name="FiltroJairo" Type="int" />
+    <Property Name="IdAsignacion" Type="int" />
+  </EntityType>
+  <EntityType Name="Concepto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="IdAspNetUsers" Type="nvarchar" MaxLength="128" />
+    <Property Name="IdCausa" Type="int" />
+    <Property Name="IdExpediente" Type="int" />
+    <Property Name="Soporte" Type="text" />
+    <Property Name="Anexo" Type="text" />
+    <Property Name="IdOrfeo" Type="text" />
+    <Property Name="Estado" Type="bit" />
+    <Property Name="FechaCreacion" Type="date" />
+  </EntityType>
+  <EntityType Name="ConceptoAsociado">
+    <Key>
+      <PropertyRef Name="IdAsociacion" />
+    </Key>
+    <Property Name="IdAsociacion" Type="int" Nullable="false" />
+    <Property Name="IdConcepto" Type="int" />
+    <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" />
+    <Property Name="FechaInsercion" Type="date" />
+    <Property Name="Estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="CtCausas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="text" />
+    <Property Name="Estado" Type="bit" />
   </EntityType>
   <EntityType Name="CtCiudad">
     <Key>
@@ -257,6 +290,28 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="Grupo" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="Orden" Type="int" />
   </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ZonasF.dbo.ResumenTipificacionAll' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="ResumenTipificacionAll">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="IdExpediente" />
+      <PropertyRef Name="IdAspNetUser" />
+      <PropertyRef Name="Grupo" />
+      <PropertyRef Name="DeptoNombre" />
+      <PropertyRef Name="MunicNombre" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="IdExpediente" Type="int" Nullable="false" />
+    <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="182" Nullable="false" />
+    <Property Name="Grupo" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Plano" Type="int" />
+    <Property Name="Orden" Type="int" />
+    <Property Name="DeptoNombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DeptoId" Type="int" />
+    <Property Name="MunicNombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MunicId" Type="int" />
+  </EntityType>
   <EntityType Name="RetencionDocumental">
     <Key>
       <PropertyRef Name="Id" />
@@ -353,8 +408,16 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
     <Parameter Name="IdCiudadIn" Type="int" Mode="In" />
     <Parameter Name="IdAspNetUser" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="PlResumenTipificacionAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdDeptoIn" Type="int" Mode="In" />
+    <Parameter Name="IdCiudadIn" Type="int" Mode="In" />
+    <Parameter Name="IdAspNetUser" Type="nvarchar" Mode="In" />
+  </Function>
   <EntityContainer Name="ZonasFModelStoreContainer">
     <EntitySet Name="BaldiosPersonaNatural" EntityType="Self.BaldiosPersonaNatural" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Concepto" EntityType="Self.Concepto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConceptoAsociado" EntityType="Self.ConceptoAsociado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CtCausas" EntityType="Self.CtCausas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CtCiudad" EntityType="Self.CtCiudad" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CtDepto" EntityType="Self.CtDepto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CtGenero" EntityType="Self.CtGenero" Schema="dbo" store:Type="Tables" />
@@ -448,6 +511,20 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
     [AspNetUsers].[AccessFailedCount] AS [AccessFailedCount], 
     [AspNetUsers].[UserName] AS [UserName]
     FROM [dbo].[AspNetUsers] AS [AspNetUsers]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ResumenTipificacionAll" EntityType="Self.ResumenTipificacionAll" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ResumenTipificacionAll].[Id] AS [Id], 
+    [ResumenTipificacionAll].[IdExpediente] AS [IdExpediente], 
+    [ResumenTipificacionAll].[IdAspNetUser] AS [IdAspNetUser], 
+    [ResumenTipificacionAll].[Grupo] AS [Grupo], 
+    [ResumenTipificacionAll].[Plano] AS [Plano], 
+    [ResumenTipificacionAll].[Orden] AS [Orden], 
+    [ResumenTipificacionAll].[DeptoNombre] AS [DeptoNombre], 
+    [ResumenTipificacionAll].[DeptoId] AS [DeptoId], 
+    [ResumenTipificacionAll].[MunicNombre] AS [MunicNombre], 
+    [ResumenTipificacionAll].[MunicId] AS [MunicId]
+    FROM [dbo].[ResumenTipificacionAll] AS [ResumenTipificacionAll]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 

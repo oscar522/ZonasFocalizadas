@@ -238,6 +238,7 @@
     <Compile Include="Controllers\AccountTableController.cs" />
     <Compile Include="Controllers\AssessmentsController.cs" />
     <Compile Include="Controllers\AdministratorController.cs" />
+    <Compile Include="Controllers\ConceptosController.cs" />
     <Compile Include="Controllers\HomeUsuariosController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\ClaimsController.cs" />
@@ -263,6 +264,7 @@
     <Compile Include="Logic\AccountTableLogic.cs" />
     <Compile Include="Logic\AssessmentsLogic.cs" />
     <Compile Include="Logic\AdministratorLogic.cs" />
+    <Compile Include="Logic\ConceptoLogic.cs" />
     <Compile Include="Logic\HomeUsuariosLogic.cs" />
     <Compile Include="Logic\BaldiosPersonaNaturalLogic.cs" />
     <Compile Include="Logic\CtCiudadLogic.cs" />
@@ -307,6 +309,15 @@
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ClaimBindingModel.cs" />
+    <Compile Include="Models\Concepto.cs">
+      <DependentUpon>ZonasFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConceptoAsociado.cs">
+      <DependentUpon>ZonasFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CtCausas.cs">
+      <DependentUpon>ZonasFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CtCiudad.cs">
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>
@@ -334,6 +345,9 @@
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ResumenTipificacion.cs">
+      <DependentUpon>ZonasFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ResumenTipificacionAll.cs">
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RetencionDocumental.cs">
