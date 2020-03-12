@@ -73,8 +73,6 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             return Json(processModel, JsonRequestBehavior.AllowGet);
         }
 
-
-
         public async Task<ActionResult> Index()
         {
             string Id = GetTokenObject().nameid;

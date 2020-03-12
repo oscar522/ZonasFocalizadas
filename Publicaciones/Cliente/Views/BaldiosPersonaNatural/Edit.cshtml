@@ -160,9 +160,11 @@
                     state = 1;
                 }
                 if (state == 0) {
+                    alert($("#EstadoExp").val());
                     $.ajax({
                         type: 'POST',
                         url: '@Url.Action("PostExpedienteDocumentos")',
+                        contetnType:"application_json; charset=utf-8",
                         dataType: 'json',
                         data: {
                             EstadoExp: $("#EstadoExp").val(),
@@ -173,6 +175,8 @@
                             PagFinal: $("#IPaginaFinal").val(),
                             ArchivoActual: $("#ArchivoActual").val(),
                             ArchivoActualUrl: $("#ArchivoNombre").val()
+                            //ArchivoActual: "Prueba",
+                            //ArchivoActualUrl: "Prueba",
                         },
                         success: function (states) {
                             tabla();

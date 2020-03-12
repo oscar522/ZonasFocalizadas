@@ -15,14 +15,14 @@ namespace AspNetIdentity.WebApi.Logic
         public int ConsultaCountRegistroUser(string IdP)
         {
             ZonasFEntities Ctx = new ZonasFEntities();
-            var Baldios = Ctx.Registro.Where(w => w.IdAspNetUser == IdP).Count();
+            var Baldios = Ctx.Registro.Where(w => w.IdAspNetUser == IdP && w.EstadoRegistro == true).Count();
             return Baldios;
         }
 
         public int ConsultaCountRegistroUserRevisados(string IdP)
         {
             ZonasFEntities Ctx = new ZonasFEntities();
-            var Baldios = Ctx.Registro.Where(w => w.IdAspNetUser == IdP && w.Estado != null ).Count();
+            var Baldios = Ctx.Registro.Where(w => w.IdAspNetUser == IdP && w.Estado != null && w.EstadoRegistro == true ).Count();
             return Baldios;
         }
 

@@ -1303,7 +1303,7 @@ namespace AspNetIdentity.WebApi.Logic
                 //            }).ToList();
                 Resumen = context.BaldiosPersonaNatural
                            .Join(context.Registro, b => b.id, c => c.IdExpediente, (b, c) =>
-                            new {EstadoRegistro = c.Estado.Value, b.IdDepto,  b.id, b.IdAspNetUser, c.IdExpediente})
+                            new {activo = c.EstadoRegistro, EstadoRegistro = c.Estado.Value, b.IdDepto,  b.id, b.IdAspNetUser, c.IdExpediente}).Where(c=>c.activo == true)
                            .Select(c => new ResumenTipificacionAllModel
                            {
                                Id = c.id,
