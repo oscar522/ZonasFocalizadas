@@ -982,18 +982,19 @@ namespace AspNetIdentity.WebApi.Logic
         public String BuscarArchivos(int id)
         {
             string ruta = @"" + ConfigurationManager.AppSettings["PdfPath"]; // RUTA DE LOS ARCHIVOS
+            string rutac = @"" + ConfigurationManager.AppSettings["PdfPath"]; // RUTA DE LOS ARCHIVOS
 
-            DirectoryInfo directory = new DirectoryInfo(ruta); // Obtiene la info del directoria
+            List<ArchivosModel> subdir =  GetSubDirectories(rutac);
+            DirectoryInfo directory = new DirectoryInfo(rutac); // Obtiene la info del directoria
 
-            var Directory_ = directory.GetDirectories().Select(c => new ArchivosModel { NOMBRE = c.ToString(), DIR = c.FullName }).ToList(); // obtiene los directorios
-
+            var Directory_C = directory.GetDirectories().Select(c => new ArchivosModel { NOMBRE = c.ToString(), DIR = c.FullName }).ToList(); // obtiene los directorios
+            var Directory_ = subdir.Select(c => new ArchivosModel { NOMBRE = c.NOMBRE, DIR = c.DIR }).ToList(); // obtiene los directorios
             var files_ = directory.GetFiles("*.pdf", SearchOption.AllDirectories).Select(c => new ArchivosModel { NOMBRE = c.ToString(), DIR = c.FullName }).ToList(); // obtiene los archivos
 
             ZonasFEntities Ctx = new ZonasFEntities(); // contesto 
-
             //var lista = Ctx.BaldiosPersonaNatural.Where(xa => xa.NumeroExpediente.Equals("B95000100012009")).Select(x => x.NumeroExpediente).Take(1).ToList(); // lista de expedientes 
             //var lista = Ctx.BaldiosPersonaNatural.Where(xa => xa.NumeroExpediente.Contains("B") && xa.IdCiudad == 90 && xa.IdDepto == 44).Select(x => x.NumeroExpediente).ToList(); // lista de expedientes 
-            var lista = Ctx.BaldiosPersonaNatural.Where(xa => xa.RutaVerificado == null && xa.NumeroExpediente.Contains("B")).Select(x => x.NumeroExpediente).ToList(); // lista de expedientes 
+            var lista = Ctx.BaldiosPersonaNatural.Where(xa => xa.RutaVerificado == null && xa.IdAspNetUser == "1" && xa.NumeroExpediente.Contains("B")).Select(x => x.NumeroExpediente).ToList(); // lista de expedientes 
 
             string ResultConcat = "error";
             int i = 0;
@@ -1133,6 +1134,55 @@ namespace AspNetIdentity.WebApi.Logic
 
 
             return ResultConcat;
+        }
+
+        public List<ArchivosModel> GetSubDirectories(string root)
+        {
+            //string root = @"C:\Temp";
+            List<ArchivosModel> Folder = new List<ArchivosModel>();
+            List<ArchivosModel> FolderAll = new List<ArchivosModel>();
+
+            DirectoryInfo directory = new DirectoryInfo(root); // Obtiene la info del directoria
+
+            Folder = directory.GetDirectories().Select(c => new ArchivosModel { NOMBRE = c.ToString(), DIR = c.FullName }).ToList(); // obtiene los directorios
+
+            // Get all subdirectories
+                List<ArchivosModel> FolderSub = new List<ArchivosModel>();
+            // Loop through them to see if they have any other subdirectories
+            foreach (ArchivosModel subdirectory in Folder) {
+
+                ArchivosModel ArchivosModel_c = new ArchivosModel { 
+                NOMBRE = subdirectory.NOMBRE,
+                DIR = subdirectory.DIR
+                };
+
+                FolderSub.Add(ArchivosModel_c);
+                List<ArchivosModel> FolderSubRe = LoadSubDirs(subdirectory.DIR, FolderSub);
+                FolderAll = FolderSub.Union(FolderSubRe).ToList(); 
+            }
+            return FolderAll;
+        }
+
+        private List<ArchivosModel> LoadSubDirs(string dir, List<ArchivosModel> FolderSub)
+        {
+            //string[] subdirectoryEntries = Directory.GetDirectories(dir);
+
+            DirectoryInfo directory = new DirectoryInfo(dir); // Obtiene la info del directoria
+
+            var Folder = directory.GetDirectories().Select(c => new ArchivosModel { NOMBRE = c.ToString(), DIR = c.FullName }).ToList(); // obtiene los directorios
+
+            foreach (ArchivosModel subdirectory in Folder)
+            {
+                ArchivosModel ArchivosModel_c = new ArchivosModel
+                {
+                    NOMBRE = subdirectory.NOMBRE,
+                    DIR = subdirectory.DIR
+                };
+
+                FolderSub.Add(ArchivosModel_c);
+                List<ArchivosModel> FolderSubRe = LoadSubDirs(subdirectory.DIR, FolderSub);
+            }
+            return FolderSub;
         }
 
         public string GuardarArchivo(string Origen, string Destino)
