@@ -3,10 +3,22 @@
 {
     <script type="text/javascript">
         $(document).ready(function () {
-
+            
         // obtiene la url de los pdf
-        $.getJSON( '@Url.Content("~/Content/ConfigPdfUri.json")', function(data){
-            var UriPdf = data.result[0].Uri;
+            $.getJSON('@Url.Content("~/Content/ConfigPdfUri.json")', function (data) {
+                debugger;
+                var UriLo = data.result[0].Uri;
+                var UriPdf ="";
+                var UriRe = data.result[0].UriRe;
+
+                var pathname = window.location.href;
+
+                if (pathname.indexOf(UriRe) > -1) {
+                    UriPdf = UriRe;
+                } else {
+                    UriPdf = UriLo;
+                }
+
             $("#UriLink").val(UriPdf);//UriLink
             var options = {
                 page: 1,

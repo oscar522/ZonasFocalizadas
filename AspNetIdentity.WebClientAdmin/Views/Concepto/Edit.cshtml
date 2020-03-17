@@ -460,8 +460,18 @@
             });
             if ($("#Id").val() != "0") {
                 $.getJSON('@Url.Content("~/Content/ConfigPdfUri.json")', function (data) {
-                    var UriPdf = "";
-                    UriPdf = data.result[0].Uri;
+                    var UriLo = data.result[0].Uri;
+                    var UriPdf ="";
+                    var UriRe = data.result[0].UriRe;
+
+                    var pathname = window.location.href;
+
+                    if (pathname.indexOf(UriRe) > -1) {
+                        UriPdf = UriRe;
+                    } else {
+                        UriPdf = UriLo;
+                    }
+
                     var UrlRutaSoporte = UriPdf + '/Content/Pdfs/Conceptos/'+ $("#RutaSoporteH").val() + '#navpanes=1&view=FitH&pagemode=thumbs&page=1';
                     $('#RutaSoporte').attr('href', UrlRutaSoporte);
                     var UrlRutaAnexo = UriPdf + '/Content/Pdfs/Conceptos/'+ $("#RutaAnexoH").val() + '#navpanes=1&view=FitH&pagemode=thumbs&page=1';
