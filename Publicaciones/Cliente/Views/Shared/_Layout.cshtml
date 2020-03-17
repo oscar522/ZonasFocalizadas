@@ -48,17 +48,19 @@
     <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+   
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     @RenderSection("scripts", required: false)
     <script type="text/javascript">
         $(document).ready(function () {
 
             $('.tableData').DataTable({
-                 dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
+                dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
                 buttons: [
-                    { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
-                    { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
-                    { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
+                    { "extend": 'pdf', "text": 'Pdf', "className": 'btn-outline-success' },
+                    { "extend": 'excel', "text": 'Exc', "className": ' btn-outline-success ' },
+                    { "extend": 'print', "text": 'Imp', "className": ' btn-outline-success ' }
                 ],
                 "order": [[1, "desc"]],
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
@@ -66,7 +68,7 @@
                 "paging": true
             });
             $('.dataTables_length').addClass('bs-select');
-            $("#SidebarCustom").click(function () { $("#SidebarCustom").hide(); });
+            $("#MenuClose").click(function () { $("#SidebarCustom").hide(); });
             $(".navbar-brand").click(function () { $("#SidebarCustom").show(); return false; });
             $('.modalUser').click(function () {
 

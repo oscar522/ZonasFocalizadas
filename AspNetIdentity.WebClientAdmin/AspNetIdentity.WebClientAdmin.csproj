@@ -213,6 +213,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ConceptoMvcModel.cs" />
     <Compile Include="Models\ConfigModel.cs" />
     <Compile Include="Models\GeneralResponse.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -468,7 +469,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Pdfs\" />
+    <Folder Include="Content\Pdfs\Conceptos\" />
     <Folder Include="Views\Manage\" />
   </ItemGroup>
   <ItemGroup>
@@ -943,6 +944,8 @@
     <Content Include="Views\Concepto\Index.cshtml" />
     <Content Include="Views\HomeAdministrator\ResumenAllIndex.cshtml" />
     <Content Include="Views\Concepto\Crear.cshtml" />
+    <Content Include="Views\Concepto\Edit.cshtml" />
+    <Content Include="Views\HomeAdministrator\IndexDepto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

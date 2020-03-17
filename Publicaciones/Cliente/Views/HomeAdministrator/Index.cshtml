@@ -172,7 +172,7 @@
             //$('#BodySlim').html("Cargando");
             $.ajax({
                 type: 'POST',
-                url: '@Url.Action("CountDeptos")',
+                url: '@Url.Action("CountDeptoMuni")',
                 dataType: 'json',
                 success: function (s) {
                     oTable.fnClearTable();

@@ -137,8 +137,17 @@ namespace AspNetIdentity.WebApi.Controllers
 
 
         [Authorize]
-        [Route("getAdministratorCountDeptos")]
-        public List<CtCiudadModel> GetCount()
+        [Route("getAdministratorCountDeptoMuni")]
+        public List<CtCiudadModel> GetCountMuni()
+        {
+            AdministratorLogic a = new AdministratorLogic();
+            List<CtCiudadModel> model = a.ConsultarIdPCountDeptoMuni();
+            return model;
+        }
+
+        [Authorize]
+        [Route("getAdministratorCountDepto")]
+        public List<CtCiudadModel> GetCountDeptos()
         {
             AdministratorLogic a = new AdministratorLogic();
             List<CtCiudadModel> model = a.ConsultarIdPCountDepto();

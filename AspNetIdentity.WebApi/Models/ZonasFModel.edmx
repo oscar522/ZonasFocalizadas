@@ -171,7 +171,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdAspNetUsers" Type="nvarchar" MaxLength="128" />
           <Property Name="IdCausa" Type="int" />
           <Property Name="IdExpediente" Type="int" />
@@ -185,7 +185,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
           <Key>
             <PropertyRef Name="IdAsociacion" />
           </Key>
-          <Property Name="IdAsociacion" Type="int" Nullable="false" />
+          <Property Name="IdAsociacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdConcepto" Type="int" />
           <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" />
           <Property Name="FechaInsercion" Type="date" />

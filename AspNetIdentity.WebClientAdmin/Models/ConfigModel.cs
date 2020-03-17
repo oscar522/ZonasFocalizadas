@@ -20,6 +20,9 @@ namespace AspNetIdentity.WebClientAdmin.Models
         public string actionName { get; set; }
         public string linkText { get; set; }
         public string iconText { get; set; }
+        public List<SidebarItem> Sub { get; set; }
         public string id { get; set; }
+
+
     }
 }

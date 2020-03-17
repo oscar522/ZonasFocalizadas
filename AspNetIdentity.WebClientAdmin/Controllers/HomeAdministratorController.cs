@@ -30,11 +30,22 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             }
         }
 
-        public async Task<ActionResult> CountDeptos()
+        public async Task<ActionResult> CountDeptoMuni()
         {
             string Id = "0";
             string Controller = "Administrator";
-            string Method = "getAdministratorCountDeptos";
+            string Method = "getAdministratorCountDeptoMuni";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            List<CtCiudadModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CtCiudadModel>>(jsonResult.ToString());
+            return Json(processModel, JsonRequestBehavior.AllowGet);
+        }
+
+        public async Task<ActionResult> CountDepto()
+        {
+            string Id = "0";
+            string Controller = "Administrator";
+            string Method = "getAdministratorCountDepto";
             string result = await employeeProvider.Get(Id, Controller, Method);
             var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
             List<CtCiudadModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CtCiudadModel>>(jsonResult.ToString());
@@ -215,6 +226,12 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
         }
 
         public ActionResult Index()
+        {
+            return View();
+
+        }
+
+        public ActionResult IndexDepto()
         {
             return View();
 

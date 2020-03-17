@@ -1,0 +1,479 @@
+﻿@model AspNetIdentity.Models.ConceptoMvcModel
+
+<div class="card mb-4 wow fadeIn">
+    <div class="card-body d-sm-flex justify-content-between">
+        <h4 class="mb-2 mb-sm-0 pt-1">
+            <span>Solicitud Concepto de @Model.NombreAspNetUsers</span>
+        </h4>
+    </div>
+</div>
+<!-- Heading -->
+@using (Html.BeginForm("Crear", "Concepto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <input type="hidden" value="@Model.IdAspNetUsers" id="IdAspNetUsers" name="IdAspNetUsers" />
+    <input type="hidden" value="@Model.IdCausa" id="IIdCausa" name="IIdCausa" />
+    <input type="hidden" value="@Model.Id" id="Id" name="Id" />
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="control-label "> Motivo del Concepto </label>
+                            @Html.DropDownList("IdCausa", new SelectList(string.Empty, "Value", "Text"), "Seleccione", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.IdCausa, " ", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.IdOrfeo, htmlAttributes: new { @class = "control-label " })
+                            @Html.EditorFor(model => model.IdOrfeo, new { htmlAttributes = new { @class = "form-control", @value = Model.IdOrfeo } })
+                            @Html.ValidationMessageFor(model => model.IdOrfeo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Soporte, htmlAttributes: new { @class = "control-label " })
+                            @Html.TextBoxFor(model => model.Soporte, new { type = "file", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Soporte, "", new { @class = "text-danger" })
+                            <a id="RutaSoporte" target="_blank" href="" style='color: #013ADF;'>@Model.RutaSoporte <i class='fa fa-eye'>  </i></a>
+                            <input type="hidden" id="RutaSoporteH" name="RutaSoporteH" value="@Model.RutaSoporte" />
+                        </div>
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Anexo, htmlAttributes: new { @class = "control-label " })
+                            @Html.TextBoxFor(model => model.Anexo, new { type = "file", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Anexo, "", new { @class = "text-danger" })
+                            <a id="RutaAnexo" target="_blank" href="" style='color: #013ADF;'>@Model.RutaAnexo <i class='fa fa-eye'>  </i></a>
+                            <input type="hidden" id="RutaAnexoH" name="RutaAnexoH" value="@Model.RutaAnexo" />
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <br />
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-12"> Asociar Usuarios </label>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="control-label col-md-6"> Rol Usuario</label>
+                                <div class="form-group">
+                                    @Html.DropDownList("IdRole", new SelectList(string.Empty, "Value", "Text"), "Seleccione", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.IdCausa, " ", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label col-md-6"> Usuario</label>
+                                <div class="form-group">
+                                    @Html.DropDownList("UserAsociado", new SelectList(string.Empty, "Value", "Text"), "Seleccione", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.UserAsociado, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="submit" id="AsociarUser" value="Asociar" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <div class="table-responsive text-nowrap">
+                                        <table class="table table-hover " id="table_Asociados">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        Id
+                                                    </th>
+                                                    <th>
+                                                        Id Concepto
+                                                    </th>
+                                                    <th>
+                                                        Nombre Usuario Asociado
+                                                    </th>
+                                                    <th>
+                                                        Rol
+                                                    </th>
+                                                    <th>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-6"> Buscar Expediente</label>
+                        <hr />
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="control-label col-md-12"> Buscar Expediente </label>
+                            <div class="form-group">
+                                <input type="text" name="key" id="key" value="" class="form-control" placeholder="B47018900012XXX" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label col-md-12"> Expediente Seleccionado </label>
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.IdExpediente, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.IdExpediente, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="submit" id="GuardarBtm" value="Buscar" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <div class="table-responsive text-nowrap">
+                                    <table class="table table-hover " id="table_Busqueda">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Id
+                                                </th>
+                                                <th></th>
+                                                <th>
+                                                    Num. Expediente
+                                                </th>
+                                                <th>
+                                                    Departamento
+                                                </th>
+                                                <th>
+                                                    Municipio
+                                                </th>
+                                                <th>
+                                                    Vereda
+                                                </th>
+                                                <th>
+                                                    Nombre Solitante
+                                                </th>
+                                                <th>
+                                                    Identificación
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12 align-content-center text-center">
+                    <input type="submit" id="submit_" value="Guardar" class="btn btn-default " />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+
+
+
+
+            function validar() {
+
+                var estado = true;
+
+                if ($("#IdCausa").val() == "")
+                {
+                    state = 1; $('span[data-valmsg-for="IdCausa"]').text("* Requerido");
+                    estado = false;
+                }
+
+                if ($("#UserAsociado").val() == "")
+                {
+                    state = 1; $('span[data-valmsg-for="UserAsociado"]').text("* Requerido");
+                    estado = false;
+                }
+                if ($("#IdOrfeo").val() == "" && $("#IdExpediente").val() == ""   )
+                {
+
+                     $('span[data-valmsg-for="IdExpediente"]').text("* Indique el numero del Orfeo o un Numero de Expediente");
+                     $('span[data-valmsg-for="IdOrfeo"]').text("* Indique el numero del Orfeo o un Numero de Expediente");
+                    estado = false;
+                }
+
+                if ($("#Id").val() <= 0 ) {
+                     if ($("#Soporte").val() == "" && $("#Anexo").val() == "") {
+                    $('span[data-valmsg-for="Soporte"]').text("* Indique el Soporte o Anexo");
+                    $('span[data-valmsg-for="Anexo"]').text("* Indique el Soporte o Anexo");
+                    estado = false;
+                    } else {
+
+                        var ext = $( "#Soporte" ).val().split('.').pop();
+                        if ($("#Soporte").val() != "" && (ext != 'Pdf' || ext != 'PDF' || ext != 'pdf') ) {
+                            $('span[data-valmsg-for="Soporte"]').text("* debe ser un archivo Pdf");
+                        }
+                        if ($("#Anexo").val() != "" && (ext != 'Pdf' || ext != 'PDF' || ext != 'pdf') ) {
+                            $('span[data-valmsg-for="Anexo"]').text("* debe ser un archivo Pdf");
+                        }
+                    }
+
+                }
+
+
+
+                //var nFilas = $("#table_Asociados tr").length;
+
+                // if ( nFilas == 2   )
+                //{
+                //    alert("Debe Asociar por lo menos un usuario");
+                //    estado = false;
+                //}
+
+                    //return true;
+                    return estado;
+
+            }
+
+            $("form").submit(function (event) {
+                var Validacion = validar();
+                alert(Validacion);
+                if (Validacion == true) {
+                    return true;
+                } else {
+                return false;
+
+                }
+
+        });
+
+
+            // Catalogo de causales de conceptos
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ListCausas")', // we are calling json method
+                dataType: 'json',
+                success: function(states) {
+                    //   alert("ok_pais");
+                    $.each(states, function (i, state) {
+                        if (state.Value == $("#IIdCausa").val()) {
+                            $("#IdCausa").append('<option selected value="' + state.Value + '">' + state.Text + '</option>');
+
+                        } else {
+                            $("#IdCausa").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                            }
+                    });
+                },
+                error: function (ex) {
+                    console.log(ex.responseText);
+                }
+            });
+            // Catalogo de roles
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ListRoles")', // we are calling json method
+                dataType: 'json',
+                success: function(states) {
+                    //   alert("ok_pais");
+                    $.each(states, function (i, state) {
+                        $("#IdRole").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    console.log(ex.responseText);
+                }
+            });
+            // catalaogo de usuarios dependiente de el combo rol
+            $("#IdRole").change(function () {
+                $("#UserAsociado").empty();
+                //  alert("okdepto" + $("#ID_CT_PAIS").val());
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListRolesUsuario")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: $("#IdRole").val() },
+                        success: function(states) {
+                            //alert("okdepto");
+                            $.each(states, function (i, state) {
+                                    $("#UserAsociado").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                            });
+                        },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                return false;
+            });
+            // creacion de la tabla busqueda
+            var oTable = $('#table_Busqueda').dataTable({
+                "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
+                "paging": false,
+                "searching":false,
+                "columnDefs": [
+                {
+                    "targets": [ 0 ],
+                    "visible": false,
+                    "searchable": false
+                }],
+
+                 dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
+                buttons: [
+                    { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
+                    { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
+                    { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
+                ]
+             });
+            // obtencion de la data tabla busqueda
+            var tabla2 = $('#table_Busqueda').DataTable();
+            $('#table_Busqueda tbody').on('click', 'z1', function () {
+                var data = tabla2.row($(this).parents('tr')).data();
+                $("#IdExpediente").val(data[0]);
+            });
+            // boton que realiza la busqueda
+            $('#GuardarBtm').click(function () {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("BuscarExpedientes")',
+                    dataType: 'json',
+                    data: { key: $("#key").val() },
+                    success: function (s) {
+                        oTable.fnClearTable();
+                         //$("#centralModalLGInfoDemoSlim").modal('hide');
+                        $.each(s, function (i, obj) {
+                            var url = '@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = "IdTableIn" })';
+                            url = url.replace("IdTableIn", obj.id);
+                            oTable.fnAddData([
+                                obj.id,
+                                '<z1 target="_blank" href=' + obj.id + '  style="color: #013ADF;"><i class="fa fa-check" aria-hidden="true"></i></z1>',
+                                '<a target="_blank" href='+url+'  style="color: #013ADF;"><i class="fa fa-search" aria-hidden="true"></i>'+ obj.NumeroExpediente +'</a>',
+                                obj.NombreIdDepto,
+                                obj.NombreIdCiudad,
+                                obj.Vereda,
+                                obj.NombreBeneficiario,
+                                obj.Identificacion,
+                            ]);
+                        });
+
+                        return false;
+                    },
+                    error: function(e){
+                        oTable.fnClearTable();
+                        return false;
+                    }
+                });
+                return false;
+            });
+            // creacion de la tabla asociacion de usuarios
+            var oTable2 = $('#table_Asociados').dataTable({
+                "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
+                "paging": false,
+                "searching":false,
+                "columnDefs": [
+                {
+                    "targets": [ 0 ],
+                    "visible": false,
+                    "searchable": false
+                }],
+
+                 dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
+                buttons: [
+                    { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
+                    { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
+                    { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
+                ]
+            });
+            alert($("#Id").val());
+            function TablaAsociados() {
+                 $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListUsuarionceptos")',
+                    dataType: 'json',
+                    data: { Id: $("#Id").val() },
+                    success: function (s) {
+                        oTable2.fnClearTable();
+                         //$("#centralModalLGInfoDemoSlim").modal('hide');
+                        debugger;
+                        $.each(s, function (i, obj) {
+                            oTable2.fnAddData([
+                                  obj.Id ,
+                                  obj.IdExpediente ,
+                                  obj.NombreAspNetUsers,
+                                  obj.Rol ,
+                                   "  |  <z1 title='Eliminar' Data='"+obj.Id+"' class='EliminaDoc' > <i class='fa fa-times'>  </i></z1>  "
+                            ]);
+                        });
+
+                        return false;
+                    },
+                    error: function(e){
+                        oTable2.fnClearTable();
+                        return false;
+                    }
+                });
+            }
+            TablaAsociados();
+            var tablaUserAsociado = $('#table_Asociados').DataTable();
+            $('#table_Asociados tbody').on('click', 'z1', function () {
+                var data = tablaUserAsociado.row($(this).parents('tr')).data();
+                alert(data[0]);
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("DeleteUsuarionceptos")',
+                    dataType: 'json',
+                    data: { Id: data[0] },
+                    success: function(states) {
+                        debugger;
+                        TablaAsociados();
+                        alert("Eliminado");
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+
+            });
+            if ($("#Id").val() != "0") {
+                $.getJSON('@Url.Content("~/Content/ConfigPdfUri.json")', function (data) {
+                    var UriPdf = "";
+                    UriPdf = data.result[0].Uri;
+                    var UrlRutaSoporte = UriPdf + '/Content/Pdfs/Conceptos/'+ $("#RutaSoporteH").val() + '#navpanes=1&view=FitH&pagemode=thumbs&page=1';
+                    $('#RutaSoporte').attr('href', UrlRutaSoporte);
+                    var UrlRutaAnexo = UriPdf + '/Content/Pdfs/Conceptos/'+ $("#RutaAnexoH").val() + '#navpanes=1&view=FitH&pagemode=thumbs&page=1';
+                    $('#RutaAnexo').attr('href', UrlRutaAnexo);
+                    debugger;
+                });
+            } else {
+                $('#RutaSoporte').text("");
+                 $('#RutaAnexo').text("");;
+            }
+
+
+        });
+    </script>
+}

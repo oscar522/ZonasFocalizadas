@@ -3,6 +3,8 @@ using AspNetIdentity.WebApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 
 namespace AspNetIdentity.WebApi.Logic
@@ -14,19 +16,56 @@ namespace AspNetIdentity.WebApi.Logic
         {
             using (ZonasFEntities Ctx = new ZonasFEntities())// --------------------- //
             {
-                Concepto Nuevo = new Concepto
+                Concepto Concepto_ = new Concepto();
+                int id = 0;
+
+                if (a.Id <= 0)
                 {
-                    Id = a.Id,
-                    IdAspNetUsers = a.IdAspNetUsers,
-                    IdCausa = a.IdCausa,
-                    IdExpediente = a.IdExpediente,
-                    Soporte = a.Soporte,
-                    Anexo = a.Anexo,
-                    IdOrfeo = a.IdOrfeo,
-                    Estado = a.Estado,
+                    Concepto_.IdAspNetUsers = a.IdAspNetUsers;
+                    Concepto_.IdCausa = a.IdCausa;
+                    Concepto_.IdExpediente = a.IdExpediente;
+                    Concepto_.Soporte = a.Soporte;
+                    Concepto_.Anexo = a.Anexo;
+                    Concepto_.IdOrfeo = a.IdOrfeo;
+                    Concepto_.Estado = true;
+                    Concepto_.FechaCreacion = a.FechaCreacion;
+                    Ctx.Concepto.Add(Concepto_);
+                    Ctx.SaveChanges();
+                    id = Concepto_.Id;
+
+                    List<string> listaAdmin =
+                     Ctx.AspNetRoles
+                    .Join(Ctx.AspNetUserRoles, b => b.Id, c => c.RoleId, (b, c) => new { c.UserId, c.RoleId, rol = b.Name })
+                    .Join(Ctx.AspNetUsers, b => b.UserId, c => c.Id, (b, c) => new { b.rol, c.Id, b.UserId, b.RoleId })
+                    .Join(Ctx.Users, b => b.Id, c => c.Id_Hash, (b, c) => new { b.rol, c.Name, c.FirstName, c.LastName, c.Id_Hash, c.Email })
+                    .Where(c => c.rol == "Administrator")
+                    .Select(c => c.Email).ToList();
+                    EnviarCorreo(a.RutaExpediente+ id, listaAdmin);
+                }
+                else { 
+                    id = a.Id;
+                    List<string> listaAdmin =
+                    Ctx.AspNetRoles
+                   .Join(Ctx.AspNetUserRoles, b => b.Id, c => c.RoleId, (b, c) => new { c.UserId, c.RoleId, rol = b.Name })
+                   .Join(Ctx.AspNetUsers, b => b.UserId, c => c.Id, (b, c) => new { b.rol, c.Id, b.UserId, b.RoleId })
+                   .Join(Ctx.Users, b => b.Id, c => c.Id_Hash, (b, c) => new { b.rol, c.Name, c.FirstName, c.LastName, c.Id_Hash, c.Email })
+                   .Where(c => c.Id_Hash == a.UserAsociado)
+                   .Select(c => c.Email).ToList();
+                    EnviarCorreo(a.RutaExpediente, listaAdmin);
+
+                }
+
+
+                ConceptoAsociado ConceptoAsociado_ = new ConceptoAsociado
+                {
+                    IdConcepto =id,
+                    IdAspNetUser = a.UserAsociado,
+                    Estado = true,
+                    FechaInsercion = a.FechaCreacion
                 };
-                Ctx.Concepto.Add(Nuevo);
+                Ctx.ConceptoAsociado.Add(ConceptoAsociado_);
                 Ctx.SaveChanges();
+                a.Id = id;
                 return a;
             }
         }
@@ -144,6 +183,20 @@ namespace AspNetIdentity.WebApi.Logic
             }
             return "Realizado";
         }
+
+        public String EliminarAsociado(int id)
+        {
+            using (var Ctx = new ZonasFEntities())
+            {
+                var ResCtx = Ctx.ConceptoAsociado.Where(s => s.IdAsociacion == id).FirstOrDefault();
+                if (ResCtx != null) // --------------------- //
+                {
+                    ResCtx.Estado = false;
+                    Ctx.SaveChanges();
+                }
+            }
+            return "Realizado";
+        }
         public List<CtDeptoModel> ConsultaTipoUsuario()
         {
             ZonasFEntities Ctx = new ZonasFEntities();
@@ -163,16 +216,40 @@ namespace AspNetIdentity.WebApi.Logic
 
             var lista = Ctx.AspNetRoles
                 .Join(Ctx.AspNetUserRoles, b => b.Id, c => c.RoleId, (b, c) => new { c.UserId, c.RoleId })
-                .Join(Ctx.AspNetUsers, b => b.UserId, c => c.Id, (b, c) => new { c.Id, c.FirstName, c.LastName, b.RoleId })
+                .Join(Ctx.AspNetUsers, b => b.UserId, c => c.Id, (b, c) => new {  c.FirstName, c.LastName, b.RoleId, c.Id })
                 .Where(c => c.RoleId == rol)
+                .Join(Ctx.Users, b => b.Id, c => c.Id_Hash, (b, c) => new {  c.Name, c.FirstName, b.LastName, c.Id_Hash })
                 .Select(a => new CtDeptoModel
                 {
                     ID_CT_DEPTO = 0,
-                    NOMBRE = a.FirstName +" " + a.LastName,
+                    NOMBRE = a.Name+" "+a.FirstName + " " + a.LastName,
                     ID_CT_PAIS = 0,
-                    NOMBRE_PAIS = a.Id
+                    NOMBRE_PAIS = a.Id_Hash
                 });
             return lista.ToList();
+        }
+
+        public List<ConceptoModel> ConsultaUsuarioConcepto(int IdConcepto)
+        {
+            ZonasFEntities Ctx = new ZonasFEntities();
+
+            var lista = 
+                 Ctx.AspNetRoles
+                .Join(Ctx.AspNetUserRoles, b => b.Id, c => c.RoleId, (b, c) => new { c.UserId, c.RoleId, rol = b.Name })
+                .Join(Ctx.AspNetUsers, b => b.UserId, c => c.Id, (b, c) => new {b.rol,c.Id, b.UserId, b.RoleId })
+                .Join(Ctx.Users, b => b.Id, c => c.Id_Hash, (b, c) => new { b.rol,  c.Name, c.FirstName, c.LastName, c.Id_Hash })
+                .Join(Ctx.ConceptoAsociado, b => b.Id_Hash, c => c.IdAspNetUser, (b, c) => new { b.rol, b.Name, b.FirstName, b.LastName, b.Id_Hash, c.IdAsociacion,c.IdConcepto,c.IdAspNetUser, c.FechaInsercion , c.Estado })
+                .Where(c =>c.Estado == true && c.IdConcepto == IdConcepto)
+                .Select(a => new ConceptoModel
+                {
+                    Id = a.IdAsociacion,
+                    IdExpediente = a.IdConcepto,
+                    NombreAspNetUsers = a.Name + " " + a.FirstName + " " + a.LastName,
+                    Rol = a.rol,
+                    FechaCreacion = a.FechaInsercion,
+                    Estado = a.Estado
+                }).ToList();
+            return lista;
         }
 
         public List<CtDeptoModel> ConsultaTipoCausa()
@@ -189,5 +266,50 @@ namespace AspNetIdentity.WebApi.Logic
             return lista.ToList();
         }
 
+        private void EnviarCorreo(string url , List<string> listaAdmin)
+        {
+
+            MailMessage email = new MailMessage();
+            SmtpClient smtp = new SmtpClient();
+
+            email.To.Add(new MailAddress("oscar.ballesteros.b@gmail.com"));
+            email.From = new MailAddress("oscar.ballesteros.b@gmail.com");
+            email.Subject = "Notificación solicitud de concepto ( " + DateTime.Now.ToString("dd / MMM / yyy hh:mm:ss") + " ) ";
+            email.SubjectEncoding = System.Text.Encoding.UTF8;
+            email.Body = "Se creo una nueva solicitud de concepto, Por favor inicie sesion y ingrese a este <a href='"+url+"'>Visit W3Schools</a> ";
+            email.IsBodyHtml = true;
+            email.Priority = MailPriority.Normal;
+
+            smtp.Host = "smtp.gmail.com";  // IP empresa/institucional
+                                          //smtp.Host = "smtp.hotmail.com";
+                                          //smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.UseDefaultCredentials = false;
+            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtp.Credentials = new System.Net.NetworkCredential("oscar.ballesteros.b@gmail.com", "11Princesa");
+            smtp.EnableSsl = true;
+            string output ="";
+           
+            try
+            {
+                foreach (string dir in listaAdmin)
+                {
+                    email.To.Add(dir);
+                }
+
+                smtp.Send(email);
+                email.Dispose();
+                output = "Correo electrónico fue enviado satisfactoriamente.";
+            }
+            catch (SmtpException exm)
+            {
+                output = exm.Message.ToString();
+            }
+            catch (Exception ex)
+            {
+                output = "Error enviando correo electrónico: " + ex.Message;
+            }
+
+        }
     }
 }

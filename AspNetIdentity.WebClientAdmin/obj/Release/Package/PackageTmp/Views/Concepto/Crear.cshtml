@@ -1,207 +1,272 @@
-﻿@model AspNetIdentity.Models.ConceptoModel
+﻿@model AspNetIdentity.Models.ConceptoMvcModel
 
-<!-- Heading -->
 <div class="card mb-4 wow fadeIn">
-
-    <!--Card content-->
     <div class="card-body d-sm-flex justify-content-between">
         <h4 class="mb-2 mb-sm-0 pt-1">
-            <span>Solicitar Concepto (nombre usuario que logueado )</span>
+            <span>Solicitud Concepto de @Model.NombreAspNetUsers</span>
         </h4>
     </div>
-
 </div>
 <!-- Heading -->
-<div class="card">
-    <div class="card-body">
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+@using (Html.BeginForm("Crear", "Concepto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <input type="hidden" value="@Model.IdAspNetUsers" id="IdAspNetUsers" name="IdAspNetUsers" />
+    <input type="hidden" value="@Model.IdCausa" id="IIdCausa" name="IIdCausa" />
+    <input type="hidden" value="" id="RutaExpediente" name="RutaExpediente" />
+    <input type="hidden" value="@Model.Id" id="Id" name="Id" />
+    <div class="card">
+        <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="table-responsive text-nowrap">
-                        <div class="form-horizontal">
-                            <div class="form-group">
-                                <label class="control-label col-md-2"> Motivo del Concepto :</label>
-                                <div class="col-md-10">
-                                    @Html.DropDownList("IdCausa", new SelectList(string.Empty, "Value", "Text"), "Seleccione", new { @class = "form-control", @onchange = "return ChangePais()" })
-                                    @Html.ValidationMessageFor(model => model.IdCausa, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.Anexo, htmlAttributes: new { @class = "control-label col-md-2" })
-                                <div class="col-md-10">
-                                    @Html.EditorFor(model => model.Anexo, new { htmlAttributes = new { @class = "form-control", @type = "file" } })
-                                    @Html.ValidationMessageFor(model => model.Anexo, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <hr />
-                                <label class="control-label col-md-12">
-                                    Buscar Expediente
-                                </label>
-                                <hr />
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label class="control-label col-md-12"> Buscar Expediente </label>
-                                    <div class="form-group">
-                                        <input type="text" name="key" id="key" value="" class="form-control" placeholder="B47018900012XXX" />
-                                        <input type="submit" id="GuardarBtm" value="Buscar" class="btn btn-default" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="control-label col-md-12"> Expediente Seleccionado </label>
-                                    <div class="form-group">
-                                        @Html.EditorFor(model => model.IdExpediente, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                                        @Html.ValidationMessageFor(model => model.IdExpediente, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-10">
-                                    <table class="table table-hover " id="table_Busqueda">
-                                        <thead>
-                                            <tr>
-                                                <th>
-                                                    Id
-                                                </th>
-                                                <th></th>
-                                                <th>
-                                                    Num. Expediente
-                                                </th>
-                                                <th>
-                                                    Departamento
-                                                </th>
-                                                <th>
-                                                    Municipio
-                                                </th>
-                                                <th>
-                                                    Vereda
-                                                </th>
-                                                <th>
-                                                    Nombre Solitante
-                                                </th>
-                                                <th>
-                                                    Identificación
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="control-label "> Motivo del Concepto </label>
+                            @Html.DropDownList("IdCausa", new SelectList(string.Empty, "Value", "Text"), "Seleccione", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.IdCausa, " ", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.IdOrfeo, htmlAttributes: new { @class = "control-label " })
+                            @Html.EditorFor(model => model.IdOrfeo, new { htmlAttributes = new { @class = "form-control", @value = Model.IdOrfeo } })
+                            @Html.ValidationMessageFor(model => model.IdOrfeo, "", new { @class = "text-danger" })
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="form-group">
-                        *  @Html.LabelFor(model => model.Soporte, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Soporte, new { htmlAttributes = new { @class = "form-control", @type = "file" } })
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Soporte, htmlAttributes: new { @class = "control-label " })
+                            @Html.TextBoxFor(model => model.Soporte, new { type = "file", @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.Soporte, "", new { @class = "text-danger" })
+                            <a id="RutaSoporte" target="_blank" href="" style='color: #013ADF;'>@Model.RutaSoporte <i class='fa fa-eye'>  </i></a>
+                            <input type="hidden" id="RutaSoporteH" name="RutaSoporteH" value="@Model.RutaSoporte" />
+                        </div>
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Anexo, htmlAttributes: new { @class = "control-label " })
+                            @Html.TextBoxFor(model => model.Anexo, new { type = "file", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Anexo, "", new { @class = "text-danger" })
+                            <a id="RutaAnexo" target="_blank" href="" style='color: #013ADF;'>@Model.RutaAnexo <i class='fa fa-eye'>  </i></a>
+                            <input type="hidden" id="RutaAnexoH" name="RutaAnexoH" value="@Model.RutaAnexo" />
+
+
                         </div>
                     </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <br />
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
                     <div class="form-group">
-                        @Html.LabelFor(model => model.IdOrfeo, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.IdOrfeo, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.IdOrfeo, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <hr />
                         <label class="control-label col-md-12"> Asociar Usuarios </label>
                         <hr />
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <label class="control-label col-md-6"> Rol Usuario</label>
                                 <div class="form-group">
                                     @Html.DropDownList("IdRole", new SelectList(string.Empty, "Value", "Text"), "Seleccione", new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.IdCausa, "", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(model => model.IdCausa, " ", new { @class = "text-danger" })
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <label class="control-label col-md-6"> Usuario</label>
                                 <div class="form-group">
-                                    @Html.DropDownList("IdUsers", new SelectList(string.Empty, "Value", "Text"), "Seleccione", new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.IdCausa, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <input type="submit" id="AsociarUser" value="Asociar" class="btn btn-default" />
+                                    @Html.DropDownList("UserAsociado", new SelectList(string.Empty, "Value", "Text"), "Seleccione", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.UserAsociado, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group">
+                                <input type="submit" id="AsociarUser" value="Asociar" class="btn btn-default" />
+                            </div>
+                        </div>
+                        <div class="row">
                                 <div class="col-md-12">
-                                    <table class="table table-hover " id="table_Asociados">
-                                        <thead>
-                                            <tr>
-                                                <th>
-                                                    Id
-                                                </th>
-                                                <th>
-                                                    Id Concepto
-                                                </th>
-                                                <th>
-                                                    Nombre Usuario Asociado
-                                                </th>
-                                                <th>
-                                                    Rol
-                                                </th>
-                                                <th>
-                                                    Fecha de Insercion
-                                                </th>
-                                                <th>
-                                                    Estado
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
+                                    <div class="table-responsive text-nowrap">
+                                        <table class="table table-hover " id="table_Asociados">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        Id
+                                                    </th>
+                                                    <th>
+                                                        Id Concepto
+                                                    </th>
+                                                    <th>
+                                                        Nombre Usuario Asociado
+                                                    </th>
+                                                    <th>
+                                                        Rol
+                                                    </th>
+                                                    <th>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-6"> Buscar Expediente</label>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="control-label col-md-12"> Buscar Expediente </label>
+                                <div class="form-group">
+                                    <input type="text" name="key" id="key" value="" class="form-control" placeholder="B47018900012XXX" />
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <label class="control-label col-md-12"> Expediente Seleccionado </label>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.IdExpediente, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                    @Html.ValidationMessageFor(model => model.IdExpediente, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <input type="submit" id="GuardarBtm" value="Buscar" class="btn btn-default" />
+                            </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-md-12">
+                                    <div class="table-responsive ">
+                                        <table class="table table-hover " id="table_Busqueda">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        Id
+                                                    </th>
+                                                    <th></th>
+                                                    <th>
+                                                        Num. Expediente
+                                                    </th>
+                                                    <th>
+                                                        Departamento
+                                                    </th>
+                                                    <th>
+                                                        Municipio
+                                                    </th>
+                                                    <th>
+                                                        Vereda
+                                                    </th>
+                                                    <th>
+                                                        Nombre Solitante
+                                                    </th>
+                                                    <th>
+                                                        Identificación
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </div>
             </div>
-        }
-    </div>
-</div>
-
-@*<div class="col-md-10">
-        @Html.EditorFor(model => model.IdExpediente, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.IdExpediente, "", new { @class = "text-danger" })
-    </div>*@
-
-
-@*<div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
-        </div>
-    </div>*@
-
-
-
-<!-- Central Modal -->
-<div class="modal fade" id="centralModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div id='myModalContent'></div>
         </div>
     </div>
-</div>
-<!-- Central Modal -->
+    <br />
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12 align-content-center text-center">
+                    <input type="submit" id="submit_" value="Guardar" class="btn btn-default " />
+                </div>
+            </div>
+        </div>
+    </div>
+}
 
 @section scripts{
     <script>
         $(document).ready(function () {
+
+            function validar() {
+
+                var estado = true;
+
+                if ($("#IdCausa").val() == "")
+                {
+                    state = 1; $('span[data-valmsg-for="IdCausa"]').text("* Requerido");
+                    estado = false;
+                }
+
+                if ($("#UserAsociado").val() == "")
+                {
+                    state = 1; $('span[data-valmsg-for="UserAsociado"]').text("* Requerido");
+                    estado = false;
+                }
+                if ($("#IdOrfeo").val() == "" && $("#IdExpediente").val() == ""   )
+                {
+
+                     $('span[data-valmsg-for="IdExpediente"]').text("* Indique el numero del Orfeo o un Numero de Expediente");
+                     $('span[data-valmsg-for="IdOrfeo"]').text("* Indique el numero del Orfeo o un Numero de Expediente");
+                    estado = false;
+                }
+
+                if ($("#Id").val() <= 0 ) {
+                     if ($("#Soporte").val() == "" && $("#Anexo").val() == "") {
+                    $('span[data-valmsg-for="Soporte"]').text("* Indique el Soporte o Anexo");
+                    $('span[data-valmsg-for="Anexo"]').text("* Indique el Soporte o Anexo");
+                    estado = false;
+                    } else {
+
+                        var ext = $( "#Soporte" ).val().split('.').pop();
+                        if ($("#Soporte").val() != "" && (ext != 'Pdf' || ext != 'PDF' || ext != 'pdf') ) {
+                            $('span[data-valmsg-for="Soporte"]').text("* debe ser un archivo Pdf");
+                        }
+                        if ($("#Anexo").val() != "" && (ext != 'Pdf' || ext != 'PDF' || ext != 'pdf') ) {
+                            $('span[data-valmsg-for="Anexo"]').text("* debe ser un archivo Pdf");
+                        }
+                    }
+
+                }
+
+
+
+                //var nFilas = $("#table_Asociados tr").length;
+
+                // if ( nFilas == 2   )
+                //{
+                //    alert("Debe Asociar por lo menos un usuario");
+                //    estado = false;
+                //}
+
+                    //return true;
+                    return estado;
+
+            }
+
+            $("form").submit(function (event) {
+                var Validacion = validar();
+                if (Validacion == true) {
+                    return true;
+                } else {
+                return false;
+
+                }
+
+        });
+
+
             // Catalogo de causales de conceptos
             $.ajax({
                 type: 'POST',
@@ -210,7 +275,12 @@
                 success: function(states) {
                     //   alert("ok_pais");
                     $.each(states, function (i, state) {
-                        $("#IdCausa").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                        if (state.Value == $("#IIdCausa").val()) {
+                            $("#IdCausa").append('<option selected value="' + state.Value + '">' + state.Text + '</option>');
+
+                        } else {
+                            $("#IdCausa").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                            }
                     });
                 },
                 error: function (ex) {
@@ -234,7 +304,7 @@
             });
             // catalaogo de usuarios dependiente de el combo rol
             $("#IdRole").change(function () {
-                $("#IdUsers").empty();
+                $("#UserAsociado").empty();
                 //  alert("okdepto" + $("#ID_CT_PAIS").val());
                 $.ajax({
                     type: 'POST',
@@ -244,7 +314,7 @@
                         success: function(states) {
                             //alert("okdepto");
                             $.each(states, function (i, state) {
-                                    $("#IdUsers").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                                    $("#UserAsociado").append('<option value="' + state.Value + '">' + state.Text + '</option>');
                             });
                         },
                     error: function (ex) {
@@ -313,7 +383,7 @@
                 return false;
             });
             // creacion de la tabla asociacion de usuarios
-            var oTable = $('#table_Asociados').dataTable({
+            var oTable2 = $('#table_Asociados').dataTable({
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
                 "paging": false,
                 "searching":false,
@@ -330,7 +400,80 @@
                     { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
                     { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
                 ]
-             });
+            });
+            //alert($("#Id").val());
+            function TablaAsociados() {
+                 $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListUsuarionceptos")',
+                    dataType: 'json',
+                    data: { Id: $("#Id").val() },
+                    success: function (s) {
+                        oTable2.fnClearTable();
+                         //$("#centralModalLGInfoDemoSlim").modal('hide');
+                        debugger;
+                        $.each(s, function (i, obj) {
+                            oTable2.fnAddData([
+                                  obj.Id ,
+                                  obj.IdExpediente ,
+                                  obj.NombreAspNetUsers,
+                                  obj.Rol ,
+                                   "  |  <z1 title='Eliminar' Data='"+obj.Id+"' class='EliminaDoc' > <i class='fa fa-times'>  </i></z1>  "
+                            ]);
+                        });
+
+                        return false;
+                    },
+                    error: function(e){
+                        oTable2.fnClearTable();
+                        return false;
+                    }
+                });
+            }
+            TablaAsociados();
+            var tablaUserAsociado = $('#table_Asociados').DataTable();
+            $('#table_Asociados tbody').on('click', 'z1', function () {
+                var data = tablaUserAsociado.row($(this).parents('tr')).data();
+                //alert(data[0]);
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("DeleteUsuarionceptos")',
+                    dataType: 'json',
+                    data: { Id: data[0] },
+                    success: function(states) {
+                        debugger;
+                        TablaAsociados();
+                        alert("Eliminado");
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+
+            });
+            $.getJSON('@Url.Content("~/Content/ConfigPdfUri.json")', function (data) {
+
+                var UriPdf = "";
+                UriPdf = data.result[0].Uri;
+
+                if ($("#Id").val() != "0") {
+                    var UrlRutaSoporte = UriPdf + '/Content/Pdfs/Conceptos/'+ $("#RutaSoporteH").val() + '#navpanes=1&view=FitH&pagemode=thumbs&page=1';
+                    $('#RutaSoporte').attr('href', UrlRutaSoporte);
+                    var UrlRutaAnexo = UriPdf + '/Content/Pdfs/Conceptos/'+ $("#RutaAnexoH").val() + '#navpanes=1&view=FitH&pagemode=thumbs&page=1';
+                    $('#RutaAnexo').attr('href', UrlRutaAnexo);
+                    var UrlRutaExpediente = UriPdf + '/Conceptos/Edit?Idtable='+ $("#Id").val();
+                    $('#RutaExpediente').val(UrlRutaExpediente);
+                } else {
+                    $('#RutaSoporte').text("");
+                    $('#RutaAnexo').text("");
+                     var UrlRutaExpediente = UriPdf + '/Conceptos/Edit?Idtable=';
+                    $('#RutaExpediente').val(UrlRutaExpediente);
+                   // alert($('#RutaExpediente').val());
+                }
+                    debugger;
+                });
+           
+
 
         });
     </script>

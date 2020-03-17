@@ -15,18 +15,18 @@ namespace AspNetIdentity.Models
     
     public partial class ConceptoModel
     {
-        public int Id { get; set; }
-        public string IdAspNetUsers { get; set; }
-        public string UserAsociado { get; set; }
-        public string Rol { get; set; }
-        public string NombreAspNetUsers { get; set; }
-        public Nullable<int> IdCausa { get; set; }
-        public string NombreCausa { get; set; }
-        public Nullable<int> IdExpediente { get; set; }
+        public int Id { get; set; } //
+        public string IdAspNetUsers { get; set; }//
+        public string UserAsociado { get; set; }//
+        public string Rol { get; set; }//
+        public string NombreAspNetUsers { get; set; }//
+        public Nullable<int> IdCausa { get; set; }//
+        public string NombreCausa { get; set; } //
+        public Nullable<int> IdExpediente { get; set; }//
         public string RutaExpediente { get; set; }
-        public string Soporte { get; set; }
-        public string Anexo { get; set; }
-        public string IdOrfeo { get; set; }
+        public string Soporte { get; set; }//
+        public string Anexo { get; set; }//
+        public string IdOrfeo { get; set; }//
         public Nullable<bool> Estado { get; set; }
         public Nullable<System.DateTime> FechaCreacion { get; set; }
 

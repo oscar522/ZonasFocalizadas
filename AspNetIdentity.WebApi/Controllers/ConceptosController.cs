@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Web.Http;
 using AspNetIdentity.WebApi.Logic;
 using System.Threading.Tasks;
+using System;
 
 namespace AspNetIdentity.WebApi.Controllers
 {
@@ -82,6 +83,24 @@ namespace AspNetIdentity.WebApi.Controllers
         {
             ConceptoLogic a = new ConceptoLogic();
             return a.ConsultaUsuario(id);
+        }
+
+        [Authorize]
+        [Route("getConceptoUC/{id}")]
+        public List<ConceptoModel> GetConceptosAsociados(string id)
+        {
+            ConceptoLogic a = new ConceptoLogic();
+            int IdConcepto = Convert.ToInt32(id);
+            return a.ConsultaUsuarioConcepto(IdConcepto);
+        }
+        [Authorize]
+        [Route("getConceptoUCD/{id}")]
+        public string GetConceptosAsociadosD(string id)
+        {
+            ConceptoLogic a = new ConceptoLogic();
+            int IdConcepto = Convert.ToInt32(id);
+            var res =  a.EliminarAsociado(IdConcepto);
+            return res;
         }
 
         [Authorize]
