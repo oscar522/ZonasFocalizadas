@@ -1,7 +1,8 @@
 {
   "result": [
     {
-      "Uri": "http://localhost:50213"
+      "UriRe": "localhost:50213",
+      "Uri": "localhost:50213"
     }
   ]
 }

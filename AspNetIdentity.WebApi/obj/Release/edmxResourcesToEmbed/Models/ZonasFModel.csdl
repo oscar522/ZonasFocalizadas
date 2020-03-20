@@ -378,7 +378,7 @@
     <Property Name="Anexo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="IdOrfeo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Estado" Type="Boolean" />
-    <Property Name="FechaCreacion" Type="DateTime" Precision="0" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="CtCausas">
     <Key>

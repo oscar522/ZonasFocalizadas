@@ -8,12 +8,13 @@
     </div>
 </div>
 <!-- Heading -->
-@using (Html.BeginForm("Crear", "Concepto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Edit", "Concepto", FormMethod.Post, new { enctype = "multipart/form-data" }))
 
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <input type="hidden" value="@Model.IdAspNetUsers" id="IdAspNetUsers" name="IdAspNetUsers" />
+    <input type="hidden" value="" id="RutaExpediente" name="RutaExpediente" />
     <input type="hidden" value="@Model.IdCausa" id="IIdCausa" name="IIdCausa" />
     <input type="hidden" value="@Model.Id" id="Id" name="Id" />
     <div class="card">
@@ -39,15 +40,15 @@
                             @Html.LabelFor(model => model.Soporte, htmlAttributes: new { @class = "control-label " })
                             @Html.TextBoxFor(model => model.Soporte, new { type = "file", @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.Soporte, "", new { @class = "text-danger" })
-                            <a id="RutaSoporte" target="_blank" href="" style='color: #013ADF;'>@Model.RutaSoporte <i class='fa fa-eye'>  </i></a>
-                            <input type="hidden" id="RutaSoporteH" name="RutaSoporteH" value="@Model.RutaSoporte" />
+                            <a id="RutaSoporteL" target="_blank" href="" style='color: #013ADF;'>@Model.RutaSoporte <i class='fa fa-eye'>  </i></a>
+                            <input type="hidden" id="RutaSoporte" name="RutaSoporte" value="@Model.RutaSoporte" />
                         </div>
                         <div class="col-md-6">
                             @Html.LabelFor(model => model.Anexo, htmlAttributes: new { @class = "control-label " })
                             @Html.TextBoxFor(model => model.Anexo, new { type = "file", @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.Anexo, "", new { @class = "text-danger" })
-                            <a id="RutaAnexo" target="_blank" href="" style='color: #013ADF;'>@Model.RutaAnexo <i class='fa fa-eye'>  </i></a>
-                            <input type="hidden" id="RutaAnexoH" name="RutaAnexoH" value="@Model.RutaAnexo" />
+                            <a id="RutaAnexoL" target="_blank" href="" style='color: #013ADF;'>@Model.RutaAnexo <i class='fa fa-eye'>  </i></a>
+                            <input type="hidden" id="RutaAnexo" name="RutaAnexo" value="@Model.RutaAnexo" />
 
 
                         </div>
@@ -88,32 +89,30 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <div class="table-responsive text-nowrap">
-                                        <table class="table table-hover " id="table_Asociados">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        Id
-                                                    </th>
-                                                    <th>
-                                                        Id Concepto
-                                                    </th>
-                                                    <th>
-                                                        Nombre Usuario Asociado
-                                                    </th>
-                                                    <th>
-                                                        Rol
-                                                    </th>
-                                                    <th>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                            <div class="col-md-12">
+                                <div class="table-responsive text-nowrap">
+                                    <table class="table table-hover " id="table_Asociados">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Id
+                                                </th>
+                                                <th>
+                                                    Id Concepto
+                                                </th>
+                                                <th>
+                                                    Nombre Usuario Asociado
+                                                </th>
+                                                <th>
+                                                    Rol
+                                                </th>
+                                                <th>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -123,31 +122,29 @@
                     <div class="form-group">
                         <label class="control-label col-md-6"> Buscar Expediente</label>
                         <hr />
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label class="control-label col-md-12"> Buscar Expediente </label>
-                            <div class="form-group">
-                                <input type="text" name="key" id="key" value="" class="form-control" placeholder="B47018900012XXX" />
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="control-label col-md-12"> Buscar Expediente </label>
+                                <div class="form-group">
+                                    <input type="text" name="key" id="key" value="" class="form-control" placeholder="B47018900012XXX" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label col-md-12"> Expediente Seleccionado </label>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.IdExpediente, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                    @Html.ValidationMessageFor(model => model.IdExpediente, "", new { @class = "text-danger" })
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <label class="control-label col-md-12"> Expediente Seleccionado </label>
-                            <div class="form-group">
-                                @Html.EditorFor(model => model.IdExpediente, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                                @Html.ValidationMessageFor(model => model.IdExpediente, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        <div class="col-md-12">
+                        <div class="row">
                             <div class="form-group">
                                 <input type="submit" id="GuardarBtm" value="Buscar" class="btn btn-default" />
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="col-md-10">
-                                <div class="table-responsive text-nowrap">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive ">
                                     <table class="table table-hover " id="table_Busqueda">
                                         <thead>
                                             <tr>
@@ -215,11 +212,7 @@
                     estado = false;
                 }
 
-                if ($("#UserAsociado").val() == "")
-                {
-                    state = 1; $('span[data-valmsg-for="UserAsociado"]').text("* Requerido");
-                    estado = false;
-                }
+
                 if ($("#IdOrfeo").val() == "" && $("#IdExpediente").val() == ""   )
                 {
 
@@ -228,42 +221,22 @@
                     estado = false;
                 }
 
-                if ($("#Id").val() <= 0 ) {
-                     if ($("#Soporte").val() == "" && $("#Anexo").val() == "") {
-                    $('span[data-valmsg-for="Soporte"]').text("* Indique el Soporte o Anexo");
-                    $('span[data-valmsg-for="Anexo"]').text("* Indique el Soporte o Anexo");
-                    estado = false;
-                    } else {
-
-                        var ext = $( "#Soporte" ).val().split('.').pop();
-                        if ($("#Soporte").val() != "" && (ext != 'Pdf' || ext != 'PDF' || ext != 'pdf') ) {
+                if ($("#Soporte").val() != "" && $("#Anexo").val() != "") {
+                        var extAnexo = $("#Anexo").val().split('.').pop();
+                        var extSoporte = $( "#Soporte" ).val().split('.').pop();
+                        if ($("#extSoporte").val() != "" && (extSoporte != 'Pdf' || extSoporte != 'PDF' || extSoporte != 'pdf') ) {
                             $('span[data-valmsg-for="Soporte"]').text("* debe ser un archivo Pdf");
                         }
-                        if ($("#Anexo").val() != "" && (ext != 'Pdf' || ext != 'PDF' || ext != 'pdf') ) {
+                        if ($("#Anexo").val() != "" && (extAnexo != 'Pdf' || extAnexo != 'PDF' || extAnexo != 'pdf') ) {
                             $('span[data-valmsg-for="Anexo"]').text("* debe ser un archivo Pdf");
                         }
-                    }
-
-                }
-
-
-
-                //var nFilas = $("#table_Asociados tr").length;
-
-                // if ( nFilas == 2   )
-                //{
-                //    alert("Debe Asociar por lo menos un usuario");
-                //    estado = false;
-                //}
-
-                    //return true;
+                     }
                     return estado;
 
             }
 
             $("form").submit(function (event) {
                 var Validacion = validar();
-                alert(Validacion);
                 if (Validacion == true) {
                     return true;
                 } else {
@@ -460,17 +433,30 @@
             });
             if ($("#Id").val() != "0") {
                 $.getJSON('@Url.Content("~/Content/ConfigPdfUri.json")', function (data) {
-                    var UriPdf = "";
-                    UriPdf = data.result[0].Uri;
-                    var UrlRutaSoporte = UriPdf + '/Content/Pdfs/Conceptos/'+ $("#RutaSoporteH").val() + '#navpanes=1&view=FitH&pagemode=thumbs&page=1';
-                    $('#RutaSoporte').attr('href', UrlRutaSoporte);
-                    var UrlRutaAnexo = UriPdf + '/Content/Pdfs/Conceptos/'+ $("#RutaAnexoH").val() + '#navpanes=1&view=FitH&pagemode=thumbs&page=1';
-                    $('#RutaAnexo').attr('href', UrlRutaAnexo);
+                    var UriLo = data.result[0].Uri;
+                    var UriPdf ="";
+                    var UriRe = data.result[0].UriRe;
+
+                    var pathname = window.location.href;
+
+                    if (pathname.indexOf(UriRe) > -1) {
+                        UriPdf = UriRe;
+                    } else {
+                        UriPdf = UriLo;
+                    }
+                    var UrlRutaExpediente = UriPdf + '/Conceptos/Details?Idtable='+ $("#Id").val();
+                    $('#RutaExpediente').val(UrlRutaExpediente);
+                    var UrlRutaSoporte = UriPdf + '/Content/Pdfs/Conceptos/'+ $("#RutaSoporte").val() + '#navpanes=1&view=FitH&pagemode=thumbs&page=1';
+                    $('#RutaSoporteL').attr('href', UrlRutaSoporte);
+                    var UrlRutaAnexo = UriPdf + '/Content/Pdfs/Conceptos/'+ $("#RutaAnexo").val() + '#navpanes=1&view=FitH&pagemode=thumbs&page=1';
+                    $('#RutaAnexoL').attr('href', UrlRutaAnexo);
                     debugger;
                 });
             } else {
-                $('#RutaSoporte').text("");
-                 $('#RutaAnexo').text("");;
+                $('#RutaSoporteL').text("");
+                $('#RutaAnexoL').text("");;
+                 var UrlRutaExpediente = UriPdf + '/Conceptos/Details?Idtable=';
+                    $('#RutaExpediente').val(UrlRutaExpediente);
             }
 
 

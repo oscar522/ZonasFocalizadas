@@ -6,8 +6,18 @@
 
             
             $.getJSON('@Url.Content("~/Content/ConfigPdfUri.json")', function (data) {
-                var UriPdf = "";
-                UriPdf = data.result[0].Uri;
+                var UriLo = data.result[0].Uri;
+                var UriPdf ="";
+                var UriRe = data.result[0].UriRe;
+
+                var pathname = window.location.href;
+
+                if (pathname.indexOf(UriRe) > -1) {
+                    UriPdf = UriRe;
+                } else {
+                    UriPdf = UriLo;
+                }
+
                 var Url = 'http://' + UriPdf + '/Content/Pdfs/' + '@Model.RutaArchivoOriginal' + '#navpanes=1&view=FitH&pagemode=thumbs&page=1';
                 $('#Uri').val(UriPdf + '/Content/');
                 $('#ViewPdf').attr('href', Url);

@@ -45,9 +45,9 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
         {
             return View();
         }
-        public async Task<ActionResult> BuscarExpedienteRun(string key)
+        public async Task<ActionResult> BuscarExpedienteRun(string IdDepto, string IdMunicipio, string key )
         {
-            string Id = key;
+            string Id = IdDepto +"-"+ IdMunicipio + "-" + key;
             string Controller = "HomeUsuarios";
             string Method = "getBuscarExpediente";
             string result = await employeeProvider.Get(Id, Controller, Method);

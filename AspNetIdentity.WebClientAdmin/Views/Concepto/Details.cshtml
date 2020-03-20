@@ -1,0 +1,390 @@
+﻿@model AspNetIdentity.Models.ConceptoMvcModel
+
+<div class="card mb-4 wow fadeIn">
+    <div class="card-body d-sm-flex justify-content-between">
+        <h4 class="mb-2 mb-sm-0 pt-1">
+            <span>Solicitud Concepto de @Model.NombreAspNetUsers</span>
+        </h4>
+    </div>
+</div>
+<!-- Heading -->
+@using (Html.BeginForm("Edit", "Concepto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <input type="hidden" value="@Model.IdAspNetUsers" id="IdAspNetUsers" name="IdAspNetUsers" />
+    <input type="hidden" value="" id="RutaExpediente" name="RutaExpediente" />
+    <input type="hidden" value="@Model.IdCausa" id="IIdCausa" name="IIdCausa" />
+    <input type="hidden" value="@Model.Id" id="Id" name="Id" />
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="control-label "> Motivo del Concepto </label>
+                            @Html.DropDownList("IdCausa", new SelectList(string.Empty, "Value", "Text"), "Seleccione", new { @class = "form-control", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.IdCausa, " ", new { @class = "text-danger" })
+
+                        </div>
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.IdOrfeo, htmlAttributes: new { @class = "control-label " })
+                            @Html.EditorFor(model => model.IdOrfeo, new { htmlAttributes = new { @class = "form-control", @value = Model.IdOrfeo, @disabled = "disabled" } })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Soporte, htmlAttributes: new { @class = "control-label " })
+                            <br />
+                            <a id="RutaSoporteL" target="_blank" href="" style='color: #013ADF;'>@Model.RutaSoporte <i class='fa fa-eye'>  </i></a>
+                            <input type="hidden" id="RutaSoporte" name="RutaSoporte" value="@Model.RutaSoporte" />
+                        </div>
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Anexo, htmlAttributes: new { @class = "control-label " })
+                            <br />
+                            <a id="RutaAnexoL" target="_blank" href="" style='color: #013ADF;'>@Model.RutaAnexo <i class='fa fa-eye'>  </i></a>
+                            <input type="hidden" id="RutaAnexo" name="RutaAnexo" value="@Model.RutaAnexo" />
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <br />
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-12">  Usuarios  Asociados</label>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive text-nowrap">
+                                    <table class="table table-hover " id="table_Asociados">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Id
+                                                </th>
+                                                <th>
+                                                    Id Concepto
+                                                </th>
+                                                <th>
+                                                    Nombre Usuario Asociado
+                                                </th>
+                                                <th>
+                                                    Rol
+                                                </th>
+                                                <th>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-6">  Expediente</label>
+                        <hr />
+                        <div class="row">
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    @if (Model.IdExpediente != 0)
+                                    {
+                                        <a target="_blank" href="@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable =  Model.IdExpediente })" style="color: #013ADF;"><i class="fa fa-search" aria-hidden="true"></i>@Model.IdExpediente</a>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+    </div>
+    <br />
+ 
+}
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+
+
+
+
+            function validar() {
+
+                var estado = true;
+
+                if ($("#IdCausa").val() == "")
+                {
+                    state = 1; $('span[data-valmsg-for="IdCausa"]').text("* Requerido");
+                    estado = false;
+                }
+
+
+                if ($("#IdOrfeo").val() == "" && $("#IdExpediente").val() == ""   )
+                {
+
+                     $('span[data-valmsg-for="IdExpediente"]').text("* Indique el numero del Orfeo o un Numero de Expediente");
+                     $('span[data-valmsg-for="IdOrfeo"]').text("* Indique el numero del Orfeo o un Numero de Expediente");
+                    estado = false;
+                }
+
+                if ($("#Soporte").val() != "" && $("#Anexo").val() != "") {
+                        var extAnexo = $("#Anexo").val().split('.').pop();
+                        var extSoporte = $( "#Soporte" ).val().split('.').pop();
+                        if ($("#extSoporte").val() != "" && (extSoporte != 'Pdf' || extSoporte != 'PDF' || extSoporte != 'pdf') ) {
+                            $('span[data-valmsg-for="Soporte"]').text("* debe ser un archivo Pdf");
+                        }
+                        if ($("#Anexo").val() != "" && (extAnexo != 'Pdf' || extAnexo != 'PDF' || extAnexo != 'pdf') ) {
+                            $('span[data-valmsg-for="Anexo"]').text("* debe ser un archivo Pdf");
+                        }
+                     }
+                    return estado;
+
+            }
+
+            $("form").submit(function (event) {
+                var Validacion = validar();
+                if (Validacion == true) {
+                    return true;
+                } else {
+                return false;
+
+                }
+
+        });
+
+
+            // Catalogo de causales de conceptos
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ListCausas")', // we are calling json method
+                dataType: 'json',
+                success: function(states) {
+                    //   alert("ok_pais");
+                    $.each(states, function (i, state) {
+                        if (state.Value == $("#IIdCausa").val()) {
+                            $("#IdCausa").append('<option selected value="' + state.Value + '">' + state.Text + '</option>');
+
+                        } else {
+                            $("#IdCausa").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                            }
+                    });
+                },
+                error: function (ex) {
+                    console.log(ex.responseText);
+                }
+            });
+            // Catalogo de roles
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ListRoles")', // we are calling json method
+                dataType: 'json',
+                success: function(states) {
+                    //   alert("ok_pais");
+                    $.each(states, function (i, state) {
+                        $("#IdRole").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    console.log(ex.responseText);
+                }
+            });
+            // catalaogo de usuarios dependiente de el combo rol
+            $("#IdRole").change(function () {
+                $("#UserAsociado").empty();
+                //  alert("okdepto" + $("#ID_CT_PAIS").val());
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListRolesUsuario")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: $("#IdRole").val() },
+                        success: function(states) {
+                            //alert("okdepto");
+                            $.each(states, function (i, state) {
+                                    $("#UserAsociado").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                            });
+                        },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                return false;
+            });
+            // creacion de la tabla busqueda
+            var oTable = $('#table_Busqueda').dataTable({
+                "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
+                "paging": false,
+                "searching":false,
+                "columnDefs": [
+                {
+                    "targets": [ 0 ],
+                    "visible": false,
+                    "searchable": false
+                }],
+
+                 dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
+                buttons: [
+                    { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
+                    { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
+                    { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
+                ]
+             });
+            // obtencion de la data tabla busqueda
+            var tabla2 = $('#table_Busqueda').DataTable();
+            $('#table_Busqueda tbody').on('click', 'z1', function () {
+                var data = tabla2.row($(this).parents('tr')).data();
+                $("#IdExpediente").val(data[0]);
+            });
+            // boton que realiza la busqueda
+            $('#GuardarBtm').click(function () {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("BuscarExpedientes")',
+                    dataType: 'json',
+                    data: { key: $("#key").val() },
+                    success: function (s) {
+                        oTable.fnClearTable();
+                         //$("#centralModalLGInfoDemoSlim").modal('hide');
+                        $.each(s, function (i, obj) {
+                            var url = '@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = "IdTableIn" })';
+                            url = url.replace("IdTableIn", obj.id);
+                            oTable.fnAddData([
+                                obj.id,
+                                '<z1 target="_blank" href=' + obj.id + '  style="color: #013ADF;"><i class="fa fa-check" aria-hidden="true"></i></z1>',
+                                '<a target="_blank" href='+url+'  style="color: #013ADF;"><i class="fa fa-search" aria-hidden="true"></i>'+ obj.NumeroExpediente +'</a>',
+                                obj.NombreIdDepto,
+                                obj.NombreIdCiudad,
+                                obj.Vereda,
+                                obj.NombreBeneficiario,
+                                obj.Identificacion,
+                            ]);
+                        });
+
+                        return false;
+                    },
+                    error: function(e){
+                        oTable.fnClearTable();
+                        return false;
+                    }
+                });
+                return false;
+            });
+            // creacion de la tabla asociacion de usuarios
+            var oTable2 = $('#table_Asociados').dataTable({
+                "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
+                "paging": false,
+                "searching":false,
+                "columnDefs": [
+                {
+                    "targets": [ 0 ],
+                    "visible": false,
+                    "searchable": false
+                }],
+
+                 dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
+                buttons: [
+                    { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
+                    { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
+                    { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
+                ]
+            });
+            alert($("#Id").val());
+            function TablaAsociados() {
+                 $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListUsuarionceptos")',
+                    dataType: 'json',
+                    data: { Id: $("#Id").val() },
+                    success: function (s) {
+                        oTable2.fnClearTable();
+                         //$("#centralModalLGInfoDemoSlim").modal('hide');
+                        debugger;
+                        $.each(s, function (i, obj) {
+                            oTable2.fnAddData([
+                                  obj.Id ,
+                                  obj.IdExpediente ,
+                                  obj.NombreAspNetUsers,
+                                  obj.Rol ,
+                                   "  |  <z1 title='Eliminar' Data='"+obj.Id+"' class='EliminaDoc' > <i class='fa fa-times'>  </i></z1>  "
+                            ]);
+                        });
+
+                        return false;
+                    },
+                    error: function(e){
+                        oTable2.fnClearTable();
+                        return false;
+                    }
+                });
+            }
+            TablaAsociados();
+            var tablaUserAsociado = $('#table_Asociados').DataTable();
+            $('#table_Asociados tbody').on('click', 'z1', function () {
+                var data = tablaUserAsociado.row($(this).parents('tr')).data();
+                alert(data[0]);
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("DeleteUsuarionceptos")',
+                    dataType: 'json',
+                    data: { Id: data[0] },
+                    success: function(states) {
+                        debugger;
+                        TablaAsociados();
+                        alert("Eliminado");
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+
+            });
+            if ($("#Id").val() != "0") {
+                $.getJSON('@Url.Content("~/Content/ConfigPdfUri.json")', function (data) {
+                    var UriLo = data.result[0].Uri;
+                    var UriPdf ="";
+                    var UriRe = data.result[0].UriRe;
+
+                    var pathname = window.location.href;
+
+                    if (pathname.indexOf(UriRe) > -1) {
+                        UriPdf = UriRe;
+                    } else {
+                        UriPdf = UriLo;
+                    }
+                    var UrlRutaExpediente = UriPdf + '/Conceptos/Edit?Idtable='+ $("#Id").val();
+                    $('#RutaExpediente').val(UrlRutaExpediente);
+                    var UrlRutaSoporte = UriPdf + '/Content/Pdfs/Conceptos/'+ $("#RutaSoporte").val() + '#navpanes=1&view=FitH&pagemode=thumbs&page=1';
+                    $('#RutaSoporteL').attr('href', UrlRutaSoporte);
+                    var UrlRutaAnexo = UriPdf + '/Content/Pdfs/Conceptos/'+ $("#RutaAnexo").val() + '#navpanes=1&view=FitH&pagemode=thumbs&page=1';
+                    $('#RutaAnexoL').attr('href', UrlRutaAnexo);
+                    debugger;
+                });
+            } else {
+                $('#RutaSoporteL').text("");
+                $('#RutaAnexoL').text("");;
+                 var UrlRutaExpediente = UriPdf + '/Conceptos/Edit?Idtable=';
+                    $('#RutaExpediente').val(UrlRutaExpediente);
+            }
+
+
+        });
+    </script>
+}

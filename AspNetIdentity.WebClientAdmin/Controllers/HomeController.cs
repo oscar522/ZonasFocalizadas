@@ -45,6 +45,11 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
                 ViewPage = "Index";
                 Controller = "HomeTipificacion";
             }
+            else if (IdRol.Equals("Invitado"))
+            {
+                ViewPage = "BuscarExpedientes";
+                Controller = "HomeUsuarios";
+            }
 
             return RedirectToAction(ViewPage, Controller);
         }

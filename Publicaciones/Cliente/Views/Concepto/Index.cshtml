@@ -4,19 +4,19 @@
     ViewBag.Title = "Home Page";
 }
 
-    <div class="card mb-4 wow fadeIn">
+<div class="card mb-4 wow fadeIn">
 
-        <!--Card content-->
-        <div class="card-body d-sm-flex justify-content-between">
-            <h4 class="mb-2 mb-sm-0 pt-1">
-                <span>Conceptos</span>
-            </h4>
-            <div class="d-flex justify-content-center">
-                <a class="btn btn-success my-0 p waves-effect waves-light" href="@Url.Action("Crear", "Concepto")"><i class="fa fa-id-card"></i> Nuevo </a>
-            </div>
+    <!--Card content-->
+    <div class="card-body d-sm-flex justify-content-between">
+        <h4 class="mb-2 mb-sm-0 pt-1">
+            <span>Conceptos</span>
+        </h4>
+        <div class="d-flex justify-content-center">
+            <a class="btn btn-success my-0 p waves-effect waves-light" href="@Url.Action("Crear", "Concepto")"><i class="fa fa-id-card"></i> Nuevo </a>
         </div>
-
     </div>
+
+</div>
 <br />
 
 <div class="row">
@@ -26,92 +26,114 @@
 
             <!-- Card image -->
             @*<img class="card-img-top" src="https://image.freepik.com/vector-gratis/gente-negocios-lupa-graficos_1262-18918.jpg" alt="Card image cap">*@
-
+            <div id="UripdfDiv"></div>
             <!-- Card content -->
             <div class="card-body">
                 <div class="form-horizontal">
                     <div class="row  justify-content-center">
                         <div class="form-group col-md-11">
                             <div class="table-responsive text-nowrap">
-                                <table class="table">
-                                    <tr>
-                                        <th>
-                                            Usuario Creo
-                                        </th>
+                                <table id="table_id" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Usuario Creo
+                                            </th>
 
-                                        <th>
-                                            Usuario Asociado
-                                        </th>
-                                        <th>
-                                            Rol
-                                        </th>
-                                        <th>
-                                            Causal
-                                        </th>
-                                        <th>
-                                            Expediente Asociado
-                                        </th>
+                                            <th>
+                                                Usuario Asociado
+                                            </th>
+                                            <th>
+                                                Rol
+                                            </th>
+                                            <th>
+                                                Causal
+                                            </th>
+                                            <th>
+                                                Expediente 
+                                            </th>
 
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.Soporte)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.Anexo)
-                                        </th>
-                                        <th>
-                                            Orfeo
-                                        </th>
-                                        <th>
-                                            Fecha Creacion
-                                        </th>
-                                        <th>
-                                            Estado
-                                        </th>
-                                        <th></th>
-                                    </tr>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Soporte)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Anexo)
+                                            </th>
+                                            <th>
+                                                Orfeo
+                                            </th>
+                                            <th>
+                                                F. Creacion
+                                            </th>
+                                            <th>
+                                                Estado
+                                            </th>
+                                            <th></th>
+                                        </tr>
+                                    <thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            var gg = (item.Id / 2.0).ToString().Contains(".");
+                                            var color = "";
+                                            if (gg == true)
+                                            {
+                                                color = "#AFFF8D";
+                                            }
 
-                                    @foreach (var item in Model)
-                                    {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.NombreAspNetUsers)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.UserAsociado)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Rol)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.NombreCausa)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.RutaExpediente)
-                                        <a href='@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = item.IdExpediente })' title='Modificar' style='color: #013ADF;' target="_blank"><i class='fa fa-eye' aria-hidden='true'></i></a>
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Soporte)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Anexo)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.IdOrfeo)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.FechaCreacion)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Estado)
-                                    </td>
-                                    <td>
-                                        @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
-                                    </td>
-                                </tr>
-                                    }
+                                            <tr style="background-color:@color">
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.NombreAspNetUsers)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.UserAsociado)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Rol)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.NombreCausa)
+                                                </td>
+                                                <td>
+                                                    @{
+                                                        var RutaExpediente = "a" + item.RutaExpediente;
+                                                    }
 
+                                                    @if (RutaExpediente != "a")
+                                                    {
+                                                        <a href='@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = item.IdExpediente })' title='Modificar' style='color: #013ADF;' target="_blank"><i class='fa fa-eye' aria-hidden='true'></i></a>
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @if (item.Soporte != "N/A")
+                                                    {
+                                                        <a href='#' title='Modificar' class="LinkSoporte" Data="@item.Soporte" style='color: #013ADF;' target="_blank"> <i class='fa fa-eye' aria-hidden='true'></i></a>
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @if (item.Anexo != "N/A")
+                                                    {
+                                                        <a href='#' title='Modificar' class="LinkAnexo" Data="@item.Anexo" style='color: #013ADF;' target="_blank"> <i class='fa fa-eye' aria-hidden='true'></i></a>
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.IdOrfeo)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.FechaCreacion)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Estado)
+                                                </td>
+                                                <td>
+                                                    <a href='@Url.Action("../Concepto/Edit", "Edit", new { IdTable = item.Id })' title='Modificar' style='color: #013ADF;'><i class='fa fa-refresh' aria-hidden='true'></i></a>
+                                                    <a href='@Url.Action("../Concepto/Details", "Details", new { IdTable = item.Id })' title='Modificar' style='color: #013ADF;'><i class='fa fa-search' aria-hidden='true'></i></a>
+                                                    <a href="#"  title="Detalle" style="color: #013ADF;"><i class="fa fa-times-circle" aria-hidden="true"></i> </a>
+
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -121,159 +143,56 @@
         </div>
     </div>
 </div>
+@section Scripts
+             {
 
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-@Scripts.Render("~/Scripts/ModalControl.js")
-<script type="text/javascript">
-    $(document).ready(function () {
+    <script type="text/javascript">
+        $(document).ready(function () {
 
-        var oTable = $('#table_id').dataTable({
+            var oTable = $('#table_id').dataTable({
 
                 "order": [[1, "desc"]],
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
                 "pageLength": 10,
                 "searching": true,
-                "columnDefs": [
-                    {
-                        "targets": [ 1 ],
-                        "visible": false,
-                        "searchable": false
-                    },
-                    {
-                        "targets": [ 3 ],
-                        "visible": false,
-                        "searchable": false
-                    },
-                    {
-                        "targets": [ 0 ],
-                        "visible": false,
-                        "searchable": false
-                    }
-            ],
                 dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
                 buttons: [
-                   { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
-                    { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
-                    { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
+                    { "extend": 'pdf', "text": 'Pdf', "className": 'btn-outline-success' },
+                    { "extend": 'excel', "text": 'Exc', "className": ' btn-outline-success ' },
+                    { "extend": 'print', "text": 'Imp', "className": ' btn-outline-success ' }
                 ],
-                "footerCallback": function (row, data, start, end, display) {
-                var api = this.api(), data;
-                var intVal = function (i) {
-                    return typeof i === 'string' ?
-                        i.replace(/[\$,]/g, '') * 1 :
-                        typeof i === 'number' ?
-                            i : 0;
-                };
+               
+            });
 
-                // computing column Total of the complete result
+             $.getJSON('@Url.Content("~/Content/ConfigPdfUri.json")', function (data) {
 
-                var Total5 = api
-                    .column(5,  { page: 'current'})
-                    .data()
-                    .reduce(function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0);
+                var UriLo = data.result[0].Uri;
+                var UriPdf ="";
+                var UriRe = data.result[0].UriRe;
 
-                var Total6 = api
-                    .column(6,  { page: 'current'})
-                    .data()
-                    .reduce(function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0);
+                var pathname = window.location.href;
 
-                var Total7 = api
-                    .column(7,  { page: 'current'})
-                    .data()
-                    .reduce(function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0);
-
-                var Total8 = api
-                    .column(8,  { page: 'current'})
-                    .data()
-                    .reduce(function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0);
-
-                var Total9 = api
-                    .column(9,  { page: 'current'})
-                    .data()
-                    .reduce(function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0);
-
-                $(api.column(4).footer()).html('TOTAL');
-                $(api.column(5).footer()).html(Total5);
-                $(api.column(6).footer()).html(Total6);
-                $(api.column(7).footer()).html(Total7);
-                $(api.column(8).footer()).html(Total8);
-                $(api.column(9).footer()).html(Total9);
-
-            }
-            });  //Initialize the datatable
-
-        function tabla() {
-
-            //$('#centralModalLGInfoDemoSlim').modal({backdrop: 'static', keyboard: false})
-            //$("#centralModalLGInfoDemoSlim").modal();
-            //$('#HeaderSlim').html("")
-            //$('#BodySlim').html('<div class="loading">Cargando ... <img src="http://localhost:50213/Content/loader.gif" alt="loading" /></div>');
-            //$('#BodySlim').html("Cargando");
-            $.ajax({
-                type: 'POST',
-                url: '@Url.Action("CountDeptos")',
-                dataType: 'json',
-                success: function (s) {
-                    oTable.fnClearTable();
-                    $.each(s, function (i, obj) {
-                        var res = obj.NOMBRE_PAIS.split("-");
-                        oTable.fnAddData([
-                            obj.id,
-                            obj.IdCtDepto,
-                            obj.NOMBRE_DEPTO,
-                            obj.IdCtMuncipio,
-                            obj.Nombre,
-                            obj.IdCtPais,
-                            res[0],
-                            res[2],
-                            res[1],
-                            res[3],
-                           "<z1 Data1='" + obj.IdCtDepto + "' Data2='" + obj.IdCtMuncipio + "'  style='color: #013ADF;' class = 'Municipio' > <i class='fa fa-eye'>  </i></z1>  "
-                        ]);
-                //Model.NOMBRE_PAIS = NumeroPdf + "-" + NumeroTipificacion + "-" + NumeroAsociados + "-" + Malnombrados;
-                        //
-                    });
-                    $("#centralModalLGInfoDemoSlim").modal('hide');
-                },
-                error: function(e){
-                     oTable.fnClearTable();
+                if (pathname.indexOf(UriRe) > -1) {
+                    UriPdf = UriRe;
+                } else {
+                    UriPdf = UriLo;
                 }
-            });
-            };
-
-        tabla();
-        var tabla2 = $('#table_id').DataTable();
-            $('#table_id tbody').on('click', 'z1', function () {
-                var data = tabla2.row($(this).parents('tr')).data();
-                $.ajax({
-                    type: 'POST',
-                    url: '@Url.Action("ResumenIndex")',
-                    dataType: 'json',
-                    data: { IdDeptoIn: data[1], IdCiudadIn: data[3]  },
-                    success: function(states) {
-                        debugger;
-                        window.location = states.url;
-                    },
-                    error: function (ex) {
-                        console.log(ex.responseText);
-                    }
+                 $("#UripdfDiv").val(UriPdf);
                 });
-
+             $(".LinkSoporte").click(function () {
+                var UrlData = $(this).attr("Data").trim();
+                 var url = "http://" + $('#UripdfDiv').val() + "/Content/Pdfs/Conceptos/" + UrlData;
+                 window.open(url, '_blank');
+             });
+             $(".LinkAnexo").click(function () {
+                var UrlData = $(this).attr("Data").trim();
+                 var url = "http://" + $('#UripdfDiv').val() + "/Content/Pdfs/Conceptos/" + UrlData;
+                 window.open(url, '_blank');
             });
+            //Initialize the datatable
+        });
 
-    });
-
-</script>
+    </script>
+    }
 
 

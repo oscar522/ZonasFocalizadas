@@ -3,7 +3,8 @@
 {
     <script type="text/javascript">
         $(document).ready(function () {
-            
+
+           
         // obtiene la url de los pdf
             $.getJSON('@Url.Content("~/Content/ConfigPdfUri.json")', function (data) {
                 debugger;
@@ -20,7 +21,12 @@
                 }
 
             $("#UriLink").val(UriPdf);//UriLink
-            var options = {
+           
+        });
+
+
+
+             var options = {
                 page: 1,
                 pdfOpenParams: {
                     navpanes: 1,
@@ -34,16 +40,23 @@
             var UriLinkV = document.getElementById("UriLink").Value;
             debugger;
             for (var i = 0; i < ArrayUrl.length; i++) {
-                    UrlLink = UrlLink + "- <a href='#' class = 'LinkPdf' Data = '"+ArrayUrl[i]+"' > " + ArrayUrlName[i] + " </a> ";
+                    UrlLink = UrlLink + "- <a  href='#' class = 'LinkPdf' Data = '"+ArrayUrl[i]+"' > " + ArrayUrlName[i] + " </a> ";
                 if (i == 0) {
-                    PDFObject.embed("http://"+UriPdf+"/Content/Pdfs/" + ArrayUrl[i], "#PdfViewer", options);
+                    PDFObject.embed("http://"+UriLinkV+"/Content/Pdfs/" + ArrayUrl[i], "#PdfViewer", options);
                     document.getElementById("ArchivoActual").value = ArrayUrl[i];
                     document.getElementById("ArchivoNombre").value = ArrayUrlName[i];
                 } else { }
             }
             document.getElementById("ListPdf").innerHTML = UrlLink;
-        });
 
+
+             $(".LinkPdf").click(function () {
+                var Url = $(this).text().trim();
+                var UrlData = $(this).attr("Data").trim();
+                PDFObject.embed("http://"+ $("#UriLink").val()+"/Content/Pdfs/"+UrlData, "#PdfViewer", options);
+                $("#ArchivoActual").val(UrlData);
+                $("#ArchivoNombre").val(Url);
+            });
 
             function MaysPrimera(string) {
                 return string.charAt(0).toUpperCase() + string.slice(1);
@@ -172,7 +185,6 @@
                     state = 1;
                 }
                 if (state == 0) {
-                    alert($("#EstadoExp").val());
                     $.ajax({
                         type: 'POST',
                         url: '@Url.Action("PostExpedienteDocumentos")',
@@ -223,13 +235,7 @@
                 }
             });
 
-            $(".LinkPdf").click(function(){
-                var Url = $(this).text().trim();
-                var UrlData = $(this).attr("Data").trim();
-                PDFObject.embed("http://"+ $("#UriLink").val()+"/Content/Pdfs/"+UrlData, "#PdfViewer", options);
-                $("#ArchivoActual").val(UrlData);
-                $("#ArchivoNombre").val(Url);
-            });
+            
 
             $("#FinPro").click(function(){
                 $.ajax({

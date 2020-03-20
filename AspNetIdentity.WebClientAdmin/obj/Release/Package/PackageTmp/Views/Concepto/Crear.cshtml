@@ -229,11 +229,13 @@
                     estado = false;
                     } else {
 
-                        var ext = $( "#Soporte" ).val().split('.').pop();
-                        if ($("#Soporte").val() != "" && (ext != 'Pdf' || ext != 'PDF' || ext != 'pdf') ) {
+                        var extAnexo = $("#Anexo").val().split('.').pop();
+                         var extSoporte = $("#Soporte").val().split('.').pop();
+
+                        if ($("#extSoporte").val() != "" && (extSoporte != 'Pdf' || extSoporte != 'PDF' || extSoporte != 'pdf') ) {
                             $('span[data-valmsg-for="Soporte"]').text("* debe ser un archivo Pdf");
                         }
-                        if ($("#Anexo").val() != "" && (ext != 'Pdf' || ext != 'PDF' || ext != 'pdf') ) {
+                        if ($("#Anexo").val() != "" && (extAnexo != 'Pdf' || extAnexo != 'PDF' || extAnexo != 'pdf') ) {
                             $('span[data-valmsg-for="Anexo"]').text("* debe ser un archivo Pdf");
                         }
                     }
@@ -453,20 +455,29 @@
             });
             $.getJSON('@Url.Content("~/Content/ConfigPdfUri.json")', function (data) {
 
-                var UriPdf = "";
-                UriPdf = data.result[0].Uri;
+                var UriLo = data.result[0].Uri;
+                var UriPdf ="";
+                var UriRe = data.result[0].UriRe;
+
+                var pathname = window.location.href;
+
+                if (pathname.indexOf(UriRe) > -1) {
+                    UriPdf = UriRe;
+                } else {
+                    UriPdf = UriLo;
+                }
 
                 if ($("#Id").val() != "0") {
                     var UrlRutaSoporte = UriPdf + '/Content/Pdfs/Conceptos/'+ $("#RutaSoporteH").val() + '#navpanes=1&view=FitH&pagemode=thumbs&page=1';
                     $('#RutaSoporte').attr('href', UrlRutaSoporte);
                     var UrlRutaAnexo = UriPdf + '/Content/Pdfs/Conceptos/'+ $("#RutaAnexoH").val() + '#navpanes=1&view=FitH&pagemode=thumbs&page=1';
                     $('#RutaAnexo').attr('href', UrlRutaAnexo);
-                    var UrlRutaExpediente = UriPdf + '/Conceptos/Edit?Idtable='+ $("#Id").val();
+                    var UrlRutaExpediente = UriPdf + '/Conceptos/Details?Idtable='+ $("#Id").val();
                     $('#RutaExpediente').val(UrlRutaExpediente);
                 } else {
                     $('#RutaSoporte').text("");
                     $('#RutaAnexo').text("");
-                     var UrlRutaExpediente = UriPdf + '/Conceptos/Edit?Idtable=';
+                     var UrlRutaExpediente = UriPdf + '/Conceptos/Details?Idtable=';
                     $('#RutaExpediente').val(UrlRutaExpediente);
                    // alert($('#RutaExpediente').val());
                 }

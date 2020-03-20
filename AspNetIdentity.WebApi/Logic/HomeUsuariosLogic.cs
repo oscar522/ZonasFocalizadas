@@ -28,11 +28,67 @@ namespace AspNetIdentity.WebApi.Logic
 
         public List<BaldiosPersonaNaturalModel> BuscaExpedientes(string IdP)
         {
+
+            string[] words = IdP.Split('-');
+
+            int Depto = Convert.ToInt32(words[0]);
+            int Munic = Convert.ToInt32(words[1]);
+            string Exped = words[2];
             ZonasFEntities Ctx = new ZonasFEntities();
-            var listaBaldios = Ctx.BaldiosPersonaNatural
-                 .Where(w => w.NumeroExpediente.Contains(IdP)).ToList();
-            #region Sql
-            var lista = listaBaldios
+
+            List<BaldiosPersonaNatural> listaBaldios = new List<BaldiosPersonaNatural>();
+
+            if (Depto != 0 && Exped != "N_A")
+            {
+                if (Munic != 0)
+                {
+                    listaBaldios = Ctx.BaldiosPersonaNatural
+                  .Join(Ctx.CtDepto, b => b.IdDepto, c => c.ID_CT_DEPTO, (b, c) => new { b })
+                    .Join(Ctx.CtCiudad, b => b.b.IdCiudad, c => c.IdCtMuncipio, (b, c) => new { b.b, IdCtDeptoC = c.IdCtDepto })
+                    .Where(w => w.b.IdDepto == Depto && w.b.IdCiudad == Munic && w.IdCtDeptoC == Depto && w.b.NumeroExpediente.Contains(Exped))
+                    .Select(x => x.b).ToList();
+                }
+                else
+                {
+                    listaBaldios = Ctx.BaldiosPersonaNatural
+                     .Join(Ctx.CtDepto, b => b.IdDepto, c => c.ID_CT_DEPTO, (b, c) => new BaldiosPersonaNatural())
+                     .Where(w => w.IdDepto == Depto && w.NumeroExpediente.Contains(Exped))
+                     .ToList();
+                }
+            }
+            if (Depto != 0 && Exped == "N_A")
+            {
+                if (Munic != 0)
+                {
+                    listaBaldios = Ctx.BaldiosPersonaNatural
+                    .Join(Ctx.CtDepto, b => b.IdDepto, c => c.ID_CT_DEPTO, (b, c) => new { b })
+                    .Join(Ctx.CtCiudad, b => b.b.IdCiudad, c => c.IdCtMuncipio, (b, c) => new { b.b, IdCtDeptoC = c.IdCtDepto })
+                    .Where(w => w.b.IdDepto == Depto && w.b.IdCiudad == Munic && w.IdCtDeptoC == Depto )
+                    .Select(x => x.b).ToList();
+                }
+                else
+                {
+                    listaBaldios = Ctx.BaldiosPersonaNatural
+                     .Join(Ctx.CtDepto, b => b.IdDepto, c => c.ID_CT_DEPTO, (b, c) => new { b })
+                     .Where(w => w.b.IdDepto == Depto )
+                     .Select(c => c.b)
+                     .ToList();
+                }
+            }
+             if (Depto == 0 && Exped != "N_A") {
+
+                listaBaldios = Ctx.BaldiosPersonaNatural
+                .Where(w =>  w.NumeroExpediente.Contains(Exped))
+                .ToList();
+            }
+
+
+                #region Sql
+
+
+
+
+                var lista = listaBaldios
                 //.Where(w => w.IdAspNetUser == IdP)
                 .Join(Ctx.CtDepto, b => b.IdDepto, c => c.ID_CT_DEPTO, (b, c) =>
                  new

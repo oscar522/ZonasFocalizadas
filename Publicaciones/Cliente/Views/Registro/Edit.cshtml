@@ -8,7 +8,17 @@
 
             var UriPdf = "";
             $.getJSON( '@Url.Content("~/Content/ConfigPdfUri.json")', function(data){
-                UriPdf = data.result[0].Uri;
+                var UriLo = data.result[0].Uri;
+                var UriRe = data.result[0].UriRe;
+
+                var pathname = window.location.href;
+
+                if (pathname.indexOf(UriRe) > -1) {
+                    UriPdf = UriRe;
+                } else {
+                    UriPdf = UriLo;
+                }
+
             });
 
             $("#Estado option").each(function () {
@@ -37,7 +47,7 @@
             }
 
             var oTable = $('#table_id').dataTable({
-                 dom: "Bfrtip",
+                 dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
                 buttons: [
                    { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
                     { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },

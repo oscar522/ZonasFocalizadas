@@ -28,7 +28,7 @@ namespace AspNetIdentity.WebApi.Logic
                     Concepto_.Anexo = a.Anexo;
                     Concepto_.IdOrfeo = a.IdOrfeo;
                     Concepto_.Estado = true;
-                    Concepto_.FechaCreacion = a.FechaCreacion;
+                    Concepto_.FechaCreacion = DateTime.Now;
                     Ctx.Concepto.Add(Concepto_);
                     Ctx.SaveChanges();
                     id = Concepto_.Id;
@@ -112,7 +112,7 @@ namespace AspNetIdentity.WebApi.Logic
                     IdOrfeo = a.IdOrfeo,
                     Estado = a.Estado,
                     FechaCreacion = a.FechaCreacion
-                });
+                }).OrderBy(x =>x.Id);
 
             return lista.ToList();
         }
@@ -137,38 +137,93 @@ namespace AspNetIdentity.WebApi.Logic
         public ConceptoModel ConsultarId(int id)
         {
             ZonasFEntities Ctx = new ZonasFEntities();
-            var a = Ctx.Concepto.Where(w => w.Id == id).Select(s => s).FirstOrDefault();
-            ConceptoModel b = new ConceptoModel();
-            b.Id = a.Id;
-            b.IdAspNetUsers = a.IdAspNetUsers;
-            b.IdCausa = a.IdCausa;
-            b.IdExpediente = a.IdExpediente;
-            b.Soporte = a.Soporte;
-            b.Anexo = a.Anexo;
-            b.IdOrfeo = a.IdOrfeo;
-            b.Estado = a.Estado;
-            return b;
+               
+            var lista = Ctx.Concepto.Where(x => x.Id == id)
+                 .Join(Ctx.AspNetUsers, b => b.IdAspNetUsers, c => c.Id, (b, c) =>
+                 new { b.FechaCreacion, b.Id, b.IdAspNetUsers, b.IdCausa, b.IdExpediente, b.Soporte, b.Anexo, b.IdOrfeo, b.Estado, IdUser = c.Id })
+
+                .Join(Ctx.Users, b => b.IdUser, c => c.Id_Hash, (b, c) =>
+                 new { b.FechaCreacion, b.Id, b.IdAspNetUsers, b.IdCausa, b.IdExpediente, b.Soporte, b.Anexo, b.IdOrfeo, b.Estado, c.Name, c.FirstName, c.LastName })
+
+                .Join(Ctx.CtCausas, b => b.IdCausa, c => c.Id, (b, c) =>
+                 new { b.FechaCreacion, b.Id, b.IdAspNetUsers, b.IdCausa, b.IdExpediente, b.Soporte, b.Anexo, b.IdOrfeo, b.Estado, b.Name, b.FirstName, b.LastName, causa = c.Nombre })
+
+                .Join(Ctx.ConceptoAsociado, b => b.Id, c => c.IdConcepto, (b, c) =>
+                 new { b.FechaCreacion, b.Id, b.IdAspNetUsers, b.IdCausa, b.IdExpediente, b.Soporte, b.Anexo, b.IdOrfeo, b.Estado, b.Name, b.FirstName, b.LastName, b.causa, UserAsociado = c.IdAspNetUser })
+
+                .Join(Ctx.Users, b => b.UserAsociado, c => c.Id_Hash, (b, c) =>
+                 new { b.FechaCreacion, b.Id, b.IdAspNetUsers, b.IdCausa, b.IdExpediente, b.Soporte, b.Anexo, b.IdOrfeo, b.Estado, b.Name, b.FirstName, b.LastName, b.causa, b.UserAsociado, UserAsociadoName = c.Name + " " + c.FirstName + " " + c.LastName })
+
+                .Join(Ctx.AspNetUserRoles, b => b.UserAsociado, c => c.UserId, (b, c) =>
+                 new { b.FechaCreacion, b.Id, b.IdAspNetUsers, b.IdCausa, b.IdExpediente, b.Soporte, b.Anexo, b.IdOrfeo, b.Estado, b.Name, b.FirstName, b.LastName, b.causa, b.UserAsociado, b.UserAsociadoName, c.RoleId })
+
+                .Join(Ctx.AspNetRoles, b => b.RoleId, c => c.Id, (b, c) =>
+                 new { b.FechaCreacion, b.Id, b.IdAspNetUsers, b.IdCausa, b.IdExpediente, b.Soporte, b.Anexo, b.IdOrfeo, b.Estado, b.Name, b.FirstName, b.LastName, b.causa, b.UserAsociado, b.UserAsociadoName, NombreRol = c.Name })
+
+                .Where(c => c.Estado.Value == true).Select(a => new ConceptoModel
+                {
+                    Id = a.Id,
+                    IdAspNetUsers = a.IdAspNetUsers,
+                    NombreAspNetUsers = a.Name + " " + a.FirstName + " " + a.LastName,
+                    IdCausa = a.IdCausa,
+                    NombreCausa = a.causa,
+                    IdExpediente = a.IdExpediente,
+                    UserAsociado = a.UserAsociadoName,
+                    Rol = a.NombreRol,
+                    RutaExpediente = Ctx.BaldiosPersonaNatural.Where(x => x.id == a.IdExpediente).Select(x => x.NumeroExpediente).FirstOrDefault(),
+                    Soporte = a.Soporte,
+                    Anexo = a.Anexo,
+                    IdOrfeo = a.IdOrfeo,
+                    Estado = a.Estado,
+                    FechaCreacion = a.FechaCreacion
+                }).OrderBy(x => x.Id).FirstOrDefault();
+
+            return lista;
         }
         public ConceptoModel Actualizar(ConceptoModel a)
         {
             using (var Ctx = new ZonasFEntities())
             {
-                var ResCtx = Ctx.Concepto.Where(s => s.Id == a.Id).FirstOrDefault();
-                if (ResCtx != null)
+                var Concepto_ = Ctx.Concepto.Where(s => s.Id == a.Id).FirstOrDefault();
+                if (Concepto_ != null)
                 {
-                    ResCtx.Id = a.Id;
-                    ResCtx.IdAspNetUsers = a.IdAspNetUsers;
-                    ResCtx.IdCausa = a.IdCausa;
-                    ResCtx.IdExpediente = a.IdExpediente;
-                    ResCtx.Soporte = a.Soporte;
-                    ResCtx.Anexo = a.Anexo;
-                    ResCtx.IdOrfeo = a.IdOrfeo;
-                    ResCtx.Estado = a.Estado;
+                    Concepto_.IdAspNetUsers = a.IdAspNetUsers;
+                    Concepto_.IdCausa = a.IdCausa;
+                    Concepto_.IdExpediente = a.IdExpediente;
+                    Concepto_.Soporte = a.Soporte;
+                    Concepto_.Anexo = a.Anexo;
+                    Concepto_.IdOrfeo = a.IdOrfeo;
+                    Concepto_.Estado = true;
+                    Concepto_.FechaCreacion = DateTime.Now;
+                    Ctx.SaveChanges();
 
+                }
+
+                
+                if (a.UserAsociado != "N/A")
+                {
+                    List<string> listaAdmin =
+                      Ctx.AspNetRoles
+                     .Join(Ctx.AspNetUserRoles, b => b.Id, c => c.RoleId, (b, c) => new { c.UserId, c.RoleId, rol = b.Name })
+                     .Join(Ctx.AspNetUsers, b => b.UserId, c => c.Id, (b, c) => new { b.rol, c.Id, b.UserId, b.RoleId })
+                     .Join(Ctx.Users, b => b.Id, c => c.Id_Hash, (b, c) => new { b.rol, c.Name, c.FirstName, c.LastName, c.Id_Hash, c.Email })
+                     .Where(c => c.Id_Hash == a.UserAsociado)
+                     .Select(c => c.Email).ToList();
+                    EnviarCorreo(a.RutaExpediente, listaAdmin);
+                    ConceptoAsociado ConceptoAsociado_ = new ConceptoAsociado
+                    {
+                        IdConcepto = a.Id,
+                        IdAspNetUser = a.UserAsociado,
+                        Estado = true,
+                        FechaInsercion = a.FechaCreacion
+                    };
+                    Ctx.ConceptoAsociado.Add(ConceptoAsociado_);
                     Ctx.SaveChanges();
                 }
+                
+                return a;
+                
             }
-            return a;
         }
         public String Eliminar(int id)
         {
@@ -276,7 +331,7 @@ namespace AspNetIdentity.WebApi.Logic
             email.From = new MailAddress("oscar.ballesteros.b@gmail.com");
             email.Subject = "Notificación solicitud de concepto ( " + DateTime.Now.ToString("dd / MMM / yyy hh:mm:ss") + " ) ";
             email.SubjectEncoding = System.Text.Encoding.UTF8;
-            email.Body = "Se creo una nueva solicitud de concepto, Por favor inicie sesion y ingrese a este <a href='"+url+"'>Visit W3Schools</a> ";
+            email.Body = "Se creo una nueva solicitud de concepto, Por favor inicie sesion y ingrese a este <a href='"+url+"'>Link</a> ";
             email.IsBodyHtml = true;
             email.Priority = MailPriority.Normal;
 

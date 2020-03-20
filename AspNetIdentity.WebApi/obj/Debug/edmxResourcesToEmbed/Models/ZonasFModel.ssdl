@@ -174,7 +174,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="Anexo" Type="text" />
     <Property Name="IdOrfeo" Type="text" />
     <Property Name="Estado" Type="bit" />
-    <Property Name="FechaCreacion" Type="date" />
+    <Property Name="FechaCreacion" Type="datetime" />
   </EntityType>
   <EntityType Name="ConceptoAsociado">
     <Key>

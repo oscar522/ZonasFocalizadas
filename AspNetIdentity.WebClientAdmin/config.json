@@ -359,6 +359,19 @@
 
         }
       ]
+    },
+    {
+      "role": "Invitado",
+      "links": [
+        {
+          "order": 1,
+          "controllerName": "HomeUsuarios",
+          "actionName": "BuscarExpedientes",
+          "linkText": "Buscar Expedientes",
+          "iconText": "fa fa-search mr-3",
+          "sub": null
+        }
+      ]
     }
   ]
 }

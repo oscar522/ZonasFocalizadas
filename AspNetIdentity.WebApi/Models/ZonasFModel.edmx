@@ -179,7 +179,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
           <Property Name="Anexo" Type="text" />
           <Property Name="IdOrfeo" Type="text" />
           <Property Name="Estado" Type="bit" />
-          <Property Name="FechaCreacion" Type="date" />
+          <Property Name="FechaCreacion" Type="datetime" />
         </EntityType>
         <EntityType Name="ConceptoAsociado">
           <Key>
@@ -941,7 +941,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Property Name="Anexo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="IdOrfeo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Boolean" />
-          <Property Name="FechaCreacion" Type="DateTime" Precision="0" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="CtCausas">
           <Key>

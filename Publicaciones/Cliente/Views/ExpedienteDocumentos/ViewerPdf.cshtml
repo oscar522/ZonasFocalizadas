@@ -38,7 +38,18 @@
                                         $(document).ready(function () {
                                          // obtiene la url de los pdf
                                         $.getJSON( '@Url.Content("~/Content/ConfigPdfUri.json")', function(data){
-                                            var UriPdf = data.result[0].Uri;
+                                            var UriLo = data.result[0].Uri;
+                                            var UriPdf ="";
+                                            var UriRe = data.result[0].UriRe;
+
+                                            var pathname = window.location.href;
+
+                                            if (pathname.indexOf(UriRe) > -1) {
+                                                UriPdf = UriRe;
+                                            } else {
+                                                UriPdf = UriLo;
+                                            }
+
                                             var url = '@Model.Archivo';
                                             var pageurlIni = '@Model.PagInicial';
                                             var pageurlFin = '@Model.PagFinal';
