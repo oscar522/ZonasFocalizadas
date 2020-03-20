@@ -54,6 +54,8 @@ namespace AspNetIdentity.WebApi.Models
         public virtual DbSet<CtCausas> CtCausas { get; set; }
         public virtual DbSet<ConceptoAsociado> ConceptoAsociado { get; set; }
         public virtual DbSet<ResumenTipificacionAll> ResumenTipificacionAll { get; set; }
+        public virtual DbSet<ActividadesDiarias> ActividadesDiarias { get; set; }
+        public virtual DbSet<TipoActividad> TipoActividad { get; set; }
     
         public virtual int AspNetUsers_Insertar(string firstName, string lastName, string email, string passwordHash, string id)
         {

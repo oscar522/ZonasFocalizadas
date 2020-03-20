@@ -69,7 +69,16 @@
 
           ]
 
+        },
+        {
+          "order": 7,
+          "controllerName": "ActividadesDiarias",
+          "actionName": "Crear",
+          "linkText": "Res. ACtividades",
+          "iconText": "fa fa-clipboard mr-3",
+          "sub": null
         }
+
       ]
     },
     {
@@ -141,6 +150,14 @@
 
           ]
 
+        },
+        {
+          "order": 7,
+          "controllerName": "ActividadesDiarias",
+          "actionName": "Crear",
+          "linkText": "Res. ACtividades",
+          "iconText": "fa fa-clipboard mr-3",
+          "sub": null
         }
       ]
     },
@@ -213,6 +230,14 @@
 
           ]
 
+        },
+        {
+          "order": 7,
+          "controllerName": "ActividadesDiarias",
+          "actionName": "Crear",
+          "linkText": "Res. ACtividades",
+          "iconText": "fa fa-clipboard mr-3",
+          "sub": null
         }
       ]
     },
@@ -285,6 +310,14 @@
 
           ]
 
+        },
+        {
+          "order": 7,
+          "controllerName": "ActividadesDiarias",
+          "actionName": "Crear",
+          "linkText": "Res. ACtividades",
+          "iconText": "fa fa-clipboard mr-3",
+          "sub": null
         }
       ]
     },
@@ -357,6 +390,14 @@
 
           ]
 
+        },
+        {
+          "order": 7,
+          "controllerName": "ActividadesDiarias",
+          "actionName": "Crear",
+          "linkText": "Res. ACtividades",
+          "iconText": "fa fa-clipboard mr-3",
+          "sub": null
         }
       ]
     },

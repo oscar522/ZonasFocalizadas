@@ -50,11 +50,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountTableModel.cs" />
+    <Compile Include="TipoActividadModel.cs" />
     <Compile Include="BaldiosPersonaNaturalModel.cs" />
     <Compile Include="ArchivosModel.cs" />
     <Compile Include="ConceptoModel.cs" />
     <Compile Include="ConceptoAsociadoModel.cs" />
     <Compile Include="CtCausasModel.cs" />
+    <Compile Include="ActividadesDiariasModel.cs" />
     <Compile Include="ResumenTipificacionAllModel.cs" />
     <Compile Include="ResumenTipificacionVistaModel.cs" />
     <Compile Include="ResumenTipificacionModel.cs" />

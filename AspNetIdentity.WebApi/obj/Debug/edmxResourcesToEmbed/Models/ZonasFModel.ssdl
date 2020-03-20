@@ -58,6 +58,22 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Accounts_AdditionalInformation' n
     <Property Name="PrivPoliDescription" Type="nvarchar(max)" />
     <Property Name="PrivPoliButton" Type="nvarchar" MaxLength="20" />
   </EntityType>
+  <EntityType Name="ActividadesDiarias">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdApsNetUser" Type="nvarchar" MaxLength="128" />
+    <Property Name="NombreUsuario" Type="text" />
+    <Property Name="RolUsuario" Type="text" />
+    <Property Name="FechaActividad" Type="date" />
+    <Property Name="IdActividad" Type="int" />
+    <Property Name="IdRol" Type="nvarchar" MaxLength="128" />
+    <Property Name="Cantidad" Type="int" />
+    <Property Name="Observacion" Type="text" />
+    <Property Name="Estado" Type="bit" />
+    <Property Name="FInsercion" Type="datetime" />
+  </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetRoles' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="AspNetRoles">
@@ -377,6 +393,14 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
     <Property Name="Id_Question" Type="int" Nullable="false" />
     <Property Name="Answer" Type="nvarchar" MaxLength="250" Nullable="false" />
   </EntityType>
+  <EntityType Name="TipoActividad">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Actividad" Type="text" />
+    <Property Name="Activa" Type="bit" />
+  </EntityType>
   <EntityType Name="Users">
     <Key>
       <PropertyRef Name="Id_User" />
@@ -414,6 +438,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
     <Parameter Name="IdAspNetUser" Type="nvarchar" Mode="In" />
   </Function>
   <EntityContainer Name="ZonasFModelStoreContainer">
+    <EntitySet Name="ActividadesDiarias" EntityType="Self.ActividadesDiarias" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BaldiosPersonaNatural" EntityType="Self.BaldiosPersonaNatural" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Concepto" EntityType="Self.Concepto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ConceptoAsociado" EntityType="Self.ConceptoAsociado" Schema="dbo" store:Type="Tables" />
@@ -428,6 +453,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
     <EntitySet Name="ResumenTipificacion" EntityType="Self.ResumenTipificacion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RetencionDocumental" EntityType="Self.RetencionDocumental" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RetencionDocumentalGrupo" EntityType="Self.RetencionDocumentalGrupo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoActividad" EntityType="Self.TipoActividad" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 

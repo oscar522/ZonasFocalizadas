@@ -236,6 +236,8 @@
     <Compile Include="Charts\CustomCharts.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\AccountTableController.cs" />
+    <Compile Include="Controllers\TipoActividadController.cs" />
+    <Compile Include="Controllers\ActividadesDiariasController.cs" />
     <Compile Include="Controllers\AssessmentsController.cs" />
     <Compile Include="Controllers\AdministratorController.cs" />
     <Compile Include="Controllers\ConceptosController.cs" />
@@ -262,9 +264,11 @@
     <Compile Include="Infrastructure\ExtendedClaimsProvider.cs" />
     <Compile Include="Infrastructure\RolesFromClaims.cs" />
     <Compile Include="Logic\AccountTableLogic.cs" />
+    <Compile Include="Logic\TipoActividadLogic.cs" />
     <Compile Include="Logic\AssessmentsLogic.cs" />
     <Compile Include="Logic\AdministratorLogic.cs" />
     <Compile Include="Logic\ConceptoLogic.cs" />
+    <Compile Include="Logic\ActividadesDiariasLogic.cs" />
     <Compile Include="Logic\HomeUsuariosLogic.cs" />
     <Compile Include="Logic\BaldiosPersonaNaturalLogic.cs" />
     <Compile Include="Logic\CtCiudadLogic.cs" />
@@ -288,6 +292,9 @@
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Accounts_AdditionalInformation.cs">
+      <DependentUpon>ZonasFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ActividadesDiarias.cs">
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetRoles.cs">
@@ -364,6 +371,9 @@
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Temp_AspNetUsersTests_Details.cs">
+      <DependentUpon>ZonasFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoActividad.cs">
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Users.cs">
