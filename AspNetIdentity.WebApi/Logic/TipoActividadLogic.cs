@@ -42,16 +42,16 @@ namespace AspNetIdentity.WebApi.Logic
             return lista.ToList();
         }
 
-        public TipoActividadModel ConsultarId(int id)
+        public List<TipoActividadModel> ConsultarRolId(string id)
         {
             ZonasFEntities Ctx = new ZonasFEntities();
-            TipoActividad a = Ctx.TipoActividad.Where(w => w.Id == id).Select(s => s).FirstOrDefault();
-            TipoActividadModel b = new TipoActividadModel();
-            b.Id = a.Id;
-            b.Actividad = a.Actividad;
-               b.Activa = a.Activa.Value;
-            
-            return b;
+            var a = Ctx.TipoActividad
+                .Join(Ctx.AspNetRoles, d => d.rol, c => c.Id, (d, c) => new { d.Id,d.Activa,d.Actividad,d.rol })
+                .Where(w => w.rol == id).Select(r => new TipoActividadModel {
+                    Id = r.Id,
+                    Actividad = r.Actividad,
+                    Activa = r.Activa.Value}).ToList();
+            return a;
         }
 
         public TipoActividadModel Actualizar(TipoActividadModel a)

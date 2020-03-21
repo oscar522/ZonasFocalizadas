@@ -10,11 +10,11 @@ namespace AspNetIdentity.WebApi.Controllers
     {
         // GET api/values/5
         [Authorize]
-        [Route("getTipoActividadid/{id}")]
-        public TipoActividadModel Get(int id)
+        [Route("getTipoActividadIdRol/{id}")]
+        public List<TipoActividadModel> Get(string id)
         {
             TipoActividadLogic a = new TipoActividadLogic();
-            return a.ConsultarId(id);
+            return a.ConsultarRolId(id);
         }
 
         // GET api/values/

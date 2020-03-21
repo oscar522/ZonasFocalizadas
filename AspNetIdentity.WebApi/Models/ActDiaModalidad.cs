@@ -12,11 +12,10 @@ namespace AspNetIdentity.WebApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TipoActividad
+    public partial class ActDiaModalidad
     {
         public int Id { get; set; }
-        public string Actividad { get; set; }
-        public Nullable<bool> Activa { get; set; }
-        public string rol { get; set; }
+        public string Nombre { get; set; }
+        public Nullable<bool> Estado { get; set; }
     }
 }

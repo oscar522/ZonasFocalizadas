@@ -16,11 +16,11 @@ namespace AspNetIdentity.WebApi.Models
     {
         public long Id { get; set; }
         public string IdApsNetUser { get; set; }
-        public string NombreUsuario { get; set; }
-        public string RolUsuario { get; set; }
+        public Nullable<int> IdProceso { get; set; }
+        public Nullable<int> IdModalidad { get; set; }
+        public string IdRol { get; set; }
         public Nullable<System.DateTime> FechaActividad { get; set; }
         public Nullable<int> IdActividad { get; set; }
-        public string IdRol { get; set; }
         public Nullable<int> Cantidad { get; set; }
         public string Observacion { get; set; }
         public Nullable<bool> Estado { get; set; }

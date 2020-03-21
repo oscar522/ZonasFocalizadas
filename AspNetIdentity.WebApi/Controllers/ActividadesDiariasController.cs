@@ -34,6 +34,22 @@ namespace AspNetIdentity.WebApi.Controllers
             return a.ConsultaRol();
         }
 
+        [Authorize]
+        [Route("getProceso")]
+        public List<CtPaisModel> GetProceso()
+        {
+            ActividadesDiariasLogic a = new ActividadesDiariasLogic();
+            return a.ConsultaProceso();
+        }
+
+        [Authorize]
+        [Route("getModalidad")]
+        public List<CtPaisModel> GetModalidad()
+        {
+            ActividadesDiariasLogic a = new ActividadesDiariasLogic();
+            return a.ConsultaModalidad();
+        }
+
         [HttpPost]
         [Authorize]
         [Route("ActividadesDiariascreate")]

@@ -268,8 +268,10 @@
       <Parameter Name="IdAspNetUser" Mode="In" Type="String" />
     </FunctionImport>
     <EntitySet Name="ResumenTipificacionAll" EntityType="ZonasFModel.ResumenTipificacionAll" />
-    <EntitySet Name="ActividadesDiarias" EntityType="ZonasFModel.ActividadesDiarias" />
     <EntitySet Name="TipoActividad" EntityType="ZonasFModel.TipoActividad" />
+    <EntitySet Name="ActDiaModalidad" EntityType="ZonasFModel.ActDiaModalidad" />
+    <EntitySet Name="ActDiaProceso" EntityType="ZonasFModel.ActDiaProceso" />
+    <EntitySet Name="ActividadesDiarias" EntityType="ZonasFModel.ActividadesDiarias" />
   </EntityContainer>
   <EntityType Name="ExpedienteDocumentos">
     <Key>
@@ -420,22 +422,6 @@
     <Property Name="MunicNombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="MunicId" Type="Int32" />
   </EntityType>
-  <EntityType Name="ActividadesDiarias">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="IdApsNetUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="NombreUsuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="RolUsuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="FechaActividad" Type="DateTime" Precision="0" />
-    <Property Name="IdActividad" Type="Int32" />
-    <Property Name="IdRol" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="Cantidad" Type="Int32" />
-    <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Estado" Type="Boolean" />
-    <Property Name="FInsercion" Type="DateTime" Precision="3" />
-  </EntityType>
   <EntityType Name="TipoActividad">
     <Key>
       <PropertyRef Name="Id" />
@@ -443,5 +429,38 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Actividad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Activa" Type="Boolean" />
+    <Property Name="rol" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ActDiaModalidad">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ActDiaProceso">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ActividadesDiarias">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdApsNetUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IdProceso" Type="Int32" />
+    <Property Name="IdModalidad" Type="Int32" />
+    <Property Name="IdRol" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="FechaActividad" Type="DateTime" Precision="0" />
+    <Property Name="IdActividad" Type="Int32" />
+    <Property Name="Cantidad" Type="Int32" />
+    <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Boolean" />
+    <Property Name="FInsercion" Type="DateTime" Precision="3" />
   </EntityType>
 </Schema>

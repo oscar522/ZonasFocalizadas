@@ -294,6 +294,12 @@
     <Compile Include="Models\Accounts_AdditionalInformation.cs">
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ActDiaModalidad.cs">
+      <DependentUpon>ZonasFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ActDiaProceso.cs">
+      <DependentUpon>ZonasFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ActividadesDiarias.cs">
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>

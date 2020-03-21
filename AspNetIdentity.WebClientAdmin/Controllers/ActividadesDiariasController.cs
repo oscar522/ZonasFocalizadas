@@ -31,17 +31,6 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             }
         }
 
-        public async Task<ActionResult> TipoActividadList()
-        {
-            string Id = "0";
-            string Controller = "TipoActividad";
-            string Method = "getTipoActividad";
-            string result = await employeeProvider.Get(Id, Controller, Method);
-            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
-            List<TipoActividadModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<TipoActividadModel>>(jsonResult.ToString());
-            return Json(processModel.Select(x => new SelectListItem { Text = x.Actividad, Value = x.Id.ToString() }).ToList());
-        }
-
         public async Task<ActionResult> RolList()
         {
             string Id = "0";
@@ -51,6 +40,37 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
             List<CtDeptoModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CtDeptoModel>>(jsonResult.ToString());
             return Json(processModel.Select(x => new SelectListItem { Text = x.NOMBRE, Value = x.NOMBRE_PAIS.ToString() }).ToList());
+        }
+
+        public async Task<ActionResult> TipoActividadList(string RolId)
+        {
+            string Controller = "TipoActividad";
+            string Method = "getTipoActividadIdRol";
+            string result = await employeeProvider.Get(RolId, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            List<TipoActividadModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<TipoActividadModel>>(jsonResult.ToString());
+            return Json(processModel.Select(x => new SelectListItem { Text = x.Actividad, Value = x.Id.ToString() }).ToList());
+        }
+        public async Task<ActionResult> ProcesoList()
+        {
+            string Id = "0";
+            string Controller = "ActividadesDiarias";
+            string Method = "getProceso";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            List<CtPaisModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CtPaisModel>>(jsonResult.ToString());
+            return Json(processModel.Select(x => new SelectListItem { Text = x.NOMBRE, Value = x.ID_CT_PAIS.ToString() }).ToList());
+        }
+
+        public async Task<ActionResult> ModalidadList()
+        {
+            string Id = "0";
+            string Controller = "ActividadesDiarias";
+            string Method = "getModalidad";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            List<CtPaisModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CtPaisModel>>(jsonResult.ToString());
+            return Json(processModel.Select(x => new SelectListItem { Text = x.NOMBRE, Value = x.ID_CT_PAIS.ToString() }).ToList());
         }
 
         public async Task<ActionResult> ListGeneral()
@@ -72,7 +92,6 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             List<ActividadesDiariasModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ActividadesDiariasModel>>(jsonResult.ToString());
             return Json(processModel, JsonRequestBehavior.AllowGet);
         }
-
 
         public async Task<ActionResult> Index()
         {

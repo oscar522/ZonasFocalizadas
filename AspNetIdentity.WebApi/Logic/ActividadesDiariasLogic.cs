@@ -17,18 +17,17 @@ namespace AspNetIdentity.WebApi.Logic
             {
                 ActividadesDiarias Nuevo = new ActividadesDiarias
                 {
-                    IdApsNetUser = a.IdApsNetUser,
-                    NombreUsuario = a.NombreUsuario,
-                    RolUsuario = a.RolUsuario,
-                    FechaActividad = a.FechaActividad,
-                    IdActividad = a.IdActividad,
-                    IdRol = a.IdRol,
-                    Cantidad = a.Cantidad,
-                    Observacion = a.Observacion,
-                    FInsercion = DateTime.Now,
-                    Estado = true,
-
-                };
+                IdApsNetUser = a.IdApsNetUser,
+                IdProceso = a.IdModalidad,
+                IdModalidad = a.IdModalidad,
+                IdRol = a.IdRolActividad,
+                FechaActividad = a.FechaActividad,
+                IdActividad = a.IdActividad,
+                Cantidad = a.Cantidad,
+                Observacion = a.Observacion,
+                Estado = true,
+                FInsercion = DateTime.Now 
+            };
                 Ctx.ActividadesDiarias.Add(Nuevo);
                 Ctx.SaveChanges();
                 return a;
@@ -39,6 +38,20 @@ namespace AspNetIdentity.WebApi.Logic
         {
             ZonasFEntities Ctx = new ZonasFEntities();
             var lista = Ctx.AspNetRoles.Select(x => new CtDeptoModel { ID_CT_PAIS = 1, NOMBRE_PAIS = x.Id, NOMBRE = x.Name }).ToList();
+            return lista;
+        }
+
+        public List<CtPaisModel> ConsultaProceso()
+        {
+            ZonasFEntities Ctx = new ZonasFEntities();
+            var lista = Ctx.ActDiaProceso.Select(x => new CtPaisModel { ID_CT_PAIS = x.Id, NOMBRE = x.Nombre }).ToList();
+            return lista;
+        }
+
+        public List<CtPaisModel> ConsultaModalidad()
+        {
+            ZonasFEntities Ctx = new ZonasFEntities();
+            var lista = Ctx.ActDiaModalidad.Select(x => new CtPaisModel { ID_CT_PAIS = x.Id, NOMBRE = x.Nombre }).ToList();
             return lista;
         }
 
@@ -55,7 +68,13 @@ namespace AspNetIdentity.WebApi.Logic
                 .Join(Ctx.AspNetRoles, b => b.RoleId, c => c.Id, (b, c) =>
                  new { b.b, b.Id_Hash, b.NombreUsuario, b.RoleId, NombreRol = c.Name, b.Estado })
                 .Join(Ctx.TipoActividad, b => b.b.IdActividad, c => c.Id, (b, c) =>
-                 new { b.b, b.Id_Hash, b.NombreUsuario, b.RoleId, b.NombreRol, b.Estado, c.Actividad })
+                 new { b.b, b.Id_Hash, b.NombreUsuario, b.RoleId, b.NombreRol, b.Estado, c.Actividad,  RolActividad= c.rol })
+                .Join(Ctx.AspNetRoles, b => b.RolActividad, c => c.Id, (b, c) =>
+                 new { b.b, b.Id_Hash, b.NombreUsuario, b.RoleId, b.NombreRol, b.Estado, b.Actividad,  NombreRolActividad= c.Name })
+                .Join(Ctx.ActDiaProceso, b => b.b.IdProceso, c => c.Id, (b, c) =>
+                 new { b.b, b.Id_Hash, b.NombreUsuario, b.RoleId, b.NombreRol, b.Estado, b.Actividad, b.NombreRolActividad , IdProceso = c.Id, NombreProceso = c.Nombre })
+                .Join(Ctx.ActDiaModalidad, b => b.b.IdModalidad, c => c.Id, (b, c) =>
+                 new { b.b, b.Id_Hash, b.NombreUsuario, b.RoleId, b.NombreRol, b.Estado, b.Actividad, b.NombreRolActividad, b.IdProceso, b.NombreProceso, IdModalidad = c.Id , NombreModalidad = c.Nombre })
                 .Where(x => x.Estado == true)
                 .Select(a => new ActividadesDiariasModel
                 {
@@ -63,11 +82,16 @@ namespace AspNetIdentity.WebApi.Logic
                 IdApsNetUser = a.Id_Hash,
                 NombreUsuario = a.NombreUsuario,
                 RolUsuario = a.NombreRol,
+                IdProceso = a.IdProceso,
+                NombreProceso = a.NombreProceso,
+                IdModalidad = a.IdModalidad,
+                NombreModalidad = a.NombreModalidad,
                 FechaActividad = a.b.FechaActividad.Value,
                 FechaActividadS = a.b.FechaActividad.Value.ToString(),
+                IdRolActividad = a.b.IdRol,
+                NombreRolActividad = a.NombreRolActividad,
                 IdActividad = a.b.IdActividad.Value,
                 NombreActividad = a.Actividad,
-                IdRol = a.b.IdRol,
                 Cantidad = a.b.Cantidad.Value,
                 Observacion = a.b.Observacion,
                 Estado = a.Estado.Value,
@@ -81,34 +105,44 @@ namespace AspNetIdentity.WebApi.Logic
         {
             ZonasFEntities Ctx = new ZonasFEntities();
             var lista = Ctx.ActividadesDiarias
-                 .Join(Ctx.AspNetUsers, b => b.IdApsNetUser, c => c.Id, (b, c) =>
-                 new { b, c.Id, b.Estado })
-                .Join(Ctx.Users, b => b.Id, c => c.Id_Hash, (b, c) =>
-                 new { b.b, c.Id_Hash, NombreUsuario = c.Name + " " + c.FirstName + " " + c.LastName, b.Estado })
-                .Join(Ctx.AspNetUserRoles, b => b.Id_Hash, c => c.UserId, (b, c) =>
-                 new { b.b, b.Id_Hash, b.NombreUsuario, c.RoleId, b.Estado })
-                .Join(Ctx.AspNetRoles, b => b.RoleId, c => c.Id, (b, c) =>
-                 new { b.b, b.Id_Hash, b.NombreUsuario, b.RoleId, NombreRol = c.Name, b.Estado })
-                .Join(Ctx.TipoActividad, b => b.b.IdActividad, c => c.Id, (b, c) =>
-                 new { b.b, b.Id_Hash, b.NombreUsuario, b.RoleId, b.NombreRol, b.Estado, c.Actividad })
-                .Where(x => x.Estado == true)
-                .Select(a => new ActividadesDiariasModel
-                {
-                    Id = a.b.Id,
-                    IdApsNetUser = a.Id_Hash,
-                    NombreUsuario = a.NombreUsuario,
-                    RolUsuario = a.NombreRol,
-                    FechaActividad = a.b.FechaActividad.Value,
-                    FechaActividadS = a.b.FechaActividad.Value.ToString(),
-                    IdActividad = a.b.IdActividad.Value,
-                    NombreActividad = a.Actividad,
-                    IdRol = a.b.IdRol,
-                    Cantidad = a.b.Cantidad.Value,
-                    Observacion = a.b.Observacion,
-                    Estado = a.Estado.Value,
-                    FInsercion = a.b.FInsercion.Value,
-                }).OrderBy(c => c.IdApsNetUser).OrderBy(c => c.FInsercion).ToList();
-
+                .Join(Ctx.AspNetUsers, b => b.IdApsNetUser, c => c.Id, (b, c) =>
+                new { b, c.Id, b.Estado })
+               .Join(Ctx.Users, b => b.Id, c => c.Id_Hash, (b, c) =>
+                new { b.b, c.Id_Hash, NombreUsuario = c.Name + " " + c.FirstName + " " + c.LastName, b.Estado })
+               .Join(Ctx.AspNetUserRoles, b => b.Id_Hash, c => c.UserId, (b, c) =>
+                new { b.b, b.Id_Hash, b.NombreUsuario, c.RoleId, b.Estado })
+               .Join(Ctx.AspNetRoles, b => b.RoleId, c => c.Id, (b, c) =>
+                new { b.b, b.Id_Hash, b.NombreUsuario, b.RoleId, NombreRol = c.Name, b.Estado })
+               .Join(Ctx.TipoActividad, b => b.b.IdActividad, c => c.Id, (b, c) =>
+                new { b.b, b.Id_Hash, b.NombreUsuario, b.RoleId, b.NombreRol, b.Estado, c.Actividad, RolActividad = c.rol })
+               .Join(Ctx.AspNetRoles, b => b.RolActividad, c => c.Id, (b, c) =>
+                new { b.b, b.Id_Hash, b.NombreUsuario, b.RoleId, b.NombreRol, b.Estado, b.Actividad, NombreRolActividad = c.Name })
+               .Join(Ctx.ActDiaProceso, b => b.b.IdProceso, c => c.Id, (b, c) =>
+                new { b.b, b.Id_Hash, b.NombreUsuario, b.RoleId, b.NombreRol, b.Estado, b.Actividad, b.NombreRolActividad, IdProceso = c.Id, NombreProceso = c.Nombre })
+               .Join(Ctx.ActDiaModalidad, b => b.b.IdModalidad, c => c.Id, (b, c) =>
+                new { b.b, b.Id_Hash, b.NombreUsuario, b.RoleId, b.NombreRol, b.Estado, b.Actividad, b.NombreRolActividad, b.IdProceso, b.NombreProceso, IdModalidad = c.Id, NombreModalidad = c.Nombre })
+               .Where(x => x.Estado == true && x.b.IdApsNetUser == id)
+               .Select(a => new ActividadesDiariasModel
+               {
+                   Id = a.b.Id,
+                   IdApsNetUser = a.Id_Hash,
+                   NombreUsuario = a.NombreUsuario,
+                   RolUsuario = a.NombreRol,
+                   IdProceso = a.IdProceso,
+                   NombreProceso = a.NombreProceso,
+                   IdModalidad = a.IdModalidad,
+                   NombreModalidad = a.NombreModalidad,
+                   FechaActividad = a.b.FechaActividad.Value,
+                   FechaActividadS = a.b.FechaActividad.Value.ToString(),
+                   IdRolActividad = a.b.IdRol,
+                   NombreRolActividad = a.NombreRolActividad,
+                   IdActividad = a.b.IdActividad.Value,
+                   NombreActividad = a.Actividad,
+                   Cantidad = a.b.Cantidad.Value,
+                   Observacion = a.b.Observacion,
+                   Estado = a.Estado.Value,
+                   FInsercion = a.b.FInsercion.Value,
+               }).OrderBy(c => c.IdApsNetUser).OrderBy(c => c.FInsercion).ToList();
             return lista;
         }
 
@@ -122,14 +156,15 @@ namespace AspNetIdentity.WebApi.Logic
                     if (ResCtx != null)
                         ResCtx.Id = a.Id;
                     ResCtx.IdApsNetUser = a.IdApsNetUser;
-                    ResCtx.NombreUsuario = a.NombreUsuario;
-                    ResCtx.RolUsuario = a.RolUsuario;
                     ResCtx.FechaActividad = a.FechaActividad;
                     ResCtx.IdActividad = a.IdActividad;
-                    ResCtx.IdRol = a.IdRol;
+                    ResCtx.IdRol = a.IdRolActividad;
                     ResCtx.Cantidad = a.Cantidad;
                     ResCtx.Observacion = a.Observacion;
                     ResCtx.Estado = a.Estado;
+                    ResCtx.FInsercion = a.FInsercion;
+                    ResCtx.IdProceso = a.IdProceso;
+                    ResCtx.IdModalidad = a.IdModalidad;
 
                     Ctx.SaveChanges();
                 }

@@ -360,6 +360,34 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TipoActividad">
+      <EntityTypeMapping TypeName="ZonasFModel.TipoActividad">
+        <MappingFragment StoreEntitySet="TipoActividad">
+          <ScalarProperty Name="rol" ColumnName="rol" />
+          <ScalarProperty Name="Activa" ColumnName="Activa" />
+          <ScalarProperty Name="Actividad" ColumnName="Actividad" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActDiaModalidad">
+      <EntityTypeMapping TypeName="ZonasFModel.ActDiaModalidad">
+        <MappingFragment StoreEntitySet="ActDiaModalidad">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActDiaProceso">
+      <EntityTypeMapping TypeName="ZonasFModel.ActDiaProceso">
+        <MappingFragment StoreEntitySet="ActDiaProceso">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="ActividadesDiarias">
       <EntityTypeMapping TypeName="ZonasFModel.ActividadesDiarias">
         <MappingFragment StoreEntitySet="ActividadesDiarias">
@@ -367,21 +395,12 @@
           <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Observacion" ColumnName="Observacion" />
           <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
-          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
           <ScalarProperty Name="IdActividad" ColumnName="IdActividad" />
           <ScalarProperty Name="FechaActividad" ColumnName="FechaActividad" />
-          <ScalarProperty Name="RolUsuario" ColumnName="RolUsuario" />
-          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="IdModalidad" ColumnName="IdModalidad" />
+          <ScalarProperty Name="IdProceso" ColumnName="IdProceso" />
           <ScalarProperty Name="IdApsNetUser" ColumnName="IdApsNetUser" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TipoActividad">
-      <EntityTypeMapping TypeName="ZonasFModel.TipoActividad">
-        <MappingFragment StoreEntitySet="TipoActividad">
-          <ScalarProperty Name="Activa" ColumnName="Activa" />
-          <ScalarProperty Name="Actividad" ColumnName="Actividad" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

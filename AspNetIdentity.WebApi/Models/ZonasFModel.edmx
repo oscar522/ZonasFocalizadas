@@ -63,17 +63,33 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Accounts_AdditionalInformation' n
           <Property Name="PrivPoliDescription" Type="nvarchar(max)" />
           <Property Name="PrivPoliButton" Type="nvarchar" MaxLength="20" />
         </EntityType>
+        <EntityType Name="ActDiaModalidad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="text" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="ActDiaProceso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="text" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
         <EntityType Name="ActividadesDiarias">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdApsNetUser" Type="nvarchar" MaxLength="128" />
-          <Property Name="NombreUsuario" Type="text" />
-          <Property Name="RolUsuario" Type="text" />
+          <Property Name="IdProceso" Type="int" />
+          <Property Name="IdModalidad" Type="int" />
+          <Property Name="IdRol" Type="nvarchar" MaxLength="128" />
           <Property Name="FechaActividad" Type="date" />
           <Property Name="IdActividad" Type="int" />
-          <Property Name="IdRol" Type="nvarchar" MaxLength="128" />
           <Property Name="Cantidad" Type="int" />
           <Property Name="Observacion" Type="text" />
           <Property Name="Estado" Type="bit" />
@@ -405,6 +421,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Actividad" Type="text" />
           <Property Name="Activa" Type="bit" />
+          <Property Name="rol" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -443,6 +460,8 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Parameter Name="IdAspNetUser" Type="nvarchar" Mode="In" />
         </Function>
         <EntityContainer Name="ZonasFModelStoreContainer">
+          <EntitySet Name="ActDiaModalidad" EntityType="Self.ActDiaModalidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActDiaProceso" EntityType="Self.ActDiaProceso" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ActividadesDiarias" EntityType="Self.ActividadesDiarias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BaldiosPersonaNatural" EntityType="Self.BaldiosPersonaNatural" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Concepto" EntityType="Self.Concepto" Schema="dbo" store:Type="Tables" />
@@ -857,8 +876,10 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
             <Parameter Name="IdAspNetUser" Mode="In" Type="String" />
           </FunctionImport>
           <EntitySet Name="ResumenTipificacionAll" EntityType="ZonasFModel.ResumenTipificacionAll" />
-          <EntitySet Name="ActividadesDiarias" EntityType="ZonasFModel.ActividadesDiarias" />
           <EntitySet Name="TipoActividad" EntityType="ZonasFModel.TipoActividad" />
+          <EntitySet Name="ActDiaModalidad" EntityType="ZonasFModel.ActDiaModalidad" />
+          <EntitySet Name="ActDiaProceso" EntityType="ZonasFModel.ActDiaProceso" />
+          <EntitySet Name="ActividadesDiarias" EntityType="ZonasFModel.ActividadesDiarias" />
         </EntityContainer>
         <EntityType Name="ExpedienteDocumentos">
           <Key>
@@ -1009,22 +1030,6 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Property Name="MunicNombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="MunicId" Type="Int32" />
         </EntityType>
-        <EntityType Name="ActividadesDiarias">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdApsNetUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="NombreUsuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="RolUsuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="FechaActividad" Type="DateTime" Precision="0" />
-          <Property Name="IdActividad" Type="Int32" />
-          <Property Name="IdRol" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="Cantidad" Type="Int32" />
-          <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Estado" Type="Boolean" />
-          <Property Name="FInsercion" Type="DateTime" Precision="3" />
-        </EntityType>
         <EntityType Name="TipoActividad">
           <Key>
             <PropertyRef Name="Id" />
@@ -1032,6 +1037,39 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Actividad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Activa" Type="Boolean" />
+          <Property Name="rol" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ActDiaModalidad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ActDiaProceso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ActividadesDiarias">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdApsNetUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IdProceso" Type="Int32" />
+          <Property Name="IdModalidad" Type="Int32" />
+          <Property Name="IdRol" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="FechaActividad" Type="DateTime" Precision="0" />
+          <Property Name="IdActividad" Type="Int32" />
+          <Property Name="Cantidad" Type="Int32" />
+          <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" />
+          <Property Name="FInsercion" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1398,6 +1436,34 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TipoActividad">
+            <EntityTypeMapping TypeName="ZonasFModel.TipoActividad">
+              <MappingFragment StoreEntitySet="TipoActividad">
+                <ScalarProperty Name="rol" ColumnName="rol" />
+                <ScalarProperty Name="Activa" ColumnName="Activa" />
+                <ScalarProperty Name="Actividad" ColumnName="Actividad" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActDiaModalidad">
+            <EntityTypeMapping TypeName="ZonasFModel.ActDiaModalidad">
+              <MappingFragment StoreEntitySet="ActDiaModalidad">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActDiaProceso">
+            <EntityTypeMapping TypeName="ZonasFModel.ActDiaProceso">
+              <MappingFragment StoreEntitySet="ActDiaProceso">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="ActividadesDiarias">
             <EntityTypeMapping TypeName="ZonasFModel.ActividadesDiarias">
               <MappingFragment StoreEntitySet="ActividadesDiarias">
@@ -1405,21 +1471,12 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="Observacion" ColumnName="Observacion" />
                 <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
-                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
                 <ScalarProperty Name="IdActividad" ColumnName="IdActividad" />
                 <ScalarProperty Name="FechaActividad" ColumnName="FechaActividad" />
-                <ScalarProperty Name="RolUsuario" ColumnName="RolUsuario" />
-                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="IdModalidad" ColumnName="IdModalidad" />
+                <ScalarProperty Name="IdProceso" ColumnName="IdProceso" />
                 <ScalarProperty Name="IdApsNetUser" ColumnName="IdApsNetUser" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TipoActividad">
-            <EntityTypeMapping TypeName="ZonasFModel.TipoActividad">
-              <MappingFragment StoreEntitySet="TipoActividad">
-                <ScalarProperty Name="Activa" ColumnName="Activa" />
-                <ScalarProperty Name="Actividad" ColumnName="Actividad" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
