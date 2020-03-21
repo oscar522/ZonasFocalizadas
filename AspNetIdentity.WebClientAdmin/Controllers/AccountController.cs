@@ -114,6 +114,11 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
                         ViewPage = "BuscarExpedientes";
                         Controller = "HomeUsuarios";
                     }
+                    else if (IdRol.Equals("Gestion Documental"))
+                    {
+                        ViewPage = "Index";
+                        Controller = "HomeTipificacion";
+                    }
                     return RedirectToAction(ViewPage, Controller);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
