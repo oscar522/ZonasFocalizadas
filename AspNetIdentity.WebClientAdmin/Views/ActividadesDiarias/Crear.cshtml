@@ -6,6 +6,7 @@
     <script>
         $(document).ready(function () {
             $("#IdRolActividad").change(function () {
+                $("#IdActividad").empty();
                 $.ajax({
                     type: 'POST',
                     url: '@Url.Action("TipoActividadList")', // we are calling json method
@@ -179,7 +180,6 @@
 
                 } else {
 
-
                     var fechain = new Date($('#FechaActividad').val());
                     var dias = 1; // Número de días a agregar
                     fechain.setDate(fechain.getDate() + dias);
@@ -188,9 +188,9 @@
                     var dias = 2; // Número de días a agregar
                     fechaAc.setDate(fechaAc.getDate() - dias);
 
-                    if (fechaAc > fechain ) {
-                    $('span[data-valmsg-for="FechaActividad"]').text("* La fecha no puede ser menor a dos dias de la actual");
-                    }
+                    //if (fechaAc > fechain ) {
+                    //$('span[data-valmsg-for="FechaActividad"]').text("* La fecha no puede ser menor a dos dias de la actual");
+                    //}
                 }
                 if ($("#IdActividad").val() == 0) {
                     estado = true;
