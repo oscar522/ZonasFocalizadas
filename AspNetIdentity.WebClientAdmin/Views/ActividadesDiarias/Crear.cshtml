@@ -5,6 +5,11 @@
     @Scripts.Render("~/Scripts/ModalControl.js")
     <script>
         $(document).ready(function () {
+
+                                    // FechaActividad Cantidad
+            $("#FechaActividad").val("");
+            $("#Cantidad").val("");
+
             $("#IdRolActividad").change(function () {
                 $("#IdActividad").empty();
                 $.ajax({
@@ -80,8 +85,8 @@
                 "columnDefs": [
                 {
                     "targets": [ 0 ],
-                    "visible": true,
-                    "searchable": true
+                    "visible": false,
+                    "searchable": false
                 }],
 
                  dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
@@ -92,24 +97,24 @@
                 ]
              });
 
-            var oTable2 = $('#table_User').dataTable({
-                "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
-                "paging": true,
-                "searching":true,
-                "columnDefs": [
-                {
-                    "targets": [ 0 ],
-                    "visible": true,
-                    "searchable": true
-                }],
+            //var oTable2 = $('#table_User').dataTable({
+            //    "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
+            //    "paging": true,
+            //    "searching":true,
+            //    "columnDefs": [
+            //    {
+            //        "targets": [ 0 ],
+            //        "visible": false,
+            //        "searchable": false
+            //    }],
 
-                 dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
-                buttons: [
-                    { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
-                    { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
-                    { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
-                ]
-             });
+            //     dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
+            //    buttons: [
+            //        { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
+            //        { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
+            //        { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
+            //    ]
+            // });
 
             function TablaGeneral() {
                  $.ajax({
@@ -119,17 +124,27 @@
                     success: function (s) {
                         oTable.fnClearTable();
                         debugger;
+                       
                         $.each(s, function (i, obj) {
+
+                            var Delete = "";
+
+                            if ($("#RolUsuario").val() == "Administrator") {
+                                Delete =  '<z1 target="_blank" href=' + obj.Id + '  style="color: #013ADF;"><i class="fa fa-times-circle" aria-hidden="true"></i></z1>';
+                            }
+
                             oTable.fnAddData([
-                                  obj.FechaActividadS ,
-                                  obj.NombreProceso ,
-                                  obj.NombreModalidad ,
-                                  obj.RolUsuario ,
-                                  obj.NombreUsuario ,
-                                  obj.NombreRolActividad ,
-                                  obj.NombreActividad ,
-                                  obj.Cantidad ,
-                                  obj.Observacion ,
+                                obj.Id,
+                                obj.FechaActividadS ,
+                                obj.NombreProceso ,
+                                obj.NombreModalidad ,
+                                obj.RolUsuario ,
+                                obj.NombreUsuario ,
+                                obj.NombreRolActividad ,
+                                obj.NombreActividad ,
+                                obj.Cantidad ,
+                                obj.Observacion,
+                                Delete
                             ]);
                         });
                         return false;
@@ -141,7 +156,27 @@
                 });
             }
             TablaGeneral();
-            function TablaUser() {
+
+            var tabla2 = $('#table_General').DataTable();
+            $('#table_General tbody').on('click', 'z1', function () {
+                var data = tabla2.row($(this).parents('tr')).data();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("DeleteActivity")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: data[0] },
+                    success: function(states) {
+                        TablaGeneral();
+                        alert(states);
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+
+            });
+            @*function TablaUser() {
                  $.ajax({
                     type: 'POST',
                     url: '@Url.Action("ListUser")',
@@ -150,15 +185,21 @@
                     success: function (s) {
                         oTable2.fnClearTable();
                         debugger;
+                        var Delete = "";
+                        alert($("#RolUsuario").val());
+                        if ($("#RolUsuario").val() == "Administrator") {
+                             alert($("#RolUsuario").val()+ " 1");
+                             Delete = "x";
+                                }
                         $.each(s, function (i, obj) {
                             oTable2.fnAddData([
-                                  obj.NombreUsuario ,
-                                  obj.FechaActividadS ,
-                                  obj.RolUsuario ,
-                                  obj.NombreActividad ,
-                                  obj.Cantidad ,
+                                obj.NombreUsuario ,
+                                obj.FechaActividadS ,
+                                obj.RolUsuario ,
+                                obj.NombreActividad ,
+                                obj.Cantidad ,
                                 obj.Observacion,
-                                  ""
+                                Delete
                             ]);
                         });
 
@@ -170,7 +211,7 @@
                     }
                 });
             }
-            TablaUser();
+            TablaUser();*@
 
             $("form").submit(function (event) {
                 var estado  = false;
@@ -234,7 +275,7 @@
         <h3 class="card-title">Seguimiento</h3>
         <h6>
             Ususario : @Model.NombreUsuario <br />
-            Rol : @Model.RolUsuario
+            Rol :  @Model.RolUsuario
         </h6>
     </div>
 </div>
@@ -351,6 +392,9 @@
                                     <thead>
                                         <tr>
                                             <th>
+                                                Id
+                                            </th>
+                                            <th>
                                                 Fecha
                                             </th>
                                             <th>
@@ -377,6 +421,13 @@
                                             <th>
                                                 Observacion
                                             </th>
+                                            @if (@Model.RolUsuario == "Administrator")
+                                            {
+                                                <th>
+                                                </th>
+
+
+                                            }
                                         </tr>
                                     </thead>
                                     <tbody>

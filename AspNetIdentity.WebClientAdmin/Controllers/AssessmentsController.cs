@@ -54,18 +54,27 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
         {
             BTObject bTObject = GetTokenObject();
 
-            RegisterViewModel registerViewModel =
-                await Task.Run(
-                    () => new RegisterViewModel()
-                    {
-                        Level = 3,
-                        RoleName = "User",
-                        Id_User = bTObject.nameid,
-                        Id_Account = bTObject.AccountId,
-                        RootUser = false
-                    });
+            RegisterViewModel RegisterViewModel_ =  new RegisterViewModel();
+            try
+            {
+                RegisterViewModel_ =
+               await Task.Run(
+                   () => new RegisterViewModel()
+                   {
+                       Level = 3,
+                       RoleName = "User",
+                       Id_User = bTObject.nameid,
+                       Id_Account = bTObject.AccountId,
+                       RootUser = false
+                   });
 
-            return View(registerViewModel);
+            }
+            catch (Exception w )
+            {
+                Console.WriteLine(w.Message);    
+            }
+           
+            return View(RegisterViewModel_);
         }
 
         [HttpPost]

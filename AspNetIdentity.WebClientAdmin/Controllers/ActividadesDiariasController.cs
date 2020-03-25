@@ -93,6 +93,15 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             return Json(processModel, JsonRequestBehavior.AllowGet);
         }
 
+        public async Task<ActionResult> DeleteActivity(string Id)
+        {
+            string Controller = "ActividadesDiarias";
+            string Method = "getActividadesDiariasdelete";
+            string result = await employeeProvider.Delete(Controller, Method, Id);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            return Json(jsonResult, JsonRequestBehavior.AllowGet);
+        }
+
         public async Task<ActionResult> Index()
         {
             string Id = "0";
