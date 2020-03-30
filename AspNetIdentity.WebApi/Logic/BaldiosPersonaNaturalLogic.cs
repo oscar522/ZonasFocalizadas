@@ -784,7 +784,7 @@ namespace AspNetIdentity.WebApi.Logic
 
                 var GrupoExp = Ctx.PlResumenTipificacionAll(73, 001, "fb3d938c-68ae-49af-8bfd-9fbb33d3893f").Where(x => x.IdExpediente == Exp.Baldios.id).FirstOrDefault();
                 string NombreGrupo = "";
-                if (GrupoExp == null) NombreGrupo = "N_A";
+                if (GrupoExp == null) NombreGrupo = "N_A"; else NombreGrupo = GrupoExp.Grupo;
                 a = new BaldiosPersonaNaturalModel
                 {
                     id = Exp.Baldios.id,

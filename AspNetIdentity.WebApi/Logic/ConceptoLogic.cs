@@ -76,7 +76,7 @@ namespace AspNetIdentity.WebApi.Logic
                   .Join(Ctx.Users, b => b.Id, c => c.Id_Hash, (b, c) => new { b.rol, c.Name, c.FirstName, c.LastName, c.Id_Hash, c.Email })
                   .Where(c => c.rol == "Administrator")
                   .Select(c => c.Email).ToList();
-                    EnviarCorreo(a.RutaExpediente + id, listaAdmin);
+                    //EnviarCorreo(a.RutaExpediente + id, listaAdmin);
                 }
                 else
                 {
@@ -152,7 +152,7 @@ namespace AspNetIdentity.WebApi.Logic
                   .Join(Ctx.Users, b => b.Id, c => c.Id_Hash, (b, c) => new { b.rol, c.Name, c.FirstName, c.LastName, c.Id_Hash, c.Email })
                   .Where(c => c.rol == "Administrator")
                   .Select(c => c.Email).ToList();
-                    EnviarCorreo(a.RutaExpediente + id, listaAdmin);
+                    //EnviarCorreo(a.RutaExpediente + id, listaAdmin);
                 }
                 else
                 {
@@ -228,7 +228,7 @@ namespace AspNetIdentity.WebApi.Logic
                   .Join(Ctx.Users, b => b.Id, c => c.Id_Hash, (b, c) => new { b.rol, c.Name, c.FirstName, c.LastName, c.Id_Hash, c.Email })
                   .Where(c => c.rol == "Administrator")
                   .Select(c => c.Email).ToList();
-                    EnviarCorreo(a.RutaExpediente + id, listaAdmin);
+                    //EnviarCorreo(a.RutaExpediente + id, listaAdmin);
 
                 }
                 else
@@ -474,7 +474,7 @@ namespace AspNetIdentity.WebApi.Logic
                    .Join(Ctx.Users, b => b.Id, c => c.Id_Hash, (b, c) => new { b.rol, c.Name, c.FirstName, c.LastName, c.Id_Hash, c.Email })
                    .Where(c => c.rol == "Administrator")
                    .Select(c => c.Email).ToList();
-                    EnviarCorreo(a.RutaExpediente + id, listaAdmin);
+                    //EnviarCorreo(a.RutaExpediente + id, listaAdmin);
 
                 }
                 else
@@ -485,7 +485,7 @@ namespace AspNetIdentity.WebApi.Logic
                       .Join(Ctx.Users, b => b.Id, c => c.Id_Hash, (b, c) => new { b.rol, c.Name, c.FirstName, c.LastName, c.Id_Hash, c.Email })
                       .Where(c => c.Id_Hash == a.UserAsociado)
                       .Select(c => c.Email).ToList();
-                    EnviarCorreo(a.RutaExpediente, listaAdmin);
+                    //EnviarCorreo(a.RutaExpediente, listaAdmin);
                     id = a.Id;
                 }
                 ConceptoAsociado ConceptoAsociado_ = new ConceptoAsociado
@@ -674,7 +674,7 @@ namespace AspNetIdentity.WebApi.Logic
                      .Join(Ctx.Users, b => b.Id, c => c.Id_Hash, (b, c) => new { b.rol, c.Name, c.FirstName, c.LastName, c.Id_Hash, c.Email })
                      .Where(c => c.Id_Hash == a.UserAsociado)
                      .Select(c => c.Email).ToList();
-                    EnviarCorreo(a.RutaExpediente, listaAdmin);
+                    //EnviarCorreo(a.RutaExpediente, listaAdmin);
                     ConceptoAsociado ConceptoAsociado_ = new ConceptoAsociado
                     {
                         IdConcepto = a.Id,
@@ -782,50 +782,50 @@ namespace AspNetIdentity.WebApi.Logic
             });
             return lista.ToList();
         }
-        private void EnviarCorreo(string url , List<string> listaAdmin)
-        {
+        //private void EnviarCorreo(string url , List<string> listaAdmin)
+        //{
 
-            MailMessage email = new MailMessage();
-            SmtpClient smtp = new SmtpClient();
+        //    MailMessage email = new MailMessage();
+        //    SmtpClient smtp = new SmtpClient();
 
-            email.To.Add(new MailAddress("oscar.ballesteros.b@gmail.com"));
-            email.From = new MailAddress("oscar.ballesteros.b@gmail.com");
-            email.Subject = "Notificación solicitud de concepto ( " + DateTime.Now.ToString("dd / MMM / yyy hh:mm:ss") + " ) ";
-            email.SubjectEncoding = System.Text.Encoding.UTF8;
-            email.Body = "Se creo una nueva solicitud de concepto, Por favor inicie sesion y ingrese a este <a href='"+url+"'>Link</a> ";
-            email.IsBodyHtml = true;
-            email.Priority = MailPriority.Normal;
+        //    email.To.Add(new MailAddress("oscar.ballesteros.b@gmail.com"));
+        //    email.From = new MailAddress("oscar.ballesteros.b@gmail.com");
+        //    email.Subject = "Notificación solicitud de concepto ( " + DateTime.Now.ToString("dd / MMM / yyy hh:mm:ss") + " ) ";
+        //    email.SubjectEncoding = System.Text.Encoding.UTF8;
+        //    email.Body = "Se creo una nueva solicitud de concepto, Por favor inicie sesion y ingrese a este <a href='"+url+"'>Link</a> ";
+        //    email.IsBodyHtml = true;
+        //    email.Priority = MailPriority.Normal;
 
-            smtp.Host = "smtp.gmail.com";  // IP empresa/institucional
-                                          //smtp.Host = "smtp.hotmail.com";
-                                          //smtp.Host = "smtp.gmail.com";
-            smtp.Port = 587;
-            smtp.UseDefaultCredentials = false;
-            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-            smtp.Credentials = new System.Net.NetworkCredential("oscar.ballesteros.b@gmail.com", "11Princesa");
-            smtp.EnableSsl = true;
-            string output ="";
+        //    smtp.Host = "smtp.gmail.com";  // IP empresa/institucional
+        //                                  //smtp.Host = "smtp.hotmail.com";
+        //                                  //smtp.Host = "smtp.gmail.com";
+        //    smtp.Port = 587;
+        //    smtp.UseDefaultCredentials = false;
+        //    smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+        //    smtp.Credentials = new System.Net.NetworkCredential("oscar.ballesteros.b@gmail.com", "11Princesa");
+        //    smtp.EnableSsl = true;
+        //    string output ="";
            
-            try
-            {
-                foreach (string dir in listaAdmin)
-                {
-                    email.To.Add(dir);
-                }
+        //    try
+        //    {
+        //        foreach (string dir in listaAdmin)
+        //        {
+        //            email.To.Add(dir);
+        //        }
 
-                smtp.Send(email);
-                email.Dispose();
-                output = "Correo electrónico fue enviado satisfactoriamente.";
-            }
-            catch (SmtpException exm)
-            {
-                output = exm.Message.ToString();
-            }
-            catch (Exception ex)
-            {
-                output = "Error enviando correo electrónico: " + ex.Message;
-            }
+        //        smtp.Send(email);
+        //        email.Dispose();
+        //        output = "Correo electrónico fue enviado satisfactoriamente.";
+        //    }
+        //    catch (SmtpException exm)
+        //    {
+        //        output = exm.Message.ToString();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        output = "Error enviando correo electrónico: " + ex.Message;
+        //    }
 
-        }
+        //}
     }
 }
