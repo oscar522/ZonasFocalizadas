@@ -3,7 +3,10 @@
     @Scripts.Render("~/Scripts/ModalControl.js")
     <script type="text/javascript">
         $(document).ready(function () {
-
+            
+            $("#centralModalLGInfoDemoSlim").modal();
+            $('#HeaderSlim').html("")
+            $('#BodySlim').html('<div class="loading">Cargando ...</div>');
             
             $.getJSON('@Url.Content("~/Content/ConfigPdfUri.json")', function (data) {
                 var UriLo = data.result[0].Uri;
@@ -23,6 +26,7 @@
                 $('#ViewPdf').attr('href', Url);
             });
 
+
             var oTable = $('#table_id').dataTable({
                  dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
                 buttons: [
@@ -35,16 +39,11 @@
                 "pageLength": 5,
                 "searching": true,
                 "paging":   false,
-                //"ordering": false,
                 "info":     false
-            });  //Initialize the datatable
+            }); 
 
             function tabla() {
-            $('#centralModalLGInfoDemoSlim').modal({ backdrop: 'static', keyboard: false })
-            $("#centralModalLGInfoDemoSlim").modal();
-            $('#HeaderSlim').html("")
-                $('#BodySlim').html('<div class="loading">Cargando ...</div>');
-
+           
             $.ajax({
                 type: 'POST',
                 url: '@Url.Action("ListExpedienteDocumentos")',
@@ -58,10 +57,9 @@
                            "<a href='../ExpedienteDocumentos/ViewerPdf/" + obj.Id + "' title='Modificar' style='color: #013ADF;' target = '_blank'> <i class='fa fa-eye'>  </i></a>  " ,
                         ]);
                     });
-                      $("#centralModalLGInfoDemoSlim").modal('hide');
                 },
                 error: function(e){
-                     oTable.fnClearTable();
+                    oTable.fnClearTable();
                 }
             });
             };
@@ -93,6 +91,7 @@
                 success: function (s) {
                     oTableRegistro.fnClearTable();
                     $.each(s, function (i, obj) {
+                        $("#ResRegistro").text(obj.NombreUsuario);
                         oTableRegistro.fnAddData([
                             obj.FVerificacion ,
                             obj.Estado ,
@@ -118,6 +117,9 @@
             $('input[aria-controls="table_id"]').addClass("form-control");
             $('#table_id_length').hide();// dataTables_length
             $('.dataTables_length').hide();// dataTables_length
+            $("#centralModalLGInfoDemoSlim").modal('hide');
+              $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
+              $('.modal-backdrop').remove();//eliminamos el backdrop del modal
 
             });
 
@@ -262,7 +264,11 @@
 <div class="row wow fadeIn">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-header"> Tipificación</div>
+            <div class="card-header d-sm-flex justify-content-between">
+                <h5>Tipificación</h5>
+                <div><h6>Grupo : </h6> @Model.Grupo  </div>
+                <div>  <h6> Responsable de la Verificacion : </h6> @Model.NombreUsuario </div>
+            </div>
             <div class="card-body">
                 <div class="table-responsive text-nowrap">
                     <div id="Info_ExpedienteDocumentos">
@@ -286,8 +292,11 @@
 <div class="row wow fadeIn">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-header"> Registro</div>
-            <div class="card-body"> 
+            <div class="card-header d-sm-flex justify-content-between">
+                <h5>Registro</h5>
+                <div>  <h6> Responsable de la Verificacion : </h6> <div  id="ResRegistro" ></div>  </div>
+            </div>
+            <div class="card-body">
                 <div class="table-responsive text-nowrap">
                     <div id="Info_ExpedienteDocumentos">
                         <table id="table_Registro" class="table table-hover  " cellspacing="0">

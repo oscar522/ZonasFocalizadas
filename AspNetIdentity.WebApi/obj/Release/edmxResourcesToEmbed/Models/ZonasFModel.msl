@@ -308,21 +308,6 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="PlResumenTipificacion" FunctionName="ZonasFModel.Store.PlResumenTipificacion" />
-    <EntitySetMapping Name="Concepto">
-      <EntityTypeMapping TypeName="ZonasFModel.Concepto">
-        <MappingFragment StoreEntitySet="Concepto">
-          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-          <ScalarProperty Name="IdOrfeo" ColumnName="IdOrfeo" />
-          <ScalarProperty Name="Anexo" ColumnName="Anexo" />
-          <ScalarProperty Name="Soporte" ColumnName="Soporte" />
-          <ScalarProperty Name="IdExpediente" ColumnName="IdExpediente" />
-          <ScalarProperty Name="IdCausa" ColumnName="IdCausa" />
-          <ScalarProperty Name="IdAspNetUsers" ColumnName="IdAspNetUsers" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="CtCausas">
       <EntityTypeMapping TypeName="ZonasFModel.CtCausas">
         <MappingFragment StoreEntitySet="CtCausas">
@@ -401,6 +386,41 @@
           <ScalarProperty Name="IdModalidad" ColumnName="IdModalidad" />
           <ScalarProperty Name="IdProceso" ColumnName="IdProceso" />
           <ScalarProperty Name="IdApsNetUser" ColumnName="IdApsNetUser" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CoceptosExpediente">
+      <EntityTypeMapping TypeName="ZonasFModel.CoceptosExpediente">
+        <MappingFragment StoreEntitySet="CoceptosExpediente">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IdConcepto" ColumnName="IdConcepto" />
+          <ScalarProperty Name="IdExpediente" ColumnName="IdExpediente" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConceptosDocumentos">
+      <EntityTypeMapping TypeName="ZonasFModel.ConceptosDocumentos">
+        <MappingFragment StoreEntitySet="ConceptosDocumentos">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IdConcepto" ColumnName="IdConcepto" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Concepto">
+      <EntityTypeMapping TypeName="ZonasFModel.Concepto">
+        <MappingFragment StoreEntitySet="Concepto">
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="TerminoDias" ColumnName="TerminoDias" />
+          <ScalarProperty Name="IdOrfeo" ColumnName="IdOrfeo" />
+          <ScalarProperty Name="IdCausa" ColumnName="IdCausa" />
+          <ScalarProperty Name="IdAspNetUsers" ColumnName="IdAspNetUsers" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
