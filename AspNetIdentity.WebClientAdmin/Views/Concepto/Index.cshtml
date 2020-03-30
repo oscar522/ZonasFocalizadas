@@ -49,16 +49,7 @@
                                             <th>
                                                 Causal
                                             </th>
-                                            <th>
-                                                Expediente 
-                                            </th>
-
-                                            <th>
-                                                @Html.DisplayNameFor(model => model.Soporte)
-                                            </th>
-                                            <th>
-                                                @Html.DisplayNameFor(model => model.Anexo)
-                                            </th>
+                                           
                                             <th>
                                                 Orfeo
                                             </th>
@@ -94,28 +85,7 @@
                                                 <td>
                                                     @Html.DisplayFor(modelItem => item.NombreCausa)
                                                 </td>
-                                                <td>
-                                                    @{
-                                                        var RutaExpediente = "a" + item.RutaExpediente;
-                                                    }
-
-                                                    @if (RutaExpediente != "a")
-                                                    {
-                                                        <a href='@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = item.IdExpediente })' title='Modificar' style='color: #013ADF;' target="_blank"><i class='fa fa-eye' aria-hidden='true'></i></a>
-                                                    }
-                                                </td>
-                                                <td>
-                                                    @if (item.Soporte != "N/A")
-                                                    {
-                                                        <a href='#' title='Modificar' class="LinkSoporte" Data="@item.Soporte" style='color: #013ADF;' target="_blank"> <i class='fa fa-eye' aria-hidden='true'></i></a>
-                                                    }
-                                                </td>
-                                                <td>
-                                                    @if (item.Anexo != "N/A")
-                                                    {
-                                                        <a href='#' title='Modificar' class="LinkAnexo" Data="@item.Anexo" style='color: #013ADF;' target="_blank"> <i class='fa fa-eye' aria-hidden='true'></i></a>
-                                                    }
-                                                </td>
+                                              
                                                 <td>
                                                     @Html.DisplayFor(modelItem => item.IdOrfeo)
                                                 </td>

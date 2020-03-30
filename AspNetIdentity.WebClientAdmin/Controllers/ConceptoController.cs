@@ -138,88 +138,39 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             {
                 try
                 {
-                    var ruta = Server.MapPath("~/Content/Pdfs/Conceptos");
                     DateTime fecha = DateTime.Now;
-                    string FechaFor = fecha.Day + "-" + fecha.Month + "-" + fecha.Year;
+                    string FechaFor = fecha.Day + "-" + fecha.Month + "-" + fecha.Year + "-" + fecha.Hour + "-" + fecha.Minute + "-" + fecha.Second + "-" + fecha.Millisecond;
 
-                    if (ObjData.Soporte != null)
-                    {
-                        HttpPostedFileBase fileSoporte = ObjData.Soporte;
-                        if (fileSoporte.ContentLength > 0)
-                        {
-                            string filename = string.Format("S_E_{0}_O_{1}_F_{2}.pdf", ObjData.IdExpediente, ObjData.IdOrfeo, FechaFor);
-                            string filename2 = string.Format("S_E_{0}_O_{1}_F_{2}.pdf", ObjData.IdExpediente, ObjData.IdOrfeo, FechaFor);
-                            filename = Path.Combine(ruta, filename);
-                            fileSoporte.SaveAs(filename);
-                            ConceptoModel_.Soporte = filename2;
-                            ObjData.RutaSoporte = filename2;
-                        }
-                    }
-                    else
-                    {
-                        ConceptoModel_.Soporte = "N/A";
-                    }
+                    if (ObjData.IdAspNetUsers != null) ConceptoModel_.IdAspNetUsers = ObjData.IdAspNetUsers; else ConceptoModel_.IdAspNetUsers = "N_A";
 
-                    if (ObjData.Anexo != null)
-                    {
-                        HttpPostedFileBase fileAnexo = ObjData.Anexo;
-                        if (fileAnexo.ContentLength > 0)
-                        {
-                            string filename = string.Format("A_E_{0}_O_{1}_F_{2}.pdf", ObjData.IdExpediente, ObjData.IdOrfeo, FechaFor);
-                            string filename2 = string.Format("A_E_{0}_O_{1}_F_{2}.pdf", ObjData.IdExpediente, ObjData.IdOrfeo, FechaFor);
-                            filename = Path.Combine(ruta, filename);
-                            fileAnexo.SaveAs(filename);
-                            ConceptoModel_.Anexo = filename2;
-                            ObjData.RutaAnexo = filename2;
+                    if (ObjData.UserAsociado != null) ConceptoModel_.UserAsociado = ObjData.UserAsociado; else ConceptoModel_.UserAsociado = "N_A";
 
-                        }
-                    }
-                    else
-                    {
-                        ConceptoModel_.Anexo = "N/A";
-                    }
-                    ConceptoModel_.UserAsociado = ObjData.UserAsociado;
+                    if (ObjData.Rol != null) ConceptoModel_.Rol = ObjData.Rol; else ConceptoModel_.Rol = "N_A";
+
+                    if (ObjData.NombreAspNetUsers != null) ConceptoModel_.NombreAspNetUsers = ObjData.NombreAspNetUsers; else ConceptoModel_.NombreAspNetUsers = "N_A";
+
+                    if (ObjData.NombreCausa != null) ConceptoModel_.NombreCausa = ObjData.NombreCausa; else ConceptoModel_.NombreCausa = "N_A";
+
+                    if (ObjData.RutaExpediente != null) ConceptoModel_.RutaExpediente = ObjData.RutaExpediente; else ConceptoModel_.NombreCausa = "N_A";
+
+                    if (ObjData.RutaSoporte == null) ObjData.RutaSoporte = "N_A";
+
+                    if (ObjData.RutaAnexo == null) ObjData.RutaAnexo = "N_A";
+
+                    if (ObjData.IdOrfeo != null) ConceptoModel_.IdOrfeo = ObjData.IdOrfeo; else ConceptoModel_.IdOrfeo = "N_A";
+
+                    if (ObjData.Observacion == null) ObjData.Observacion = "N_A";
+
+                    ConceptoModel_.Id = ObjData.Id;
+                    ConceptoModel_.FechaCreacion = fecha;
                     ConceptoModel_.IdCausa = ObjData.IdCausa;
-
-                    if (ObjData.IdExpediente == null)
-                    {
-                        ConceptoModel_.IdExpediente = 0;
-                    }
-                    else
-                    {
-                        ConceptoModel_.IdExpediente = ObjData.IdExpediente;
-                    }
-
-                    if (ObjData.IdOrfeo == null)
-                    {
-                        ConceptoModel_.IdOrfeo = "N/A";
-                    }
-                    else
-                    {
-                        ConceptoModel_.IdOrfeo = ObjData.IdOrfeo;
-                    }
-                    ConceptoModel_.IdAspNetUsers = ObjData.IdAspNetUsers;
-                    if (ObjData.Id <= 0)
-                    {
-                        ConceptoModel_.Id = 0;
-
-                    }
-                    else
-                    {
-                        ConceptoModel_.Id = ObjData.Id;
-                    }
-                    ConceptoModel_.RutaExpediente = ObjData.RutaExpediente;
-
-                    ConceptoModel_.Rol = "N/A";
-                    ConceptoModel_.NombreAspNetUsers = "N/A";
-                    ConceptoModel_.NombreCausa = "N/A";
+                    ConceptoModel_.Soporte = "N_A";
+                    ConceptoModel_.IdExpediente = 0;
                     ConceptoModel_.Estado = true;
-                    ConceptoModel_.FechaCreacion = DateTime.Now;
-
-                    string Id = GetTokenObject().FullName;
-                    ConceptoMvcModel user = new ConceptoMvcModel();
-                    user.NombreAspNetUsers = Id;
-
+                    ConceptoModel_.IdExpediente = 0;
+                    ConceptoModel_.Anexo = "N_A";
+                    ConceptoModel_.TerminoDias = ObjData.TerminoDias.Value;
+                    ConceptoModel_.Observacion = ObjData.Observacion;
                     Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
                     DictionaryModel ObjDictionary = new DictionaryModel();
                     keyValuePairs = ObjDictionary.ToDictionary(ConceptoModel_);
@@ -233,11 +184,10 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
                     }
                     else
                     {
+                        ObjData.NombreCausa = "Ok";
                         ObjData.Id = processModel.Id;
-                        return View("Crear", ObjData);
-
+                        return RedirectToAction("Index");
                     }
-
                 }
                 catch
                 {
@@ -286,6 +236,8 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
                 IdOrfeo = processModel.IdOrfeo,
                 Estado = processModel.Estado,
                 FechaCreacion = processModel.FechaCreacion,
+                TerminoDias = processModel.TerminoDias,
+                Observacion = processModel.Observacion
 
             };
             return View(ConceptoMvcModel_);
@@ -465,6 +417,8 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
                 IdOrfeo = processModel.IdOrfeo,
                 Estado = processModel.Estado,
                 FechaCreacion = processModel.FechaCreacion,
+                TerminoDias = processModel.TerminoDias,
+                Observacion = processModel.Observacion
 
             };
             return View(ConceptoMvcModel_);
@@ -500,6 +454,486 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
                 return RedirectToAction("Index");
             }
         }
+
+        #region soportes
+        public async Task<ActionResult> CrearSoportes(ConceptoMvcModel ObjData)
+        {
+            ConceptoModel ConceptoModel_ = new ConceptoModel();
+            DateTime fecha = DateTime.Now;
+            string FechaFor = fecha.Day + "-" + fecha.Month + "-" + fecha.Year + "-" + fecha.Hour + "-" + fecha.Minute + "-" + fecha.Second + "-" + fecha.Millisecond;
+            var ruta = Server.MapPath("~/Content/Pdfs/Conceptos");
+
+            if (ObjData.IdAspNetUsers != null) ConceptoModel_.IdAspNetUsers = ObjData.IdAspNetUsers; else ConceptoModel_.IdAspNetUsers = "N_A";
+
+            if (ObjData.UserAsociado != null) ConceptoModel_.UserAsociado = ObjData.UserAsociado; else ConceptoModel_.UserAsociado = "N_A";
+
+            if (ObjData.Rol != null) ConceptoModel_.Rol = ObjData.Rol; else ConceptoModel_.Rol = "N_A";
+
+            if (ObjData.NombreAspNetUsers != null) ConceptoModel_.NombreAspNetUsers = ObjData.NombreAspNetUsers; else ConceptoModel_.NombreAspNetUsers = "N_A";
+
+            if (ObjData.NombreCausa != null) ConceptoModel_.NombreCausa = ObjData.NombreCausa; else ConceptoModel_.NombreCausa = "N_A";
+
+            if (ObjData.RutaExpediente != null) ConceptoModel_.RutaExpediente = ObjData.RutaExpediente; else ConceptoModel_.NombreCausa = "N_A";
+
+            if (ObjData.RutaSoporte == null) ObjData.RutaSoporte = "N_A"; 
+
+            if (ObjData.RutaAnexo == null) ObjData.RutaAnexo = "N_A"; 
+
+            if (ObjData.IdOrfeo != null) ConceptoModel_.IdOrfeo = ObjData.IdOrfeo; else ConceptoModel_.IdOrfeo = "N_A";
+
+            if (ObjData.Observacion == null) ObjData.Observacion = "N_A";
+
+            ConceptoModel_.Id = ObjData.Id;
+            ConceptoModel_.IdCausa = ObjData.IdCausa;
+            ConceptoModel_.TerminoDias = 0;
+            ConceptoModel_.Observacion = "N_A";
+            ConceptoModel_.IdExpediente = 0;
+            ConceptoModel_.FechaCreacion =fecha;
+
+            ConceptoModel_.Anexo =  "N_A"; 
+            ConceptoModel_.Estado = true;
+
+            string Controller = "Concepto";
+            string Method = "ConceptoCrearDocumentoSoporte";
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    if (ObjData.Soporte != null)
+                    {
+                        HttpPostedFileBase fileSoporte = ObjData.Soporte;
+                        if (fileSoporte.ContentLength > 0)
+                        {
+                            string filename = string.Format("S_E_{0}_O_{1}_F_{2}.pdf", ObjData.IdExpediente, ObjData.IdOrfeo, FechaFor);
+                            string filename2 = string.Format("S_E_{0}_O_{1}_F_{2}.pdf", ObjData.IdExpediente, ObjData.IdOrfeo, FechaFor);
+                            filename = Path.Combine(ruta, filename);
+                            fileSoporte.SaveAs(filename);
+                            ConceptoModel_.Soporte = filename2;
+                            ObjData.RutaSoporte = filename2;
+                        }
+                    }
+                    else
+                    {
+                        ConceptoModel_.Soporte = "N/A";
+                    }
+
+
+                    Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
+                    DictionaryModel ObjDictionary = new DictionaryModel();
+                    keyValuePairs = ObjDictionary.ToDictionary(ConceptoModel_);
+                    string Result = await employeeProvider.Post(keyValuePairs, Controller, Method);
+                    var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(Result);
+                    ConceptoModel processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<ConceptoModel>(jsonResult.ToString());
+                    if (processModel.Id.Equals(""))
+                    {
+                        ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+                        return Json(ModelState);
+                    }
+                    else
+                    {
+                        ObjData.Id = processModel.Id;
+                        return Json(processModel, JsonRequestBehavior.AllowGet);
+
+                    }
+                }
+                catch
+                {
+                    ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+                    return Json(ModelState);
+                }
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+                var errorList = (from item in ModelState
+                                 from error in item.Value.Errors
+                                 select new
+                                 {
+                                     Msg = error.ErrorMessage,
+                                     Cam = item.Key
+                                 }
+                    ).ToList();
+                return Json(errorList);
+            }
+        }
+
+        public async Task<ActionResult> ConsultaDocumentoSoporte(string key)
+        {
+            string Id = key;
+            string Controller = "Concepto";
+            string Method = "getConceptoConsultaDocumentoSoporte";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            List<CtPaisModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CtPaisModel>>(jsonResult.ToString());
+            return Json(processModel, JsonRequestBehavior.AllowGet);
+        }
+
+        public async Task<ActionResult> DeleteDocumentoSoporte(string key)
+        {
+            string Id = key;
+            string Controller = "Concepto";
+            string Method = "getConceptoDeleteDocumentoSoporte";
+            string result = await employeeProvider.Delete(Controller, Method,  Id);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            return Json(jsonResult, JsonRequestBehavior.AllowGet);
+        }
+        #endregion
+
+        #region Anexo
+        public async Task<ActionResult> CrearAnexo(ConceptoMvcModel ObjData)
+        {
+            ConceptoModel ConceptoModel_ = new ConceptoModel();
+            DateTime fecha = DateTime.Now;
+            string FechaFor = fecha.Day + "-" + fecha.Month + "-" + fecha.Year + "-" + fecha.Hour + "-" + fecha.Minute + "-" + fecha.Second + "-" + fecha.Millisecond;
+            var ruta = Server.MapPath("~/Content/Pdfs/Conceptos");
+
+            if (ObjData.IdAspNetUsers != null) ConceptoModel_.IdAspNetUsers = ObjData.IdAspNetUsers; else ConceptoModel_.IdAspNetUsers = "N_A";
+
+            if (ObjData.UserAsociado != null) ConceptoModel_.UserAsociado = ObjData.UserAsociado; else ConceptoModel_.UserAsociado = "N_A";
+
+            if (ObjData.Rol != null) ConceptoModel_.Rol = ObjData.Rol; else ConceptoModel_.Rol = "N_A";
+
+            if (ObjData.NombreAspNetUsers != null) ConceptoModel_.NombreAspNetUsers = ObjData.NombreAspNetUsers; else ConceptoModel_.NombreAspNetUsers = "N_A";
+
+            if (ObjData.NombreCausa != null) ConceptoModel_.NombreCausa = ObjData.NombreCausa; else ConceptoModel_.NombreCausa = "N_A";
+
+            if (ObjData.RutaExpediente != null) ConceptoModel_.RutaExpediente = ObjData.RutaExpediente; else ConceptoModel_.NombreCausa = "N_A";
+
+            if (ObjData.RutaSoporte == null) ObjData.RutaSoporte = "N_A";
+
+            if (ObjData.RutaAnexo == null) ObjData.RutaAnexo = "N_A";
+
+            if (ObjData.IdOrfeo != null) ConceptoModel_.IdOrfeo = ObjData.IdOrfeo; else ConceptoModel_.IdOrfeo = "N_A";
+
+            if (ObjData.Observacion == null) ObjData.Observacion = "N_A";
+
+            ConceptoModel_.Id = ObjData.Id;
+            ConceptoModel_.IdCausa = ObjData.IdCausa;
+            ConceptoModel_.IdExpediente = 0;
+            ConceptoModel_.TerminoDias =0;
+            ConceptoModel_.Observacion = "N_A";
+            ConceptoModel_.FechaCreacion = fecha;
+            ConceptoModel_.Soporte = "N_A";
+            ConceptoModel_.Estado = true;
+
+            string Controller = "Concepto";
+            string Method = "ConceptoCrearDocumentoAnexo";
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    if (ObjData.Anexo != null)
+                    {
+                        HttpPostedFileBase fileSoporte = ObjData.Anexo;
+                        if (fileSoporte.ContentLength > 0)
+                        {
+                            string filename = string.Format("A_E_{0}_O_{1}_F_{2}.pdf", ObjData.IdExpediente, ObjData.IdOrfeo, FechaFor);
+                            string filename2 = string.Format("A_E_{0}_O_{1}_F_{2}.pdf", ObjData.IdExpediente, ObjData.IdOrfeo, FechaFor);
+                            filename = Path.Combine(ruta, filename);
+                            fileSoporte.SaveAs(filename);
+                            ConceptoModel_.Anexo = filename2;
+                            ObjData.RutaAnexo = filename2;
+                        }
+                    }
+                    else
+                    {
+                        ConceptoModel_.Anexo = "N/A";
+                    }
+
+                    Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
+                    DictionaryModel ObjDictionary = new DictionaryModel();
+                    keyValuePairs = ObjDictionary.ToDictionary(ConceptoModel_);
+                    string Result = await employeeProvider.Post(keyValuePairs, Controller, Method);
+                    var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(Result);
+                    ConceptoModel processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<ConceptoModel>(jsonResult.ToString());
+                    if (processModel.Id.Equals(""))
+                    {
+                        ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+                        return Json(ModelState);
+                    }
+                    else
+                    {
+                        ObjData.Id = processModel.Id;
+                        return Json(processModel, JsonRequestBehavior.AllowGet);
+
+                    }
+                }
+                catch
+                {
+                    ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+                    return Json(ModelState);
+                }
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+                var errorList = (from item in ModelState
+                                 from error in item.Value.Errors
+                                 select new
+                                 {
+                                     Msg = error.ErrorMessage,
+                                     Cam = item.Key
+                                 }
+                    ).ToList();
+                return Json(errorList);
+            }
+        }
+
+        public async Task<ActionResult> ConsultaDocumentoAnexo(string key)
+        {
+            string Id = key;
+            string Controller = "Concepto";
+            string Method = "getConceptoConsultaDocumentoAnexo";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            List<CtPaisModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CtPaisModel>>(jsonResult.ToString());
+            return Json(processModel, JsonRequestBehavior.AllowGet);
+        }
+
+        public async Task<ActionResult> DeleteDocumentoAnexo(string key)
+        {
+            string Id = key;
+            string Controller = "Concepto";
+            string Method = "getConceptoDeleteDocumentoAnexo";
+            string result = await employeeProvider.Delete(Controller, Method, Id);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            return Json(jsonResult, JsonRequestBehavior.AllowGet);
+        }
+
+
+        #endregion
+
+        #region Expedientes
+        public async Task<ActionResult> CrearExpedientes(ConceptoMvcModel ObjData)
+        {
+            DateTime fecha = DateTime.Now;
+            string FechaFor = fecha.Day + "-" + fecha.Month + "-" + fecha.Year + "-" + fecha.Hour + "-" + fecha.Minute + "-" + fecha.Second + "-" + fecha.Millisecond;
+
+            ConceptoModel ConceptoModel_ = new ConceptoModel();
+
+            if (ObjData.IdAspNetUsers != null) ConceptoModel_.IdAspNetUsers = ObjData.IdAspNetUsers; else ConceptoModel_.IdAspNetUsers = "N_A";
+
+            if (ObjData.UserAsociado != null) ConceptoModel_.UserAsociado = ObjData.UserAsociado; else ConceptoModel_.UserAsociado = "N_A";
+
+            if (ObjData.Rol != null) ConceptoModel_.Rol = ObjData.Rol; else ConceptoModel_.Rol = "N_A";
+
+            if (ObjData.NombreAspNetUsers != null) ConceptoModel_.NombreAspNetUsers = ObjData.NombreAspNetUsers; else ConceptoModel_.NombreAspNetUsers = "N_A";
+
+            if (ObjData.NombreCausa != null) ConceptoModel_.NombreCausa = ObjData.NombreCausa; else ConceptoModel_.NombreCausa = "N_A";
+
+            if (ObjData.RutaExpediente != null) ConceptoModel_.RutaExpediente = ObjData.RutaExpediente; else ConceptoModel_.NombreCausa = "N_A";
+
+            if (ObjData.RutaSoporte == null) ObjData.RutaSoporte = "N_A";
+
+            if (ObjData.RutaAnexo == null) ObjData.RutaAnexo = "N_A";
+
+            if (ObjData.IdOrfeo != null) ConceptoModel_.IdOrfeo = ObjData.IdOrfeo; else ConceptoModel_.IdOrfeo = "N_A";
+
+            if (ObjData.Observacion == null) ObjData.Observacion = "N_A";
+
+            ConceptoModel_.Id = ObjData.Id;
+            ConceptoModel_.FechaCreacion = fecha;
+            ConceptoModel_.IdCausa = ObjData.IdCausa;
+            ConceptoModel_.TerminoDias = 0;
+            ConceptoModel_.Observacion = "N_A";
+            ConceptoModel_.Soporte = "N_A";
+            ConceptoModel_.Estado = true;
+            ConceptoModel_.IdExpediente = ObjData.IdExpediente;
+
+            string Controller = "Concepto";
+            string Method = "ConceptoCrearExpediente";
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    ObjData.RutaAnexo = "N/A";
+                    ConceptoModel_.Anexo = "N/A";
+
+                    Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
+                    DictionaryModel ObjDictionary = new DictionaryModel();
+                    keyValuePairs = ObjDictionary.ToDictionary(ConceptoModel_);
+                    string Result = await employeeProvider.Post(keyValuePairs, Controller, Method);
+                    var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(Result);
+                    ConceptoModel processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<ConceptoModel>(jsonResult.ToString());
+                    if (processModel.Id.Equals(""))
+                    {
+                        ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+                        return Json(ModelState);
+                    }
+                    else
+                    {
+                        ObjData.Id = processModel.Id;
+                        return Json(processModel, JsonRequestBehavior.AllowGet);
+
+                    }
+                }
+                catch
+                {
+                    ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+                    return Json(ModelState);
+                }
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+                var errorList = (from item in ModelState
+                                 from error in item.Value.Errors
+                                 select new
+                                 {
+                                     Msg = error.ErrorMessage,
+                                     Cam = item.Key
+                                 }
+                    ).ToList();
+                return Json(errorList);
+            }
+        }
+
+        public async Task<ActionResult> ConsultaExpediente(string key)
+        {
+            string Id = key;
+            string Controller = "Concepto";
+            string Method = "getConceptoConsultaExpediente";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            BaldiosPersonaNaturalModel processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<BaldiosPersonaNaturalModel>(jsonResult.ToString());
+            return Json(processModel, JsonRequestBehavior.AllowGet);
+        }
+
+        public async Task<ActionResult> ConsultaExpedientesAsociados(string key)
+        {
+            string Id = key;
+            string Controller = "Concepto";
+            string Method = "getConceptoConsultaExpedientesAsociados";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            List<CtPaisModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CtPaisModel>>(jsonResult.ToString());
+            return Json(processModel, JsonRequestBehavior.AllowGet);
+        }
+
+        public async Task<ActionResult> DeleteExpediente(string key)
+        {
+            string Id = key;
+            string Controller = "Concepto";
+            string Method = "getConceptoDeleteExpediente";
+            string result = await employeeProvider.Delete(Controller, Method, Id);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            return Json(jsonResult, JsonRequestBehavior.AllowGet);
+        }
+
+
+        #endregion
+
+
+        #region UsuariosAsociados
+        public async Task<ActionResult> CrearUsuariosAsociados(ConceptoMvcModel ObjData)
+        {
+            DateTime fecha = DateTime.Now;
+            string FechaFor = fecha.Day + "-" + fecha.Month + "-" + fecha.Year + "-" + fecha.Hour + "-" + fecha.Minute + "-" + fecha.Second + "-" + fecha.Millisecond;
+
+            ConceptoModel ConceptoModel_ = new ConceptoModel();
+
+            if (ObjData.IdAspNetUsers != null) ConceptoModel_.IdAspNetUsers = ObjData.IdAspNetUsers; else ConceptoModel_.IdAspNetUsers = "N_A";
+
+            if (ObjData.UserAsociado != null) ConceptoModel_.UserAsociado = ObjData.UserAsociado; else ConceptoModel_.UserAsociado = "N_A";
+
+            if (ObjData.Rol != null) ConceptoModel_.Rol = ObjData.Rol; else ConceptoModel_.Rol = "N_A";
+
+            if (ObjData.NombreAspNetUsers != null) ConceptoModel_.NombreAspNetUsers = ObjData.NombreAspNetUsers; else ConceptoModel_.NombreAspNetUsers = "N_A";
+
+            if (ObjData.NombreCausa != null) ConceptoModel_.NombreCausa = ObjData.NombreCausa; else ConceptoModel_.NombreCausa = "N_A";
+
+            if (ObjData.RutaExpediente != null) ConceptoModel_.RutaExpediente = ObjData.RutaExpediente; else ConceptoModel_.NombreCausa = "N_A";
+
+            if (ObjData.RutaSoporte == null) ObjData.RutaSoporte = "N_A";
+
+            if (ObjData.RutaAnexo == null) ObjData.RutaAnexo = "N_A";
+
+            if (ObjData.IdOrfeo != null) ConceptoModel_.IdOrfeo = ObjData.IdOrfeo; else ConceptoModel_.IdOrfeo = "N_A";
+
+            if (ObjData.Observacion == null) ObjData.Observacion = "N_A";
+
+            ConceptoModel_.Id = ObjData.Id;
+
+            ConceptoModel_.FechaCreacion = fecha;
+            ConceptoModel_.IdCausa = ObjData.IdCausa;
+            ConceptoModel_.TerminoDias =0;
+            ConceptoModel_.Observacion = "N_A";
+            ConceptoModel_.Soporte = "N_A";
+            ConceptoModel_.Estado = true;
+            ConceptoModel_.IdExpediente = 0;
+
+            string Controller = "Concepto";
+            string Method = "ConceptoCrearUsuariosAsociados";
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    ObjData.RutaAnexo = "N/A";
+                    ConceptoModel_.Anexo = "N/A";
+
+                    Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
+                    DictionaryModel ObjDictionary = new DictionaryModel();
+                    keyValuePairs = ObjDictionary.ToDictionary(ConceptoModel_);
+                    string Result = await employeeProvider.Post(keyValuePairs, Controller, Method);
+                    var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(Result);
+                    ConceptoModel processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<ConceptoModel>(jsonResult.ToString());
+                    if (processModel.Id.Equals(""))
+                    {
+                        ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+                        return Json(ModelState);
+                    }
+                    else
+                    {
+                        ObjData.Id = processModel.Id;
+                        return Json(processModel, JsonRequestBehavior.AllowGet);
+
+                    }
+                }
+                catch
+                {
+                    ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+                    return Json(ModelState);
+                }
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+                var errorList = (from item in ModelState
+                                 from error in item.Value.Errors
+                                 select new
+                                 {
+                                     Msg = error.ErrorMessage,
+                                     Cam = item.Key
+                                 }
+                    ).ToList();
+                return Json(errorList);
+            }
+        }
+
+        public async Task<ActionResult> ConsultaUsuariosAsociados(string key)
+        {
+            string Id = key;
+            string Controller = "Concepto";
+            string Method = "getConceptoConsultaUsuariosAsociados";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            List<ConceptoModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ConceptoModel>>(jsonResult.ToString());
+            return Json(processModel, JsonRequestBehavior.AllowGet);
+        }
+        
+        public async Task<ActionResult> DeleteUsuariosAsociados(string key)
+        {
+            string Id = key;
+            string Controller = "Concepto";
+            string Method = "getConceptoDeleteUsuariosAsociados";
+            string result = await employeeProvider.Delete(Controller, Method, Id);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            return Json(jsonResult, JsonRequestBehavior.AllowGet);
+        }
+
+
+        #endregion
+
 
     }
 }

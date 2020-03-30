@@ -249,33 +249,38 @@ namespace AspNetIdentity.WebApi.Logic
         {
             ZonasFEntities Ctx = new ZonasFEntities();
             var lista = Ctx.Registro
-                 .Join(Ctx.BaldiosPersonaNatural, b => b.IdExpediente, c => c.id, (b, c) =>
-                 new {b.UsuarioActualiza, b.UsuarioModifica, c.NumeroExpediente, b.Id, b.IdExpediente, b.IdAspNetUser, b.FVerificacion, b.Estado, b.Matricula, b.Fapertura, b.TipoDocumento, b.NumDocumento, b.FDocumento, b.IdDepto, b.IdMunicipio, b.Area, b.CcSolicitante, b.CcConyugue, b.Conyuge, b.EstadoRegistro })
-                 .Where(xa => xa.EstadoRegistro.Value == true && xa.IdExpediente == Id)
+                 .Where(xa => xa.IdExpediente == Id)
+                 .Join(Ctx.BaldiosPersonaNatural, b => b.IdExpediente, c => c.id, (b, c) => new { Registro = b, c.NumeroExpediente, BaldiosPersonaNatural  = c})
+                 .Join(Ctx.Users, b => b.Registro.IdAspNetUser, c => c.Id_Hash, (b, c) => new {b.BaldiosPersonaNatural, b.Registro, NombreUsuario = c.Name + " " + c.FirstName + " " + c.LastName, c.Id_Hash })
+                .Join(Ctx.AspNetUserRoles, b => b.Id_Hash, c => c.UserId, (b, c) => new { b.BaldiosPersonaNatural, b.Registro, b.NombreUsuario, AspNetUserRoles = c , b.Id_Hash })
+                .Join(Ctx.AspNetRoles, b => b.AspNetUserRoles.RoleId, c => c.Id, (b, c) => new { b.BaldiosPersonaNatural, b.Registro, Rol = c.Name, b.Id_Hash, b.NombreUsuario })
+                 .Where(xa => xa.Registro.EstadoRegistro.Value == true && xa.Registro.IdExpediente == Id)
                 .Select(a => new RegistroModel
                 {
-                    Id = a.Id,
-                    IdExpediente = a.IdExpediente,
-                    NumeroExpediente = a.NumeroExpediente,
-                    IdAspNetUser = a.IdAspNetUser,
-                    FVerificacion = a.FVerificacion,
-                    Estado = a.Estado,
-                    Matricula = a.Matricula,
-                    Fapertura = a.Fapertura,
-                    TipoDocumento = a.TipoDocumento,
-                    NumDocumento = a.NumDocumento,
-                    FDocumento = a.FDocumento,
-                    IdDepto = a.IdDepto,
-                    NombreIdDepto = Ctx.CtDepto.Where(w => w.ID_CT_DEPTO == a.IdDepto).Select(xq => xq.NOMBRE).FirstOrDefault(),
-                    IdMunicipio = a.IdMunicipio,
-                    NombreIdMunicipio = Ctx.CtCiudad.Where(w => w.Id == a.IdMunicipio && w.IdCtDepto == a.IdDepto).Select(xq => xq.Nombre).FirstOrDefault(),
-                    Area = a.Area,
-                    CcSolicitante = a.CcSolicitante,
-                    CcConyugue = a.CcConyugue,
-                    Conyuge = a.Conyuge,
-                    EstadoRegistro = a.EstadoRegistro,
-                    UsuarioActualiza = a.UsuarioActualiza,
-                    UsuarioModifica = a.UsuarioModifica
+                    Id = a.Registro.Id,
+                    IdExpediente = a.Registro.IdExpediente,
+                    NumeroExpediente = a.BaldiosPersonaNatural.NumeroExpediente,
+                    IdAspNetUser = a.Registro.IdAspNetUser,
+                    FVerificacion = a.Registro.FVerificacion,
+                    Estado = a.Registro.Estado,
+                    Matricula = a.Registro.Matricula,
+                    Fapertura = a.Registro.Fapertura,
+                    TipoDocumento = a.Registro.TipoDocumento,
+                    NumDocumento = a.Registro.NumDocumento,
+                    FDocumento = a.Registro.FDocumento,
+                    IdDepto = a.Registro.IdDepto,
+                    NombreIdDepto = Ctx.CtDepto.Where(w => w.ID_CT_DEPTO == a.Registro.IdDepto).Select(xq => xq.NOMBRE).FirstOrDefault(),
+                    IdMunicipio = a.Registro.IdMunicipio,
+                    NombreIdMunicipio = Ctx.CtCiudad.Where(w => w.Id == a.Registro.IdMunicipio && w.IdCtDepto == a.Registro.IdDepto).Select(xq => xq.Nombre).FirstOrDefault(),
+                    Area = a.Registro.Area,
+                    CcSolicitante = a.Registro.CcSolicitante,
+                    CcConyugue = a.Registro.CcConyugue,
+                    Conyuge = a.Registro.Conyuge,
+                    EstadoRegistro = a.Registro.EstadoRegistro,
+                    UsuarioActualiza = a.Registro.UsuarioActualiza,
+                    UsuarioModifica = a.Registro.UsuarioModifica,
+                    NombreUsuario = a.NombreUsuario,
+                    RolUsuario = a.Rol,
 
                 });
 

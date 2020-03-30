@@ -194,6 +194,15 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="FiltroJairo" Type="int" />
     <Property Name="IdAsignacion" Type="int" />
   </EntityType>
+  <EntityType Name="CoceptosExpediente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdExpediente" Type="bigint" />
+    <Property Name="IdConcepto" Type="int" />
+    <Property Name="Estado" Type="bit" />
+  </EntityType>
   <EntityType Name="Concepto">
     <Key>
       <PropertyRef Name="Id" />
@@ -201,10 +210,9 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdAspNetUsers" Type="nvarchar" MaxLength="128" />
     <Property Name="IdCausa" Type="int" />
-    <Property Name="IdExpediente" Type="int" />
-    <Property Name="Soporte" Type="text" />
-    <Property Name="Anexo" Type="text" />
     <Property Name="IdOrfeo" Type="text" />
+    <Property Name="TerminoDias" Type="int" />
+    <Property Name="Observacion" Type="nchar" MaxLength="10" />
     <Property Name="Estado" Type="bit" />
     <Property Name="FechaCreacion" Type="datetime" />
   </EntityType>
@@ -216,6 +224,16 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="IdConcepto" Type="int" />
     <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" />
     <Property Name="FechaInsercion" Type="date" />
+    <Property Name="Estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="ConceptosDocumentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="text" />
+    <Property Name="Tipo" Type="int" />
+    <Property Name="IdConcepto" Type="int" />
     <Property Name="Estado" Type="bit" />
   </EntityType>
   <EntityType Name="CtCausas">
@@ -459,8 +477,10 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
     <EntitySet Name="ActDiaProceso" EntityType="Self.ActDiaProceso" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ActividadesDiarias" EntityType="Self.ActividadesDiarias" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BaldiosPersonaNatural" EntityType="Self.BaldiosPersonaNatural" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CoceptosExpediente" EntityType="Self.CoceptosExpediente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Concepto" EntityType="Self.Concepto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ConceptoAsociado" EntityType="Self.ConceptoAsociado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConceptosDocumentos" EntityType="Self.ConceptosDocumentos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CtCausas" EntityType="Self.CtCausas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CtCiudad" EntityType="Self.CtCiudad" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CtDepto" EntityType="Self.CtDepto" Schema="dbo" store:Type="Tables" />

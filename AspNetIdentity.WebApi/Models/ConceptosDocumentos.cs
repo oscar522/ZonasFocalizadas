@@ -12,15 +12,12 @@ namespace AspNetIdentity.WebApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Concepto
+    public partial class ConceptosDocumentos
     {
         public int Id { get; set; }
-        public string IdAspNetUsers { get; set; }
-        public Nullable<int> IdCausa { get; set; }
-        public string IdOrfeo { get; set; }
-        public Nullable<int> TerminoDias { get; set; }
-        public string Observacion { get; set; }
+        public string Nombre { get; set; }
+        public Nullable<int> Tipo { get; set; }
+        public Nullable<int> IdConcepto { get; set; }
         public Nullable<bool> Estado { get; set; }
-        public Nullable<System.DateTime> FechaCreacion { get; set; }
     }
 }

@@ -97,6 +97,13 @@ namespace AspNetIdentity.Models
         public string NombreArchivo { get; set; }
         public string TipoArchivo { get; set; }
 
+        public string NombreUsuario { get; set; }
+        public string RolUsuario { get; set; }
+        public string IdUsuario { get; set; }
+        public string Grupo { get; set; }
+
+
+
 
     }
 }

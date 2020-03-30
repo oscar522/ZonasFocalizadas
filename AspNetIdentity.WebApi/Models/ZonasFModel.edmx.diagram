@@ -28,7 +28,6 @@
         <EntityTypeShape EntityType="ZonasFModel.BaldiosPersonaNatural" Width="1.5" PointX="11.375" PointY="12.75" />
         <EntityTypeShape EntityType="ZonasFModel.Registro" Width="1.5" PointX="13.375" PointY="0.75" />
         <EntityTypeShape EntityType="ZonasFModel.ResumenTipificacion" Width="1.5" PointX="13.375" PointY="6.75" />
-        <EntityTypeShape EntityType="ZonasFModel.Concepto" Width="1.5" PointX="13.375" PointY="9.75" />
         <EntityTypeShape EntityType="ZonasFModel.CtCausas" Width="1.5" PointX="13.375" PointY="13.75" />
         <EntityTypeShape EntityType="ZonasFModel.ConceptoAsociado" Width="1.5" PointX="0.75" PointY="14.75" />
         <EntityTypeShape EntityType="ZonasFModel.ResumenTipificacionAll" Width="1.5" PointX="7.375" PointY="14.75" />
@@ -36,6 +35,9 @@
         <EntityTypeShape EntityType="ZonasFModel.ActDiaModalidad" Width="1.5" PointX="15.375" PointY="7.75" />
         <EntityTypeShape EntityType="ZonasFModel.ActDiaProceso" Width="1.5" PointX="15.375" PointY="10.75" />
         <EntityTypeShape EntityType="ZonasFModel.ActividadesDiarias" Width="1.5" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ZonasFModel.CoceptosExpediente" Width="1.5" PointX="15.375" PointY="13.75" />
+        <EntityTypeShape EntityType="ZonasFModel.ConceptosDocumentos" Width="1.5" PointX="3.375" PointY="16.75" />
+        <EntityTypeShape EntityType="ZonasFModel.Concepto" Width="1.5" PointX="13.375" PointY="16.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

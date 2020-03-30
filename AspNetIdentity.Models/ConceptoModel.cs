@@ -27,6 +27,8 @@ namespace AspNetIdentity.Models
         public string Soporte { get; set; }//
         public string Anexo { get; set; }//
         public string IdOrfeo { get; set; }//
+        public int TerminoDias { get; set; }//
+        public string Observacion { get; set; }//
         public Nullable<bool> Estado { get; set; }
         public Nullable<System.DateTime> FechaCreacion { get; set; }
 

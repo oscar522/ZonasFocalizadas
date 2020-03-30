@@ -50,7 +50,6 @@ namespace AspNetIdentity.WebApi.Models
         public virtual DbSet<BaldiosPersonaNatural> BaldiosPersonaNatural { get; set; }
         public virtual DbSet<Registro> Registro { get; set; }
         public virtual DbSet<ResumenTipificacion> ResumenTipificacion { get; set; }
-        public virtual DbSet<Concepto> Concepto { get; set; }
         public virtual DbSet<CtCausas> CtCausas { get; set; }
         public virtual DbSet<ConceptoAsociado> ConceptoAsociado { get; set; }
         public virtual DbSet<ResumenTipificacionAll> ResumenTipificacionAll { get; set; }
@@ -58,6 +57,9 @@ namespace AspNetIdentity.WebApi.Models
         public virtual DbSet<ActDiaModalidad> ActDiaModalidad { get; set; }
         public virtual DbSet<ActDiaProceso> ActDiaProceso { get; set; }
         public virtual DbSet<ActividadesDiarias> ActividadesDiarias { get; set; }
+        public virtual DbSet<CoceptosExpediente> CoceptosExpediente { get; set; }
+        public virtual DbSet<ConceptosDocumentos> ConceptosDocumentos { get; set; }
+        public virtual DbSet<Concepto> Concepto { get; set; }
     
         public virtual int AspNetUsers_Insertar(string firstName, string lastName, string email, string passwordHash, string id)
         {

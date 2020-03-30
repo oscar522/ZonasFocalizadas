@@ -33,6 +33,8 @@ namespace AspNetIdentity.Models
         public string IdOrfeo { get; set; }
         public Nullable<bool> Estado { get; set; }
         public Nullable<System.DateTime> FechaCreacion { get; set; }
+        public Nullable<int> TerminoDias { get; set; }
+        public string Observacion { get; set; }
 
     }
 }

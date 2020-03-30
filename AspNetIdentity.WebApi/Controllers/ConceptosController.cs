@@ -110,6 +110,128 @@ namespace AspNetIdentity.WebApi.Controllers
             ConceptoLogic a = new ConceptoLogic();
             return a.ConsultaTipoCausa();
         }
+        #region soportes
+        [HttpPost]
+        [Authorize]
+        [Route("ConceptoCrearDocumentoSoporte")]
+        public IHttpActionResult PostCrearDocumentoSoporte(ConceptoModel b)
+        {
+            ConceptoLogic a = new ConceptoLogic();
+            var result = a.CrearDocumentoSoporte(b);
+            if (!string.IsNullOrEmpty(result.Id.ToString())) return Ok(result);
+            return NotFound();
+        }
+        [Authorize]
+        [Route("getConceptoConsultaDocumentoSoporte/{id}")]
+        public List<CtPaisModel> GetConsultaDocumentoSoporte(int id)
+        {
+            ConceptoLogic a = new ConceptoLogic();
+            return a.ConsultaDocumentoSoporte(id);
+        }
+        [Authorize]
+        [Route("getConceptoDeleteDocumentoSoporte/{id}")]
+        [HttpDelete]
+        public string DeleteDocumentoSoporte(int id)
+        {
+            ConceptoLogic a = new ConceptoLogic();
+            string resul = a.DeleteDocumentoSoporte(id);
+            return resul;
+        }
+        #endregion
+        #region anexo
+        [HttpPost]
+        [Authorize]
+        [Route("ConceptoCrearDocumentoAnexo")]
+        public IHttpActionResult PostCrearDocumentoAnexo(ConceptoModel b)
+        {
+            ConceptoLogic a = new ConceptoLogic();
+            var result = a.CrearDocumentoAnexo(b);
+            if (!string.IsNullOrEmpty(result.Id.ToString())) return Ok(result);
+            return NotFound();
+        }
+        [Authorize]
+        [Route("getConceptoConsultaDocumentoAnexo/{id}")]
+        public List<CtPaisModel> GetConsultaDocumentoAnexo(int id)
+        {
+            ConceptoLogic a = new ConceptoLogic();
+            return a.ConsultaDocumentoAnexo(id);
+        }
+        [Authorize]
+        [Route("getConceptoDeleteDocumentoAnexo/{id}")]
+        [HttpDelete]
+        public string DeleteDocumentoAnexo(int id)
+        {
+            ConceptoLogic a = new ConceptoLogic();
+            string resul = a.DeleteDocumentoAnexo(id);
+            return resul;
+        }
+
+        #endregion
+        #region expediente
+        [HttpPost]
+        [Authorize]
+        [Route("ConceptoCrearExpediente")]
+        public IHttpActionResult PostCrearExpediente(ConceptoModel b)
+        {
+            ConceptoLogic a = new ConceptoLogic();
+            var result = a.CrearExpediente(b);
+            if (!string.IsNullOrEmpty(result.Id.ToString())) return Ok(result);
+            return NotFound();
+        }
+        [Authorize]
+        [Route("getConceptoConsultaExpediente/{id}")]
+        public BaldiosPersonaNaturalModel GetConsultaExpediente(string id)
+        {
+            ConceptoLogic a = new ConceptoLogic();
+            return a.ConsultaExpediente(id);
+        }
+        [Authorize]
+        [Route("getConceptoConsultaExpedientesAsociados/{id}")]
+        public List<CtPaisModel> GetConsultaExpedientesAsociados(int id)
+        {
+            ConceptoLogic a = new ConceptoLogic();
+            return a.ConsultaExpedientesAsociados(id);
+        }
+        [Authorize]
+        [Route("getConceptoDeleteExpediente/{id}")]
+        [HttpDelete]
+        public string DeleteExpediente(int id)
+        {
+            ConceptoLogic a = new ConceptoLogic();
+            string resul = a.DeleteExpediente(id);
+            return resul;
+        }
+        #endregion
+        #region UsuariosAsociados
+        [HttpPost]
+        [Authorize]
+        [Route("ConceptoCrearUsuariosAsociados")]
+        public IHttpActionResult PostCrearUsuariosAsociados(ConceptoModel b)
+        {
+            ConceptoLogic a = new ConceptoLogic();
+            var result = a.CrearUsuariosAsociados(b);
+            if (!string.IsNullOrEmpty(result.Id.ToString())) return Ok(result);
+            return NotFound();
+        }
+        
+        [Authorize]
+        [Route("getConceptoConsultaUsuariosAsociados/{id}")]
+        public List<ConceptoModel> GetConsultaUsuariosAsociados(int id)
+        {
+            ConceptoLogic a = new ConceptoLogic();
+            return a.ConsultaUsuariosAsociados(id);
+        }
+        [Authorize]
+        [Route("getConceptoDeleteUsuariosAsociados/{id}")]
+        [HttpDelete]
+        public string DeleteUsuariosAsociados(int id)
+        {
+            ConceptoLogic a = new ConceptoLogic();
+            string resul = a.DeleteUsuariosAsociados(id);
+            return resul;
+        }
+        #endregion
+
 
     }
 }

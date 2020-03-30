@@ -47,5 +47,8 @@ namespace AspNetIdentity.Models
         public Nullable<bool> EstadoRegistro { get; set; }
         public string UsuarioModifica { get; set; }
         public string UsuarioActualiza { get; set; }
+
+        public string NombreUsuario { get; set; }
+        public string RolUsuario { get; set; }
     }
 }
