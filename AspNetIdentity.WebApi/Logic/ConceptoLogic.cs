@@ -446,58 +446,73 @@ namespace AspNetIdentity.WebApi.Logic
 
         #region UsuariosAsociados
 
+
+        public ConceptoModel CrearConceptoAll(ConceptoModel a) {
+        
+            Concepto Concepto_ = new Concepto();
+            try
+            {
+                using (ZonasFEntities Ctx = new ZonasFEntities())// --------------------- //
+                {
+                    if (a.Id <= 0)
+                    {
+                        Concepto_.IdAspNetUsers = a.IdAspNetUsers;
+                        Concepto_.IdCausa = a.IdCausa;
+                        Concepto_.IdOrfeo = a.IdOrfeo;
+                        Concepto_.Estado = true;
+                        Concepto_.FechaCreacion = DateTime.Now;
+                        Ctx.Concepto.Add(Concepto_);
+                        Ctx.SaveChanges();
+                        a.Id = Concepto_.Id;
+
+                        List<string> listaAdmin =
+                        Ctx.AspNetRoles
+                       .Join(Ctx.AspNetUserRoles, b => b.Id, c => c.RoleId, (b, c) => new { c.UserId, c.RoleId, rol = b.Name })
+                       .Join(Ctx.AspNetUsers, b => b.UserId, c => c.Id, (b, c) => new { b.rol, c.Id, b.UserId, b.RoleId })
+                       .Join(Ctx.Users, b => b.Id, c => c.Id_Hash, (b, c) => new { b.rol, c.Name, c.FirstName, c.LastName, c.Id_Hash, c.Email })
+                       .Where(c => c.rol == "Administrator")
+                       .Select(c => c.Email).ToList();
+                        //EnviarCorreo(a.RutaExpediente + id, listaAdmin);
+                    }
+                    else {
+                        List<string> listaAdmin = Ctx.AspNetRoles
+                          .Join(Ctx.AspNetUserRoles, b => b.Id, c => c.RoleId, (b, c) => new { c.UserId, c.RoleId, rol = b.Name })
+                          .Join(Ctx.AspNetUsers, b => b.UserId, c => c.Id, (b, c) => new { b.rol, c.Id, b.UserId, b.RoleId })
+                          .Join(Ctx.Users, b => b.Id, c => c.Id_Hash, (b, c) => new { b.rol, c.Name, c.FirstName, c.LastName, c.Id_Hash, c.Email })
+                          .Where(c => c.Id_Hash == a.UserAsociado)
+                          .Select(c => c.Email).ToList();
+                        //EnviarCorreo(a.RutaExpediente + id, listaAdmin);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                a.Id = 0;
+            }
+            
+            return a;
+        }
+
         public ConceptoModel CrearUsuariosAsociados(ConceptoModel a)
         {
             using (ZonasFEntities Ctx = new ZonasFEntities())// --------------------- //
             {
                 Concepto Concepto_ = new Concepto();
-                int id = 0;
 
                 if (a.Id <= 0)
                 {
-                    Concepto_.IdAspNetUsers = a.IdAspNetUsers;
-                    Concepto_.IdCausa = a.IdCausa;
-                    Concepto_.IdOrfeo = a.IdOrfeo;
-                    Concepto_.Estado = true;
-                    Concepto_.FechaCreacion = DateTime.Now;
-                    Ctx.Concepto.Add(Concepto_);
-                    Ctx.SaveChanges();
-                    
-                    id = Concepto_.Id;
-                    
-                    a.Id = Concepto_.Id;
-
-                    List<string> listaAdmin =
-                    Ctx.AspNetRoles
-                   .Join(Ctx.AspNetUserRoles, b => b.Id, c => c.RoleId, (b, c) => new { c.UserId, c.RoleId, rol = b.Name })
-                   .Join(Ctx.AspNetUsers, b => b.UserId, c => c.Id, (b, c) => new { b.rol, c.Id, b.UserId, b.RoleId })
-                   .Join(Ctx.Users, b => b.Id, c => c.Id_Hash, (b, c) => new { b.rol, c.Name, c.FirstName, c.LastName, c.Id_Hash, c.Email })
-                   .Where(c => c.rol == "Administrator")
-                   .Select(c => c.Email).ToList();
-                    //EnviarCorreo(a.RutaExpediente + id, listaAdmin);
-
-                }
-                else
-                {
-                    List<string> listaAdmin = Ctx.AspNetRoles
-                      .Join(Ctx.AspNetUserRoles, b => b.Id, c => c.RoleId, (b, c) => new { c.UserId, c.RoleId, rol = b.Name })
-                      .Join(Ctx.AspNetUsers, b => b.UserId, c => c.Id, (b, c) => new { b.rol, c.Id, b.UserId, b.RoleId })
-                      .Join(Ctx.Users, b => b.Id, c => c.Id_Hash, (b, c) => new { b.rol, c.Name, c.FirstName, c.LastName, c.Id_Hash, c.Email })
-                      .Where(c => c.Id_Hash == a.UserAsociado)
-                      .Select(c => c.Email).ToList();
-                    //EnviarCorreo(a.RutaExpediente, listaAdmin);
-                    id = a.Id;
+                    ConceptoModel ResConceptoModel = CrearConceptoAll(a);
                 }
                 ConceptoAsociado ConceptoAsociado_ = new ConceptoAsociado
                 {
                     IdAspNetUser = a.UserAsociado,
                     FechaInsercion = DateTime.Now,
-                    IdConcepto = id,
+                    IdConcepto = Concepto_.Id,
                     Estado = true
                 };
                 Ctx.ConceptoAsociado.Add(ConceptoAsociado_);
                 Ctx.SaveChanges();
-                return a;
+                return a ;
             }
         }
         

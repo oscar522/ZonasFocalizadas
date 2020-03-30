@@ -825,10 +825,10 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
 
 
         #region UsuariosAsociados
-        public async Task<ActionResult> CrearUsuariosAsociados(ConceptoMvcModel ObjData)
-        {
+
+        public ConceptoModel DtoConceptoModel(ConceptoMvcModel ObjData) {
+
             DateTime fecha = DateTime.Now;
-            string FechaFor = fecha.Day + "-" + fecha.Month + "-" + fecha.Year + "-" + fecha.Hour + "-" + fecha.Minute + "-" + fecha.Second + "-" + fecha.Millisecond;
 
             ConceptoModel ConceptoModel_ = new ConceptoModel();
 
@@ -853,14 +853,20 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             if (ObjData.Observacion == null) ObjData.Observacion = "N_A";
 
             ConceptoModel_.Id = ObjData.Id;
-
             ConceptoModel_.FechaCreacion = fecha;
             ConceptoModel_.IdCausa = ObjData.IdCausa;
-            ConceptoModel_.TerminoDias =0;
+            ConceptoModel_.TerminoDias = 0;
             ConceptoModel_.Observacion = "N_A";
             ConceptoModel_.Soporte = "N_A";
             ConceptoModel_.Estado = true;
             ConceptoModel_.IdExpediente = 0;
+            ConceptoModel_.Anexo = "N/A";
+
+            return ConceptoModel_;
+        }
+        public async Task<ActionResult> CrearUsuariosAsociados(ConceptoMvcModel ObjData)
+        {
+            ConceptoModel ConceptoModel_ = DtoConceptoModel(ObjData);
 
             string Controller = "Concepto";
             string Method = "ConceptoCrearUsuariosAsociados";
@@ -868,8 +874,6 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             {
                 try
                 {
-                    ObjData.RutaAnexo = "N/A";
-                    ConceptoModel_.Anexo = "N/A";
 
                     Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
                     DictionaryModel ObjDictionary = new DictionaryModel();
@@ -879,8 +883,7 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
                     ConceptoModel processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<ConceptoModel>(jsonResult.ToString());
                     if (processModel.Id.Equals(""))
                     {
-                        ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
-                        return Json(ModelState);
+                        return Json("error 1");
                     }
                     else
                     {
@@ -891,22 +894,14 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
                 }
                 catch
                 {
-                    ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
-                    return Json(ModelState);
+                    return Json("error2");
+
+                    //return Json(ModelState);
                 }
             }
             else
             {
-                ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
-                var errorList = (from item in ModelState
-                                 from error in item.Value.Errors
-                                 select new
-                                 {
-                                     Msg = error.ErrorMessage,
-                                     Cam = item.Key
-                                 }
-                    ).ToList();
-                return Json(errorList);
+                return Json("error 3");
             }
         }
 

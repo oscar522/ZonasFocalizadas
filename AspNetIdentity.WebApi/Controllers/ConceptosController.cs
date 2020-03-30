@@ -210,7 +210,7 @@ namespace AspNetIdentity.WebApi.Controllers
         {
             ConceptoLogic a = new ConceptoLogic();
             var result = a.CrearUsuariosAsociados(b);
-            if (!string.IsNullOrEmpty(result.Id.ToString())) return Ok(result);
+            if (!string.IsNullOrEmpty(result.ToString())) return Ok(result);
             return NotFound();
         }
         
