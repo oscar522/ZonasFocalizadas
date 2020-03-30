@@ -481,6 +481,8 @@ namespace AspNetIdentity.WebApi.Logic
                           .Join(Ctx.Users, b => b.Id, c => c.Id_Hash, (b, c) => new { b.rol, c.Name, c.FirstName, c.LastName, c.Id_Hash, c.Email })
                           .Where(c => c.Id_Hash == a.UserAsociado)
                           .Select(c => c.Email).ToList();
+                        a.Id = Concepto_.Id;
+
                         //EnviarCorreo(a.RutaExpediente + id, listaAdmin);
                     }
                 }
@@ -502,6 +504,10 @@ namespace AspNetIdentity.WebApi.Logic
                 if (a.Id <= 0)
                 {
                     ConceptoModel ResConceptoModel = CrearConceptoAll(a);
+                }
+                else
+                {
+                    Concepto_.Id = a.Id;
                 }
                 ConceptoAsociado ConceptoAsociado_ = new ConceptoAsociado
                 {

@@ -637,7 +637,8 @@ var oTableExp_Aso = $('#table_Exp_Aso').dataTable({
                 cache: false,
                 timeout: 600000,
                 data: Data,
-                success: function(states) {
+                success: function (states) {
+                    debugger;
                     $("#Id").val(states.Id);
                     UsuariosAsociados();
                     $("#centralModalLGInfoDemoSlim").modal('hide');
