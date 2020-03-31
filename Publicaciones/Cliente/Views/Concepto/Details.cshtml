@@ -846,8 +846,8 @@ $.getJSON('@Url.Content("~/Content/ConfigPdfUri.json")', function (data) {
     } else {
         UriPdf = UriLo;
     }
-     $('#RutaCon').val(UriPdf+'/Content/Pdfs/Conceptos/');
-     $('#RutaPdf').val(UriPdf+'/Content/Pdfs/');
+     $('#RutaCon').val('http://'+UriPdf+'/Content/Pdfs/Conceptos/');
+     $('#RutaPdf').val('http://'+UriPdf+'/Content/Pdfs/');
      $('#RutaLoa').val(UriPdf + '/Content/');
      $('#RutaExpediente').val(UriPdf);
      $('#Ruta').val(UriPdf);

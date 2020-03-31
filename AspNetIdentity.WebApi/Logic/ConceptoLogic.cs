@@ -61,7 +61,7 @@ namespace AspNetIdentity.WebApi.Logic
                 if (a.Id <= 0)
                 {
                     Concepto_.IdAspNetUsers = a.IdAspNetUsers;
-                    Concepto_.IdCausa = a.IdCausa;
+                    Concepto_.IdCausa = 0;
                     Concepto_.IdOrfeo = a.IdOrfeo;
                     Concepto_.Estado = true;
                     Concepto_.FechaCreacion = DateTime.Now;
@@ -136,7 +136,7 @@ namespace AspNetIdentity.WebApi.Logic
                 if (a.Id <= 0)
                 {
                     Concepto_.IdAspNetUsers = a.IdAspNetUsers;
-                    Concepto_.IdCausa = a.IdCausa;
+                    Concepto_.IdCausa = 0;
                     Concepto_.IdOrfeo = a.IdOrfeo;
                     Concepto_.Estado = true;
                     Concepto_.FechaCreacion = DateTime.Now;
@@ -212,7 +212,7 @@ namespace AspNetIdentity.WebApi.Logic
                 if (a.Id <= 0)
                 {
                     Concepto_.IdAspNetUsers = a.IdAspNetUsers;
-                    Concepto_.IdCausa = a.IdCausa;
+                    Concepto_.IdCausa = 0;
                     Concepto_.IdOrfeo = a.IdOrfeo;
                     Concepto_.Estado = true;
                     Concepto_.FechaCreacion = DateTime.Now;
@@ -457,7 +457,7 @@ namespace AspNetIdentity.WebApi.Logic
                     if (a.Id <= 0)
                     {
                         Concepto_.IdAspNetUsers = a.IdAspNetUsers;
-                        Concepto_.IdCausa = a.IdCausa;
+                        Concepto_.IdCausa = 0;
                         Concepto_.IdOrfeo = a.IdOrfeo;
                         Concepto_.Estado = true;
                         Concepto_.FechaCreacion = DateTime.Now;
