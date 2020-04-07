@@ -13,6 +13,7 @@ namespace AspNetIdentity.WebClientAdmin
                         "~/Scripts/popper.min.js",
                         "~/Scripts/bootstrap.min.js",
                         "~/Scripts/mdb.min.js",
+                        "~/Scripts/ScriptConceptos/Validaciones.js",
                         "~/Scripts/addons/datatables.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryLogin").Include(

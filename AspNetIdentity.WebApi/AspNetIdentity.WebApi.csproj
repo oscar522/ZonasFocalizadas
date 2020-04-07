@@ -236,6 +236,7 @@
     <Compile Include="Charts\CustomCharts.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\AccountTableController.cs" />
+    <Compile Include="Controllers\ConceptosGestionController.cs" />
     <Compile Include="Controllers\TipoActividadController.cs" />
     <Compile Include="Controllers\ActividadesDiariasController.cs" />
     <Compile Include="Controllers\AssessmentsController.cs" />
@@ -264,6 +265,7 @@
     <Compile Include="Infrastructure\ExtendedClaimsProvider.cs" />
     <Compile Include="Infrastructure\RolesFromClaims.cs" />
     <Compile Include="Logic\AccountTableLogic.cs" />
+    <Compile Include="Logic\ConceptoGestionLogic.cs" />
     <Compile Include="Logic\TipoActividadLogic.cs" />
     <Compile Include="Logic\AssessmentsLogic.cs" />
     <Compile Include="Logic\AdministratorLogic.cs" />
@@ -331,7 +333,16 @@
     <Compile Include="Models\ConceptoAsociado.cs">
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ConceptoEstado.cs">
+      <DependentUpon>ZonasFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConceptoGestion.cs">
+      <DependentUpon>ZonasFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ConceptosDocumentos.cs">
+      <DependentUpon>ZonasFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConceptoTipoSoporte.cs">
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CtCausas.cs">

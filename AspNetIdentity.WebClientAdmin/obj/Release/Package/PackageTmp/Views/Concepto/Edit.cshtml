@@ -1,4 +1,6 @@
 ﻿@model AspNetIdentity.Models.ConceptoMvcModel
+
+
 <style>
     .col-sm-12 {
         margin: 1% auto;
@@ -7,13 +9,17 @@
 <div class="card mb-4 wow fadeIn">
     <div class="card-body d-sm-flex justify-content-between">
         <h4 class="mb-2 mb-sm-0 pt-1">
-            <span>Solicitud Concepto de @Model.NombreAspNetUsers</span>
+            <span>Concepto</span>
         </h4>
+        <h5 class="mb-2 mb-sm-0 pt-1">
+            <span>Usuario : @Model.NombreAspNetUsers</span>
+            <br />
+            <span>Rol : @Model.Rol</span>
+        </h5>
     </div>
 </div>
 <!-- Heading -->
 @using (Html.BeginForm("Crear", "Concepto", FormMethod.Post, new { enctype = "multipart/form-data", id = "CrearForm" }))
-
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -26,8 +32,9 @@
     <input type="hidden" value="" id="RutaPdf" name="RutaPdf" />
     <input type="hidden" value="" id="RutaLoa" name="RutaLoa" />
     <input type="hidden" value="" id="RutaCon" name="RutaCon" />
+    <input type="hidden" value="" id="rutaload" name="rutaload" />
     <div class="row col-xl-12 d-sm-flex ">
-        <div class="col-sm-4 ">
+        <div class="col-xl-4 ">
             <div class="card  ">
                 <div class="card-body">
                     <div class="row">
@@ -59,10 +66,25 @@
                             </div>
                             <div class="col-sm-12">
                                 <div class="row">
+                                    <label class="control-label col-sm-6 "> Nombre del Predio </label>
+                                    @Html.EditorFor(model => model.NombrePredio, new { htmlAttributes = new { @class = "form-control col-sm-6", @value = Model.IdOrfeo } })
+                                    @Html.ValidationMessageFor(model => model.NombrePredio, "", new { @class = "text-danger col-sm-12" })
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="row">
                                     @Html.LabelFor(model => model.Soporte, htmlAttributes: new { @class = "control-label col-sm-6" })
                                     @Html.TextBoxFor(model => model.Soporte, new { type = "file", @class = "form-control col-sm-6" })
-                                    @*<a id="RutaSoporte" target="_blank" href="" style='color: #013ADF;'>@Model.RutaSoporte <i class='fa fa-eye'>  </i></a>
-                                        <input type="hidden" id="RutaSoporteH" name="RutaSoporteH" value="@Model.RutaSoporte" />*@
+
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-12 ">
+                                        <div class="progress  ">
+                                            <div id="BarSoporte" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-12">
@@ -94,6 +116,15 @@
                                     @Html.TextBoxFor(model => model.Anexo, new { type = "file", @class = "form-control col-sm-6" })
                                     @*<a id="RutaAnexo" target="_blank" href="" style='color: #013ADF;'>@Model.RutaAnexo <i class='fa fa-eye'>  </i></a>
                                         <input type="hidden" id="RutaAnexoH" name="RutaAnexoH" value="@Model.RutaAnexo" />*@
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-12 ">
+                                        <div class="progress  ">
+                                            <div id="BarAnexo" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-12">
@@ -132,7 +163,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-4  ">
+        <div class="col-xl-4 ">
             <div class="card  ">
                 <div class="card-body">
                     <div class="row">
@@ -186,6 +217,15 @@
                                 </div>
                             </div>
                             <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-12 ">
+                                        <div class="progress  ">
+                                            <div id="BarExp" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
                                 <div class=" ">
                                     <table class="table table-hover " id="table_Exp_Aso">
                                         <thead>
@@ -214,7 +254,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-4  ">
+        <div class="col-xl-4 ">
             <div class="card  ">
                 <div class="card-body">
                     <div class="row">
@@ -239,8 +279,17 @@
                                 <a href="#" id="AsociarUser" class="btn btn-green "> Relacionar </a>
                             </div>
                             <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-12 ">
+                                        <div class="progress  ">
+                                            <div id="BarUser" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
                                 <div class=" ">
-                                    <table class="table table-hover " id="table_Asociados_">
+                                    <table class="table table-hover " id="table_Asociados_" name = "table_Asociados_">
                                         <thead>
                                             <tr>
                                                 <th>
@@ -274,674 +323,292 @@
     </div>
 
 }
+@using (Html.BeginForm("CrearGestion", "Concepto", FormMethod.Post, new { enctype = "multipart/form-data", id = "CrearGestionForm" }))
+{
+<div class="row col-xl-12 d-sm-flex">
+    <div class="col-xl-4">
+        <div class="card  ">
+            <div class="card-body">
+                <input type="hidden" value="0" id="Id" name="Id" />
+                <input type="hidden" value="@Model.Id" id="IdConcepto" name="IdConcepto" />
+                <input type="hidden" value="N_A" id="NombreIdEstado" name="NombreIdEstado" />
+                <input type="hidden" value="N_A" id="NombreIdSoporte" name="NombreIdSoporte" />
+                <input type="hidden" value="@Model.NombreCausa" id="RolGestion" name="RolGestion" />
+                <input type="hidden" value="@Model.Rol" id="RolConcepto" name="RolConcepto" />
+                <input type="hidden" value="@Model.UserAsociado" id="IdAspNetUserGestion" name="IdAspNetUserGestion" />
+                <input type="hidden" value="@Model.IdAspNetUsers" id="IdAspNetUserConcepto" name="@Model.IdAspNetUsers" />
+
+                <div class="col-sm-12">
+                    <h5>Gestion</h5>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                </div>
+                <br />
+                <div class="col-sm-12">
+                    <div class="row">
+                        <label class="control-label col-sm-6"> Actualizar Estado </label>
+                        <select class="form-control col-sm-6" id="IdEstado" name="IdEstado">
+                            <option>Seleccione</option>
+                        </select>
+                        <span class="field-validation-valid text-danger col-sm-12" data-valmsg-for="IdEstado" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+                <br />
+                <div class="col-sm-12">
+                    <div class="row">
+                        <label class="control-label col-sm-6"> Soporte </label>
+                        <select class="form-control col-sm-6" id="IdSoporte" name="IdSoporte">
+                            <option>Seleccione</option>
+                        </select>
+                        <span class="field-validation-valid text-danger col-sm-12" data-valmsg-for="IdSoporte" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+                <br />
+                <div class="col-sm-12">
+                    <div class="row">
+                        <input type="file" name="Archivo" class="form-control col-sm-12">
+                        <span class="field-validation-valid text-danger col-sm-12" data-valmsg-for="Archivo" data-valmsg-replace="true"></span>
+
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-12 ">
+                            <div class="progress  ">
+                                <div id="BarGestion" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="col-sm-12">
+                    <div class="row">
+                        <label class="control-label col-sm-12" for="GestionObservacion">Observaciones</label>
+                        <textarea class="form-control col-sm-12" cols="20" id="GestionObservacion" name="GestionObservacion" rows="4" ></textarea>
+                        <span class="field-validation-valid text-danger col-sm-12" data-valmsg-for="GestionObservacion" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+                <br />
+                <div class="col-sm-12 align-content-center text-center">
+                    <a href="#" id="GuardarGestion" class="btn btn-green "> Guardar </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-8">
+        <div class="card  ">
+            <div class="card-body">
+                <div class="col-sm-12">
+                    <h5>Resumen de Gestion</h5>
+                </div>
+                <br />
+                <div class="col-sm-12">
+                    <div class=" ">
+                        <table class="table table-hover " id="table_Gestion">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Id
+                                    </th>
+                                    <th>
+                                        Fecha
+                                    </th>
+                                    <th>
+                                        Estado
+                                    </th>
+                                    <th>
+                                        Soporte
+                                    </th>
+                                    <th>
+                                        Rol
+                                    </th>
+                                    <th>
+                                        Nombre
+                                    </th>
+                                    <th>
+                                        Observacion
+                                    </th>
+                                    <th>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
 
 @section scripts{
+
     <script>
         $(document).ready(function () {
+            
+            if ('@Model.UserAsociado' != '@Model.IdAspNetUsers' ) {
+                $("#CrearForm :input").prop("disabled", true);
+                $("#CrearForm a").hide();
+            }
 
             var rutaload = @Url.Content("~/Content/");
+            $("#rutaload").val(rutaload);
 
-    ////VALIDACIONES
-    function validar() {
+            ///////////////////////////////////////
+            ////// CATALOGOS
 
-        var msnList = "Ningún dato disponible en esta tabla";
+                ///////////////////////////////////////
+                ////// CONCEPTOS
 
-        var estado = true;
-        var checksinExp = 0;
-        if ($('#key2').prop('checked')) {
-            checksinExp = 1;
-        }
+                    ///////////////////////////////////////
+                    ////// Catalogo de causales de conceptos
+                        $.ajax({
+                            type: 'POST',
+                            url: '@Url.Action("ListCausas")', // we are calling json method
+                            dataType: 'json',
+                            success: function(states) {
+                                //   alert("ok_pais");
+                                $.each(states, function (i, state) {
+                                    if (state.Value == $("#IIdCausa").val()) {
+                                        $("#IdCausa").append('<option selected value="' + state.Value + '">' + state.Text + '</option>');
 
-        if ($("#IdCausa").val() == "")
-        {
-            $('span[data-valmsg-for="IdCausa"]').text("* Requerido");
-            estado = false;
-        }
+                                    } else {
+                                        $("#IdCausa").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                                        }
+                                });
+                            },
+                            error: function (ex) {
+                                console.log(ex.responseText);
+                            }
+                        });
 
-        if ($("#TerminoDias").val() == "")
-        {
-            $('span[data-valmsg-for="TerminoDias"]').text("* Requerido");
-            estado = false;
-        }
+                    ///////////////////////////////////////
+                    ////// Catalogo de roles
+                        $.ajax({
+                            type: 'POST',
+                            url: '@Url.Action("ListRoles")', // we are calling json method
+                            dataType: 'json',
+                            success: function(states) {
+                                //   alert("ok_pais");
+                                $.each(states, function (i, state) {
+                                    $("#IdRole").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                                });
+                            },
+                            error: function (ex) {
+                                console.log(ex.responseText);
+                            }
+                        });
 
-        if ($("#Observacion").val() == "")
-        {
-            $('span[data-valmsg-for="Observacion"]').text("* Requerido");
-            estado = false;
-        }
+                    ///////////////////////////////////////
+                    ////// catalaogo de usuarios dependiente de el combo rol
+                        $("#IdRole").change(function () {
+                            $("#UserAsociado").empty();
+                            //  alert("okdepto" + $("#ID_CT_PAIS").val());
+                            $.ajax({
+                                type: 'POST',
+                                url: '@Url.Action("ListRolesUsuario")', // we are calling json method
+                                dataType: 'json',
+                                data: { Id: $("#IdRole").val() },
+                                    success: function(states) {
+                                        //alert("okdepto");
+                                        $.each(states, function (i, state) {
+                                                $("#UserAsociado").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                                        });
+                                    },
+                                error: function (ex) {
+                                    console.log(ex.responseText);
+                                }
+                            });
+                            return false;
+                        });
 
-        var AsociadosList = $("#table_Asociados_ td").text();
+                ///////////////////////////////////////
+                ////// GESTION
 
-        if (AsociadosList == msnList)
-        {
-            state = 1; $('span[data-valmsg-for="UserAsociado"]').text("* Asocie por lo menos un usuario");
-            estado = false;
-        }
+                    ///////////////////////////////////////
+                    ////// Catalogo de estados
+                        $.ajax({
+                            type: 'POST',
+                            url: 'ListGestionEstado', // we are calling json method
+                            dataType: 'json',
+                            success: function(states) {
+                                //   alert("ok_pais");
+                                var NombreEstado = ""; 
+                                var RolConcepto =  $("#RolConcepto").val().trim();
+                                var RolGestion = $("#RolGestion").val().trim();
 
-        var IdOrfeo = $("#IdOrfeo").val() + "1";
-        var IdExpediente = $("#IdExpediente").val() + "1";
-        if (IdOrfeo == "1"  && checksinExp == 1 )
-        {
-                $('span[data-valmsg-for="IdOrfeo"]').text("* Indique el numero del Orfeo");
-            estado = false;
-        } else if (IdExpediente == "1"  && checksinExp == 0 && $("#NumeroExpedienteT").text() == "")
-        {
-                $('span[data-valmsg-for="IdExpediente"]').text("* Indique el numero del Orfeo o un Numero de Expediente");
-            estado = false;
-        }
-        if ($("#Id").val() <= 0) {
+                                $.each(states, function (i, state) {
 
-            var SoporteList = $("#table_Soporte  td").text();
-            var AnexoList = $("#table_Anexo td").text();
+                                    if (state.IdRol.trim() == RolGestion.trim() ) {
+                                        
+                                        if ($('#IdAspNetUserGestion').val().trim() == $('#IdAspNetUserConcepto').val().trim())
+                                        {
+                                            $("#IdEstado").append('<option   value="' + state.Id + '">' + state.Nombre + '</option>');
 
-            if (AnexoList == msnList ) {
-                $('span[data-valmsg-for="Anexo"]').text("* Indique un Anexo");
-                estado = false;
+                                        }else {
+                                            if (state.Nombre != 'Finalizado'){
+                                            $("#IdEstado").append('<option   value="' + state.Id + '">' + state.Nombre + '</option>');
+                                        }
+                                        }
 
-            } else if (SoporteList == msnList ) {
-                $('span[data-valmsg-for="Soporte"]').text("* Indique el Soporte o Anexo");
-                estado = false;
+                                    }
 
-            } else {
+                                });
+                            },
+                            error: function (ex) {
+                                console.log(ex.responseText);
+                            }
+                        });
 
-                var extAnexo = $("#Anexo").val().split('.').pop();
-                var extSoporte = $("#Soporte").val().split('.').pop();
+                    ///////////////////////////////////////
+                    ////// Catalogo de soporte
+                        $.ajax({
+                            type: 'POST',
+                            url: 'ListGestionSoporte', // we are calling json method
+                            dataType: 'json',
+                            success: function(states) {
+                                //   alert("ok_pais");
+                                var NombreEstado = ""; 
+                                    debugger;
 
-                if ($("#extSoporte").val() != "" && (extSoporte != 'Pdf' || extSoporte != 'PDF' || extSoporte != 'pdf') ) {
-                    $('span[data-valmsg-for="Soporte"]').text("* debe ser un archivo Pdf");
-                }
-                if ($("#Anexo").val() != "" && (extAnexo != 'Pdf' || extAnexo != 'PDF' || extAnexo != 'pdf') ) {
-                    $('span[data-valmsg-for="Anexo"]').text("* debe ser un archivo Pdf");
-                }
-            }
-        }
-        return estado;
-    }
-    ///////////////////////////////////////
+                                $.each(states, function (i, state) {
+                                        $("#IdSoporte").append('<option   value="' + state.Id + '">' + state.Nombre + '</option>');
+                                });
+                            },
+                            error: function (ex) {
+                                console.log(ex.responseText);
+                            }
+                        });
 
-    ///////////////////////////////////////
-    ////// ENVIO FORMULARIO
-    $("form").submit(function (event) {
-        var Validacion = validar();
-        if (Validacion == true) {
-            return true;
-        } else {
-        return false;
-        }
-    });
+            $.getJSON('@Url.Content("~/Content/ConfigPdfUri.json")', function (data) {
 
-    ///////////////////////////////////////
-    ////// Catalogo de causales de conceptos
-    $.ajax({
-        type: 'POST',
-        url: '@Url.Action("ListCausas")', // we are calling json method
-        dataType: 'json',
-        success: function(states) {
-            //   alert("ok_pais");
-            $.each(states, function (i, state) {
-                if (state.Value == $("#IIdCausa").val()) {
-                    $("#IdCausa").append('<option selected value="' + state.Value + '">' + state.Text + '</option>');
+                var UriLo = data.result[0].Uri;
+                var UriPdf ="";
+                var UriRe = data.result[0].UriRe;
 
+                var pathname = window.location.href;
+
+                if (pathname.indexOf(UriRe) > -1) {
+                    UriPdf = UriRe;
                 } else {
-                    $("#IdCausa").append('<option value="' + state.Value + '">' + state.Text + '</option>');
-                    }
-            });
-        },
-        error: function (ex) {
-            console.log(ex.responseText);
-        }
-    });
-
-    ///////////////////////////////////////
-    ////// Catalogo de roles
-    $.ajax({
-        type: 'POST',
-        url: '@Url.Action("ListRoles")', // we are calling json method
-        dataType: 'json',
-        success: function(states) {
-            //   alert("ok_pais");
-            $.each(states, function (i, state) {
-                $("#IdRole").append('<option value="' + state.Value + '">' +state.Text + '</option>');
-            });
-        },
-        error: function (ex) {
-            console.log(ex.responseText);
-        }
-    });
-
-    ///////////////////////////////////////
-    ////// catalaogo de usuarios dependiente de el combo rol
-    $("#IdRole").change(function () {
-        $("#UserAsociado").empty();
-        //  alert("okdepto" + $("#ID_CT_PAIS").val());
-        $.ajax({
-            type: 'POST',
-            url: '@Url.Action("ListRolesUsuario")', // we are calling json method
-            dataType: 'json',
-            data: { Id: $("#IdRole").val() },
-                success: function(states) {
-                    //alert("okdepto");
-                    $.each(states, function (i, state) {
-                            $("#UserAsociado").append('<option value="' + state.Value + '">' + state.Text + '</option>');
-                    });
-                },
-            error: function (ex) {
-                console.log(ex.responseText);
-            }
-        });
-        return false;
-    });
-
-
-    ///////////////////////////////////////
-    ////// CREACION DE TABLAS
-
-    ///////////////////////////////////////
-    ////// tabla usuarios asociados
-    var oTableAsociados = $('#table_Asociados_').dataTable({
-        "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
-        "paging": false,
-        "searching": false,
-        "info": false,
-        "scrollX": false,
-        "columnDefs": [
-        {
-        "targets": [ 0 ],
-        "visible": false,
-        "searchable": false
-        }],
-    });
-
-    ///////////////////////////////////////
-    ////// creacion de la tabla soporte
-    var oTableSoporte = $('#table_Soporte').dataTable({
-        "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
-        "paging": false,
-        "searching": false,
-        "info": false,
-        "scrollX": false,
-        "columnDefs": [
-        {
-            "targets": [ 0 ],
-            "visible": false,
-                "searchable": false,
-            "width": "20%",
-            },
-        {
-            "targets": [ 1 ],
-            "width": "20%",
-        }],
-    });
-
-    ///////////////////////////////////////
-    ////// creacion de la tabla Anexo
-    var oTableAnexo = $('#table_Anexo').dataTable({
-        "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
-        "paging": false,
-        "searching": false,
-        "info": false,
-        "columnDefs": [
-        {
-            "targets": [ 0 ],
-            "visible": false,
-            "searchable": false
-        },
-        {
-            "targets": [ 1 ],
-            "width": "20%",
-        }],
-    });
-
-    ///////////////////////////////////////
-    //////creacion de la tabla table_Exp_Aso
-    var oTableExp_Aso = $('#table_Exp_Aso').dataTable({
-        "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
-        "paging": false,
-        "searching": false,
-        "scrollX": false,
-        "info": false,
-        "columnDefs": [
-        {
-            "targets": [ 0 ],
-            "visible": false,
-            "searchable": false
-        },
-        {
-            "targets": [ 1 ],
-            "width": "20%",
-        }],
-    });
-
-    ///////////////////////////////////////
-    ////// AJAX PARA GUARDAR
-
-    ///////////////////////////////////////
-    ////// Guardar Soporte
-    $("#Soporte").change(function () {
-        $('#centralModalLGInfoDemoSlim').modal({backdrop: 'static', keyboard: false})
-        $("#centralModalLGInfoDemoSlim").modal();
-        $('#HeaderSlim').html("")
-        $('#BodySlim').html('<div class="loading">Cargando ... <img src="'+rutaload+'/loader.gif" alt="loading" /></div>');
-        var form = $('#CrearForm')[0];
-        var Data = new FormData(form);
-        $.ajax({
-            type: 'POST',
-            url: '@Url.Action("CrearSoportes")', // we are calling json method
-            dataType: 'json',
-            enctype: 'multipart/form-data',
-            processData: false,
-            contentType: false,
-            cache: false,
-            timeout: 600000,
-            data: Data,
-            success: function(states) {
-                $("#Id").val(states.Id);
-                TablaSoporte();
-                CierraPopup();
-            },
-            error: function (ex) {
-                console.log(ex.responseText);
-                CierraPopup();
-            }
-        });
-        CierraPopup();
-        return false;
-    });
-
-    ///////////////////////////////////////
-    ////// Guardar Anexo
-            $("#Anexo").change(function () {
-                $('#centralModalLGInfoDemoSlim').modal({backdrop: 'static', keyboard: false})
-                $("#centralModalLGInfoDemoSlim").modal();
-                $('#HeaderSlim').html("")
-                $('#BodySlim').html('<div class="loading">Cargando ... <img src="'+rutaload+'/loader.gif" alt="loading" /></div>');
-                var form = $('#CrearForm')[0];
-                var Data = new FormData(form);
-                $.ajax({
-                    type: 'POST',
-                    url: '@Url.Action("CrearAnexo")', // we are calling json method
-                    dataType: 'json',
-                    enctype: 'multipart/form-data',
-                    processData: false,
-                    contentType: false,
-                    cache: false,
-                    timeout: 600000,
-                    data: Data,
-                    success: function(states) {
-                        $("#Id").val(states.Id);
-                        CierraPopup();
-                        TablaAnexo();
-                    },
-                    error: function (ex) {
-                        console.log(ex.responseText);
-                        CierraPopup();
-                    }
-                });
-                CierraPopup();
-                return false;
-            });
-
-    ///////////////////////////////////////
-    ////// Guardar Expediente Asociado
-            $("#GuardarExpAso").click(function () {
-                $('#centralModalLGInfoDemoSlim').modal({backdrop: 'static', keyboard: false})
-                $("#centralModalLGInfoDemoSlim").modal();
-                $('#HeaderSlim').html("")
-                $('#BodySlim').html('<div class="loading">Cargando ... <img src="'+rutaload+'/loader.gif" alt="loading" /></div>');
-                $("#IdExpediente").val($("#IdT").val());
-                debugger;
-                var form = $('#CrearForm')[0];
-                var Data = new FormData(form);
-                $.ajax({
-                    type: 'POST',
-                    url: '@Url.Action("CrearExpedientes")', // we are calling json method
-                    dataType: 'json',
-                    enctype: 'multipart/form-data',
-                    processData: false,
-                    contentType: false,
-                    cache: false,
-                    timeout: 600000,
-                    data: Data,
-                    success: function(states) {
-                        $("#Id").val(states.Id);
-                        ExpedientesAsociados();
-                        $("#IdExpediente").val("");
-                        CierraPopup();
-                    },
-                    error: function (ex) {
-                        console.log(ex.responseText);
-                        CierraPopup();
-                    }
-                });
-                CierraPopup();
-                return false;
-            });
-
-    ///////////////////////////////////////
-    ////// Guardar usuario Asociado
-            $("#AsociarUser").click(function () {
-                $('#centralModalLGInfoDemoSlim').modal({backdrop: 'static', keyboard: false})
-                $("#centralModalLGInfoDemoSlim").modal();
-                $('#HeaderSlim').html("")
-                $('#BodySlim').html('<div class="loading">Cargando ... <img src="'+rutaload+'/loader.gif" alt="loading" /></div>');
-                debugger;
-                var form = $('#CrearForm')[0];
-                var Data = new FormData(form);
-                $.ajax({
-                    type: 'POST',
-                    url: '@Url.Action("CrearUsuariosAsociados")', // we are calling json method
-                    dataType: 'json',
-                    enctype: 'multipart/form-data',
-                    processData: false,
-                    contentType: false,
-                    cache: false,
-                    timeout: 600000,
-                    data: Data,
-                    success: function (states) {
-                        debugger;
-                        $("#Id").val(states.Id);
-                        UsuariosAsociados();
-                        CierraPopup();
-                    },
-                    error: function (ex) {
-                        console.log(ex.responseText);
-                        CierraPopup();
-                    }
-                });
-                CierraPopup();
-                return false;
-            });
-
-    ///////////////////////////////////////
-    ////// AJAX PARA LLENAR TABLAS
-
-    ///////////////////////////////////////
-    ////// tabla Soporte
-    function TablaSoporte () {
-        $.ajax({
-            type: 'POST',
-            url: '@Url.Action("ConsultaDocumentoSoporte")',
-            dataType: 'json',
-            data: { key: $("#Id").val() },
-            success: function (s) {
-                oTableSoporte.fnClearTable();
-                debugger;
-                var Ruta = $("#RutaCon").val();
-                $.each(s, function (i, obj) {
-                    oTableSoporte.fnAddData([
-                        obj.ID_CT_PAIS,
-                        "<z1 title='Eliminar' Data='"+obj.ID_CT_PAIS+"' class='EliminaDoc' ><i class='fa fa-times'></i></z1>",
-                        '<a target="_blank" href="'+ Ruta + obj.NOMBRE + '" >'+ obj.NOMBRE+' </a>'
-                    ]);
-                });
-                return false;
-            },
-            error: function(e){
-                oTableSoporte.fnClearTable();
-                return false;
-            }
-        });
-        return false;
-    };
-
-    ///////////////////////////////////////
-    ////// tabla Anexo
-    function TablaAnexo () {
-        $.ajax({
-            type: 'POST',
-            url: '@Url.Action("ConsultaDocumentoAnexo")',
-            dataType: 'json',
-            data: { key: $("#Id").val() },
-            success: function (s) {
-                oTableAnexo.fnClearTable();
-                debugger;
-                var Ruta = $("#RutaCon").val();
-                $.each(s, function (i, obj) {
-                    oTableAnexo.fnAddData([
-                        obj.ID_CT_PAIS,
-                        "<z1 title='Eliminar' Data='"+obj.ID_CT_PAIS+"' class='EliminaDoc' ><i class='fa fa-times'></i></z1>",
-                        '<a target="_blank" href="'+ Ruta + obj.NOMBRE + '" >'+ obj.NOMBRE+' </a>'
-                    ]);
-                });
-                CierraPopup();
-                return false;
-            },
-            error: function(e){
-                oTableAnexo.fnClearTable();
-                CierraPopup();
-                return false;
-            }
-        });
-        CierraPopup();
-        return false;
-    };
-
-    ///////////////////////////////////////
-    ////// tabla Expedientes Asociados
-    function ExpedientesAsociados () {
-        $.ajax({
-            type: 'POST',
-            url: '@Url.Action("ConsultaExpedientesAsociados")',
-            dataType: 'json',
-            data: { key: $("#Id").val() },
-            success: function (s) {
-                oTableExp_Aso.fnClearTable();
-                debugger;
-                var Ruta = $("#RutaPdf").val();
-                $.each(s, function (i, obj) {
-                    var array = obj.NOMBRE.split("||");
-                    oTableExp_Aso.fnAddData([
-                        obj.ID_CT_PAIS,
-                        "<z1 title='Eliminar' Data='"+obj.ID_CT_PAIS+"' class='EliminaDoc' ><i class='fa fa-times'></i></z1>",
-                        '<a target="_blank" href="'+ Ruta + array[1] + '" >'+ array[0]+' </a>'
-                    ]);
-                });
-                CierraPopup();
-                return false;
-            },
-            error: function(e){
-                oTableExp_Aso.fnClearTable();
-                CierraPopup();
-                return false;
-            }
-        });
-        CierraPopup();
-        return false;
-    };
-
-    ///////////////////////////////////////
-    ////// tabla Expedientes Asociados
-    function UsuariosAsociados () {
-        $.ajax({
-            type: 'POST',
-            url: '@Url.Action("ConsultaUsuariosAsociados")',
-            dataType: 'json',
-            data: { key: $("#Id").val() },
-            success: function (s) {
-                oTableAsociados.fnClearTable();
-                debugger;
-                $.each(s, function (i, obj) {
-                    oTableAsociados.fnAddData([
-                        obj.Id,
-                        "<z1 title='Eliminar' Data='"+obj.id+"' class='EliminaDoc' ><i class='fa fa-times'></i></z1>",
-                        obj.Rol,
-                        obj.NombreAspNetUsers,
-                    ]);
-                });
-                CierraPopup();
-                return false;
-            },
-            error: function(e){
-                oTableAsociados.fnClearTable();
-                CierraPopup();
-                return false;
-            }
-        });
-        CierraPopup();
-        return false;
-    };
-
-    $( "#BuscarExp" ).click(function() {
-
-        if ($("#IdExpediente").val() != "") {
-            $.ajax({
-                type: 'POST',
-                url: '@Url.Action("ConsultaExpediente")',
-                dataType: 'json',
-                data: { key: $("#IdExpediente").val() },
-                success: function (s) {
-                    debugger;
-                    $("#NumeroExpedienteT").text(s.NumeroExpediente.toLowerCase());
-                    $("#IdT").val(s.id);
-                    $("#DepartamentoT").text(s.NombreIdDepto.toLowerCase());
-                    $("#MunicipioT").text(s.NombreIdCiudad.toLowerCase());
-                    $("#VeredaT").text(s.Vereda.toLowerCase());
-                    $("#PredioT").text(s.NombrePredio.toLowerCase());
-                    $("#NombreSolitanteT").text(s.NombreBeneficiario.toLowerCase());
-                    $("#IdentificaciónT").text( s.Identificacion.toLowerCase());
-                    CierraPopup();
-                    return false;
-                },
-                error: function (e) {
-                    oTableAnexo.fnClearTable();
-                    CierraPopup();
-                    return false;
+                    UriPdf = UriLo;
                 }
+
+                 $('#RutaCon').val( 'http://'+UriPdf+'/Content/Pdfs/Conceptos/');
+                 $('#RutaPdf').val( 'http://'+UriPdf+'/Content/Pdfs/');
+                 $('#RutaLoa').val( 'http://'+UriPdf + '/Content/');
+                 $('#RutaExpediente').val(UriPdf);
+                 $('#Ruta').val(UriPdf);
+
+
             });
-        } else {
-            $('span[data-valmsg-for="IdExpediente"]').text("* Num. Exp. Requerido para Buscar");
-        }
-        CierraPopup();
-        return false;
-    });
 
-
-    ///////////////////////////////////////
-    ////// AJAX PARA ELIMINAR
-
-    /////////////////////////////////////
-    //// tabla Soporte
-    var tablaSoporteZ = $('#table_Soporte').DataTable();
-    $('#table_Soporte tbody').on('click', 'z1', function () {
-        var data = tablaSoporteZ.row($(this).parents('tr')).data();
-            $.ajax({
-            type: 'POST',
-            url: '@Url.Action("DeleteDocumentoSoporte")',
-            dataType: 'json',
-            data: { key: data[0] },
-            success: function (s) {
-                alert(s);
-                TablaSoporte();
-                return false;
-            },
-            error: function(e){
-                return false;
-            }
-            });
-        return false;
-    });
-
-    /////////////////////////////////////
-    //// tabla Anexo
-    var tablaAnexoZ = $('#table_Anexo').DataTable();
-    $('#table_Anexo tbody').on('click', 'z1', function () {
-        var data = tablaAnexoZ.row($(this).parents('tr')).data();
-            $.ajax({
-            type: 'POST',
-            url: '@Url.Action("DeleteDocumentoAnexo")',
-            dataType: 'json',
-            data: { key: data[0] },
-            success: function (s) {
-                alert(s);
-                TablaAnexo();
-                return false;
-            },
-            error: function(e){
-                return false;
-            }
         });
-        return false;
-    });
-
-        /////////////////////////////////////
-    //// tabla Expediente asociado
-    var tablaExpedienteAsociadoZ = $('#table_Exp_Aso').DataTable();
-    $('#table_Exp_Aso tbody').on('click', 'z1', function () {
-        var data = tablaExpedienteAsociadoZ.row($(this).parents('tr')).data();
-            $.ajax({
-            type: 'POST',
-            url: '@Url.Action("DeleteExpediente")',
-            dataType: 'json',
-            data: { key: data[0] },
-            success: function (s) {
-                alert(s);
-                ExpedientesAsociados();
-                return false;
-            },
-            error: function(e){
-                return false;
-            }
-        });
-        return false;
-    });
-
-        /////////////////////////////////////
-    //// tabla Usuario asociado
-    var tablaUsuariosAsociadoZ = $('#table_Asociados_').DataTable();
-    $('#table_Asociados_ tbody').on('click', 'z1', function () {
-        var data = tablaUsuariosAsociadoZ.row($(this).parents('tr')).data();
-            $.ajax({
-            type: 'POST',
-            url: '@Url.Action("DeleteUsuariosAsociados")',
-            dataType: 'json',
-            data: { key: data[0] },
-            success: function (s) {
-                alert(s);
-                UsuariosAsociados();
-                return false;
-            },
-            error: function(e){
-                return false;
-            }
-        });
-        return false;
-    });
-
-    $.getJSON('@Url.Content("~/Content/ConfigPdfUri.json")', function (data) {
-
-        var UriLo = data.result[0].Uri;
-        var UriPdf ="";
-        var UriRe = data.result[0].UriRe;
-
-        var pathname = window.location.href;
-
-        if (pathname.indexOf(UriRe) > -1) {
-            UriPdf = UriRe;
-        } else {
-            UriPdf = UriLo;
-        }
-         $('#RutaCon').val( 'http://'+UriPdf+'/Content/Pdfs/Conceptos/');
-         $('#RutaPdf').val( 'http://'+UriPdf+'/Content/Pdfs/');
-         $('#RutaLoa').val( 'http://'+UriPdf + '/Content/');
-         $('#RutaExpediente').val(UriPdf);
-         $('#Ruta').val(UriPdf);
-
-        debugger;
-
-        if ($("#Id").val() != 0) {
-            TablaSoporte();
-            TablaAnexo();
-            UsuariosAsociados();
-            ExpedientesAsociados();
-        }
-        });
-
-        function CierraPopup() {
-            $("#centralModalLGInfoDemoSlim").modal('hide');//ocultamos el modal
-            $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
-            $('.modal-backdrop').remove();//eliminamos el backdrop del modal
-        }
-
-    });
     </script>
+    <script type="text/javascript" src="@Url.Content("/Scripts/ScriptConceptos/Validaciones.js")"></script>
+
 }

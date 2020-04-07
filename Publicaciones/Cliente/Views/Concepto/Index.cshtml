@@ -37,9 +37,20 @@
                                     <thead>
                                         <tr>
                                             <th>
+                                                F. Creacion
+                                            </th>
+                                            <th>
                                                 Usuario Creo
                                             </th>
-
+                                            <th>
+                                                Causal
+                                            </th>
+                                            <th>
+                                                Orfeo
+                                            </th>
+                                            <th>
+                                                Dias Vencidos
+                                            </th>
                                             <th>
                                                 Usuario Asociado
                                             </th>
@@ -47,14 +58,19 @@
                                                 Rol
                                             </th>
                                             <th>
-                                                Causal
-                                            </th>
-                                           
-                                            <th>
-                                                Orfeo
+                                                Depto
                                             </th>
                                             <th>
-                                                F. Creacion
+                                                Municipio
+                                            </th>
+                                            <th>
+                                                Predio
+                                            </th>
+                                            <th>
+                                                Solicitante
+                                            </th>
+                                            <th>
+                                                Expediente
                                             </th>
                                             <th>
                                                 Estado
@@ -72,36 +88,56 @@
                                                 color = "#AFFF8D";
                                             }
 
-                                            <tr style="background-color:@color">
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.NombreAspNetUsers)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.UserAsociado)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Rol)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.NombreCausa)
-                                                </td>
-                                              
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.IdOrfeo)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.FechaCreacion)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Estado)
-                                                </td>
-                                                <td>
-                                                    <a href='@Url.Action("../Concepto/Edit", "Edit", new { IdTable = item.Id })' title='Modificar' style='color: #013ADF;'><i class='fa fa-refresh' aria-hidden='true'></i></a>
-                                                    <a href='@Url.Action("../Concepto/Details", "Details", new { IdTable = item.Id })' title='Modificar' style='color: #013ADF;'><i class='fa fa-search' aria-hidden='true'></i></a>
-                                                    <a href="#"  title="Detalle" style="color: #013ADF;"><i class="fa fa-times-circle" aria-hidden="true"></i> </a>
+                                        <tr style="background-color:@color">
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FechaCreacion)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NombreAspNetUsers)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NombreCausa)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.IdOrfeo)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TerminoDias)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.UserAsociado)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Rol)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Observacion)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.RutaExpediente)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NombrePredio)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Soporte)
+                                            </td>
+                                            <td>
+                                                @if (item.IdExpediente != null)
+                                                {
+                                                    <a target="_blank" href='@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = item.IdExpediente })' title='Modificar' style='color: #013ADF;'>  @item.Anexo <i class='fa fa-eye' aria-hidden='true'></i></a>
 
-                                                </td>
-                                            </tr>
+                                                }
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Estado)
+                                            </td>
+                                            <td>
+                                                <a href='@Url.Action("../Concepto/Edit", "Edit", new { IdTable = item.Id })' title='Modificar' style='color: #013ADF;'><i class='fa fa-refresh' aria-hidden='true'></i></a>
+                                                <a href='@Url.Action("../Concepto/Details", "Details", new { IdTable = item.Id })' title='Modificar' style='color: #013ADF;'><i class='fa fa-search' aria-hidden='true'></i></a>
+                                                <a href="#" title="Detalle" style="color: #013ADF;"><i class="fa fa-times-circle" aria-hidden="true"></i> </a>
+                                            </td>
+                                        </tr>
                                         }
                                     </tbody>
                                 </table>

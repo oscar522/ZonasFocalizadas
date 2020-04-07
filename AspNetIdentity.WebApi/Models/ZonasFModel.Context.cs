@@ -60,6 +60,9 @@ namespace AspNetIdentity.WebApi.Models
         public virtual DbSet<CoceptosExpediente> CoceptosExpediente { get; set; }
         public virtual DbSet<ConceptosDocumentos> ConceptosDocumentos { get; set; }
         public virtual DbSet<Concepto> Concepto { get; set; }
+        public virtual DbSet<ConceptoEstado> ConceptoEstado { get; set; }
+        public virtual DbSet<ConceptoTipoSoporte> ConceptoTipoSoporte { get; set; }
+        public virtual DbSet<ConceptoGestion> ConceptoGestion { get; set; }
     
         public virtual int AspNetUsers_Insertar(string firstName, string lastName, string email, string passwordHash, string id)
         {

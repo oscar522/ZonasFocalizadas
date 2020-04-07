@@ -24,7 +24,7 @@ namespace AspNetIdentity.Models
         public string NombreAspNetUsers { get; set; }
         public Nullable<int> IdCausa { get; set; }
         public string NombreCausa { get; set; }
-        public Nullable<int> IdExpediente { get; set; }
+        public Nullable<long> IdExpediente { get; set; }
         public string RutaExpediente { get; set; }
         public HttpPostedFileBase Soporte { get; set; }
         public string RutaSoporte { get; set; }
@@ -35,6 +35,8 @@ namespace AspNetIdentity.Models
         public Nullable<System.DateTime> FechaCreacion { get; set; }
         public Nullable<int> TerminoDias { get; set; }
         public string Observacion { get; set; }
+        public string NombrePredio { get; set; }
+
 
     }
 }

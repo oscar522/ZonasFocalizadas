@@ -414,6 +414,7 @@
     <EntitySetMapping Name="Concepto">
       <EntityTypeMapping TypeName="ZonasFModel.Concepto">
         <MappingFragment StoreEntitySet="Concepto">
+          <ScalarProperty Name="NombrePredio" ColumnName="NombrePredio" />
           <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Observacion" ColumnName="Observacion" />
@@ -421,6 +422,42 @@
           <ScalarProperty Name="IdOrfeo" ColumnName="IdOrfeo" />
           <ScalarProperty Name="IdCausa" ColumnName="IdCausa" />
           <ScalarProperty Name="IdAspNetUsers" ColumnName="IdAspNetUsers" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConceptoEstado">
+      <EntityTypeMapping TypeName="ZonasFModel.ConceptoEstado">
+        <MappingFragment StoreEntitySet="ConceptoEstado">
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConceptoTipoSoporte">
+      <EntityTypeMapping TypeName="ZonasFModel.ConceptoTipoSoporte">
+        <MappingFragment StoreEntitySet="ConceptoTipoSoporte">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="FCreacion" ColumnName="FCreacion" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConceptoGestion">
+      <EntityTypeMapping TypeName="ZonasFModel.ConceptoGestion">
+        <MappingFragment StoreEntitySet="ConceptoGestion">
+          <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />
+          <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="FCreacion" ColumnName="FCreacion" />
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="IdSoporte" ColumnName="IdSoporte" />
+          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+          <ScalarProperty Name="IdConcepto" ColumnName="IdConcepto" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -466,6 +466,9 @@ C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Proyecto\AspNetI
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Proyecto\AspNetIdentity.WebApi\obj\Debug\AspNetIdentity.WebApi.csproj.CopyComplete
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Proyecto\AspNetIdentity.WebApi\obj\Debug\AspNetIdentity.WebApi.dll
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Proyecto\AspNetIdentity.WebApi\obj\Debug\AspNetIdentity.WebApi.pdb
+C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebApi\obj\Debug\AspNetIdentity.WebApi.Migrations.InitialCreate.resources
+C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebApi\obj\Debug\AspNetIdentity.WebApi.csproj.GenerateResource.cache
+C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebApi\obj\Debug\AspNetIdentity.WebApi.csprojAssemblyReference.cache
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebApi\bin\AspNetIdentity.WebApi.dll.config
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebApi\bin\AspNetIdentity.WebApi.dll
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebApi\bin\AspNetIdentity.WebApi.pdb
@@ -577,9 +580,6 @@ C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocaliz
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebApi\bin\System.Web.Http.xml
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebApi\bin\System.Web.Http.Owin.xml
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebApi\bin\Thinktecture.IdentityModel.Core.pdb
-C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebApi\obj\Debug\AspNetIdentity.WebApi.csprojAssemblyReference.cache
-C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebApi\obj\Debug\AspNetIdentity.WebApi.Migrations.InitialCreate.resources
-C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebApi\obj\Debug\AspNetIdentity.WebApi.csproj.GenerateResource.cache
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebApi\obj\Debug\AspNetIdentity.WebApi.csproj.CopyComplete
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebApi\obj\Debug\AspNetIdentity.WebApi.dll
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebApi\obj\Debug\AspNetIdentity.WebApi.pdb

@@ -274,6 +274,9 @@
     <EntitySet Name="CoceptosExpediente" EntityType="ZonasFModel.CoceptosExpediente" />
     <EntitySet Name="ConceptosDocumentos" EntityType="ZonasFModel.ConceptosDocumentos" />
     <EntitySet Name="Concepto" EntityType="ZonasFModel.Concepto" />
+    <EntitySet Name="ConceptoEstado" EntityType="ZonasFModel.ConceptoEstado" />
+    <EntitySet Name="ConceptoTipoSoporte" EntityType="ZonasFModel.ConceptoTipoSoporte" />
+    <EntitySet Name="ConceptoGestion" EntityType="ZonasFModel.ConceptoGestion" />
   </EntityContainer>
   <EntityType Name="ExpedienteDocumentos">
     <Key>
@@ -482,5 +485,39 @@
     <Property Name="Observacion" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="Estado" Type="Boolean" />
     <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="NombrePredio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ConceptoEstado">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Estado" Type="Boolean" />
+    <Property Name="IdRol" Type="String" MaxLength="128" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ConceptoTipoSoporte">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="Int32" />
+    <Property Name="FCreacion" Type="DateTime" Precision="3" />
+    <Property Name="Estado" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ConceptoGestion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdConcepto" Type="Int32" />
+    <Property Name="IdEstado" Type="Int32" />
+    <Property Name="IdSoporte" Type="Int32" />
+    <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FCreacion" Type="DateTime" Precision="3" />
+    <Property Name="Estado" Type="Boolean" />
+    <Property Name="Archivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IdAspNetUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

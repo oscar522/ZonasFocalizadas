@@ -20,13 +20,8 @@
                     UriPdf = UriLo;
                 }
 
-            $("#UriLink").val(UriPdf);//UriLink
-           
-        });
-
-
-
-             var options = {
+                $("#UriLink").val(UriPdf);//UriLink
+                     var options = {
                 page: 1,
                 pdfOpenParams: {
                     navpanes: 1,
@@ -42,13 +37,19 @@
             for (var i = 0; i < ArrayUrl.length; i++) {
                     UrlLink = UrlLink + "- <a  href='#' class = 'LinkPdf' Data = '"+ArrayUrl[i]+"' > " + ArrayUrlName[i] + " </a> ";
                 if (i == 0) {
-                    PDFObject.embed("http://"+UriLinkV+"/Content/Pdfs/" + ArrayUrl[i], "#PdfViewer", options);
+                    PDFObject.embed("http://"+UriPdf+"/Content/Pdfs/" + ArrayUrl[i], "#PdfViewer", options);
                     document.getElementById("ArchivoActual").value = ArrayUrl[i];
                     document.getElementById("ArchivoNombre").value = ArrayUrlName[i];
                 } else { }
             }
             document.getElementById("ListPdf").innerHTML = UrlLink;
 
+           
+        });
+
+
+
+        
 
              $(".LinkPdf").click(function () {
                 var Url = $(this).text().trim();
@@ -185,6 +186,7 @@
                     state = 1;
                 }
                 if (state == 0) {
+                    alert(state);
                     $.ajax({
                         type: 'POST',
                         url: '@Url.Action("PostExpedienteDocumentos")',
@@ -208,7 +210,7 @@
                             //$("#TipoDoc").empty();
                         },
                         error: function (ex) {
-                            alert("Error Contacte al Administrador .");
+                            alert("Error Contacte al Administrador ."+ex);
                             console.log(ex.responseText);
                         }
                     });

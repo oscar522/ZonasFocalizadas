@@ -217,6 +217,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
           <Property Name="IdCausa" Type="int" />
           <Property Name="IdOrfeo" Type="text" />
           <Property Name="TerminoDias" Type="int" />
+          <Property Name="NombrePredio" Type="nvarchar(max)" />
           <Property Name="Observacion" Type="nchar" MaxLength="10" />
           <Property Name="Estado" Type="bit" />
           <Property Name="FechaCreacion" Type="datetime" />
@@ -231,6 +232,29 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
           <Property Name="FechaInsercion" Type="date" />
           <Property Name="Estado" Type="bit" />
         </EntityType>
+        <EntityType Name="ConceptoEstado">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar(max)" />
+          <Property Name="IdRol" Type="nchar" MaxLength="128" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="ConceptoGestion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdConcepto" Type="int" />
+          <Property Name="IdEstado" Type="int" />
+          <Property Name="IdSoporte" Type="int" />
+          <Property Name="Observacion" Type="varchar(max)" />
+          <Property Name="FCreacion" Type="datetime" />
+          <Property Name="Estado" Type="bit" />
+          <Property Name="Archivo" Type="varchar(max)" />
+          <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" />
+        </EntityType>
         <EntityType Name="ConceptosDocumentos">
           <Key>
             <PropertyRef Name="Id" />
@@ -239,6 +263,16 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
           <Property Name="Nombre" Type="text" />
           <Property Name="Tipo" Type="int" />
           <Property Name="IdConcepto" Type="int" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="ConceptoTipoSoporte">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar(max)" />
+          <Property Name="Tipo" Type="int" />
+          <Property Name="FCreacion" Type="datetime" />
           <Property Name="Estado" Type="bit" />
         </EntityType>
         <EntityType Name="CtCausas">
@@ -485,7 +519,10 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <EntitySet Name="CoceptosExpediente" EntityType="Self.CoceptosExpediente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Concepto" EntityType="Self.Concepto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ConceptoAsociado" EntityType="Self.ConceptoAsociado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConceptoEstado" EntityType="Self.ConceptoEstado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConceptoGestion" EntityType="Self.ConceptoGestion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ConceptosDocumentos" EntityType="Self.ConceptosDocumentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConceptoTipoSoporte" EntityType="Self.ConceptoTipoSoporte" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CtCausas" EntityType="Self.CtCausas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CtCiudad" EntityType="Self.CtCiudad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CtDepto" EntityType="Self.CtDepto" Schema="dbo" store:Type="Tables" />
@@ -902,6 +939,9 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <EntitySet Name="CoceptosExpediente" EntityType="ZonasFModel.CoceptosExpediente" />
           <EntitySet Name="ConceptosDocumentos" EntityType="ZonasFModel.ConceptosDocumentos" />
           <EntitySet Name="Concepto" EntityType="ZonasFModel.Concepto" />
+          <EntitySet Name="ConceptoEstado" EntityType="ZonasFModel.ConceptoEstado" />
+          <EntitySet Name="ConceptoTipoSoporte" EntityType="ZonasFModel.ConceptoTipoSoporte" />
+          <EntitySet Name="ConceptoGestion" EntityType="ZonasFModel.ConceptoGestion" />
         </EntityContainer>
         <EntityType Name="ExpedienteDocumentos">
           <Key>
@@ -1110,6 +1150,40 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Property Name="Observacion" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Estado" Type="Boolean" />
           <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="NombrePredio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ConceptoEstado">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="Boolean" />
+          <Property Name="IdRol" Type="String" MaxLength="128" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ConceptoTipoSoporte">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="Int32" />
+          <Property Name="FCreacion" Type="DateTime" Precision="3" />
+          <Property Name="Estado" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ConceptoGestion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdConcepto" Type="Int32" />
+          <Property Name="IdEstado" Type="Int32" />
+          <Property Name="IdSoporte" Type="Int32" />
+          <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FCreacion" Type="DateTime" Precision="3" />
+          <Property Name="Estado" Type="Boolean" />
+          <Property Name="Archivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IdAspNetUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1530,6 +1604,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <EntitySetMapping Name="Concepto">
             <EntityTypeMapping TypeName="ZonasFModel.Concepto">
               <MappingFragment StoreEntitySet="Concepto">
+                <ScalarProperty Name="NombrePredio" ColumnName="NombrePredio" />
                 <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="Observacion" ColumnName="Observacion" />
@@ -1537,6 +1612,42 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
                 <ScalarProperty Name="IdOrfeo" ColumnName="IdOrfeo" />
                 <ScalarProperty Name="IdCausa" ColumnName="IdCausa" />
                 <ScalarProperty Name="IdAspNetUsers" ColumnName="IdAspNetUsers" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConceptoEstado">
+            <EntityTypeMapping TypeName="ZonasFModel.ConceptoEstado">
+              <MappingFragment StoreEntitySet="ConceptoEstado">
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConceptoTipoSoporte">
+            <EntityTypeMapping TypeName="ZonasFModel.ConceptoTipoSoporte">
+              <MappingFragment StoreEntitySet="ConceptoTipoSoporte">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="FCreacion" ColumnName="FCreacion" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConceptoGestion">
+            <EntityTypeMapping TypeName="ZonasFModel.ConceptoGestion">
+              <MappingFragment StoreEntitySet="ConceptoGestion">
+                <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="FCreacion" ColumnName="FCreacion" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="IdSoporte" ColumnName="IdSoporte" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="IdConcepto" ColumnName="IdConcepto" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
