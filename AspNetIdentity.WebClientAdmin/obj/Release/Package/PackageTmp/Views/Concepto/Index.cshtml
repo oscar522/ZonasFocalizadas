@@ -58,14 +58,12 @@
                                                 Rol
                                             </th>
                                             <th>
-                                                Depto
-                                            </th>
-                                            <th>
-                                                Municipio
-                                            </th>
-                                            <th>
                                                 Predio
                                             </th>
+                                            <th>
+                                                Depto | Municipio  | Predio
+                                            </th>
+                                           
                                             <th>
                                                 Solicitante
                                             </th>
@@ -81,14 +79,9 @@
                                     <tbody>
                                         @foreach (var item in Model)
                                         {
-                                            var gg = (item.Id / 2.0).ToString().Contains(".");
-                                            var color = "";
-                                            if (gg == true)
-                                            {
-                                                color = "#AFFF8D";
-                                            }
+                                            
 
-                                        <tr style="background-color:@color">
+                                        <tr >
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.FechaCreacion)
                                             </td>
@@ -110,17 +103,27 @@
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.Rol)
                                             </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Observacion)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.RutaExpediente)
-                                            </td>
-                                            <td>
+                                             <td>
                                                 @Html.DisplayFor(modelItem => item.NombrePredio)
                                             </td>
                                             <td>
-                                                @Html.DisplayFor(modelItem => item.Soporte)
+                                                @if (item.IdExpediente == null) {
+                                                       <label>Sin Expediente</label>
+                                                }else{
+                                                    @Html.DisplayFor(modelItem => item.Observacion)
+                                                }
+                                            </td>
+                                            
+                                           
+                                            <td>
+                                                @if (item.IdExpediente == null)
+                                                {
+                                                    <label>Sin Expediente</label>
+                                                }
+                                                else
+                                                {
+                                                    @Html.DisplayFor(modelItem => item.Soporte)
+                                                }
                                             </td>
                                             <td>
                                                 @if (item.IdExpediente != null)
@@ -128,9 +131,13 @@
                                                     <a target="_blank" href='@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = item.IdExpediente })' title='Modificar' style='color: #013ADF;'>  @item.Anexo <i class='fa fa-eye' aria-hidden='true'></i></a>
 
                                                 }
+                                                else
+                                                {
+                                                    <label>Sin Expediente</label>
+                                                }
                                             </td>
                                             <td>
-                                                @Html.DisplayFor(modelItem => item.Estado)
+                                                @Html.DisplayFor(modelItem => item.RutaExpediente)
                                             </td>
                                             <td>
                                                 <a href='@Url.Action("../Concepto/Edit", "Edit", new { IdTable = item.Id })' title='Modificar' style='color: #013ADF;'><i class='fa fa-refresh' aria-hidden='true'></i></a>

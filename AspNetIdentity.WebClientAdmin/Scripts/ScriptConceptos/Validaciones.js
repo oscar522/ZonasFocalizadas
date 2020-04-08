@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
 	rutaload  = $("#rutaload").val();
+	var pathname = window.location.href;
 
 	function Barra(id,valor,Msj) {
 		$("#"+id).removeAttr('style');
@@ -12,6 +13,8 @@ $(document).ready(function () {
 	$("#IdCausa").change(function () {
      	if ($(this).val() == "7" || $(this).val() == "8") {
 			$( "#NombrePredio" ).prop( "disabled", false );
+     	}else{
+			$( "#NombrePredio" ).prop( "disabled", true );
      	}
     });
 
@@ -62,22 +65,23 @@ $(document).ready(function () {
             }
             else if (IdOrfeo != "1"  && checksinExp == 0 && ExpList == msnList)
             {
-                    $('span[data-valmsg-for="IdExpediente"]').text("* Indique el  Numero de Expediente");
+                    $('span[data-valmsg-for="IdExpediente"]').text("* Indique el  Numero de Expediente ");
                 estado = false;
             }
-            else if (IdOrfeo != "1"  && checksinExp == 1 && ExpList == msnList)
+            else if (IdOrfeo != "1"  && checksinExp == 0 && ExpList == msnList)
             {
-                    $('span[data-valmsg-for="IdExpediente"]').text("* Indique el  Numero de Expediente");
+                    $('span[data-valmsg-for="IdExpediente"]').text("* Indique el  Numero de Expediente ");
                 estado = false;
             }
 
 
             //if ($("#Id").val() <= 0) {
+            debugger;
 
             var SoporteList = $("#table_Soporte  td").text();
             var AnexoList = $("#table_Anexo td").text();
 
-            if (AnexoList == msnList || SoporteList == msnList) {
+            if (AnexoList == msnList && SoporteList == msnList) {
                 $('span[data-valmsg-for="Anexo"]').text("* Cargue un Anexo o Soporte en Pdf");
                 $('span[data-valmsg-for="Soporte"]').text("* Cargue un Anexo o Soporte en Pdf");
 
@@ -228,201 +232,244 @@ $(document).ready(function () {
 	////// AJAX PARA GUARDAR
 
 		///////////////////////////////////////
-		////// Guardar Soporte
-		    $("#Soporte").change(function () {
+		////// CONCEPTO
 
-				var extSoporte = $("#Soporte").val().split('.').pop();
-				if (extSoporte != 'Pdf' && extSoporte != 'PDF' && extSoporte && extSoporte != 'pdf' ) {
+			///////////////////////////////////////
+			////// Guardar Soporte
+			    $("#Soporte").change(function () {
 
-				    $('span[data-valmsg-for="Soporte"]').text("* debe ser un archivo Pdf");
+					var extSoporte = $("#Soporte").val().split('.').pop();
+					if (extSoporte != 'Pdf' && extSoporte != 'PDF' && extSoporte && extSoporte != 'pdf' ) {
 
-				}else{
+					    $('span[data-valmsg-for="Soporte"]').text("* debe ser un archivo Pdf");
 
-					Barra("BarSoporte","25%", "Cargando");
+					}else{
+
+						Barra("BarSoporte","25%", "Cargando");
+				        var form = $('#CrearForm')[0];
+				        var Data = new FormData(form);
+				        $.ajax({
+				            type: 'POST',
+				            url: 'CrearSoportes', // we are calling json method
+				            dataType: 'json',
+				            enctype: 'multipart/form-data',
+				            processData: false,
+				            contentType: false,
+				            cache: false,
+				            timeout: 600000,
+				            data: Data,
+				            success: function(states) {
+				                $("#Id").val(states.Id);
+				                TablaSoporte();
+				            },
+				            error: function (ex) {
+				                console.log(ex.responseText);
+				     			Barra("BarSoporte","0%", "Error .... ");
+
+				            }
+				        });
+					}
+			    });
+
+			///////////////////////////////////////
+			////// Guardar Anexo
+			    $("#Anexo").change(function () {
+			    	var extAnexo = $("#Anexo").val().split('.').pop();
+					if ( extAnexo != 'Pdf' && extAnexo != 'PDF' && extAnexo != 'pdf')  {
+
+					    $('span[data-valmsg-for="Anexo"]').text("* debe ser un archivo Pdf");
+
+					}else{
+						Barra("BarAnexo","25%", "Cargando");
+				        var form = $('#CrearForm')[0];
+				        var Data = new FormData(form);
+				        $.ajax({
+				            type: 'POST',
+				            url: 'CrearAnexo', // we are calling json method
+				            dataType: 'json',
+				            enctype: 'multipart/form-data',
+				            processData: false,
+				            contentType: false,
+				            cache: false,
+				            timeout: 600000,
+				            data: Data,
+				            success: function(states) {
+				                $("#Id").val(states.Id);
+				                TablaAnexo();
+				            },
+				            error: function (ex) {
+				                console.log(ex.responseText);
+				     			Barra("BarAnexo","0%", "Error .... ");
+				            }
+				        });
+				    }    
+			    });
+
+			///////////////////////////////////////
+			////// Guardar Expediente Asociado
+			    $("#GuardarExpAso").click(function () {
+					Barra("BarExp","25%", "Cargando");
+			        $("#IdExpediente").val($("#IdT").val());
 			        var form = $('#CrearForm')[0];
 			        var Data = new FormData(form);
-			        $.ajax({
-			            type: 'POST',
-			            url: 'CrearSoportes', // we are calling json method
-			            dataType: 'json',
-			            enctype: 'multipart/form-data',
-			            processData: false,
-			            contentType: false,
-			            cache: false,
-			            timeout: 600000,
-			            data: Data,
-			            success: function(states) {
-			                $("#Id").val(states.Id);
-			                TablaSoporte();
-			            },
-			            error: function (ex) {
-			                console.log(ex.responseText);
-			     			Barra("BarSoporte","0%", "Error .... ");
 
-			            }
-			        });
-				}
-		    });
+			        var Listlength = $("#table_Exp_Aso  tr").length;
+			        var ListTd = $("#table_Exp_Aso  td").text();
+			        var msnList = "Ningún dato disponible en esta tabla";
 
-		///////////////////////////////////////
-		////// Guardar Anexo
-		    $("#Anexo").change(function () {
-		    	var extAnexo = $("#Anexo").val().split('.').pop();
-				if ( extAnexo != 'Pdf' && extAnexo != 'PDF' && extAnexo != 'pdf')  {
 
-				    $('span[data-valmsg-for="Anexo"]').text("* debe ser un archivo Pdf");
+			        if (msnList != ListTd && Listlength == 2) {
 
-				}else{
-					Barra("BarAnexo","25%", "Cargando");
+                    	$('span[data-valmsg-for="IdExpediente"]').text("* No puede asociar mas de un expediente");
+
+			        } else {
+
+			        	$.ajax({
+				            type: 'POST',
+				            url: 'CrearExpedientes', // we are calling json method
+				            dataType: 'json',
+				            enctype: 'multipart/form-data',
+				            processData: false,
+				            contentType: false,
+				            cache: false,
+				            timeout: 600000,
+				            data: Data,
+				            success: function(states) {
+				                $("#Id").val(states.Id);
+				                ExpedientesAsociados();
+				                $("#IdExpediente").val("");
+				            },
+				            error: function (ex) {
+				                console.log(ex.responseText);
+				     			Barra("BarExp","0%", "Error .... ");
+				            }
+			        	});
+			        }
+
+			        
+			    });
+
+			///////////////////////////////////////
+			////// Guardar usuario Asociado
+			    $("#AsociarUser").click(function () {
+					Barra("BarUser","25%", "Cargando");
 			        var form = $('#CrearForm')[0];
 			        var Data = new FormData(form);
-			        $.ajax({
-			            type: 'POST',
-			            url: 'CrearAnexo', // we are calling json method
-			            dataType: 'json',
-			            enctype: 'multipart/form-data',
-			            processData: false,
-			            contentType: false,
-			            cache: false,
-			            timeout: 600000,
-			            data: Data,
-			            success: function(states) {
-			                $("#Id").val(states.Id);
-			                TablaAnexo();
-			            },
-			            error: function (ex) {
-			                console.log(ex.responseText);
-			     			Barra("BarAnexo","0%", "Error .... ");
-			            }
-			        });
-			    }    
-		    });
+
+
+			        var Listlength = $("#table_Asociados_  tr").length;
+			        var ListTd = $("#table_Asociados_  td").text();
+			        var msnList = "Ningún dato disponible en esta tabla";
+
+
+			        if (msnList != ListTd && Listlength == 2) {
+
+                    	$('span[data-valmsg-for="UserAsociado"]').text("* No puede asociar mas de un Usuario");
+
+			        } else {
+
+				        $.ajax({
+				            type: 'POST',
+				            url: 'CrearUsuariosAsociados', // we are calling json method
+				            dataType: 'json',
+				            enctype: 'multipart/form-data',
+				            processData: false,
+				            contentType: false,
+				            cache: false,
+				            timeout: 600000,
+				            data: Data,
+				            success: function (states) {
+				                $("#Id").val(states.Id);
+				                UsuariosAsociados();
+				            },
+				            error: function (ex) {
+				                console.log(ex.responseText);
+				     			Barra("BarUser","0%", "Error .... ");
+				            }
+				        });
+				    }
+			        return false;
+			    });
 
 		///////////////////////////////////////
-		////// Guardar Expediente Asociado
-		    $("#GuardarExpAso").click(function () {
-				Barra("BarExp","25%", "Cargando");
-		        $("#IdExpediente").val($("#IdT").val());
-		        var form = $('#CrearForm')[0];
-		        var Data = new FormData(form);
-		        $.ajax({
-		            type: 'POST',
-		            url: 'CrearExpedientes', // we are calling json method
-		            dataType: 'json',
-		            enctype: 'multipart/form-data',
-		            processData: false,
-		            contentType: false,
-		            cache: false,
-		            timeout: 600000,
-		            data: Data,
-		            success: function(states) {
-		                $("#Id").val(states.Id);
-		                ExpedientesAsociados();
-		                $("#IdExpediente").val("");
-		            },
-		            error: function (ex) {
-		                console.log(ex.responseText);
-		     			Barra("BarExp","0%", "Error .... ");
-		            }
-		        });
-		    });
+		////// GESTION
 
-		///////////////////////////////////////
-		////// Guardar usuario Asociado
-		    $("#AsociarUser").click(function () {
-				Barra("BarUser","25%", "Cargando");
-		        var form = $('#CrearForm')[0];
-		        var Data = new FormData(form);
-		        $.ajax({
-		            type: 'POST',
-		            url: 'CrearUsuariosAsociados', // we are calling json method
-		            dataType: 'json',
-		            enctype: 'multipart/form-data',
-		            processData: false,
-		            contentType: false,
-		            cache: false,
-		            timeout: 600000,
-		            data: Data,
-		            success: function (states) {
-		                $("#Id").val(states.Id);
-		                UsuariosAsociados();
-		            },
-		            error: function (ex) {
-		                console.log(ex.responseText);
-		     			Barra("BarUser","0%", "Error .... ");
-		            }
-		        });
-		        return false;
-		    });
-
-		///////////////////////////////////////
-		////// Guardar Gestion
-			
-			$("#IdSoporte").change(function () {
-				$("#NombreIdSoporte" ).val($('#IdSoporte option:selected').text());
-		    });			
+			///////////////////////////////////////
+			////// Guardar Gestion
+				
+				$("#IdSoporte").change(function () {
+					$("#NombreIdSoporte" ).val($('#IdSoporte option:selected').text());
+			    });			
 
 
-		    $("#GuardarGestion").click(function () {
-				Barra("BarUser","25%", "Cargando");
-		        var form = $('#CrearGestionForm')[0];
-		        var Data = new FormData(form);
+			    $("#GuardarGestion").click(function () {
+					Barra("BarUser","25%", "Cargando");
+			        var form = $('#CrearGestionForm')[0];
+			        var Data = new FormData(form);
 
-		        var validacion = false;
+			        var validacion = false;
 
-		        var IdSoporte = $("#IdSoporte").val();
-		        var IdEstado = $("#IdEstado").val();
-		        var Archivo = $("#Archivo").val()+"1";
-		        var GestionObservacion = $("#GestionObservacion").val()+"1";
+			        var IdSoporte = $("#IdSoporte").val();
+			        var IdEstado = $("#IdEstado").val();
+			        var Archivo = $("#Archivo").val()+"1";
+			        var GestionObservacion = $("#GestionObservacion").val()+"1";
 
-		        if (IdSoporte == "Seleccione") {
-                	$('span[data-valmsg-for="IdSoporte"]').text("* Requerido");
-		        	validacion = true;
-		        }
+			        if (IdSoporte == "Seleccione") {
+	                	$('span[data-valmsg-for="IdSoporte"]').text("* Requerido");
+			        	validacion = true;
+			        }
 
-		         if (IdEstado == "Seleccione") {
+			         if (IdEstado == "Seleccione") {
 
-                	$('span[data-valmsg-for="IdEstado"]').text("* Requerido");
-		        	validacion = true;
-		        }
+	                	$('span[data-valmsg-for="IdEstado"]').text("* Requerido");
+			        	validacion = true;
+			        }
 
-		        if (Archivo == null) {
-               	 	$('span[data-valmsg-for="Archivo"]').text("* Requerido");
-		        	validacion = true;
-		        }
+			        if ($('#RolGestion').val() != "Lider") {
+			        	
+			        	if (Archivo == null) {
+	               	 		$('span[data-valmsg-for="Archivo"]').text("* Requerido");
+			        		validacion = true;
+			        	}
 
-		        if (GestionObservacion == "1") {
-               	 	
-               	 	$('span[data-valmsg-for="GestionObservacion"]').text("* Requerido");
-		        	validacion = true;
-		        } 
+			        }
 
-		        if (validacion == false) {
+			        if (GestionObservacion == "1") {
+	               	 	
+	               	 	$('span[data-valmsg-for="GestionObservacion"]').text("* Requerido");
+			        	validacion = true;
+			        } 
 
-			        $.ajax({
-			            type: 'POST',
-			            url: 'CrearGestion', // we are calling json method
-			            dataType: 'json',
-			            enctype: 'multipart/form-data',
-			            processData: false,
-			            contentType: false,
-			            cache: false,
-			            timeout: 600000,
-			            data: Data,
-			            success: function (states) {
-			                TablaGestion();
+			        if (validacion == false) {
 
-			            },
-			            error: function (ex) {
+				        $.ajax({
+				            type: 'POST',
+				            url: 'CrearGestion', // we are calling json method
+				            dataType: 'json',
+				            enctype: 'multipart/form-data',
+				            processData: false,
+				            contentType: false,
+				            cache: false,
+				            timeout: 600000,
+				            data: Data,
+				            success: function (states) {
+				                TablaGestion();
+				                form.reset();
+				                alert(Guardado);
+						    	return false;
+				            },
+				            error: function (ex) {
 
-			                console.log(ex.responseText);
-			     			Barra("BarUser","0%", "Error .... ");
-			            }
-			        });
+				                console.log(ex.responseText);
+				     			Barra("BarUser","0%", "Error .... ");
+				            }
+				        });
 
-			    }
+				    }else{
+				    	return false;
+				    }
 
-		    });
+			    });
 
 	///////////////////////////////////////
 	////// CONSULTA TABLAS
@@ -443,11 +490,29 @@ $(document).ready(function () {
 			                oTableSoporte.fnClearTable();
 			                var Ruta = $("#RutaCon").val();
 			                $.each(s, function (i, obj) {
-			                    oTableSoporte.fnAddData([
-			                        obj.ID_CT_PAIS,
-			                        "<z1 title='Eliminar' Data='"+obj.ID_CT_PAIS+"' class='EliminaDoc' ><i class='fa fa-times'></i></z1>",
-			                        '<a target="_blank" href="'+ Ruta + obj.NOMBRE + '" >'+ obj.NOMBRE+' </a>'
-			                    ]);
+
+			                	var RutasSoporte = $("#RutasSoporte").text();
+			                	$("#RutasSoporte").text(RutasSoporte+
+			                		'<a target="_blank" href="'+ Ruta + obj.NOMBRE + '" >'+ obj.NOMBRE+' </a> <i class="fa fa-eye">  </i> <br> ');
+
+			                	if (pathname.indexOf("Edit") > -1) {
+				                    
+				                    oTableSoporte.fnAddData([
+			                        	obj.ID_CT_PAIS,
+			                        	"",
+			                        	'<a target="_blank" href="'+ Ruta + obj.NOMBRE + '" >'+ obj.NOMBRE+' </a>'
+			                    	]);
+
+				                } else {
+				                    
+				                    oTableSoporte.fnAddData([
+			                        	obj.ID_CT_PAIS,
+			                        	"<z1 title='Eliminar' class = 'zz'  Data='"+obj.ID_CT_PAIS+"' class='EliminaDoc' ><i class='fa fa-times'></i></z1>",
+			                        	'<a target="_blank" href="'+ Ruta + obj.NOMBRE + '" >'+ obj.NOMBRE+' </a>'
+			                    	]);
+				                }
+
+			                    
 			                });
 			     			Barra("BarSoporte","100%", "Archivo Guardado");
 			            },
@@ -470,11 +535,30 @@ $(document).ready(function () {
 			                oTableAnexo.fnClearTable();
 			                var Ruta = $("#RutaCon").val();
 			                $.each(s, function (i, obj) {
-			                    oTableAnexo.fnAddData([
-			                        obj.ID_CT_PAIS,
-			                        "<z1 title='Eliminar' Data='"+obj.ID_CT_PAIS+"' class='EliminaDoc' ><i class='fa fa-times'></i></z1>",
-			                        '<a target="_blank" href="'+ Ruta + obj.NOMBRE + '" >'+ obj.NOMBRE+' </a>'
-			                    ]);
+
+			                	var RutasAnexo = $("#RutasAnexo").text();
+
+			                	$("#RutasAnexo").text(RutasAnexo+
+			                		'<a target="_blank" href="'+ Ruta + obj.NOMBRE + '" >'+ obj.NOMBRE+' </a> <i class="fa fa-eye">  </i> <br> ');
+
+
+			                	if (pathname.indexOf("Edit") > -1) {
+				                    
+				                    oTableAnexo.fnAddData([
+			                        	obj.ID_CT_PAIS,
+			                        	"",
+			                        	'<a target="_blank" href="'+ Ruta + obj.NOMBRE + '" >'+ obj.NOMBRE+' </a>'
+			                    	]);
+
+				                } else {
+				                    
+				                    oTableAnexo.fnAddData([
+				                        obj.ID_CT_PAIS,
+				                        "<z1 title='Eliminar' Data='"+obj.ID_CT_PAIS+"' class='EliminaDoc' ><i class='fa fa-times'></i></z1>",
+				                        '<a target="_blank" href="'+ Ruta + obj.NOMBRE + '" >'+ obj.NOMBRE+' </a>'
+				                    ]);
+				                }
+
 			                });
 			     			Barra("BarAnexo","100%", "Archivo Guardado");
 			            },
@@ -498,11 +582,24 @@ $(document).ready(function () {
 			                var Ruta = $("#RutaPdf").val();
 			                $.each(s, function (i, obj) {
 			                    var array = obj.NOMBRE.split("||");
-			                    oTableExp_Aso.fnAddData([
-			                        obj.ID_CT_PAIS,
-			                        "<z1 title='Eliminar' Data='"+obj.ID_CT_PAIS+"' class='EliminaDoc' ><i class='fa fa-times'></i></z1>",
-			                        '<a target="_blank" href="'+ Ruta + array[1] + '" >'+ array[0]+' </a>'
-			                    ]);
+
+			                    if (pathname.indexOf("Edit") > -1) {
+				                    
+				                   oTableExp_Aso.fnAddData([
+			                        	obj.ID_CT_PAIS,
+			                        	"",
+			                        	'<a target="_blank" href="'+ Ruta + array[1] + '" >'+ array[0]+' </a>'
+			                    	]);
+
+				                } else {
+				                    
+				                    oTableExp_Aso.fnAddData([
+			                        	obj.ID_CT_PAIS,
+			                        	"<z1 title='Eliminar' Data='"+obj.ID_CT_PAIS+"' class='EliminaDoc' ><i class='fa fa-times'></i></z1>",
+			                        	'<a target="_blank" href="'+ Ruta + array[1] + '" >'+ array[0]+' </a>'
+			                    	]);
+				                }
+			                    
 			                });
 			     			Barra("BarExp","100%", " Guardado");
 			            },
@@ -513,7 +610,7 @@ $(document).ready(function () {
 			    };
 
 			///////////////////////////////////////
-			////// tabla Expedientes Asociados
+			////// tabla  Asociados
 			    function UsuariosAsociados () {
 					Barra("BarUser","50%", "Cargando");
 			        $.ajax({
@@ -524,12 +621,37 @@ $(document).ready(function () {
 			            success: function (s) {
 			                oTableAsociados.fnClearTable();
 			                $.each(s, function (i, obj) {
-			                    oTableAsociados.fnAddData([
-			                        obj.Id,
-			                        "<z1 title='Eliminar' Data='"+obj.id+"' class='EliminaDoc' ><i class='fa fa-times'></i></z1>",
-			                        obj.Rol,
-			                        obj.NombreAspNetUsers,
-			                    ]);
+			                    if ($("#IdAspNetUserGestion").val() != obj.IdAspNetUsers && $("#RolGestion").val() != "Lider" ){
+
+									$("#CrearGestionForm input[type='submit'] ").hide();
+				                	$("#CrearGestionForm input").prop("disabled", true);
+				                	$("#CrearGestionForm a").hide();
+				                	$("#CrearGestionForm select").prop("disabled", true);
+				                	$("#CrearGestionForm textarea").prop("disabled", true);
+			                    }
+
+			                    debugger;
+
+			                    if (pathname.indexOf("Edit") > -1) {
+				                    
+				                   oTableAsociados.fnAddData([
+			                        	obj.Id,
+			                        	"",
+			                        	obj.Rol,
+			                        	obj.NombreAspNetUsers,
+			                    	]);
+
+				                } else {
+				                    
+				                    oTableAsociados.fnAddData([
+			                        	obj.Id,
+			                        	"<z1 title='Eliminar' Data='"+obj.id+"' class='EliminaDoc' ><i class='fa fa-times'></i></z1>",
+			                        	obj.Rol,
+			                        	obj.NombreAspNetUsers,
+			                    	]);
+				                }
+
+
 			                });
 			     			Barra("BarUser","100%", "Guardado");
 			            },
@@ -581,12 +703,25 @@ $(document).ready(function () {
 			            success: function (s) {
 			                oTableGestion.fnClearTable();
 			                var Ruta = $("#RutaCon").val();
+
+			                
 			                $.each(s, function (i, obj) {
+			                	var Archivo = "";
+								if (obj.NombreIdEstado == "Solicitud") {
+			              			if (obj.Archivo != "N_A") {
+			                    	    Archivo = '<a target="_blank" href="'+ Ruta + "/"+ obj.Archivo + '" >'+ obj.NombreIdSoporte+' <i class="fa fa-eye">  </i></a>';
+									}
+								}else {
+				              		if (obj.Archivo != "N_A") {
+				                        Archivo = '<a target="_blank" href="'+ Ruta + "Gestion/"+ obj.Archivo + '" >'+ obj.NombreIdSoporte+' <i class="fa fa-eye">  </i></a>';
+				                	}
+			              		}
+			              	
 			                    oTableGestion.fnAddData([
 			                        obj.Id,
 			                        obj.FCreacion,
 			                        obj.NombreIdEstado,
-			                        '<a target="_blank" href="'+ Ruta + "Gestion/"+ obj.Archivo + '" >'+ obj.NombreIdSoporte+' <i class="fa fa-eye">  </i></a>',
+			                        Archivo,
 			                        obj.RolUser,
 			                        obj.NombreUser,
 			                        obj.Observacion,
@@ -692,10 +827,8 @@ $(document).ready(function () {
 		        return false;
 		    });
 
-
 	///////////////////////////////////////
 	//////FUNCIONES INICIALES
-
         if ($("#Id").val() != 0) {
             TablaSoporte();
             TablaGestion();
@@ -703,6 +836,4 @@ $(document).ready(function () {
             UsuariosAsociados();
             ExpedientesAsociados();
         }
-        	
-
 });

@@ -15,6 +15,9 @@
             <span>Usuario : @Model.NombreAspNetUsers</span>
             <br />
             <span>Rol : @Model.Rol</span>
+            <br />
+            <span>Fecha de Creacion : @Model.FechaCreacion</span>
+
         </h5>
     </div>
 </div>
@@ -26,6 +29,7 @@
     <input type="hidden" value="@Model.IdAspNetUsers" id="IdAspNetUsers" name="IdAspNetUsers" />
     <input type="hidden" value="@Model.IdCausa" id="IIdCausa" name="IIdCausa" />
     <input type="hidden" value="@Model.NombreCausa" id="NombreCausa" name="NombreCausa" />
+    <input type="hidden" value="@Model.FechaCreacion" id="FechaCreacionConcepto" name="FechaCreacionConcepto" />
     <input type="hidden" value="" id="RutaExpediente" name="RutaExpediente" />
     <input type="hidden" value="" id="Ruta" name="Ruta" />
     <input type="hidden" value="@Model.Id" id="Id" name="Id" />
@@ -329,14 +333,17 @@
     <div class="col-xl-4">
         <div class="card  ">
             <div class="card-body">
-                <input type="hidden" value="0" id="Id" name="Id" />
-                <input type="hidden" value="@Model.Id" id="IdConcepto" name="IdConcepto" />
-                <input type="hidden" value="N_A" id="NombreIdEstado" name="NombreIdEstado" />
-                <input type="hidden" value="N_A" id="NombreIdSoporte" name="NombreIdSoporte" />
-                <input type="hidden" value="@Model.NombreCausa" id="RolGestion" name="RolGestion" />
-                <input type="hidden" value="@Model.Rol" id="RolConcepto" name="RolConcepto" />
-                <input type="hidden" value="@Model.UserAsociado" id="IdAspNetUserGestion" name="IdAspNetUserGestion" />
-                <input type="hidden" value="@Model.IdAspNetUsers" id="IdAspNetUserConcepto" name="@Model.IdAspNetUsers" />
+                <input type="hidden"  name="Id"                     value="0"                           id="Id"  />
+                <input type="hidden"  name="IdConcepto"             value="@Model.Id"                   id="IdConcepto"  />
+                <input type="hidden"  name="NombreIdEstado"         value="N_A"                         id="NombreIdEstado"  />
+                <input type="hidden"  name="NombreIdSoporte"        value="N_A"                         id="NombreIdSoporte"  />
+                <input type="hidden"  name="RolGestion"             value="@Model.NombreCausa"          id="RolGestion"  />
+                <input type="hidden"  name="RolConcepto"            value="@Model.Rol"                  id="RolConcepto"  />
+                <input type="hidden"  name="IdAspNetUserGestion"    value="@Model.UserAsociado"         id="IdAspNetUserGestion"  />
+                <input type="hidden"  name="IdAspNetUserConcepto"   value="@Model.IdAspNetUsers"        id="IdAspNetUserConcepto"  />
+                <input type="hidden"  name="NombreAspNetUsers"      value="@Model.NombreAspNetUsers"    id="NombreAspNetUsers"  />
+                <dir id="RutasAnexo" ></dir>
+                <dir id="RutasSoporte" ></dir>
 
                 <div class="col-sm-12">
                     <h5>Gestion</h5>
@@ -450,10 +457,17 @@
     <script>
         $(document).ready(function () {
             
-            if ('@Model.UserAsociado' != '@Model.IdAspNetUsers' ) {
-                $("#CrearForm :input").prop("disabled", true);
+            //if ('@Model.UserAsociado' != '@Model.IdAspNetUsers' ) {
+                $("#CrearForm input[type='submit'] ").hide();
+                $("#CrearForm input").prop("disabled", true);
                 $("#CrearForm a").hide();
-            }
+                $("#CrearForm select").prop("disabled", true);
+                $("#CrearForm textarea").prop("disabled", true);
+                $(".CrearForm").hide();
+                $("#RutasSoporte").hide();
+                $("#RutasAnexo").hide();
+               
+           // }
 
             var rutaload = @Url.Content("~/Content/");
             $("#rutaload").val(rutaload);
@@ -547,8 +561,10 @@
                                         
                                         if ($('#IdAspNetUserGestion').val().trim() == $('#IdAspNetUserConcepto').val().trim())
                                         {
-                                            $("#IdEstado").append('<option   value="' + state.Id + '">' + state.Nombre + '</option>');
-
+                                            if ((state.Nombre != 'Solicitud')) {
+                                                $("#IdEstado").append('<option   value="' + state.Id + '">' + state.Nombre + '</option>');
+                                            }
+                                            
                                         }else {
                                             if (state.Nombre != 'Finalizado'){
                                             $("#IdEstado").append('<option   value="' + state.Id + '">' + state.Nombre + '</option>');
@@ -573,7 +589,6 @@
                             success: function(states) {
                                 //   alert("ok_pais");
                                 var NombreEstado = ""; 
-                                    debugger;
 
                                 $.each(states, function (i, state) {
                                         $("#IdSoporte").append('<option   value="' + state.Id + '">' + state.Nombre + '</option>');

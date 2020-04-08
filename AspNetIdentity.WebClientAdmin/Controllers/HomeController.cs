@@ -15,46 +15,8 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             string ViewPage = "";
             string Controller = "";
 
-            if (IdRol.Equals("Administrator"))
-            {
-                ViewPage = "Index";
-                Controller = "HomeAdministrator";
-            }
-            else if (IdRol.Equals("Abogados"))
-            {
-                ViewPage = "Index";
-                Controller = "HomeTipificacion";
-            }
-            else if (IdRol.Equals("User"))
-            {
-                ViewPage = "Index";
-                Controller = "HomeTipificacion";
-            }
-            else if (IdRol.Equals("Agronomo"))
-            {
-                ViewPage = "Index";
-                Controller = "HomeTipificacion";
-            }
-            else if (IdRol.Equals("Catastral"))
-            {
-                ViewPage = "Index";
-                Controller = "HomeTipificacion";
-            }
-            else if (IdRol.Equals("Social"))
-            {
-                ViewPage = "Index";
-                Controller = "HomeTipificacion";
-            }
-            else if (IdRol.Equals("Invitado"))
-            {
                 ViewPage = "BuscarExpedientes";
                 Controller = "HomeUsuarios";
-            }
-            else if (IdRol.Equals("Gestion Documental"))
-            {
-                ViewPage = "Index";
-                Controller = "HomeTipificacion";
-            }
 
             return RedirectToAction(ViewPage, Controller);
         }

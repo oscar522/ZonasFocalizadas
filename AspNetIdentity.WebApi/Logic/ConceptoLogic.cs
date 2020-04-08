@@ -44,6 +44,42 @@ namespace AspNetIdentity.WebApi.Logic
                     Concepto_.Observacion = a.Observacion;
                     Concepto_.NombrePredio = a.NombrePredio;
                     Concepto_.TerminoDias = a.TerminoDias;
+
+                    var soporte = Ctx.ConceptosDocumentos.Where(x => x.IdConcepto == a.Id && x.Tipo == 1).FirstOrDefault();
+                    var Anexo = Ctx.ConceptosDocumentos.Where(x => x.IdConcepto == a.Id && x.Tipo == 2).FirstOrDefault();
+
+                    ConceptoGestion ConceptoGestionsoporte = new ConceptoGestion
+                    {
+                        Id = 0,
+                        IdConcepto = a.Id,
+                        IdEstado = 1,
+                        IdSoporte = 1,
+                        Observacion = "N_A",
+                        FCreacion = DateTime.Now,
+                        Estado = true,
+                        Archivo = soporte.Nombre,
+                        IdAspNetUser = a.IdAspNetUsers
+                    };
+                    Ctx.ConceptoGestion.Add(ConceptoGestionsoporte);
+
+                    if (Anexo != null)
+                    {
+                        ConceptoGestion ConceptoGestionAnexo = new ConceptoGestion
+                        {
+                            Id = 0,
+                            IdConcepto = a.Id,
+                            IdEstado = 1,
+                            IdSoporte = 1,
+                            Observacion = "N_A",
+                            FCreacion = DateTime.Now,
+                            Estado = true,
+                            Archivo = Anexo.Nombre,
+                            IdAspNetUser = a.IdAspNetUsers
+                        };
+                        Ctx.ConceptoGestion.Add(ConceptoGestionAnexo);
+
+                    }
+
                     Ctx.SaveChanges();
                 }
                 a.Id = id;
@@ -541,6 +577,7 @@ namespace AspNetIdentity.WebApi.Logic
                {
                    Id = a.IdAsociacion,
                    IdExpediente = a.IdConcepto,
+                   IdAspNetUsers = a.Id_Hash,
                    NombreAspNetUsers = a.Name + " " + a.FirstName + " " + a.LastName,
                    Rol = a.rol,
                    FechaCreacion = a.FechaInsercion,
@@ -573,25 +610,25 @@ namespace AspNetIdentity.WebApi.Logic
 
             var lista = Ctx.Concepto
                  .Join(Ctx.AspNetUsers, b => b.IdAspNetUsers, c => c.Id, (b, c) =>
-                 new { b.FechaCreacion, b.Id, b.IdAspNetUsers, b.IdCausa, b.IdOrfeo, b.Estado, IdUser = c.Id })
+                 new {b.NombrePredio, b.TerminoDias, b.FechaCreacion, b.Id, b.IdAspNetUsers, b.IdCausa, b.IdOrfeo, b.Estado, IdUser = c.Id })
 
                 .Join(Ctx.Users, b => b.IdUser, c => c.Id_Hash, (b, c) =>
-                 new { b.FechaCreacion, b.Id, b.IdAspNetUsers, b.IdCausa, b.IdOrfeo, b.Estado, c.Name, c.FirstName, c.LastName })
+                 new { b.NombrePredio, b.TerminoDias, b.FechaCreacion, b.Id, b.IdAspNetUsers, b.IdCausa, b.IdOrfeo, b.Estado, c.Name, c.FirstName, c.LastName })
 
                 .Join(Ctx.CtCausas, b => b.IdCausa, c => c.Id, (b, c) =>
-                 new { b.FechaCreacion, b.Id, b.IdAspNetUsers, b.IdCausa, b.IdOrfeo, b.Estado, b.Name, b.FirstName, b.LastName, causa = c.Nombre })
+                 new { b.NombrePredio, b.TerminoDias, b.FechaCreacion, b.Id, b.IdAspNetUsers, b.IdCausa, b.IdOrfeo, b.Estado, b.Name, b.FirstName, b.LastName, causa = c.Nombre })
 
                 .Join(Ctx.ConceptoAsociado, b => b.Id, c => c.IdConcepto, (b, c) =>
-                 new { b.FechaCreacion, b.Id, b.IdAspNetUsers, b.IdCausa, b.IdOrfeo, b.Estado, b.Name, b.FirstName, b.LastName, b.causa, UserAsociado = c.IdAspNetUser })
+                 new { b.NombrePredio, b.TerminoDias, b.FechaCreacion, b.Id, b.IdAspNetUsers, b.IdCausa, b.IdOrfeo, b.Estado, b.Name, b.FirstName, b.LastName, b.causa, UserAsociado = c.IdAspNetUser })
 
                 .Join(Ctx.Users, b => b.UserAsociado, c => c.Id_Hash, (b, c) =>
-                 new { b.FechaCreacion, b.Id, b.IdAspNetUsers, b.IdCausa, b.IdOrfeo, b.Estado, b.Name, b.FirstName, b.LastName, b.causa, b.UserAsociado, UserAsociadoName = c.Name + " " + c.FirstName + " " + c.LastName })
+                 new { b.NombrePredio, b.TerminoDias, b.FechaCreacion, b.Id, b.IdAspNetUsers, b.IdCausa, b.IdOrfeo, b.Estado, b.Name, b.FirstName, b.LastName, b.causa, b.UserAsociado, UserAsociadoName = c.Name + " " + c.FirstName + " " + c.LastName })
 
                 .Join(Ctx.AspNetUserRoles, b => b.UserAsociado, c => c.UserId, (b, c) =>
-                 new { b.FechaCreacion, b.Id, b.IdAspNetUsers, b.IdCausa, b.IdOrfeo, b.Estado, b.Name, b.FirstName, b.LastName, b.causa, b.UserAsociado, b.UserAsociadoName, c.RoleId })
+                 new { b.NombrePredio, b.TerminoDias, b.FechaCreacion, b.Id, b.IdAspNetUsers, b.IdCausa, b.IdOrfeo, b.Estado, b.Name, b.FirstName, b.LastName, b.causa, b.UserAsociado, b.UserAsociadoName, c.RoleId })
 
                 .Join(Ctx.AspNetRoles, b => b.RoleId, c => c.Id, (b, c) =>
-                 new { b.FechaCreacion, b.Id, b.IdAspNetUsers, b.IdCausa, b.IdOrfeo, b.Estado, b.Name, b.FirstName, b.LastName, b.causa, b.UserAsociado, b.UserAsociadoName, NombreRol = c.Name })
+                 new { b.NombrePredio, b.TerminoDias, b.FechaCreacion, b.Id, b.IdAspNetUsers, b.IdCausa, b.IdOrfeo, b.Estado, b.Name, b.FirstName, b.LastName, b.causa, b.UserAsociado, b.UserAsociadoName, NombreRol = c.Name })
 
 
                 .Where(c => c.Estado.Value == true).Select(a => new ConceptoModel
@@ -606,14 +643,12 @@ namespace AspNetIdentity.WebApi.Logic
                     IdOrfeo = a.IdOrfeo,
                     Estado = a.Estado,
                     FechaCreacion = a.FechaCreacion,
+                    TerminoDias = a.TerminoDias.Value,
+                    NombrePredio = a.NombrePredio,
 
                     IdExpediente = Ctx.CoceptosExpediente.Where(x => x.IdConcepto == a.Id)
                                     .Join(Ctx.BaldiosPersonaNatural, b => b.IdExpediente, c => c.id, (b, c) =>
                                      new { c }).FirstOrDefault().c.id,
-
-                    NombrePredio  = Ctx.CoceptosExpediente.Where(x => x.IdConcepto == a.Id)
-                                    .Join(Ctx.BaldiosPersonaNatural, b => b.IdExpediente, c => c.id, (b, c) =>
-                                     new { c }).FirstOrDefault().c.NombrePredio,
 
                     Observacion = Ctx.CoceptosExpediente.Where(x => x.IdConcepto == a.Id)
                                     .Join(Ctx.BaldiosPersonaNatural, b => b.IdExpediente, c => c.id, (b, c) =>
@@ -623,29 +658,39 @@ namespace AspNetIdentity.WebApi.Logic
                                     .Join(Ctx.CtCiudad, b => b.BaldiosPersonaNatural.IdCiudad, c => c.IdCtMuncipio, (b, c) =>
                                      new { b, c })
                                     .Where(x => x.c.IdCtDepto == x.b.CtDepto.ID_CT_DEPTO)
-                                    .FirstOrDefault().b.CtDepto.NOMBRE,
-
-                    RutaExpediente = Ctx.CoceptosExpediente.Where(x => x.IdConcepto == a.Id)
-
+                                    .FirstOrDefault().b.CtDepto.NOMBRE
+                                    +" | "+
+                                    Ctx.CoceptosExpediente.Where(x => x.IdConcepto == a.Id)
                                     .Join(Ctx.BaldiosPersonaNatural, b => b.IdExpediente, c => c.id, (b, c) =>
                                      new { BaldiosPersonaNatural = c })
-
                                     .Join(Ctx.CtDepto, b => b.BaldiosPersonaNatural.IdDepto, c => c.ID_CT_DEPTO, (b, c) =>
                                      new { b.BaldiosPersonaNatural, CtDepto = c })
-
                                     .Join(Ctx.CtCiudad, b => b.BaldiosPersonaNatural.IdCiudad, c => c.IdCtMuncipio, (b, c) =>
                                      new { b, CtCiudad = c })
-
                                     .Where(x => x.CtCiudad.IdCtDepto == x.b.CtDepto.ID_CT_DEPTO)
-                                    .FirstOrDefault().CtCiudad.Nombre,
+                                    .FirstOrDefault().CtCiudad.Nombre
+                                     + " | " +
+                                     Ctx.CoceptosExpediente.Where(x => x.IdConcepto == a.Id)
+                                    .Join(Ctx.BaldiosPersonaNatural, b => b.IdExpediente, c => c.id, (b, c) =>
+                                     new { c }).FirstOrDefault().c.NombrePredio,
+
+                    RutaExpediente = Ctx.ConceptoGestion.Where(x => x.IdConcepto == a.Id)
+                            .Join(Ctx.ConceptoEstado, b => b.IdEstado, c => c.Id, (b, c) =>
+                            new { ConceptoEstado = c, ConceptoGestion = b }).OrderByDescending(x => x.ConceptoGestion.Id).FirstOrDefault().ConceptoEstado.Nombre,
+
 
                     Soporte = Ctx.CoceptosExpediente.Where(x => x.IdConcepto == a.Id)
                                     .Join(Ctx.BaldiosPersonaNatural, b => b.IdExpediente, c => c.id, (b, c) =>
                                      new { c }).FirstOrDefault().c.NombreBeneficiario,
 
+                    //Anexo = Ctx.CoceptosExpediente.Where(x => x.IdConcepto == a.Id)
+                    //                .Join(Ctx.BaldiosPersonaNatural, b => b.IdExpediente, c => c.id, (b, c) =>
+                    //                 new { c }).FirstOrDefault().c.NumeroExpediente,
+
+
                     Anexo = Ctx.CoceptosExpediente.Where(x => x.IdConcepto == a.Id)
-                                    .Join(Ctx.BaldiosPersonaNatural, b => b.IdExpediente, c => c.id, (b, c) =>
-                                     new { c }).FirstOrDefault().c.NumeroExpediente,
+                            .Join(Ctx.BaldiosPersonaNatural, b => b.IdExpediente, c => c.id, (b, c) =>
+                            new { c }).FirstOrDefault().c.NumeroExpediente
                 }).OrderBy(x =>x.Id);
 
             return lista.ToList();

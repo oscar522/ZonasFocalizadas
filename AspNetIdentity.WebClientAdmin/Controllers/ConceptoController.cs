@@ -1003,25 +1003,28 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
 
                             filename = Path.Combine(ruta, filename);
                             fileSoporte.SaveAs(filename);
-
-                            ConceptoGestionModel.Id = 0;
-                            ConceptoGestionModel.Id = ObjData.Id;
-                            ConceptoGestionModel.IdConcepto = ObjData.IdConcepto;
-                            ConceptoGestionModel.IdEstado = ObjData.IdEstado;
-                            ConceptoGestionModel.IdSoporte = ObjData.IdSoporte;
-                            ConceptoGestionModel.Observacion = ObjData.GestionObservacion;
-                            ConceptoGestionModel.FCreacion = ObjData.FCreacion.ToString();
-                            ConceptoGestionModel.Estado = ObjData.Estado;
-                            ConceptoGestionModel.NombreIdSoporte = ObjData.NombreIdSoporte;
-                            ConceptoGestionModel.NombreIdEstado = ObjData.NombreIdEstado;
-                            ConceptoGestionModel.IdAspNetUserGestion = ObjData.IdAspNetUserGestion;
-                            ConceptoGestionModel.IdRolUser = "N_A";
-                            ConceptoGestionModel.RolUser = "N_A";
-                            ConceptoGestionModel.NombreUser = "N_A";
-
-
                         }
+                        
                     }
+                    else
+                    {
+                        ConceptoGestionModel.Archivo = "N_A";
+                    }
+
+                    ConceptoGestionModel.Id = 0;
+                    ConceptoGestionModel.Id = ObjData.Id;
+                    ConceptoGestionModel.IdConcepto = ObjData.IdConcepto;
+                    ConceptoGestionModel.IdEstado = ObjData.IdEstado;
+                    ConceptoGestionModel.IdSoporte = ObjData.IdSoporte;
+                    ConceptoGestionModel.Observacion = ObjData.GestionObservacion;
+                    ConceptoGestionModel.FCreacion = ObjData.FCreacion.ToString();
+                    ConceptoGestionModel.Estado = ObjData.Estado;
+                    ConceptoGestionModel.NombreIdSoporte = ObjData.NombreIdSoporte;
+                    ConceptoGestionModel.NombreIdEstado = ObjData.NombreIdEstado;
+                    ConceptoGestionModel.IdAspNetUserGestion = ObjData.IdAspNetUserGestion;
+                    ConceptoGestionModel.IdRolUser = "N_A";
+                    ConceptoGestionModel.RolUser = "N_A";
+                    ConceptoGestionModel.NombreUser = "N_A";
                     Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
                     DictionaryModel ObjDictionary = new DictionaryModel();
                     keyValuePairs = ObjDictionary.ToDictionary(ConceptoGestionModel);
