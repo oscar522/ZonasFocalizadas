@@ -1,0 +1,1269 @@
+﻿@model AspNetIdentity.Models.CaracterizacionJuridicaModel
+
+
+@section Scripts
+             {
+    @Scripts.Render("~/Scripts/ModalControl.js")
+    <script>
+        $(document).ready(function () { // 
+        /// catalogos
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ListTipos")', // we are calling json method
+                dataType: 'json',
+                data: { Id: 57 },
+                success: function(states) {
+                    $.each(states, function (i, state) {
+                        $("#INSPECCION_OCULAR_CONCEPTO_57").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    console.log(ex.responseText);
+                }
+            });//
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ListTipos")', // we are calling json method
+                dataType: 'json',
+                data: { Id: 61 },
+                success: function(states) {
+                    $.each(states, function (i, state) {
+                        $("#ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    console.log(ex.responseText);
+                }
+            });
+            //
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ListTipos")', // we are calling json method
+                dataType: 'json',
+                data: { Id: 73 },
+                success: function(states) {
+                    $.each(states, function (i, state) {
+                        $("#FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    console.log(ex.responseText);
+                }
+            });
+             //
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ListTipos")', // we are calling json method
+                dataType: 'json',
+                data: { Id: 78 },
+                success: function(states) {
+                    $.each(states, function (i, state) {
+                        $("#RESOLUCION_DECISION_78").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    console.log(ex.responseText);
+                }
+            }); //
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ListTipos")', // we are calling json method
+                dataType: 'json',
+                data: { Id: 80 },
+                success: function(states) {
+                    $.each(states, function (i, state) {
+                        $("#RESOLUCION_CONJUNTA_INDIVIDUAL_80").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    console.log(ex.responseText);
+                }
+            });
+            //
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ListTipos")', // we are calling json method
+                dataType: 'json',
+                data: { Id: 89 },
+                success: function(states) {
+                    $.each(states, function (i, state) {
+                        $("#RECURSO_SOLICITANTE_ACTO_89").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    console.log(ex.responseText);
+                }
+            });
+             //
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ListTipos")', // we are calling json method
+                dataType: 'json',
+                data: { Id: 92 },
+                success: function(states) {
+                    $.each(states, function (i, state) {
+                        $("#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    console.log(ex.responseText);
+                }
+            });
+            //
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ListTipos")', // we are calling json method
+                dataType: 'json',
+                data: { Id: 101 },
+                success: function(states) {
+                    $.each(states, function (i, state) {
+                        $("#RECURSO_MINISTERIO_ACTO_101").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    console.log(ex.responseText);
+                }
+            });
+            //
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ListTipos")', // we are calling json method
+                dataType: 'json',
+                data: { Id: 104 },
+                success: function(states) {
+                    $.each(states, function (i, state) {
+                        $("#RECURSO_MINISTERIO_FECHA_103").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    console.log(ex.responseText);
+                }
+            });
+
+            $("#INSPECCION_OCULAR_INSPECCION_OCULAR_53").change(function () {
+               if ($(this).val() == "0") {
+                    $('#INSPECCION_OCULAR_FECHA_54').prop("disabled", true);
+                    $('#INSPECCION_OCULAR_FIRMA_55').prop("disabled", true);
+                    $('#INSPECCION_OCULAR_OPOSICIONES_56').prop("disabled", true);
+                    $('#INSPECCION_OCULAR_CONCEPTO_57').prop("disabled", true);
+
+                    $('#INSPECCION_OCULAR_FECHA_54').val("0001-01-01");
+                    $('#INSPECCION_OCULAR_FIRMA_55').val("0");
+                    $('#INSPECCION_OCULAR_OPOSICIONES_56').val("0");
+                    $('#INSPECCION_OCULAR_CONCEPTO_57').val("0");
+
+               }else{
+                    $('#INSPECCION_OCULAR_FECHA_54').prop("disabled", false);
+                    $('#INSPECCION_OCULAR_FIRMA_55').prop("disabled", false);
+                    $('#INSPECCION_OCULAR_OPOSICIONES_56').prop("disabled", false);
+                    $('#INSPECCION_OCULAR_CONCEPTO_57').prop("disabled", false);
+                }
+            });
+
+            $("#FIJACION_EN_LISTA_FIJACION_EN_LISTA_64").change(function () {
+               if ($(this).val() == "0") {
+                    $('#FIJACION_EN_LISTA_FECHA_DE_FIJACION_65').prop("disabled", true);
+                    $('#FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66').prop("disabled", true);
+                    $('#FIJACION_EN_LISTA_FIRMA_67').prop("disabled", true);
+
+                    $('#FIJACION_EN_LISTA_FECHA_DE_FIJACION_65').val("0001-01-01");
+                    $('#FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66').val("0001-01-01");
+                    $('#FIJACION_EN_LISTA_FIRMA_67').val("0");
+
+               }else{
+                    $('#FIJACION_EN_LISTA_FECHA_DE_FIJACION_65').prop("disabled", false);
+                    $('#FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66').prop("disabled", false);
+                    $('#FIJACION_EN_LISTA_FIRMA_67').prop("disabled", false);
+                }
+            });
+
+            $("#FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70").change(function () {
+               if ($(this).val() == "0") {
+                    $('#FORMATO_DE_REVISION_JURIDICA_FECHA_71').prop("disabled", true);
+                    $('#FORMATO_DE_REVISION_JURIDICA_FIRMADA_72').prop("disabled", true);
+                    $('#FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73').prop("disabled", true);
+
+                    $('#FORMATO_DE_REVISION_JURIDICA_FECHA_71').val("0001-01-01");
+                    $('#FORMATO_DE_REVISION_JURIDICA_FIRMADA_72').val("0");
+                    $('#FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73').val("0");
+
+               }else{
+                    $('#FORMATO_DE_REVISION_JURIDICA_FECHA_71').prop("disabled", false);
+                    $('#FORMATO_DE_REVISION_JURIDICA_FIRMADA_72').prop("disabled", false);
+                    $('#FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73').prop("disabled", false);
+
+                }
+            });
+
+            $("#NOTIFICACION_NOTIFICACION_SOLICITANTES_81").change(function () {
+               if ($(this).val() == "0") {
+                    $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').prop("disabled", true);
+                    $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').prop("disabled", true);
+                    $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').prop("disabled", true);
+
+                    $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').val("0001-01-01");
+                    $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').val("0");
+                    $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').val("0001-01-01");
+
+               }else{
+                    $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').prop("disabled", false);
+                    $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').prop("disabled", false);
+                    $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').prop("disabled", false);
+
+                }
+            });
+
+            $("#CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109").change(function () {
+               if ($(this).val() == "0") {
+                    $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').prop("disabled", true);
+                    $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').prop("disabled", true);
+                    $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').prop("disabled", true);
+
+                    $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').val("0001-01-01");
+                    $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').val("0");
+                    $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').val("0001-01-01");
+
+               }else{
+                    $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').prop("disabled", false);
+                    $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').prop("disabled", false);
+                    $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').prop("disabled", false);
+
+                }
+            });
+
+            $("#RESOLUCION_RESOLUCION_74").change(function () {
+               if ($(this).val() == "0") {
+                    $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').prop("disabled", true);
+                    $('#RESOLUCION_FECHA_DE_RESOLUCION_76').prop("disabled", true);
+                    $('#RESOLUCION_FIRMADA_77').prop("disabled", true);
+                    $('#RESOLUCION_DECISION_78').prop("disabled", true);
+                    $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", true);
+                    $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", true);
+
+
+                    $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').val("0");
+                    $('#RESOLUCION_FECHA_DE_RESOLUCION_76').val("0001-01-01");
+                    $('#RESOLUCION_FIRMADA_77').val("0");
+                    $('#RESOLUCION_DECISION_78').val("0");
+                    $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').val("0");
+                    $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').val("0");
+
+
+               }else{
+                    $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').prop("disabled", false);
+                    $('#RESOLUCION_FECHA_DE_RESOLUCION_76').prop("disabled", false);
+                    $('#RESOLUCION_FIRMADA_77').prop("disabled", false);
+                    $('#RESOLUCION_DECISION_78').prop("disabled", false);
+                    $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", false);
+                    $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", false);
+
+                }
+            });
+
+            $("#REVOCATORIA_REVOCATORIA_113").change(function () {
+               if ($(this).val() == "0") {
+                    $('#REVOCATORIA_NUMERO_RESOLUCION_114').prop("disabled", true);
+                    $('#REVOCATORIA_FECHA_DE_RESOLUCION_115').prop("disabled", true);
+
+                    $('#REVOCATORIA_NUMERO_RESOLUCION_114').val("0");
+                    $('#REVOCATORIA_FECHA_DE_RESOLUCION_115').val("0001-01-01");
+
+
+               }else{
+                    $('#REVOCATORIA_NUMERO_RESOLUCION_114').prop("disabled", false);
+                    $('#REVOCATORIA_FECHA_DE_RESOLUCION_115').prop("disabled", false);
+
+                }
+            });
+
+            $("#ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58").change(function () {
+               if ($(this).val() == "0") {
+                    $('#ACLARACION_DE_INSPECCION_OCULAR_FECHA_59').prop("disabled", true);
+                    $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60').prop("disabled", true);
+                    $('#ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61').prop("disabled", true);
+                    $('#ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62').prop("disabled", true);
+                    $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63').prop("disabled", true);
+                    $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", true);
+
+                    $('#ACLARACION_DE_INSPECCION_OCULAR_FECHA_59').val("0001-01-01");
+                    $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60').val("0");
+                    $('#ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61').val("0");
+                    $('#ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62').val("0");
+                    $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63').val("0");
+                    $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').val("0");
+
+
+               }else{
+
+
+                    $('#ACLARACION_DE_INSPECCION_OCULAR_FECHA_59').prop("disabled", false);
+                    $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60').prop("disabled", false);
+                    $('#ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61').prop("disabled", false);
+                    $('#ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62').prop("disabled", false);
+                    $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63').prop("disabled", false);
+                    $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", false);
+
+                }
+            });
+
+            $("#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85").change(function () {
+               if ($(this).val() == "0") {
+                    $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').prop("disabled", true);
+                    $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').prop("disabled", true);
+                    $('#RECURSO_SOLICITANTE_FIRMADA_88').prop("disabled", true);
+                    $('#RECURSO_SOLICITANTE_ACTO_89').prop("disabled", true);
+                    $('#RECURSO_SOLICITANTE_NUMERO_90').prop("disabled", true);
+                    $('#RECURSO_SOLICITANTE_FECHA_91').prop("disabled", true);
+                    $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled", true);
+                    $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').prop("disabled", true);
+                    $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').prop("disabled", true);
+                    $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').prop("disabled", true);
+                    $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').prop("disabled", true);
+
+                    $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').val("0001-01-01");
+                    $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').val("0");
+                    $('#RECURSO_SOLICITANTE_FIRMADA_88').val("0");
+                    $('#RECURSO_SOLICITANTE_ACTO_89').val("0");
+                    $('#RECURSO_SOLICITANTE_NUMERO_90').val("0");
+                    $('#RECURSO_SOLICITANTE_FECHA_91').val("0001-01-01");
+                    $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').val("0");
+                    $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').val("0");
+                    $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').val("0");
+                    $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').val("0");
+                    $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').val("0");
+               }else{
+
+
+                    $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').prop("disabled", false);
+                    $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').prop("disabled", false);
+                    $('#RECURSO_SOLICITANTE_FIRMADA_88').prop("disabled", false);
+                    $('#RECURSO_SOLICITANTE_ACTO_89').prop("disabled", false);
+                    $('#RECURSO_SOLICITANTE_NUMERO_90').prop("disabled", false);
+                    $('#RECURSO_SOLICITANTE_FECHA_91').prop("disabled", false);
+                    $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled", false);
+                    $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').prop("disabled", false);
+                    $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').prop("disabled", false);
+                    $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').prop("disabled", false);
+                    $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').prop("disabled", false);
+               }
+            });
+
+            $("#RECURSO_MINISTERIO_RECURSO_MINISTERIO_97").change(function () {
+               if ($(this).val() == "0") {
+                    $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98').prop("disabled", true);
+                    $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_99').prop("disabled", true);
+                    $('#RECURSO_MINISTERIO_FIRMADA_100').prop("disabled", true);
+                    $('#RECURSO_MINISTERIO_ACTO_101').prop("disabled", true);
+                    $('#RECURSO_MINISTERIO_NUMERO_102').prop("disabled", true);
+                    $('#RECURSO_MINISTERIO_FECHA_103').prop("disabled", true);
+                    $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104').prop("disabled", true);
+                    $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105').prop("disabled", true);
+                    $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106').prop("disabled", true);
+                    $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107').prop("disabled", true);
+                    $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108').prop("disabled", true);
+
+                    $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98').val("0001-01-01");
+                    $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_99').val("0");
+                    $('#RECURSO_MINISTERIO_FIRMADA_100').val("0");
+                    $('#RECURSO_MINISTERIO_ACTO_101').val("0");
+                    $('#RECURSO_MINISTERIO_NUMERO_102').val("0");
+                    $('#RECURSO_MINISTERIO_FECHA_103').val("0001-01-01");
+                    $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104').val("0");
+                    $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105').val("0");
+                    $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106').val("0001-01-01");
+                    $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107').val("0");
+                    $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108').val("0001-01-01");
+               }else{
+
+                    $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98').prop("disabled", false);
+                    $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_99').prop("disabled", false);
+                    $('#RECURSO_MINISTERIO_FIRMADA_100').prop("disabled", false);
+                    $('#RECURSO_MINISTERIO_ACTO_101').prop("disabled", false);
+                    $('#RECURSO_MINISTERIO_NUMERO_102').prop("disabled", false);
+                    $('#RECURSO_MINISTERIO_FECHA_103').prop("disabled", false);
+                    $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104').prop("disabled", false);
+                    $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105').prop("disabled", false);
+                    $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106').prop("disabled", false);
+                    $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107').prop("disabled", false);
+                    $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108').prop("disabled", false);
+
+                }
+            });
+
+            $("#OPOCISIONES_OPOCISIONES_68").change(function () {
+               if ($(this).val() == "0") {
+                    $('#OPOCISIONES_FECHA_69').prop("disabled", true);
+
+                    $('#OPOCISIONES_FECHA_69').val("0001-01-01");
+
+
+               }else{
+                    $('#OPOCISIONES_FECHA_69').prop("disabled", false);
+
+                }
+            });
+
+            // para el sumbit
+            if ($('#REGISTRO_FMI_116').val() == "")  {
+
+                $('#REGISTRO_FMI_116').val("N_A");
+                $('#REGISTRO_FECHA_DE_REGISTRO_117').val("0001-01-01");
+                $('#REGISTRO_NUMERO_DE_RESOLUCION_118').val("0");
+                $('#REGISTRO_FECHA_DE_RESOLUCION_119').val("0001-01-01");
+
+            };
+
+        });
+    </script>
+
+
+}
+<div class="card mb-4 wow fadeIn">
+
+    <!--Card content-->
+    <div class="card-body d-sm-flex justify-content-between">
+        <h4 class="mb-2 mb-sm-0 pt-1">
+            <span>Caracterizacion Juridica</span>
+        </h4>
+        <h5 class="mb-2 mb-sm-0 pt-1">
+            <span>
+                Numero de Expediente :
+                <a target="_blank" href='@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = Model.IdExpediente })' style='color: #013ADF;'>
+                    @Model.NumeroExpediente
+                    <i class='fa fa-eye' aria-hidden='true'></i>
+                </a>
+            </span>
+            <br />
+        </h5>
+        <h5 class="mb-2 mb-sm-0 pt-1">
+            <span>Responsable </span>
+            <br />
+            <span>Usuario : @Model.NombreIdAspNetUser</span>
+            <br />
+            <span>Rol : @Model.rol</span>
+            <br />
+        </h5>
+    </div>
+
+</div>
+<div class="row wow fadeIn">
+    @using (Html.BeginForm("Edit", "CaracterizacionJuridica", FormMethod.Post, new { id = "CrearForm" }))
+
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        @Html.EditorFor(model => model.IdExpediente, new { htmlAttributes = new { @class = "form-control", Style = "display : none" } })
+        @Html.EditorFor(model => model.NombreIdAspNetUser, new { htmlAttributes = new { @class = "form-control", Style = "display : none" } })
+        @Html.EditorFor(model => model.rol, new { htmlAttributes = new { @class = "form-control", Style = "display : none" } })
+
+        <div class="form-horizontal">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header"><h5>INSPECCION OCULAR</h5>  </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <label class="control-label col-md-12"> Inspeccion Ocular</label>
+                                    <select id="INSPECCION_OCULAR_INSPECCION_OCULAR_53" name="INSPECCION_OCULAR_INSPECCION_OCULAR_53" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.INSPECCION_OCULAR_INSPECCION_OCULAR_53, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">Fecha</label>
+                                    @Html.EditorFor(model => model.INSPECCION_OCULAR_FECHA_54, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.INSPECCION_OCULAR_FECHA_54, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">Firma</label>
+                                    <select id="INSPECCION_OCULAR_FIRMA_55" name="INSPECCION_OCULAR_FIRMA_55" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.INSPECCION_OCULAR_FIRMA_55, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">Oposiciones</label>
+                                    <select id="INSPECCION_OCULAR_OPOSICIONES_56" name="INSPECCION_OCULAR_OPOSICIONES_56" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.INSPECCION_OCULAR_OPOSICIONES_56, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">Concepto</label>
+                                    <select id="INSPECCION_OCULAR_CONCEPTO_57" name="INSPECCION_OCULAR_CONCEPTO_57" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.INSPECCION_OCULAR_CONCEPTO_57, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>
+                                REGISTRO
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <label class="control-label col-md-12">
+                                        Fmi
+                                    </label>
+                                    @Html.EditorFor(model => model.REGISTRO_FMI_116, new { htmlAttributes = new { @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.REGISTRO_FMI_116, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Fecha de registro
+                                    </label>
+                                    @Html.EditorFor(model => model.REGISTRO_FECHA_DE_REGISTRO_117, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.REGISTRO_FECHA_DE_REGISTRO_117, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Numero de resolucion
+                                    </label>
+                                    @Html.EditorFor(model => model.REGISTRO_NUMERO_DE_RESOLUCION_118, new { htmlAttributes = new { @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.REGISTRO_NUMERO_DE_RESOLUCION_118, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Fecha de resolucion
+                                    </label>
+                                    @Html.EditorFor(model => model.REGISTRO_FECHA_DE_RESOLUCION_119, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.REGISTRO_FECHA_DE_RESOLUCION_119, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>
+                                FIJACION EN LISTA
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <label class="control-label col-md-12">
+                                        Fijacion en lista
+                                    </label>
+                                    <select id="FIJACION_EN_LISTA_FIJACION_EN_LISTA_64" name="FIJACION_EN_LISTA_FIJACION_EN_LISTA_64" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.FIJACION_EN_LISTA_FIJACION_EN_LISTA_64, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Fecha de fijacion
+                                    </label>
+                                    @Html.EditorFor(model => model.FIJACION_EN_LISTA_FECHA_DE_FIJACION_65, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.FIJACION_EN_LISTA_FECHA_DE_FIJACION_65, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Fijacion en lista
+                                    </label>
+                                    @Html.EditorFor(model => model.FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">Firma</label>
+                                    <select id="FIJACION_EN_LISTA_FIRMA_67" name="FIJACION_EN_LISTA_FIRMA_67" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.FIJACION_EN_LISTA_FIRMA_67, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>
+                                FORMATO DE REVISION JURIDICA
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <label class="control-label col-md-12">
+                                        Formato de revision juridica
+                                    </label>
+                                    <select id="FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70" name="FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">Fecha</label>
+                                    @Html.EditorFor(model => model.FORMATO_DE_REVISION_JURIDICA_FECHA_71, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.FORMATO_DE_REVISION_JURIDICA_FECHA_71, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">Firma</label>
+                                    <select id="FORMATO_DE_REVISION_JURIDICA_FIRMADA_72" name="FORMATO_DE_REVISION_JURIDICA_FIRMADA_72" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.FORMATO_DE_REVISION_JURIDICA_FIRMADA_72, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Concepto
+                                    </label>
+                                    <select id="FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73" name="FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73, "", new { @class = "text-danger" })
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header"><h5>NOTIFICACION</h5>  </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <label class="control-label col-md-12">
+                                        Notificacion solicitante
+                                    </label>
+                                    <select id="NOTIFICACION_NOTIFICACION_SOLICITANTES_81" name="NOTIFICACION_NOTIFICACION_SOLICITANTES_81" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.NOTIFICACION_NOTIFICACION_SOLICITANTES_81, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Fecha de Notificacion solicitante
+                                    </label>
+                                    @Html.EditorFor(model => model.NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Notificacion Ministerio Publico
+                                    </label>
+                                    <select id="NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83" name="NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">Fecha Notificacion Ministerio Publico</label>
+                                    @Html.EditorFor(model => model.NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84, "", new { @class = "text-danger" })
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>
+                                CONSTANCIA DE EJECUTORIA
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <label class="control-label col-md-12">
+                                        Constancia de ejecutoria
+                                    </label>
+                                    <select id="CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109" name="CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Fecha  Constancia de ejecutoria
+                                    </label>
+                                    @Html.EditorFor(model => model.CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">Firma</label>
+                                    <select id="CONSTANCIA_DE_EJECUTORIA_FIRMADA_111" name="CONSTANCIA_DE_EJECUTORIA_FIRMADA_111" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.CONSTANCIA_DE_EJECUTORIA_FIRMADA_111, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        La fecha es correcta
+                                    </label>
+                                    <select id="CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112" name="CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>
+                                RESOLUCION
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <label class="control-label col-md-12">
+                                        Resolucion
+                                    </label>
+                                    <select id="RESOLUCION_RESOLUCION_74" name="RESOLUCION_RESOLUCION_74" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RESOLUCION_RESOLUCION_74, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Numero de resolucion
+                                    </label>
+                                    @Html.EditorFor(model => model.RESOLUCION_NUMERO_DE_RESOLUCION_75, new { htmlAttributes = new { @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.RESOLUCION_NUMERO_DE_RESOLUCION_75, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Fecha de resolucion
+                                    </label>
+                                    @Html.EditorFor(model => model.RESOLUCION_FECHA_DE_RESOLUCION_76, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.RESOLUCION_FECHA_DE_RESOLUCION_76, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">Firma</label>
+                                    <select id="RESOLUCION_FIRMADA_77" name="RESOLUCION_FIRMADA_77" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RESOLUCION_FIRMADA_77, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Desicion
+                                    </label>
+                                    <select id="RESOLUCION_DECISION_78" name="RESOLUCION_DECISION_78" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RESOLUCION_DECISION_78, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Area adjudicada Mt2
+                                    </label>
+                                    @Html.EditorFor(model => model.RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79, new { htmlAttributes = new {  @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Conjunta o individual
+                                    </label>
+                                    <select id="RESOLUCION_CONJUNTA_INDIVIDUAL_80" name="RESOLUCION_CONJUNTA_INDIVIDUAL_80" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RESOLUCION_CONJUNTA_INDIVIDUAL_80, "", new { @class = "text-danger" })
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header"><h5>REVOCATORIA</h5>  </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <label class="control-label col-md-12">
+                                        Revocatoria
+                                    </label>
+                                    <select id="REVOCATORIA_REVOCATORIA_113" name="REVOCATORIA_REVOCATORIA_113" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.REVOCATORIA_REVOCATORIA_113, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Numero de Resolucion
+                                    </label>
+                                    @Html.EditorFor(model => model.REVOCATORIA_NUMERO_RESOLUCION_114, new { htmlAttributes = new { @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.REVOCATORIA_NUMERO_RESOLUCION_114, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Fecha de resolucion
+                                    </label>
+                                    @Html.EditorFor(model => model.REVOCATORIA_FECHA_DE_RESOLUCION_115, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.REVOCATORIA_FECHA_DE_RESOLUCION_115, "", new { @class = "text-danger" })
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="card">
+                        <div class="card-header"><h5>OPOCISIONES</h5>  </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <label class="control-label col-md-12">
+                                        Oposiciones
+                                    </label>
+                                    <select id="OPOCISIONES_OPOCISIONES_68" name="OPOCISIONES_OPOCISIONES_68" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.OPOCISIONES_OPOCISIONES_68, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Fecha
+                                    </label>
+                                    @Html.EditorFor(model => model.OPOCISIONES_FECHA_69, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.OPOCISIONES_FECHA_69, "", new { @class = "text-danger" })
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header"><h5>ACLARACION DE INSPECCION OCULAR</h5>  </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <label class="control-label col-md-12">
+                                        Aclaracion de inspeccion ocular
+                                    </label>
+                                    <select id="ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58" name="ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">Fecha</label>
+                                    @Html.EditorFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_FECHA_59, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_FECHA_59, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">Firma</label>
+                                    <select id="ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60" name="ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">Concepto</label>
+                                    <select id="ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61" name="ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61, "", new { @class = "text-danger" })
+
+                                </div>
+
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Publicacion en emisora
+                                    </label>
+                                    <select id="ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62" name="ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62, "", new { @class = "text-danger" })
+
+                                </div>
+                                <div class="col-md-10">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Firma de publicacion
+                                    </label>
+                                    <select id="ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63" name="ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header"><h5>RECURSO SOLICITANTE</h5>  </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 align-content-center text-center">
+                                    <label class="control-label col-sm-12 ">Recurso Solicitante</label>
+                                    <select id="RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85" name="RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85"
+                                            class="form-control col-sm-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <br />
+                                    <label class="control-label col-sm-12">Fecha de solicitud</label>
+                                    @Html.EditorFor(model => model.RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86, new { htmlAttributes = new { Type = "date", @class = "form-control col-sm-12" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-md-6">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Respuesta recurso
+                                    </label>
+                                    <select id="RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87" name="RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-md-6">
+                                    <br />
+                                    <label class="control-label col-md-12">Firma</label>
+                                    <select id="RECURSO_SOLICITANTE_FIRMADA_88" name="RECURSO_SOLICITANTE_FIRMADA_88" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_FIRMADA_88, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-md-6">
+                                    <br />
+                                    <label class="control-label col-md-12">Acto</label>
+                                    <select id="RECURSO_SOLICITANTE_ACTO_89" name="RECURSO_SOLICITANTE_ACTO_89" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_ACTO_89, "", new { @class = "text-danger" })
+
+                                </div>
+                                <div class="col-md-6">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Numero
+                                    </label>
+                                    @Html.EditorFor(model => model.RECURSO_SOLICITANTE_NUMERO_90, new { htmlAttributes = new { @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_NUMERO_90, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Fecha
+                                    </label>
+                                    @Html.EditorFor(model => model.RECURSO_SOLICITANTE_FECHA_91, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_FECHA_91, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Decision
+                                    </label>
+                                    <select id="RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92" name="RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Notificacion de solicitantes
+                                    </label>
+                                    <select id="RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93" name="RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Fecha Notificacion solicitantes
+                                    </label>
+                                    @Html.EditorFor(model => model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Notificacion Ministerio Publico
+                                    </label>
+                                    <select id="RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95" name="RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <br />
+                                    <label class="control-label col-md-12">Fecha de Notificacion Ministerio Publico</label>
+                                    <select id="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96" name="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>
+                                RECURSO MINISTERIO
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="control-label col-md-12">
+                                        Recursos ministerio
+                                    </label>
+                                    <select id="RECURSO_MINISTERIO_RECURSO_MINISTERIO_97" name="RECURSO_MINISTERIO_RECURSO_MINISTERIO_97" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_RECURSO_MINISTERIO_97, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label col-md-12">
+                                        Fecha de Solicitud
+                                    </label>
+                                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Respuesta de recurso
+                                    </label>
+                                    <select id="RECURSO_MINISTERIO_RESPUESTA_RECURSO_99" name="RECURSO_MINISTERIO_RESPUESTA_RECURSO_99" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_RESPUESTA_RECURSO_99, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Firma
+                                    </label>
+                                    <select id="RECURSO_MINISTERIO_FIRMADA_100" name="RECURSO_MINISTERIO_FIRMADA_100" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FIRMADA_100, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Acto
+                                    </label>
+                                    <select id="RECURSO_MINISTERIO_ACTO_101" name="RECURSO_MINISTERIO_ACTO_101" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_ACTO_101, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Numero
+                                    </label>
+                                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_NUMERO_102, new { htmlAttributes = new { @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_NUMERO_102, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Fecha
+                                    </label>
+                                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_FECHA_103, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FECHA_103, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Decision sobre la adjudicacion
+                                    </label>
+                                    <select id="RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104" name="RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Notificacion solicitante
+                                    </label>
+                                    <select id="RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105" name="RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Fecha Notificacion solicitante
+                                    </label>
+                                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <br />
+                                    <label class="control-label col-md-12">
+                                        Notificacion ministerio publico
+                                    </label>
+                                    <select id="RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107" name="RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107" class="form-control col-md-12">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">no</option>
+                                    </select>@Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6">
+                                    <br />
+                                    <label class="control-label col-md-12">Fecha Notificacion ministerio publico</label>
+                                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-12" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10 text-md-center justify-content-md-center">
+                                    <input type="submit" value="Guardar" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

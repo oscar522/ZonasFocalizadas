@@ -194,6 +194,93 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="FiltroJairo" Type="int" />
     <Property Name="IdAsignacion" Type="int" />
   </EntityType>
+  <EntityType Name="CaracterizacionJuridica">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdExpediente" Type="bigint" Nullable="false" />
+    <Property Name="INSPECCION_OCULAR_INSPECCION_OCULAR_53" Type="bit" />
+    <Property Name="INSPECCION_OCULAR_FECHA_54" Type="datetime" />
+    <Property Name="INSPECCION_OCULAR_FIRMA_55" Type="bit" />
+    <Property Name="INSPECCION_OCULAR_OPOSICIONES_56" Type="bit" />
+    <Property Name="INSPECCION_OCULAR_CONCEPTO_57" Type="int" />
+    <Property Name="ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58" Type="bit" />
+    <Property Name="ACLARACION_DE_INSPECCION_OCULAR_FECHA_59" Type="datetime" />
+    <Property Name="ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60" Type="bit" />
+    <Property Name="ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61" Type="int" />
+    <Property Name="ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62" Type="bit" />
+    <Property Name="ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63" Type="bit" />
+    <Property Name="FIJACION_EN_LISTA_FIJACION_EN_LISTA_64" Type="bit" />
+    <Property Name="FIJACION_EN_LISTA_FECHA_DE_FIJACION_65" Type="datetime" />
+    <Property Name="FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66" Type="datetime" />
+    <Property Name="FIJACION_EN_LISTA_FIRMA_67" Type="bit" />
+    <Property Name="OPOCISIONES_OPOCISIONES_68" Type="bit" />
+    <Property Name="OPOCISIONES_FECHA_69" Type="datetime" />
+    <Property Name="FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70" Type="bit" />
+    <Property Name="FORMATO_DE_REVISION_JURIDICA_FECHA_71" Type="datetime" />
+    <Property Name="FORMATO_DE_REVISION_JURIDICA_FIRMADA_72" Type="bit" />
+    <Property Name="FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73" Type="int" />
+    <Property Name="RESOLUCION_RESOLUCION_74" Type="bit" />
+    <Property Name="RESOLUCION_NUMERO_DE_RESOLUCION_75" Type="bigint" />
+    <Property Name="RESOLUCION_FECHA_DE_RESOLUCION_76" Type="datetime" />
+    <Property Name="RESOLUCION_FIRMADA_77" Type="bit" />
+    <Property Name="RESOLUCION_DECISION_78" Type="int" />
+    <Property Name="RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79" Type="bigint" />
+    <Property Name="RESOLUCION_CONJUNTA_INDIVIDUAL_80" Type="int" />
+    <Property Name="NOTIFICACION_NOTIFICACION_SOLICITANTES_81" Type="bit" />
+    <Property Name="NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82" Type="datetime" />
+    <Property Name="NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83" Type="bit" />
+    <Property Name="NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84" Type="datetime" />
+    <Property Name="RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85" Type="bit" />
+    <Property Name="RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86" Type="datetime" />
+    <Property Name="RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87" Type="bit" />
+    <Property Name="RECURSO_SOLICITANTE_FIRMADA_88" Type="bit" />
+    <Property Name="RECURSO_SOLICITANTE_ACTO_89" Type="int" />
+    <Property Name="RECURSO_SOLICITANTE_NUMERO_90" Type="bigint" />
+    <Property Name="RECURSO_SOLICITANTE_FECHA_91" Type="datetime" />
+    <Property Name="RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92" Type="int" />
+    <Property Name="RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93" Type="bit" />
+    <Property Name="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94" Type="datetime" />
+    <Property Name="RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95" Type="bit" />
+    <Property Name="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96" Type="datetime" />
+    <Property Name="RECURSO_MINISTERIO_RECURSO_MINISTERIO_97" Type="bit" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98" Type="datetime" />
+    <Property Name="RECURSO_MINISTERIO_RESPUESTA_RECURSO_99" Type="bit" />
+    <Property Name="RECURSO_MINISTERIO_FIRMADA_100" Type="bit" />
+    <Property Name="RECURSO_MINISTERIO_ACTO_101" Type="int" />
+    <Property Name="RECURSO_MINISTERIO_NUMERO_102" Type="bigint" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_103" Type="datetime" />
+    <Property Name="RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104" Type="int" />
+    <Property Name="RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105" Type="bit" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106" Type="datetime" />
+    <Property Name="RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107" Type="bit" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108" Type="datetime" />
+    <Property Name="CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109" Type="bit" />
+    <Property Name="CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110" Type="datetime" />
+    <Property Name="CONSTANCIA_DE_EJECUTORIA_FIRMADA_111" Type="bit" />
+    <Property Name="CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112" Type="bit" />
+    <Property Name="REVOCATORIA_REVOCATORIA_113" Type="bit" />
+    <Property Name="REVOCATORIA_NUMERO_RESOLUCIÓN_114" Type="bigint" />
+    <Property Name="REVOCATORIA_FECHA_DE_RESOLUCIÓN_115" Type="datetime" />
+    <Property Name="REGISTRO_FMI_116" Type="varchar(max)" />
+    <Property Name="REGISTRO_FECHA_DE_REGISTRO_117" Type="datetime" />
+    <Property Name="REGISTRO_NUMERO_DE_RESOLUCION_118" Type="bigint" />
+    <Property Name="REGISTRO_FECHA_DE_RESOLUCION_119" Type="datetime" />
+    <Property Name="Estado" Type="bit" Nullable="false" />
+    <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="Gestion" Type="int" />
+  </EntityType>
+  <EntityType Name="CaracterizacionJuridicaCatalogos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar(max)" />
+    <Property Name="Tipo" Type="int" />
+    <Property Name="Estado" Type="bit" />
+  </EntityType>
   <EntityType Name="CoceptosExpediente">
     <Key>
       <PropertyRef Name="Id" />
@@ -511,6 +598,8 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
     <EntitySet Name="ActDiaProceso" EntityType="Self.ActDiaProceso" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ActividadesDiarias" EntityType="Self.ActividadesDiarias" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BaldiosPersonaNatural" EntityType="Self.BaldiosPersonaNatural" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CaracterizacionJuridica" EntityType="Self.CaracterizacionJuridica" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CaracterizacionJuridicaCatalogos" EntityType="Self.CaracterizacionJuridicaCatalogos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CoceptosExpediente" EntityType="Self.CoceptosExpediente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Concepto" EntityType="Self.Concepto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ConceptoAsociado" EntityType="Self.ConceptoAsociado" Schema="dbo" store:Type="Tables" />

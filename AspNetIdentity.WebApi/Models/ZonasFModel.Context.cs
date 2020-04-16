@@ -63,6 +63,8 @@ namespace AspNetIdentity.WebApi.Models
         public virtual DbSet<ConceptoEstado> ConceptoEstado { get; set; }
         public virtual DbSet<ConceptoTipoSoporte> ConceptoTipoSoporte { get; set; }
         public virtual DbSet<ConceptoGestion> ConceptoGestion { get; set; }
+        public virtual DbSet<CaracterizacionJuridicaCatalogos> CaracterizacionJuridicaCatalogos { get; set; }
+        public virtual DbSet<CaracterizacionJuridica> CaracterizacionJuridica { get; set; }
     
         public virtual int AspNetUsers_Insertar(string firstName, string lastName, string email, string passwordHash, string id)
         {

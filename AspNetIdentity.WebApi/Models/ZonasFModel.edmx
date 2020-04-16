@@ -199,6 +199,93 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
           <Property Name="FiltroJairo" Type="int" />
           <Property Name="IdAsignacion" Type="int" />
         </EntityType>
+        <EntityType Name="CaracterizacionJuridica">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdExpediente" Type="bigint" Nullable="false" />
+          <Property Name="INSPECCION_OCULAR_INSPECCION_OCULAR_53" Type="bit" />
+          <Property Name="INSPECCION_OCULAR_FECHA_54" Type="datetime" />
+          <Property Name="INSPECCION_OCULAR_FIRMA_55" Type="bit" />
+          <Property Name="INSPECCION_OCULAR_OPOSICIONES_56" Type="bit" />
+          <Property Name="INSPECCION_OCULAR_CONCEPTO_57" Type="int" />
+          <Property Name="ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58" Type="bit" />
+          <Property Name="ACLARACION_DE_INSPECCION_OCULAR_FECHA_59" Type="datetime" />
+          <Property Name="ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60" Type="bit" />
+          <Property Name="ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61" Type="int" />
+          <Property Name="ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62" Type="bit" />
+          <Property Name="ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63" Type="bit" />
+          <Property Name="FIJACION_EN_LISTA_FIJACION_EN_LISTA_64" Type="bit" />
+          <Property Name="FIJACION_EN_LISTA_FECHA_DE_FIJACION_65" Type="datetime" />
+          <Property Name="FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66" Type="datetime" />
+          <Property Name="FIJACION_EN_LISTA_FIRMA_67" Type="bit" />
+          <Property Name="OPOCISIONES_OPOCISIONES_68" Type="bit" />
+          <Property Name="OPOCISIONES_FECHA_69" Type="datetime" />
+          <Property Name="FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70" Type="bit" />
+          <Property Name="FORMATO_DE_REVISION_JURIDICA_FECHA_71" Type="datetime" />
+          <Property Name="FORMATO_DE_REVISION_JURIDICA_FIRMADA_72" Type="bit" />
+          <Property Name="FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73" Type="int" />
+          <Property Name="RESOLUCION_RESOLUCION_74" Type="bit" />
+          <Property Name="RESOLUCION_NUMERO_DE_RESOLUCION_75" Type="bigint" />
+          <Property Name="RESOLUCION_FECHA_DE_RESOLUCION_76" Type="datetime" />
+          <Property Name="RESOLUCION_FIRMADA_77" Type="bit" />
+          <Property Name="RESOLUCION_DECISION_78" Type="int" />
+          <Property Name="RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79" Type="bigint" />
+          <Property Name="RESOLUCION_CONJUNTA_INDIVIDUAL_80" Type="int" />
+          <Property Name="NOTIFICACION_NOTIFICACION_SOLICITANTES_81" Type="bit" />
+          <Property Name="NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82" Type="datetime" />
+          <Property Name="NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83" Type="bit" />
+          <Property Name="NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84" Type="datetime" />
+          <Property Name="RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85" Type="bit" />
+          <Property Name="RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86" Type="datetime" />
+          <Property Name="RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87" Type="bit" />
+          <Property Name="RECURSO_SOLICITANTE_FIRMADA_88" Type="bit" />
+          <Property Name="RECURSO_SOLICITANTE_ACTO_89" Type="int" />
+          <Property Name="RECURSO_SOLICITANTE_NUMERO_90" Type="bigint" />
+          <Property Name="RECURSO_SOLICITANTE_FECHA_91" Type="datetime" />
+          <Property Name="RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92" Type="int" />
+          <Property Name="RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93" Type="bit" />
+          <Property Name="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94" Type="datetime" />
+          <Property Name="RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95" Type="bit" />
+          <Property Name="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96" Type="datetime" />
+          <Property Name="RECURSO_MINISTERIO_RECURSO_MINISTERIO_97" Type="bit" />
+          <Property Name="RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98" Type="datetime" />
+          <Property Name="RECURSO_MINISTERIO_RESPUESTA_RECURSO_99" Type="bit" />
+          <Property Name="RECURSO_MINISTERIO_FIRMADA_100" Type="bit" />
+          <Property Name="RECURSO_MINISTERIO_ACTO_101" Type="int" />
+          <Property Name="RECURSO_MINISTERIO_NUMERO_102" Type="bigint" />
+          <Property Name="RECURSO_MINISTERIO_FECHA_103" Type="datetime" />
+          <Property Name="RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104" Type="int" />
+          <Property Name="RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105" Type="bit" />
+          <Property Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106" Type="datetime" />
+          <Property Name="RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107" Type="bit" />
+          <Property Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108" Type="datetime" />
+          <Property Name="CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109" Type="bit" />
+          <Property Name="CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110" Type="datetime" />
+          <Property Name="CONSTANCIA_DE_EJECUTORIA_FIRMADA_111" Type="bit" />
+          <Property Name="CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112" Type="bit" />
+          <Property Name="REVOCATORIA_REVOCATORIA_113" Type="bit" />
+          <Property Name="REVOCATORIA_NUMERO_RESOLUCIÓN_114" Type="bigint" />
+          <Property Name="REVOCATORIA_FECHA_DE_RESOLUCIÓN_115" Type="datetime" />
+          <Property Name="REGISTRO_FMI_116" Type="varchar(max)" />
+          <Property Name="REGISTRO_FECHA_DE_REGISTRO_117" Type="datetime" />
+          <Property Name="REGISTRO_NUMERO_DE_RESOLUCION_118" Type="bigint" />
+          <Property Name="REGISTRO_FECHA_DE_RESOLUCION_119" Type="datetime" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+          <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="Gestion" Type="int" />
+        </EntityType>
+        <EntityType Name="CaracterizacionJuridicaCatalogos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar(max)" />
+          <Property Name="Tipo" Type="int" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
         <EntityType Name="CoceptosExpediente">
           <Key>
             <PropertyRef Name="Id" />
@@ -516,6 +603,8 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <EntitySet Name="ActDiaProceso" EntityType="Self.ActDiaProceso" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ActividadesDiarias" EntityType="Self.ActividadesDiarias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BaldiosPersonaNatural" EntityType="Self.BaldiosPersonaNatural" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CaracterizacionJuridica" EntityType="Self.CaracterizacionJuridica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CaracterizacionJuridicaCatalogos" EntityType="Self.CaracterizacionJuridicaCatalogos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CoceptosExpediente" EntityType="Self.CoceptosExpediente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Concepto" EntityType="Self.Concepto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ConceptoAsociado" EntityType="Self.ConceptoAsociado" Schema="dbo" store:Type="Tables" />
@@ -942,6 +1031,8 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <EntitySet Name="ConceptoEstado" EntityType="ZonasFModel.ConceptoEstado" />
           <EntitySet Name="ConceptoTipoSoporte" EntityType="ZonasFModel.ConceptoTipoSoporte" />
           <EntitySet Name="ConceptoGestion" EntityType="ZonasFModel.ConceptoGestion" />
+          <EntitySet Name="CaracterizacionJuridicaCatalogos" EntityType="ZonasFModel.CaracterizacionJuridicaCatalogos" />
+          <EntitySet Name="CaracterizacionJuridica" EntityType="ZonasFModel.CaracterizacionJuridica" />
         </EntityContainer>
         <EntityType Name="ExpedienteDocumentos">
           <Key>
@@ -1184,6 +1275,93 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Property Name="Estado" Type="Boolean" />
           <Property Name="Archivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="IdAspNetUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CaracterizacionJuridicaCatalogos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="Int32" />
+          <Property Name="Estado" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="CaracterizacionJuridica">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdExpediente" Type="Int64" Nullable="false" />
+          <Property Name="INSPECCION_OCULAR_INSPECCION_OCULAR_53" Type="Boolean" />
+          <Property Name="INSPECCION_OCULAR_FECHA_54" Type="DateTime" Precision="3" />
+          <Property Name="INSPECCION_OCULAR_FIRMA_55" Type="Boolean" />
+          <Property Name="INSPECCION_OCULAR_OPOSICIONES_56" Type="Boolean" />
+          <Property Name="INSPECCION_OCULAR_CONCEPTO_57" Type="Int32" />
+          <Property Name="ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58" Type="Boolean" />
+          <Property Name="ACLARACION_DE_INSPECCION_OCULAR_FECHA_59" Type="DateTime" Precision="3" />
+          <Property Name="ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60" Type="Boolean" />
+          <Property Name="ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61" Type="Int32" />
+          <Property Name="ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62" Type="Boolean" />
+          <Property Name="ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63" Type="Boolean" />
+          <Property Name="FIJACION_EN_LISTA_FIJACION_EN_LISTA_64" Type="Boolean" />
+          <Property Name="FIJACION_EN_LISTA_FECHA_DE_FIJACION_65" Type="DateTime" Precision="3" />
+          <Property Name="FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66" Type="DateTime" Precision="3" />
+          <Property Name="FIJACION_EN_LISTA_FIRMA_67" Type="Boolean" />
+          <Property Name="OPOCISIONES_OPOCISIONES_68" Type="Boolean" />
+          <Property Name="OPOCISIONES_FECHA_69" Type="DateTime" Precision="3" />
+          <Property Name="FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70" Type="Boolean" />
+          <Property Name="FORMATO_DE_REVISION_JURIDICA_FECHA_71" Type="DateTime" Precision="3" />
+          <Property Name="FORMATO_DE_REVISION_JURIDICA_FIRMADA_72" Type="Boolean" />
+          <Property Name="FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73" Type="Int32" />
+          <Property Name="RESOLUCION_RESOLUCION_74" Type="Boolean" />
+          <Property Name="RESOLUCION_NUMERO_DE_RESOLUCION_75" Type="Int64" />
+          <Property Name="RESOLUCION_FECHA_DE_RESOLUCION_76" Type="DateTime" Precision="3" />
+          <Property Name="RESOLUCION_FIRMADA_77" Type="Boolean" />
+          <Property Name="RESOLUCION_DECISION_78" Type="Int32" />
+          <Property Name="RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79" Type="Int64" />
+          <Property Name="RESOLUCION_CONJUNTA_INDIVIDUAL_80" Type="Int32" />
+          <Property Name="NOTIFICACION_NOTIFICACION_SOLICITANTES_81" Type="Boolean" />
+          <Property Name="NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82" Type="DateTime" Precision="3" />
+          <Property Name="NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83" Type="Boolean" />
+          <Property Name="NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84" Type="DateTime" Precision="3" />
+          <Property Name="RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85" Type="Boolean" />
+          <Property Name="RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86" Type="DateTime" Precision="3" />
+          <Property Name="RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87" Type="Boolean" />
+          <Property Name="RECURSO_SOLICITANTE_FIRMADA_88" Type="Boolean" />
+          <Property Name="RECURSO_SOLICITANTE_ACTO_89" Type="Int32" />
+          <Property Name="RECURSO_SOLICITANTE_NUMERO_90" Type="Int64" />
+          <Property Name="RECURSO_SOLICITANTE_FECHA_91" Type="DateTime" Precision="3" />
+          <Property Name="RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92" Type="Int32" />
+          <Property Name="RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93" Type="Boolean" />
+          <Property Name="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94" Type="DateTime" Precision="3" />
+          <Property Name="RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95" Type="Boolean" />
+          <Property Name="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96" Type="DateTime" Precision="3" />
+          <Property Name="RECURSO_MINISTERIO_RECURSO_MINISTERIO_97" Type="Boolean" />
+          <Property Name="RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98" Type="DateTime" Precision="3" />
+          <Property Name="RECURSO_MINISTERIO_RESPUESTA_RECURSO_99" Type="Boolean" />
+          <Property Name="RECURSO_MINISTERIO_FIRMADA_100" Type="Boolean" />
+          <Property Name="RECURSO_MINISTERIO_ACTO_101" Type="Int32" />
+          <Property Name="RECURSO_MINISTERIO_NUMERO_102" Type="Int64" />
+          <Property Name="RECURSO_MINISTERIO_FECHA_103" Type="DateTime" Precision="3" />
+          <Property Name="RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104" Type="Int32" />
+          <Property Name="RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105" Type="Boolean" />
+          <Property Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106" Type="DateTime" Precision="3" />
+          <Property Name="RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107" Type="Boolean" />
+          <Property Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108" Type="DateTime" Precision="3" />
+          <Property Name="CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109" Type="Boolean" />
+          <Property Name="CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110" Type="DateTime" Precision="3" />
+          <Property Name="CONSTANCIA_DE_EJECUTORIA_FIRMADA_111" Type="Boolean" />
+          <Property Name="CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112" Type="Boolean" />
+          <Property Name="REVOCATORIA_REVOCATORIA_113" Type="Boolean" />
+          <Property Name="REVOCATORIA_NUMERO_RESOLUCIÓN_114" Type="Int64" />
+          <Property Name="REVOCATORIA_FECHA_DE_RESOLUCIÓN_115" Type="DateTime" Precision="3" />
+          <Property Name="REGISTRO_FMI_116" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="REGISTRO_FECHA_DE_REGISTRO_117" Type="DateTime" Precision="3" />
+          <Property Name="REGISTRO_NUMERO_DE_RESOLUCION_118" Type="Int64" />
+          <Property Name="REGISTRO_FECHA_DE_RESOLUCION_119" Type="DateTime" Precision="3" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <Property Name="IdAspNetUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Gestion" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1648,6 +1826,95 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
                 <ScalarProperty Name="IdSoporte" ColumnName="IdSoporte" />
                 <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
                 <ScalarProperty Name="IdConcepto" ColumnName="IdConcepto" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CaracterizacionJuridicaCatalogos">
+            <EntityTypeMapping TypeName="ZonasFModel.CaracterizacionJuridicaCatalogos">
+              <MappingFragment StoreEntitySet="CaracterizacionJuridicaCatalogos">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CaracterizacionJuridica">
+            <EntityTypeMapping TypeName="ZonasFModel.CaracterizacionJuridica">
+              <MappingFragment StoreEntitySet="CaracterizacionJuridica">
+                <ScalarProperty Name="Gestion" ColumnName="Gestion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="REGISTRO_FECHA_DE_RESOLUCION_119" ColumnName="REGISTRO_FECHA_DE_RESOLUCION_119" />
+                <ScalarProperty Name="REGISTRO_NUMERO_DE_RESOLUCION_118" ColumnName="REGISTRO_NUMERO_DE_RESOLUCION_118" />
+                <ScalarProperty Name="REGISTRO_FECHA_DE_REGISTRO_117" ColumnName="REGISTRO_FECHA_DE_REGISTRO_117" />
+                <ScalarProperty Name="REGISTRO_FMI_116" ColumnName="REGISTRO_FMI_116" />
+                <ScalarProperty Name="REVOCATORIA_FECHA_DE_RESOLUCIÓN_115" ColumnName="REVOCATORIA_FECHA_DE_RESOLUCIÓN_115" />
+                <ScalarProperty Name="REVOCATORIA_NUMERO_RESOLUCIÓN_114" ColumnName="REVOCATORIA_NUMERO_RESOLUCIÓN_114" />
+                <ScalarProperty Name="REVOCATORIA_REVOCATORIA_113" ColumnName="REVOCATORIA_REVOCATORIA_113" />
+                <ScalarProperty Name="CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112" ColumnName="CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112" />
+                <ScalarProperty Name="CONSTANCIA_DE_EJECUTORIA_FIRMADA_111" ColumnName="CONSTANCIA_DE_EJECUTORIA_FIRMADA_111" />
+                <ScalarProperty Name="CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110" ColumnName="CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110" />
+                <ScalarProperty Name="CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109" ColumnName="CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109" />
+                <ScalarProperty Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108" ColumnName="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108" />
+                <ScalarProperty Name="RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107" ColumnName="RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107" />
+                <ScalarProperty Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106" ColumnName="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106" />
+                <ScalarProperty Name="RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105" ColumnName="RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105" />
+                <ScalarProperty Name="RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104" ColumnName="RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104" />
+                <ScalarProperty Name="RECURSO_MINISTERIO_FECHA_103" ColumnName="RECURSO_MINISTERIO_FECHA_103" />
+                <ScalarProperty Name="RECURSO_MINISTERIO_NUMERO_102" ColumnName="RECURSO_MINISTERIO_NUMERO_102" />
+                <ScalarProperty Name="RECURSO_MINISTERIO_ACTO_101" ColumnName="RECURSO_MINISTERIO_ACTO_101" />
+                <ScalarProperty Name="RECURSO_MINISTERIO_FIRMADA_100" ColumnName="RECURSO_MINISTERIO_FIRMADA_100" />
+                <ScalarProperty Name="RECURSO_MINISTERIO_RESPUESTA_RECURSO_99" ColumnName="RECURSO_MINISTERIO_RESPUESTA_RECURSO_99" />
+                <ScalarProperty Name="RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98" ColumnName="RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98" />
+                <ScalarProperty Name="RECURSO_MINISTERIO_RECURSO_MINISTERIO_97" ColumnName="RECURSO_MINISTERIO_RECURSO_MINISTERIO_97" />
+                <ScalarProperty Name="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96" ColumnName="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96" />
+                <ScalarProperty Name="RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95" ColumnName="RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95" />
+                <ScalarProperty Name="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94" ColumnName="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94" />
+                <ScalarProperty Name="RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93" ColumnName="RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93" />
+                <ScalarProperty Name="RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92" ColumnName="RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92" />
+                <ScalarProperty Name="RECURSO_SOLICITANTE_FECHA_91" ColumnName="RECURSO_SOLICITANTE_FECHA_91" />
+                <ScalarProperty Name="RECURSO_SOLICITANTE_NUMERO_90" ColumnName="RECURSO_SOLICITANTE_NUMERO_90" />
+                <ScalarProperty Name="RECURSO_SOLICITANTE_ACTO_89" ColumnName="RECURSO_SOLICITANTE_ACTO_89" />
+                <ScalarProperty Name="RECURSO_SOLICITANTE_FIRMADA_88" ColumnName="RECURSO_SOLICITANTE_FIRMADA_88" />
+                <ScalarProperty Name="RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87" ColumnName="RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87" />
+                <ScalarProperty Name="RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86" ColumnName="RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86" />
+                <ScalarProperty Name="RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85" ColumnName="RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85" />
+                <ScalarProperty Name="NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84" ColumnName="NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84" />
+                <ScalarProperty Name="NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83" ColumnName="NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83" />
+                <ScalarProperty Name="NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82" ColumnName="NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82" />
+                <ScalarProperty Name="NOTIFICACION_NOTIFICACION_SOLICITANTES_81" ColumnName="NOTIFICACION_NOTIFICACION_SOLICITANTES_81" />
+                <ScalarProperty Name="RESOLUCION_CONJUNTA_INDIVIDUAL_80" ColumnName="RESOLUCION_CONJUNTA_INDIVIDUAL_80" />
+                <ScalarProperty Name="RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79" ColumnName="RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79" />
+                <ScalarProperty Name="RESOLUCION_DECISION_78" ColumnName="RESOLUCION_DECISION_78" />
+                <ScalarProperty Name="RESOLUCION_FIRMADA_77" ColumnName="RESOLUCION_FIRMADA_77" />
+                <ScalarProperty Name="RESOLUCION_FECHA_DE_RESOLUCION_76" ColumnName="RESOLUCION_FECHA_DE_RESOLUCION_76" />
+                <ScalarProperty Name="RESOLUCION_NUMERO_DE_RESOLUCION_75" ColumnName="RESOLUCION_NUMERO_DE_RESOLUCION_75" />
+                <ScalarProperty Name="RESOLUCION_RESOLUCION_74" ColumnName="RESOLUCION_RESOLUCION_74" />
+                <ScalarProperty Name="FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73" ColumnName="FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73" />
+                <ScalarProperty Name="FORMATO_DE_REVISION_JURIDICA_FIRMADA_72" ColumnName="FORMATO_DE_REVISION_JURIDICA_FIRMADA_72" />
+                <ScalarProperty Name="FORMATO_DE_REVISION_JURIDICA_FECHA_71" ColumnName="FORMATO_DE_REVISION_JURIDICA_FECHA_71" />
+                <ScalarProperty Name="FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70" ColumnName="FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70" />
+                <ScalarProperty Name="OPOCISIONES_FECHA_69" ColumnName="OPOCISIONES_FECHA_69" />
+                <ScalarProperty Name="OPOCISIONES_OPOCISIONES_68" ColumnName="OPOCISIONES_OPOCISIONES_68" />
+                <ScalarProperty Name="FIJACION_EN_LISTA_FIRMA_67" ColumnName="FIJACION_EN_LISTA_FIRMA_67" />
+                <ScalarProperty Name="FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66" ColumnName="FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66" />
+                <ScalarProperty Name="FIJACION_EN_LISTA_FECHA_DE_FIJACION_65" ColumnName="FIJACION_EN_LISTA_FECHA_DE_FIJACION_65" />
+                <ScalarProperty Name="FIJACION_EN_LISTA_FIJACION_EN_LISTA_64" ColumnName="FIJACION_EN_LISTA_FIJACION_EN_LISTA_64" />
+                <ScalarProperty Name="ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63" ColumnName="ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63" />
+                <ScalarProperty Name="ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62" ColumnName="ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62" />
+                <ScalarProperty Name="ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61" ColumnName="ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61" />
+                <ScalarProperty Name="ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60" ColumnName="ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60" />
+                <ScalarProperty Name="ACLARACION_DE_INSPECCION_OCULAR_FECHA_59" ColumnName="ACLARACION_DE_INSPECCION_OCULAR_FECHA_59" />
+                <ScalarProperty Name="ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58" ColumnName="ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58" />
+                <ScalarProperty Name="INSPECCION_OCULAR_CONCEPTO_57" ColumnName="INSPECCION_OCULAR_CONCEPTO_57" />
+                <ScalarProperty Name="INSPECCION_OCULAR_OPOSICIONES_56" ColumnName="INSPECCION_OCULAR_OPOSICIONES_56" />
+                <ScalarProperty Name="INSPECCION_OCULAR_FIRMA_55" ColumnName="INSPECCION_OCULAR_FIRMA_55" />
+                <ScalarProperty Name="INSPECCION_OCULAR_FECHA_54" ColumnName="INSPECCION_OCULAR_FECHA_54" />
+                <ScalarProperty Name="INSPECCION_OCULAR_INSPECCION_OCULAR_53" ColumnName="INSPECCION_OCULAR_INSPECCION_OCULAR_53" />
+                <ScalarProperty Name="IdExpediente" ColumnName="IdExpediente" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

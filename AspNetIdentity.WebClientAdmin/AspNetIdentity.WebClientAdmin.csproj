@@ -195,6 +195,7 @@
     <Compile Include="Controllers\BaldiosPersonaNaturalController.cs" />
     <Compile Include="Controllers\ConceptoController.cs" />
     <Compile Include="Controllers\ActividadesDiariasController.cs" />
+    <Compile Include="Controllers\CaracterizacionJuridicaController.cs" />
     <Compile Include="Controllers\HomeUsuariosController.cs" />
     <Compile Include="Controllers\RegistroController.cs" />
     <Compile Include="Controllers\ExpedienteDocumentosController.cs" />
@@ -955,6 +956,11 @@
     <Content Include="Views\HomeAdministrator\IndexDepto.cshtml" />
     <Content Include="Views\Concepto\Details.cshtml" />
     <Content Include="Views\ActividadesDiarias\Crear.cshtml" />
+    <Content Include="Views\CaracterizacionJuridica\Index.cshtml" />
+    <Content Include="Views\CaracterizacionJuridica\Crear.cshtml" />
+    <Content Include="Views\CaracterizacionJuridica\Edit.cshtml" />
+    <Content Include="Views\CaracterizacionJuridica\Details.cshtml" />
+    <Content Include="Views\CaracterizacionJuridica\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -995,7 +1001,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties config_1json__JsonSchema="" />
+      <UserProperties config_1json__JsonSchema="http://json-schema.org/draft-04/schema" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

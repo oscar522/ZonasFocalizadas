@@ -74,11 +74,18 @@
           "order": 7,
           "controllerName": "ActividadesDiarias",
           "actionName": "Crear",
-          "linkText": "Res. ACtividades",
-          "iconText": "fa fa-clipboard mr-3",
+          "linkText": "Res. Actividades",
+          "iconText": "fa fa-tablet mr-3",
+          "sub": null
+        },
+        {
+          "order": 8,
+          "controllerName": "CaracterizacionJuridica",
+          "actionName": "Index",
+          "linkText": "Carac. Juridica",
+          "iconText": "fa fa-university mr-3",
           "sub": null
         }
-
       ]
     },
     {
@@ -155,8 +162,16 @@
           "order": 7,
           "controllerName": "ActividadesDiarias",
           "actionName": "Crear",
-          "linkText": "Res. ACtividades",
-          "iconText": "fa fa-clipboard mr-3",
+          "linkText": "Res. Actividades",
+          "iconText": "fa fa-tablet mr-3",
+          "sub": null
+        },
+        {
+          "order": 8,
+          "controllerName": "CaracterizacionJuridica",
+          "actionName": "Index",
+          "linkText": "Carac. Juridica",
+          "iconText": "fa fa-university mr-3",
           "sub": null
         }
       ]
@@ -235,8 +250,16 @@
           "order": 7,
           "controllerName": "ActividadesDiarias",
           "actionName": "Crear",
-          "linkText": "Res. ACtividades",
-          "iconText": "fa fa-clipboard mr-3",
+          "linkText": "Res. Actividades",
+          "iconText": "fa fa-tablet mr-3",
+          "sub": null
+        },
+        {
+          "order": 8,
+          "controllerName": "CaracterizacionJuridica",
+          "actionName": "Index",
+          "linkText": "Carac. Juridica",
+          "iconText": "fa fa-university mr-3",
           "sub": null
         }
       ]
@@ -315,8 +338,16 @@
           "order": 7,
           "controllerName": "ActividadesDiarias",
           "actionName": "Crear",
-          "linkText": "Res. ACtividades",
-          "iconText": "fa fa-clipboard mr-3",
+          "linkText": "Res. Actividades",
+          "iconText": "fa fa-tablet mr-3",
+          "sub": null
+        },
+        {
+          "order": 8,
+          "controllerName": "CaracterizacionJuridica",
+          "actionName": "Index",
+          "linkText": "Carac. Juridica",
+          "iconText": "fa fa-university mr-3",
           "sub": null
         }
       ]
@@ -395,8 +426,16 @@
           "order": 7,
           "controllerName": "ActividadesDiarias",
           "actionName": "Crear",
-          "linkText": "Res. ACtividades",
-          "iconText": "fa fa-clipboard mr-3",
+          "linkText": "Res. Actividades",
+          "iconText": "fa fa-tablet mr-3",
+          "sub": null
+        },
+        {
+          "order": 8,
+          "controllerName": "CaracterizacionJuridica",
+          "actionName": "Index",
+          "linkText": "Carac. Juridica",
+          "iconText": "fa fa-university mr-3",
           "sub": null
         }
       ]
@@ -488,11 +527,18 @@
           "order": 7,
           "controllerName": "ActividadesDiarias",
           "actionName": "Crear",
-          "linkText": "Res. ACtividades",
-          "iconText": "fa fa-clipboard mr-3",
+          "linkText": "Res. Actividades",
+          "iconText": "fa fa-tablet mr-3",
+          "sub": null
+        },
+        {
+          "order": 8,
+          "controllerName": "CaracterizacionJuridica",
+          "actionName": "Index",
+          "linkText": "Carac. Juridica",
+          "iconText": "fa fa-university mr-3",
           "sub": null
         }
-
       ]
     },
     {
@@ -570,10 +616,17 @@
           "controllerName": "ActividadesDiarias",
           "actionName": "Crear",
           "linkText": "Res. Actividades",
-          "iconText": "fa fa-clipboard mr-3",
+          "iconText": "fa fa-tablet mr-3",
+          "sub": null
+        },
+        {
+          "order": 8,
+          "controllerName": "CaracterizacionJuridica",
+          "actionName": "Index",
+          "linkText": "Carac. Juridica",
+          "iconText": "fa fa-university mr-3",
           "sub": null
         }
-
       ]
     },
     {
@@ -650,11 +703,18 @@
           "order": 7,
           "controllerName": "ActividadesDiarias",
           "actionName": "Crear",
-          "linkText": "Res. ACtividades",
-          "iconText": "fa fa-clipboard mr-3",
+          "linkText": "Res. Actividades",
+          "iconText": "fa fa-tablet mr-3",
+          "sub": null
+        },
+        {
+          "order": 8,
+          "controllerName": "CaracterizacionJuridica",
+          "actionName": "Index",
+          "linkText": "Carac. Juridica ",
+          "iconText": "fa fa-university mr-3",
           "sub": null
         }
-
       ]
     }
   ]

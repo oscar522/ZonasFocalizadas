@@ -141,8 +141,7 @@
                                             </td>
                                             <td>
                                                 <a href='@Url.Action("../Concepto/Edit", "Edit", new { IdTable = item.Id })' title='Modificar' style='color: #013ADF;'><i class='fa fa-refresh' aria-hidden='true'></i></a>
-                                                <a href='@Url.Action("../Concepto/Details", "Details", new { IdTable = item.Id })' title='Modificar' style='color: #013ADF;'><i class='fa fa-search' aria-hidden='true'></i></a>
-                                                <a href="#" title="Detalle" style="color: #013ADF;"><i class="fa fa-times-circle" aria-hidden="true"></i> </a>
+                                                <a href='@Url.Action("../Concepto/Delete", "Details", new { IdTable = item.Id })' title='Modificar' class="Delete" style='color: #013ADF;'><i class='fa fa-times-circle' aria-hidden='true'></i></a>
                                             </td>
                                         </tr>
                                         }
@@ -161,6 +160,24 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+
+            ///////////////////////////////////////
+                    ////// Catalogo de causales de conceptos
+                        $.ajax({
+                            type: 'POST',
+                            url: '@Url.Action("DataLogin")', // we are calling json method
+                            dataType: 'json',
+                            success: function(states) {
+                                //   alert("ok_pais");
+                                debugger;
+                                if (states.Rol != "Lider") {
+                                    $(".Delete").hide();
+                                }
+                            },
+                            error: function (ex) {
+                                console.log(ex.responseText);
+                            }
+                        });
 
             var oTable = $('#table_id').dataTable({
 

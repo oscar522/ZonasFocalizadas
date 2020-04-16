@@ -71,6 +71,16 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             return Json(processModel, JsonRequestBehavior.AllowGet);
         }
 
+        public  ActionResult DataLogin()
+        {
+            ConceptoMvcModel user = new ConceptoMvcModel();
+            //user.Id = 5;
+            user.NombreAspNetUsers = GetTokenObject().FullName;
+            user.IdAspNetUsers = GetTokenObject().nameid;
+            user.Rol = GetTokenObject().role;
+            return Json(user, JsonRequestBehavior.AllowGet);
+        }
+
         public async Task<ActionResult> DeleteUsuarionceptos(string Id)
         {
             string Controller = "Concepto";
@@ -119,6 +129,7 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             string result = await employeeProvider.Get(Id, Controller, Method);
             var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
             List<ConceptoModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ConceptoModel>>(jsonResult.ToString());
+
             return View(processModel);
         }
 
@@ -442,11 +453,19 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
         {
             string Id = IdTable.ToString();
             string Controller = "Concepto";
-            string Method = "getConceptoid";
-            string result = await employeeProvider.Get(Id, Controller, Method);
+            string Method = "getConceptodelete";
+            string result = await employeeProvider.Delete(Controller, Method, Id); // ----------- //
             var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
-            ConceptoModel processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<ConceptoModel>(jsonResult.ToString());
-            return PartialView(processModel);
+            var processModel = (jsonResult.ToString());
+            if (processModel.Equals(""))
+            {
+                ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+                return Json(ModelState);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
         }
 
         [HttpPost]
@@ -996,9 +1015,11 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
                     if (ObjData.Archivo != null)
                     {
                         HttpPostedFileBase fileSoporte = ObjData.Archivo;
+                        var ext = Path.GetExtension(ObjData.Archivo.FileName);
+
                         if (fileSoporte.ContentLength > 0)
                         {
-                            string filename = string.Format("{0}_C_{1}_F_{2}.pdf", ObjData.NombreIdSoporte, ObjData.IdConcepto, FechaFor);
+                            string filename = string.Format("{0}_C_{1}_F_{2}{3}", ObjData.NombreIdSoporte, ObjData.IdConcepto, FechaFor, ext);
                             ConceptoGestionModel.Archivo = filename;
 
                             filename = Path.Combine(ruta, filename);
