@@ -300,7 +300,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="IdOrfeo" Type="text" />
     <Property Name="TerminoDias" Type="int" />
     <Property Name="NombrePredio" Type="nvarchar(max)" />
-    <Property Name="Observacion" Type="nchar" MaxLength="10" />
+    <Property Name="Observacion" Type="varchar(max)" />
     <Property Name="Estado" Type="bit" />
     <Property Name="FechaCreacion" Type="datetime" />
   </EntityType>
