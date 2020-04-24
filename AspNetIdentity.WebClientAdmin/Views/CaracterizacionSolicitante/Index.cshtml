@@ -200,7 +200,7 @@
                                     }
 
 
-                                    if (item.VFechaSolicitante == null)
+                                    if (item.VFechaSolicitante == null || item.VFechaConyuge.Equals("1/01/1900 12:00:00 a. m."))
                                     {
                                         <td>  </td>
                                     }
@@ -209,14 +209,11 @@
                                         <td> @Html.DisplayFor(modelItem => item.VFechaSolicitante) </td>
                                     }
 
-
-
-
                                     <td>
                                         @Html.DisplayFor(modelItem => item.VArchivoSolicitante)
                                     </td>
 
-                                    if (item.VFechaConyuge == null)
+                                    if (item.VFechaConyuge == null || item.VFechaConyuge.Equals("1/01/1900 12:00:00 a. m.") )
                                     {
                                         <td>  </td>
                                     }
@@ -224,11 +221,7 @@
                                     {
                                         <td> @Html.DisplayFor(modelItem => item.VFechaConyuge) </td>
                                     }
-
-
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.VFechaConyuge)
-                                    </td>
+                                  
                                     <td>
                                         @Html.DisplayFor(modelItem => item.VArchivoConyuge)
                                     </td>
