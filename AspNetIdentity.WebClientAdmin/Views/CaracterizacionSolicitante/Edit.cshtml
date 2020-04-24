@@ -672,6 +672,70 @@
             $('#AArchivoSolicitanteNombre').html("<a target='_blank' href='"+ UrlValid +"/" + "@Model.AArchivoSolicitanteNombre" + "' >'"+ "@Model.AArchivoSolicitanteNombre"+"' </a>")
             $('#AArchivoConyugeNombre').html("<a target='_blank' href='"+ UrlValid +"/" + "@Model.AArchivoConyugeNombre" + "' >'"+ "@Model.AArchivoConyugeNombre"+"' </a>")
 
+            if ('@Model.Gestion' != null) {
+
+
+
+                if ('@Model.NombreSolicitante' != null) {
+                    $("#Ortografia-1-1").prop("checked", true);
+                }
+
+                if ('@Model.NumeroIdentificacion' != null) {
+                    $("#Ortografia-1-3").prop("checked", true);
+                }
+
+                if ('@Model.NombreConyuge' != null) {
+                    $("#Ortografia-1-5").prop("checked", true);
+                }
+
+                if ('@Model.NumeroIdentificacionConyuge' != null) {
+                    $("#Ortografia-1-7").prop("checked", true);
+                }
+
+
+
+                if ('@Model.VArchivoSolicitanteNombre' != null) {
+                    $("#Vigencia-1-1").prop("checked", true);
+                }
+
+                if ('@Model.VArchivoConyugeNombre' != null) {
+                    $("#Vigencia-1-3").prop("checked", true);
+                }
+
+
+                if ('@Model.PArchivoSolicitanteNombre' != null) {
+                    $("#Pro-1-1").prop("checked", true);
+                }
+
+                if ('@Model.PArchivoConyugeNombre' != null) {
+                    $("#Pro-1-3").prop("checked", true);
+                }
+            
+
+                if ('@Model.CArchivoSolicitanteNombre' != null) {
+                    $("#Contra-1-1").prop("checked", true);
+                }
+
+                if ('@Model.CArchivoConyugeNombre' != null) {
+                    $("#Contra-1-3").prop("checked", true);
+                }
+
+
+                if ('@Model.AArchivoSolicitanteNombre' != null) {
+                    $("#Ante-1-1").prop("checked", true);
+                }
+
+                if ('@Model.AArchivoConyugeNombre' != null) {
+                    $("#Ante-1-3").prop("checked", true);
+                }
+
+
+               
+
+
+
+
+            }
         });
 
         function DateConvert(date) {
