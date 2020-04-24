@@ -753,7 +753,7 @@
              if (res[2].length == 1) {
                 Add3 = "0";
             }
-            var ResDate = Add3+res[2].replace(" 00:00:00","")+"-"+Add2+res[1]+"-"+Add1+res[0];
+            var ResDate = Add3+res[2].replace(" 00:00:00","").replace(" 12:00:00 a. m.","")+"-"+Add2+res[1]+"-"+Add1+res[0];
 
             return ResDate;
         }
