@@ -238,6 +238,7 @@
     <Compile Include="Controllers\AccountTableController.cs" />
     <Compile Include="Controllers\ConceptosGestionController.cs" />
     <Compile Include="Controllers\CaracterizacionJuridicaController.cs" />
+    <Compile Include="Controllers\CaracterizacionSolicitanteController.cs" />
     <Compile Include="Controllers\TipoActividadController.cs" />
     <Compile Include="Controllers\ActividadesDiariasController.cs" />
     <Compile Include="Controllers\AssessmentsController.cs" />
@@ -268,6 +269,7 @@
     <Compile Include="Logic\AccountTableLogic.cs" />
     <Compile Include="Logic\ConceptoGestionLogic.cs" />
     <Compile Include="Logic\CaracterizacionJuridicaLogic.cs" />
+    <Compile Include="Logic\CaracterizacionSolicitanteLogic.cs" />
     <Compile Include="Logic\TipoActividadLogic.cs" />
     <Compile Include="Logic\AssessmentsLogic.cs" />
     <Compile Include="Logic\AdministratorLogic.cs" />
@@ -329,6 +331,9 @@
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CaracterizacionJuridicaCatalogos.cs">
+      <DependentUpon>ZonasFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CaracterizacionSolicitante.cs">
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ClaimBindingModel.cs" />

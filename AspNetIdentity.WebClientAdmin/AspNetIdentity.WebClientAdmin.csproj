@@ -196,6 +196,7 @@
     <Compile Include="Controllers\ConceptoController.cs" />
     <Compile Include="Controllers\ActividadesDiariasController.cs" />
     <Compile Include="Controllers\CaracterizacionJuridicaController.cs" />
+    <Compile Include="Controllers\CaracterizacionSolicitanteController.cs" />
     <Compile Include="Controllers\HomeUsuariosController.cs" />
     <Compile Include="Controllers\RegistroController.cs" />
     <Compile Include="Controllers\ExpedienteDocumentosController.cs" />
@@ -215,6 +216,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CaracterizacionSolicitanteViewModels.cs" />
     <Compile Include="Models\ConceptoGestionViewModels.cs" />
     <Compile Include="Models\ConceptoMvcModel.cs" />
     <Compile Include="Models\ConfigModel.cs" />
@@ -961,6 +963,11 @@
     <Content Include="Views\CaracterizacionJuridica\Edit.cshtml" />
     <Content Include="Views\CaracterizacionJuridica\Details.cshtml" />
     <Content Include="Views\CaracterizacionJuridica\Delete.cshtml" />
+    <Content Include="Views\CaracterizacionSolicitante\Index.cshtml" />
+    <Content Include="Views\CaracterizacionSolicitante\Crear.cshtml" />
+    <Content Include="Views\CaracterizacionSolicitante\Edit.cshtml" />
+    <Content Include="Views\CaracterizacionSolicitante\Details.cshtml" />
+    <Content Include="Views\CaracterizacionSolicitante\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

@@ -27,6 +27,7 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <input type="hidden" value="@Model.IdAspNetUsers" id="IdAspNetUsers" name="IdAspNetUsers" />
+    <input type="hidden" value="" id="IdAspNetUsersLogin" name="IdAspNetUsersLogin" />
     <input type="hidden" value="@Model.IdCausa" id="IIdCausa" name="IIdCausa" />
     <input type="hidden" value="@Model.NombreCausa" id="NombreCausa" name="NombreCausa" />
     <input type="hidden" value="@Model.FechaCreacion" id="FechaCreacionConcepto" name="FechaCreacionConcepto" />
@@ -329,126 +330,126 @@
 }
 @using (Html.BeginForm("CrearGestion", "Concepto", FormMethod.Post, new { enctype = "multipart/form-data", id = "CrearGestionForm" }))
 {
-<div class="row col-xl-12 d-sm-flex">
-    <div class="col-xl-4">
-        <div class="card  ">
-            <div class="card-body">
-                <input type="hidden"  name="Id"                     value="0"                           id="Id"  />
-                <input type="hidden"  name="IdConcepto"             value="@Model.Id"                   id="IdConcepto"  />
-                <input type="hidden"  name="NombreIdEstado"         value="N_A"                         id="NombreIdEstado"  />
-                <input type="hidden"  name="NombreIdSoporte"        value="N_A"                         id="NombreIdSoporte"  />
-                <input type="hidden"  name="RolGestion"             value="@Model.NombreCausa"          id="RolGestion"  />
-                <input type="hidden"  name="RolConcepto"            value="@Model.Rol"                  id="RolConcepto"  />
-                <input type="hidden"  name="IdAspNetUserGestion"    value="@Model.UserAsociado"         id="IdAspNetUserGestion"  />
-                <input type="hidden"  name="IdAspNetUserConcepto"   value="@Model.IdAspNetUsers"        id="IdAspNetUserConcepto"  />
-                <input type="hidden"  name="NombreAspNetUsers"      value="@Model.NombreAspNetUsers"    id="NombreAspNetUsers"  />
-                <dir id="RutasAnexo" ></dir>
-                <dir id="RutasSoporte" ></dir>
+    <div class="row col-xl-12 d-sm-flex">
+        <div class="col-xl-4">
+            <div class="card  ">
+                <div class="card-body">
+                    <input type="hidden"  name="Id"                     value="0"                           id="Id"  />
+                    <input type="hidden"  name="IdConcepto"             value="@Model.Id"                   id="IdConcepto"  />
+                    <input type="hidden"  name="NombreIdEstado"         value="N_A"                         id="NombreIdEstado"  />
+                    <input type="hidden"  name="NombreIdSoporte"        value="N_A"                         id="NombreIdSoporte"  />
+                    <input type="hidden"  name="RolGestion"             value="@Model.NombreCausa"          id="RolGestion"  />
+                    <input type="hidden"  name="RolConcepto"            value="@Model.Rol"                  id="RolConcepto"  />
+                    <input type="hidden"  name="IdAspNetUserGestion"    value="@Model.UserAsociado"         id="IdAspNetUserGestion"  />
+                    <input type="hidden"  name="IdAspNetUserConcepto"   value="@Model.IdAspNetUsers"        id="IdAspNetUserConcepto"  />
+                    <input type="hidden"  name="NombreAspNetUsers"      value="@Model.NombreAspNetUsers"    id="NombreAspNetUsers"  />
+                    <dir id="RutasAnexo" ></dir>
+                    <dir id="RutasSoporte" ></dir>
 
-                <div class="col-sm-12">
-                    <h5>Gestion</h5>
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-                </div>
-                <br />
-                <div class="col-sm-12">
-                    <div class="row">
-                        <label class="control-label col-sm-6"> Actualizar Estado </label>
-                        <select class="form-control col-sm-6" id="IdEstado" name="IdEstado">
-                            <option>Seleccione</option>
-                        </select>
-                        <span class="field-validation-valid text-danger col-sm-12" data-valmsg-for="IdEstado" data-valmsg-replace="true"></span>
-                    </div>
-                </div>
-                <br />
-                <div class="col-sm-12">
-                    <div class="row">
-                        <label class="control-label col-sm-6"> Soporte </label>
-                        <select class="form-control col-sm-6" id="IdSoporte" name="IdSoporte">
-                            <option>Seleccione</option>
-                        </select>
-                        <span class="field-validation-valid text-danger col-sm-12" data-valmsg-for="IdSoporte" data-valmsg-replace="true"></span>
-                    </div>
-                </div>
-                <br />
-                <div class="col-sm-12">
-                    <div class="row">
-                        <input type="file" name="Archivo" class="form-control col-sm-12">
-                        <span class="field-validation-valid text-danger col-sm-12" data-valmsg-for="Archivo" data-valmsg-replace="true"></span>
+                    <div class="col-sm-12">
+                        <h5>Gestion</h5>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
                     </div>
-                </div>
-                <div class="col-sm-12">
-                    <div class="row">
-                        <div class="col-sm-12 ">
-                            <div class="progress  ">
-                                <div id="BarGestion" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                    <br />
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <label class="control-label col-sm-6"> Actualizar Estado </label>
+                            <select class="form-control col-sm-6" id="IdEstado" name="IdEstado">
+                                <option>Seleccione</option>
+                            </select>
+                            <span class="field-validation-valid text-danger col-sm-12" data-valmsg-for="IdEstado" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <label class="control-label col-sm-6"> Soporte </label>
+                            <select class="form-control col-sm-6" id="IdSoporte" name="IdSoporte">
+                                <option>Seleccione</option>
+                            </select>
+                            <span class="field-validation-valid text-danger col-sm-12" data-valmsg-for="IdSoporte" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <input type="file" name="Archivo" class="form-control col-sm-12">
+                            <span class="field-validation-valid text-danger col-sm-12" data-valmsg-for="Archivo" data-valmsg-replace="true"></span>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-12 ">
+                                <div class="progress  ">
+                                    <div id="BarGestion" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <br />
-                <div class="col-sm-12">
-                    <div class="row">
-                        <label class="control-label col-sm-12" for="GestionObservacion">Observaciones</label>
-                        <textarea class="form-control col-sm-12" cols="20" id="GestionObservacion" name="GestionObservacion" rows="4" ></textarea>
-                        <span class="field-validation-valid text-danger col-sm-12" data-valmsg-for="GestionObservacion" data-valmsg-replace="true"></span>
+                    <br />
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <label class="control-label col-sm-12" for="GestionObservacion">Observaciones</label>
+                            <textarea class="form-control col-sm-12" cols="20" id="GestionObservacion" name="GestionObservacion" rows="4" ></textarea>
+                            <span class="field-validation-valid text-danger col-sm-12" data-valmsg-for="GestionObservacion" data-valmsg-replace="true"></span>
+                        </div>
                     </div>
-                </div>
-                <br />
-                <div class="col-sm-12 align-content-center text-center">
-                    <a href="#" id="GuardarGestion" class="btn btn-green "> Guardar </a>
+                    <br />
+                    <div class="col-sm-12 align-content-center text-center">
+                        <a href="#" id="GuardarGestion" class="btn btn-green "> Guardar </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="col-xl-8">
-        <div class="card  ">
-            <div class="card-body">
-                <div class="col-sm-12">
-                    <h5>Resumen de Gestion</h5>
-                </div>
-                <br />
-                <div class="col-sm-12">
-                    <div class=" ">
-                        <table class="table table-hover " id="table_Gestion">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        Id
-                                    </th>
-                                    <th>
-                                        Fecha
-                                    </th>
-                                    <th>
-                                        Estado
-                                    </th>
-                                    <th>
-                                        Soporte
-                                    </th>
-                                    <th>
-                                        Rol
-                                    </th>
-                                    <th>
-                                        Nombre
-                                    </th>
-                                    <th>
-                                        Observacion
-                                    </th>
-                                    <th>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
+        <div class="col-xl-8">
+            <div class="card  ">
+                <div class="card-body">
+                    <div class="col-sm-12">
+                        <h5>Resumen de Gestion</h5>
+                    </div>
+                    <br />
+                    <div class="col-sm-12">
+                        <div class=" ">
+                            <table class="table table-hover " id="table_Gestion">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Id
+                                        </th>
+                                        <th>
+                                            Fecha
+                                        </th>
+                                        <th>
+                                            Estado
+                                        </th>
+                                        <th>
+                                            Soporte
+                                        </th>
+                                        <th>
+                                            Rol
+                                        </th>
+                                        <th>
+                                            Nombre
+                                        </th>
+                                        <th>
+                                            Observacion
+                                        </th>
+                                        <th>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 }
 
 
@@ -456,6 +457,14 @@
 
     <script>
         $(document).ready(function () {
+
+            var users = '@Model.IdAspNetUsers';
+            var res = users.split("|");
+
+            $('#IdAspNetUsers').val(res[0]);
+            $('#IdAspNetUsersLogin').val(res[1]);
+            
+
             
             //if ('@Model.UserAsociado' != '@Model.IdAspNetUsers' ) {
                 $("#CrearForm input[type='submit'] ").hide();

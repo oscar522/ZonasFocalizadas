@@ -17,5 +17,6 @@ namespace AspNetIdentity.WebApi.Models
         public int ID_CT_TIPO_IDENTIFICACION { get; set; }
         public string NOMBRE { get; set; }
         public Nullable<int> ESTADO { get; set; }
+        public string NOMBRE2 { get; set; }
     }
 }

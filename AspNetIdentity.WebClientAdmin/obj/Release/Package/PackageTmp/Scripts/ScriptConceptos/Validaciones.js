@@ -620,15 +620,39 @@ $(document).ready(function () {
 			            data: { key: $("#Id").val() },
 			            success: function (s) {
 			                oTableAsociados.fnClearTable();
-			                $.each(s, function (i, obj) {
-			                    if ($("#IdAspNetUserGestion").val() != obj.IdAspNetUsers && $("#RolGestion").val() != "Lider" ){
+                            $.each(s, function (i, obj) {
 
-									$("#CrearGestionForm input[type='submit'] ").hide();
-				                	$("#CrearGestionForm input").prop("disabled", true);
-				                	$("#CrearGestionForm a").hide();
-				                	$("#CrearGestionForm select").prop("disabled", true);
-				                	$("#CrearGestionForm textarea").prop("disabled", true);
-			                    }
+
+            					if ($("#IdAspNetUsers").val() == $("#IdAspNetUsersLogin").val()) {
+                                    
+                                } else
+                                if ($("#RolGestion").val() == "Lider") {
+                                    
+                                } else 
+                                if ($("#IdAspNetUserGestion").val() == obj.IdAspNetUsers) {
+                                    
+                                } else                            	
+                                if ($("#IdAspNetUserGestion").val() != obj.IdAspNetUsers) {
+                                    $("#CrearGestionForm input[type='submit'] ").hide();
+                                    $("#CrearGestionForm input").prop("disabled", true);
+                                    $("#CrearGestionForm a").hide();
+                                    $("#CrearGestionForm select").prop("disabled", true);
+                                    $("#CrearGestionForm textarea").prop("disabled", true);
+                                }else
+                                if ($("#RolGestion").val() != "Lider") {
+                                    $("#CrearGestionForm input[type='submit'] ").hide();
+                                    $("#CrearGestionForm input").prop("disabled", true);
+                                    $("#CrearGestionForm a").hide();
+                                    $("#CrearGestionForm select").prop("disabled", true);
+                                    $("#CrearGestionForm textarea").prop("disabled", true);
+                                } else
+                                if ($("#IdAspNetUsers").val() != $("#IdAspNetUsersLogin").val()) {
+                                    $("#CrearGestionForm input[type='submit'] ").hide();
+                                    $("#CrearGestionForm input").prop("disabled", true);
+                                    $("#CrearGestionForm a").hide();
+                                    $("#CrearGestionForm select").prop("disabled", true);
+                                    $("#CrearGestionForm textarea").prop("disabled", true);
+                                } 
 
 			                    debugger;
 

@@ -79,11 +79,19 @@
           "sub": null
         },
         {
-          "order": 8,
+          "order" : 8 ,
           "controllerName": "CaracterizacionJuridica",
           "actionName": "Index",
           "linkText": "Carac. Juridica",
           "iconText": "fa fa-university mr-3",
+          "sub": null
+        },
+        {
+          "order": 9,
+          "controllerName": "CaracterizacionSolicitante",
+          "actionName": "Index",
+          "linkText": "Carac. Solicitante",
+          "iconText": "fa fa-address-card mr-3",
           "sub": null
         }
       ]
@@ -173,6 +181,14 @@
           "linkText": "Carac. Juridica",
           "iconText": "fa fa-university mr-3",
           "sub": null
+        },
+        {
+          "order": 9,
+          "controllerName": "CaracterizacionSolicitante",
+          "actionName": "Index",
+          "linkText": "Carac. Solicitante",
+          "iconText": "fa fa-address-card mr-3",
+          "sub": null
         }
       ]
     },
@@ -260,6 +276,14 @@
           "actionName": "Index",
           "linkText": "Carac. Juridica",
           "iconText": "fa fa-university mr-3",
+          "sub": null
+        },
+        {
+          "order": 9,
+          "controllerName": "CaracterizacionSolicitante",
+          "actionName": "Index",
+          "linkText": "Carac. Solicitante",
+          "iconText": "fa fa-address-card mr-3",
           "sub": null
         }
       ]
@@ -349,6 +373,14 @@
           "linkText": "Carac. Juridica",
           "iconText": "fa fa-university mr-3",
           "sub": null
+        },
+        {
+          "order": 9,
+          "controllerName": "CaracterizacionSolicitante",
+          "actionName": "Index",
+          "linkText": "Carac. Solicitante",
+          "iconText": "fa fa-address-card mr-3",
+          "sub": null
         }
       ]
     },
@@ -436,6 +468,14 @@
           "actionName": "Index",
           "linkText": "Carac. Juridica",
           "iconText": "fa fa-university mr-3",
+          "sub": null
+        },
+        {
+          "order": 9,
+          "controllerName": "CaracterizacionSolicitante",
+          "actionName": "Index",
+          "linkText": "Carac. Solicitante",
+          "iconText": "fa fa-address-card mr-3",
           "sub": null
         }
       ]
@@ -538,6 +578,14 @@
           "linkText": "Carac. Juridica",
           "iconText": "fa fa-university mr-3",
           "sub": null
+        },
+        {
+          "order": 9,
+          "controllerName": "CaracterizacionSolicitante",
+          "actionName": "Index",
+          "linkText": "Carac. Solicitante",
+          "iconText": "fa fa-address-card mr-3",
+          "sub": null
         }
       ]
     },
@@ -626,6 +674,14 @@
           "linkText": "Carac. Juridica",
           "iconText": "fa fa-university mr-3",
           "sub": null
+        },
+        {
+          "order": 9,
+          "controllerName": "CaracterizacionSolicitante",
+          "actionName": "Index",
+          "linkText": "Carac. Solicitante",
+          "iconText": "fa fa-address-card mr-3",
+          "sub": null
         }
       ]
     },
@@ -713,6 +769,14 @@
           "actionName": "Index",
           "linkText": "Carac. Juridica ",
           "iconText": "fa fa-university mr-3",
+          "sub": null
+        },
+        {
+          "order": 9,
+          "controllerName": "CaracterizacionSolicitante",
+          "actionName": "Index",
+          "linkText": "Carac. Solicitante",
+          "iconText": "fa fa-address-card mr-3",
           "sub": null
         }
       ]

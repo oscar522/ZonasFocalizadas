@@ -44,6 +44,7 @@
     <Property Name="ID_CT_TIPO_IDENTIFICACION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NOMBRE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ESTADO" Type="Int32" />
+    <Property Name="NOMBRE2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -279,6 +280,7 @@
     <EntitySet Name="ConceptoGestion" EntityType="ZonasFModel.ConceptoGestion" />
     <EntitySet Name="CaracterizacionJuridicaCatalogos" EntityType="ZonasFModel.CaracterizacionJuridicaCatalogos" />
     <EntitySet Name="CaracterizacionJuridica" EntityType="ZonasFModel.CaracterizacionJuridica" />
+    <EntitySet Name="CaracterizacionSolicitante" EntityType="ZonasFModel.CaracterizacionSolicitante" />
   </EntityContainer>
   <EntityType Name="ExpedienteDocumentos">
     <Key>
@@ -484,7 +486,7 @@
     <Property Name="IdCausa" Type="Int32" />
     <Property Name="IdOrfeo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="TerminoDias" Type="Int32" />
-    <Property Name="Observacion" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Estado" Type="Boolean" />
     <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
     <Property Name="NombrePredio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -608,5 +610,45 @@
     <Property Name="IdAspNetUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Gestion" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CaracterizacionSolicitante">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdExpediente" Type="Int64" />
+    <Property Name="NombreSolicitante" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TipoDocumento" Type="Int32" />
+    <Property Name="NumeroIdentificacion" Type="Int64" />
+    <Property Name="NombreConyuge" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TipoDocumentoConyuge" Type="Int32" />
+    <Property Name="NumeroIdentificacionConyuge" Type="Int64" />
+    <Property Name="VFechaSolicitante" Type="DateTime" Precision="0" />
+    <Property Name="VArchivoSolicitante" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="VFechaConyuge" Type="DateTime" Precision="0" />
+    <Property Name="VArchivoConyuge" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PFechaSolicitante" Type="DateTime" Precision="0" />
+    <Property Name="PArchivoSolicitante" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PFechaConyuge" Type="DateTime" Precision="0" />
+    <Property Name="PArchivoConyuge" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CFechaSolicitante" Type="DateTime" Precision="0" />
+    <Property Name="CArchivoSolicitante" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CFechaConyuge" Type="DateTime" Precision="0" />
+    <Property Name="CArchivoConyuge" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AFechaSolicitante" Type="DateTime" Precision="0" />
+    <Property Name="AArchivoSolicitante" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AFechaConyuge" Type="DateTime" Precision="0" />
+    <Property Name="AArchivoConyuge" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Gestion" Type="Int32" />
+    <Property Name="IdAspNetUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Estado" Type="Boolean" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="FModificacionExp" Type="DateTime" Precision="3" />
+    <Property Name="VFModificacion" Type="DateTime" Precision="3" />
+    <Property Name="PFModificacion" Type="DateTime" Precision="3" />
+    <Property Name="CFModificacion" Type="DateTime" Precision="3" />
+    <Property Name="AFModificacion" Type="DateTime" Precision="3" />
+    <Property Name="FechaExpedicionSolicitante" Type="DateTime" Precision="0" />
+    <Property Name="FechaExpedicionConyuge" Type="DateTime" Precision="0" />
   </EntityType>
 </Schema>

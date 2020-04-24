@@ -18,7 +18,7 @@ namespace AspNetIdentity.WebApi.Logic
                 CaracterizacionJuridica Nuevo = new CaracterizacionJuridica
                 {
                     Id = a.Id,
-                    IdExpediente = a.IdExpediente,
+                    IdExpediente = a.IdExpediente.Value,
                     INSPECCION_OCULAR_INSPECCION_OCULAR_53 = a.INSPECCION_OCULAR_INSPECCION_OCULAR_53,
                     INSPECCION_OCULAR_FECHA_54 = a.INSPECCION_OCULAR_FECHA_54,
                     INSPECCION_OCULAR_FIRMA_55 = a.INSPECCION_OCULAR_FIRMA_55,
@@ -257,129 +257,102 @@ namespace AspNetIdentity.WebApi.Logic
         public CaracterizacionJuridicaModel ConsultarId(int id)
         {
             ZonasFEntities Ctx = new ZonasFEntities();
-            CaracterizacionJuridicaModel  lista = Ctx.CaracterizacionJuridica.Where(x => x.Id == id)
+
+            var a = Ctx.CaracterizacionJuridica.Where(x => x.Id == id)
                 .Join(Ctx.Users, b => b.IdAspNetUser, c => c.Id_Hash, (b, c) => new { b, c })
                 .Join(Ctx.AspNetUserRoles, b => b.c.Id_Hash, c => c.UserId, (b, c) => new { c.RoleId, b.b, b.c })
                 .Join(Ctx.AspNetRoles, b => b.RoleId, c => c.Id, (b, c) => new { b.b, b.c, c.Name })
-                .Join(Ctx.CaracterizacionJuridicaCatalogos, b => b.b.INSPECCION_OCULAR_CONCEPTO_57, d => d.Id, (b, d) => new { b.Name, b.b, b.c, d })
-                .Join(Ctx.CaracterizacionJuridicaCatalogos, b => b.b.ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61, e => e.Id, (b, e) => new { b.Name, b.b, b.c, b.d, e })
-                .Join(Ctx.CaracterizacionJuridicaCatalogos, b => b.b.FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73, f => f.Id, (b, f) => new { b.Name, b.b, b.c, b.d, b.e, f })
-                .Join(Ctx.CaracterizacionJuridicaCatalogos, b => b.b.RESOLUCION_DECISION_78, g => g.Id, (b, g) => new { b.Name, b.b, b.c, b.d, b.e, b.f, g })
-                .Join(Ctx.CaracterizacionJuridicaCatalogos, b => b.b.RESOLUCION_CONJUNTA_INDIVIDUAL_80, h => h.Id, (b, h) => new { b.Name, b.b, b.c, b.d, b.e, b.f, b.g, h })
-                .Join(Ctx.CaracterizacionJuridicaCatalogos, b => b.b.RECURSO_SOLICITANTE_ACTO_89, i => i.Id, (b, i) => new { b.Name, b.b, b.c, b.d, b.e, b.f, b.g, b.h, i })
-                .Join(Ctx.CaracterizacionJuridicaCatalogos, b => b.b.RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92, j => j.Id, (b, j) => new { b.Name, b.b, b.c, b.d, b.e, b.f, b.g, b.h, b.i, j })
-                .Join(Ctx.CaracterizacionJuridicaCatalogos, b => b.b.RECURSO_MINISTERIO_ACTO_101, k => k.Id, (b, k) => new { b.Name, b.b, b.c, b.d, b.e, b.f, b.g, b.h, b.i, b.j, k })
-                .Join(Ctx.CaracterizacionJuridicaCatalogos, b => b.b.RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104, l => l.Id, (b, l) => new { b.Name, b.b, b.c, b.d, b.e, b.f, b.g, b.h, b.i, b.j, b.k, l })
-                .Join(Ctx.BaldiosPersonaNatural, b => b.b.IdExpediente, ll => ll.id, (b, ll) => new {b.l,ll.NumeroExpediente, b.Name, b.b, b.c, b.d, b.e, b.f, b.g, b.h, b.i, b.j, b.k, ll })
-                .Select(a => new CaracterizacionJuridicaModel
-                {
-                    Id = a.b.Id,
-                    IdExpediente = a.b.IdExpediente,
-                    NumeroExpediente = a.NumeroExpediente,
-                    INSPECCION_OCULAR_INSPECCION_OCULAR_53 = a.b.INSPECCION_OCULAR_INSPECCION_OCULAR_53.Value,
-                    INSPECCION_OCULAR_FECHA_54 = a.b.INSPECCION_OCULAR_FECHA_54.Value,
-                    INSPECCION_OCULAR_FIRMA_55 = a.b.INSPECCION_OCULAR_FIRMA_55.Value,
-                    INSPECCION_OCULAR_OPOSICIONES_56 = a.b.INSPECCION_OCULAR_OPOSICIONES_56.Value,
-                    INSPECCION_OCULAR_CONCEPTO_57 = a.b.INSPECCION_OCULAR_CONCEPTO_57.Value,
-                    NombreINSPECCION_OCULAR_CONCEPTO_57 = a.d.Nombre,
-                    ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58 = a.b.ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58.Value,
-                    ACLARACION_DE_INSPECCION_OCULAR_FECHA_59 = a.b.ACLARACION_DE_INSPECCION_OCULAR_FECHA_59.Value,
-                    ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60 = a.b.ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60.Value,
-                    ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61 = a.b.ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61.Value,
-                    NombreACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61 = a.e.Nombre,
-                    ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62 = a.b.ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62.Value,
-                    ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63 = a.b.ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63.Value,
-                    FIJACION_EN_LISTA_FIJACION_EN_LISTA_64 = a.b.FIJACION_EN_LISTA_FIJACION_EN_LISTA_64.Value,
-                    FIJACION_EN_LISTA_FECHA_DE_FIJACION_65 = a.b.FIJACION_EN_LISTA_FECHA_DE_FIJACION_65.Value,
-                    FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66 = a.b.FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66.Value,
-                    FIJACION_EN_LISTA_FIRMA_67 = a.b.FIJACION_EN_LISTA_FIRMA_67.Value,
-                    OPOCISIONES_OPOCISIONES_68 = a.b.OPOCISIONES_OPOCISIONES_68.Value,
-                    OPOCISIONES_FECHA_69 = a.b.OPOCISIONES_FECHA_69.Value,
-                    FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70 = a.b.FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70.Value,
-                    FORMATO_DE_REVISION_JURIDICA_FECHA_71 = a.b.FORMATO_DE_REVISION_JURIDICA_FECHA_71.Value,
-                    FORMATO_DE_REVISION_JURIDICA_FIRMADA_72 = a.b.FORMATO_DE_REVISION_JURIDICA_FIRMADA_72.Value,
-                    FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73 = a.b.FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73.Value,
-                    NombreFORMATO_DE_REVISION_JURIDICA_CONCEPTO_73 = a.f.Nombre,
-                    RESOLUCION_RESOLUCION_74 = a.b.RESOLUCION_RESOLUCION_74.Value,
-                    RESOLUCION_NUMERO_DE_RESOLUCION_75 = a.b.RESOLUCION_NUMERO_DE_RESOLUCION_75.Value,
-                    RESOLUCION_FECHA_DE_RESOLUCION_76 = a.b.RESOLUCION_FECHA_DE_RESOLUCION_76.Value,
-                    RESOLUCION_FIRMADA_77 = a.b.RESOLUCION_FIRMADA_77.Value,
-                    RESOLUCION_DECISION_78 = a.b.RESOLUCION_DECISION_78.Value,
-                    NombreRESOLUCION_DECISION_78 = a.g.Nombre,
-                    RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79 = a.b.RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79.Value,
-                    NombreRESOLUCION_CONJUNTA_INDIVIDUAL_80 = a.h.Nombre,
-                    RESOLUCION_CONJUNTA_INDIVIDUAL_80 = a.b.RESOLUCION_CONJUNTA_INDIVIDUAL_80.Value,
-                    NOTIFICACION_NOTIFICACION_SOLICITANTES_81 = a.b.NOTIFICACION_NOTIFICACION_SOLICITANTES_81.Value,
-                    NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82 = a.b.NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82.Value,
-                    NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83 = a.b.NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83.Value,
-                    NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84 = a.b.NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84.Value,
-                    RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85 = a.b.RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85.Value,
-                    RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86 = a.b.RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86.Value,
-                    RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87 = a.b.RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87.Value,
-                    RECURSO_SOLICITANTE_FIRMADA_88 = a.b.RECURSO_SOLICITANTE_FIRMADA_88.Value,
-                    RECURSO_SOLICITANTE_ACTO_89 = a.b.RECURSO_SOLICITANTE_ACTO_89.Value,
-                    NombreRECURSO_SOLICITANTE_ACTO_89 = a.i.Nombre,
-                    RECURSO_SOLICITANTE_NUMERO_90 = a.b.RECURSO_SOLICITANTE_NUMERO_90.Value,
-                    RECURSO_SOLICITANTE_FECHA_91 = a.b.RECURSO_SOLICITANTE_FECHA_91.Value,
-                    RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92 = a.b.RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92.Value,
-                    NombreRECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92 = a.j.Nombre,
-                    RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93 = a.b.RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93.Value,
-                    RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94 = a.b.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94.Value,
-                    RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95 = a.b.RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95.Value,
-                    RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96 = a.b.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96.Value,
-                    RECURSO_MINISTERIO_RECURSO_MINISTERIO_97 = a.b.RECURSO_MINISTERIO_RECURSO_MINISTERIO_97.Value,
-                    RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98 = a.b.RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98.Value,
-                    RECURSO_MINISTERIO_RESPUESTA_RECURSO_99 = a.b.RECURSO_MINISTERIO_RESPUESTA_RECURSO_99.Value,
-                    RECURSO_MINISTERIO_FIRMADA_100 = a.b.RECURSO_MINISTERIO_FIRMADA_100.Value,
-                    RECURSO_MINISTERIO_ACTO_101 = a.b.RECURSO_MINISTERIO_ACTO_101.Value,
-                    NombreRECURSO_MINISTERIO_ACTO_101 = a.k.Nombre,
-                    RECURSO_MINISTERIO_NUMERO_102 = a.b.RECURSO_MINISTERIO_NUMERO_102.Value,
-                    RECURSO_MINISTERIO_FECHA_103 = a.b.RECURSO_MINISTERIO_FECHA_103.Value,
-                    RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104 = a.b.RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104.Value,
-                    NombreRECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104 = a.l.Nombre,
-                    RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105 = a.b.RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105.Value,
-                    RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106 = a.b.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106.Value,
-                    RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107 = a.b.RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107.Value,
-                    RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108 = a.b.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108.Value,
-                    CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109 = a.b.CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109.Value,
-                    CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110 = a.b.CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110.Value,
-                    CONSTANCIA_DE_EJECUTORIA_FIRMADA_111 = a.b.CONSTANCIA_DE_EJECUTORIA_FIRMADA_111.Value,
-                    CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112 = a.b.CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112.Value,
-                    REVOCATORIA_REVOCATORIA_113 = a.b.REVOCATORIA_REVOCATORIA_113.Value,
-                    REVOCATORIA_NUMERO_RESOLUCION_114 = a.b.REVOCATORIA_NUMERO_RESOLUCIÓN_114.Value,
-                    REVOCATORIA_FECHA_DE_RESOLUCION_115 = a.b.REVOCATORIA_FECHA_DE_RESOLUCIÓN_115.Value,
-                    REGISTRO_FMI_116 = a.b.REGISTRO_FMI_116,
-                    REGISTRO_FECHA_DE_REGISTRO_117 = a.b.REGISTRO_FECHA_DE_REGISTRO_117.Value,
-                    REGISTRO_NUMERO_DE_RESOLUCION_118 = a.b.REGISTRO_NUMERO_DE_RESOLUCION_118.Value,
-                    REGISTRO_FECHA_DE_RESOLUCION_119 = a.b.REGISTRO_FECHA_DE_RESOLUCION_119.Value,
-                    Estado = true,
-                    IdAspNetUser = a.b.IdAspNetUser,
-                    rol = a.Name,
-                    NombreIdAspNetUser = a.c.Name + " " + a.c.FirstName + " " + a.c.LastName,
-                    FechaModificacion = a.b.FechaModificacion.ToString()
-                }).FirstOrDefault();
-            
-            if (lista == null)
-            {
-                lista = Ctx.CaracterizacionJuridica.Where(x => x.Id == id)
-               .Join(Ctx.Users, b => b.IdAspNetUser, c => c.Id_Hash, (b, c) => new { b, c })
-               .Join(Ctx.AspNetUserRoles, b => b.c.Id_Hash, c => c.UserId, (b, c) => new { c.RoleId, b.b,b.c })
-               .Join(Ctx.AspNetRoles, b => b.RoleId, c => c.Id, (b, c) => new {  b.b, b.c, c.Name })
-               .Join(Ctx.BaldiosPersonaNatural, b => b.b.IdExpediente, ll => ll.id, (b, ll) => new { b.b, b.c, b.Name, ll.NumeroExpediente })
+                .Join(Ctx.BaldiosPersonaNatural, b => b.b.IdExpediente, ll => ll.id, (b, ll) => new {b.b, b.c , ll, b.Name })
+                .FirstOrDefault();
 
-               .Select(a => new CaracterizacionJuridicaModel
-               {
-                   Id = a.b.Id,
-                   IdAspNetUser = a.b.IdAspNetUser,
-                   IdExpediente = a.b.IdExpediente,
-                   NumeroExpediente = a.NumeroExpediente,
-                   NombreIdAspNetUser = a.c.Name + " " + a.c.FirstName + " " + a.c.LastName,
-                   rol = a.Name,
-                   FechaModificacion = a.b.FechaModificacion.ToString()
-               }).FirstOrDefault();
-            }
+            CaracterizacionJuridicaModel CaracterizacionJuridicaModel_ = new CaracterizacionJuridicaModel();
 
-            return lista;
+            CaracterizacionJuridicaModel_.Id = a.b.Id;
+            CaracterizacionJuridicaModel_.IdExpediente = a.b.IdExpediente;
+            CaracterizacionJuridicaModel_.NumeroExpediente = a.ll.NumeroExpediente;
+            CaracterizacionJuridicaModel_.INSPECCION_OCULAR_INSPECCION_OCULAR_53 = a.b.INSPECCION_OCULAR_INSPECCION_OCULAR_53;
+            CaracterizacionJuridicaModel_.INSPECCION_OCULAR_FECHA_54 = a.b.INSPECCION_OCULAR_FECHA_54;
+            CaracterizacionJuridicaModel_.INSPECCION_OCULAR_FIRMA_55 = a.b.INSPECCION_OCULAR_FIRMA_55;
+            CaracterizacionJuridicaModel_.INSPECCION_OCULAR_OPOSICIONES_56 = a.b.INSPECCION_OCULAR_OPOSICIONES_56;
+            CaracterizacionJuridicaModel_.INSPECCION_OCULAR_CONCEPTO_57 = a.b.INSPECCION_OCULAR_CONCEPTO_57;
+            CaracterizacionJuridicaModel_.NombreINSPECCION_OCULAR_CONCEPTO_57 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.INSPECCION_OCULAR_CONCEPTO_57.Value).Select(g => g.Nombre).FirstOrDefault();
+            CaracterizacionJuridicaModel_.ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58 = a.b.ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58;
+            CaracterizacionJuridicaModel_.ACLARACION_DE_INSPECCION_OCULAR_FECHA_59 = a.b.ACLARACION_DE_INSPECCION_OCULAR_FECHA_59;
+            CaracterizacionJuridicaModel_.ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60 = a.b.ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60;
+            CaracterizacionJuridicaModel_.ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61 = a.b.ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61;
+            CaracterizacionJuridicaModel_.NombreACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61.Value).Select(g => g.Nombre).FirstOrDefault();
+            CaracterizacionJuridicaModel_.ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62 = a.b.ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62;
+            CaracterizacionJuridicaModel_.ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63 = a.b.ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63;
+            CaracterizacionJuridicaModel_.FIJACION_EN_LISTA_FIJACION_EN_LISTA_64 = a.b.FIJACION_EN_LISTA_FIJACION_EN_LISTA_64;
+            CaracterizacionJuridicaModel_.FIJACION_EN_LISTA_FECHA_DE_FIJACION_65 = a.b.FIJACION_EN_LISTA_FECHA_DE_FIJACION_65;
+            CaracterizacionJuridicaModel_.FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66 = a.b.FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66;
+            CaracterizacionJuridicaModel_.FIJACION_EN_LISTA_FIRMA_67 = a.b.FIJACION_EN_LISTA_FIRMA_67;
+            CaracterizacionJuridicaModel_.OPOCISIONES_OPOCISIONES_68 = a.b.OPOCISIONES_OPOCISIONES_68;
+            CaracterizacionJuridicaModel_.OPOCISIONES_FECHA_69 = a.b.OPOCISIONES_FECHA_69;
+            CaracterizacionJuridicaModel_.FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70 = a.b.FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70;
+            CaracterizacionJuridicaModel_.FORMATO_DE_REVISION_JURIDICA_FECHA_71 = a.b.FORMATO_DE_REVISION_JURIDICA_FECHA_71;
+            CaracterizacionJuridicaModel_.FORMATO_DE_REVISION_JURIDICA_FIRMADA_72 = a.b.FORMATO_DE_REVISION_JURIDICA_FIRMADA_72;
+            CaracterizacionJuridicaModel_.FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73 = a.b.FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73;
+            CaracterizacionJuridicaModel_.NombreFORMATO_DE_REVISION_JURIDICA_CONCEPTO_73 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73.Value).Select(g => g.Nombre).FirstOrDefault();
+            CaracterizacionJuridicaModel_.RESOLUCION_RESOLUCION_74 = a.b.RESOLUCION_RESOLUCION_74;
+            CaracterizacionJuridicaModel_.RESOLUCION_NUMERO_DE_RESOLUCION_75 = a.b.RESOLUCION_NUMERO_DE_RESOLUCION_75;
+            CaracterizacionJuridicaModel_.RESOLUCION_FECHA_DE_RESOLUCION_76 = a.b.RESOLUCION_FECHA_DE_RESOLUCION_76;
+            CaracterizacionJuridicaModel_.RESOLUCION_FIRMADA_77 = a.b.RESOLUCION_FIRMADA_77;
+            CaracterizacionJuridicaModel_.RESOLUCION_DECISION_78 = a.b.RESOLUCION_DECISION_78;
+            CaracterizacionJuridicaModel_.NombreRESOLUCION_DECISION_78 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.RESOLUCION_DECISION_78.Value).Select(g => g.Nombre).FirstOrDefault();
+            CaracterizacionJuridicaModel_.RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79 = a.b.RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79;
+            CaracterizacionJuridicaModel_.NombreRESOLUCION_CONJUNTA_INDIVIDUAL_80 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.RESOLUCION_CONJUNTA_INDIVIDUAL_80.Value).Select(g => g.Nombre).FirstOrDefault();
+            CaracterizacionJuridicaModel_.RESOLUCION_CONJUNTA_INDIVIDUAL_80 = a.b.RESOLUCION_CONJUNTA_INDIVIDUAL_80;
+            CaracterizacionJuridicaModel_.NOTIFICACION_NOTIFICACION_SOLICITANTES_81 = a.b.NOTIFICACION_NOTIFICACION_SOLICITANTES_81;
+            CaracterizacionJuridicaModel_.NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82 = a.b.NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82;
+            CaracterizacionJuridicaModel_.NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83 = a.b.NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83;
+            CaracterizacionJuridicaModel_.NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84 = a.b.NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84;
+            CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85 = a.b.RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85;
+            CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86 = a.b.RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86;
+            CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87 = a.b.RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87;
+            CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_FIRMADA_88 = a.b.RECURSO_SOLICITANTE_FIRMADA_88;
+            CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_ACTO_89 = a.b.RECURSO_SOLICITANTE_ACTO_89;
+            CaracterizacionJuridicaModel_.NombreRECURSO_SOLICITANTE_ACTO_89 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.RECURSO_SOLICITANTE_ACTO_89.Value).Select(g => g.Nombre).FirstOrDefault();
+            CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_NUMERO_90 = a.b.RECURSO_SOLICITANTE_NUMERO_90;
+            CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_FECHA_91 = a.b.RECURSO_SOLICITANTE_FECHA_91;
+            CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92 = a.b.RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92;
+            CaracterizacionJuridicaModel_.NombreRECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92.Value).Select(g => g.Nombre).FirstOrDefault();
+            CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93 = a.b.RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93;
+            CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94 = a.b.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94;
+            CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95 = a.b.RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95;
+            CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96 = a.b.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96;
+            CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_RECURSO_MINISTERIO_97 = a.b.RECURSO_MINISTERIO_RECURSO_MINISTERIO_97;
+            CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98 = a.b.RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98;
+            CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_RESPUESTA_RECURSO_99 = a.b.RECURSO_MINISTERIO_RESPUESTA_RECURSO_99;
+            CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_FIRMADA_100 = a.b.RECURSO_MINISTERIO_FIRMADA_100;
+            CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_ACTO_101 = a.b.RECURSO_MINISTERIO_ACTO_101;
+            CaracterizacionJuridicaModel_.NombreRECURSO_MINISTERIO_ACTO_101 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.RECURSO_MINISTERIO_ACTO_101.Value).Select(g => g.Nombre).FirstOrDefault();
+            CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_NUMERO_102 = a.b.RECURSO_MINISTERIO_NUMERO_102;
+            CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_FECHA_103 = a.b.RECURSO_MINISTERIO_FECHA_103;
+            CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104 = a.b.RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104;
+            CaracterizacionJuridicaModel_.NombreRECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104.Value).Select(g => g.Nombre).FirstOrDefault();
+            CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105 = a.b.RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105;
+            CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106 = a.b.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106;
+            CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107 = a.b.RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107;
+            CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108 = a.b.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108;
+            CaracterizacionJuridicaModel_.CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109 = a.b.CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109;
+            CaracterizacionJuridicaModel_.CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110 = a.b.CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110;
+            CaracterizacionJuridicaModel_.CONSTANCIA_DE_EJECUTORIA_FIRMADA_111 = a.b.CONSTANCIA_DE_EJECUTORIA_FIRMADA_111;
+            CaracterizacionJuridicaModel_.CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112 = a.b.CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112;
+            CaracterizacionJuridicaModel_.REVOCATORIA_REVOCATORIA_113 = a.b.REVOCATORIA_REVOCATORIA_113;
+            CaracterizacionJuridicaModel_.REVOCATORIA_NUMERO_RESOLUCION_114 = a.b.REVOCATORIA_NUMERO_RESOLUCIÓN_114;
+            CaracterizacionJuridicaModel_.REVOCATORIA_FECHA_DE_RESOLUCION_115 = a.b.REVOCATORIA_FECHA_DE_RESOLUCIÓN_115;
+            CaracterizacionJuridicaModel_.REGISTRO_FMI_116 = a.b.REGISTRO_FMI_116;
+            CaracterizacionJuridicaModel_.REGISTRO_FECHA_DE_REGISTRO_117 = a.b.REGISTRO_FECHA_DE_REGISTRO_117;
+            CaracterizacionJuridicaModel_.REGISTRO_NUMERO_DE_RESOLUCION_118 = a.b.REGISTRO_NUMERO_DE_RESOLUCION_118;
+            CaracterizacionJuridicaModel_.REGISTRO_FECHA_DE_RESOLUCION_119 = a.b.REGISTRO_FECHA_DE_RESOLUCION_119;
+            CaracterizacionJuridicaModel_.Estado = true;
+            CaracterizacionJuridicaModel_.IdAspNetUser = a.b.IdAspNetUser;
+            CaracterizacionJuridicaModel_.rol = a.Name;
+            CaracterizacionJuridicaModel_.NombreIdAspNetUser = a.c.Name + " " + a.c.FirstName + " " + a.c.LastName;
+            CaracterizacionJuridicaModel_.FechaModificacion = a.b.FechaModificacion.ToString();
+
+            return CaracterizacionJuridicaModel_;
         }
 
         public CaracterizacionJuridicaModel Actualizar(CaracterizacionJuridicaModel a)

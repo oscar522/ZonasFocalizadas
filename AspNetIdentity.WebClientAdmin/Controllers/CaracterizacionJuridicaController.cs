@@ -137,7 +137,7 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
                     if (processModel.Id == 0)
                     {
                         ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
-                        return Json(ModelState);
+                        return View(ObjData);
                     }
                     else
                     {
@@ -147,7 +147,7 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
                 catch
                 {
                     ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
-                    return View(ObjData);                      return Json(ModelState);
+                    return View(ObjData);  
                 }
             }
             else

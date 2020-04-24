@@ -29,12 +29,12 @@ namespace AspNetIdentity.WebClientAdmin.Providers
                 {
                     i++;
 
-                    if (i == 12)
-                    {
-
-                    }
+                    string debugger = Descriptor.PropertyType.FullName.ToString() + " " + Descriptor.Name;
+                    System.Diagnostics.Debug.WriteLine(debugger);
                     nombre = Descriptor.Name;
-                    if (Descriptor.PropertyType.FullName.Equals("System.DateTime"))
+                     
+
+                    if (Descriptor.PropertyType.FullName.Equals("System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]") || Descriptor.PropertyType.FullName.Equals("System.DateTime"))
                     {
                         var valorDate = Descriptor.GetValue(MyObject).ToString();
                         DateTime parsedDate = DateTime.Parse(valorDate);
@@ -45,9 +45,7 @@ namespace AspNetIdentity.WebClientAdmin.Providers
                         {
                             Valor = Descriptor.GetValue(MyObject).ToString();
                         }
-                        else {
-                            Valor = "-";
-                        }
+                        
 
                     }
 

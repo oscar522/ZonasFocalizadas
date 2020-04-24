@@ -281,6 +281,46 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="Tipo" Type="int" />
     <Property Name="Estado" Type="bit" />
   </EntityType>
+  <EntityType Name="CaracterizacionSolicitante">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdExpediente" Type="bigint" />
+    <Property Name="NombreSolicitante" Type="varchar(max)" />
+    <Property Name="TipoDocumento" Type="int" />
+    <Property Name="NumeroIdentificacion" Type="bigint" />
+    <Property Name="NombreConyuge" Type="varchar(max)" />
+    <Property Name="TipoDocumentoConyuge" Type="int" />
+    <Property Name="NumeroIdentificacionConyuge" Type="bigint" />
+    <Property Name="FechaExpedicionSolicitante" Type="date" />
+    <Property Name="FechaExpedicionConyuge" Type="date" />
+    <Property Name="FModificacionExp" Type="datetime" />
+    <Property Name="VFechaSolicitante" Type="date" />
+    <Property Name="VArchivoSolicitante" Type="varchar(max)" />
+    <Property Name="VFechaConyuge" Type="date" />
+    <Property Name="VArchivoConyuge" Type="varchar(max)" />
+    <Property Name="VFModificacion" Type="datetime" />
+    <Property Name="PFechaSolicitante" Type="date" />
+    <Property Name="PArchivoSolicitante" Type="varchar(max)" />
+    <Property Name="PFechaConyuge" Type="date" />
+    <Property Name="PArchivoConyuge" Type="varchar(max)" />
+    <Property Name="PFModificacion" Type="datetime" />
+    <Property Name="CFechaSolicitante" Type="date" />
+    <Property Name="CArchivoSolicitante" Type="varchar(max)" />
+    <Property Name="CFechaConyuge" Type="date" />
+    <Property Name="CArchivoConyuge" Type="varchar(max)" />
+    <Property Name="CFModificacion" Type="datetime" />
+    <Property Name="AFechaSolicitante" Type="date" />
+    <Property Name="AArchivoSolicitante" Type="varchar(max)" />
+    <Property Name="AFechaConyuge" Type="date" />
+    <Property Name="AArchivoConyuge" Type="varchar(max)" />
+    <Property Name="AFModificacion" Type="datetime" />
+    <Property Name="Gestion" Type="int" />
+    <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" />
+    <Property Name="Estado" Type="bit" />
+    <Property Name="FechaModificacion" Type="datetime" />
+  </EntityType>
   <EntityType Name="CoceptosExpediente">
     <Key>
       <PropertyRef Name="Id" />
@@ -300,7 +340,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="IdOrfeo" Type="text" />
     <Property Name="TerminoDias" Type="int" />
     <Property Name="NombrePredio" Type="nvarchar(max)" />
-    <Property Name="Observacion" Type="nchar" MaxLength="10" />
+    <Property Name="Observacion" Type="varchar(max)" />
     <Property Name="Estado" Type="bit" />
     <Property Name="FechaCreacion" Type="datetime" />
   </EntityType>
@@ -408,6 +448,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     </Key>
     <Property Name="ID_CT_TIPO_IDENTIFICACION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NOMBRE" Type="varchar(max)" Nullable="false" />
+    <Property Name="NOMBRE2" Type="varchar(max)" />
     <Property Name="ESTADO" Type="int" />
   </EntityType>
   <EntityType Name="ExpedienteDocumentos">
@@ -600,6 +641,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
     <EntitySet Name="BaldiosPersonaNatural" EntityType="Self.BaldiosPersonaNatural" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CaracterizacionJuridica" EntityType="Self.CaracterizacionJuridica" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CaracterizacionJuridicaCatalogos" EntityType="Self.CaracterizacionJuridicaCatalogos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CaracterizacionSolicitante" EntityType="Self.CaracterizacionSolicitante" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CoceptosExpediente" EntityType="Self.CoceptosExpediente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Concepto" EntityType="Self.Concepto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ConceptoAsociado" EntityType="Self.ConceptoAsociado" Schema="dbo" store:Type="Tables" />

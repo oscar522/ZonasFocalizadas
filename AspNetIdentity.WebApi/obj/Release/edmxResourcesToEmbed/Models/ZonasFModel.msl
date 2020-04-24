@@ -45,6 +45,7 @@
     <EntitySetMapping Name="CtTipoIdentificacion">
       <EntityTypeMapping TypeName="ZonasFModel.CtTipoIdentificacion">
         <MappingFragment StoreEntitySet="CtTipoIdentificacion">
+          <ScalarProperty Name="NOMBRE2" ColumnName="NOMBRE2" />
           <ScalarProperty Name="ID_CT_TIPO_IDENTIFICACION" ColumnName="ID_CT_TIPO_IDENTIFICACION" />
           <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
@@ -546,6 +547,47 @@
           <ScalarProperty Name="INSPECCION_OCULAR_FIRMA_55" ColumnName="INSPECCION_OCULAR_FIRMA_55" />
           <ScalarProperty Name="INSPECCION_OCULAR_FECHA_54" ColumnName="INSPECCION_OCULAR_FECHA_54" />
           <ScalarProperty Name="INSPECCION_OCULAR_INSPECCION_OCULAR_53" ColumnName="INSPECCION_OCULAR_INSPECCION_OCULAR_53" />
+          <ScalarProperty Name="IdExpediente" ColumnName="IdExpediente" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CaracterizacionSolicitante">
+      <EntityTypeMapping TypeName="ZonasFModel.CaracterizacionSolicitante">
+        <MappingFragment StoreEntitySet="CaracterizacionSolicitante">
+          <ScalarProperty Name="FechaExpedicionConyuge" ColumnName="FechaExpedicionConyuge" />
+          <ScalarProperty Name="FechaExpedicionSolicitante" ColumnName="FechaExpedicionSolicitante" />
+          <ScalarProperty Name="AFModificacion" ColumnName="AFModificacion" />
+          <ScalarProperty Name="CFModificacion" ColumnName="CFModificacion" />
+          <ScalarProperty Name="PFModificacion" ColumnName="PFModificacion" />
+          <ScalarProperty Name="VFModificacion" ColumnName="VFModificacion" />
+          <ScalarProperty Name="FModificacionExp" ColumnName="FModificacionExp" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />
+          <ScalarProperty Name="Gestion" ColumnName="Gestion" />
+          <ScalarProperty Name="AArchivoConyuge" ColumnName="AArchivoConyuge" />
+          <ScalarProperty Name="AFechaConyuge" ColumnName="AFechaConyuge" />
+          <ScalarProperty Name="AArchivoSolicitante" ColumnName="AArchivoSolicitante" />
+          <ScalarProperty Name="AFechaSolicitante" ColumnName="AFechaSolicitante" />
+          <ScalarProperty Name="CArchivoConyuge" ColumnName="CArchivoConyuge" />
+          <ScalarProperty Name="CFechaConyuge" ColumnName="CFechaConyuge" />
+          <ScalarProperty Name="CArchivoSolicitante" ColumnName="CArchivoSolicitante" />
+          <ScalarProperty Name="CFechaSolicitante" ColumnName="CFechaSolicitante" />
+          <ScalarProperty Name="PArchivoConyuge" ColumnName="PArchivoConyuge" />
+          <ScalarProperty Name="PFechaConyuge" ColumnName="PFechaConyuge" />
+          <ScalarProperty Name="PArchivoSolicitante" ColumnName="PArchivoSolicitante" />
+          <ScalarProperty Name="PFechaSolicitante" ColumnName="PFechaSolicitante" />
+          <ScalarProperty Name="VArchivoConyuge" ColumnName="VArchivoConyuge" />
+          <ScalarProperty Name="VFechaConyuge" ColumnName="VFechaConyuge" />
+          <ScalarProperty Name="VArchivoSolicitante" ColumnName="VArchivoSolicitante" />
+          <ScalarProperty Name="VFechaSolicitante" ColumnName="VFechaSolicitante" />
+          <ScalarProperty Name="NumeroIdentificacionConyuge" ColumnName="NumeroIdentificacionConyuge" />
+          <ScalarProperty Name="TipoDocumentoConyuge" ColumnName="TipoDocumentoConyuge" />
+          <ScalarProperty Name="NombreConyuge" ColumnName="NombreConyuge" />
+          <ScalarProperty Name="NumeroIdentificacion" ColumnName="NumeroIdentificacion" />
+          <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+          <ScalarProperty Name="NombreSolicitante" ColumnName="NombreSolicitante" />
           <ScalarProperty Name="IdExpediente" ColumnName="IdExpediente" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>

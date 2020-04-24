@@ -1,0 +1,1459 @@
+﻿@model AspNetIdentity.Models.CaracterizacionSolicitanteViewModels
+
+<style type="text/css">
+    .Letra{
+        font-size:.8em
+    }
+</style>
+
+<div class="card mb-4 wow fadeIn">
+
+    <!--Card content-->
+    <div class="card-body d-sm-flex justify-content-between">
+        <h4 class="mb-2 mb-sm-0 pt-1">
+            <span>Caracterizacion Solicitante</span>
+        </h4>
+        <h5 class="mb-2 mb-sm-0 pt-1">
+            <span>
+                Numero de Expediente :
+                <a target="_blank" href='@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = Model.IdExpediente })' style='color: #013ADF;'>
+                    @Model.NumeroExpediente
+                    <i class='fa fa-eye' aria-hidden='true'></i>
+                </a>
+            </span>
+            <br />
+        </h5>
+        <h5 class="mb-2 mb-sm-0 pt-1">
+            <span>Responsable </span>
+            <br />
+            <span>Usuario : @Model.NombretUser</span>
+            <br />
+            <span>Rol : @Model.RolUser</span>
+            <br />
+        </h5>
+    </div>
+
+</div>
+
+@using (Html.BeginForm("CrearJson", "CaracterizacionSolicitante", FormMethod.Post, new { enctype = "multipart/form-data", id = "CrearForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.Gestion)
+    @Html.HiddenFor(model => model.IdExpediente)
+    @Html.HiddenFor(model => model.IdAspNetUser)
+
+
+    <div class="form-horizontal">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">Validacion de Ortografia  </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="row mb-2">
+                                    <label class="control-label col-md-4 Letra">
+                                        Nombre Solicitante : @Model.NombreSolicitanteExpediente
+                                    </label>
+                                    <div class="col-md-1">
+                                        <i class="fa fa-check col-md-1 Letra" aria-hidden="true" style="color:#31B404">
+                                            <input type="radio" value="1" id="Ortografia-1-1" name="Ortografia-1" class="Ortografia-1 Letra" />
+                                        </i>
+                                        <i class="fa fa-times col-md-1 Letra" aria-hidden="true" style="color:#FF0000">
+                                            <input type="radio" value="2" id="Ortografia-1-2" name="Ortografia-1" class="Ortografia-1 Letra" />
+                                        </i>
+
+                                    </div>
+                                    
+                                    @Html.EditorFor(model => model.NombreSolicitante, new { htmlAttributes = new { @class = "Letra form-control col-md-5" } })
+                                    @Html.ValidationMessageFor(model => model.NombreSolicitante, "", new { @class = "text-danger col-md-10  text-right Letra" })
+                                    <span class=" Letra field-validation-valid text-danger col-md-5 text-right" data-valmsg-for="Ortografia-1" data-valmsg-replace="true"></span>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <label class="control-label col-md-4 Letra ">
+                                        Tipo e Indetificacion : @Model.TipoDocSolicitanteExpediente - @Model.DocSolicitanteExpediente
+                                    </label>
+                                    <div class="col-md-1">
+
+                                        <i class="fa fa-check col-md-1 Letra " aria-hidden="true" style="color:#31B404">
+                                            <input type="radio" value="1" id="Ortografia-1-3" name="Ortografia-2" class=" Letra " />
+                                        </i>
+                                        <i class="fa fa-times col-md-1 Letra " aria-hidden="true" style="color:#FF0000">
+                                            <input type="radio" value="2" id="Ortografia-1-4" name="Ortografia-2" class=" Letra " />
+                                        </i>
+                                    </div>
+                                    <div class="  col-md-5">
+                                        <div class=" row">
+                                            @Html.DropDownList("TipoDocumento", new SelectList(string.Empty, "Value", "Text"), "Selec. Tipo Documento", new { @class = " Letra form-control col-md-4 " })
+                                            @Html.EditorFor(model => model.NumeroIdentificacion, new { htmlAttributes = new { @class = " Letra form-control col-md-5", @placeholder = "Num. Identificacion" } })
+                                            @Html.EditorFor(model => model.FechaExpedicionSolicitante, new {htmlAttributes = new { @type="date" ,@class = " Letra form-control col-md-3", @placeholder = "Num. Identificacion" } })
+                                        </div>
+                                    </div>
+
+                                    @Html.ValidationMessageFor(model => model.FechaExpedicionSolicitante, "", new { @class = " Letra text-danger col-md-10  text-right" })
+                                    @Html.ValidationMessageFor(model => model.NumeroIdentificacion, "", new { @class = " Letra text-danger col-md-10  text-right" })
+                                    @Html.ValidationMessageFor(model => model.TipoDocumento, "", new { @class = " Letra text-danger col-md-10  text-right" })
+                                    <span class=" Letra field-validation-valid text-danger col-md-5 text-right" data-valmsg-for="Ortografia-2" data-valmsg-replace="true"></span>
+
+                                </div>
+
+                                <div class="row mb-2">
+                                    <label class="control-label col-md-4 Letra">
+                                        Nombre Conyuge : @Model.NombreConyugeExpediente
+                                    </label>
+                                    <div class="col-md-1">
+
+                                        <i class="fa fa-check col-md-1 Letra" aria-hidden="true" style="color:#31B404">
+                                            <input type="radio" value="1 Letra" id="Ortografia-1-5" name="Ortografia-3" class=" Letra" />
+                                        </i>
+                                        <i class="fa fa-times col-md-1 Letra" aria-hidden="true" style="color:#FF0000">
+                                            <input type="radio" value="2" id="Ortografia-1-6" name="Ortografia-3" class=" Letra" />
+                                        </i>
+                                    </div>
+                                    @Html.EditorFor(model => model.NombreConyuge, new { htmlAttributes = new { @class = " Letra form-control col-md-5" } })
+                                    @Html.ValidationMessageFor(model => model.NombreConyuge, "", new { @class = " Letra text-danger col-md-10  text-right" })
+                                    <span class=" Letra field-validation-valid text-danger col-md-5 text-right" data-valmsg-for="Ortografia-3" data-valmsg-replace="true"></span>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <label class="control-label col-md-4 Letra ">
+                                        Tipo e Indetificacion : @Model.NombreTipoDocumentoConyuge - @Model.DocConyugeExpediente
+                                    </label>
+                                    <div class="col-md-1">
+
+                                        <i class="fa fa-check col-md-1 Letra " aria-hidden="true" style="color:#31B404">
+                                            <input type="radio" value="1" id="Ortografia-1-7" name="Ortografia-4" class=" Letra " />
+                                        </i>
+                                        <i class="fa fa-times col-md-1 Letra " aria-hidden="true" style="color:#FF0000">
+                                            <input type="radio" value="2" id="Ortografia-1-8" name="Ortografia-4" class=" Letra " />
+                                        </i>
+                                    </div>
+                                    <div class="  col-md-5">
+                                        <div class=" row">
+                                            @Html.DropDownList("TipoDocumentoConyuge", new SelectList(string.Empty, "Value", "Text"), "Selec. Tipo", new { @class = " Letra form-control col-md-4 " })
+                                            @Html.EditorFor(model => model.NumeroIdentificacionConyuge , new { htmlAttributes = new { @class = "Letra form-control col-md-5", @placeholder = "Num. Identificacion" } })
+                                            @Html.EditorFor(model => model.FechaExpedicionConyuge, new {htmlAttributes = new { @type="date" ,@class = " Letra form-control col-md-3", @placeholder = "Num. Identificacion" } })
+                                        </div>
+                                    </div>
+
+                                    @Html.ValidationMessageFor(model => model.FechaExpedicionConyuge, "", new { @class = " Letra text-danger col-md-10  text-right", })
+                                    @Html.ValidationMessageFor(model => model.TipoDocumentoConyuge, "", new { @class = " Letra text-danger col-md-10  text-right " })
+                                    @Html.ValidationMessageFor(model => model.NumeroIdentificacionConyuge, "", new { @class = " Letra text-danger col-md-10  text-right"  })
+                                    <span class=" Letra field-validation-valid text-danger col-md-5 text-right" data-valmsg-for="Ortografia-4" data-valmsg-replace="true"></span>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 text-center align-content-center">
+                                        <a href="#" id="Ortografia" name="Ortografia" class="btn btn-green text-center">Guardar</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="card ">
+                    <div class="card-header">Vigencia </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="row mb-2">
+                                    <label class=" Letra control-label col-md-3">
+                                        Solicitante :
+                                        @if (Model.NombreSolicitante != null)
+                                        {
+                                            @Model.NombreSolicitante
+                                        }
+                                        else
+                                        {
+                                            @Model.NombreSolicitanteExpediente
+                                        }
+                                    </label>
+                                    <label class="Letra control-label col-md-2">
+                                        @if (Model.NombreTipoDocumento != null)
+                                        {
+                                            @Model.NombreTipoDocumento
+                                        }
+                                        else
+                                        {
+                                            @Model.TipoDocSolicitanteExpediente
+                                        }
+                                        @if (Model.NumeroIdentificacion != null)
+                                        {
+                                            @Model.NumeroIdentificacion
+                                        }
+                                        else
+                                        {
+                                            @Model.DocSolicitanteExpediente
+                                        }
+                                    </label>
+
+                                    <div class="col-md-1">
+
+                                        <i class="fa fa-check col-md-1 Letra " aria-hidden="true" style="color:#31B404">
+                                            <input type="radio" value="1" id="Vigencia-1-1" name="Vigencia-2" class=" Letra " />
+                                        </i>
+                                        <i class="fa fa-times col-md-1 Letra " aria-hidden="true" style="color:#FF0000">
+                                            <input type="radio" value="2" id="Vigencia-1-2" name="Vigencia-2" class=" Letra " />
+                                        </i>
+                                    </div>
+                                    @Html.EditorFor(model => model.VFechaSolicitante, new { htmlAttributes = new {@type = "date",  @class = " Letra form-control col-md-2" } })
+                                    @Html.TextBoxFor(model => model.VArchivoSolicitante, new { type = "file", @class = " col-sm-2" })
+                                    <label class="Letra control-label col-md-2" id="VArchivoSolicitanteNombre">
+                                    @Model.VArchivoSolicitanteNombre 
+                                    </label>
+                                    @Html.ValidationMessageFor(model => model.VFechaSolicitante, "", new { @class = " Letra text-danger col-md-10  text-right" })
+                                    @Html.ValidationMessageFor(model => model.VArchivoSolicitante, "", new { @class = " Letra text-danger col-md-10  text-right" })
+                                    <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="Vigencia-1" data-valmsg-replace="true"></span>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <label class=" Letra control-label col-md-3">
+                                        Conyuge :
+                                        @if (Model.NombreConyuge != null)
+                                        {
+                                            @Model.NombreConyuge
+                                        }
+                                        else
+                                        {
+                                            @Model.NombreConyugeExpediente
+                                        }
+                                    </label>
+                                    <label class="Letra control-label col-md-2">
+                                        @if (Model.NombreTipoDocumentoConyuge != null)
+                                        {
+                                            @Model.NombreTipoDocumentoConyuge
+                                        }
+                                        else
+                                        {
+                                            @Model.TipoDocConyugeExpediente
+                                        }
+                                        @if (Model.NumeroIdentificacionConyuge != null)
+                                        {
+                                            @Model.NumeroIdentificacionConyuge
+                                        }
+                                        else
+                                        {
+                                            @Model.DocConyugeExpediente
+                                        }
+                                    </label>
+                                    <div class="col-md-1">
+                                        
+                                        <i class="fa fa-check col-md-1 Letra " aria-hidden="true" style="color:#31B404">
+                                            <input type="radio" value="1" id="Vigencia-1-3" name="Vigencia-3" class=" Letra " />
+                                        </i>
+                                        <i class="fa fa-times col-md-1 Letra " aria-hidden="true" style="color:#FF0000">
+                                            <input type="radio" value="2" id="Vigencia-1-4" name="Vigencia-3" class=" Letra " />
+                                        </i>
+
+                                    </div>
+                                    
+                                    @Html.EditorFor(model => model.VFechaConyuge, new { htmlAttributes = new {@type = "date", @class = " Letra form-control col-md-2" } })
+                                    @Html.TextBoxFor(model => model.VArchivoConyuge, new { type = "file", @class = " col-sm-2" })
+                                    <label class="Letra control-label col-md-2" id="VArchivoConyugeNombre">
+                                    @Model.VArchivoConyugeNombre 
+                                    </label>
+                                    @Html.ValidationMessageFor(model => model.VFechaConyuge, "", new { @class = " Letra text-danger col-md-10  text-right" })
+                                    @Html.ValidationMessageFor(model => model.VArchivoConyuge, "", new { @class = " Letra text-danger col-md-10  text-right" })
+                                    <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="Vigencia-2" data-valmsg-replace="true"></span>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 text-center align-content-center">
+                                        <a href="#" id="Vigencia" name="Vigencia" class="btn btn-green text-center">Guardar</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <div class="card ">
+                    <div class="card-header">Procuraduria </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="row mb-2">
+                                    <label class=" Letra control-label col-md-3">
+                                        Solicitante :
+                                        @if (Model.NombreSolicitante != null)
+                                        {
+                                            @Model.NombreSolicitante
+                                        }
+                                        else
+                                        {
+                                            @Model.NombreSolicitanteExpediente
+                                        }
+                                    </label>
+                                    <label class="Letra control-label col-md-2">
+                                        @if (Model.NombreTipoDocumento != null)
+                                        {
+                                            @Model.NombreTipoDocumento
+                                        }
+                                        else
+                                        {
+                                            @Model.TipoDocSolicitanteExpediente
+                                        }
+                                        @if (Model.NumeroIdentificacion != null)
+                                        {
+                                            @Model.NumeroIdentificacion
+                                        }
+                                        else
+                                        {
+                                            @Model.DocSolicitanteExpediente
+                                        }
+                                    </label>
+
+                                    <div class="col-md-1">
+
+                                        <i class="fa fa-check col-md-1 Letra " aria-hidden="true" style="color:#31B404">
+                                            <input type="radio" value="1" id="Pro-1-1" name="Pro-2" class=" Letra " />
+                                        </i>
+                                        <i class="fa fa-times col-md-1 Letra " aria-hidden="true" style="color:#FF0000">
+                                            <input type="radio" value="2" id="Pro-1-2" name="Pro-2" class=" Letra " />
+                                        </i>
+                                    </div>
+                                    @Html.EditorFor(model => model.PFechaSolicitante, new { htmlAttributes = new {@type = "date",  @class = " Letra form-control col-md-2" } })
+                                    @Html.TextBoxFor(model => model.PArchivoSolicitante, new { type = "file", @class = " col-sm-2" })
+                                    <label class="Letra control-label col-md-2" id="PArchivoSolicitanteNombre">
+                                    @Model.PArchivoSolicitanteNombre 
+                                    </label>
+                                    @Html.ValidationMessageFor(model => model.PFechaSolicitante, "", new { @class = " Letra text-danger col-md-10  text-right" })
+                                    @Html.ValidationMessageFor(model => model.PArchivoSolicitante, "", new { @class = " Letra text-danger col-md-10  text-right" })
+                                    <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="Pro-1" data-valmsg-replace="true"></span>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <label class=" Letra control-label col-md-3">
+                                        Conyuge :
+                                        @if (Model.NombreConyuge != null)
+                                        {
+                                            @Model.NombreConyuge
+                                        }
+                                        else
+                                        {
+                                            @Model.NombreConyugeExpediente
+                                        }
+                                    </label>
+                                    <label class="Letra control-label col-md-2">
+                                        @if (Model.NombreTipoDocumentoConyuge != null)
+                                        {
+                                            @Model.NombreTipoDocumentoConyuge
+                                        }
+                                        else
+                                        {
+                                            @Model.TipoDocConyugeExpediente
+                                        }
+                                        @if (Model.NumeroIdentificacionConyuge != null)
+                                        {
+                                            @Model.NumeroIdentificacionConyuge
+                                        }
+                                        else
+                                        {
+                                            @Model.DocConyugeExpediente
+                                        }
+                                    </label>
+                                    <div class="col-md-1">
+                                        
+                                        <i class="fa fa-check col-md-1 Letra " aria-hidden="true" style="color:#31B404">
+                                            <input type="radio" value="1" id="Pro-1-3" name="Pro-3" class=" Letra " />
+                                        </i>
+                                        <i class="fa fa-times col-md-1 Letra " aria-hidden="true" style="color:#FF0000">
+                                            <input type="radio" value="2" id="Pro-1-4" name="Pro-3" class=" Letra " />
+                                        </i>
+
+                                    </div>
+                                    
+                                    @Html.EditorFor(model => model.PFechaConyuge, new { htmlAttributes = new {@type = "date", @class = " Letra form-control col-md-2" } })
+                                    @Html.TextBoxFor(model => model.PArchivoConyuge, new { type = "file", @class = " col-sm-2" })
+                                    <label class="Letra control-label col-md-2" id="PArchivoConyugeNombre">
+                                    @Model.PArchivoConyugeNombre 
+                                    </label>
+                                    @Html.ValidationMessageFor(model => model.PFechaConyuge, "", new { @class = " Letra text-danger col-md-10  text-right" })
+                                    @Html.ValidationMessageFor(model => model.PArchivoConyuge, "", new { @class = " Letra text-danger col-md-10  text-right" })
+                                    <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="Pro-2" data-valmsg-replace="true"></span>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 text-center align-content-center">
+                                        <a href="#" id="Pro" name="Pro" class="btn btn-green text-center">Guardar</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <div class="card ">
+                    <div class="card-header">Contraloria </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="row mb-2">
+                                    <label class=" Letra control-label col-md-3">
+                                        Solicitante :
+                                        @if (Model.NombreSolicitante != null)
+                                        {
+                                            @Model.NombreSolicitante
+                                        }
+                                        else
+                                        {
+                                            @Model.NombreSolicitanteExpediente
+                                        }
+                                    </label>
+                                    <label class="Letra control-label col-md-2">
+                                        @if (Model.NombreTipoDocumento != null)
+                                        {
+                                            @Model.NombreTipoDocumento
+                                        }
+                                        else
+                                        {
+                                            @Model.TipoDocSolicitanteExpediente
+                                        }
+                                        @if (Model.NumeroIdentificacion != null)
+                                        {
+                                            @Model.NumeroIdentificacion
+                                        }
+                                        else
+                                        {
+                                            @Model.DocSolicitanteExpediente
+                                        }
+                                    </label>
+
+                                    <div class="col-md-1">
+
+                                        <i class="fa fa-check col-md-1 Letra " aria-hidden="true" style="color:#31B404">
+                                            <input type="radio" value="1" id="Contra-1-1" name="Contra-2" class=" Letra " />
+                                        </i>
+                                        <i class="fa fa-times col-md-1 Letra " aria-hidden="true" style="color:#FF0000">
+                                            <input type="radio" value="2" id="Contra-1-2" name="Contra-2" class=" Letra " />
+                                        </i>
+                                    </div>
+                                    @Html.EditorFor(model => model.CFechaSolicitante, new { htmlAttributes = new {@type = "date",  @class = " Letra form-control col-md-2" } })
+                                    @Html.TextBoxFor(model => model.CArchivoSolicitante, new { type = "file", @class = " col-sm-2" })
+                                    <label class="Letra control-label col-md-2" id="CArchivoSolicitanteNombre">
+                                    @Model.CArchivoSolicitanteNombre 
+                                    </label>
+                                    @Html.ValidationMessageFor(model => model.CFechaSolicitante, "", new { @class = " Letra text-danger col-md-10  text-right" })
+                                    @Html.ValidationMessageFor(model => model.CArchivoSolicitante, "", new { @class = " Letra text-danger col-md-10  text-right" })
+                                    <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="Contra-1" data-valmsg-replace="true"></span>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <label class=" Letra control-label col-md-3">
+                                        Conyuge :
+                                        @if (Model.NombreConyuge != null)
+                                        {
+                                            @Model.NombreConyuge
+                                        }
+                                        else
+                                        {
+                                            @Model.NombreConyugeExpediente
+                                        }
+                                    </label>
+                                    <label class="Letra control-label col-md-2">
+                                        @if (Model.NombreTipoDocumentoConyuge != null)
+                                        {
+                                            @Model.NombreTipoDocumentoConyuge
+                                        }
+                                        else
+                                        {
+                                            @Model.TipoDocConyugeExpediente
+                                        }
+                                        @if (Model.NumeroIdentificacionConyuge != null)
+                                        {
+                                            @Model.NumeroIdentificacionConyuge
+                                        }
+                                        else
+                                        {
+                                            @Model.DocConyugeExpediente
+                                        }
+                                    </label>
+                                    <div class="col-md-1">
+                                        
+                                        <i class="fa fa-check col-md-1 Letra " aria-hidden="true" style="color:#31B404">
+                                            <input type="radio" value="1" id="Contra-1-3" name="Contra-3" class=" Letra " />
+                                        </i>
+                                        <i class="fa fa-times col-md-1 Letra " aria-hidden="true" style="color:#FF0000">
+                                            <input type="radio" value="2" id="Contra-1-4" name="Contra-3" class=" Letra " />
+                                        </i>
+
+                                    </div>
+                                    
+                                    @Html.EditorFor(model => model.CFechaConyuge, new { htmlAttributes = new {@type = "date", @class = " Letra form-control col-md-2" } })
+                                    @Html.TextBoxFor(model => model.CArchivoConyuge, new { type = "file", @class = " col-sm-2" })
+                                    <label class="Letra control-label col-md-2" id="CArchivoConyugeNombre">
+                                    @Model.CArchivoConyugeNombre 
+                                    </label>
+                                    @Html.ValidationMessageFor(model => model.CFechaConyuge, "", new { @class = " Letra text-danger col-md-10  text-right" })
+                                    @Html.ValidationMessageFor(model => model.CArchivoConyuge, "", new { @class = " Letra text-danger col-md-10  text-right" })
+                                    <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="Contra-2" data-valmsg-replace="true"></span>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 text-center align-content-center">
+                                        <a href="#" id="Contra" name="Contra" class="btn btn-green text-center">Guardar</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <div class="card ">
+                    <div class="card-header">Antecedentes Disciplinario </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="row mb-2">
+                                    <label class=" Letra control-label col-md-3">
+                                        Solicitante :
+                                        @if (Model.NombreSolicitante != null)
+                                        {
+                                            @Model.NombreSolicitante
+                                        }
+                                        else
+                                        {
+                                            @Model.NombreSolicitanteExpediente
+                                        }
+                                    </label>
+                                    <label class="Letra control-label col-md-2">
+                                        @if (Model.NombreTipoDocumento != null)
+                                        {
+                                            @Model.NombreTipoDocumento
+                                        }
+                                        else
+                                        {
+                                            @Model.TipoDocSolicitanteExpediente
+                                        }
+                                        @if (Model.NumeroIdentificacion != null)
+                                        {
+                                            @Model.NumeroIdentificacion
+                                        }
+                                        else
+                                        {
+                                            @Model.DocSolicitanteExpediente
+                                        }
+                                    </label>
+
+                                    <div class="col-md-1">
+
+                                        <i class="fa fa-check col-md-1 Letra " aria-hidden="true" style="color:#31B404">
+                                            <input type="radio" value="1" id="Ante-1-1" name="Ante-2" class=" Letra " />
+                                        </i>
+                                        <i class="fa fa-times col-md-1 Letra " aria-hidden="true" style="color:#FF0000">
+                                            <input type="radio" value="2" id="Ante-1-2" name="Ante-2" class=" Letra " />
+                                        </i>
+                                    </div>
+                                    @Html.EditorFor(model => model.AFechaSolicitante, new { htmlAttributes = new {@type = "date",  @class = " Letra form-control col-md-2" } })
+                                    @Html.TextBoxFor(model => model.AArchivoSolicitante, new { type = "file", @class = " col-sm-2" })
+                                    <label class="Letra control-label col-md-2" id="AArchivoSolicitanteNombre">
+                                    @Model.AArchivoSolicitanteNombre 
+                                    </label>
+                                    @Html.ValidationMessageFor(model => model.AFechaSolicitante, "", new { @class = " Letra text-danger col-md-10  text-right" })
+                                    @Html.ValidationMessageFor(model => model.AArchivoSolicitante, "", new { @class = " Letra text-danger col-md-10  text-right" })
+                                    <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="Ante-1" data-valmsg-replace="true"></span>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <label class=" Letra control-label col-md-3">
+                                        Conyuge :
+                                        @if (Model.NombreConyuge != null)
+                                        {
+                                            @Model.NombreConyuge
+                                        }
+                                        else
+                                        {
+                                            @Model.NombreConyugeExpediente
+                                        }
+                                    </label>
+                                    <label class="Letra control-label col-md-2">
+                                        @if (Model.NombreTipoDocumentoConyuge != null)
+                                        {
+                                            @Model.NombreTipoDocumentoConyuge
+                                        }
+                                        else
+                                        {
+                                            @Model.TipoDocConyugeExpediente
+                                        }
+                                        @if (Model.NumeroIdentificacionConyuge != null)
+                                        {
+                                            @Model.NumeroIdentificacionConyuge
+                                        }
+                                        else
+                                        {
+                                            @Model.DocConyugeExpediente
+                                        }
+                                    </label>
+                                    <div class="col-md-1">
+                                        
+                                        <i class="fa fa-check col-md-1 Letra " aria-hidden="true" style="color:#31B404">
+                                            <input type="radio" value="1" id="Ante-1-3" name="Ante-3" class=" Letra " />
+                                        </i>
+                                        <i class="fa fa-times col-md-1 Letra " aria-hidden="true" style="color:#FF0000">
+                                            <input type="radio" value="2" id="Ante-1-4" name="Ante-3" class=" Letra " />
+                                        </i>
+
+                                    </div>
+                                    
+                                    @Html.EditorFor(model => model.AFechaConyuge, new { htmlAttributes = new {@type = "date", @class = " Letra form-control col-md-2" } })
+                                    @Html.TextBoxFor(model => model.AArchivoConyuge, new { type = "file", @class = " col-sm-2" })
+                                    <label class="Letra control-label col-md-2" id="AArchivoConyugeNombre">
+                                    @Model.AArchivoConyugeNombre 
+                                    </label>
+                                    @Html.ValidationMessageFor(model => model.AFechaConyuge, "", new { @class = " Letra text-danger col-md-10  text-right" })
+                                    @Html.ValidationMessageFor(model => model.AArchivoConyuge, "", new { @class = " Letra text-danger col-md-10  text-right" })
+                                    <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="Ante-2" data-valmsg-replace="true"></span>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 text-center align-content-center">
+                                        <a href="#" id="Ante" name="Ante" class="btn btn-green text-center">Guardar</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")   @Scripts.Render("~/Scripts/ModalControl.js")
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $.getJSON('@Url.Content("~/Content/ConfigPdfUri.json")', function (data) {
+
+            var UriLo = data.result[0].Uri;
+            var UriPdf ="";
+            var UriRe = data.result[0].UriRe;
+
+            var pathname = window.location.href;
+
+            if (pathname.indexOf(UriRe) > -1) {
+                UriPdf = UriRe;
+            } else {
+                UriPdf = UriLo;
+            }
+
+            var UrlValid = 'http://'+UriPdf+'/Content/Pdfs/Solicitantes';
+
+            $('#VArchivoSolicitanteNombre').html("<a target='_blank' href='"+ UrlValid +"/" + "@Model.VArchivoSolicitanteNombre" + "' >'"+ "@Model.VArchivoSolicitanteNombre"+"' </a>")
+            $('#VArchivoConyugeNombre').html("<a target='_blank' href='"+ UrlValid +"/" + "@Model.VArchivoConyugeNombre" + "' >'"+ "@Model.VArchivoConyugeNombre"+"' </a>")
+
+            $('#PArchivoSolicitanteNombre').html("<a target='_blank' href='"+ UrlValid +"/" + "@Model.PArchivoSolicitanteNombre" + "' >'"+ "@Model.PArchivoSolicitanteNombre"+"' </a>")
+            $('#PArchivoConyugeNombre').html("<a target='_blank' href='"+ UrlValid +"/" + "@Model.PArchivoConyugeNombre" + "' >'"+ "@Model.PArchivoConyugeNombre"+"' </a>")
+
+            $('#CArchivoSolicitanteNombre').html("<a target='_blank' href='"+ UrlValid +"/" + "@Model.CArchivoSolicitanteNombre" + "' >'"+ "@Model.CArchivoSolicitanteNombre"+"' </a>")
+            $('#CArchivoConyugeNombre').html("<a target='_blank' href='"+ UrlValid +"/" + "@Model.CArchivoConyugeNombre" + "' >'"+ "@Model.CArchivoConyugeNombre"+"' </a>")
+
+            $('#AArchivoSolicitanteNombre').html("<a target='_blank' href='"+ UrlValid +"/" + "@Model.AArchivoSolicitanteNombre" + "' >'"+ "@Model.AArchivoSolicitanteNombre"+"' </a>")
+            $('#AArchivoConyugeNombre').html("<a target='_blank' href='"+ UrlValid +"/" + "@Model.AArchivoConyugeNombre" + "' >'"+ "@Model.AArchivoConyugeNombre"+"' </a>")
+
+        });
+
+        function DateConvert(date) {
+            var res = date.split("/");
+            var Add1 = "";
+            var Add2 = "";
+            var Add3 = "";
+
+            if (res[0].length == 1) {
+                Add1 = "0";
+            }
+            if (res[1].length == 1) {
+                Add2 = "0";
+            }
+             if (res[2].length == 1) {
+                Add3 = "0";
+            }
+            var ResDate = Add3+res[2].replace(" 00:00:00","")+"-"+Add2+res[1]+"-"+Add1+res[0];
+
+            return ResDate;
+        }
+        //////  Iniciales
+            ///// Ortografia 
+                var FechaExpedicionConyugeI ='@Model.FechaExpedicionConyuge';
+                if( FechaExpedicionConyugeI != ""){
+                    $('#FechaExpedicionConyuge').val(DateConvert("@Model.FechaExpedicionConyuge"));
+                }
+                var FechaExpedicionSolicitanteI ='@Model.FechaExpedicionSolicitante';
+                if( FechaExpedicionSolicitanteI != ""){
+                    $('#FechaExpedicionSolicitante').val(DateConvert("@Model.FechaExpedicionSolicitante"));
+                }
+                $("#FechaExpedicionConyuge").prop("disabled", true);
+                $("#FechaExpedicionSolicitante").prop("disabled", true);
+                $("#NombreSolicitante").prop("disabled", true);
+                $("#TipoDocumento").prop("disabled", true);
+                $("#NumeroIdentificacion").prop("disabled", true);
+                $("#NombreConyuge").prop("disabled", true);
+                $("#NumeroIdentificacionConyuge").prop("disabled", true);
+                $("#TipoDocumentoConyuge").prop("disabled", true);
+    
+                $("#Ortografia-1-1").change(function () {
+                    $("#NombreSolicitante").prop("disabled", true);
+                        return false;
+                });
+                $("#Ortografia-1-2").change(function () {
+                    $("#NombreSolicitante").prop("disabled", false);
+                    return false;
+                });
+
+                $("#Ortografia-1-3").change(function () {
+                    $("#TipoDocumento").prop("disabled", true);
+                    $("#NumeroIdentificacion").prop("disabled", true);
+                    $("#FechaExpedicionSolicitante").prop("disabled", true);
+                    return false;
+                });
+                $("#Ortografia-1-4").change(function () {
+                    $("#TipoDocumento").prop("disabled", false);
+                    $("#NumeroIdentificacion").prop("disabled", false);
+                    $("#FechaExpedicionSolicitante").prop("disabled", false);
+                    return false;
+                });
+
+                $("#Ortografia-1-5").change(function () {
+                    $("#NombreConyuge").prop("disabled", true);
+                    return false;
+                });
+                $("#Ortografia-1-6").change(function () {
+                    $("#NombreConyuge").prop("disabled", false);
+                    return false;
+                });
+
+                $("#Ortografia-1-7").change(function () {
+                    $("#NumeroIdentificacionConyuge").prop("disabled", true);
+                    $("#TipoDocumentoConyuge").prop("disabled", true);
+                    $("#FechaExpedicionConyuge").prop("disabled", true);
+                    return false;
+                });
+                $("#Ortografia-1-8").change(function () {
+                    $("#NumeroIdentificacionConyuge").prop("disabled", false);
+                    $("#TipoDocumentoConyuge").prop("disabled", false);
+                    $("#FechaExpedicionConyuge").prop("disabled", false);
+                    return false;
+                });
+            ///// Vigencia
+                var VFechaSolicitanteI ='@Model.VFechaSolicitante';
+                if( VFechaSolicitanteI != ""){
+                    $('#VFechaSolicitante').val(DateConvert("@Model.VFechaSolicitante"));
+                }
+                var VFechaConyugeI ='@Model.VFechaConyuge';
+                if( VFechaConyugeI != ""){
+                    $('#VFechaConyuge').val(DateConvert("@Model.VFechaConyuge"));
+                }
+
+                $("#VFechaSolicitante").prop("disabled", true);
+                $("#VArchivoSolicitante").prop("disabled", true);
+                $("#VFechaConyuge").prop("disabled", true);
+                $("#VArchivoConyuge").prop("disabled", true);
+    
+                $("#Vigencia-1-2").change(function () {
+                    $("#VFechaSolicitante").prop("disabled", false);
+                    $("#VArchivoSolicitante").prop("disabled", false);
+                        return false;
+                });
+
+                $("#Vigencia-1-4").change(function () {
+                    $("#VFechaConyuge").prop("disabled", false);
+                    $("#VArchivoConyuge").prop("disabled", false);
+                    return false;
+                });
+
+                $("#Vigencia-1-1").change(function () {
+                    $("#VFechaSolicitante").prop("disabled", true);
+                    $("#VArchivoSolicitante").prop("disabled", true);
+                        return false;
+                });
+
+                $("#Vigencia-1-3").change(function () {
+                    $("#VFechaConyuge").prop("disabled", true );
+                    $("#VArchivoConyuge").prop("disabled", true);
+                    return false;
+                });
+            ///// Procuraduria
+                var PFechaSolicitanteI ='@Model.PFechaSolicitante';
+                if( PFechaSolicitanteI != ""){
+                    $('#PFechaSolicitante').val(DateConvert("@Model.PFechaSolicitante"));
+                }
+                var PFechaConyugeI ='@Model.PFechaConyuge';
+                if(PFechaConyugeI != ""){
+                    $('#PFechaConyuge').val(DateConvert("@Model.PFechaConyuge"));
+                }
+
+                $("#PFechaSolicitante").prop("disabled", true);
+                $("#PArchivoSolicitante").prop("disabled", true);
+                $("#PFechaConyuge").prop("disabled", true);
+                $("#PArchivoConyuge").prop("disabled", true);
+    
+                $("#Pro-1-2").change(function () {
+                    $("#PFechaSolicitante").prop("disabled", false);
+                    $("#PArchivoSolicitante").prop("disabled", false);
+                        return false;
+                });
+
+                $("#Pro-1-4").change(function () {
+                    $("#PFechaConyuge").prop("disabled", false);
+                    $("#PArchivoConyuge").prop("disabled", false);
+                    return false;
+                });
+
+                $("#Pro-1-1").change(function () {
+                    $("#PFechaSolicitante").prop("disabled", true);
+                    $("#PArchivoSolicitante").prop("disabled", true);
+                        return false;
+                });
+
+                $("#Pro-1-3").change(function () {
+                    $("#PFechaConyuge").prop("disabled", true );
+                    $("#PArchivoConyuge").prop("disabled", true);
+                    return false;
+                });
+            ///// Contraloria
+                var CFechaSolicitanteI ='@Model.CFechaSolicitante';
+                if( CFechaSolicitanteI != ""){
+                    $('#CFechaSolicitante').val(DateConvert("@Model.CFechaSolicitante"));
+                }
+                var CFechaConyugeI ='@Model.CFechaConyuge';
+                if(CFechaConyugeI != ""){
+                    $('#CFechaConyuge').val(DateConvert("@Model.CFechaConyuge"));
+                }
+
+                $("#CFechaSolicitante").prop("disabled", true);
+                $("#CArchivoSolicitante").prop("disabled", true);
+                $("#CFechaConyuge").prop("disabled", true);
+                $("#CArchivoConyuge").prop("disabled", true);
+    
+                $("#Contra-1-2").change(function () {
+                    $("#CFechaSolicitante").prop("disabled", false);
+                    $("#CArchivoSolicitante").prop("disabled", false);
+                        return false;
+                });
+
+                $("#Contra-1-4").change(function () {
+                    $("#CFechaConyuge").prop("disabled", false);
+                    $("#CArchivoConyuge").prop("disabled", false);
+                    return false;
+                });
+
+                $("#Contra-1-1").change(function () {
+                    $("#CFechaSolicitante").prop("disabled", true);
+                    $("#CArchivoSolicitante").prop("disabled", true);
+                        return false;
+                });
+
+                $("#Contra-1-3").change(function () {
+                    $("#CFechaConyuge").prop("disabled", true );
+                    $("#CArchivoConyuge").prop("disabled", true);
+                    return false;
+                });
+            ///// Antecedentes
+                var AFechaSolicitanteI ='@Model.AFechaSolicitante';
+                if( AFechaSolicitanteI != ""){
+                    $('#AFechaSolicitante').val(DateConvert("@Model.AFechaSolicitante"));
+                }
+                var AFechaConyugeI ='@Model.AFechaConyuge';
+                if(AFechaConyugeI != ""){
+                    $('#AFechaConyuge').val(DateConvert("@Model.AFechaConyuge"));
+                }
+
+                $("#AFechaSolicitante").prop("disabled", true);
+                $("#AArchivoSolicitante").prop("disabled", true);
+                $("#AFechaConyuge").prop("disabled", true);
+                $("#AArchivoConyuge").prop("disabled", true);
+    
+                $("#Ante-1-2").change(function () {
+                    $("#AFechaSolicitante").prop("disabled", false);
+                    $("#AArchivoSolicitante").prop("disabled", false);
+                        return false;
+                });
+
+                $("#Ante-1-4").change(function () {
+                    $("#AFechaConyuge").prop("disabled", false);
+                    $("#AArchivoConyuge").prop("disabled", false);
+                    return false;
+                });
+
+                $("#Ante-1-1").change(function () {
+                    $("#AFechaSolicitante").prop("disabled", true);
+                    $("#AArchivoSolicitante").prop("disabled", true);
+                        return false;
+                });
+
+                $("#Ante-1-3").change(function () {
+                    $("#AFechaConyuge").prop("disabled", true );
+                    $("#AArchivoConyuge").prop("disabled", true);
+                    return false;
+                });
+             
+        ////// click guardar 
+
+            ///// Ortografia 
+
+                $("#Ortografia").click(function () {
+
+                    $("#Gestion").val("1");
+                    var valid = 0 ;
+
+                    if (!$("#Ortografia-1-1").is(':checked') && !$("#Ortografia-1-2").is(':checked')) {
+                            $('span[data-valmsg-for="Ortografia-1"]').text("* Requerido Seleccione");
+                            valid = 1;
+                    };
+
+                    if (!$("#Ortografia-1-3").is(':checked') && !$("#Ortografia-1-4").is(':checked')) {
+                            $('span[data-valmsg-for="Ortografia-2"]').text("* Requerido Seleccione");
+                            valid = 1;
+                    };
+
+                    if (!$("#Ortografia-1-5").is(':checked') && !$("#Ortografia-1-6").is(':checked')) {
+                            $('span[data-valmsg-for="Ortografia-3"]').text("* Requerido Seleccione");
+                            valid = 1;
+                    };
+
+                    if (!$("#Ortografia-1-7").is(':checked') && !$("#Ortografia-1-8").is(':checked')) {
+                            $('span[data-valmsg-for="Ortografia-4"]').text("* Requerido Seleccione");
+                            valid = 1;
+                    };
+
+                    if ($("#Ortografia-1-1").is(':checked')) {
+                        $("#NombreSolicitante").val("N_A");
+                    };
+                   
+                    if ($("#Ortografia-1-3").is(':checked')) {
+                        $("#TipoDocumento").val("0");
+                        $("#NumeroIdentificacion").val("0");
+                        $("#FechaExpedicionSolicitante").val("");
+                    };
+                    
+                    if ($("#Ortografia-1-5").is(':checked')) {
+                        $("#NombreConyuge").val("N_A");
+                    };
+
+
+                    if ($("#Ortografia-1-7").is(':checked')) {
+                        $("#NumeroIdentificacionConyuge").val("0")
+                        $("#TipoDocumentoConyuge").val("0");
+                        $("#FechaExpedicionConyuge").val("");
+                    };
+
+
+                    if ($("#Ortografia-1-2").is(':checked')) {
+                        if ($("#NombreSolicitante").val() == "") {
+                            $('span[data-valmsg-for="NombreSolicitante"]').text("* Requerido");
+                            valid = 1;
+                        }
+                    };
+                   
+                    if ($("#Ortografia-1-4").is(':checked')) {
+
+                        if ($("#TipoDocumento").val() == ""){
+                            $('span[data-valmsg-for="TipoDocumento"]').text("* Requerido Tipo de Documento");
+                            valid = 1;
+                        }
+
+                        if ($("#NumeroIdentificacion").val() == ""){
+                            $('span[data-valmsg-for="NumeroIdentificacion"]').text("* Requerido  Numero de indentificacion");
+                            valid = 1;
+                        }
+                        if ($("#FechaExpedicionSolicitante").val() == ""){
+                            $('span[data-valmsg-for="FechaExpedicionSolicitante"]').text("* Requerido  Fecha de Expedicion");
+                            valid = 1;
+                        }
+
+                    };
+                    
+                    if ($("#Ortografia-1-6").is(':checked')) {
+
+                        if ($("#NombreConyuge").val() == ""){
+                            $('span[data-valmsg-for="NombreConyuge"]').text("* Requerido");
+                            valid = 1;
+                        }
+
+                    };
+
+                    if ($("#Ortografia-1-8").is(':checked')) {
+                        if ($("#NumeroIdentificacionConyuge").val() == ""){
+                            $('span[data-valmsg-for="NumeroIdentificacionConyuge"]').text("* Requerido Numero de indentificacion");
+                            valid = 1;
+                        }
+                        if ($("#TipoDocumentoConyuge").val() == ""){
+                            $('span[data-valmsg-for="TipoDocumentoConyuge"]').text("* Requerido Tipo de Documento");
+                            valid = 1;
+                        }
+                        if ($("#FechaExpedicionConyuge").val() == ""){
+                            $('span[data-valmsg-for="FechaExpedicionConyuge"]').text("* Requerido Fecha de Expedicion");
+                            valid = 1;
+                        }
+
+                    };
+                    
+                    if (valid == 1) {
+                        return false;
+                    }else{
+                        $("#CrearForm :input").prop("disabled", false);
+                        var form = $('#CrearForm')[0];
+                        var Data = new FormData(form);
+
+                         $.ajax({
+                            type: 'POST',
+                            url: 'EditJson', // we are calling json method
+                            dataType: 'json',
+                            enctype: 'multipart/form-data',
+                            processData: false,
+                            contentType: false,
+                            cache: false,
+                            timeout: 600000,
+                            data: Data,
+                            success: function(states) {
+                                alert("Guardado ...");
+                                location.reload();
+                            },
+                            error: function (ex) {
+                                console.log(ex.responseText);
+                                return false;
+
+                            }
+                        });
+                        return false;
+                    }
+                        return false;
+
+                });
+
+            /////
+            ///// Vigencia 
+
+                $("#Vigencia").click(function () {
+                    $("#Gestion").val("2");
+                    var valid = 0 ;
+
+                    if (!$("#Vigencia-1-1").is(':checked') && !$("#Vigencia-1-2").is(':checked')) {
+                            $('span[data-valmsg-for="Vigencia-1"]').text("* Requerido Seleccione");
+                            valid = 1;
+                    };
+
+                    if (!$("#Vigencia-1-3").is(':checked') && !$("#Vigencia-1-4").is(':checked')) {
+                            $('span[data-valmsg-for="Vigencia-2"]').text("* Requerido Seleccione");
+                            valid = 1;
+                    };
+
+                    if ($("#Vigencia-1-1").is(':checked')) {
+
+                        $("#VFechaSolicitante").val("");
+                        $("#VArchivoSolicitante").val("");
+                    };
+
+                    if ($("#Vigencia-1-3").is(':checked')) {
+
+                        $("#VFechaConyuge").val("");
+                        $("#VArchivoConyuge").val("");
+                    };
+                    
+
+                    if ($("#Vigencia-1-2").is(':checked')) {
+                        //alert();
+                        if ($("#VFechaSolicitante").val() == "") {
+                            $('span[data-valmsg-for="VFechaSolicitante"]').text("* Requerido Fecha");
+                            valid = 1;
+                        }
+                        if ($("#VArchivoSolicitante").val() == "") {
+                            $('span[data-valmsg-for="VArchivoSolicitante"]').text("* Requerido Archivo");
+                            valid = 1;
+                        }
+                    };
+                   
+                    if ($("#Vigencia-1-4").is(':checked')) {
+
+                        //alert();
+                        if ($("#VFechaConyuge").val() == "") {
+                            $('span[data-valmsg-for="VFechaConyuge"]').text("* Requerido Fecha");
+                            valid = 1;
+                        }
+                        if ($("#VArchivoConyuge").val() == "") {
+                            $('span[data-valmsg-for="VArchivoConyuge"]').text("* Requerido Archivo");
+                            valid = 1;
+                        }
+
+                    };
+
+                    if (valid == 1) {
+                        return false;
+                    }else{
+                        $("#CrearForm :input").prop("disabled", false);
+
+                        var form = $('#CrearForm')[0];
+                        var Data = new FormData(form);
+
+                         $.ajax({
+                            type: 'POST',
+                            url: 'EditJson', // we are calling json method
+                            dataType: 'json',
+                            enctype: 'multipart/form-data',
+                            processData: false,
+                            contentType: false,
+                            cache: false,
+                            timeout: 600000,
+                            data: Data,
+                            success: function(states) {
+                                alert("Guardado ...");
+                                location.reload();
+                            },
+                            error: function (ex) {
+                                console.log(ex.responseText);
+                                return false;
+
+                            }
+                        });
+                        return false;
+                    }
+                        return false;
+
+                });
+
+            /////
+
+            ///// Procuraduria 
+
+                $("#Pro").click(function () {
+                    $("#Gestion").val("3");
+                    var valid = 0 ;
+
+                    if (!$("#Pro-1-1").is(':checked') && !$("#Pro-1-2").is(':checked')) {
+                            $('span[data-valmsg-for="Pro-1"]').text("* Requerido Seleccione");
+                            valid = 1;
+                    };
+
+                    if (!$("#Pro-1-3").is(':checked') && !$("#Pro-1-4").is(':checked')) {
+                            $('span[data-valmsg-for="Pro-2"]').text("* Requerido Seleccione");
+                            valid = 1;
+                    };
+
+                    if ($("#Pro-1-1").is(':checked')) {
+
+                        $("#PFechaSolicitante").val("");
+                        $("#PArchivoSolicitante").val("");
+                    };
+
+                    if ($("#Pro-1-3").is(':checked')) {
+
+                        $("#PFechaConyuge").val("");
+                        $("#PArchivoConyuge").val("");
+                    };
+                    
+
+                    if ($("#Pro-1-2").is(':checked')) {
+                        //alert();
+                        if ($("#PFechaSolicitante").val() == "") {
+                            $('span[data-valmsg-for="PFechaSolicitante"]').text("* Requerido Fecha");
+                            valid = 1;
+                        }
+                        if ($("#PArchivoSolicitante").val() == "") {
+                            $('span[data-valmsg-for="PArchivoSolicitante"]').text("* Requerido Archivo");
+                            valid = 1;
+                        }
+                    };
+                   
+                    if ($("#Pro-1-4").is(':checked')) {
+
+                        //alert();
+                        if ($("#PFechaConyuge").val() == "") {
+                            $('span[data-valmsg-for="PFechaConyuge"]').text("* Requerido Fecha");
+                            valid = 1;
+                        }
+                        if ($("#PArchivoConyuge").val() == "") {
+                            $('span[data-valmsg-for="PArchivoConyuge"]').text("* Requerido Archivo");
+                            valid = 1;
+                        }
+
+                    };
+
+                    if (valid == 1) {
+                        return false;
+                    }else{
+
+                        $("#CrearForm :input").prop("disabled", false);
+                        var form = $('#CrearForm')[0];
+                        var Data = new FormData(form);
+
+                         $.ajax({
+                            type: 'POST',
+                            url: 'EditJson', // we are calling json method
+                            dataType: 'json',
+                            enctype: 'multipart/form-data',
+                            processData: false,
+                            contentType: false,
+                            cache: false,
+                            timeout: 600000,
+                            data: Data,
+                            success: function(states) {
+                                alert("Guardado ...");
+                                location.reload();
+                            },
+                            error: function (ex) {
+                                console.log(ex.responseText);
+                                return false;
+
+                            }
+                        });
+                        return false;
+                    }
+                        return false;
+
+                });
+
+            /////
+
+            ///// Contraloria 
+
+                $("#Contra").click(function () {
+                    $("#Gestion").val("4");
+                    var valid = 0 ;
+
+                    if (!$("#Contra-1-1").is(':checked') && !$("#Contra-1-2").is(':checked')) {
+                            $('span[data-valmsg-for="Contra-1"]').text("* Requerido Seleccione");
+                            valid = 1;
+                    };
+
+                    if (!$("#Contra-1-3").is(':checked') && !$("#Contra-1-4").is(':checked')) {
+                            $('span[data-valmsg-for="Contra-2"]').text("* Requerido Seleccione");
+                            valid = 1;
+                    };
+
+                    if ($("#Contra-1-1").is(':checked')) {
+
+                        $("#CFechaSolicitante").val("");
+                        $("#CrchivoSolicitante").val("");
+                    };
+
+                    if ($("#Contra-1-3").is(':checked')) {
+
+                        $("#CFechaConyuge").val("");
+                        $("#CArchivoConyuge").val("");
+                    };
+                    
+
+                    if ($("#Contra-1-2").is(':checked')) {
+                        //alert();
+                        if ($("#CFechaSolicitante").val() == "") {
+                            $('span[data-valmsg-for="CFechaSolicitante"]').text("* Requerido Fecha");
+                            valid = 1;
+                        }
+                        if ($("#CArchivoSolicitante").val() == "") {
+                            $('span[data-valmsg-for="CArchivoSolicitante"]').text("* Requerido Archivo");
+                            valid = 1;
+                        }
+                    };
+                   
+                    if ($("#Contra-1-4").is(':checked')) {
+
+                        //alert();
+                        if ($("#CFechaConyuge").val() == "") {
+                            $('span[data-valmsg-for="CFechaConyuge"]').text("* Requerido Fecha");
+                            valid = 1;
+                        }
+                        if ($("#CArchivoConyuge").val() == "") {
+                            $('span[data-valmsg-for="CArchivoConyuge"]').text("* Requerido Archivo");
+                            valid = 1;
+                        }
+
+                    };
+
+                    if (valid == 1) {
+                        return false;
+                    }else{
+
+                        var form = $('#CrearForm')[0];
+                        var Data = new FormData(form);
+                        $("#CrearForm :input").prop("disabled", false);
+
+                         $.ajax({
+                            type: 'POST',
+                            url: 'EditJson', // we are calling json method
+                            dataType: 'json',
+                            enctype: 'multipart/form-data',
+                            processData: false,
+                            contentType: false,
+                            cache: false,
+                            timeout: 600000,
+                            data: Data,
+                            success: function(states) {
+                                alert("Guardado ...");
+                                location.reload();
+                            },
+                            error: function (ex) {
+                                console.log(ex.responseText);
+                                return false;
+
+                            }
+                        });
+                        return false;
+                    }
+                        return false;
+
+                });
+
+            /////
+
+            ///// Antecedentes 
+
+                $("#Ante").click(function () {
+                    $("#Gestion").val("5");
+                    var valid = 0 ;
+
+                    if (!$("#Ante-1-1").is(':checked') && !$("#Ante-1-2").is(':checked')) {
+                            $('span[data-valmsg-for="Ante-1"]').text("* Requerido Seleccione");
+                            valid = 1;
+                    };
+
+                    if (!$("#Ante-1-3").is(':checked') && !$("#Ante-1-4").is(':checked')) {
+                            $('span[data-valmsg-for="Ante-2"]').text("* Requerido Seleccione");
+                            valid = 1;
+                    };
+
+                    if ($("#Ante-1-1").is(':checked')) {
+
+                        $("#AFechaSolicitante").val("");
+                        $("#AArchivoSolicitante").val("");
+                    };
+
+                    if ($("#Ante-1-3").is(':checked')) {
+
+                        $("#AFechaConyuge").val("");
+                        $("#AArchivoConyuge").val("");
+                    };
+                    
+
+                    if ($("#Ante-1-2").is(':checked')) {
+                        //alert();
+                        if ($("#AFechaSolicitante").val() == "") {
+                            $('span[data-valmsg-for="AFechaSolicitante"]').text("* Requerido Fecha");
+                            valid = 1;
+                        }
+                        if ($("#AArchivoSolicitante").val() == "") {
+                            $('span[data-valmsg-for="AArchivoSolicitante"]').text("* Requerido Archivo");
+                            valid = 1;
+                        }
+                    };
+                   
+                    if ($("#Ante-1-4").is(':checked')) {
+
+                        //alert();
+                        if ($("#AFechaConyuge").val() == "") {
+                            $('span[data-valmsg-for="AFechaConyuge"]').text("* Requerido Fecha");
+                            valid = 1;
+                        }
+                        if ($("#AArchivoConyuge").val() == "") {
+                            $('span[data-valmsg-for="AArchivoConyuge"]').text("* Requerido Archivo");
+                            valid = 1;
+                        }
+
+                    };
+
+                    if (valid == 1) {
+                        return false;
+                    }else{
+                        $("#CrearForm :input").prop("disabled", false);
+
+                        var form = $('#CrearForm')[0];
+                        var Data = new FormData(form);
+
+                         $.ajax({
+                            type: 'POST',
+                            url: 'EditJson', // we are calling json method
+                            dataType: 'json',
+                            enctype: 'multipart/form-data',
+                            processData: false,
+                            contentType: false,
+                            cache: false,
+                            timeout: 600000,
+                            data: Data,
+                            success: function(states) {
+                                alert("Guardado ...");
+                                location.reload();
+                            },
+                            error: function (ex) {
+                                console.log(ex.responseText);
+                                return false;
+
+                            }
+                        });
+                        return false;
+                    }
+                        return false;
+
+                });
+
+            /////
+
+        ////// Catalogos
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("TipoDoc")', // we are calling json method
+                dataType: 'json',
+                success: function(states) {
+                    
+                    $("#TipoDocumento").append('<option value="">Tipo de Documento</option>');
+
+                    $.each(states, function (i, state) {
+
+                        if (state.Value == '@Model.TipoDocumento' && '@Model.NumeroIdentificacion' != "") {
+                            $("#TipoDocumento").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                        }else {
+                            $("#TipoDocumento").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+
+                        }
+                    });
+                },
+                error: function (ex) {
+                    console.log(ex.responseText);
+                }
+            });
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("TipoDoc")', // we are calling json method
+                dataType: 'json',
+                success: function(states) {
+                    ////   alert("ok_pais");
+                    $("#TipoDocumentoConyuge").append('<option value="">Tipo de Documento</option>');
+
+                    $.each(states, function (i, state) {
+                        if (state.Value == '@Model.TipoDocumento' && '@Model.NumeroIdentificacionConyuge' != "") {
+                            $("#TipoDocumentoConyuge").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                        }else {
+                            $("#TipoDocumentoConyuge").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+
+                        }
+                    });
+                },
+                error: function (ex) {
+                    console.log(ex.responseText);
+                }
+            });
+        console.log("ready!");
+    });
+</script>
+
+}
+

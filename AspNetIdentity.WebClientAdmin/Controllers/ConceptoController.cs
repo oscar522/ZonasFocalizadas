@@ -245,7 +245,7 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             {
 
                 Id = processModel.Id,
-                IdAspNetUsers = processModel.IdAspNetUsers,
+                IdAspNetUsers = processModel.IdAspNetUsers+"|"+ usuarioLogin.nameid,
                 UserAsociado = processModel.UserAsociado,
                 Rol = processModel.Rol,
                 NombreAspNetUsers = processModel.NombreAspNetUsers,
