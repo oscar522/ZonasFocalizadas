@@ -22,32 +22,34 @@ namespace AspNetIdentity.WebApi.Models
         public string NombreConyuge { get; set; }
         public Nullable<int> TipoDocumentoConyuge { get; set; }
         public Nullable<long> NumeroIdentificacionConyuge { get; set; }
+        public Nullable<System.DateTime> FechaExpedicionSolicitante { get; set; }
+        public Nullable<System.DateTime> FechaExpedicionConyuge { get; set; }
+        public Nullable<System.DateTime> FModificacionExp { get; set; }
         public Nullable<System.DateTime> VFechaSolicitante { get; set; }
         public string VArchivoSolicitante { get; set; }
         public Nullable<System.DateTime> VFechaConyuge { get; set; }
         public string VArchivoConyuge { get; set; }
+        public Nullable<int> VVivoSolicitante { get; set; }
+        public Nullable<int> VVivoConyuge { get; set; }
+        public Nullable<System.DateTime> VFModificacion { get; set; }
         public Nullable<System.DateTime> PFechaSolicitante { get; set; }
         public string PArchivoSolicitante { get; set; }
         public Nullable<System.DateTime> PFechaConyuge { get; set; }
         public string PArchivoConyuge { get; set; }
+        public Nullable<System.DateTime> PFModificacion { get; set; }
         public Nullable<System.DateTime> CFechaSolicitante { get; set; }
         public string CArchivoSolicitante { get; set; }
         public Nullable<System.DateTime> CFechaConyuge { get; set; }
         public string CArchivoConyuge { get; set; }
+        public Nullable<System.DateTime> CFModificacion { get; set; }
         public Nullable<System.DateTime> AFechaSolicitante { get; set; }
         public string AArchivoSolicitante { get; set; }
         public Nullable<System.DateTime> AFechaConyuge { get; set; }
         public string AArchivoConyuge { get; set; }
+        public Nullable<System.DateTime> AFModificacion { get; set; }
         public Nullable<int> Gestion { get; set; }
         public string IdAspNetUser { get; set; }
         public Nullable<bool> Estado { get; set; }
         public Nullable<System.DateTime> FechaModificacion { get; set; }
-        public Nullable<System.DateTime> FModificacionExp { get; set; }
-        public Nullable<System.DateTime> VFModificacion { get; set; }
-        public Nullable<System.DateTime> PFModificacion { get; set; }
-        public Nullable<System.DateTime> CFModificacion { get; set; }
-        public Nullable<System.DateTime> AFModificacion { get; set; }
-        public Nullable<System.DateTime> FechaExpedicionSolicitante { get; set; }
-        public Nullable<System.DateTime> FechaExpedicionConyuge { get; set; }
     }
 }

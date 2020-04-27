@@ -305,6 +305,8 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
           <Property Name="VArchivoSolicitante" Type="varchar(max)" />
           <Property Name="VFechaConyuge" Type="date" />
           <Property Name="VArchivoConyuge" Type="varchar(max)" />
+          <Property Name="VVivoSolicitante" Type="int" />
+          <Property Name="VVivoConyuge" Type="int" />
           <Property Name="VFModificacion" Type="datetime" />
           <Property Name="PFechaSolicitante" Type="date" />
           <Property Name="PArchivoSolicitante" Type="varchar(max)" />
@@ -1419,33 +1421,35 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Property Name="NombreConyuge" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="TipoDocumentoConyuge" Type="Int32" />
           <Property Name="NumeroIdentificacionConyuge" Type="Int64" />
+          <Property Name="FechaExpedicionSolicitante" Type="DateTime" Precision="0" />
+          <Property Name="FechaExpedicionConyuge" Type="DateTime" Precision="0" />
+          <Property Name="FModificacionExp" Type="DateTime" Precision="3" />
           <Property Name="VFechaSolicitante" Type="DateTime" Precision="0" />
           <Property Name="VArchivoSolicitante" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="VFechaConyuge" Type="DateTime" Precision="0" />
           <Property Name="VArchivoConyuge" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="VVivoSolicitante" Type="Int32" />
+          <Property Name="VVivoConyuge" Type="Int32" />
+          <Property Name="VFModificacion" Type="DateTime" Precision="3" />
           <Property Name="PFechaSolicitante" Type="DateTime" Precision="0" />
           <Property Name="PArchivoSolicitante" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="PFechaConyuge" Type="DateTime" Precision="0" />
           <Property Name="PArchivoConyuge" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PFModificacion" Type="DateTime" Precision="3" />
           <Property Name="CFechaSolicitante" Type="DateTime" Precision="0" />
           <Property Name="CArchivoSolicitante" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="CFechaConyuge" Type="DateTime" Precision="0" />
           <Property Name="CArchivoConyuge" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CFModificacion" Type="DateTime" Precision="3" />
           <Property Name="AFechaSolicitante" Type="DateTime" Precision="0" />
           <Property Name="AArchivoSolicitante" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="AFechaConyuge" Type="DateTime" Precision="0" />
           <Property Name="AArchivoConyuge" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AFModificacion" Type="DateTime" Precision="3" />
           <Property Name="Gestion" Type="Int32" />
           <Property Name="IdAspNetUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Estado" Type="Boolean" />
           <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
-          <Property Name="FModificacionExp" Type="DateTime" Precision="3" />
-          <Property Name="VFModificacion" Type="DateTime" Precision="3" />
-          <Property Name="PFModificacion" Type="DateTime" Precision="3" />
-          <Property Name="CFModificacion" Type="DateTime" Precision="3" />
-          <Property Name="AFModificacion" Type="DateTime" Precision="3" />
-          <Property Name="FechaExpedicionSolicitante" Type="DateTime" Precision="0" />
-          <Property Name="FechaExpedicionConyuge" Type="DateTime" Precision="0" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2007,33 +2011,35 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <EntitySetMapping Name="CaracterizacionSolicitante">
             <EntityTypeMapping TypeName="ZonasFModel.CaracterizacionSolicitante">
               <MappingFragment StoreEntitySet="CaracterizacionSolicitante">
-                <ScalarProperty Name="FechaExpedicionConyuge" ColumnName="FechaExpedicionConyuge" />
-                <ScalarProperty Name="FechaExpedicionSolicitante" ColumnName="FechaExpedicionSolicitante" />
-                <ScalarProperty Name="AFModificacion" ColumnName="AFModificacion" />
-                <ScalarProperty Name="CFModificacion" ColumnName="CFModificacion" />
-                <ScalarProperty Name="PFModificacion" ColumnName="PFModificacion" />
-                <ScalarProperty Name="VFModificacion" ColumnName="VFModificacion" />
-                <ScalarProperty Name="FModificacionExp" ColumnName="FModificacionExp" />
                 <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />
                 <ScalarProperty Name="Gestion" ColumnName="Gestion" />
+                <ScalarProperty Name="AFModificacion" ColumnName="AFModificacion" />
                 <ScalarProperty Name="AArchivoConyuge" ColumnName="AArchivoConyuge" />
                 <ScalarProperty Name="AFechaConyuge" ColumnName="AFechaConyuge" />
                 <ScalarProperty Name="AArchivoSolicitante" ColumnName="AArchivoSolicitante" />
                 <ScalarProperty Name="AFechaSolicitante" ColumnName="AFechaSolicitante" />
+                <ScalarProperty Name="CFModificacion" ColumnName="CFModificacion" />
                 <ScalarProperty Name="CArchivoConyuge" ColumnName="CArchivoConyuge" />
                 <ScalarProperty Name="CFechaConyuge" ColumnName="CFechaConyuge" />
                 <ScalarProperty Name="CArchivoSolicitante" ColumnName="CArchivoSolicitante" />
                 <ScalarProperty Name="CFechaSolicitante" ColumnName="CFechaSolicitante" />
+                <ScalarProperty Name="PFModificacion" ColumnName="PFModificacion" />
                 <ScalarProperty Name="PArchivoConyuge" ColumnName="PArchivoConyuge" />
                 <ScalarProperty Name="PFechaConyuge" ColumnName="PFechaConyuge" />
                 <ScalarProperty Name="PArchivoSolicitante" ColumnName="PArchivoSolicitante" />
                 <ScalarProperty Name="PFechaSolicitante" ColumnName="PFechaSolicitante" />
+                <ScalarProperty Name="VFModificacion" ColumnName="VFModificacion" />
+                <ScalarProperty Name="VVivoConyuge" ColumnName="VVivoConyuge" />
+                <ScalarProperty Name="VVivoSolicitante" ColumnName="VVivoSolicitante" />
                 <ScalarProperty Name="VArchivoConyuge" ColumnName="VArchivoConyuge" />
                 <ScalarProperty Name="VFechaConyuge" ColumnName="VFechaConyuge" />
                 <ScalarProperty Name="VArchivoSolicitante" ColumnName="VArchivoSolicitante" />
                 <ScalarProperty Name="VFechaSolicitante" ColumnName="VFechaSolicitante" />
+                <ScalarProperty Name="FModificacionExp" ColumnName="FModificacionExp" />
+                <ScalarProperty Name="FechaExpedicionConyuge" ColumnName="FechaExpedicionConyuge" />
+                <ScalarProperty Name="FechaExpedicionSolicitante" ColumnName="FechaExpedicionSolicitante" />
                 <ScalarProperty Name="NumeroIdentificacionConyuge" ColumnName="NumeroIdentificacionConyuge" />
                 <ScalarProperty Name="TipoDocumentoConyuge" ColumnName="TipoDocumentoConyuge" />
                 <ScalarProperty Name="NombreConyuge" ColumnName="NombreConyuge" />

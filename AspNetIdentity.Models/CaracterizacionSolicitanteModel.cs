@@ -42,6 +42,8 @@ namespace AspNetIdentity.Models
         public string VArchivoSolicitante { get; set; }
         public Nullable<System.DateTime> VFechaConyuge { get; set; }
         public string VArchivoConyuge { get; set; }
+        public Nullable<int> VvivoSolicitante { get; set; }
+        public Nullable<int> VvivoConyuge { get; set; }
         public Nullable<System.DateTime> PFechaSolicitante { get; set; }
         public string PArchivoSolicitante { get; set; }
         public Nullable<System.DateTime> PFechaConyuge { get; set; }

@@ -63,72 +63,74 @@ namespace AspNetIdentity.WebApi.Logic
             var lista = Ctx.CaracterizacionSolicitante
                 .Join(Ctx.BaldiosPersonaNatural, b => b.IdExpediente, c => c.id, (b, c) => new { b, c })
                 .Join(Ctx.CtTipoIdentificacion, b => b.b.TipoDocumento, c => c.ID_CT_TIPO_IDENTIFICACION, (b, c) => new { b = b.b, c = b.c, d = c })
-                .Join(Ctx.CtTipoIdentificacion, b => b.b.TipoDocumentoConyuge, c => c.ID_CT_TIPO_IDENTIFICACION, (b, c) => new { b.b , b.c, b.d, e = c })
-                .Join(Ctx.Users, b => b.b.IdAspNetUser, c => c.Id_Hash, (b, c) => new { b.b, b.c, b.d, b.e , f = c })
+                .Join(Ctx.CtTipoIdentificacion, b => b.b.TipoDocumentoConyuge, c => c.ID_CT_TIPO_IDENTIFICACION, (b, c) => new { b.b, b.c, b.d, e = c })
+                .Join(Ctx.Users, b => b.b.IdAspNetUser, c => c.Id_Hash, (b, c) => new { b.b, b.c, b.d, b.e, f = c })
                 .Join(Ctx.AspNetUserRoles, b => b.f.Id_Hash, c => c.UserId, (b, c) => new { b.b, b.c, b.d, b.e, b.f, g = c })
                 .Join(Ctx.AspNetRoles, b => b.g.RoleId, c => c.Id, (b, c) => new { b.b, b.c, b.d, b.e, b.f, b.g, h = c })
                 .Join(Ctx.CtTipoIdentificacion, b => b.c.IdTipoIdentificacion, c => c.ID_CT_TIPO_IDENTIFICACION, (b, c) => new { b.b, b.c, b.d, b.e, b.f, b.g, b.h, i = c })
                 .Join(Ctx.CtTipoIdentificacion, b => b.c.IdTipoIdentificacionConyuge, c => c.ID_CT_TIPO_IDENTIFICACION, (b, c) => new { b.b, b.c, b.d, b.e, b.f, b.g, b.h, b.i, j = c, })
                 .Where(x => x.b.Estado == true).Select(a => new CaracterizacionSolicitanteModel
                 {
-                     Id = a.b.Id,
-                     IdExpediente = a.b.IdExpediente,
-                     NombreSolicitanteExpediente = a.c.NombreBeneficiario,
-                     DocSolicitanteExpediente = a.c.Identificacion.ToString(),
-                     TipoDocSolicitanteExpediente = a.i.NOMBRE,
-                     IdTipoDocSolicitanteExpediente = a.i.ID_CT_TIPO_IDENTIFICACION,
+                    Id = a.b.Id,
+                    IdExpediente = a.b.IdExpediente,
+                    NombreSolicitanteExpediente = a.c.NombreBeneficiario,
+                    DocSolicitanteExpediente = a.c.Identificacion.ToString(),
+                    TipoDocSolicitanteExpediente = a.i.NOMBRE,
+                    IdTipoDocSolicitanteExpediente = a.i.ID_CT_TIPO_IDENTIFICACION,
 
-                     NombreConyugeExpediente = a.c.NombreConyuge,
-                     DocConyugeExpediente = a.c.IdentificacionConyuge.ToString(),
-                     TipoDocConyugeExpediente = a.j.NOMBRE,
-                     IdTipoDocConyugeExpediente = a.i.ID_CT_TIPO_IDENTIFICACION,
+                    NombreConyugeExpediente = a.c.NombreConyuge,
+                    DocConyugeExpediente = a.c.IdentificacionConyuge.ToString(),
+                    TipoDocConyugeExpediente = a.j.NOMBRE,
+                    IdTipoDocConyugeExpediente = a.i.ID_CT_TIPO_IDENTIFICACION,
 
-                     FechaExpedicionSolicitante = a.b.FechaExpedicionSolicitante,
-                     FechaExpedicionConyuge = a.b.FechaExpedicionConyuge,
+                    FechaExpedicionSolicitante = a.b.FechaExpedicionSolicitante,
+                    FechaExpedicionConyuge = a.b.FechaExpedicionConyuge,
 
-                     NumeroExpediente = a.c.NumeroExpediente,
-                     NombreSolicitante = a.b.NombreSolicitante,
-                     TipoDocumento = a.b.TipoDocumento,
-                     NombreTipoDocumento = a.d.NOMBRE,
-                     NumeroIdentificacion = a.b.NumeroIdentificacion,
-                     NombreConyuge = a.b.NombreConyuge,
-                     TipoDocumentoConyuge = a.b.TipoDocumentoConyuge,
-                     NombreTipoDocumentoConyuge = a.e.NOMBRE,
-                     NumeroIdentificacionConyuge = a.b.NumeroIdentificacionConyuge,
-                     FModificacionExp = a.b.FModificacionExp.ToString(),
+                    NumeroExpediente = a.c.NumeroExpediente,
+                    NombreSolicitante = a.b.NombreSolicitante,
+                    TipoDocumento = a.b.TipoDocumento,
+                    NombreTipoDocumento = a.d.NOMBRE,
+                    NumeroIdentificacion = a.b.NumeroIdentificacion,
+                    NombreConyuge = a.b.NombreConyuge,
+                    TipoDocumentoConyuge = a.b.TipoDocumentoConyuge,
+                    NombreTipoDocumentoConyuge = a.e.NOMBRE,
+                    NumeroIdentificacionConyuge = a.b.NumeroIdentificacionConyuge,
+                    FModificacionExp = a.b.FModificacionExp.ToString(),
 
-                     VFechaSolicitante = a.b.VFechaSolicitante,
-                     VArchivoSolicitante = a.b.VArchivoSolicitante,
-                     VFechaConyuge = a.b.VFechaConyuge,
-                     VArchivoConyuge = a.b.VArchivoConyuge,
-                     VFModificacion = a.b.VFModificacion.ToString(),
+                    VFechaSolicitante = a.b.VFechaSolicitante,
+                    VArchivoSolicitante = a.b.VArchivoSolicitante,
+                    VFechaConyuge = a.b.VFechaConyuge,
+                    VArchivoConyuge = a.b.VArchivoConyuge,
+                    VFModificacion = a.b.VFModificacion.ToString(),
+                    VvivoSolicitante = a.b.VVivoSolicitante,
+                    VvivoConyuge = a.b.VVivoConyuge,
 
-                     PFechaSolicitante = a.b.PFechaSolicitante,
-                     PArchivoSolicitante = a.b.PArchivoSolicitante,
-                     PFechaConyuge = a.b.PFechaConyuge,
-                     PArchivoConyuge = a.b.PArchivoConyuge,
-                     PFModificacion = a.b.PFModificacion.ToString(),
+                    PFechaSolicitante = a.b.PFechaSolicitante,
+                    PArchivoSolicitante = a.b.PArchivoSolicitante,
+                    PFechaConyuge = a.b.PFechaConyuge,
+                    PArchivoConyuge = a.b.PArchivoConyuge,
+                    PFModificacion = a.b.PFModificacion.ToString(),
 
-                     CFechaSolicitante = a.b.CFechaSolicitante,
-                     CArchivoSolicitante = a.b.CArchivoSolicitante,
-                     CFechaConyuge = a.b.CFechaConyuge,
-                     CArchivoConyuge = a.b.CArchivoConyuge,
-                     CFModificacion = a.b.CFModificacion.ToString(),
+                    CFechaSolicitante = a.b.CFechaSolicitante,
+                    CArchivoSolicitante = a.b.CArchivoSolicitante,
+                    CFechaConyuge = a.b.CFechaConyuge,
+                    CArchivoConyuge = a.b.CArchivoConyuge,
+                    CFModificacion = a.b.CFModificacion.ToString(),
 
-                     AFechaSolicitante = a.b.AFechaSolicitante,
-                     AArchivoSolicitante = a.b.AArchivoSolicitante,
-                     AFechaConyuge = a.b.AFechaConyuge,
-                     AArchivoConyuge = a.b.AArchivoConyuge,
-                     AFModificacion = a.b.AFModificacion.ToString(),
+                    AFechaSolicitante = a.b.AFechaSolicitante,
+                    AArchivoSolicitante = a.b.AArchivoSolicitante,
+                    AFechaConyuge = a.b.AFechaConyuge,
+                    AArchivoConyuge = a.b.AArchivoConyuge,
+                    AFModificacion = a.b.AFModificacion.ToString(),
 
-                     Gestion = a.b.Gestion,
-                     IdAspNetUser = a.b.IdAspNetUser,
-                     NombretUser = a.f.Name + " " + a.f.FirstName + " " + a.f.LastName,
-                     RolUser = a.h.Name,
-                     Estado = a.b.Estado,
-                     FechaModificacion = a.b.FechaModificacion.ToString(),
+                    Gestion = a.b.Gestion,
+                    IdAspNetUser = a.b.IdAspNetUser,
+                    NombretUser = a.f.Name + " " + a.f.FirstName + " " + a.f.LastName,
+                    RolUser = a.h.Name,
+                    Estado = a.b.Estado,
+                    FechaModificacion = a.b.FechaModificacion.ToString(),
 
-                 });
+                }); ;
 
             return lista.ToList();
         }
@@ -179,6 +181,8 @@ namespace AspNetIdentity.WebApi.Logic
                      VFechaConyuge = a.b.VFechaConyuge,
                      VArchivoConyuge = a.b.VArchivoConyuge,
                      VFModificacion = a.b.VFModificacion.ToString(),
+                     VvivoSolicitante = a.b.VVivoSolicitante,
+                     VvivoConyuge = a.b.VVivoConyuge,
 
                      PFechaSolicitante = a.b.PFechaSolicitante,
                      PArchivoSolicitante = a.b.PArchivoSolicitante,
@@ -294,9 +298,9 @@ namespace AspNetIdentity.WebApi.Logic
                 {
                     if (a.Gestion == 1)
                     {
-                       
 
-                        if (a.NombreSolicitante != "N_A") 
+
+                        if (a.NombreSolicitante != "N_A")
                         {
                             Entity.NombreSolicitante = a.NombreSolicitante;
                         }
@@ -360,6 +364,8 @@ namespace AspNetIdentity.WebApi.Logic
                             Entity.VArchivoConyuge = a.VArchivoConyuge;
                         }
 
+                        Entity.VVivoSolicitante = a.VvivoSolicitante;
+                        Entity.VVivoConyuge = a.VvivoConyuge;
                         Entity.VFModificacion = DateTime.Now;
 
                     } else if (a.Gestion == 3) {

@@ -212,16 +212,16 @@
                                     <td>
                                         @Html.DisplayFor(modelItem => item.VArchivoSolicitante)
                                     </td>
-
+                                    var VFechaConyuge_ = item.VFechaConyuge;
                                     if (item.VFechaConyuge == null || item.VFechaConyuge.Equals("1/01/1900 12:00:00 a. m.") )
                                     {
                                         <td>  </td>
                                     }
                                     else
                                     {
-                                        <td> @Html.DisplayFor(modelItem => item.VFechaConyuge) </td>
+                            <td> @Html.DisplayFor(modelItem => item.VFechaConyuge) | VFechaConyuge_ </td>
                                     }
-                                  
+
                                     <td>
                                         @Html.DisplayFor(modelItem => item.VArchivoConyuge)
                                     </td>

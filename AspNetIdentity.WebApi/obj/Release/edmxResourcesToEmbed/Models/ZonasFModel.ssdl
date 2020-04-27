@@ -300,6 +300,8 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="VArchivoSolicitante" Type="varchar(max)" />
     <Property Name="VFechaConyuge" Type="date" />
     <Property Name="VArchivoConyuge" Type="varchar(max)" />
+    <Property Name="VVivoSolicitante" Type="int" />
+    <Property Name="VVivoConyuge" Type="int" />
     <Property Name="VFModificacion" Type="datetime" />
     <Property Name="PFechaSolicitante" Type="date" />
     <Property Name="PArchivoSolicitante" Type="varchar(max)" />

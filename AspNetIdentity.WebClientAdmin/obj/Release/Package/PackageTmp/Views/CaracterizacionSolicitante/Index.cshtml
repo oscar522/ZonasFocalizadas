@@ -152,12 +152,36 @@
                         <tbody>
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    @if (item.Gestion != null)
+                            <tr>
+                                @if (item.Gestion != null)
+                                {
+                                    <td>
+                                        <a target="_blank" href='@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = item.IdExpediente })' title='Modificar' style='color: #013ADF;'> @Html.DisplayFor(modelItem => item.NumeroExpediente) <i class='fa fa-eye' aria-hidden='true'></i></a>
+                                    </td>
+                                    if (item.NombreSolicitante == null)
                                     {
+
                                         <td>
-                                            <a target="_blank" href='@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = item.IdExpediente })' title='Modificar' style='color: #013ADF;'> @Html.DisplayFor(modelItem => item.NumeroExpediente) <i class='fa fa-eye' aria-hidden='true'></i></a>
+                                            @Html.DisplayFor(modelItem => item.TipoDocSolicitanteExpediente) @Html.DisplayFor(modelItem => item.DocSolicitanteExpediente)
                                         </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NombreSolicitanteExpediente)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TipoDocConyugeExpediente)  @Html.DisplayFor(modelItem => item.DocConyugeExpediente)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NombreConyugeExpediente)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FModificacionExp)
+                                        </td>
+
+                                    }
+                                    else
+                                    {
+
+
                                         <td>
                                             @Html.DisplayFor(modelItem => item.NombreTipoDocumento) @Html.DisplayFor(modelItem => item.NumeroIdentificacion) @Html.DisplayFor(modelItem => item.Gestion)
                                         </td>
@@ -173,129 +197,142 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.FModificacionExp)
                                         </td>
+                                    }
 
 
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.VFechaSolicitante)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.VArchivoSolicitante)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.VFechaConyuge)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.VArchivoConyuge)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.VFModificacion)
-                                        </td>
-
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.PArchivoSolicitante)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.PArchivoConyuge)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.PFModificacion)
-                                        </td>
-
-
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.CArchivoSolicitante)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.CArchivoConyuge)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.CFModificacion)
-                                        </td>
-
-
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.AArchivoSolicitante)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.AArchivoConyuge)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.AFModificacion)
-                                        </td>
-
-
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.FechaModificacion)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Estado)
-                                        </td>
-
-
+                                    if (item.VFechaSolicitante == null || item.VFechaConyuge.Equals("1/01/1900 12:00:00 a. m."))
+                                    {
+                                        <td>  </td>
                                     }
                                     else
                                     {
-                                        <td >
-                                            <a target="_blank" href='@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = item.IdExpediente })' title='Modificar' style='color: #013ADF;'> @Html.DisplayFor(modelItem => item.NumeroExpediente) <i class='fa fa-eye' aria-hidden='true'></i></a>
-                                        </td>
-                                        <td>
-                                        </td>
-                                        <td>
-                                        </td>
-                                        <td>
-                                        </td>
-                                        <td>
-                                        </td>
-                                        <td>
-                                        </td>
-
-
-                                        <td>
-                                        </td>
-                                        <td>
-                                        </td>
-                                        <td>
-                                        </td>
-                                        <td>
-                                        </td>
-                                        <td>
-                                        </td>
-
-                                        <td>
-                                        </td>
-                                        <td>
-                                        </td>
-                                        <td>
-                                        </td>
-
-
-                                        <td>
-                                        </td>
-                                        <td>
-                                        </td>
-                                        <td>
-                                        </td>
-
-
-                                        <td>
-                                        </td>
-                                        <td>
-                                        </td>
-                                        <td>
-                                        </td>
-
-
-                                        <td>
-                                        </td>
-                                        <td>
-                                        </td>
+                                        <td> @Html.DisplayFor(modelItem => item.VFechaSolicitante) </td>
                                     }
 
                                     <td>
-                                        <a href='@Url.Action("../CaracterizacionSolicitante/Edit", "Edit", new { IdTable = item.Id })' title='Modificar' style='color: #013ADF;'><i class='fa fa-refresh' aria-hidden='true'></i></a>
+                                        @Html.DisplayFor(modelItem => item.VArchivoSolicitante)
+                                    </td>
+                                    var VFechaConyuge_ = item.VFechaConyuge;
+                                    if (item.VFechaConyuge == null || item.VFechaConyuge.Equals("1/01/1900 12:00:00 a. m.") )
+                                    {
+                                        <td>  </td>
+                                    }
+                                    else
+                                    {
+                            <td> @Html.DisplayFor(modelItem => item.VFechaConyuge) | VFechaConyuge_ </td>
+                                    }
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.VArchivoConyuge)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.VFModificacion)
                                     </td>
 
-                                </tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PArchivoSolicitante)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PArchivoConyuge)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PFModificacion)
+                                    </td>
+
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CArchivoSolicitante)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CArchivoConyuge)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CFModificacion)
+                                    </td>
+
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AArchivoSolicitante)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AArchivoConyuge)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AFModificacion)
+                                    </td>
+
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FechaModificacion)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Estado)
+                                    </td>
+
+
+                                }
+                                else
+                                {
+                                    <td>
+                                        <a target="_blank" href='@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = item.IdExpediente })' title='Modificar' style='color: #013ADF;'> @Html.DisplayFor(modelItem => item.NumeroExpediente) <i class='fa fa-eye' aria-hidden='true'></i></a>
+                                    </td>
+
+
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+
+
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+
+
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+
+
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                }
+
+                                <td>
+                                    <a href='@Url.Action("../CaracterizacionSolicitante/Edit", "Edit", new { IdTable = item.Id })' title='Modificar' style='color: #013ADF;'><i class='fa fa-refresh' aria-hidden='true'></i></a>
+                                </td>
+
+                            </tr>
                             }
                         </tbody>
                     </table>

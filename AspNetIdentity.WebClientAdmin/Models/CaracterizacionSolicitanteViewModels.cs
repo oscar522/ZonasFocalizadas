@@ -47,7 +47,8 @@ namespace AspNetIdentity.Models
         public string VFechaConyuge { get; set; }
         public HttpPostedFileBase VArchivoConyuge { get; set; }
         public string VArchivoConyugeNombre { get; set; }
-
+        public Nullable<int> VvivoSolicitante { get; set; }
+        public Nullable<int> VvivoConyuge { get; set; }
 
         public string  PFechaSolicitante { get; set; }
         public HttpPostedFileBase PArchivoSolicitante { get; set; }

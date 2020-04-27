@@ -163,7 +163,17 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
+                                <div class="row  mb-4">
+                                    <label class=" Letra control-label col-md-3">
+                                        Esta Vivo el Solicitante :
+                                    </label>
+                                    <select name="VVivoSolicitante" id="VVivoSolicitante" class="form-control col-md-2 ">
+                                        <option value="0"> Seleccione</option>
+                                        <option value="1"> Vivo</option>
+                                        <option value="1"> Fallecido </option>
+                                    </select>
 
+                                </div>
                                 <div class="row mb-2">
                                     <label class=" Letra control-label col-md-3">
                                         Solicitante :
@@ -204,14 +214,27 @@
                                             <input type="radio" value="2" id="Vigencia-1-2" name="Vigencia-2" class=" Letra " />
                                         </i>
                                     </div>
-                                    @Html.EditorFor(model => model.VFechaSolicitante, new { htmlAttributes = new {@type = "date",  @class = " Letra form-control col-md-2" } })
+                                    @Html.EditorFor(model => model.VFechaSolicitante, new { htmlAttributes = new { @type = "date", @class = " Letra form-control col-md-2" } })
                                     @Html.TextBoxFor(model => model.VArchivoSolicitante, new { type = "file", @class = " col-sm-2" })
                                     <label class="Letra control-label col-md-2" id="VArchivoSolicitanteNombre">
-                                    @Model.VArchivoSolicitanteNombre 
+                                        @Model.VArchivoSolicitanteNombre
                                     </label>
                                     @Html.ValidationMessageFor(model => model.VFechaSolicitante, "", new { @class = " Letra text-danger col-md-10  text-right" })
                                     @Html.ValidationMessageFor(model => model.VArchivoSolicitante, "", new { @class = " Letra text-danger col-md-10  text-right" })
                                     <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="Vigencia-1" data-valmsg-replace="true"></span>
+                                    @Html.ValidationMessageFor(model => model.VvivoSolicitante, "", new { @class = " Letra text-danger col-md-10  text-right" })
+
+                                </div>
+
+                                <div class="row  mb-4">
+                                    <label class=" Letra control-label col-md-3">
+                                        Esta Vivo el Conyuge :
+                                    </label>
+                                    <select name="VVivoConyuge" id="VVivoConyuge" class="form-control col-md-2 ">
+                                        <option value="0"> Seleccione</option>
+                                        <option value="1"> Vivo</option>
+                                        <option value="1"> Fallecido </option>
+                                    </select>
                                 </div>
 
                                 <div class="row mb-2">
@@ -245,7 +268,7 @@
                                         }
                                     </label>
                                     <div class="col-md-1">
-                                        
+
                                         <i class="fa fa-check col-md-1 Letra " aria-hidden="true" style="color:#31B404">
                                             <input type="radio" value="1" id="Vigencia-1-3" name="Vigencia-3" class=" Letra " />
                                         </i>
@@ -254,17 +277,19 @@
                                         </i>
 
                                     </div>
-                                    
-                                    @Html.EditorFor(model => model.VFechaConyuge, new { htmlAttributes = new {@type = "date", @class = " Letra form-control col-md-2" } })
+
+                                    @Html.EditorFor(model => model.VFechaConyuge, new { htmlAttributes = new { @type = "date", @class = " Letra form-control col-md-2" } })
                                     @Html.TextBoxFor(model => model.VArchivoConyuge, new { type = "file", @class = " col-sm-2" })
                                     <label class="Letra control-label col-md-2" id="VArchivoConyugeNombre">
-                                    @Model.VArchivoConyugeNombre 
+                                        @Model.VArchivoConyugeNombre
                                     </label>
                                     @Html.ValidationMessageFor(model => model.VFechaConyuge, "", new { @class = " Letra text-danger col-md-10  text-right" })
                                     @Html.ValidationMessageFor(model => model.VArchivoConyuge, "", new { @class = " Letra text-danger col-md-10  text-right" })
                                     <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="Vigencia-2" data-valmsg-replace="true"></span>
-                                </div>
+                                    @Html.ValidationMessageFor(model => model.VvivoConyuge, "", new { @class = " Letra text-danger col-md-10  text-right" })
 
+                                </div>
+                                
                                 <div class="row">
                                     <div class="col-md-12 text-center align-content-center">
                                         <a href="#" id="Vigencia" name="Vigencia" class="btn btn-green text-center">Guardar</a>
@@ -672,6 +697,70 @@
             $('#AArchivoSolicitanteNombre').html("<a target='_blank' href='"+ UrlValid +"/" + "@Model.AArchivoSolicitanteNombre" + "' >'"+ "@Model.AArchivoSolicitanteNombre"+"' </a>")
             $('#AArchivoConyugeNombre').html("<a target='_blank' href='"+ UrlValid +"/" + "@Model.AArchivoConyugeNombre" + "' >'"+ "@Model.AArchivoConyugeNombre"+"' </a>")
 
+            if ('@Model.Gestion' != null) {
+
+
+
+                if ('@Model.NombreSolicitante' != null) {
+                    $("#Ortografia-1-1").prop("checked", true);
+                }
+
+                if ('@Model.NumeroIdentificacion' != null) {
+                    $("#Ortografia-1-3").prop("checked", true);
+                }
+
+                if ('@Model.NombreConyuge' != null) {
+                    $("#Ortografia-1-5").prop("checked", true);
+                }
+
+                if ('@Model.NumeroIdentificacionConyuge' != null) {
+                    $("#Ortografia-1-7").prop("checked", true);
+                }
+
+
+
+                if ('@Model.VArchivoSolicitanteNombre' != null) {
+                    $("#Vigencia-1-1").prop("checked", true);
+                }
+
+                if ('@Model.VArchivoConyugeNombre' != null) {
+                    $("#Vigencia-1-3").prop("checked", true);
+                }
+
+
+                if ('@Model.PArchivoSolicitanteNombre' != null) {
+                    $("#Pro-1-1").prop("checked", true);
+                }
+
+                if ('@Model.PArchivoConyugeNombre' != null) {
+                    $("#Pro-1-3").prop("checked", true);
+                }
+            
+
+                if ('@Model.CArchivoSolicitanteNombre' != null) {
+                    $("#Contra-1-1").prop("checked", true);
+                }
+
+                if ('@Model.CArchivoConyugeNombre' != null) {
+                    $("#Contra-1-3").prop("checked", true);
+                }
+
+
+                if ('@Model.AArchivoSolicitanteNombre' != null) {
+                    $("#Ante-1-1").prop("checked", true);
+                }
+
+                if ('@Model.AArchivoConyugeNombre' != null) {
+                    $("#Ante-1-3").prop("checked", true);
+                }
+
+
+               
+
+
+
+
+            }
         });
 
         function DateConvert(date) {
@@ -689,7 +778,7 @@
              if (res[2].length == 1) {
                 Add3 = "0";
             }
-            var ResDate = Add3+res[2].replace(" 00:00:00","")+"-"+Add2+res[1]+"-"+Add1+res[0];
+            var ResDate = Add3+res[2].replace(" 00:00:00","").replace(" 12:00:00 a. m.","")+"-"+Add2+res[1]+"-"+Add1+res[0];
 
             return ResDate;
         }
@@ -703,8 +792,8 @@
                 if( FechaExpedicionSolicitanteI != ""){
                     $('#FechaExpedicionSolicitante').val(DateConvert("@Model.FechaExpedicionSolicitante"));
                 }
-                $("#FechaExpedicionConyuge").prop("disabled", true);
-                $("#FechaExpedicionSolicitante").prop("disabled", true);
+                //$("#FechaExpedicionConyuge").prop("disabled", true);
+                //$("#FechaExpedicionSolicitante").prop("disabled", true);
                 $("#NombreSolicitante").prop("disabled", true);
                 $("#TipoDocumento").prop("disabled", true);
                 $("#NumeroIdentificacion").prop("disabled", true);
@@ -724,13 +813,13 @@
                 $("#Ortografia-1-3").change(function () {
                     $("#TipoDocumento").prop("disabled", true);
                     $("#NumeroIdentificacion").prop("disabled", true);
-                    $("#FechaExpedicionSolicitante").prop("disabled", true);
+                   // $("#FechaExpedicionSolicitante").prop("disabled", true);
                     return false;
                 });
                 $("#Ortografia-1-4").change(function () {
                     $("#TipoDocumento").prop("disabled", false);
                     $("#NumeroIdentificacion").prop("disabled", false);
-                    $("#FechaExpedicionSolicitante").prop("disabled", false);
+                 //   $("#FechaExpedicionSolicitante").prop("disabled", false);
                     return false;
                 });
 
@@ -746,16 +835,27 @@
                 $("#Ortografia-1-7").change(function () {
                     $("#NumeroIdentificacionConyuge").prop("disabled", true);
                     $("#TipoDocumentoConyuge").prop("disabled", true);
-                    $("#FechaExpedicionConyuge").prop("disabled", true);
+                 //   $("#FechaExpedicionConyuge").prop("disabled", true);
                     return false;
                 });
                 $("#Ortografia-1-8").change(function () {
                     $("#NumeroIdentificacionConyuge").prop("disabled", false);
                     $("#TipoDocumentoConyuge").prop("disabled", false);
-                    $("#FechaExpedicionConyuge").prop("disabled", false);
+                   // $("#FechaExpedicionConyuge").prop("disabled", false);
                     return false;
                 });
             ///// Vigencia
+
+
+                if ("@Model.VvivoConyuge" != null) {
+                    $('#VVivoConyuge').val("@Model.VvivoConyuge");
+                }
+
+                 if ("@Model.VvivoSolicitante" != null) {
+                    $('#VVivoSolicitante').val("@Model.VvivoSolicitante");
+                }
+
+
                 var VFechaSolicitanteI ='@Model.VFechaSolicitante';
                 if( VFechaSolicitanteI != ""){
                     $('#VFechaSolicitante').val(DateConvert("@Model.VFechaSolicitante"));
@@ -769,15 +869,19 @@
                 $("#VArchivoSolicitante").prop("disabled", true);
                 $("#VFechaConyuge").prop("disabled", true);
                 $("#VArchivoConyuge").prop("disabled", true);
+                $("#VVivoConyuge").prop("disabled", true);
+                $("#VVivoSolicitante").prop("disabled", true);
     
                 $("#Vigencia-1-2").change(function () {
                     $("#VFechaSolicitante").prop("disabled", false);
                     $("#VArchivoSolicitante").prop("disabled", false);
+                    $("#VVivoSolicitante").prop("disabled", false);
                         return false;
                 });
 
                 $("#Vigencia-1-4").change(function () {
                     $("#VFechaConyuge").prop("disabled", false);
+                    $("#VVivoConyuge").prop("disabled", false);
                     $("#VArchivoConyuge").prop("disabled", false);
                     return false;
                 });
@@ -944,7 +1048,7 @@
                     if ($("#Ortografia-1-3").is(':checked')) {
                         $("#TipoDocumento").val("0");
                         $("#NumeroIdentificacion").val("0");
-                        $("#FechaExpedicionSolicitante").val("");
+                       // $("#FechaExpedicionSolicitante").val("");
                     };
                     
                     if ($("#Ortografia-1-5").is(':checked')) {
@@ -955,7 +1059,7 @@
                     if ($("#Ortografia-1-7").is(':checked')) {
                         $("#NumeroIdentificacionConyuge").val("0")
                         $("#TipoDocumentoConyuge").val("0");
-                        $("#FechaExpedicionConyuge").val("");
+                       // $("#FechaExpedicionConyuge").val("");
                     };
 
 
@@ -966,6 +1070,11 @@
                         }
                     };
                    
+                     if ($("#FechaExpedicionSolicitante").val() == ""){
+                            $('span[data-valmsg-for="FechaExpedicionSolicitante"]').text("* Requerido  Fecha de Expedicion");
+                            valid = 1;
+                        }
+
                     if ($("#Ortografia-1-4").is(':checked')) {
 
                         if ($("#TipoDocumento").val() == ""){
@@ -977,10 +1086,7 @@
                             $('span[data-valmsg-for="NumeroIdentificacion"]').text("* Requerido  Numero de indentificacion");
                             valid = 1;
                         }
-                        if ($("#FechaExpedicionSolicitante").val() == ""){
-                            $('span[data-valmsg-for="FechaExpedicionSolicitante"]').text("* Requerido  Fecha de Expedicion");
-                            valid = 1;
-                        }
+                       
 
                     };
                     
@@ -993,6 +1099,11 @@
 
                     };
 
+                    if ($("#FechaExpedicionConyuge").val() == ""){
+                            $('span[data-valmsg-for="FechaExpedicionConyuge"]').text("* Requerido Fecha de Expedicion");
+                            valid = 1;
+                        }
+
                     if ($("#Ortografia-1-8").is(':checked')) {
                         if ($("#NumeroIdentificacionConyuge").val() == ""){
                             $('span[data-valmsg-for="NumeroIdentificacionConyuge"]').text("* Requerido Numero de indentificacion");
@@ -1002,10 +1113,7 @@
                             $('span[data-valmsg-for="TipoDocumentoConyuge"]').text("* Requerido Tipo de Documento");
                             valid = 1;
                         }
-                        if ($("#FechaExpedicionConyuge").val() == ""){
-                            $('span[data-valmsg-for="FechaExpedicionConyuge"]').text("* Requerido Fecha de Expedicion");
-                            valid = 1;
-                        }
+                        
 
                     };
                     
@@ -1082,6 +1190,12 @@
                             $('span[data-valmsg-for="VArchivoSolicitante"]').text("* Requerido Archivo");
                             valid = 1;
                         }
+                        if ($('#VVivoSolicitante').val() == "0") {
+                            $('span[data-valmsg-for="VvivoSolicitante"]').text("*  Seleccione si en Vivo ó Fallecido");
+                            valid = 1;
+                        }
+
+
                     };
                    
                     if ($("#Vigencia-1-4").is(':checked')) {
@@ -1094,6 +1208,11 @@
                         if ($("#VArchivoConyuge").val() == "") {
                             $('span[data-valmsg-for="VArchivoConyuge"]').text("* Requerido Archivo");
                             valid = 1;
+                        }
+                        if ($('#VVivoConyuge').val() == "0") {
+                            $('span[data-valmsg-for="VvivoConyuge"]').text("* Seleccione si en Vivo ó Fallecido");
+                            valid = 1;
+
                         }
 
                     };
