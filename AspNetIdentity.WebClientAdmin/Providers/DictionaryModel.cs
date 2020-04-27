@@ -31,8 +31,8 @@ namespace AspNetIdentity.WebClientAdmin.Providers
 
                     string debugger = Descriptor.PropertyType.FullName.ToString() + " " + Descriptor.Name;
                     System.Diagnostics.Debug.WriteLine(debugger);
+
                     nombre = Descriptor.Name;
-                     
 
                     if (Descriptor.PropertyType.FullName.Equals("System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]") || Descriptor.PropertyType.FullName.Equals("System.DateTime"))
                     {
@@ -45,11 +45,7 @@ namespace AspNetIdentity.WebClientAdmin.Providers
                         {
                             Valor = Descriptor.GetValue(MyObject).ToString();
                         }
-                        
-
                     }
-
-
                     MyDictionary.Add(nombre, Valor.ToString());
                 }
             }

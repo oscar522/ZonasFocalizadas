@@ -54,9 +54,6 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             return View(processModel);
 
         }
-
-
-
         public ActionResult Crear()
         {
             return View();
@@ -221,8 +218,8 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             if (ObjData.VArchivoSolicitante == null) { Entity.VArchivoSolicitante = "N_A"; } else { Entity.VArchivoSolicitante = ObjData.VArchivoSolicitanteNombre; }
             if (ObjData.VFechaConyuge == null) { Entity.VFechaConyuge = DateTime.Parse("1900-01-01"); } else { Entity.VFechaConyuge = DateTime.Parse(ObjData.VFechaConyuge); }
             if (ObjData.VArchivoConyuge == null) { Entity.VArchivoConyuge = "N_A"; } else { Entity.VArchivoConyuge = ObjData.VArchivoConyugeNombre; }
-            if (ObjData.VvivoSolicitante == 0) { Entity.VvivoSolicitante = 0; } else { Entity.VvivoSolicitante = ObjData.VvivoSolicitante; }
-            if (ObjData.VvivoConyuge == 0) { Entity.VvivoConyuge = 0; } else { Entity.VvivoConyuge = ObjData.VvivoConyuge; }
+            if (ObjData.VvivoSolicitante == 0 || ObjData.VvivoSolicitante == null) { Entity.VvivoSolicitante = 0; } else { Entity.VvivoSolicitante = ObjData.VvivoSolicitante; }
+            if (ObjData.VvivoConyuge == 0 || ObjData.VvivoConyuge == null) { Entity.VvivoConyuge = 0; } else { Entity.VvivoConyuge = ObjData.VvivoConyuge; }
 
             if (ObjData.PFechaSolicitante == null) { Entity.PFechaSolicitante = DateTime.Parse("1900-01-01"); } else { Entity.PFechaSolicitante = DateTime.Parse(ObjData.PFechaSolicitante); }
             if (ObjData.PArchivoSolicitante == null) { Entity.PArchivoSolicitante = "N_A"; } else { Entity.PArchivoSolicitante = ObjData.PArchivoSolicitanteNombre; }
