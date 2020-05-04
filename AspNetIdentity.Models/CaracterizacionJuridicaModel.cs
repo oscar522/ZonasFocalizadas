@@ -156,57 +156,6 @@ namespace AspNetIdentity.Models
 
         [Required(ErrorMessage = "* Requerido")]
 
-        public Nullable<bool> RECURSO_MINISTERIO_RECURSO_MINISTERIO_97 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-
-        public Nullable<System.DateTime> RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-
-        public Nullable<bool> RECURSO_MINISTERIO_RESPUESTA_RECURSO_99 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-
-        public Nullable<bool> RECURSO_MINISTERIO_FIRMADA_100 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-
-        public Nullable<int> RECURSO_MINISTERIO_ACTO_101 { get; set; }
-        public string NombreRECURSO_MINISTERIO_ACTO_101 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-        // [Range(0.01, 999.99, ErrorMessage = "* Requerido")]
-
-        public Nullable<long> RECURSO_MINISTERIO_NUMERO_102 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-
-        public Nullable<System.DateTime> RECURSO_MINISTERIO_FECHA_103 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-
-        public Nullable<int> RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104 { get; set; }
-        public string NombreRECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-
-        public Nullable<bool> RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-
-        public Nullable<System.DateTime> RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-
-        public Nullable<bool> RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-
-        public Nullable<System.DateTime> RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-
         public Nullable<bool> CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109 { get; set; }
 
         [Required(ErrorMessage = "* Requerido")]
@@ -242,6 +191,9 @@ namespace AspNetIdentity.Models
         [Required(ErrorMessage = "* Requerido")]
 
         public Nullable<bool> REGISTRO_FMI_ { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+
+        public string REGISTRO_FMI { get; set; }
 
         [Required(ErrorMessage = "* Requerido")]
 
@@ -364,7 +316,7 @@ namespace AspNetIdentity.Models
         public string nombreRECURSO_SOLICITANTE_DECISION_N_1 { get; set; }
 
         [Required(ErrorMessage = "* Requerido")]
-        public string RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2 { get; set; }
+        public Nullable<bool> RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2 { get; set; }
 
         [Required(ErrorMessage = "* Requerido")]
         public string RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3 { get; set; }
@@ -436,6 +388,83 @@ namespace AspNetIdentity.Models
         [Required(ErrorMessage = "* Requerido")]
         public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96 { get; set; }
 
+        //// 
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<int> RECURSO_MINISTERIO_DECISION_N_1 { get; set; }
+        public string nombreRECURSO_MINISTERIO_DECISION_N_1 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public string RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<int> RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6 { get; set; }
+        public string nombreRECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public string RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<int> RECURSO_MINISTERIO_CONJUNA_IND_N_7 { get; set; }
+        public string nombreRECURSO_MINISTERIO_CONJUNA_IND_N_7 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> RECURSO_MINISTERIO_RECURSO_MINISTERIO_85 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> RECURSO_MINISTERIO_RESPUESTA_RECURSO_87 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> RECURSO_MINISTERIO_FIRMADA_88 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<int> RECURSO_MINISTERIO_ACTO_89 { get; set; }
+        public string nombreRECURSO_MINISTERIO_ACTO_89 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public string RECURSO_MINISTERIO_NUMERO_90 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> RECURSO_MINISTERIO_FECHA_91 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<int> RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92 { get; set; }
+        public string nombreRECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96 { get; set; }
 
 
 

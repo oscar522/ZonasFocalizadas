@@ -626,7 +626,7 @@
     <Property Name="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94" Type="DateTime" Precision="3" />
     <Property Name="RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95" Type="Boolean" />
     <Property Name="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96" Type="DateTime" Precision="3" />
-    <Property Name="RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2" Type="Boolean" />
     <Property Name="RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4" Type="DateTime" Precision="3" />
     <Property Name="RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5" Type="Boolean" />
@@ -637,18 +637,30 @@
     <Property Name="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9" Type="DateTime" Precision="3" />
     <Property Name="RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10" Type="Boolean" />
     <Property Name="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11" Type="DateTime" Precision="3" />
-    <Property Name="RECURSO_MINISTERIO_RECURSO_MINISTERIO_97" Type="Boolean" />
-    <Property Name="RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98" Type="DateTime" Precision="3" />
-    <Property Name="RECURSO_MINISTERIO_RESPUESTA_RECURSO_99" Type="Boolean" />
-    <Property Name="RECURSO_MINISTERIO_FIRMADA_100" Type="Boolean" />
-    <Property Name="RECURSO_MINISTERIO_ACTO_101" Type="Int32" />
-    <Property Name="RECURSO_MINISTERIO_NUMERO_102" Type="Int64" />
-    <Property Name="RECURSO_MINISTERIO_FECHA_103" Type="DateTime" Precision="3" />
-    <Property Name="RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104" Type="Int32" />
-    <Property Name="RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105" Type="Boolean" />
-    <Property Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106" Type="DateTime" Precision="3" />
-    <Property Name="RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107" Type="Boolean" />
-    <Property Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108" Type="DateTime" Precision="3" />
+    <Property Name="RECURSO_MINISTERIO_RECURSO_MINISTERIO_85" Type="Boolean" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86" Type="DateTime" Precision="3" />
+    <Property Name="RECURSO_MINISTERIO_RESPUESTA_RECURSO_87" Type="Boolean" />
+    <Property Name="RECURSO_MINISTERIO_DECISION_N_1" Type="Int32" />
+    <Property Name="RECURSO_MINISTERIO_FIRMADA_88" Type="Boolean" />
+    <Property Name="RECURSO_MINISTERIO_ACTO_89" Type="Int32" />
+    <Property Name="RECURSO_MINISTERIO_NUMERO_90" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_91" Type="DateTime" Precision="3" />
+    <Property Name="RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92" Type="Int32" />
+    <Property Name="RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93" Type="Boolean" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94" Type="DateTime" Precision="3" />
+    <Property Name="RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95" Type="Boolean" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96" Type="DateTime" Precision="3" />
+    <Property Name="RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2" Type="Boolean" />
+    <Property Name="RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4" Type="DateTime" Precision="3" />
+    <Property Name="RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5" Type="Boolean" />
+    <Property Name="RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6" Type="Int32" />
+    <Property Name="RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="RECURSO_MINISTERIO_CONJUNA_IND_N_7" Type="Int32" />
+    <Property Name="RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8" Type="Boolean" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9" Type="DateTime" Precision="3" />
+    <Property Name="RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10" Type="Boolean" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11" Type="DateTime" Precision="3" />
     <Property Name="CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109" Type="Boolean" />
     <Property Name="CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110" Type="DateTime" Precision="3" />
     <Property Name="CONSTANCIA_DE_EJECUTORIA_FIRMADA_111" Type="Boolean" />
@@ -659,6 +671,7 @@
     <Property Name="REVOCATORIA_NUMERO_RESOLUCIÓN_114" Type="Int64" />
     <Property Name="REVOCATORIA_FECHA_DE_RESOLUCIÓN_115" Type="DateTime" Precision="3" />
     <Property Name="REGISTRO_FMI_" Type="Boolean" />
+    <Property Name="REGISTRO_FMI" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="REGISTRO_FECHA_DE_REGISTRO_117" Type="DateTime" Precision="3" />
     <Property Name="REGISTRO_NUMERO_DE_RESOLUCION_118" Type="Int64" />
     <Property Name="REGISTRO_FECHA_DE_RESOLUCION_119" Type="DateTime" Precision="3" />

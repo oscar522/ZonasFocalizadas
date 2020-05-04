@@ -52,16 +52,20 @@
         @Html.EditorFor(model => model.nombreRECURSO_SOLICITANTE_CONJUNA_IND_N_7, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "N_A" } })
         @Html.EditorFor(model => model.nombreRECURSO_SOLICITANTE_ACTO_89, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "N_A" } })
         @Html.EditorFor(model => model.nombreRECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "N_A" } })
-
-
         @Html.EditorFor(model => model.nombreRECURSO_SOLICITANTE_DECISION_N_1, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "N_A" } })
+        
+        @Html.EditorFor(model => model.nombreRECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "N_A" } })
+        @Html.EditorFor(model => model.nombreRECURSO_MINISTERIO_CONJUNA_IND_N_7, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "N_A" } })
+        @Html.EditorFor(model => model.nombreRECURSO_MINISTERIO_ACTO_89, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "N_A" } })
+        @Html.EditorFor(model => model.nombreRECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "N_A" } })
+        @Html.EditorFor(model => model.nombreRECURSO_MINISTERIO_DECISION_N_1, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "N_A" } })
+        
+
         @Html.EditorFor(model => model.NombreINSPECCION_OCULAR_CONCEPTO_57, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "N_A" } })
         @Html.EditorFor(model => model.NombreACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
         @Html.EditorFor(model => model.NombreFORMATO_DE_REVISION_JURIDICA_CONCEPTO_73, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
         @Html.EditorFor(model => model.NombreRESOLUCION_DECISION_78, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
         @Html.EditorFor(model => model.NombreRESOLUCION_CONJUNTA_INDIVIDUAL_80, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
-        @Html.EditorFor(model => model.NombreRECURSO_MINISTERIO_ACTO_101, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
-        @Html.EditorFor(model => model.NombreRECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
         @Html.EditorFor(model => model.nombreSOLICITUD_TIPO_SOLICITUD, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
 
 
@@ -1067,7 +1071,11 @@
                             <div class="col-md-12">
                                 <div class="row">
                                     <label class="control-label col-md-6">Resolucion despues de pruebas</label>
-                                    @Html.EditorFor(model => model.RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2, new { htmlAttributes = new { @class = "form-control col-md-6" } })
+                                     <select id="RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2" name="RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
                                     @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -1185,61 +1193,67 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row">
-                                    <label class="control-label col-md-6">
-                                        Recursos ministerio
-                                    </label>
-                                    <select id="RECURSO_MINISTERIO_RECURSO_MINISTERIO_97" name="RECURSO_MINISTERIO_RECURSO_MINISTERIO_97" class="form-control col-md-6">
+                                    <label class="control-label col-sm-6 ">Recurso Solicitante</label>
+                                    <select id="RECURSO_MINISTERIO_RECURSO_MINISTERIO_85" name="RECURSO_MINISTERIO_RECURSO_MINISTERIO_85" class="form-control col-sm-6">
                                         <option value="">Seleccione</option>
                                         <option value="True">Si</option>
                                         <option value="False">no</option>
                                     </select>
-                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_RECURSO_MINISTERIO_97, "", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_RECURSO_MINISTERIO_85, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-sm-6">Fecha de solicitud</label>
+                                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86, new { htmlAttributes = new { Type = "date", @class = "form-control col-sm-6" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="row">
                                     <label class="control-label col-md-6">
-                                        Fecha de Solicitud
+                                        Respuesta recurso
                                     </label>
-                                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
-                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <label class="control-label col-md-6">
-                                        Respuesta de recurso
-                                    </label>
-                                    <select id="RECURSO_MINISTERIO_RESPUESTA_RECURSO_99" name="RECURSO_MINISTERIO_RESPUESTA_RECURSO_99" class="form-control col-md-6">
+                                    <select id="RECURSO_MINISTERIO_RESPUESTA_RECURSO_87" name="RECURSO_MINISTERIO_RESPUESTA_RECURSO_87" class="form-control col-md-6">
                                         <option value="">Seleccione</option>
                                         <option value="True">Si</option>
                                         <option value="False">no</option>
                                     </select>
-                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_RESPUESTA_RECURSO_99, "", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_RESPUESTA_RECURSO_87, "", new { @class = "text-danger" })
                                 </div>
                             </div>
+
                             <div class="col-md-12">
                                 <div class="row">
                                     <label class="control-label col-md-6">
-                                        Firma
+                                        Decision del recurso
                                     </label>
-                                    <select id="RECURSO_MINISTERIO_FIRMADA_100" name="RECURSO_MINISTERIO_FIRMADA_100" class="form-control col-md-6">
+                                    <select id="RECURSO_MINISTERIO_DECISION_N_1" name="RECURSO_MINISTERIO_DECISION_N_1" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_DECISION_N_1, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Firma</label>
+                                    <select id="RECURSO_MINISTERIO_FIRMADA_88" name="RECURSO_MINISTERIO_FIRMADA_88" class="form-control col-md-6">
                                         <option value="">Seleccione</option>
                                         <option value="True">Si</option>
                                         <option value="False">no</option>
                                     </select>
-                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FIRMADA_100, "", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FIRMADA_88, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="row">
-                                    <label class="control-label col-md-6">
-                                        Acto
-                                    </label>
-                                    <select id="RECURSO_MINISTERIO_ACTO_101" name="RECURSO_MINISTERIO_ACTO_101" class="form-control col-md-6">
+                                    <label class="control-label col-md-6">Acto</label>
+                                    <select id="RECURSO_MINISTERIO_ACTO_89" name="RECURSO_MINISTERIO_ACTO_89" class="form-control col-md-6">
                                         <option value="">Seleccione</option>
                                     </select>
-                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_ACTO_101, "", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_ACTO_89, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -1247,8 +1261,8 @@
                                     <label class="control-label col-md-6">
                                         Numero
                                     </label>
-                                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_NUMERO_102, new { htmlAttributes = new { @class = "form-control col-md-6" } })
-                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_NUMERO_102, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_NUMERO_90, new { htmlAttributes = new { @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_NUMERO_90, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -1256,8 +1270,8 @@
                                     <label class="control-label col-md-6">
                                         Fecha
                                     </label>
-                                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_FECHA_103, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
-                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FECHA_103, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_FECHA_91, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FECHA_91, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -1265,51 +1279,161 @@
                                     <label class="control-label col-md-6">
                                         Decision sobre la adjudicacion
                                     </label>
-                                    <select id="RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104" name="RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104" class="form-control col-md-6">
+                                    <select id="RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92" name="RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92" class="form-control col-md-6">
                                         <option value="">Seleccione</option>
                                     </select>
-                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104, "", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="row">
                                     <label class="control-label col-md-6">
-                                        Notificacion solicitante
+                                        Notificacion de solicitantes
                                     </label>
-                                    <select id="RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105" name="RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105" class="form-control col-md-6">
+                                    <select id="RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93" name="RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93" class="form-control col-md-6">
                                         <option value="">Seleccione</option>
                                         <option value="True">Si</option>
                                         <option value="False">no</option>
                                     </select>
-                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105, "", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="row">
                                     <label class="control-label col-md-6">
-                                        Fecha Notificacion solicitante
+                                        Fecha Notificacion solicitantes
                                     </label>
-                                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
-                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="row">
                                     <label class="control-label col-md-6">
-                                        Notificacion ministerio publico
+                                        Notificacion Ministerio Publico
                                     </label>
-                                    <select id="RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107" name="RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107" class="form-control col-md-6">
+                                    <select id="RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95" name="RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95" class="form-control col-md-6">
                                         <option value="">Seleccione</option>
                                         <option value="True">Si</option>
                                         <option value="False">no</option>
-                                    </select>@Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107, "", new { @class = "text-danger" })
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="row">
-                                    <label class="control-label col-md-6">Fecha Notificacion ministerio publico</label>
-                                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
-                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108, "", new { @class = "text-danger" })
+                                    <label class="control-label col-md-6">Fecha de Notificacion Ministerio Publico</label>
+                                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Resolucion despues de pruebas</label>
+                                     <select id="RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2" name="RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Numero de Resolucion </label>
+                                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3, new { htmlAttributes = new { @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                             <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Fecha de Resolucion</label>
+                                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">
+                                        Firma de Resolucion
+                                    </label>
+                                    <select id="RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5" name="RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">
+                                        Decision 
+                                    </label>
+                                    <select id="RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6" name="RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">
+                                        Area Adjudica
+                                    </label>
+                                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6, new { htmlAttributes = new { @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">
+                                        Solicitud Conjunta o Individual
+                                    </label>
+                                    <select id="RECURSO_MINISTERIO_CONJUNA_IND_N_7" name="RECURSO_MINISTERIO_CONJUNA_IND_N_7" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_CONJUNA_IND_N_7, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">
+                                        Notificacion Solicitantes
+                                    </label>
+                                    <select id="RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8" name="RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Fecha de Notificacion</label>
+                                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">
+                                        Notificacion Ministerio Publico
+                                    </label>
+                                    <select id="RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10" name="RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Fecha de  Notificacion Ministerio Publico</label>
+                                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                         </div>
@@ -1317,6 +1441,7 @@
                 </div>
             </div>
         </div>
+        
         <br />
         <div class="row">
             <div class="col-md-4">
@@ -1460,7 +1585,15 @@
                                     @Html.ValidationMessageFor(model => model.REGISTRO_FMI_, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-                          
+                           <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">
+                                        Numero
+                                    </label>
+                                    @Html.EditorFor(model => model.REGISTRO_FMI, new { htmlAttributes = new {  @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.REGISTRO_FMI, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
                             <div class="col-md-12">
                                 <div class="row">
                                     <label class="control-label col-md-6">
@@ -1547,7 +1680,7 @@
 
 
                 var pathname = window.location;
-                 $("#NombreRECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104").val(pathname);
+                 $("#nombreRECURSO_SOLICITANTE_DECISION_N_1").val(pathname);
 
                 $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
                 $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
@@ -1562,8 +1695,21 @@
                 $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
                 $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled",true);
 
+                $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
+                $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
+                $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
+                $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
+                $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
+                $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled",true);
+                $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled",true);
+                $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
+                $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
+                $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
+                $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
+                $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled",true);
 
-                if ('@Model.Gestion' != "" || $("#NombreRECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104").val().indexOf("Edit?IdTable") == "-1") {
+
+                if ('@Model.Gestion' != "" || $("#nombreRECURSO_SOLICITANTE_DECISION_N_1").val().indexOf("Edit?IdTable") == "-1") {
 
                     /// INSPECCION_OCULAR
                         $('#INSPECCION_OCULAR_FECHA_54').val(DateConvert("@Model.INSPECCION_OCULAR_FECHA_54"));
@@ -1624,17 +1770,30 @@
                         $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').val("@Model.RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95");
                         $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96"));
                     /// RECURSO_MINISTERIO
-                        $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98').val(DateConvert("@Model.RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98"));
-                        $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_99').val("@Model.RECURSO_MINISTERIO_RESPUESTA_RECURSO_99");
-                        $('#RECURSO_MINISTERIO_FIRMADA_100').val("@Model.RECURSO_MINISTERIO_FIRMADA_100");
-                        $('#RECURSO_MINISTERIO_ACTO_101').val("@Model.RECURSO_MINISTERIO_ACTO_101");
-                        $('#RECURSO_MINISTERIO_NUMERO_102').val("@Model.RECURSO_MINISTERIO_NUMERO_102");
-                        $('#RECURSO_MINISTERIO_FECHA_103').val(DateConvert("@Model.RECURSO_MINISTERIO_FECHA_103"));
-                        $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104').val("@Model.RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104");
-                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105').val("@Model.RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105");
-                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106').val(DateConvert("@Model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106"));
-                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107').val("@Model.RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107");
-                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108').val(DateConvert("@Model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108"));
+                        $('#RECURSO_MINISTERIO_DECISION_N_1').val("@Model.RECURSO_MINISTERIO_DECISION_N_1");
+                        $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').val("@Model.RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2");
+                        $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').val("@Model.RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3");
+                        $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').val(DateConvert("@Model.RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4"));
+                        $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').val("@Model.RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5");
+                        $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').val("@Model.RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6");
+                        $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').val("@Model.RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6");
+                        $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').val("@Model.RECURSO_MINISTERIO_CONJUNA_IND_N_7");
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').val("@Model.RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8");
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').val(DateConvert("@Model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9"));
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').val("@Model.RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10");
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').val(DateConvert("@Model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11"));
+                        $('#RECURSO_MINISTERIO_RECURSO_MINISTERIO_85').val("@Model.RECURSO_MINISTERIO_RECURSO_MINISTERIO_85");
+                        $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86').val(DateConvert("@Model.RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86"));
+                        $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').val("@Model.RECURSO_MINISTERIO_RESPUESTA_RECURSO_87");
+                        $('#RECURSO_MINISTERIO_FIRMADA_88').val("@Model.RECURSO_MINISTERIO_FIRMADA_88");
+                        $('#RECURSO_MINISTERIO_ACTO_89').val("@Model.RECURSO_MINISTERIO_ACTO_89");
+                        $('#RECURSO_MINISTERIO_NUMERO_90').val("@Model.RECURSO_MINISTERIO_NUMERO_90");
+                        $('#RECURSO_MINISTERIO_FECHA_91').val(DateConvert("@Model.RECURSO_MINISTERIO_FECHA_91"));
+                        $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92').val("@Model.RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92");
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93').val("@Model.RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93");
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94').val(DateConvert("@Model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94"));
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95').val("@Model.RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95");
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').val(DateConvert("@Model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96"));
                     /// REGISTRO_FMI
                         $('#REGISTRO_FMI_').val("@Model.REGISTRO_FMI_");
                         $('#REGISTRO_FECHA_DE_REGISTRO_117').val(DateConvert("@Model.REGISTRO_FECHA_DE_REGISTRO_117"));
@@ -2009,39 +2168,71 @@
                             }
                         }
 
-                        $("#RECURSO_MINISTERIO_RECURSO_MINISTERIO_97 option").each(function(){
-                            if ($(this).val() == '@Model.RECURSO_MINISTERIO_RECURSO_MINISTERIO_97' ){
+                        $("#RECURSO_MINISTERIO_RECURSO_MINISTERIO_85 option").each(function(){
+                            if ($(this).val() == '@Model.RECURSO_MINISTERIO_RECURSO_MINISTERIO_85' ){
                                 $(this).prop("selected", true);
                             }
                         });
 
-                        if ($("#RECURSO_MINISTERIO_RECURSO_MINISTERIO_97").val() == "False") {
-                            $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98').prop("disabled", true);
-                            $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_99').prop("disabled", true);
-                            $('#RECURSO_MINISTERIO_FIRMADA_100').prop("disabled", true);
-                            $('#RECURSO_MINISTERIO_ACTO_101').prop("disabled", true);
-                            $('#RECURSO_MINISTERIO_NUMERO_102').prop("disabled", true);
-                            $('#RECURSO_MINISTERIO_FECHA_103').prop("disabled", true);
-                            $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104').prop("disabled", true);
-                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105').prop("disabled", true);
-                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106').prop("disabled", true);
-                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107').prop("disabled", true);
-                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108').prop("disabled", true);
+                        if ($("#RECURSO_MINISTERIO_RECURSO_MINISTERIO_85").val() == "False") {
+                            $('#RECURSO_MINISTERIO_DECISION_N_1').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FIRMADA_88').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_ACTO_89').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_NUMERO_90').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FECHA_91').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').prop("disabled", true);
                         }else{
 
-                            $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98').prop("disabled", false);
-                            $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_99').prop("disabled", false);
-                            $('#RECURSO_MINISTERIO_FIRMADA_100').prop("disabled", false);
-                            $('#RECURSO_MINISTERIO_ACTO_101').prop("disabled", false);
-                            $('#RECURSO_MINISTERIO_NUMERO_102').prop("disabled", false);
-                            $('#RECURSO_MINISTERIO_FECHA_103').prop("disabled", false);
-                            $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104').prop("disabled", false);
-                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105').prop("disabled", false);
-                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106').prop("disabled", false);
-                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107').prop("disabled", false);
-                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108').prop("disabled", false);
+                            if ('@Model.RECURSO_MINISTERIO_DECISION_N_1' == "31") {
+
+                                $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled",false);
+                                $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",false);
+                                $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",false);
+                                $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",false);
+                                $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",false);
+                                $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",false);
+                                $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled",false);
+                                $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled",false);
+                                $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",false);
+                                $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",false);
+                                $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",false);
+                                $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",false);
+
+                            } else {
+                                $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled",true);
+                                $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
+                                $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
+                                $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
+                                $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
+                                $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
+                                $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled",true);
+                                $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled",true);
+                                $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
+                                $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
+                                $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
+                                $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
+
+                            }
                         }
 
+                       
                         $("#OPOCISIONES_OPOCISIONES_68 option").each(function(){
                             if ($(this).val() == '@Model.OPOCISIONES_OPOCISIONES_68' ){
                                 $(this).prop("selected", true);
@@ -2056,9 +2247,9 @@
 
                     
                 } else {
-                    $("input[type='date']").val("2020-01-01");
-                    $("input[type='number']").val("2020");
-                    $("select").val("True");
+                    //$("input[type='date']").val("2020-01-01");
+                    //$("input[type='number']").val("2020");
+                    //$("select").val("False");
                 }
 
               
@@ -2077,8 +2268,6 @@
                     $('#NombreFORMATO_DE_REVISION_JURIDICA_CONCEPTO_73').val("N_A");
                     $('#NombreRESOLUCION_DECISION_78').val("N_A");
                     $('#NombreRESOLUCION_CONJUNTA_INDIVIDUAL_80').val("N_A");
-                    $('#NombreRECURSO_MINISTERIO_ACTO_101').val("N_A");
-                    $('#NombreRECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104').val("N_A");
                     $('#NombreIdAspNetUser').val("N_A");
                     $('#nombreSOLICITUD_TIPO_SOLICITUD').val("N_A");
                     $('#nombreRECURSO_SOLICITANTE_DECISION_N_1').val("N_A");
@@ -2086,6 +2275,12 @@
                     $('#nombreRECURSO_SOLICITANTE_CONJUNA_IND_N_7').val("N_A");
                     $('#nombreRECURSO_SOLICITANTE_ACTO_89').val("N_A");
                     $('#nombreRECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').val("N_A");
+
+                    $('#nombreRECURSO_MINISTERIO_DECISION_N_1').val("N_A");
+                    $('#nombreRECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').val("N_A");
+                    $('#nombreRECURSO_MINISTERIO_CONJUNA_IND_N_7').val("N_A");
+                    $('#nombreRECURSO_MINISTERIO_ACTO_89').val("N_A");
+                    $('#nombreRECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92').val("N_A");
                     $('#Estado').val("true");
 
 
@@ -2226,7 +2421,7 @@
                         $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').val("1900-01-01");
                         $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').val("False");
                         $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').val("1900-01-01");
-                        $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').val("0");
+                        $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').val("False");
                         $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').val("0");
                         $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').val("1900-01-01");
                         $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').val("False");
@@ -2242,7 +2437,7 @@
 
                         if ($("#RECURSO_SOLICITANTE_DECISION_N_1").val() != "31") {
                             $("#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92").append('<option selected  value="0"> 0 </option>');
-                            $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').val("0");
+                            $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').val("False");
                             $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').val("0");
                             $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').val("1900-01-01");
                             $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').val("False");
@@ -2257,19 +2452,49 @@
 
                     }
 
-                    if ($("#RECURSO_MINISTERIO_RECURSO_MINISTERIO_97").val() == "False") {
+                    if ($("#RECURSO_MINISTERIO_RECURSO_MINISTERIO_85").val() == "False") {
 
-                        $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98').val("1900-01-01");
-                        $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_99').val("False");
-                        $('#RECURSO_MINISTERIO_FIRMADA_100').val("False");
-                        $("#RECURSO_MINISTERIO_ACTO_101").append('<option selected  value="0"> 0 </option>');
-                        $('#RECURSO_MINISTERIO_NUMERO_102').val("0");
-                        $('#RECURSO_MINISTERIO_FECHA_103').val("1900-01-01");
-                        $("#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104").append('<option selected  value="0"> 0 </option>');
-                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105').val("False");
-                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106').val("1900-01-01");
-                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107').val("False");
-                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108').val("1900-01-01");
+                            $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86').val("1900-01-01");
+                            $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').val("False");
+                            $("#RECURSO_MINISTERIO_DECISION_N_1").append('<option selected  value="0"> 0 </option>');
+                            $('#RECURSO_MINISTERIO_FIRMADA_88').val("False");
+                            $("#RECURSO_MINISTERIO_ACTO_89").append('<option selected  value="0"> 0 </option>');
+                            $('#RECURSO_MINISTERIO_NUMERO_90').val("0");
+                            $('#RECURSO_MINISTERIO_FECHA_91').val("1900-01-01");
+                            $("#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92").append('<option selected  value="0"> 0 </option>');
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93').val("False");
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94').val("1900-01-01");
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95').val("False");
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').val("1900-01-01");
+                            $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').val("False");
+                            $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').val("0");
+                            $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').val("1900-01-01");
+                            $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').val("False");
+                            $("#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6").append('<option selected  value="0"> 0 </option>');
+                            $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').val("0");
+                            $("#RECURSO_MINISTERIO_CONJUNA_IND_N_7").append('<option selected  value="0"> 0 </option>');
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').val("False");
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').val("1900-01-01");
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').val("False");
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').val("1900-01-01");
+
+                    }else{
+
+                            if ($("#RECURSO_MINISTERIO_DECISION_N_1").val() != "31") {
+                                $("#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92").append('<option selected  value="0"> 0 </option>');
+                                $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').val("False");
+                                $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').val("0");
+                                $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').val("1900-01-01");
+                                $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').val("False");
+                                $("#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6").append('<option selected  value="0"> 0 </option>');
+                                $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').val("0");
+                                $("#RECURSO_MINISTERIO_CONJUNA_IND_N_7").append('<option selected  value="0"> 0 </option>');
+                                $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').val("False");
+                                $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').val("1900-01-01");
+                                $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').val("False");
+                                $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').val("1900-01-01");
+                            }
+
                     }
 
                     if ($("#CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109").val() == "False") {
@@ -2292,6 +2517,7 @@
 
                     if ($("#REGISTRO_FMI_").val() == "False") {
 
+                        $('#REGISTRO_FMI').val("0");
                         $('#REGISTRO_FECHA_DE_REGISTRO_117').val("1900-01-01");
                         $('#REGISTRO_NUMERO_DE_RESOLUCION_118').val("0");
                         $('#REGISTRO_FECHA_DE_RESOLUCION_119').val(DateConvert("1900-01-01"));
@@ -2318,8 +2544,8 @@
 
                     }
 
-                    if ($('#RECURSO_MINISTERIO_NUMERO_102').val() == "0"){
-                        $('#RECURSO_MINISTERIO_NUMERO_102').val("0");
+                    if ($('#RECURSO_MINISTERIO_NUMERO_90').val() == "0"){
+                        $('#RECURSO_MINISTERIO_NUMERO_90').val("0");
                     }
 
 
@@ -2349,21 +2575,7 @@
                         console.log(ex.responseText);
                     }
                 });
-                $.ajax({
-                    type: 'POST',
-                    url: '@Url.Action("ListTipos")', // we are calling json method
-                    dataType: 'json',
-                    data: { Id: 104 },
-                    success: function(states) {
-                        $.each(states, function (i, state) {
-                             if (state.Value=="@Model.RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104") $("#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
-                            else $("#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104").append('<option value="' + state.Value + '">' +state.Text + '</option>');
-                        });
-                    },
-                    error: function (ex) {
-                        console.log(ex.responseText);
-                    }
-                });//
+               
                 $.ajax({
                     type: 'POST',
                     url: '@Url.Action("ListTipos")', // we are calling json method
@@ -2446,6 +2658,22 @@
                         console.log(ex.responseText);
                     }
                 });
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 89 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.RECURSO_MINISTERIO_ACTO_89") $("#RECURSO_MINISTERIO_ACTO_89").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#RECURSO_MINISTERIO_ACTO_89").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
                  //
                 $.ajax({
                     type: 'POST',
@@ -2463,38 +2691,25 @@
                         console.log(ex.responseText);
                     }
                 });
-                //
                 $.ajax({
                     type: 'POST',
                     url: '@Url.Action("ListTipos")', // we are calling json method
                     dataType: 'json',
-                    data: { Id: 101 },
+                    data: { Id: 92 },
                     success: function(states) {
                         $.each(states, function (i, state) {
-                             if (state.Value=="@Model.RECURSO_MINISTERIO_ACTO_101") $("#RECURSO_MINISTERIO_ACTO_101").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
-                            else $("#RECURSO_MINISTERIO_ACTO_101").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                            if (state.Value=="@Model.RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92") $("#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+
                         });
                     },
                     error: function (ex) {
                         console.log(ex.responseText);
                     }
                 });
+               
                 //
-                $.ajax({
-                    type: 'POST',
-                    url: '@Url.Action("ListTipos")', // we are calling json method
-                    dataType: 'json',
-                    data: { Id: 104 },
-                    success: function(states) {
-                        $.each(states, function (i, state) {
-                             if (state.Value=="@Model.RECURSO_MINISTERIO_FECHA_103") $("#RECURSO_MINISTERIO_FECHA_103").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
-                            else $("#RECURSO_MINISTERIO_FECHA_103").append('<option value="' + state.Value + '">' +state.Text + '</option>');
-                        });
-                    },
-                    error: function (ex) {
-                        console.log(ex.responseText);
-                    }
-                });
+               
                 $.ajax({
                     type: 'POST',
                     url: '@Url.Action("ListTipos")', // we are calling json method
@@ -2530,11 +2745,41 @@
                     type: 'POST',
                     url: '@Url.Action("ListTipos")', // we are calling json method
                     dataType: 'json',
+                    data: { Id: 106 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6") $("#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
                     data: { Id: 107 },
                     success: function(states) {
                         $.each(states, function (i, state) {
                             if (state.Value=="@Model.RECURSO_SOLICITANTE_CONJUNA_IND_N_7") $("#RECURSO_SOLICITANTE_CONJUNA_IND_N_7").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
                             else $("#RECURSO_SOLICITANTE_CONJUNA_IND_N_7").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                 $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 107 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.RECURSO_MINISTERIO_CONJUNA_IND_N_7") $("#RECURSO_MINISTERIO_CONJUNA_IND_N_7").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#RECURSO_MINISTERIO_CONJUNA_IND_N_7").append('<option value="' + state.Value + '">' +state.Text + '</option>');
                         });
                     },
                     error: function (ex) {
@@ -2550,6 +2795,21 @@
                         $.each(states, function (i, state) {
                             if (state.Value=="@Model.RECURSO_SOLICITANTE_DECISION_N_1") $("#RECURSO_SOLICITANTE_DECISION_N_1").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
                             else $("#RECURSO_SOLICITANTE_DECISION_N_1").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 108 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.RECURSO_MINISTERIO_DECISION_N_1") $("#RECURSO_MINISTERIO_DECISION_N_1").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#RECURSO_MINISTERIO_DECISION_N_1").append('<option value="' + state.Value + '">' +state.Text + '</option>');
                         });
                     },
                     error: function (ex) {
@@ -2900,7 +3160,7 @@
                         $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').val("1900-01-01");
                         $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').val("False");
                         $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').val("1900-01-01");
-                        $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').val("0");
+                        $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').val("False");
                         $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').val("0");
                         $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').val("1900-01-01");
                         $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').val("False");
@@ -3022,46 +3282,166 @@
                    }
                 });
 
-                $("#RECURSO_MINISTERIO_RECURSO_MINISTERIO_97").change(function () {
+                $("#RECURSO_MINISTERIO_RECURSO_MINISTERIO_85").change(function () {
                    if ($(this).val() == "False") {
-                        $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_99').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_FIRMADA_100').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_ACTO_101').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_NUMERO_102').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_FECHA_103').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108').prop("disabled", true);
+                         $('#RECURSO_MINISTERIO_DECISION_N_1').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_FIRMADA_88').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_ACTO_89').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_NUMERO_90').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_FECHA_91').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').prop("disabled", true);
 
-                        $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98').val("1900-01-01");
-                        $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_99').val("False");
-                        $('#RECURSO_MINISTERIO_FIRMADA_100').val("False");
-                        $('#RECURSO_MINISTERIO_ACTO_101').val("");
-                        $('#RECURSO_MINISTERIO_NUMERO_102').val("0");
-                        $('#RECURSO_MINISTERIO_FECHA_103').val("1900-01-01");
-                        $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104').val("");
-                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105').val("False");
-                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106').val("1900-01-01");
-                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107').val("False");
-                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108').val("1900-01-01");
+
+
+                        $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86').val("1900-01-01");
+                        $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').val("False");
+                        $("#RECURSO_MINISTERIO_DECISION_N_1").val("");
+                        $('#RECURSO_MINISTERIO_FIRMADA_88').val("False");
+                        $('#RECURSO_MINISTERIO_ACTO_89').val("");
+                        $('#RECURSO_MINISTERIO_NUMERO_90').val("0");
+                        $('#RECURSO_MINISTERIO_FECHA_91').val("1900-01-01");
+                        $("#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92").val("");
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93').val("False");
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94').val("1900-01-01");
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95').val("False");
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').val("1900-01-01");
+                        $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').val("False");
+                        $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').val("0");
+                        $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').val("1900-01-01");
+                        $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').val("False");
+                        $("#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6").val("");
+                        $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').val("0");
+                        $("#RECURSO_MINISTERIO_CONJUNA_IND_N_7").val("");
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').val("False");
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').val("1900-01-01");
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').val("False");
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').val("1900-01-01");
                    }else{
 
-                        $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98').prop("disabled", false);
-                        $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_99').prop("disabled", false);
-                        $('#RECURSO_MINISTERIO_FIRMADA_100').prop("disabled", false);
-                        $('#RECURSO_MINISTERIO_ACTO_101').prop("disabled", false);
-                        $('#RECURSO_MINISTERIO_NUMERO_102').prop("disabled", false);
-                        $('#RECURSO_MINISTERIO_FECHA_103').prop("disabled", false);
-                        $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104').prop("disabled", false);
-                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105').prop("disabled", false);
-                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106').prop("disabled", false);
-                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107').prop("disabled", false);
-                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108').prop("disabled", false);
 
-                    }
+                        $('#RECURSO_MINISTERIO_DECISION_N_1').prop("disabled", false);
+                        $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled", false);
+                        $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled", false);
+                        $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled", false);
+                        $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled", false);
+                        $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled", false);
+                        $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled", false);
+                        $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled", false);
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled", false);
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled", false);
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled", false);
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled", false);
+                        $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86').prop("disabled", false);
+                        $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').prop("disabled", false);
+                        $('#RECURSO_MINISTERIO_FIRMADA_88').prop("disabled", false);
+                        $('#RECURSO_MINISTERIO_ACTO_89').prop("disabled", false);
+                        $('#RECURSO_MINISTERIO_NUMERO_90').prop("disabled", false);
+                        $('#RECURSO_MINISTERIO_FECHA_91').prop("disabled", false);
+                        $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93').prop("disabled", false);
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94').prop("disabled", false);
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95').prop("disabled", false);
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').prop("disabled", false);
+
+                        $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
+                        $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
+                        $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
+                        $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
+                        $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
+                        $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled",true);
+                        $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled",true);
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
+                   }
+
+
+                        
+                });
+                
+                $("#RECURSO_MINISTERIO_DECISION_N_1").change(function () {
+                  
+                   if ($(this).val() == "31") {
+
+                            $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",false);
+
+                        } else {
+                            $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
+
+                        }
+                });
+                
+                $("#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92").change(function () {
+                   if ($(this).val() == "16") {
+
+                    $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",false);
+                       
+                        $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",false);
+                        $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",false);
+                        $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",false);
+                        $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",false);
+                        $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled",false);
+                        $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled",false);
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",false);
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",false);
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",false);
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",false);
+
+                   }else{
+
+
+                        $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
+                        $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
+                        $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
+                        $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
+                        $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
+                        $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled",true);
+                        $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled",true);
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
+                   }
                 });
 
                 $("#CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109").change(function () {
