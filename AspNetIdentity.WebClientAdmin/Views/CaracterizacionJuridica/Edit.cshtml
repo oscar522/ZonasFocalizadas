@@ -1372,6 +1372,24 @@
                                     @Html.ValidationMessageFor(model => model.CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112, "", new { @class = "text-danger" })
                                 </div>
                             </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">
+                                        Numero de Resolucion
+                                    </label>
+                                    @Html.EditorFor(model => model.CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION, new { htmlAttributes = new { @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">
+                                        Fecha de Resolucion
+                                    </label>
+                                    @Html.EditorFor(model => model.CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA, new { htmlAttributes = new {Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1442,15 +1460,7 @@
                                     @Html.ValidationMessageFor(model => model.REGISTRO_FMI_, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <label class="control-label col-md-6">
-                                        Fmi
-                                    </label>
-                                    @Html.EditorFor(model => model.REGISTRO_FMI_116, new { htmlAttributes = new { @class = "form-control col-md-6" } })
-                                    @Html.ValidationMessageFor(model => model.REGISTRO_FMI_116, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
+                          
                             <div class="col-md-12">
                                 <div class="row">
                                     <label class="control-label col-md-6">
@@ -1525,7 +1535,7 @@
                  if (res[2].length == 1) {
                     Add3 = "0";
                 }
-                ResDate = Add3+res[2].replace(" 00:00:00","")+"-"+Add2+res[1]+"-"+Add1+res[0];      
+                ResDate = Add3+res[2].replace(" 00:00:00","").replace(" 12:00:00 a. m.","")+"-"+Add2+res[1]+"-"+Add1+res[0];      
                 }
 
               
@@ -1572,6 +1582,8 @@
                         $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').val(DateConvert("@Model.CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110"));
                         $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').val("@Model.CONSTANCIA_DE_EJECUTORIA_FIRMADA_111");
                         $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').val("@Model.CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112");
+                        $('#CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION').val("@Model.CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION");
+                        $('#CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA').val(DateConvert("@Model.CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA"));
                         $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').val("@Model.RESOLUCION_NUMERO_DE_RESOLUCION_75");
                         $('#RESOLUCION_FECHA_DE_RESOLUCION_76').val(DateConvert("@Model.RESOLUCION_FECHA_DE_RESOLUCION_76"));
                         $('#RESOLUCION_FIRMADA_77').val("@Model.RESOLUCION_FIRMADA_77");
@@ -1625,7 +1637,6 @@
                         $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108').val(DateConvert("@Model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108"));
                     /// REGISTRO_FMI
                         $('#REGISTRO_FMI_').val("@Model.REGISTRO_FMI_");
-                        $('#REGISTRO_FMI_116').val("@Model.REGISTRO_FMI_116");
                         $('#REGISTRO_FECHA_DE_REGISTRO_117').val(DateConvert("@Model.REGISTRO_FECHA_DE_REGISTRO_117"));
                         $('#REGISTRO_NUMERO_DE_RESOLUCION_118').val("@Model.REGISTRO_NUMERO_DE_RESOLUCION_118");
                         $('#REGISTRO_FECHA_DE_RESOLUCION_119').val(DateConvert("@Model.REGISTRO_FECHA_DE_RESOLUCION_119"));
@@ -1682,13 +1693,11 @@
 
                         if ($("#REGISTRO_FMI_").val() == "False") {
 
-                            $('#REGISTRO_FMI_116').prop("disabled", true);
                             $('#REGISTRO_FECHA_DE_REGISTRO_117').prop("disabled", true);
                             $('#REGISTRO_NUMERO_DE_RESOLUCION_118').prop("disabled", true);
                             $('#REGISTRO_FECHA_DE_RESOLUCION_119').prop("disabled", true);
                         }else{
 
-                            $('#REGISTRO_FMI_116').prop("disabled", false);
                             $('#REGISTRO_FECHA_DE_REGISTRO_117').prop("disabled", false);
                             $('#REGISTRO_NUMERO_DE_RESOLUCION_118').prop("disabled", false);
                             $('#REGISTRO_FECHA_DE_RESOLUCION_119').prop("disabled", false);
@@ -1867,10 +1876,15 @@
                             $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').prop("disabled", true);
                             $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').prop("disabled", true);
                             $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').prop("disabled", true);
+                            $('#CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION').prop("disabled", true);
+                            $('#CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA').prop("disabled", true);
                         }else{
                             $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').prop("disabled", false);
                             $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').prop("disabled", false);
                             $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').prop("disabled", false);
+                            $('#CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION').prop("disabled", false);
+                            $('#CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA').prop("disabled", false);
+
                         }
 
                         $("#RESOLUCION_RESOLUCION_74 option").each(function(){
@@ -2263,6 +2277,8 @@
                         $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').val("1900-01-01");
                         $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').val("False");
                         $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').val("False");
+                        $('#CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION').val("0");
+                        $('#CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA').val("1900-01-01");
 
                     }
 
@@ -2276,7 +2292,6 @@
 
                     if ($("#REGISTRO_FMI_").val() == "False") {
 
-                        $('#REGISTRO_FMI_116').val("0");
                         $('#REGISTRO_FECHA_DE_REGISTRO_117').val("1900-01-01");
                         $('#REGISTRO_NUMERO_DE_RESOLUCION_118').val("0");
                         $('#REGISTRO_FECHA_DE_RESOLUCION_119').val(DateConvert("1900-01-01"));
@@ -3054,15 +3069,21 @@
                         $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').prop("disabled", true);
                         $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').prop("disabled", true);
                         $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').prop("disabled", true);
+                        $('#CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION').prop("disabled", true);
+                        $('#CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA').prop("disabled", true);
 
                         $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').val("1900-01-01");
                         $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').val("False");
                         $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').val("False");
+                        $('#CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION').val("0");
+                        $('#CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA').val("1900-01-01");
 
                    }else{
                         $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').prop("disabled", false);
                         $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').prop("disabled", false);
                         $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').prop("disabled", false);
+                        $('#CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION').prop("disabled", false);
+                        $('#CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA').prop("disabled", false);
 
                     }
                 });
@@ -3089,19 +3110,16 @@
 
                     if ($(this).val() == "False") {
 
-                        $('#REGISTRO_FMI_116').prop("disabled", true);
                         $('#REGISTRO_FECHA_DE_REGISTRO_117').prop("disabled", true);
                         $('#REGISTRO_NUMERO_DE_RESOLUCION_118').prop("disabled", true);
                         $('#REGISTRO_FECHA_DE_RESOLUCION_119').prop("disabled", true);
 
-                        $('#REGISTRO_FMI_116').val("0");
                         $('#REGISTRO_FECHA_DE_REGISTRO_117').val("1900-01-01");
                         $('#REGISTRO_NUMERO_DE_RESOLUCION_118').val("0");
                         $('#REGISTRO_FECHA_DE_RESOLUCION_119').val("1900-01-01");
 
                     }else{
 
-                        $('#REGISTRO_FMI_116').prop("disabled", false);
                         $('#REGISTRO_FECHA_DE_REGISTRO_117').prop("disabled", false);
                         $('#REGISTRO_NUMERO_DE_RESOLUCION_118').prop("disabled", false);
                         $('#REGISTRO_FECHA_DE_RESOLUCION_119').prop("disabled", false);

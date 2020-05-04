@@ -519,7 +519,6 @@
     <EntitySetMapping Name="CaracterizacionJuridica">
       <EntityTypeMapping TypeName="ZonasFModel.CaracterizacionJuridica">
         <MappingFragment StoreEntitySet="CaracterizacionJuridica">
-          <ScalarProperty Name="REGISTRO_FMI_" ColumnName="REGISTRO_FMI_" />
           <ScalarProperty Name="Gestion" ColumnName="Gestion" />
           <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
           <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />
@@ -566,10 +565,12 @@
           <ScalarProperty Name="REGISTRO_FECHA_DE_RESOLUCION_119" ColumnName="REGISTRO_FECHA_DE_RESOLUCION_119" />
           <ScalarProperty Name="REGISTRO_NUMERO_DE_RESOLUCION_118" ColumnName="REGISTRO_NUMERO_DE_RESOLUCION_118" />
           <ScalarProperty Name="REGISTRO_FECHA_DE_REGISTRO_117" ColumnName="REGISTRO_FECHA_DE_REGISTRO_117" />
-          <ScalarProperty Name="REGISTRO_FMI_116" ColumnName="REGISTRO_FMI_116" />
+          <ScalarProperty Name="REGISTRO_FMI_" ColumnName="REGISTRO_FMI_" />
           <ScalarProperty Name="REVOCATORIA_FECHA_DE_RESOLUCIÓN_115" ColumnName="REVOCATORIA_FECHA_DE_RESOLUCIÓN_115" />
           <ScalarProperty Name="REVOCATORIA_NUMERO_RESOLUCIÓN_114" ColumnName="REVOCATORIA_NUMERO_RESOLUCIÓN_114" />
           <ScalarProperty Name="REVOCATORIA_REVOCATORIA_113" ColumnName="REVOCATORIA_REVOCATORIA_113" />
+          <ScalarProperty Name="CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA" ColumnName="CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA" />
+          <ScalarProperty Name="CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION" ColumnName="CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION" />
           <ScalarProperty Name="CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112" ColumnName="CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112" />
           <ScalarProperty Name="CONSTANCIA_DE_EJECUTORIA_FIRMADA_111" ColumnName="CONSTANCIA_DE_EJECUTORIA_FIRMADA_111" />
           <ScalarProperty Name="CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110" ColumnName="CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110" />

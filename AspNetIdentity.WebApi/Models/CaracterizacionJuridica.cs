@@ -88,10 +88,12 @@ namespace AspNetIdentity.WebApi.Models
         public Nullable<System.DateTime> CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110 { get; set; }
         public Nullable<bool> CONSTANCIA_DE_EJECUTORIA_FIRMADA_111 { get; set; }
         public Nullable<bool> CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112 { get; set; }
+        public string CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION { get; set; }
+        public Nullable<System.DateTime> CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA { get; set; }
         public Nullable<bool> REVOCATORIA_REVOCATORIA_113 { get; set; }
         public Nullable<long> REVOCATORIA_NUMERO_RESOLUCIÓN_114 { get; set; }
         public Nullable<System.DateTime> REVOCATORIA_FECHA_DE_RESOLUCIÓN_115 { get; set; }
-        public string REGISTRO_FMI_116 { get; set; }
+        public Nullable<bool> REGISTRO_FMI_ { get; set; }
         public Nullable<System.DateTime> REGISTRO_FECHA_DE_REGISTRO_117 { get; set; }
         public Nullable<long> REGISTRO_NUMERO_DE_RESOLUCION_118 { get; set; }
         public Nullable<System.DateTime> REGISTRO_FECHA_DE_RESOLUCION_119 { get; set; }
@@ -138,6 +140,5 @@ namespace AspNetIdentity.WebApi.Models
         public string IdAspNetUser { get; set; }
         public System.DateTime FechaModificacion { get; set; }
         public Nullable<int> Gestion { get; set; }
-        public Nullable<bool> REGISTRO_FMI_ { get; set; }
     }
 }

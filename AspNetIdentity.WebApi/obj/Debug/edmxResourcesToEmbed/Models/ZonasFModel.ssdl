@@ -272,11 +272,12 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110" Type="datetime" />
     <Property Name="CONSTANCIA_DE_EJECUTORIA_FIRMADA_111" Type="bit" />
     <Property Name="CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112" Type="bit" />
+    <Property Name="CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION" Type="nvarchar" MaxLength="128" />
+    <Property Name="CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA" Type="datetime" />
     <Property Name="REVOCATORIA_REVOCATORIA_113" Type="bit" />
     <Property Name="REVOCATORIA_NUMERO_RESOLUCIÓN_114" Type="bigint" />
     <Property Name="REVOCATORIA_FECHA_DE_RESOLUCIÓN_115" Type="datetime" />
     <Property Name="REGISTRO_FMI_" Type="bit" />
-    <Property Name="REGISTRO_FMI_116" Type="varchar(max)" />
     <Property Name="REGISTRO_FECHA_DE_REGISTRO_117" Type="datetime" />
     <Property Name="REGISTRO_NUMERO_DE_RESOLUCION_118" Type="bigint" />
     <Property Name="REGISTRO_FECHA_DE_RESOLUCION_119" Type="datetime" />

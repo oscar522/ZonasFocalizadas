@@ -223,6 +223,11 @@ namespace AspNetIdentity.Models
 
         [Required(ErrorMessage = "* Requerido")]
 
+        public string CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
         public Nullable<bool> REVOCATORIA_REVOCATORIA_113 { get; set; }
 
         [Required(ErrorMessage = "* Requerido")]
@@ -237,10 +242,6 @@ namespace AspNetIdentity.Models
         [Required(ErrorMessage = "* Requerido")]
 
         public Nullable<bool> REGISTRO_FMI_ { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-
-        public string REGISTRO_FMI_116 { get; set; }
 
         [Required(ErrorMessage = "* Requerido")]
 
