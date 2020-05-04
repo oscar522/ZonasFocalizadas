@@ -19,11 +19,11 @@ namespace AspNetIdentity.WebApi.Controllers
 
         // GET api/values/
         [Authorize]
-        [Route("getActividadesDiarias")]
-        public List<ActividadesDiariasModel> Get()
+        [Route("getActividadesDiarias/{id}")]
+        public List<ActividadesDiariasModel> GetF(string id)
         {
             ActividadesDiariasLogic a = new ActividadesDiariasLogic();
-            return a.Consulta();
+            return a.Consulta(id);
         }
 
         [Authorize]

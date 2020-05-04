@@ -73,14 +73,18 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             return Json(processModel.Select(x => new SelectListItem { Text = x.NOMBRE, Value = x.ID_CT_PAIS.ToString() }).ToList());
         }
 
-        public async Task<ActionResult> ListGeneral()
+        public async Task<ActionResult> ListGeneral(string Id)
         {
-            string Id = "0";
-            string Controller = "ActividadesDiarias";
-            string Method = "getActividadesDiarias";
-            string result = await employeeProvider.Get(Id, Controller, Method);
-            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
-            List<ActividadesDiariasModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ActividadesDiariasModel>>(jsonResult.ToString());
+            List<ActividadesDiariasModel> processModel = new List<ActividadesDiariasModel>();
+            if (Id != "")
+            {
+                string Controller = "ActividadesDiarias";
+                string Method = "getActividadesDiarias";
+                string result = await employeeProvider.Get(Id, Controller, Method);
+                var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+                processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ActividadesDiariasModel>>(jsonResult.ToString());
+            }
+            
             return Json(processModel, JsonRequestBehavior.AllowGet);
         }
         public async Task<ActionResult> ListUser(string Id)

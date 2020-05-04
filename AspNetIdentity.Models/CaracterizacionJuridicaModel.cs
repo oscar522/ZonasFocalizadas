@@ -156,57 +156,6 @@ namespace AspNetIdentity.Models
 
         [Required(ErrorMessage = "* Requerido")]
 
-        public Nullable<bool> RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-
-        public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-
-        public Nullable<bool> RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-
-        public Nullable<bool> RECURSO_SOLICITANTE_FIRMADA_88 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-
-        public Nullable<int> RECURSO_SOLICITANTE_ACTO_89 { get; set; }
-        public string NombreRECURSO_SOLICITANTE_ACTO_89 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-        // [Range(0.01, 999.99, ErrorMessage = "* Requerido")]
-
-        public Nullable<long> RECURSO_SOLICITANTE_NUMERO_90 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-
-        public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_91 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-
-        public Nullable<int> RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92 { get; set; }
-        public string NombreRECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-
-        public Nullable<bool> RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-
-        public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-
-        public Nullable<bool> RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-
-        public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96 { get; set; }
-
-        [Required(ErrorMessage = "* Requerido")]
-
         public Nullable<bool> RECURSO_MINISTERIO_RECURSO_MINISTERIO_97 { get; set; }
 
         [Required(ErrorMessage = "* Requerido")]
@@ -287,6 +236,10 @@ namespace AspNetIdentity.Models
 
         [Required(ErrorMessage = "* Requerido")]
 
+        public Nullable<bool> REGISTRO_FMI_ { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+
         public string REGISTRO_FMI_116 { get; set; }
 
         [Required(ErrorMessage = "* Requerido")]
@@ -316,5 +269,175 @@ namespace AspNetIdentity.Models
 
         [Required(ErrorMessage = "* Requerido")]
         public string FechaModificacion { get; set; }
+
+        public Nullable<int> Gestion { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> SOLICITUD_SOLICITUD { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> SOLICITUD_FECHA { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> SOLICITUD_FIRMA { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<int> SOLICITUD_TIPO_SOLICITUD { get; set; }
+        public string nombreSOLICITUD_TIPO_SOLICITUD { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> SOLICITUD_CEDULA_SOLICITANTE { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> SOLICITUD_CEDULA_CONYUGE { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> SOLICITUD_CEDULA_PARIENTE { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> AUTODEACEPTACION_AUTODEACEPTACION { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> AUTODEACEPTACION_FECHA { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> AUTODEACEPTACION_FIRMA { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> AUTODEACEPTACION_DATOSPREDIOSCORRECTO { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> COMUNICACIONES_SOLICITANTE { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> COMUNICACIONES_SOLICITANTEFECHA { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> COMUNICACIONES_SOLICITANTEFIRMA { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> COMUNICACIONES_FECHAINSPECCIONOCULAR { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> COMUNICACIONES_PROCURADOR { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> COMUNICACIONES_PROCURADORFECHA { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> COMUNICACIONES_PROCURADORFIRMA { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> COMUNICACIONES_AUTORIDADAMBIENTAL { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> COMUNICACIONES_AUTORIDADAMBIENTALFECHA { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> COMUNICACIONES_AUTORIDADAMBIENTALFIRMA { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> COMUNICACIONES_COLINDATES { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> COMUNICACIONES_COLINDATESFECHA { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> COMUNICACIONES_COLINDATESFIRMA { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> PUBLICACIONES_ALCALDIA { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> PUBLICACIONES_ALCALDIAFECHAFIJACION { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> PUBLICACIONES_ALCALDIADESFIJACION { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> PUBLICACIONES_ALCALDIAFIRMA { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> PUBLICACIONES_INCODER { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> PUBLICACIONES_INCODERFECHAFIJACION { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> PUBLICACIONES_INCODERDESFIJACION { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> PUBLICACIONES_INCODERFIRMA { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> PUBLICACIONES_EMISORA { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> PUBLICACIONES_EMISORAFECHA1 { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> PUBLICACIONES_EMISORAFECHA2 { get; set; }
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> PUBLICACIONES_EMISORAFIRMA { get; set; }
+
+
+
+
+        //////////////
+        ///
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<int> RECURSO_SOLICITANTE_DECISION_N_1 { get; set; }
+        public string nombreRECURSO_SOLICITANTE_DECISION_N_1 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public string RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public string RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<int> RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6 { get; set; }
+        public string nombreRECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public string RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<int> RECURSO_SOLICITANTE_CONJUNA_IND_N_7 { get; set; }
+        public string nombreRECURSO_SOLICITANTE_CONJUNA_IND_N_7 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> RECURSO_SOLICITANTE_FIRMADA_88 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<int> RECURSO_SOLICITANTE_ACTO_89 { get; set; }
+        public string nombreRECURSO_SOLICITANTE_ACTO_89 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public string RECURSO_SOLICITANTE_NUMERO_90 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_91 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<int> RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92 { get; set; }
+        public string nombreRECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<bool> RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95 { get; set; }
+
+        [Required(ErrorMessage = "* Requerido")]
+        public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96 { get; set; }
+
+
+
+
+
     }
 }

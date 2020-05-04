@@ -167,10 +167,10 @@
                                     <label class=" Letra control-label col-md-3">
                                         Esta Vivo el Solicitante :
                                     </label>
-                                    <select name="VVivoSolicitante" id="VVivoSolicitante" class="form-control col-md-2 ">
+                                    <select name="VVivoSolicitante" id="VVivoSolicitante" class="form-control col-md-2 Letra ">
                                         <option value="0"> Seleccione</option>
                                         <option value="1"> Vivo</option>
-                                        <option value="1"> Fallecido </option>
+                                        <option value="2"> Fallecido </option>
                                     </select>
 
                                 </div>
@@ -230,10 +230,10 @@
                                     <label class=" Letra control-label col-md-3">
                                         Esta Vivo el Conyuge :
                                     </label>
-                                    <select name="VVivoConyuge" id="VVivoConyuge" class="form-control col-md-2 ">
+                                    <select name="VVivoConyuge" id="VVivoConyuge" class="form-control col-md-2 Letra ">
                                         <option value="0"> Seleccione</option>
                                         <option value="1"> Vivo</option>
-                                        <option value="1"> Fallecido </option>
+                                        <option value="2"> Fallecido </option>
                                     </select>
                                 </div>
 
@@ -1099,10 +1099,7 @@
 
                     };
 
-                    if ($("#FechaExpedicionConyuge").val() == ""){
-                            $('span[data-valmsg-for="FechaExpedicionConyuge"]').text("* Requerido Fecha de Expedicion");
-                            valid = 1;
-                        }
+                    
 
                     if ($("#Ortografia-1-8").is(':checked')) {
                         if ($("#NumeroIdentificacionConyuge").val() == ""){
@@ -1113,7 +1110,10 @@
                             $('span[data-valmsg-for="TipoDocumentoConyuge"]').text("* Requerido Tipo de Documento");
                             valid = 1;
                         }
-                        
+                        if ($("#FechaExpedicionConyuge").val() == ""){
+                            $('span[data-valmsg-for="FechaExpedicionConyuge"]').text("* Requerido Fecha de Expedicion");
+                            valid = 1;
+                        }
 
                     };
                     

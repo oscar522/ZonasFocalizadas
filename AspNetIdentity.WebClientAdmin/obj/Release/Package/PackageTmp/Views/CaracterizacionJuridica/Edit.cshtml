@@ -37,24 +37,460 @@
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
+        @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control", Style = "display : none" } })
+
+
+        @Html.EditorFor(model => model.Gestion, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "N_A" } })
         @Html.EditorFor(model => model.IdExpediente, new { htmlAttributes = new { @class = "form-control", Style = "display : none" } })
-        @Html.EditorFor(model => model.NombreIdAspNetUser, new { htmlAttributes = new { @class = "form-control", Style = "display : none" } })
         @Html.EditorFor(model => model.rol, new { htmlAttributes = new { @class = "form-control", Style = "display : none" } })
         @Html.EditorFor(model => model.FechaModificacion, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
-        @Html.EditorFor(model => model.NombreACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61, new { htmlAttributes = new { @class = "form-control", Style = "display : none", ValueExtensions = "N_A" } })
-        @Html.EditorFor(model => model.NombreFORMATO_DE_REVISION_JURIDICA_CONCEPTO_73, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
-        @Html.EditorFor(model => model.NombreINSPECCION_OCULAR_CONCEPTO_57, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
-        @Html.EditorFor(model => model.NombreRECURSO_MINISTERIO_ACTO_101, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
-        @Html.EditorFor(model => model.NombreRECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
-        @Html.EditorFor(model => model.NombreRECURSO_SOLICITANTE_ACTO_89, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
-        @Html.EditorFor(model => model.NombreRECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
-        @Html.EditorFor(model => model.NombreRESOLUCION_CONJUNTA_INDIVIDUAL_80, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
-        @Html.EditorFor(model => model.NombreRESOLUCION_DECISION_78, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
         @Html.EditorFor(model => model.IdAspNetUser, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
         @Html.EditorFor(model => model.NumeroExpediente, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "@Model.NumeroExpediente" } })
+        @Html.EditorFor(model => model.NombreIdAspNetUser, new { htmlAttributes = new { @class = "form-control", Style = "display : none" } })
+
+        @Html.EditorFor(model => model.nombreRECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "N_A" } })
+        @Html.EditorFor(model => model.nombreRECURSO_SOLICITANTE_CONJUNA_IND_N_7, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "N_A" } })
+        @Html.EditorFor(model => model.nombreRECURSO_SOLICITANTE_ACTO_89, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "N_A" } })
+        @Html.EditorFor(model => model.nombreRECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "N_A" } })
+
+
+        @Html.EditorFor(model => model.nombreRECURSO_SOLICITANTE_DECISION_N_1, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "N_A" } })
+        @Html.EditorFor(model => model.NombreINSPECCION_OCULAR_CONCEPTO_57, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "N_A" } })
+        @Html.EditorFor(model => model.NombreACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
+        @Html.EditorFor(model => model.NombreFORMATO_DE_REVISION_JURIDICA_CONCEPTO_73, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
+        @Html.EditorFor(model => model.NombreRESOLUCION_DECISION_78, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
+        @Html.EditorFor(model => model.NombreRESOLUCION_CONJUNTA_INDIVIDUAL_80, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
+        @Html.EditorFor(model => model.NombreRECURSO_MINISTERIO_ACTO_101, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
+        @Html.EditorFor(model => model.NombreRECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
+        @Html.EditorFor(model => model.nombreSOLICITUD_TIPO_SOLICITUD, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
+
 
     <div class="form-horizontal">
 
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header"><h5>SOLICITUD</h5>  </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6"> Solicitud</label>
+                                    <select id="SOLICITUD_SOLICITUD" name="SOLICITUD_SOLICITUD" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.SOLICITUD_SOLICITUD, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Fecha</label>
+                                    @Html.EditorFor(model => model.SOLICITUD_FECHA, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.SOLICITUD_FECHA, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Firma</label>
+                                    <select id="SOLICITUD_FIRMA" name="SOLICITUD_FIRMA" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.SOLICITUD_FIRMA, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Tipo de Solictud</label>
+                                    <select id="SOLICITUD_TIPO_SOLICITUD" name="SOLICITUD_TIPO_SOLICITUD" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.SOLICITUD_TIPO_SOLICITUD, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Cedula del Solicitante</label>
+                                    <select id="SOLICITUD_CEDULA_SOLICITANTE" name="SOLICITUD_CEDULA_SOLICITANTE" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.SOLICITUD_CEDULA_SOLICITANTE, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Cedula del Conyuge</label>
+                                    <select id="SOLICITUD_CEDULA_CONYUGE" name="SOLICITUD_CEDULA_CONYUGE" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.SOLICITUD_CEDULA_CONYUGE, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Cedula del Pariente</label>
+                                    <select id="SOLICITUD_CEDULA_PARIENTE" name="SOLICITUD_CEDULA_PARIENTE" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.SOLICITUD_CEDULA_PARIENTE, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Fecha desde la cual ocupa o explota </label>
+                                    @Html.EditorFor(model => model.SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header"><h5>AUTO DE ACEPTACION</h5>  </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6"> Auto de Aceptacion</label>
+                                    <select id="AUTODEACEPTACION_AUTODEACEPTACION" name="AUTODEACEPTACION_AUTODEACEPTACION" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.AUTODEACEPTACION_AUTODEACEPTACION, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Fecha</label>
+                                    @Html.EditorFor(model => model.AUTODEACEPTACION_FECHA, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.AUTODEACEPTACION_FECHA, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Firma</label>
+                                    <select id="AUTODEACEPTACION_FIRMA" name="AUTODEACEPTACION_FIRMA" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.AUTODEACEPTACION_FIRMA, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">La fecha de solicitud del solicitante es correcta ?</label>
+                                    <select id="AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO" name="AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">La fecha de solicitud del Conyuge es correcta ?</label>
+                                    <select id="AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO" name="AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Los datos del predio es correcto</label>
+                                    <select id="AUTODEACEPTACION_DATOSPREDIOSCORRECTO" name="AUTODEACEPTACION_DATOSPREDIOSCORRECTO" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.AUTODEACEPTACION_DATOSPREDIOSCORRECTO, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header"><h5>COMUNICACIONES</h5>  </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Comunicaciones del Solicitante</label>
+                                    <select id="COMUNICACIONES_SOLICITANTE" name="COMUNICACIONES_SOLICITANTE" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.COMUNICACIONES_SOLICITANTE, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Fecha</label>
+                                    @Html.EditorFor(model => model.COMUNICACIONES_SOLICITANTEFECHA, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.COMUNICACIONES_SOLICITANTEFECHA, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Firma</label>
+                                    <select id="COMUNICACIONES_SOLICITANTEFIRMA" name="COMUNICACIONES_SOLICITANTEFIRMA" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.COMUNICACIONES_SOLICITANTEFIRMA, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Fecha Inspeccion Ocular</label>
+                                    @Html.EditorFor(model => model.COMUNICACIONES_FECHAINSPECCIONOCULAR, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.COMUNICACIONES_FECHAINSPECCIONOCULAR, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Procurador</label>
+                                    <select id="COMUNICACIONES_PROCURADOR" name="COMUNICACIONES_PROCURADOR" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.COMUNICACIONES_PROCURADOR, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Fecha</label>
+                                    @Html.EditorFor(model => model.COMUNICACIONES_PROCURADORFECHA, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.COMUNICACIONES_PROCURADORFECHA, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Firma</label>
+                                    <select id="COMUNICACIONES_PROCURADORFIRMA" name="COMUNICACIONES_PROCURADORFIRMA" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.COMUNICACIONES_PROCURADORFIRMA, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Autoridad Ambiental</label>
+                                    <select id="COMUNICACIONES_AUTORIDADAMBIENTAL" name="COMUNICACIONES_AUTORIDADAMBIENTAL" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.COMUNICACIONES_AUTORIDADAMBIENTAL, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Fecha</label>
+                                    @Html.EditorFor(model => model.COMUNICACIONES_AUTORIDADAMBIENTALFECHA, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.COMUNICACIONES_AUTORIDADAMBIENTALFECHA, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Firma</label>
+                                    <select id="COMUNICACIONES_AUTORIDADAMBIENTALFIRMA" name="COMUNICACIONES_AUTORIDADAMBIENTALFIRMA" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.COMUNICACIONES_AUTORIDADAMBIENTALFIRMA, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Colindantes</label>
+                                    <select id="COMUNICACIONES_COLINDATES" name="COMUNICACIONES_COLINDATES" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.COMUNICACIONES_COLINDATES, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Fecha</label>
+                                    @Html.EditorFor(model => model.COMUNICACIONES_COLINDATESFECHA, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.COMUNICACIONES_COLINDATESFECHA, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Firma</label>
+                                    <select id="COMUNICACIONES_COLINDATESFIRMA" name="COMUNICACIONES_COLINDATESFIRMA" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.COMUNICACIONES_COLINDATESFIRMA, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header"><h5>PUBLICACIONES</h5>  </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Publicaciones alcaldia</label>
+                                    <select id="PUBLICACIONES_ALCALDIA" name="PUBLICACIONES_ALCALDIA" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.PUBLICACIONES_ALCALDIA, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Fecha Fijacion</label>
+                                    @Html.EditorFor(model => model.PUBLICACIONES_ALCALDIAFECHAFIJACION, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.PUBLICACIONES_ALCALDIAFECHAFIJACION, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Fecha DesFijacion</label>
+                                    @Html.EditorFor(model => model.PUBLICACIONES_ALCALDIADESFIJACION, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.PUBLICACIONES_ALCALDIADESFIJACION, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Firma</label>
+                                    <select id="PUBLICACIONES_ALCALDIAFIRMA" name="PUBLICACIONES_ALCALDIAFIRMA" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.PUBLICACIONES_ALCALDIAFIRMA, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Publicaciones Incoder</label>
+                                    <select id="PUBLICACIONES_INCODER" name="PUBLICACIONES_INCODER" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.PUBLICACIONES_INCODER, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Fecha Fijacion</label>
+                                    @Html.EditorFor(model => model.PUBLICACIONES_INCODERFECHAFIJACION, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.PUBLICACIONES_INCODERFECHAFIJACION, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Fecha DesFijacion</label>
+                                    @Html.EditorFor(model => model.PUBLICACIONES_INCODERDESFIJACION, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.PUBLICACIONES_INCODERDESFIJACION, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Firma</label>
+                                    <select id="PUBLICACIONES_INCODERFIRMA" name="PUBLICACIONES_INCODERFIRMA" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.PUBLICACIONES_INCODERFIRMA, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Publicaciones Emisora</label>
+                                    <select id="PUBLICACIONES_EMISORA" name="PUBLICACIONES_EMISORA" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.PUBLICACIONES_EMISORA, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Fecha 1</label>
+                                    @Html.EditorFor(model => model.PUBLICACIONES_EMISORAFECHA1, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.PUBLICACIONES_EMISORAFECHA1, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Fecha 2</label>
+                                    @Html.EditorFor(model => model.PUBLICACIONES_EMISORAFECHA2, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.PUBLICACIONES_EMISORAFECHA2, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Firma</label>
+                                    <select id="PUBLICACIONES_EMISORAFIRMA" name="PUBLICACIONES_EMISORAFIRMA" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.PUBLICACIONES_EMISORAFIRMA, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
@@ -227,7 +663,7 @@
                             <div class="col-md-12">
                                 <div class="row">
                                     <label class="control-label col-md-6">
-                                        Fijacion en lista
+                                        Fijacion Desfijacion 
                                     </label>
                                     @Html.EditorFor(model => model.FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
                                     @Html.ValidationMessageFor(model => model.FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66, "", new { @class = "text-danger" })
@@ -523,6 +959,20 @@
                                     @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87, "", new { @class = "text-danger" })
                                 </div>
                             </div>
+
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">
+                                        Decision del recurso
+                                    </label>
+                                    <select id="RECURSO_SOLICITANTE_DECISION_N_1" name="RECURSO_SOLICITANTE_DECISION_N_1" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_DECISION_N_1, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
                             <div class="col-md-12">
                                 <div class="row">
                                     <label class="control-label col-md-6">Firma</label>
@@ -564,7 +1014,7 @@
                             <div class="col-md-12">
                                 <div class="row">
                                     <label class="control-label col-md-6">
-                                        Decision
+                                        Decision sobre la adjudicacion
                                     </label>
                                     <select id="RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92" name="RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92" class="form-control col-md-6">
                                         <option value="">Seleccione</option>
@@ -612,6 +1062,111 @@
                                     <label class="control-label col-md-6">Fecha de Notificacion Ministerio Publico</label>
                                     @Html.EditorFor(model => model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
                                     @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Resolucion despues de pruebas</label>
+                                    @Html.EditorFor(model => model.RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2, new { htmlAttributes = new { @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Numero de Resolucion </label>
+                                    @Html.EditorFor(model => model.RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3, new { htmlAttributes = new { @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                             <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Fecha de Resolucion</label>
+                                    @Html.EditorFor(model => model.RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">
+                                        Firma de Resolucion
+                                    </label>
+                                    <select id="RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5" name="RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">
+                                        Decision 
+                                    </label>
+                                    <select id="RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6" name="RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">
+                                        Area Adjudica
+                                    </label>
+                                    @Html.EditorFor(model => model.RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6, new { htmlAttributes = new { @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">
+                                        Solicitud Conjunta o Individual
+                                    </label>
+                                    <select id="RECURSO_SOLICITANTE_CONJUNA_IND_N_7" name="RECURSO_SOLICITANTE_CONJUNA_IND_N_7" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_CONJUNA_IND_N_7, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">
+                                        Notificacion Solicitantes
+                                    </label>
+                                    <select id="RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8" name="RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Fecha de Notificacion</label>
+                                    @Html.EditorFor(model => model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">
+                                        Notificacion Ministerio Publico
+                                    </label>
+                                    <select id="RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10" name="RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">Fecha de  Notificacion Ministerio Publico</label>
+                                    @Html.EditorFor(model => model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-6" } })
+                                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                         </div>
@@ -879,6 +1434,19 @@
                                     <label class="control-label col-md-6">
                                         Fmi
                                     </label>
+                                    <select id="REGISTRO_FMI_" name="REGISTRO_FMI_" class="form-control col-md-6">
+                                        <option value="">Seleccione</option>
+                                        <option value="True">Si</option>
+                                        <option value="False">no</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.REGISTRO_FMI_, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <label class="control-label col-md-6">
+                                        Fmi
+                                    </label>
                                     @Html.EditorFor(model => model.REGISTRO_FMI_116, new { htmlAttributes = new { @class = "form-control col-md-6" } })
                                     @Html.ValidationMessageFor(model => model.REGISTRO_FMI_116, "", new { @class = "text-danger" })
                                 </div>
@@ -939,10 +1507,11 @@
         @Scripts.Render("~/Scripts/ModalControl.js")
         <script>
         $(document).ready(function () { //
-
-
+            var ResDate = "";
             function DateConvert(date) {
-                var res = date.split("/");
+
+                if (date) {
+                      var res = date.split("/");
                 var Add1 = "";
                 var Add2 = "";
                 var Add3 = "";
@@ -956,361 +1525,656 @@
                  if (res[2].length == 1) {
                     Add3 = "0";
                 }
-                var ResDate = Add3+res[2].replace(" 00:00:00","")+"-"+Add2+res[1]+"-"+Add1+res[0];
+                ResDate = Add3+res[2].replace(" 00:00:00","")+"-"+Add2+res[1]+"-"+Add1+res[0];      
+                }
+
+              
 
                 return ResDate;
             }
-                /// Iniciales
+            /// Iniciales
+                
+
+
                 var pathname = window.location;
-                $("#NombreRECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104").val(pathname);
+                 $("#NombreRECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104").val(pathname);
 
-                if ($("#NombreRECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104").val().indexOf("Edit?IdTable") != "-1") 
-                {
-                    alert();
+                $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
+                $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
+                $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
+                $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
+                $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
+                $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled",true);
+                $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled",true);
+                $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
+                $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
+                $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
+                $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
+                $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled",true);
 
-                    alert("@Model.INSPECCION_OCULAR_CONCEPTO_57");
+
+                if ('@Model.Gestion' != "" || $("#NombreRECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104").val().indexOf("Edit?IdTable") == "-1") {
+
+                    /// INSPECCION_OCULAR
+                        $('#INSPECCION_OCULAR_FECHA_54').val(DateConvert("@Model.INSPECCION_OCULAR_FECHA_54"));
+                        $('#INSPECCION_OCULAR_FIRMA_55').val("@Model.INSPECCION_OCULAR_FIRMA_55");
+                        $('#INSPECCION_OCULAR_OPOSICIONES_56').val("@Model.INSPECCION_OCULAR_OPOSICIONES_56");
+                        $('#INSPECCION_OCULAR_CONCEPTO_57').val("@Model.INSPECCION_OCULAR_CONCEPTO_57");
+                        $('#FIJACION_EN_LISTA_FECHA_DE_FIJACION_65').val(DateConvert("@Model.FIJACION_EN_LISTA_FECHA_DE_FIJACION_65"));
+                        $('#FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66').val(DateConvert("@Model.FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66"));
+                        $('#FIJACION_EN_LISTA_FIRMA_67').val("@Model.FIJACION_EN_LISTA_FIRMA_67");
+                        $('#FORMATO_DE_REVISION_JURIDICA_FECHA_71').val(DateConvert("@Model.FORMATO_DE_REVISION_JURIDICA_FECHA_71"));
+                        $('#FORMATO_DE_REVISION_JURIDICA_FIRMADA_72').val("@Model.FORMATO_DE_REVISION_JURIDICA_FIRMADA_72");
+                        $('#FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73').val("@Model.FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73");
+                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').val(DateConvert("@Model.NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82"));
+                        $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').val("@Model.NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83");
+                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').val(DateConvert("@Model.NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84"));
+                        $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').val(DateConvert("@Model.CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110"));
+                        $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').val("@Model.CONSTANCIA_DE_EJECUTORIA_FIRMADA_111");
+                        $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').val("@Model.CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112");
+                        $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').val("@Model.RESOLUCION_NUMERO_DE_RESOLUCION_75");
+                        $('#RESOLUCION_FECHA_DE_RESOLUCION_76').val(DateConvert("@Model.RESOLUCION_FECHA_DE_RESOLUCION_76"));
+                        $('#RESOLUCION_FIRMADA_77').val("@Model.RESOLUCION_FIRMADA_77");
+                        $('#RESOLUCION_DECISION_78').val("@Model.RESOLUCION_DECISION_78");
+                        $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').val("@Model.RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79");
+                        $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').val("@Model.RESOLUCION_CONJUNTA_INDIVIDUAL_80");
+                        $('#REVOCATORIA_NUMERO_RESOLUCION_114').val("@Model.REVOCATORIA_NUMERO_RESOLUCION_114");
+                        $('#REVOCATORIA_FECHA_DE_RESOLUCION_115').val(DateConvert("@Model.REVOCATORIA_FECHA_DE_RESOLUCION_115"));
+                        $('#ACLARACION_DE_INSPECCION_OCULAR_FECHA_59').val(DateConvert("@Model.ACLARACION_DE_INSPECCION_OCULAR_FECHA_59"));
+                        $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60').val("@Model.ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60");
+                        $('#ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61').val("@Model.ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61");
+                        $('#ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62').val("@Model.ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62");
+                        $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63').val("@Model.ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63");
+                        $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').val("@Model.RESOLUCION_CONJUNTA_INDIVIDUAL_80");
+                    /// RECURSO_SOLICITANTE
+                        $('#RECURSO_SOLICITANTE_DECISION_N_1').val("@Model.RECURSO_SOLICITANTE_DECISION_N_1");
+                        $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').val("@Model.RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2");
+                        $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').val("@Model.RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3");
+                        $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4"));
+                        $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').val("@Model.RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5");
+                        $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').val("@Model.RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6");
+                        $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').val("@Model.RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6");
+                        $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').val("@Model.RECURSO_SOLICITANTE_CONJUNA_IND_N_7");
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').val("@Model.RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8");
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9"));
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').val("@Model.RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10");
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11"));
+                        $('#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85').val("@Model.RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85");
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86"));
+                        $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').val("@Model.RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87");
+                        $('#RECURSO_SOLICITANTE_FIRMADA_88').val("@Model.RECURSO_SOLICITANTE_FIRMADA_88");
+                        $('#RECURSO_SOLICITANTE_ACTO_89').val("@Model.RECURSO_SOLICITANTE_ACTO_89");
+                        $('#RECURSO_SOLICITANTE_NUMERO_90').val("@Model.RECURSO_SOLICITANTE_NUMERO_90");
+                        $('#RECURSO_SOLICITANTE_FECHA_91').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_91"));
+                        $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').val("@Model.RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92");
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').val("@Model.RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93");
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94"));
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').val("@Model.RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95");
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96"));
+                    /// RECURSO_MINISTERIO
+                        $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98').val(DateConvert("@Model.RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98"));
+                        $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_99').val("@Model.RECURSO_MINISTERIO_RESPUESTA_RECURSO_99");
+                        $('#RECURSO_MINISTERIO_FIRMADA_100').val("@Model.RECURSO_MINISTERIO_FIRMADA_100");
+                        $('#RECURSO_MINISTERIO_ACTO_101').val("@Model.RECURSO_MINISTERIO_ACTO_101");
+                        $('#RECURSO_MINISTERIO_NUMERO_102').val("@Model.RECURSO_MINISTERIO_NUMERO_102");
+                        $('#RECURSO_MINISTERIO_FECHA_103').val(DateConvert("@Model.RECURSO_MINISTERIO_FECHA_103"));
+                        $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104').val("@Model.RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104");
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105').val("@Model.RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105");
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106').val(DateConvert("@Model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106"));
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107').val("@Model.RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107");
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108').val(DateConvert("@Model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108"));
+                    /// REGISTRO_FMI
+                        $('#REGISTRO_FMI_').val("@Model.REGISTRO_FMI_");
+                        $('#REGISTRO_FMI_116').val("@Model.REGISTRO_FMI_116");
+                        $('#REGISTRO_FECHA_DE_REGISTRO_117').val(DateConvert("@Model.REGISTRO_FECHA_DE_REGISTRO_117"));
+                        $('#REGISTRO_NUMERO_DE_RESOLUCION_118').val("@Model.REGISTRO_NUMERO_DE_RESOLUCION_118");
+                        $('#REGISTRO_FECHA_DE_RESOLUCION_119').val(DateConvert("@Model.REGISTRO_FECHA_DE_RESOLUCION_119"));
+                        $('#OPOCISIONES_FECHA_69').val(DateConvert("@Model.OPOCISIONES_FECHA_69"));
+                    /// SOLICITUD
+                        $('#SOLICITUD_SOLICITUD').val("@Model.SOLICITUD_SOLICITUD");
+                        $('#SOLICITUD_FECHA').val(DateConvert("@Model.SOLICITUD_FECHA"));
+                        $('#SOLICITUD_FIRMA').val("@Model.SOLICITUD_FIRMA");
+                        $('#SOLICITUD_TIPO_SOLICITUD').val("@Model.SOLICITUD_TIPO_SOLICITUD");
+                        $('#SOLICITUD_CEDULA_SOLICITANTE').val("@Model.SOLICITUD_CEDULA_SOLICITANTE");
+                        $('#SOLICITUD_CEDULA_CONYUGE').val("@Model.SOLICITUD_CEDULA_CONYUGE");
+                        $('#SOLICITUD_CEDULA_PARIENTE').val("@Model.SOLICITUD_CEDULA_PARIENTE");
+                        $('#SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA').val(DateConvert("@Model.SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA"));
+                    /// AUTODEACEPTACION
+                        $('#AUTODEACEPTACION_AUTODEACEPTACION').val("@Model.AUTODEACEPTACION_AUTODEACEPTACION");
+                        $('#AUTODEACEPTACION_FECHA').val(DateConvert("@Model.AUTODEACEPTACION_FECHA"));
+                        $('#AUTODEACEPTACION_FIRMA').val("@Model.AUTODEACEPTACION_FIRMA");
+                        $('#AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO').val("@Model.AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO");
+                        $('#AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO').val("@Model.AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO");
+                        $('#AUTODEACEPTACION_DATOSPREDIOSCORRECTO').val("@Model.AUTODEACEPTACION_DATOSPREDIOSCORRECTO");
+                    /// COMUNICACIONES
+                        $('#COMUNICACIONES_SOLICITANTE').val("@Model.COMUNICACIONES_SOLICITANTE");
+                        $('#COMUNICACIONES_SOLICITANTEFECHA').val(DateConvert("@Model.COMUNICACIONES_SOLICITANTEFECHA"));
+                        $('#COMUNICACIONES_SOLICITANTEFIRMA').val("@Model.COMUNICACIONES_SOLICITANTEFIRMA");
+                        $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').val(DateConvert("@Model.COMUNICACIONES_FECHAINSPECCIONOCULAR"));
+                        $('#COMUNICACIONES_PROCURADOR').val("@Model.COMUNICACIONES_PROCURADOR");
+                        $('#COMUNICACIONES_PROCURADORFECHA').val(DateConvert("@Model.COMUNICACIONES_PROCURADORFECHA"));
+                        $('#COMUNICACIONES_PROCURADORFIRMA').val("@Model.COMUNICACIONES_PROCURADORFIRMA");
+                        $('#COMUNICACIONES_AUTORIDADAMBIENTAL').val("@Model.COMUNICACIONES_AUTORIDADAMBIENTAL");
+                        $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').val(DateConvert("@Model.COMUNICACIONES_AUTORIDADAMBIENTALFECHA"));
+                        $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').val("@Model.COMUNICACIONES_AUTORIDADAMBIENTALFIRMA");
+                        $('#COMUNICACIONES_COLINDATES').val("@Model.COMUNICACIONES_COLINDATES");
+                        $('#COMUNICACIONES_COLINDATESFECHA').val(DateConvert("@Model.COMUNICACIONES_COLINDATESFECHA"));
+                        $('#COMUNICACIONES_COLINDATESFIRMA').val("@Model.COMUNICACIONES_COLINDATESFIRMA");
+                    /// PUBLICACIONES
+                        $('#PUBLICACIONES_ALCALDIA').val("@Model.PUBLICACIONES_ALCALDIA");
+                        $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').val(DateConvert("@Model.PUBLICACIONES_ALCALDIAFECHAFIJACION"));
+                        $('#PUBLICACIONES_ALCALDIADESFIJACION').val(DateConvert("@Model.PUBLICACIONES_ALCALDIADESFIJACION"));
+                        $('#PUBLICACIONES_ALCALDIAFIRMA').val("@Model.PUBLICACIONES_ALCALDIAFIRMA");
+                        $('#PUBLICACIONES_INCODER').val("@Model.PUBLICACIONES_INCODER");
+                        $('#PUBLICACIONES_INCODERFECHAFIJACION').val(DateConvert("@Model.PUBLICACIONES_INCODERFECHAFIJACION"));
+                        $('#PUBLICACIONES_INCODERDESFIJACION').val(DateConvert("@Model.PUBLICACIONES_INCODERDESFIJACION"));
+                        $('#PUBLICACIONES_INCODERFIRMA').val("@Model.PUBLICACIONES_INCODERFIRMA");
+                        $('#PUBLICACIONES_EMISORA').val("@Model.PUBLICACIONES_EMISORA");
+                        $('#PUBLICACIONES_EMISORAFECHA1').val(DateConvert("@Model.PUBLICACIONES_EMISORAFECHA1"));
+                        $('#PUBLICACIONES_EMISORAFECHA2').val(DateConvert("@Model.PUBLICACIONES_EMISORAFECHA2"));
+                        $('#PUBLICACIONES_EMISORAFIRMA').val("@Model.PUBLICACIONES_EMISORAFIRMA");
+                    ///
+                        $("#REGISTRO_FMI_ option").each(function(){
+                            if ($(this).val() == '@Model.REGISTRO_FMI_' ){
+                                $(this).prop("selected", true);
+                            }
+                        });
+
+                        if ($("#REGISTRO_FMI_").val() == "False") {
+
+                            $('#REGISTRO_FMI_116').prop("disabled", true);
+                            $('#REGISTRO_FECHA_DE_REGISTRO_117').prop("disabled", true);
+                            $('#REGISTRO_NUMERO_DE_RESOLUCION_118').prop("disabled", true);
+                            $('#REGISTRO_FECHA_DE_RESOLUCION_119').prop("disabled", true);
+                        }else{
+
+                            $('#REGISTRO_FMI_116').prop("disabled", false);
+                            $('#REGISTRO_FECHA_DE_REGISTRO_117').prop("disabled", false);
+                            $('#REGISTRO_NUMERO_DE_RESOLUCION_118').prop("disabled", false);
+                            $('#REGISTRO_FECHA_DE_RESOLUCION_119').prop("disabled", false);
+                        }
+
+                        if ($("#SOLICITUD_SOLICITUD").val() == "False") {
+
+                                $('#SOLICITUD_FECHA').prop("disabled", true);
+                                $('#SOLICITUD_FIRMA').prop("disabled", true);
+                                $('#SOLICITUD_TIPO_SOLICITUD').prop("disabled", true);
+                                $('#SOLICITUD_CEDULA_SOLICITANTE').prop("disabled", true);
+                                $('#SOLICITUD_CEDULA_CONYUGE').prop("disabled", true);
+                                $('#SOLICITUD_CEDULA_PARIENTE').prop("disabled", true);
+                                $('#SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA').prop("disabled", true);
+                        }else{
+
+                                $('#SOLICITUD_FECHA').prop("disabled", false);
+                                $('#SOLICITUD_FIRMA').prop("disabled", false);
+                                $('#SOLICITUD_TIPO_SOLICITUD').prop("disabled", false);
+                                $('#SOLICITUD_CEDULA_SOLICITANTE').prop("disabled", false);
+                                $('#SOLICITUD_CEDULA_CONYUGE').prop("disabled", false);
+                                $('#SOLICITUD_CEDULA_PARIENTE').prop("disabled", false);
+                                $('#SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA').prop("disabled", false);
+                        }
+
+                        if ($("#AUTODEACEPTACION_AUTODEACEPTACION").val() == "False") {
+
+                                $('#AUTODEACEPTACION_FECHA').prop("disabled", true);
+                                $('#AUTODEACEPTACION_FIRMA').prop("disabled", true);
+                                $('#AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO').prop("disabled", true);
+                                $('#AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO').prop("disabled", true);
+                                $('#AUTODEACEPTACION_DATOSPREDIOSCORRECTO').prop("disabled", true);
+                        }else{
+
+                                $('#AUTODEACEPTACION_FECHA').prop("disabled", false);
+                                $('#AUTODEACEPTACION_FIRMA').prop("disabled", false);
+                                $('#AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO').prop("disabled", false);
+                                $('#AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO').prop("disabled", false);
+                                $('#AUTODEACEPTACION_DATOSPREDIOSCORRECTO').prop("disabled", false);
+                        }
+
+                        if ($("#COMUNICACIONES_SOLICITANTE").val() == "False") {
+
+                                $('#COMUNICACIONES_SOLICITANTEFECHA').prop("disabled", true);
+                                $('#COMUNICACIONES_SOLICITANTEFIRMA').prop("disabled", true);
+                                $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').prop("disabled", true);
+                                $('#COMUNICACIONES_PROCURADOR').prop("disabled", true);
+                                $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", true);
+                                $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", true);
+                                $('#COMUNICACIONES_AUTORIDADAMBIENTAL').prop("disabled", true);
+                                $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", true);
+                                $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", true);
+                                $('#COMUNICACIONES_COLINDATES').prop("disabled", true);
+                                $('#COMUNICACIONES_COLINDATESFECHA').prop("disabled", true);
+                                $('#COMUNICACIONES_COLINDATESFIRMA').prop("disabled", true);
+                        }else{
+
+                                $('#COMUNICACIONES_SOLICITANTEFECHA').prop("disabled", false);
+                                $('#COMUNICACIONES_SOLICITANTEFIRMA').prop("disabled", false);
+                                $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').prop("disabled", false);
+                                $('#COMUNICACIONES_PROCURADOR').prop("disabled", false);
+                                $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", false);
+                                $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", false);
+                                $('#COMUNICACIONES_AUTORIDADAMBIENTAL').prop("disabled", false);
+                                $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", false);
+                                $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", false);
+                                $('#COMUNICACIONES_COLINDATES').prop("disabled", false);
+                                $('#COMUNICACIONES_COLINDATESFECHA').prop("disabled", false);
+                                $('#COMUNICACIONES_COLINDATESFIRMA').prop("disabled", false);
+
+                        }
+
+                        if ($("#PUBLICACIONES_ALCALDIA").val() == "False") {
+
+                                $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').prop("disabled", true);
+                                $('#PUBLICACIONES_ALCALDIADESFIJACION').prop("disabled", true);
+                                $('#PUBLICACIONES_ALCALDIAFIRMA').prop("disabled", true);
+                                $('#PUBLICACIONES_INCODER').prop("disabled", true);
+                                $('#PUBLICACIONES_INCODERFECHAFIJACION').prop("disabled", true);
+                                $('#PUBLICACIONES_INCODERDESFIJACION').prop("disabled", true);
+                                $('#PUBLICACIONES_INCODERFIRMA').prop("disabled", true);
+                                $('#PUBLICACIONES_EMISORA').prop("disabled", true);
+                                $('#PUBLICACIONES_EMISORAFECHA1').prop("disabled", true);
+                                $('#PUBLICACIONES_EMISORAFECHA2').prop("disabled", true);
+                                $('#PUBLICACIONES_EMISORAFIRMA').prop("disabled", true);
+                        }else{
+
+                                $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').prop("disabled", false);
+                                $('#PUBLICACIONES_ALCALDIADESFIJACION').prop("disabled", false);
+                                $('#PUBLICACIONES_ALCALDIAFIRMA').prop("disabled", false);
+                                $('#PUBLICACIONES_INCODER').prop("disabled", false);
+                                $('#PUBLICACIONES_INCODERFECHAFIJACION').prop("disabled", false);
+                                $('#PUBLICACIONES_INCODERDESFIJACION').prop("disabled", false);
+                                $('#PUBLICACIONES_INCODERFIRMA').prop("disabled", false);
+                                $('#PUBLICACIONES_EMISORA').prop("disabled", false);
+                                $('#PUBLICACIONES_EMISORAFECHA1').prop("disabled", false);
+                                $('#PUBLICACIONES_EMISORAFECHA2').prop("disabled", false);
+                                $('#PUBLICACIONES_EMISORAFIRMA').prop("disabled", false);
+
+                        }
+
+                        $("#INSPECCION_OCULAR_INSPECCION_OCULAR_53 option").each(function(){
+                            if ($(this).val() == '@Model.INSPECCION_OCULAR_INSPECCION_OCULAR_53' ){
+                                $(this).prop("selected", true);
+                            }
+                        });
+
+                        if ($("#INSPECCION_OCULAR_INSPECCION_OCULAR_53").val() == "False") {
+
+                                $('#INSPECCION_OCULAR_FECHA_54').prop("disabled", true);
+                                $('#INSPECCION_OCULAR_FIRMA_55').prop("disabled", true);
+                                $('#INSPECCION_OCULAR_OPOSICIONES_56').prop("disabled", true);
+                                $('#INSPECCION_OCULAR_CONCEPTO_57').prop("disabled", true);
+                        }else{
+
+                                $('#INSPECCION_OCULAR_FIRMA_55').prop("disabled", false);
+                                $('#INSPECCION_OCULAR_OPOSICIONES_56').prop("disabled", false);
+                                $('#INSPECCION_OCULAR_CONCEPTO_57').prop("disabled", false);
+                        }
+
+                        $("#FIJACION_EN_LISTA_FIJACION_EN_LISTA_64 option").each(function(){
+                            if ($(this).val() == '@Model.FIJACION_EN_LISTA_FIJACION_EN_LISTA_64' ){
+                                $(this).prop("selected", true);
+                            }
+                        });
+
+                        if ($("#FIJACION_EN_LISTA_FIJACION_EN_LISTA_64").val() == "False") {
+                                $('#FIJACION_EN_LISTA_FECHA_DE_FIJACION_65').prop("disabled", true);
+                                $('#FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66').prop("disabled", true);
+                                $('#FIJACION_EN_LISTA_FIRMA_67').prop("disabled", true);
+                        }else{
+                                $('#FIJACION_EN_LISTA_FECHA_DE_FIJACION_65').prop("disabled", false);
+                                $('#FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66').prop("disabled", false);
+                                $('#FIJACION_EN_LISTA_FIRMA_67').prop("disabled", false);
+                        }
+
+                        $("#FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70 option").each(function(){
+                            if ($(this).val() == '@Model.FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70' ){
+                                $(this).prop("selected", true);
+                            }
+                        });
+
+                        if ($("#FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70").val() == "False") {
+                            $('#FORMATO_DE_REVISION_JURIDICA_FECHA_71').prop("disabled", true);
+                            $('#FORMATO_DE_REVISION_JURIDICA_FIRMADA_72').prop("disabled", true);
+                            $('#FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73').prop("disabled", true);
+                        }else{
+                            $('#FORMATO_DE_REVISION_JURIDICA_FECHA_71').prop("disabled", false);
+                            $('#FORMATO_DE_REVISION_JURIDICA_FIRMADA_72').prop("disabled", false);
+                            $('#FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73').prop("disabled", false);
+                        }
+
+                        $("#NOTIFICACION_NOTIFICACION_SOLICITANTES_81 option").each(function(){
+                            if ($(this).val() == '@Model.NOTIFICACION_NOTIFICACION_SOLICITANTES_81' ){
+                                $(this).prop("selected", true);
+                            }
+                        });
+
+                        if ($("#NOTIFICACION_NOTIFICACION_SOLICITANTES_81").val() == "False") {
+                            $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').prop("disabled", true);
+                            $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').prop("disabled", true);
+                            $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').prop("disabled", true);
+                        }else{
+                            $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').prop("disabled", false);
+                            $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').prop("disabled", false);
+                            $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').prop("disabled", false);
+                        }
+
+                        $("#CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109 option").each(function(){
+                            if ($(this).val() == '@Model.CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109' ){
+                                $(this).prop("selected", true);
+                            }
+                        });
+
+                        if ($("#CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109").val() == "False") {
+                            $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').prop("disabled", true);
+                            $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').prop("disabled", true);
+                            $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').prop("disabled", true);
+                        }else{
+                            $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').prop("disabled", false);
+                            $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').prop("disabled", false);
+                            $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').prop("disabled", false);
+                        }
+
+                        $("#RESOLUCION_RESOLUCION_74 option").each(function(){
+                            if ($(this).val() == '@Model.RESOLUCION_RESOLUCION_74' ){
+                                $(this).prop("selected", true);
+                            }
+                        });
+
+                        if ($("#RESOLUCION_RESOLUCION_74").val() == "False") {
+                            $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').prop("disabled", true);
+                            $('#RESOLUCION_FECHA_DE_RESOLUCION_76').prop("disabled", true);
+                            $('#RESOLUCION_FIRMADA_77').prop("disabled", true);
+                            $('#RESOLUCION_DECISION_78').prop("disabled", true);
+                            $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", true);
+                            $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", true);
+                        }else{
+                            $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').prop("disabled", false);
+                            $('#RESOLUCION_FECHA_DE_RESOLUCION_76').prop("disabled", false);
+                            $('#RESOLUCION_FIRMADA_77').prop("disabled", false);
+                            $('#RESOLUCION_DECISION_78').prop("disabled", false);
+                            $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", false);
+                            $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", false);
+                        }
+
+                        $("#REVOCATORIA_REVOCATORIA_113 option").each(function(){
+                            if ($(this).val() == '@Model.REVOCATORIA_REVOCATORIA_113' ){
+                                $(this).prop("selected", true);
+                            }
+                        });
+
+                        if ($("#REVOCATORIA_REVOCATORIA_113").val() == "False") {
+                            $('#REVOCATORIA_NUMERO_RESOLUCION_114').prop("disabled", true);
+                            $('#REVOCATORIA_FECHA_DE_RESOLUCION_115').prop("disabled", true);
+                        }else{
+                            $('#REVOCATORIA_NUMERO_RESOLUCION_114').prop("disabled", false);
+                            $('#REVOCATORIA_FECHA_DE_RESOLUCION_115').prop("disabled", false);
+                        }
+
+                        $("#ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58 option").each(function(){
+                            if ($(this).val() == '@Model.ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58' ){
+                                $(this).prop("selected", true);
+                            }
+                        });
+
+                        if ($("#ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58").val() == "False") {
+                            $('#ACLARACION_DE_INSPECCION_OCULAR_FECHA_59').prop("disabled", true);
+                            $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60').prop("disabled", true);
+                            $('#ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61').prop("disabled", true);
+                            $('#ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62').prop("disabled", true);
+                            $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63').prop("disabled", true);
+                            $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", true);
+                        }else{
+                            $('#ACLARACION_DE_INSPECCION_OCULAR_FECHA_59').prop("disabled", false);
+                            $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60').prop("disabled", false);
+                            $('#ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61').prop("disabled", false);
+                            $('#ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62').prop("disabled", false);
+                            $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63').prop("disabled", false);
+                            $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", false);
+                        }
+
+                        $("#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85 option").each(function(){
+                            if ($(this).val() == '@Model.RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85' ){
+                                $(this).prop("selected", true);
+                            }
+                        });
+
+                        if ($("#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85").val() == "False") {
+                            $('#RECURSO_SOLICITANTE_DECISION_N_1').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_FIRMADA_88').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_ACTO_89').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_NUMERO_90').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_FECHA_91').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').prop("disabled", true);
+                        }else{
+
+                            if ('@Model.RECURSO_SOLICITANTE_DECISION_N_1' == "31") {
+
+                                $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled",false);
+                                $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",false);
+                                $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",false);
+                                $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",false);
+                                $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",false);
+                                $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",false);
+                                $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled",false);
+                                $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled",false);
+                                $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",false);
+                                $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",false);
+                                $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",false);
+                                $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",false);
+
+                            } else {
+                                $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled",true);
+                                $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
+                                $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
+                                $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
+                                $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
+                                $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
+                                $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled",true);
+                                $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled",true);
+                                $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
+                                $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
+                                $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
+                                $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
+
+                            }
+                        }
+
+                        $("#RECURSO_MINISTERIO_RECURSO_MINISTERIO_97 option").each(function(){
+                            if ($(this).val() == '@Model.RECURSO_MINISTERIO_RECURSO_MINISTERIO_97' ){
+                                $(this).prop("selected", true);
+                            }
+                        });
+
+                        if ($("#RECURSO_MINISTERIO_RECURSO_MINISTERIO_97").val() == "False") {
+                            $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_99').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FIRMADA_100').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_ACTO_101').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_NUMERO_102').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FECHA_103').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108').prop("disabled", true);
+                        }else{
+
+                            $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_99').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_FIRMADA_100').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_ACTO_101').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_NUMERO_102').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_FECHA_103').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108').prop("disabled", false);
+                        }
+
+                        $("#OPOCISIONES_OPOCISIONES_68 option").each(function(){
+                            if ($(this).val() == '@Model.OPOCISIONES_OPOCISIONES_68' ){
+                                $(this).prop("selected", true);
+                            }
+                        });
+
+                        if ($("#OPOCISIONES_OPOCISIONES_68").val() == "False") {
+                            $('#OPOCISIONES_FECHA_69').prop("disabled", true);
+                        }else{
+                            $('#OPOCISIONES_FECHA_69').prop("disabled", false);
+                        }
+
                     
-
-
-                    $('#INSPECCION_OCULAR_FECHA_54').val(DateConvert("@Model.INSPECCION_OCULAR_FECHA_54"));
-                    $('#INSPECCION_OCULAR_FIRMA_55').val("@Model.INSPECCION_OCULAR_FIRMA_55");
-                    $('#INSPECCION_OCULAR_OPOSICIONES_56').val("@Model.INSPECCION_OCULAR_OPOSICIONES_56");
-                    $('#INSPECCION_OCULAR_CONCEPTO_57').val("@Model.INSPECCION_OCULAR_CONCEPTO_57");
-                    $('#FIJACION_EN_LISTA_FECHA_DE_FIJACION_65').val(DateConvert("@Model.FIJACION_EN_LISTA_FECHA_DE_FIJACION_65"));
-                    $('#FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66').val(DateConvert("@Model.FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66"));
-                    $('#FIJACION_EN_LISTA_FIRMA_67').val("@Model.FIJACION_EN_LISTA_FIRMA_67");
-                    $('#FORMATO_DE_REVISION_JURIDICA_FECHA_71').val(DateConvert("@Model.FORMATO_DE_REVISION_JURIDICA_FECHA_71"));
-                    $('#FORMATO_DE_REVISION_JURIDICA_FIRMADA_72').val("@Model.FORMATO_DE_REVISION_JURIDICA_FIRMADA_72");
-                    $('#FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73').val("@Model.FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73");
-                    $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').val(DateConvert("@Model.NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82"));
-                    $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').val("@Model.NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83");
-                    $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').val("2000-01-01");
-                    $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').val(DateConvert("@Model.CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110"));
-                    $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').val("@Model.CONSTANCIA_DE_EJECUTORIA_FIRMADA_111");
-                    $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').val("@Model.CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112");
-                    $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').val("@Model.RESOLUCION_NUMERO_DE_RESOLUCION_75");
-                    $('#RESOLUCION_FECHA_DE_RESOLUCION_76').val(DateConvert("@Model.RESOLUCION_FECHA_DE_RESOLUCION_76"));
-                    $('#RESOLUCION_FIRMADA_77').val("@Model.RESOLUCION_FIRMADA_77");
-                    $('#RESOLUCION_DECISION_78').val("@Model.RESOLUCION_DECISION_78");
-                    $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').val("@Model.RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79");
-                    $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').val("@Model.RESOLUCION_CONJUNTA_INDIVIDUAL_80");
-                    $('#REVOCATORIA_NUMERO_RESOLUCION_114').val("@Model.REVOCATORIA_NUMERO_RESOLUCION_114");
-                    $('#REVOCATORIA_FECHA_DE_RESOLUCION_115').val(DateConvert("@Model.REVOCATORIA_FECHA_DE_RESOLUCION_115"));
-                    $('#ACLARACION_DE_INSPECCION_OCULAR_FECHA_59').val(DateConvert("@Model.ACLARACION_DE_INSPECCION_OCULAR_FECHA_59"));
-                    $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60').val("@Model.ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60");
-                    $('#ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61').val("@Model.ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61");
-                    $('#ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62').val("@Model.ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62");
-                    $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63').val("@Model.ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63");
-                    $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').val("@Model.RESOLUCION_CONJUNTA_INDIVIDUAL_80");
-                    $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86"));
-                    $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').val("@Model.RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87");
-                    $('#RECURSO_SOLICITANTE_FIRMADA_88').val("@Model.RECURSO_SOLICITANTE_FIRMADA_88");
-                    $('#RECURSO_SOLICITANTE_ACTO_89').val("@Model.RECURSO_SOLICITANTE_ACTO_89");
-                    $('#RECURSO_SOLICITANTE_NUMERO_90').val("@Model.RECURSO_SOLICITANTE_NUMERO_90");
-                    $('#RECURSO_SOLICITANTE_FECHA_91').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_91"));
-                    $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').val("@Model.RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92");
-                    $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').val("@Model.RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93");
-                    $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94"));
-                    $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').val("@Model.RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95");
-                    $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96"));
-                    $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98').val(DateConvert("@Model.RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98"));
-                    $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_99').val("@Model.RECURSO_MINISTERIO_RESPUESTA_RECURSO_99");
-                    $('#RECURSO_MINISTERIO_FIRMADA_100').val("@Model.RECURSO_MINISTERIO_FIRMADA_100");
-                    $('#RECURSO_MINISTERIO_ACTO_101').val("@Model.RECURSO_MINISTERIO_ACTO_101");
-                    $('#RECURSO_MINISTERIO_NUMERO_102').val("@Model.RECURSO_MINISTERIO_NUMERO_102");
-                    $('#RECURSO_MINISTERIO_FECHA_103').val(DateConvert("@Model.RECURSO_MINISTERIO_FECHA_103"));
-                    $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104').val("@Model.RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104");
-                    $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105').val("@Model.RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105");
-                    $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106').val(DateConvert("@Model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106"));
-                    $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107').val("@Model.RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107");
-                    $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108').val(DateConvert("@Model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108"));
-                    $('#REGISTRO_FMI_116').val("@Model.REGISTRO_FMI_116");
-                    $('#REGISTRO_FECHA_DE_REGISTRO_117').val(DateConvert("@Model.REGISTRO_FECHA_DE_REGISTRO_117"));
-                    $('#REGISTRO_NUMERO_DE_RESOLUCION_118').val("@Model.REGISTRO_NUMERO_DE_RESOLUCION_118");
-                    $('#REGISTRO_FECHA_DE_RESOLUCION_119').val(DateConvert("@Model.REGISTRO_FECHA_DE_RESOLUCION_119"));
-                    $('#OPOCISIONES_FECHA_69').val(DateConvert("@Model.OPOCISIONES_FECHA_69"));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    $("#INSPECCION_OCULAR_INSPECCION_OCULAR_53 option").each(function(){
-                        if ($(this).val() == '@Model.INSPECCION_OCULAR_INSPECCION_OCULAR_53' ){
-                            $(this).prop("selected", true);
-                        }
-                    });
-
-                    if ($("#INSPECCION_OCULAR_INSPECCION_OCULAR_53").val() == "False") {
-
-                            $('#INSPECCION_OCULAR_FECHA_54').prop("disabled", true);
-                            $('#INSPECCION_OCULAR_FIRMA_55').prop("disabled", true);
-                            $('#INSPECCION_OCULAR_OPOSICIONES_56').prop("disabled", true);
-                            $('#INSPECCION_OCULAR_CONCEPTO_57').prop("disabled", true);
-                    }else{
-
-                            $('#INSPECCION_OCULAR_FIRMA_55').prop("disabled", false);
-                            $('#INSPECCION_OCULAR_OPOSICIONES_56').prop("disabled", false);
-                            $('#INSPECCION_OCULAR_CONCEPTO_57').prop("disabled", false);
-                    }
-
-                    $("#FIJACION_EN_LISTA_FIJACION_EN_LISTA_64 option").each(function(){
-                        if ($(this).val() == '@Model.FIJACION_EN_LISTA_FIJACION_EN_LISTA_64' ){
-                            $(this).prop("selected", true);
-                        }
-                    });
-
-                    if ($("#FIJACION_EN_LISTA_FIJACION_EN_LISTA_64").val() == "False") {
-                            $('#FIJACION_EN_LISTA_FECHA_DE_FIJACION_65').prop("disabled", true);
-                            $('#FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66').prop("disabled", true);
-                            $('#FIJACION_EN_LISTA_FIRMA_67').prop("disabled", true);
-                    }else{
-                            $('#FIJACION_EN_LISTA_FECHA_DE_FIJACION_65').prop("disabled", false);
-                            $('#FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66').prop("disabled", false);
-                            $('#FIJACION_EN_LISTA_FIRMA_67').prop("disabled", false);
-                    }
-
-                    $("#FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70 option").each(function(){
-                        if ($(this).val() == '@Model.FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70' ){
-                            $(this).prop("selected", true);
-                        }
-                    });
-
-                    if ($("#FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70").val() == "False") {
-                        $('#FORMATO_DE_REVISION_JURIDICA_FECHA_71').prop("disabled", true);
-                        $('#FORMATO_DE_REVISION_JURIDICA_FIRMADA_72').prop("disabled", true);
-                        $('#FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73').prop("disabled", true);
-                    }else{
-                        $('#FORMATO_DE_REVISION_JURIDICA_FECHA_71').prop("disabled", false);
-                        $('#FORMATO_DE_REVISION_JURIDICA_FIRMADA_72').prop("disabled", false);
-                        $('#FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73').prop("disabled", false);
-                    }
-
-                    $("#NOTIFICACION_NOTIFICACION_SOLICITANTES_81 option").each(function(){
-                        if ($(this).val() == '@Model.NOTIFICACION_NOTIFICACION_SOLICITANTES_81' ){
-                            $(this).prop("selected", true);
-                        }
-                    });
-
-                    if ($("#NOTIFICACION_NOTIFICACION_SOLICITANTES_81").val() == "False") {
-                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').prop("disabled", true);
-                        $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').prop("disabled", true);
-                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').prop("disabled", true);
-                    }else{
-                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').prop("disabled", false);
-                        $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').prop("disabled", false);
-                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').prop("disabled", false);
-                    }
-
-                    $("#CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109 option").each(function(){
-                        if ($(this).val() == '@Model.INSPECCION_OCULAR_INSPECCION_OCULAR_53' ){
-                            $(this).prop("selected", true);
-                        }
-                    });
-
-                    if ($("#CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109").val() == "False") {
-                        $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').prop("disabled", true);
-                        $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').prop("disabled", true);
-                        $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').prop("disabled", true);
-                    }else{
-                        $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').prop("disabled", false);
-                        $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').prop("disabled", false);
-                        $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').prop("disabled", false);
-                    }
-
-                    $("#RESOLUCION_RESOLUCION_74 option").each(function(){
-                        if ($(this).val() == '@Model.INSPECCION_OCULAR_INSPECCION_OCULAR_53' ){
-                            $(this).prop("selected", true);
-                        }
-                    });
-
-                    if ($("#RESOLUCION_RESOLUCION_74").val() == "False") {
-                        $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').prop("disabled", true);
-                        $('#RESOLUCION_FECHA_DE_RESOLUCION_76').prop("disabled", true);
-                        $('#RESOLUCION_FIRMADA_77').prop("disabled", true);
-                        $('#RESOLUCION_DECISION_78').prop("disabled", true);
-                        $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", true);
-                        $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", true);
-                    }else{
-                        $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').prop("disabled", false);
-                        $('#RESOLUCION_FECHA_DE_RESOLUCION_76').prop("disabled", false);
-                        $('#RESOLUCION_FIRMADA_77').prop("disabled", false);
-                        $('#RESOLUCION_DECISION_78').prop("disabled", false);
-                        $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", false);
-                        $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", false);
-                    }
-
-                    $("#REVOCATORIA_REVOCATORIA_113 option").each(function(){
-                        if ($(this).val() == '@Model.INSPECCION_OCULAR_INSPECCION_OCULAR_53' ){
-                            $(this).prop("selected", true);
-                        }
-                    });
-
-                    if ($("#REVOCATORIA_REVOCATORIA_113").val() == "False") {
-                        $('#REVOCATORIA_NUMERO_RESOLUCION_114').prop("disabled", true);
-                        $('#REVOCATORIA_FECHA_DE_RESOLUCION_115').prop("disabled", true);
-                    }else{
-                        $('#REVOCATORIA_NUMERO_RESOLUCION_114').prop("disabled", false);
-                        $('#REVOCATORIA_FECHA_DE_RESOLUCION_115').prop("disabled", false);
-                    }
-
-                    $("#ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58 option").each(function(){
-                        if ($(this).val() == '@Model.INSPECCION_OCULAR_INSPECCION_OCULAR_53' ){
-                            $(this).prop("selected", true);
-                        }
-                    });
-
-                    if ($("#ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58").val() == "False") {
-                        $('#ACLARACION_DE_INSPECCION_OCULAR_FECHA_59').prop("disabled", true);
-                        $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60').prop("disabled", true);
-                        $('#ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61').prop("disabled", true);
-                        $('#ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62').prop("disabled", true);
-                        $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63').prop("disabled", true);
-                        $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", true);
-                    }else{
-                        $('#ACLARACION_DE_INSPECCION_OCULAR_FECHA_59').prop("disabled", false);
-                        $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60').prop("disabled", false);
-                        $('#ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61').prop("disabled", false);
-                        $('#ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62').prop("disabled", false);
-                        $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63').prop("disabled", false);
-                        $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", false);
-                    }
-
-                    $("#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85 option").each(function(){
-                        if ($(this).val() == '@Model.INSPECCION_OCULAR_INSPECCION_OCULAR_53' ){
-                            $(this).prop("selected", true);
-                        }
-                    });
-
-                    if ($("#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85").val() == "False") {
-                        $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_FIRMADA_88').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_ACTO_89').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_NUMERO_90').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_FECHA_91').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').prop("disabled", true);
-                    }else{
-                        $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').prop("disabled", false);
-                        $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').prop("disabled", false);
-                        $('#RECURSO_SOLICITANTE_FIRMADA_88').prop("disabled", false);
-                        $('#RECURSO_SOLICITANTE_ACTO_89').prop("disabled", false);
-                        $('#RECURSO_SOLICITANTE_NUMERO_90').prop("disabled", false);
-                        $('#RECURSO_SOLICITANTE_FECHA_91').prop("disabled", false);
-                        $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled", false);
-                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').prop("disabled", false);
-                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').prop("disabled", false);
-                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').prop("disabled", false);
-                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').prop("disabled", false);
-                    }
-
-                    $("#RECURSO_MINISTERIO_RECURSO_MINISTERIO_97 option").each(function(){
-                        if ($(this).val() == '@Model.INSPECCION_OCULAR_INSPECCION_OCULAR_53' ){
-                            $(this).prop("selected", true);
-                        }
-                    });
-
-                    if ($("#RECURSO_MINISTERIO_RECURSO_MINISTERIO_97").val() == "False") {
-                        $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_99').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_FIRMADA_100').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_ACTO_101').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_NUMERO_102').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_FECHA_103').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108').prop("disabled", true);
-                    }else{
-
-                        $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98').prop("disabled", false);
-                        $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_99').prop("disabled", false);
-                        $('#RECURSO_MINISTERIO_FIRMADA_100').prop("disabled", false);
-                        $('#RECURSO_MINISTERIO_ACTO_101').prop("disabled", false);
-                        $('#RECURSO_MINISTERIO_NUMERO_102').prop("disabled", false);
-                        $('#RECURSO_MINISTERIO_FECHA_103').prop("disabled", false);
-                        $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104').prop("disabled", false);
-                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105').prop("disabled", false);
-                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106').prop("disabled", false);
-                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107').prop("disabled", false);
-                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108').prop("disabled", false);
-                    }
-
-                    $("#OPOCISIONES_OPOCISIONES_68 option").each(function(){
-                        if ($(this).val() == '@Model.OPOCISIONES_OPOCISIONES_68' ){
-                            $(this).prop("selected", true);
-                        }
-                    });
-
-                    if ($("#OPOCISIONES_OPOCISIONES_68").val() == "False") {
-                        $('#OPOCISIONES_FECHA_69').prop("disabled", true);
-                    }else{
-                        $('#OPOCISIONES_FECHA_69').prop("disabled", false);
-                    }
-
-                    
-
-
+                } else {
+                    $("input[type='date']").val("2020-01-01");
+                    $("input[type='number']").val("2020");
+                    $("select").val("True");
                 }
+
+              
             ///
             /// Envio Formulario
                 $("#CrearForm").submit(function (event) {
-                        debugger;
+
+                    $('#FechaModificacion').val("N_A");
+                    $('#IdAspNetUser').val("N_A");
+                    $('#NumeroExpediente').val("@Model.NumeroExpediente");
+                    $('#Gestion').val("1");
+
+
+                    $('#NombreINSPECCION_OCULAR_CONCEPTO_57').val("N_A");
+                    $('#NombreACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61').val("N_A");
+                    $('#NombreFORMATO_DE_REVISION_JURIDICA_CONCEPTO_73').val("N_A");
+                    $('#NombreRESOLUCION_DECISION_78').val("N_A");
+                    $('#NombreRESOLUCION_CONJUNTA_INDIVIDUAL_80').val("N_A");
+                    $('#NombreRECURSO_MINISTERIO_ACTO_101').val("N_A");
+                    $('#NombreRECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104').val("N_A");
+                    $('#NombreIdAspNetUser').val("N_A");
+                    $('#nombreSOLICITUD_TIPO_SOLICITUD').val("N_A");
+                    $('#nombreRECURSO_SOLICITANTE_DECISION_N_1').val("N_A");
+                    $('#nombreRECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').val("N_A");
+                    $('#nombreRECURSO_SOLICITANTE_CONJUNA_IND_N_7').val("N_A");
+                    $('#nombreRECURSO_SOLICITANTE_ACTO_89').val("N_A");
+                    $('#nombreRECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').val("N_A");
+                    $('#Estado').val("true");
+
+
 
                 /// validar selecte
 
-                    if ($("#INSPECCION_OCULAR_INSPECCION_OCULAR_53").val() == "False") {
+                    $("#CrearForm :input").prop("disabled", false);
 
-                        $('#INSPECCION_OCULAR_FECHA_54').val("2000-01-01");
-                        $('#INSPECCION_OCULAR_FIRMA_55').val("0");
-                        $('#INSPECCION_OCULAR_OPOSICIONES_56').val("0");
-                        $('#INSPECCION_OCULAR_CONCEPTO_57').val(0);
+
+
+                    if ($("#SOLICITUD_SOLICITUD").val() == "False") {
+
+                            $('#SOLICITUD_FECHA').val("1900-01-01");
+                            $('#SOLICITUD_FIRMA').val("False");
+                            $("#SOLICITUD_TIPO_SOLICITUD").append('<option selected  value="0"> 0 </option>');
+                            $('#SOLICITUD_CEDULA_SOLICITANTE').val("False");
+                            $('#SOLICITUD_CEDULA_CONYUGE').val("False");
+                            $('#SOLICITUD_CEDULA_PARIENTE').val("False");
+                            $('#SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA').val("1900-01-01");
+
+                    }
+
+                    if ($("#AUTODEACEPTACION_AUTODEACEPTACION").val() == "False") {
+
+                            $('#AUTODEACEPTACION_FECHA').val("1900-01-01");
+                            $('#AUTODEACEPTACION_FIRMA').val("False");
+                            $('#AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO').val("False");
+                            $('#AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO').val("False");
+                            $('#AUTODEACEPTACION_DATOSPREDIOSCORRECTO').val("False");
+
+                    }
+
+                    if ($("#COMUNICACIONES_SOLICITANTE").val() == "False") {
+
+                            $('#COMUNICACIONES_SOLICITANTEFECHA').val("1900-01-01");
+                            $('#COMUNICACIONES_SOLICITANTEFIRMA').val("False");
+                            $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').val("1900-01-01");
+                            $('#COMUNICACIONES_PROCURADOR').val("False");
+                            $('#COMUNICACIONES_PROCURADORFECHA').val("1900-01-01");
+                            $('#COMUNICACIONES_PROCURADORFIRMA').val("False");
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTAL').val("False");
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').val("1900-01-01");
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').val("False");
+                            $('#COMUNICACIONES_COLINDATES').val("False");
+                            $('#COMUNICACIONES_COLINDATESFECHA').val("1900-01-01");
+                            $('#COMUNICACIONES_COLINDATESFIRMA').val("False");
+
+                    }
+
+                    if ($("#PUBLICACIONES_ALCALDIA").val() == "False") {
+
+                            $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').val("1900-01-01");
+                            $('#PUBLICACIONES_ALCALDIADESFIJACION').val("1900-01-01");
+                            $('#PUBLICACIONES_ALCALDIAFIRMA').val("False");
+                            $('#PUBLICACIONES_INCODER').val("False");
+                            $('#PUBLICACIONES_INCODERFECHAFIJACION').val("1900-01-01");
+                            $('#PUBLICACIONES_INCODERDESFIJACION').val("1900-01-01");
+                            $('#PUBLICACIONES_INCODERFIRMA').val("False");
+                            $('#PUBLICACIONES_EMISORA').val("False");
+                            $('#PUBLICACIONES_EMISORAFECHA1').val("1900-01-01");
+                            $('#PUBLICACIONES_EMISORAFECHA2').val("1900-01-01");
+                            $('#PUBLICACIONES_EMISORAFIRMA').val("False");
 
                     }
 
 
+                    if ($("#INSPECCION_OCULAR_INSPECCION_OCULAR_53").val() == "False") {
+
+                        $('#INSPECCION_OCULAR_FECHA_54').val("1900-01-01");
+                        $('#INSPECCION_OCULAR_FIRMA_55').val("False");
+                        $('#INSPECCION_OCULAR_OPOSICIONES_56').val("False");
+                        $("#INSPECCION_OCULAR_CONCEPTO_57").append('<option selected  value="0"> 0 </option>');
+
+                    }
+
+                    if ($("#ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58").val() == "False") {
+
+                        $('#ACLARACION_DE_INSPECCION_OCULAR_FECHA_59').val("2000-01-01");
+                        $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60').val("False");
+                        $("#ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61").append('<option selected  value="0"> 0 </option>');
+                        $('#ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62').val("False");
+                        $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63').val("False");
+
+                    }
+
                     if ($("#FIJACION_EN_LISTA_FIJACION_EN_LISTA_64").val() == "False") {
 
-                        $('#FIJACION_EN_LISTA_FECHA_DE_FIJACION_65').val("2000-01-01");
-                        $('#FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66').val("2000-01-01");
-                        $('#FIJACION_EN_LISTA_FIRMA_67').val("0");
+                        $('#FIJACION_EN_LISTA_FECHA_DE_FIJACION_65').val("1900-01-01");
+                        $('#FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66').val("1900-01-01");
+                        $('#FIJACION_EN_LISTA_FIRMA_67').val("False");
+
+                    }
+
+                    if ($("#OPOCISIONES_OPOCISIONES_68").val() == "False") {
+
+                        $('#OPOCISIONES_FECHA_69').val("1900-01-01");
 
                     }
 
                     if ($("#FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70").val() == "False") {
-                        $('#FORMATO_DE_REVISION_JURIDICA_FECHA_71').val("2000-01-01");
-                        $('#FORMATO_DE_REVISION_JURIDICA_FIRMADA_72').val("0");
-                        $('#FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73').val(0);
-
-                    }
-
-                    if ($("#NOTIFICACION_NOTIFICACION_SOLICITANTES_81").val() == "False") {
-
-                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').val("2000-01-01");
-                        $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').val("0");
-                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').val("2000-01-01");
-
-                    }
-
-
-                    if ($("#CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109").val() == "False") {
-
-                        $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').val("2000-01-01");
-                        $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').val("0");
-                        $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').val("2000-01-01");
+                        $('#FORMATO_DE_REVISION_JURIDICA_FECHA_71').val("1900-01-01");
+                        $('#FORMATO_DE_REVISION_JURIDICA_FIRMADA_72').val("False");
+                        $("#FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73").append('<option selected  value="0"> 0 </option>');
 
                     }
 
@@ -1318,11 +2182,87 @@
                     if ($("#RESOLUCION_RESOLUCION_74").val() == "False") {
 
                         $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').val("0");
-                        $('#RESOLUCION_FECHA_DE_RESOLUCION_76').val("2000-01-01");
-                        $('#RESOLUCION_FIRMADA_77').val("0");
-                        $('#RESOLUCION_DECISION_78').val(0);
+                        $('#RESOLUCION_FECHA_DE_RESOLUCION_76').val("1900-01-01");
+                        $('#RESOLUCION_FIRMADA_77').val("False");
+                        $("#RESOLUCION_DECISION_78").append('<option selected  value="0"> 0 </option>');
                         $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').val("0");
-                        $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').val(0);
+                        $("#RESOLUCION_CONJUNTA_INDIVIDUAL_80").append('<option selected  value="0"> 0 </option>');
+
+                    }
+
+                    if ($("#NOTIFICACION_NOTIFICACION_SOLICITANTES_81").val() == "False") {
+
+                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').val("1900-01-01");
+                        $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').val("False");
+                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').val("1900-01-01");
+
+                    }
+
+                    if ($("#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85").val() == "False") {
+
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').val("1900-01-01");
+                        $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').val("False");
+                        $("#RECURSO_SOLICITANTE_DECISION_N_1").append('<option selected  value="0"> 0 </option>');
+                        $('#RECURSO_SOLICITANTE_FIRMADA_88').val("False");
+                        $("#RECURSO_SOLICITANTE_ACTO_89").append('<option selected  value="0"> 0 </option>');
+                        $('#RECURSO_SOLICITANTE_NUMERO_90').val("0");
+                        $('#RECURSO_SOLICITANTE_FECHA_91').val("1900-01-01");
+                        $("#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92").append('<option selected  value="0"> 0 </option>');
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').val("False");
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').val("1900-01-01");
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').val("False");
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').val("1900-01-01");
+                        $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').val("0");
+                        $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').val("0");
+                        $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').val("1900-01-01");
+                        $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').val("False");
+                        $("#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6").append('<option selected  value="0"> 0 </option>');
+                        $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').val("0");
+                        $("#RECURSO_SOLICITANTE_CONJUNA_IND_N_7").append('<option selected  value="0"> 0 </option>');
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').val("False");
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').val("1900-01-01");
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').val("False");
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').val("1900-01-01");
+
+                    }else{
+
+                        if ($("#RECURSO_SOLICITANTE_DECISION_N_1").val() != "31") {
+                            $("#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92").append('<option selected  value="0"> 0 </option>');
+                            $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').val("0");
+                            $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').val("0");
+                            $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').val("1900-01-01");
+                            $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').val("False");
+                            $("#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6").append('<option selected  value="0"> 0 </option>');
+                            $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').val("0");
+                            $("#RECURSO_SOLICITANTE_CONJUNA_IND_N_7").append('<option selected  value="0"> 0 </option>');
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').val("False");
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').val("1900-01-01");
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').val("False");
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').val("1900-01-01");
+                        }
+
+                    }
+
+                    if ($("#RECURSO_MINISTERIO_RECURSO_MINISTERIO_97").val() == "False") {
+
+                        $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98').val("1900-01-01");
+                        $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_99').val("False");
+                        $('#RECURSO_MINISTERIO_FIRMADA_100').val("False");
+                        $("#RECURSO_MINISTERIO_ACTO_101").append('<option selected  value="0"> 0 </option>');
+                        $('#RECURSO_MINISTERIO_NUMERO_102').val("0");
+                        $('#RECURSO_MINISTERIO_FECHA_103').val("1900-01-01");
+                        $("#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104").append('<option selected  value="0"> 0 </option>');
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105').val("False");
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106').val("1900-01-01");
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107').val("False");
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108').val("1900-01-01");
+                    }
+
+                    if ($("#CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109").val() == "False") {
+
+                        $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').val("1900-01-01");
+                        $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').val("False");
+                        $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').val("False");
 
                     }
 
@@ -1330,104 +2270,45 @@
                     if ($("#REVOCATORIA_REVOCATORIA_113").val() == "False") {
 
                         $('#REVOCATORIA_NUMERO_RESOLUCION_114').val("0");
-                        $('#REVOCATORIA_FECHA_DE_RESOLUCION_115').val("2000-01-01");
+                        $('#REVOCATORIA_FECHA_DE_RESOLUCION_115').val("1900-01-01");
 
                     }
 
-                    if ($("#ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58").val() == "False") {
+                    if ($("#REGISTRO_FMI_").val() == "False") {
 
-                        $('#ACLARACION_DE_INSPECCION_OCULAR_FECHA_59').val("2000-01-01");
-                        $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60').val("0");
-                        $('#ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61').val(0);
-                        $('#ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62').val("0");
-                        $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63').val("0");
-                        $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').val("0");
-
-                    }
-
-
-                    if ($("#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85").val() == "False") {
-
-                        $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').val("2000-01-01");
-                        $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').val("1");
-                        $('#RECURSO_SOLICITANTE_FIRMADA_88').val("0");
-                        $('#RECURSO_SOLICITANTE_ACTO_89').val("0");
-                        $('#RECURSO_SOLICITANTE_NUMERO_90').val(0);
-                        $('#RECURSO_SOLICITANTE_FECHA_91').val("2000-01-01");
-                        $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').val(0);
-                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').val("0");
-                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').val("2000-01-01");
-                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').val("0");
-                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').val("2000-01-01");
-                    }
-
-
-                    if ($("#RECURSO_MINISTERIO_RECURSO_MINISTERIO_97").val() == "False") {
-
-                        $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98').val("2000-01-01");
-                        $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_99').val("1");
-                        $('#RECURSO_MINISTERIO_FIRMADA_100').val("0");
-                        $('#RECURSO_MINISTERIO_ACTO_101').val(0);
-                        $('#RECURSO_MINISTERIO_NUMERO_102').val("0");
-                        $('#RECURSO_MINISTERIO_FECHA_103').val("2000-01-01");
-                        $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104').val(0);
-                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105').val("0");
-                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106').val("2000-01-01");
-                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107').val("0");
-                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108').val("2000-01-01");
-                    }
-
-
-                    if ($("#OPOCISIONES_OPOCISIONES_68").val() == "False") {
-
-                        $('#OPOCISIONES_FECHA_69').val("2000-01-01");
+                        $('#REGISTRO_FMI_116').val("0");
+                        $('#REGISTRO_FECHA_DE_REGISTRO_117').val("1900-01-01");
+                        $('#REGISTRO_NUMERO_DE_RESOLUCION_118').val("0");
+                        $('#REGISTRO_FECHA_DE_RESOLUCION_119').val(DateConvert("1900-01-01"));
 
                     }
 
                 ///
                     $("#CrearForm :input").prop("disabled", false);
 
-                    if ($('#REGISTRO_FMI_116').val() == "")  {
-                        $('#REGISTRO_FMI_116').val("N_A");
-                        $('#REGISTRO_FECHA_DE_REGISTRO_117').val("2000-01-01");
-                        $('#REGISTRO_NUMERO_DE_RESOLUCION_118').val("1");
-                        $('#REGISTRO_FECHA_DE_RESOLUCION_119').val("2000-01-01");
-
-                    };
-
                     if ($('#RESOLUCION_NUMERO_DE_RESOLUCION_75').val() == "0"){
-                        $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').val("1");
+                        $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').val("0");
 
                     }
                     if ($('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').val() == "0"){
-                        $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').val("1")
+                        $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').val("0")
 
                     }
                     if ($('#REVOCATORIA_NUMERO_RESOLUCION_114').val() == "0"){
-                        $('#REVOCATORIA_NUMERO_RESOLUCION_114').val("1");
+                        $('#REVOCATORIA_NUMERO_RESOLUCION_114').val("0");
 
                     }
                     if ($('#RECURSO_SOLICITANTE_NUMERO_90').val() == "0"){
-                        $('#RECURSO_SOLICITANTE_NUMERO_90').val("1");
+                        $('#RECURSO_SOLICITANTE_NUMERO_90').val("0");
 
                     }
 
                     if ($('#RECURSO_MINISTERIO_NUMERO_102').val() == "0"){
-                        $('#RECURSO_MINISTERIO_NUMERO_102').val("1");
+                        $('#RECURSO_MINISTERIO_NUMERO_102').val("0");
                     }
 
-                    $('#FechaModificacion').val("N_A");
-                    $('#NombreACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61').val("N_A");
-                    $('#NombreFORMATO_DE_REVISION_JURIDICA_CONCEPTO_73').val("N_A");
-                    $('#NombreINSPECCION_OCULAR_CONCEPTO_57').val("N_A");
-                    $('#NombreRECURSO_MINISTERIO_ACTO_101').val("N_A");
-                    $('#NombreRECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104').val("N_A");
-                    $('#NombreRECURSO_SOLICITANTE_ACTO_89').val("N_A");
-                    $('#NombreRECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').val("N_A");
-                    $('#NombreRESOLUCION_CONJUNTA_INDIVIDUAL_80').val("N_A");
-                    $('#NombreRESOLUCION_DECISION_78').val("N_A");
-                    $('#IdAspNetUser').val("N_A");
-                    $('#NumeroExpediente').val("@Model.NumeroExpediente");
+
+
 
 
 
@@ -1437,6 +2318,7 @@
             ///
 
             /// catalogos
+
                 $.ajax({
                     type: 'POST',
                     url: '@Url.Action("ListTipos")', // we are calling json method
@@ -1598,9 +2480,225 @@
                         console.log(ex.responseText);
                     }
                 });
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 105 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.SOLICITUD_TIPO_SOLICITUD") $("#SOLICITUD_TIPO_SOLICITUD").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#SOLICITUD_TIPO_SOLICITUD").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 106 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6") $("#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 107 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.RECURSO_SOLICITANTE_CONJUNA_IND_N_7") $("#RECURSO_SOLICITANTE_CONJUNA_IND_N_7").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#RECURSO_SOLICITANTE_CONJUNA_IND_N_7").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 108 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.RECURSO_SOLICITANTE_DECISION_N_1") $("#RECURSO_SOLICITANTE_DECISION_N_1").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#RECURSO_SOLICITANTE_DECISION_N_1").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
             ///
 
             /// Change
+
+
+
+                $("#SOLICITUD_SOLICITUD").change(function () {
+
+                    if ($(this).val() == "False") {
+
+                            $('#SOLICITUD_FECHA').prop("disabled", true);
+                            $('#SOLICITUD_FIRMA').prop("disabled", true);
+                            $('#SOLICITUD_TIPO_SOLICITUD').prop("disabled", true);
+                            $('#SOLICITUD_CEDULA_SOLICITANTE').prop("disabled", true);
+                            $('#SOLICITUD_CEDULA_CONYUGE').prop("disabled", true);
+                            $('#SOLICITUD_CEDULA_PARIENTE').prop("disabled", true);
+                            $('#SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA').prop("disabled", true);
+
+                            $('#SOLICITUD_FECHA').val("1900-01-01");
+                            $('#SOLICITUD_FIRMA').val("False");
+                            $('#SOLICITUD_TIPO_SOLICITUD').val("");
+                            $('#SOLICITUD_CEDULA_SOLICITANTE').val("False");
+                            $('#SOLICITUD_CEDULA_CONYUGE').val("False");
+                            $('#SOLICITUD_CEDULA_PARIENTE').val("False");
+                            $('#SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA').val("1900-01-01");
+
+                    }else{
+
+                            $('#SOLICITUD_FECHA').prop("disabled", false);
+                            $('#SOLICITUD_FIRMA').prop("disabled", false);
+                            $('#SOLICITUD_TIPO_SOLICITUD').prop("disabled", false);
+                            $('#SOLICITUD_CEDULA_SOLICITANTE').prop("disabled", false);
+                            $('#SOLICITUD_CEDULA_CONYUGE').prop("disabled", false);
+                            $('#SOLICITUD_CEDULA_PARIENTE').prop("disabled", false);
+                            $('#SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA').prop("disabled", false);
+                    }
+                });
+
+                $("#AUTODEACEPTACION_AUTODEACEPTACION").change(function () {
+
+                    if ($(this).val() == "False") {
+
+                            $('#AUTODEACEPTACION_FECHA').prop("disabled", true);
+                            $('#AUTODEACEPTACION_FIRMA').prop("disabled", true);
+                            $('#AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO').prop("disabled", true);
+                            $('#AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO').prop("disabled", true);
+                            $('#AUTODEACEPTACION_DATOSPREDIOSCORRECTO').prop("disabled", true);
+
+                            $('#AUTODEACEPTACION_FECHA').val("1900-01-01");
+                            $('#AUTODEACEPTACION_FIRMA').val("False");
+                            $('#AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO').val("False");
+                            $('#AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO').val("False");
+                            $('#AUTODEACEPTACION_DATOSPREDIOSCORRECTO').val("False");
+
+                    }else{
+
+                            $('#AUTODEACEPTACION_FECHA').prop("disabled", false);
+                            $('#AUTODEACEPTACION_FIRMA').prop("disabled", false);
+                            $('#AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO').prop("disabled", false);
+                            $('#AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO').prop("disabled", false);
+                            $('#AUTODEACEPTACION_DATOSPREDIOSCORRECTO').prop("disabled", false);
+                    }
+                });
+
+                $("#COMUNICACIONES_SOLICITANTE").change(function () {
+
+                    if ($(this).val() == "False") {
+
+                            $('#COMUNICACIONES_SOLICITANTEFECHA').prop("disabled", true);
+                            $('#COMUNICACIONES_SOLICITANTEFIRMA').prop("disabled", true);
+                            $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').prop("disabled", true);
+                            $('#COMUNICACIONES_PROCURADOR').prop("disabled", true);
+                            $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", true);
+                            $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", true);
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTAL').prop("disabled", true);
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", true);
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", true);
+                            $('#COMUNICACIONES_COLINDATES').prop("disabled", true);
+                            $('#COMUNICACIONES_COLINDATESFECHA').prop("disabled", true);
+                            $('#COMUNICACIONES_COLINDATESFIRMA').prop("disabled", true);
+
+                             $('#COMUNICACIONES_SOLICITANTEFECHA').val("1900-01-01");
+                            $('#COMUNICACIONES_SOLICITANTEFIRMA').val("False");
+                            $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').val("1900-01-01");
+                            $('#COMUNICACIONES_PROCURADOR').val("False");
+                            $('#COMUNICACIONES_PROCURADORFECHA').val("1900-01-01");
+                            $('#COMUNICACIONES_PROCURADORFIRMA').val("False");
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTAL').val("False");
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').val("1900-01-01");
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').val("False");
+                            $('#COMUNICACIONES_COLINDATES').val("False");
+                            $('#COMUNICACIONES_COLINDATESFECHA').val("1900-01-01");
+                            $('#COMUNICACIONES_COLINDATESFIRMA').val("False");
+
+                    }else{
+
+                            $('#COMUNICACIONES_SOLICITANTEFECHA').prop("disabled", false);
+                            $('#COMUNICACIONES_SOLICITANTEFIRMA').prop("disabled", false);
+                            $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').prop("disabled", false);
+                            $('#COMUNICACIONES_PROCURADOR').prop("disabled", false);
+                            $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", false);
+                            $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", false);
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTAL').prop("disabled", false);
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", false);
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", false);
+                            $('#COMUNICACIONES_COLINDATES').prop("disabled", false);
+                            $('#COMUNICACIONES_COLINDATESFECHA').prop("disabled", false);
+                            $('#COMUNICACIONES_COLINDATESFIRMA').prop("disabled", false);
+
+                    }
+
+                });
+                $("#PUBLICACIONES_ALCALDIA").change(function () {
+
+                    if ($(this).val() == "False") {
+
+                            $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').prop("disabled", true);
+                            $('#PUBLICACIONES_ALCALDIADESFIJACION').prop("disabled", true);
+                            $('#PUBLICACIONES_ALCALDIAFIRMA').prop("disabled", true);
+                            $('#PUBLICACIONES_INCODER').prop("disabled", true);
+                            $('#PUBLICACIONES_INCODERFECHAFIJACION').prop("disabled", true);
+                            $('#PUBLICACIONES_INCODERDESFIJACION').prop("disabled", true);
+                            $('#PUBLICACIONES_INCODERFIRMA').prop("disabled", true);
+                            $('#PUBLICACIONES_EMISORA').prop("disabled", true);
+                            $('#PUBLICACIONES_EMISORAFECHA1').prop("disabled", true);
+                            $('#PUBLICACIONES_EMISORAFECHA2').prop("disabled", true);
+                            $('#PUBLICACIONES_EMISORAFIRMA').prop("disabled", true);
+
+                             $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').val("1900-01-01");
+                            $('#PUBLICACIONES_ALCALDIADESFIJACION').val("1900-01-01");
+                            $('#PUBLICACIONES_ALCALDIAFIRMA').val("False");
+                            $('#PUBLICACIONES_INCODER').val("False");
+                            $('#PUBLICACIONES_INCODERFECHAFIJACION').val("1900-01-01");
+                            $('#PUBLICACIONES_INCODERDESFIJACION').val("1900-01-01");
+                            $('#PUBLICACIONES_INCODERFIRMA').val("False");
+                            $('#PUBLICACIONES_EMISORA').val("False");
+                            $('#PUBLICACIONES_EMISORAFECHA1').val("1900-01-01");
+                            $('#PUBLICACIONES_EMISORAFECHA2').val("1900-01-01");
+                            $('#PUBLICACIONES_EMISORAFIRMA').val("False");
+
+
+                    }else{
+
+                            $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').prop("disabled", false);
+                            $('#PUBLICACIONES_ALCALDIADESFIJACION').prop("disabled", false);
+                            $('#PUBLICACIONES_ALCALDIAFIRMA').prop("disabled", false);
+                            $('#PUBLICACIONES_INCODER').prop("disabled", false);
+                            $('#PUBLICACIONES_INCODERFECHAFIJACION').prop("disabled", false);
+                            $('#PUBLICACIONES_INCODERDESFIJACION').prop("disabled", false);
+                            $('#PUBLICACIONES_INCODERFIRMA').prop("disabled", false);
+                            $('#PUBLICACIONES_EMISORA').prop("disabled", false);
+                            $('#PUBLICACIONES_EMISORAFECHA1').prop("disabled", false);
+                            $('#PUBLICACIONES_EMISORAFECHA2').prop("disabled", false);
+                            $('#PUBLICACIONES_EMISORAFIRMA').prop("disabled", false);
+
+                    }
+                });
+
                 $("#INSPECCION_OCULAR_INSPECCION_OCULAR_53").change(function () {
                    if ($(this).val() == "False") {
                         $('#INSPECCION_OCULAR_FECHA_54').prop("disabled", true);
@@ -1608,132 +2706,16 @@
                         $('#INSPECCION_OCULAR_OPOSICIONES_56').prop("disabled", true);
                         $('#INSPECCION_OCULAR_CONCEPTO_57').prop("disabled", true);
 
-                        $('#INSPECCION_OCULAR_FECHA_54').val("2000-01-01");
-                        $('#INSPECCION_OCULAR_FIRMA_55').val("0");
-                        $('#INSPECCION_OCULAR_OPOSICIONES_56').val("0");
-                        $('#INSPECCION_OCULAR_CONCEPTO_57').val("0");
+                       $('#INSPECCION_OCULAR_FECHA_54').val("1900-01-01");
+                        $('#INSPECCION_OCULAR_FIRMA_55').val("False");
+                        $('#INSPECCION_OCULAR_OPOSICIONES_56').val("False");
+                        $('#INSPECCION_OCULAR_CONCEPTO_57').val("");
 
                    }else{
                         $('#INSPECCION_OCULAR_FECHA_54').prop("disabled", false);
                         $('#INSPECCION_OCULAR_FIRMA_55').prop("disabled", false);
                         $('#INSPECCION_OCULAR_OPOSICIONES_56').prop("disabled", false);
                         $('#INSPECCION_OCULAR_CONCEPTO_57').prop("disabled", false);
-                    }
-                });
-
-                $("#FIJACION_EN_LISTA_FIJACION_EN_LISTA_64").change(function () {
-                   if ($(this).val() == "False") {
-                        $('#FIJACION_EN_LISTA_FECHA_DE_FIJACION_65').prop("disabled", true);
-                        $('#FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66').prop("disabled", true);
-                        $('#FIJACION_EN_LISTA_FIRMA_67').prop("disabled", true);
-
-                        $('#FIJACION_EN_LISTA_FECHA_DE_FIJACION_65').val("2000-01-01");
-                        $('#FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66').val("2000-01-01");
-                        $('#FIJACION_EN_LISTA_FIRMA_67').val("0");
-
-                   }else{
-                        $('#FIJACION_EN_LISTA_FECHA_DE_FIJACION_65').prop("disabled", false);
-                        $('#FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66').prop("disabled", false);
-                        $('#FIJACION_EN_LISTA_FIRMA_67').prop("disabled", false);
-                    }
-                });
-
-                $("#FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70").change(function () {
-                   if ($(this).val() == "False") {
-                        $('#FORMATO_DE_REVISION_JURIDICA_FECHA_71').prop("disabled", true);
-                        $('#FORMATO_DE_REVISION_JURIDICA_FIRMADA_72').prop("disabled", true);
-                        $('#FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73').prop("disabled", true);
-
-                        $('#FORMATO_DE_REVISION_JURIDICA_FECHA_71').val("2000-01-01");
-                        $('#FORMATO_DE_REVISION_JURIDICA_FIRMADA_72').val("0");
-                        $('#FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73').val("0");
-
-                   }else{
-                        $('#FORMATO_DE_REVISION_JURIDICA_FECHA_71').prop("disabled", false);
-                        $('#FORMATO_DE_REVISION_JURIDICA_FIRMADA_72').prop("disabled", false);
-                        $('#FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73').prop("disabled", false);
-
-                    }
-                });
-
-                $("#NOTIFICACION_NOTIFICACION_SOLICITANTES_81").change(function () {
-                   if ($(this).val() == "False") {
-                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').prop("disabled", true);
-                        $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').prop("disabled", true);
-                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').prop("disabled", true);
-
-                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').val("2000-01-01");
-                        $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').val("0");
-                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').val("2000-01-01");
-
-                   }else{
-                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').prop("disabled", false);
-                        $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').prop("disabled", false);
-                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').prop("disabled", false);
-
-                    }
-                });
-
-                $("#CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109").change(function () {
-                   if ($(this).val() == "False") {
-                        $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').prop("disabled", true);
-                        $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').prop("disabled", true);
-                        $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').prop("disabled", true);
-
-                        $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').val("2000-01-01");
-                        $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').val("0");
-                        $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').val("2000-01-01");
-
-                   }else{
-                        $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').prop("disabled", false);
-                        $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').prop("disabled", false);
-                        $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').prop("disabled", false);
-
-                    }
-                });
-
-                $("#RESOLUCION_RESOLUCION_74").change(function () {
-                   if ($(this).val() == "False") {
-                        $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').prop("disabled", true);
-                        $('#RESOLUCION_FECHA_DE_RESOLUCION_76').prop("disabled", true);
-                        $('#RESOLUCION_FIRMADA_77').prop("disabled", true);
-                        $('#RESOLUCION_DECISION_78').prop("disabled", true);
-                        $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", true);
-                        $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", true);
-
-
-                        $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').val("0");
-                        $('#RESOLUCION_FECHA_DE_RESOLUCION_76').val("2000-01-01");
-                        $('#RESOLUCION_FIRMADA_77').val("0");
-                        $('#RESOLUCION_DECISION_78').val("0");
-                        $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').val("0");
-                        $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').val("0");
-
-
-                   }else{
-                        $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').prop("disabled", false);
-                        $('#RESOLUCION_FECHA_DE_RESOLUCION_76').prop("disabled", false);
-                        $('#RESOLUCION_FIRMADA_77').prop("disabled", false);
-                        $('#RESOLUCION_DECISION_78').prop("disabled", false);
-                        $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", false);
-                        $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", false);
-
-                    }
-                });
-
-                $("#REVOCATORIA_REVOCATORIA_113").change(function () {
-                   if ($(this).val() == "False") {
-                        $('#REVOCATORIA_NUMERO_RESOLUCION_114').prop("disabled", true);
-                        $('#REVOCATORIA_FECHA_DE_RESOLUCION_115').prop("disabled", true);
-
-                        $('#REVOCATORIA_NUMERO_RESOLUCION_114').val("0");
-                        $('#REVOCATORIA_FECHA_DE_RESOLUCION_115').val("2000-01-01");
-
-
-                   }else{
-                        $('#REVOCATORIA_NUMERO_RESOLUCION_114').prop("disabled", false);
-                        $('#REVOCATORIA_FECHA_DE_RESOLUCION_115').prop("disabled", false);
-
                     }
                 });
 
@@ -1747,11 +2729,11 @@
                         $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", true);
 
                         $('#ACLARACION_DE_INSPECCION_OCULAR_FECHA_59').val("2000-01-01");
-                        $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60').val("0");
-                        $('#ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61').val("0");
-                        $('#ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62').val("0");
-                        $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63').val("0");
-                        $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').val("0");
+                        $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60').val("False");
+                        $('#ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61').val("");
+                        $('#ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62').val("False");
+                        $('#ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63').val("False");
+                        $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').val("False");
 
 
                    }else{
@@ -1767,8 +2749,116 @@
                     }
                 });
 
+                $("#FIJACION_EN_LISTA_FIJACION_EN_LISTA_64").change(function () {
+                   if ($(this).val() == "False") {
+                        $('#FIJACION_EN_LISTA_FECHA_DE_FIJACION_65').prop("disabled", true);
+                        $('#FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66').prop("disabled", true);
+                        $('#FIJACION_EN_LISTA_FIRMA_67').prop("disabled", true);
+
+                        $('#FIJACION_EN_LISTA_FECHA_DE_FIJACION_65').val("1900-01-01");
+                        $('#FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66').val("1900-01-01");
+                        $('#FIJACION_EN_LISTA_FIRMA_67').val("False");
+
+                   }else{
+                        $('#FIJACION_EN_LISTA_FECHA_DE_FIJACION_65').prop("disabled", false);
+                        $('#FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66').prop("disabled", false);
+                        $('#FIJACION_EN_LISTA_FIRMA_67').prop("disabled", false);
+                    }
+                });
+
+                $("#OPOCISIONES_OPOCISIONES_68").change(function () {
+                    if ($(this).val() == "False") {
+                        $('#OPOCISIONES_FECHA_69').prop("disabled", true);
+
+                        $('#OPOCISIONES_FECHA_69').val("1900-01-01");
+                       //
+
+                    }else{
+                        $('#OPOCISIONES_FECHA_69').prop("disabled", false);
+
+                    }
+                });
+
+                $("#FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70").change(function () {
+                   if ($(this).val() == "False") {
+                        $('#FORMATO_DE_REVISION_JURIDICA_FECHA_71').prop("disabled", true);
+                        $('#FORMATO_DE_REVISION_JURIDICA_FIRMADA_72').prop("disabled", true);
+                        $('#FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73').prop("disabled", true);
+
+                         $('#FORMATO_DE_REVISION_JURIDICA_FECHA_71').val("1900-01-01");
+                        $('#FORMATO_DE_REVISION_JURIDICA_FIRMADA_72').val("False");
+                        $("#FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73").val("");
+
+                   }else{
+                        $('#FORMATO_DE_REVISION_JURIDICA_FECHA_71').prop("disabled", false);
+                        $('#FORMATO_DE_REVISION_JURIDICA_FIRMADA_72').prop("disabled", false);
+                        $('#FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73').prop("disabled", false);
+
+                    }
+                });
+
+                $("#RESOLUCION_RESOLUCION_74").change(function () {
+                   if ($(this).val() == "False") {
+                        $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').prop("disabled", true);
+                        $('#RESOLUCION_FECHA_DE_RESOLUCION_76').prop("disabled", true);
+                        $('#RESOLUCION_FIRMADA_77').prop("disabled", true);
+                        $('#RESOLUCION_DECISION_78').prop("disabled", true);
+                        $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", true);
+                        $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", true);
+
+
+                        $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').val("0");
+                        $('#RESOLUCION_FECHA_DE_RESOLUCION_76').val("1900-01-01");
+                        $('#RESOLUCION_FIRMADA_77').val("False");
+                        $("#RESOLUCION_DECISION_78").val("");
+                        $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').val("0");
+                        $("#RESOLUCION_CONJUNTA_INDIVIDUAL_80").val("");
+
+                   }else{
+                        $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').prop("disabled", false);
+                        $('#RESOLUCION_FECHA_DE_RESOLUCION_76').prop("disabled", false);
+                        $('#RESOLUCION_FIRMADA_77').prop("disabled", false);
+                        $('#RESOLUCION_DECISION_78').prop("disabled", false);
+                        $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", false);
+                        $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", false);
+
+                    }
+                });
+
+
+                $("#NOTIFICACION_NOTIFICACION_SOLICITANTES_81").change(function () {
+                   if ($(this).val() == "False") {
+                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').prop("disabled", true);
+                        $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').prop("disabled", true);
+                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').prop("disabled", true);
+
+                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').val("1900-01-01");
+                        $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').val("False");
+                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').val("1900-01-01");
+
+                   }else{
+                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').prop("disabled", false);
+                        $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').prop("disabled", false);
+                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').prop("disabled", false);
+
+                    }
+                });
+
+
                 $("#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85").change(function () {
                    if ($(this).val() == "False") {
+                         $('#RECURSO_SOLICITANTE_DECISION_N_1').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled", true);
                         $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').prop("disabled", true);
                         $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').prop("disabled", true);
                         $('#RECURSO_SOLICITANTE_FIRMADA_88').prop("disabled", true);
@@ -1781,31 +2871,139 @@
                         $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').prop("disabled", true);
                         $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').prop("disabled", true);
 
-                        $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').val("2000-01-01");
-                        $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').val("1");
-                        $('#RECURSO_SOLICITANTE_FIRMADA_88').val("0");
-                        $('#RECURSO_SOLICITANTE_ACTO_89').val("0");
+
+
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').val("1900-01-01");
+                        $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').val("False");
+                        $("#RECURSO_SOLICITANTE_DECISION_N_1").val("");
+                        $('#RECURSO_SOLICITANTE_FIRMADA_88').val("False");
+                        $('#RECURSO_SOLICITANTE_ACTO_89').val("");
                         $('#RECURSO_SOLICITANTE_NUMERO_90').val("0");
-                        $('#RECURSO_SOLICITANTE_FECHA_91').val("2000-01-01");
-                        $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').val("0");
-                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').val("0");
-                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').val("2000-01-01");
-                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').val("0");
-                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').val("2000-01-01");
+                        $('#RECURSO_SOLICITANTE_FECHA_91').val("1900-01-01");
+                        $("#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92").val("");
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').val("False");
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').val("1900-01-01");
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').val("False");
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').val("1900-01-01");
+                        $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').val("0");
+                        $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').val("0");
+                        $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').val("1900-01-01");
+                        $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').val("False");
+                        $("#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6").val("");
+                        $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').val("0");
+                        $("#RECURSO_SOLICITANTE_CONJUNA_IND_N_7").val("");
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').val("False");
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').val("1900-01-01");
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').val("False");
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').val("1900-01-01");
                    }else{
 
 
+                        $('#RECURSO_SOLICITANTE_DECISION_N_1').prop("disabled", false);
+                        $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled", false);
+                        $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled", false);
+                        $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled", false);
+                        $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled", false);
+                        $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled", false);
+                        $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled", false);
+                        $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled", false);
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled", false);
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled", false);
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled", false);
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled", false);
                         $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').prop("disabled", false);
                         $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').prop("disabled", false);
                         $('#RECURSO_SOLICITANTE_FIRMADA_88').prop("disabled", false);
                         $('#RECURSO_SOLICITANTE_ACTO_89').prop("disabled", false);
                         $('#RECURSO_SOLICITANTE_NUMERO_90').prop("disabled", false);
                         $('#RECURSO_SOLICITANTE_FECHA_91').prop("disabled", false);
-                        $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled", false);
+                        $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled", true);
                         $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').prop("disabled", false);
                         $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').prop("disabled", false);
                         $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').prop("disabled", false);
                         $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').prop("disabled", false);
+
+                        $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
+                        $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
+                        $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
+                        $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
+                        $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
+                        $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled",true);
+                        $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled",true);
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
+                   }
+
+
+                        
+                });
+                
+                $("#RECURSO_SOLICITANTE_DECISION_N_1").change(function () {
+                  
+                   if ($(this).val() == "31") {
+
+                            $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",false);
+
+                        } else {
+                            $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
+
+                        }
+                });
+                
+                $("#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92").change(function () {
+                   if ($(this).val() == "16") {
+
+                    $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",false);
+                       
+                        $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",false);
+                        $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",false);
+                        $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",false);
+                        $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",false);
+                        $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled",false);
+                        $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled",false);
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",false);
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",false);
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",false);
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",false);
+
+                   }else{
+
+
+                        $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
+                        $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
+                        $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
+                        $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
+                        $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
+                        $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled",true);
+                        $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled",true);
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
                    }
                 });
 
@@ -1823,17 +3021,17 @@
                         $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107').prop("disabled", true);
                         $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108').prop("disabled", true);
 
-                        $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98').val("2000-01-01");
-                        $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_99').val("1");
-                        $('#RECURSO_MINISTERIO_FIRMADA_100').val("0");
-                        $('#RECURSO_MINISTERIO_ACTO_101').val("0");
+                        $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98').val("1900-01-01");
+                        $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_99').val("False");
+                        $('#RECURSO_MINISTERIO_FIRMADA_100').val("False");
+                        $('#RECURSO_MINISTERIO_ACTO_101').val("");
                         $('#RECURSO_MINISTERIO_NUMERO_102').val("0");
-                        $('#RECURSO_MINISTERIO_FECHA_103').val("2000-01-01");
-                        $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104').val("0");
-                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105').val("0");
-                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106').val("2000-01-01");
-                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107').val("0");
-                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108').val("2000-01-01");
+                        $('#RECURSO_MINISTERIO_FECHA_103').val("1900-01-01");
+                        $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104').val("");
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105').val("False");
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106').val("1900-01-01");
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107').val("False");
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108').val("1900-01-01");
                    }else{
 
                         $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98').prop("disabled", false);
@@ -1851,16 +3049,62 @@
                     }
                 });
 
-                $("#OPOCISIONES_OPOCISIONES_68").change(function () {
+                $("#CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109").change(function () {
                    if ($(this).val() == "False") {
-                        $('#OPOCISIONES_FECHA_69').prop("disabled", true);
+                        $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').prop("disabled", true);
+                        $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').prop("disabled", true);
+                        $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').prop("disabled", true);
 
-                        $('#OPOCISIONES_FECHA_69').val("2000-01-01");
-                       //
+                        $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').val("1900-01-01");
+                        $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').val("False");
+                        $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').val("False");
 
                    }else{
-                        $('#OPOCISIONES_FECHA_69').prop("disabled", false);
+                        $('#CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110').prop("disabled", false);
+                        $('#CONSTANCIA_DE_EJECUTORIA_FIRMADA_111').prop("disabled", false);
+                        $('#CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112').prop("disabled", false);
 
+                    }
+                });
+
+                
+                $("#REVOCATORIA_REVOCATORIA_113").change(function () {
+                   if ($(this).val() == "False") {
+                        $('#REVOCATORIA_NUMERO_RESOLUCION_114').prop("disabled", true);
+                        $('#REVOCATORIA_FECHA_DE_RESOLUCION_115').prop("disabled", true);
+
+                        $('#REVOCATORIA_NUMERO_RESOLUCION_114').val("0");
+                        $('#REVOCATORIA_FECHA_DE_RESOLUCION_115').val("1900-01-01");
+
+
+                   }else{
+                        $('#REVOCATORIA_NUMERO_RESOLUCION_114').prop("disabled", false);
+                        $('#REVOCATORIA_FECHA_DE_RESOLUCION_115').prop("disabled", false);
+
+                    }
+                });
+                
+
+                $("#REGISTRO_FMI_").change(function () {
+
+                    if ($(this).val() == "False") {
+
+                        $('#REGISTRO_FMI_116').prop("disabled", true);
+                        $('#REGISTRO_FECHA_DE_REGISTRO_117').prop("disabled", true);
+                        $('#REGISTRO_NUMERO_DE_RESOLUCION_118').prop("disabled", true);
+                        $('#REGISTRO_FECHA_DE_RESOLUCION_119').prop("disabled", true);
+
+                        $('#REGISTRO_FMI_116').val("0");
+                        $('#REGISTRO_FECHA_DE_REGISTRO_117').val("1900-01-01");
+                        $('#REGISTRO_NUMERO_DE_RESOLUCION_118').val("0");
+                        $('#REGISTRO_FECHA_DE_RESOLUCION_119').val("1900-01-01");
+
+                    }else{
+
+                        $('#REGISTRO_FMI_116').prop("disabled", false);
+                        $('#REGISTRO_FECHA_DE_REGISTRO_117').prop("disabled", false);
+                        $('#REGISTRO_NUMERO_DE_RESOLUCION_118').prop("disabled", false);
+                        $('#REGISTRO_FECHA_DE_RESOLUCION_119').prop("disabled", false);
                     }
                 });
             ///

@@ -2,6 +2,7 @@
 using AspNetIdentity.WebApi.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 
@@ -55,8 +56,15 @@ namespace AspNetIdentity.WebApi.Logic
             return lista;
         }
 
-        public List<ActividadesDiariasModel> Consulta()
+        public List<ActividadesDiariasModel> Consulta(string id)
         {
+            System.Globalization.CultureInfo cultureinfo = new System.Globalization.CultureInfo("en-US", true);
+            DateTime date = Convert.ToDateTime(id);
+            DateTime parsedDate = DateTime.Parse(id, cultureinfo);
+
+            IFormatProvider culture = new System.Globalization.CultureInfo("en-US", true);
+            DateTime dateVal = DateTime.ParseExact(id, "yyyy-MM-dd", culture);
+
             ZonasFEntities Ctx = new ZonasFEntities();
             var lista = Ctx.ActividadesDiarias
                  .Join(Ctx.AspNetUsers, b => b.IdApsNetUser, c => c.Id, (b, c) =>
@@ -75,7 +83,7 @@ namespace AspNetIdentity.WebApi.Logic
                  new { b.b, b.Id_Hash, b.NombreUsuario, b.RoleId, b.NombreRol, b.Estado, b.Actividad, b.NombreRolActividad , IdProceso = c.Id, NombreProceso = c.Nombre })
                 .Join(Ctx.ActDiaModalidad, b => b.b.IdModalidad, c => c.Id, (b, c) =>
                  new { b.b, b.Id_Hash, b.NombreUsuario, b.RoleId, b.NombreRol, b.Estado, b.Actividad, b.NombreRolActividad, b.IdProceso, b.NombreProceso, IdModalidad = c.Id , NombreModalidad = c.Nombre })
-                .Where(x => x.Estado == true)
+                .Where(x => x.Estado == true && x.b.FechaActividad.Value > dateVal  )
                 .Select(a => new ActividadesDiariasModel
                 {
                 Id = a.b.Id,
@@ -96,9 +104,9 @@ namespace AspNetIdentity.WebApi.Logic
                 Observacion = a.b.Observacion,
                 Estado = a.Estado.Value,
                 FInsercion= a.b.FInsercion.Value,
-            }).OrderBy(c => c.IdApsNetUser ).OrderBy(c => c.FInsercion);
+            }).OrderBy(c => c.IdApsNetUser ).OrderBy(c => c.FInsercion).ToList();
 
-            return lista.ToList();
+            return lista;
         }
 
         public List<ActividadesDiariasModel> ConsultarId(string id)

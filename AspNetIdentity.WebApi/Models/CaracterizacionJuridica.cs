@@ -51,15 +51,27 @@ namespace AspNetIdentity.WebApi.Models
         public Nullable<bool> RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85 { get; set; }
         public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86 { get; set; }
         public Nullable<bool> RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87 { get; set; }
+        public Nullable<int> RECURSO_SOLICITANTE_DECISION_N_1 { get; set; }
         public Nullable<bool> RECURSO_SOLICITANTE_FIRMADA_88 { get; set; }
         public Nullable<int> RECURSO_SOLICITANTE_ACTO_89 { get; set; }
-        public Nullable<long> RECURSO_SOLICITANTE_NUMERO_90 { get; set; }
+        public string RECURSO_SOLICITANTE_NUMERO_90 { get; set; }
         public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_91 { get; set; }
         public Nullable<int> RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92 { get; set; }
         public Nullable<bool> RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93 { get; set; }
         public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94 { get; set; }
         public Nullable<bool> RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95 { get; set; }
         public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96 { get; set; }
+        public string RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2 { get; set; }
+        public string RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3 { get; set; }
+        public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4 { get; set; }
+        public Nullable<bool> RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5 { get; set; }
+        public Nullable<int> RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6 { get; set; }
+        public string RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6 { get; set; }
+        public Nullable<int> RECURSO_SOLICITANTE_CONJUNA_IND_N_7 { get; set; }
+        public Nullable<bool> RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8 { get; set; }
+        public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9 { get; set; }
+        public Nullable<bool> RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10 { get; set; }
+        public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11 { get; set; }
         public Nullable<bool> RECURSO_MINISTERIO_RECURSO_MINISTERIO_97 { get; set; }
         public Nullable<System.DateTime> RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98 { get; set; }
         public Nullable<bool> RECURSO_MINISTERIO_RESPUESTA_RECURSO_99 { get; set; }
@@ -83,9 +95,49 @@ namespace AspNetIdentity.WebApi.Models
         public Nullable<System.DateTime> REGISTRO_FECHA_DE_REGISTRO_117 { get; set; }
         public Nullable<long> REGISTRO_NUMERO_DE_RESOLUCION_118 { get; set; }
         public Nullable<System.DateTime> REGISTRO_FECHA_DE_RESOLUCION_119 { get; set; }
+        public Nullable<bool> SOLICITUD_SOLICITUD { get; set; }
+        public Nullable<System.DateTime> SOLICITUD_FECHA { get; set; }
+        public Nullable<bool> SOLICITUD_FIRMA { get; set; }
+        public Nullable<int> SOLICITUD_TIPO_SOLICITUD { get; set; }
+        public Nullable<bool> SOLICITUD_CEDULA_SOLICITANTE { get; set; }
+        public Nullable<bool> SOLICITUD_CEDULA_CONYUGE { get; set; }
+        public Nullable<bool> SOLICITUD_CEDULA_PARIENTE { get; set; }
+        public Nullable<System.DateTime> SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA { get; set; }
+        public Nullable<bool> AUTODEACEPTACION_AUTODEACEPTACION { get; set; }
+        public Nullable<System.DateTime> AUTODEACEPTACION_FECHA { get; set; }
+        public Nullable<bool> AUTODEACEPTACION_FIRMA { get; set; }
+        public Nullable<bool> AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO { get; set; }
+        public Nullable<bool> AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO { get; set; }
+        public Nullable<bool> AUTODEACEPTACION_DATOSPREDIOSCORRECTO { get; set; }
+        public Nullable<bool> COMUNICACIONES_SOLICITANTE { get; set; }
+        public Nullable<System.DateTime> COMUNICACIONES_SOLICITANTEFECHA { get; set; }
+        public Nullable<bool> COMUNICACIONES_SOLICITANTEFIRMA { get; set; }
+        public Nullable<System.DateTime> COMUNICACIONES_FECHAINSPECCIONOCULAR { get; set; }
+        public Nullable<bool> COMUNICACIONES_PROCURADOR { get; set; }
+        public Nullable<System.DateTime> COMUNICACIONES_PROCURADORFECHA { get; set; }
+        public Nullable<bool> COMUNICACIONES_PROCURADORFIRMA { get; set; }
+        public Nullable<bool> COMUNICACIONES_AUTORIDADAMBIENTAL { get; set; }
+        public Nullable<System.DateTime> COMUNICACIONES_AUTORIDADAMBIENTALFECHA { get; set; }
+        public Nullable<bool> COMUNICACIONES_AUTORIDADAMBIENTALFIRMA { get; set; }
+        public Nullable<bool> COMUNICACIONES_COLINDATES { get; set; }
+        public Nullable<System.DateTime> COMUNICACIONES_COLINDATESFECHA { get; set; }
+        public Nullable<bool> COMUNICACIONES_COLINDATESFIRMA { get; set; }
+        public Nullable<bool> PUBLICACIONES_ALCALDIA { get; set; }
+        public Nullable<System.DateTime> PUBLICACIONES_ALCALDIAFECHAFIJACION { get; set; }
+        public Nullable<System.DateTime> PUBLICACIONES_ALCALDIADESFIJACION { get; set; }
+        public Nullable<bool> PUBLICACIONES_ALCALDIAFIRMA { get; set; }
+        public Nullable<bool> PUBLICACIONES_INCODER { get; set; }
+        public Nullable<System.DateTime> PUBLICACIONES_INCODERFECHAFIJACION { get; set; }
+        public Nullable<System.DateTime> PUBLICACIONES_INCODERDESFIJACION { get; set; }
+        public Nullable<bool> PUBLICACIONES_INCODERFIRMA { get; set; }
+        public Nullable<bool> PUBLICACIONES_EMISORA { get; set; }
+        public Nullable<System.DateTime> PUBLICACIONES_EMISORAFECHA1 { get; set; }
+        public Nullable<System.DateTime> PUBLICACIONES_EMISORAFECHA2 { get; set; }
+        public Nullable<bool> PUBLICACIONES_EMISORAFIRMA { get; set; }
         public bool Estado { get; set; }
         public string IdAspNetUser { get; set; }
         public System.DateTime FechaModificacion { get; set; }
         public Nullable<int> Gestion { get; set; }
+        public Nullable<bool> REGISTRO_FMI_ { get; set; }
     }
 }

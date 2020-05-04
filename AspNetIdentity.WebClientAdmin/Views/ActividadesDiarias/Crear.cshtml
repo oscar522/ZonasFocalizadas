@@ -78,6 +78,9 @@
                 }
             });
 
+            $("#DateInfo").change(function () {
+                TablaGeneral();
+            });
             var oTable = $('#table_General').dataTable({
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
                 "paging": true,
@@ -97,30 +100,12 @@
                 ]
              });
 
-            //var oTable2 = $('#table_User').dataTable({
-            //    "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
-            //    "paging": true,
-            //    "searching":true,
-            //    "columnDefs": [
-            //    {
-            //        "targets": [ 0 ],
-            //        "visible": false,
-            //        "searchable": false
-            //    }],
-
-            //     dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
-            //    buttons: [
-            //        { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
-            //        { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
-            //        { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
-            //    ]
-            // });
-
             function TablaGeneral() {
                  $.ajax({
                     type: 'POST',
                     url: '@Url.Action("ListGeneral")',
                     dataType: 'json',
+                    data: { Id: $("#DateInfo").val() },
                     success: function (s) {
                         oTable.fnClearTable();
                         debugger;
@@ -385,7 +370,11 @@
                 <div class="card-body">
                     <div class="form-horizontal">
                         <div class="col-md-12">
-                            <h5>Resumen Actividades</h5>
+                            <h5> <label class="control-label col-md-12">Resumen Actividades</label> </h5>
+                            <div class="row">
+                                <h6 class="col-md-6"><label class="control-label ">Seleccione la fecha de inicio para consultar las actividades</label></h6> <input type="date" name="DateInfo" id="DateInfo" value="" class="form-control col-md-4" />
+
+                            </div>
                             <hr />
                             <div class="table-responsive ">
                                 <table class="table table-hover " id="table_General">

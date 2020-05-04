@@ -2,7 +2,7 @@ $(document).ready(function () {
 
 	rutaload  = $("#rutaload").val();
 	var pathname = window.location.href;
-
+	var sizeArchivo = 0;
 	function Barra(id,valor,Msj) {
 		$("#"+id).removeAttr('style');
 		$("#"+id).text(Msj);
@@ -76,7 +76,6 @@ $(document).ready(function () {
 
 
             //if ($("#Id").val() <= 0) {
-            debugger;
 
             var SoporteList = $("#table_Soporte  td").text();
             var AnexoList = $("#table_Anexo td").text();
@@ -401,8 +400,17 @@ $(document).ready(function () {
 					$("#NombreIdSoporte" ).val($('#IdSoporte option:selected').text());
 			    });			
 
+				$('#Archivo').change(function (){
+				     var sizeByte = this.files[0].size;
+				     var siezekiloByte = parseInt(sizeByte / 1024);
+				     if(siezekiloByte > "15000"){
+				         alert('El tamaño supera el limite permitido');
+				         $(this).val('');
+				     }
+				});
 
 			    $("#GuardarGestion").click(function () {
+
 					Barra("BarUser","25%", "Cargando");
 			        var form = $('#CrearGestionForm')[0];
 			        var Data = new FormData(form);
@@ -441,7 +449,6 @@ $(document).ready(function () {
 			        } 
 
 			        if (validacion == false) {
-
 				        $.ajax({
 				            type: 'POST',
 				            url: 'CrearGestion', // we are calling json method
@@ -455,19 +462,20 @@ $(document).ready(function () {
 				            success: function (states) {
 				                TablaGestion();
 				                form.reset();
-				                alert(Guardado);
+				                alert("Guardado...");
 						    	return false;
 				            },
 				            error: function (ex) {
-
 				                console.log(ex.responseText);
 				     			Barra("BarUser","0%", "Error .... ");
+						    	return false;
 				            }
 				        });
 
 				    }else{
 				    	return false;
 				    }
+				    	return false;
 
 			    });
 
@@ -654,7 +662,6 @@ $(document).ready(function () {
                                     $("#CrearGestionForm textarea").prop("disabled", true);
                                 } 
 
-			                    debugger;
 
 			                    if (pathname.indexOf("Edit") > -1) {
 				                    
@@ -733,7 +740,7 @@ $(document).ready(function () {
 			                	var Archivo = "";
 								if (obj.NombreIdEstado == "Solicitud") {
 			              			if (obj.Archivo != "N_A") {
-			                    	    Archivo = '<a target="_blank" href="'+ Ruta + "/"+ obj.Archivo + '" >'+ obj.NombreIdSoporte+' <i class="fa fa-eye">  </i></a>';
+			                    	    Archivo = '<a target="_blank" href="'+ Ruta + "Gestion/"+ obj.Archivo + '" >'+ obj.NombreIdSoporte+' <i class="fa fa-eye">  </i></a>';
 									}
 								}else {
 				              		if (obj.Archivo != "N_A") {

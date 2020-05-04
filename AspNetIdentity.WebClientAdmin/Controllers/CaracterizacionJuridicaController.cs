@@ -120,6 +120,7 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
         [HttpPost]
         public async Task<ActionResult> Edit(CaracterizacionJuridicaModel ObjData)
         {
+            ObjData.Estado = true;
             string Id = GetTokenObject().nameid;
              string Controller = "CaracterizacionJuridica";
             string Method = "CaracterizacionJuridicaupdate";
