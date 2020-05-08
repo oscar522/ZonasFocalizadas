@@ -205,33 +205,42 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="INSPECCION_OCULAR_FIRMA_55" Type="bit" />
     <Property Name="INSPECCION_OCULAR_OPOSICIONES_56" Type="bit" />
     <Property Name="INSPECCION_OCULAR_CONCEPTO_57" Type="int" />
+    <Property Name="INSPECCION_OCULAR_VISIBLE" Type="int" />
     <Property Name="ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58" Type="bit" />
     <Property Name="ACLARACION_DE_INSPECCION_OCULAR_FECHA_59" Type="datetime" />
     <Property Name="ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60" Type="bit" />
     <Property Name="ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61" Type="int" />
     <Property Name="ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62" Type="bit" />
     <Property Name="ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63" Type="bit" />
+    <Property Name="ACLARACION_DE_INSPECCION_VISIBLE" Type="int" />
     <Property Name="FIJACION_EN_LISTA_FIJACION_EN_LISTA_64" Type="bit" />
     <Property Name="FIJACION_EN_LISTA_FECHA_DE_FIJACION_65" Type="datetime" />
     <Property Name="FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66" Type="datetime" />
     <Property Name="FIJACION_EN_LISTA_FIRMA_67" Type="bit" />
+    <Property Name="FIJACION_EN_LISTA_VISIBLE" Type="int" />
     <Property Name="OPOCISIONES_OPOCISIONES_68" Type="bit" />
     <Property Name="OPOCISIONES_FECHA_69" Type="datetime" />
+    <Property Name="OPOCISIONES_EN_LISTA_VISIBLE" Type="int" />
     <Property Name="FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70" Type="bit" />
     <Property Name="FORMATO_DE_REVISION_JURIDICA_FECHA_71" Type="datetime" />
     <Property Name="FORMATO_DE_REVISION_JURIDICA_FIRMADA_72" Type="bit" />
     <Property Name="FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73" Type="int" />
+    <Property Name="FORMATO_DE_REVISION_JURIDICA_VISIBLE" Type="int" />
     <Property Name="RESOLUCION_RESOLUCION_74" Type="bit" />
     <Property Name="RESOLUCION_NUMERO_DE_RESOLUCION_75" Type="bigint" />
     <Property Name="RESOLUCION_FECHA_DE_RESOLUCION_76" Type="datetime" />
     <Property Name="RESOLUCION_FIRMADA_77" Type="bit" />
     <Property Name="RESOLUCION_DECISION_78" Type="int" />
+    <Property Name="RESOLUCION_DATOS_SOLICITANTE_BIEN" Type="int" />
+    <Property Name="RESOLUCION_DATOS_SOLICITANTE_EN" Type="int" />
     <Property Name="RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79" Type="bigint" />
     <Property Name="RESOLUCION_CONJUNTA_INDIVIDUAL_80" Type="int" />
+    <Property Name="RESOLUCION_VISIBLE" Type="int" />
     <Property Name="NOTIFICACION_NOTIFICACION_SOLICITANTES_81" Type="bit" />
     <Property Name="NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82" Type="datetime" />
     <Property Name="NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83" Type="bit" />
     <Property Name="NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84" Type="datetime" />
+    <Property Name="NOTIFICACION_VISIBLE" Type="int" />
     <Property Name="RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85" Type="bit" />
     <Property Name="RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86" Type="datetime" />
     <Property Name="RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87" Type="bit" />
@@ -256,6 +265,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9" Type="datetime" />
     <Property Name="RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10" Type="bit" />
     <Property Name="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11" Type="datetime" />
+    <Property Name="RECURSO_SOLICITANTE_VISIBLE" Type="int" />
     <Property Name="RECURSO_MINISTERIO_RECURSO_MINISTERIO_85" Type="bit" />
     <Property Name="RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86" Type="datetime" />
     <Property Name="RECURSO_MINISTERIO_RESPUESTA_RECURSO_87" Type="bit" />
@@ -280,34 +290,41 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9" Type="datetime" />
     <Property Name="RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10" Type="bit" />
     <Property Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11" Type="datetime" />
+    <Property Name="RECURSO_MINISTERIO_VISIBLE" Type="int" />
     <Property Name="CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109" Type="bit" />
     <Property Name="CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110" Type="datetime" />
     <Property Name="CONSTANCIA_DE_EJECUTORIA_FIRMADA_111" Type="bit" />
     <Property Name="CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112" Type="bit" />
     <Property Name="CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION" Type="nvarchar" MaxLength="128" />
     <Property Name="CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA" Type="datetime" />
+    <Property Name="CONSTANCIA_DE_EJECUTORIA_VISIBLE" Type="int" />
     <Property Name="REVOCATORIA_REVOCATORIA_113" Type="bit" />
     <Property Name="REVOCATORIA_NUMERO_RESOLUCIÓN_114" Type="bigint" />
     <Property Name="REVOCATORIA_FECHA_DE_RESOLUCIÓN_115" Type="datetime" />
+    <Property Name="REVOCATORIA_VISIBLE" Type="int" />
     <Property Name="REGISTRO_FMI_" Type="bit" />
     <Property Name="REGISTRO_FMI" Type="nvarchar" MaxLength="128" />
     <Property Name="REGISTRO_FECHA_DE_REGISTRO_117" Type="datetime" />
     <Property Name="REGISTRO_NUMERO_DE_RESOLUCION_118" Type="bigint" />
     <Property Name="REGISTRO_FECHA_DE_RESOLUCION_119" Type="datetime" />
+    <Property Name="REGISTRO_VISIBLE" Type="int" />
     <Property Name="SOLICITUD_SOLICITUD" Type="bit" />
     <Property Name="SOLICITUD_FECHA" Type="datetime" />
     <Property Name="SOLICITUD_FIRMA" Type="bit" />
     <Property Name="SOLICITUD_TIPO_SOLICITUD" Type="int" />
-    <Property Name="SOLICITUD_CEDULA_SOLICITANTE" Type="bit" />
-    <Property Name="SOLICITUD_CEDULA_CONYUGE" Type="bit" />
-    <Property Name="SOLICITUD_CEDULA_PARIENTE" Type="bit" />
+    <Property Name="SOLICITUD_CEDULA_SOLICITANTE" Type="int" />
+    <Property Name="SOLICITUD_CEDULA_CONYUGE" Type="int" />
+    <Property Name="SOLICITUD_CEDULA_PARIENTE" Type="int" />
     <Property Name="SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA" Type="datetime" />
+    <Property Name="SOLICITUD_VISIBLE" Type="int" />
     <Property Name="AUTODEACEPTACION_AUTODEACEPTACION" Type="bit" />
     <Property Name="AUTODEACEPTACION_FECHA" Type="datetime" />
     <Property Name="AUTODEACEPTACION_FIRMA" Type="bit" />
     <Property Name="AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO" Type="bit" />
     <Property Name="AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO" Type="bit" />
     <Property Name="AUTODEACEPTACION_DATOSPREDIOSCORRECTO" Type="bit" />
+    <Property Name="AUTODEACEPTACION_COLINDANTE_CORRECTO" Type="bit" />
+    <Property Name="AUTODEACEPTACION_VISIBLE" Type="int" />
     <Property Name="COMUNICACIONES_SOLICITANTE" Type="bit" />
     <Property Name="COMUNICACIONES_SOLICITANTEFECHA" Type="datetime" />
     <Property Name="COMUNICACIONES_SOLICITANTEFIRMA" Type="bit" />
@@ -318,9 +335,11 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="COMUNICACIONES_AUTORIDADAMBIENTAL" Type="bit" />
     <Property Name="COMUNICACIONES_AUTORIDADAMBIENTALFECHA" Type="datetime" />
     <Property Name="COMUNICACIONES_AUTORIDADAMBIENTALFIRMA" Type="bit" />
-    <Property Name="COMUNICACIONES_COLINDATES" Type="bit" />
+    <Property Name="COMUNICACIONES_COLINDATES" Type="int" />
+    <Property Name="COMUNICACIONES_COLINDATES_INCOMPLETOS" Type="int" />
     <Property Name="COMUNICACIONES_COLINDATESFECHA" Type="datetime" />
     <Property Name="COMUNICACIONES_COLINDATESFIRMA" Type="bit" />
+    <Property Name="COMUNICACIONES_VISIBLE" Type="int" />
     <Property Name="PUBLICACIONES_ALCALDIA" Type="bit" />
     <Property Name="PUBLICACIONES_ALCALDIAFECHAFIJACION" Type="datetime" />
     <Property Name="PUBLICACIONES_ALCALDIADESFIJACION" Type="datetime" />
@@ -333,6 +352,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="PUBLICACIONES_EMISORAFECHA1" Type="datetime" />
     <Property Name="PUBLICACIONES_EMISORAFECHA2" Type="datetime" />
     <Property Name="PUBLICACIONES_EMISORAFIRMA" Type="bit" />
+    <Property Name="PUBLICACIONES_VISIBLE" Type="int" />
     <Property Name="Estado" Type="bit" Nullable="false" />
     <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="FechaModificacion" Type="datetime" Nullable="false" />

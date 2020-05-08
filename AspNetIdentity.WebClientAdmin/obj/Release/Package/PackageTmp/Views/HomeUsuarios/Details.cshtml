@@ -20,10 +20,19 @@
                 } else {
                     UriPdf = UriLo;
                 }
+                var RutasAll = '@Model.RutaArchivoOriginal';
+                var ArrayRutas = RutasAll.split("+");
+                var RutaConcat ="";
+                for (var i = 0; i < ArrayRutas.length; i++) {
+                    debugger;
+                    var Url = 'http://' + UriPdf + '/Content/Pdfs/' + ArrayRutas[i] + '#navpanes=1&view=FitH&pagemode=thumbs&page=1';
+                    var Ahref ='<a target="_blank" href="'+Url+'" style="color: #013ADF;""> '+'@Model.NumeroExpediente'+'<i class="fa fa-eye">  </i></a></Br>'; 
+                    RutaConcat = RutaConcat + Ahref; 
+                }
+                                
 
-                var Url = 'http://' + UriPdf + '/Content/Pdfs/' + '@Model.RutaArchivoOriginal' + '#navpanes=1&view=FitH&pagemode=thumbs&page=1';
+                $('#RutasAll').html(RutaConcat);
                 $('#Uri').val(UriPdf + '/Content/');
-                $('#ViewPdf').attr('href', Url);
             });
 
 
@@ -127,7 +136,7 @@
 }
 <div class="card mb-4 wow fadeIn">
     <div class="card-body d-sm-flex justify-content-between">
-        <h3 class="card-title">Numero de Expediente @Model.NumeroExpediente   </h3>
+        <h3 class="card-title">Numero de Expediente @Model.NumeroExpediente     </h3>
     </div>
 </div>
 <div class="row wow fadeIn">
@@ -139,7 +148,7 @@
                     <table id="" class="table table-hover table-striped">
                         <tr>
                             <th>
-                                @Html.DisplayNameFor(model => model.NumeroExpediente)
+                                Expediente en Pdf : 
                             </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.NombreIdDepto)
@@ -150,7 +159,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <a id="ViewPdf" target="_blank" href="" style='color: #013ADF;'>@Model.NumeroExpediente <i class='fa fa-eye'>  </i></a>
+                                <div id="RutasAll"> </div>
                             </td>
                             <td>
                                 @Html.DisplayFor(model => model.NombreIdDepto)
@@ -324,3 +333,4 @@
         </div>
     </div>
 </div>
+

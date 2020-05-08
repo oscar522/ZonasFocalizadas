@@ -41,9 +41,57 @@ namespace AspNetIdentity.WebClientAdmin.Providers
                         Valor = Encode(parsedDate);
                     }
                     else {
-                        if (!Descriptor.GetValue(MyObject).ToString().Equals("null"))
+                        var value = Descriptor.GetValue(MyObject);
+                        if (value != null)
                         {
                             Valor = Descriptor.GetValue(MyObject).ToString();
+                        }
+                       
+                    }
+                    MyDictionary.Add(nombre, Valor.ToString());
+                }
+            }
+            catch (InvalidCastException e)
+            {
+                throw new Exception(e.Message);
+            }
+            return MyDictionary;
+        }
+
+        public Dictionary<string, object> ToDictionary2(object MyObject)
+        {
+            Dictionary<string, object> MyDictionary = new Dictionary<string, object>();
+
+            string Valor = "";
+            string nombre = "";
+            int i = 0;
+            try
+            {
+                foreach (PropertyDescriptor Descriptor in TypeDescriptor.GetProperties(MyObject))
+                {
+                    i++;
+
+                    string debugger = Descriptor.PropertyType.FullName.ToString() + " " + Descriptor.Name;
+                    System.Diagnostics.Debug.WriteLine(debugger);
+
+                    nombre = Descriptor.Name;
+
+                    if (Descriptor.PropertyType.FullName.Equals("System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]") || Descriptor.PropertyType.FullName.Equals("System.DateTime"))
+                    {
+                        var valorDate = Descriptor.GetValue(MyObject).ToString();
+                        DateTime parsedDate = DateTime.Parse(valorDate);
+                        Valor = Encode(parsedDate);
+                    }
+                    else
+                    {
+                        var value = Descriptor.GetValue(MyObject);
+                        if (value != null)
+                        {
+                            Valor = Descriptor.GetValue(MyObject).ToString();
+                        }
+                        else
+                        {
+                            Valor = string.Empty;
                         }
                     }
                     MyDictionary.Add(nombre, Valor.ToString());

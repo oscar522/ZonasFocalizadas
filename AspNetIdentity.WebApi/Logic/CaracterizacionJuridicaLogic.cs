@@ -18,7 +18,7 @@ namespace AspNetIdentity.WebApi.Logic
                 CaracterizacionJuridica Nuevo = new CaracterizacionJuridica
                 {
                     Id = a.Id,
-                    IdExpediente = a.IdExpediente.Value,
+                    IdExpediente = a.IdExpediente,
                     INSPECCION_OCULAR_INSPECCION_OCULAR_53 = a.INSPECCION_OCULAR_INSPECCION_OCULAR_53,
                     INSPECCION_OCULAR_FECHA_54 = a.INSPECCION_OCULAR_FECHA_54,
                     INSPECCION_OCULAR_FIRMA_55 = a.INSPECCION_OCULAR_FIRMA_55,
@@ -167,6 +167,28 @@ namespace AspNetIdentity.WebApi.Logic
                     PUBLICACIONES_EMISORAFECHA2 = a.PUBLICACIONES_EMISORAFECHA2,
                     PUBLICACIONES_EMISORAFIRMA = a.PUBLICACIONES_EMISORAFIRMA,
 
+                    INSPECCION_OCULAR_VISIBLE = a.INSPECCION_OCULAR_VISIBLE,
+                    ACLARACION_DE_INSPECCION_VISIBLE = a.ACLARACION_DE_INSPECCION_VISIBLE,
+                    FIJACION_EN_LISTA_VISIBLE = a.FIJACION_EN_LISTA_VISIBLE,
+                    OPOCISIONES_EN_LISTA_VISIBLE = a.OPOCISIONES_EN_LISTA_VISIBLE,
+                    FORMATO_DE_REVISION_JURIDICA_VISIBLE = a.FORMATO_DE_REVISION_JURIDICA_VISIBLE,
+                    RESOLUCION_VISIBLE = a.RESOLUCION_VISIBLE,
+                    NOTIFICACION_VISIBLE = a.NOTIFICACION_VISIBLE,
+                    RECURSO_SOLICITANTE_VISIBLE = a.RECURSO_SOLICITANTE_VISIBLE,
+                    RECURSO_MINISTERIO_VISIBLE = a.RECURSO_MINISTERIO_VISIBLE,
+                    CONSTANCIA_DE_EJECUTORIA_VISIBLE = a.CONSTANCIA_DE_EJECUTORIA_VISIBLE,
+                    REVOCATORIA_VISIBLE = a.REVOCATORIA_VISIBLE,
+                    REGISTRO_VISIBLE = a.REGISTRO_VISIBLE,
+                    SOLICITUD_VISIBLE = a.SOLICITUD_VISIBLE,
+                    AUTODEACEPTACION_VISIBLE = a.AUTODEACEPTACION_VISIBLE,
+                    COMUNICACIONES_VISIBLE = a.COMUNICACIONES_VISIBLE,
+                    PUBLICACIONES_VISIBLE = a.PUBLICACIONES_VISIBLE,
+                    AUTODEACEPTACION_COLINDANTE_CORRECTO = a.AUTODEACEPTACION_COLINDANTE_CORRECTO,
+                    COMUNICACIONES_COLINDATES_INCOMPLETOS = a.COMUNICACIONES_COLINDATES_INCOMPLETOS,
+                    RESOLUCION_DATOS_SOLICITANTE_BIEN = a.RESOLUCION_DATOS_SOLICITANTE_BIEN,
+                    RESOLUCION_DATOS_SOLICITANTE_EN = a.RESOLUCION_DATOS_SOLICITANTE_EN,
+
+
                     Estado = true,
                     IdAspNetUser = a.IdAspNetUser,
                     FechaModificacion = DateTime.Now,
@@ -288,6 +310,10 @@ namespace AspNetIdentity.WebApi.Logic
         public List<BaldiosPersonaNaturalModel> Consulta(string id)
         {
             ZonasFEntities Ctx = new ZonasFEntities();
+
+            var Resumen = Ctx.PlResumenTipificacionAll(73, 73, "da825085-c7c2-48b8-ab8f-11637623e1bd") 
+                            .Select(c => c).ToList();
+
             var listaBaldios = Ctx.BaldiosPersonaNatural
                  .Join(Ctx.CaracterizacionJuridica, b => b.id, c => c.IdExpediente, (b, c) => new { b, c })
                  .Where(w => w.c.IdAspNetUser == id).ToList();
@@ -317,6 +343,7 @@ namespace AspNetIdentity.WebApi.Logic
                     IdTipoIdentificacion = c.b.b.IdTipoIdentificacion,
                     Identificacion = c.b.b.Identificacion,
                     IdGenero = c.b.b.IdGenero,
+                    NombreArchivo = Resumen.Where(x=>x.IdExpediente == c.b.b.id).Select(f => f.Grupo).FirstOrDefault(),
                     IdTipoIdentificacionConyuge = c.b.b.IdTipoIdentificacionConyuge,
                     IdentificacionConyuge = c.b.b.IdentificacionConyuge,
                     NombreConyuge = c.b.b.NombreConyuge,
@@ -518,11 +545,31 @@ namespace AspNetIdentity.WebApi.Logic
             CaracterizacionJuridicaModel_.PUBLICACIONES_EMISORAFECHA2 = a.b.PUBLICACIONES_EMISORAFECHA2;
             CaracterizacionJuridicaModel_.PUBLICACIONES_EMISORAFIRMA = a.b.PUBLICACIONES_EMISORAFIRMA;
 
+            CaracterizacionJuridicaModel_.INSPECCION_OCULAR_VISIBLE = a.b.INSPECCION_OCULAR_VISIBLE;
+            CaracterizacionJuridicaModel_.ACLARACION_DE_INSPECCION_VISIBLE = a.b.ACLARACION_DE_INSPECCION_VISIBLE;
+            CaracterizacionJuridicaModel_.FIJACION_EN_LISTA_VISIBLE = a.b.FIJACION_EN_LISTA_VISIBLE;
+            CaracterizacionJuridicaModel_.OPOCISIONES_EN_LISTA_VISIBLE = a.b.OPOCISIONES_EN_LISTA_VISIBLE;
+            CaracterizacionJuridicaModel_.FORMATO_DE_REVISION_JURIDICA_VISIBLE = a.b.FORMATO_DE_REVISION_JURIDICA_VISIBLE;
+            CaracterizacionJuridicaModel_.RESOLUCION_VISIBLE = a.b.RESOLUCION_VISIBLE;
+            CaracterizacionJuridicaModel_.NOTIFICACION_VISIBLE = a.b.NOTIFICACION_VISIBLE;
+            CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_VISIBLE = a.b.RECURSO_SOLICITANTE_VISIBLE;
+            CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_VISIBLE = a.b.RECURSO_MINISTERIO_VISIBLE;
+            CaracterizacionJuridicaModel_.CONSTANCIA_DE_EJECUTORIA_VISIBLE = a.b.CONSTANCIA_DE_EJECUTORIA_VISIBLE;
+            CaracterizacionJuridicaModel_.REVOCATORIA_VISIBLE = a.b.REVOCATORIA_VISIBLE;
+            CaracterizacionJuridicaModel_.REGISTRO_VISIBLE = a.b.REGISTRO_VISIBLE;
+            CaracterizacionJuridicaModel_.SOLICITUD_VISIBLE = a.b.SOLICITUD_VISIBLE;
+            CaracterizacionJuridicaModel_.AUTODEACEPTACION_VISIBLE = a.b.AUTODEACEPTACION_VISIBLE;
+            CaracterizacionJuridicaModel_.COMUNICACIONES_VISIBLE = a.b.COMUNICACIONES_VISIBLE;
+            CaracterizacionJuridicaModel_.PUBLICACIONES_VISIBLE = a.b.PUBLICACIONES_VISIBLE;
+            CaracterizacionJuridicaModel_.AUTODEACEPTACION_COLINDANTE_CORRECTO = a.b.AUTODEACEPTACION_COLINDANTE_CORRECTO;
+            CaracterizacionJuridicaModel_.COMUNICACIONES_COLINDATES_INCOMPLETOS = a.b.COMUNICACIONES_COLINDATES_INCOMPLETOS;
+            CaracterizacionJuridicaModel_.RESOLUCION_DATOS_SOLICITANTE_BIEN = a.b.RESOLUCION_DATOS_SOLICITANTE_BIEN;
+            CaracterizacionJuridicaModel_.RESOLUCION_DATOS_SOLICITANTE_EN = a.b.RESOLUCION_DATOS_SOLICITANTE_EN;
             CaracterizacionJuridicaModel_.Estado = true;
             CaracterizacionJuridicaModel_.IdAspNetUser = a.b.IdAspNetUser;
             CaracterizacionJuridicaModel_.rol = a.Name;
             CaracterizacionJuridicaModel_.NombreIdAspNetUser = a.c.Name + " " + a.c.FirstName + " " + a.c.LastName;
-            CaracterizacionJuridicaModel_.FechaModificacion = a.b.FechaModificacion.ToString();
+            CaracterizacionJuridicaModel_.FechaModificacion = a.b.FechaModificacion;
             CaracterizacionJuridicaModel_.Gestion = a.b.Gestion;
             return CaracterizacionJuridicaModel_;
         }
@@ -672,6 +719,28 @@ namespace AspNetIdentity.WebApi.Logic
                     ResCtx.PUBLICACIONES_EMISORAFECHA1 = a.PUBLICACIONES_EMISORAFECHA1;
                     ResCtx.PUBLICACIONES_EMISORAFECHA2 = a.PUBLICACIONES_EMISORAFECHA2;
                     ResCtx.PUBLICACIONES_EMISORAFIRMA = a.PUBLICACIONES_EMISORAFIRMA;
+
+                    ResCtx.INSPECCION_OCULAR_VISIBLE = a.INSPECCION_OCULAR_VISIBLE;
+                    ResCtx.ACLARACION_DE_INSPECCION_VISIBLE = a.ACLARACION_DE_INSPECCION_VISIBLE;
+                    ResCtx.FIJACION_EN_LISTA_VISIBLE = a.FIJACION_EN_LISTA_VISIBLE;
+                    ResCtx.OPOCISIONES_EN_LISTA_VISIBLE = a.OPOCISIONES_EN_LISTA_VISIBLE;
+                    ResCtx.FORMATO_DE_REVISION_JURIDICA_VISIBLE = a.FORMATO_DE_REVISION_JURIDICA_VISIBLE;
+                    ResCtx.RESOLUCION_VISIBLE = a.RESOLUCION_VISIBLE;
+                    ResCtx.NOTIFICACION_VISIBLE = a.NOTIFICACION_VISIBLE;
+                    ResCtx.RECURSO_SOLICITANTE_VISIBLE = a.RECURSO_SOLICITANTE_VISIBLE;
+                    ResCtx.RECURSO_MINISTERIO_VISIBLE = a.RECURSO_MINISTERIO_VISIBLE;
+                    ResCtx.CONSTANCIA_DE_EJECUTORIA_VISIBLE = a.CONSTANCIA_DE_EJECUTORIA_VISIBLE;
+                    ResCtx.REVOCATORIA_VISIBLE = a.REVOCATORIA_VISIBLE;
+                    ResCtx.REGISTRO_VISIBLE = a.REGISTRO_VISIBLE;
+                    ResCtx.SOLICITUD_VISIBLE = a.SOLICITUD_VISIBLE;
+                    ResCtx.AUTODEACEPTACION_VISIBLE = a.AUTODEACEPTACION_VISIBLE;
+                    ResCtx.COMUNICACIONES_VISIBLE = a.COMUNICACIONES_VISIBLE;
+                    ResCtx.PUBLICACIONES_VISIBLE = a.PUBLICACIONES_VISIBLE;
+                    ResCtx.RESOLUCION_DATOS_SOLICITANTE_BIEN = a.RESOLUCION_DATOS_SOLICITANTE_BIEN;
+                    ResCtx.RESOLUCION_DATOS_SOLICITANTE_EN = a.RESOLUCION_DATOS_SOLICITANTE_EN;
+                    ResCtx.AUTODEACEPTACION_COLINDANTE_CORRECTO = a.AUTODEACEPTACION_COLINDANTE_CORRECTO;
+                    ResCtx.COMUNICACIONES_COLINDATES_INCOMPLETOS = a.COMUNICACIONES_COLINDATES_INCOMPLETOS;
+
 
                     ResCtx.FechaModificacion = DateTime.Now;
                     ResCtx.Gestion = 1;

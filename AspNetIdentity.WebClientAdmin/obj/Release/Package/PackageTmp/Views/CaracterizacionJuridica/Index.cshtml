@@ -68,6 +68,9 @@
                                     Num. Expediente
                                 </th>
                                 <th>
+                                    Grupo
+                                </th>
+                                <th>
                                     Depto
                                 </th>
                                 <th>
@@ -104,8 +107,12 @@
                                     <a target="_blank" href='@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = item.id })' title='Modificar' style='color: #013ADF;'> @Html.DisplayFor(modelItem => item.NumeroExpediente) <i class='fa fa-eye' aria-hidden='true'></i></a>
                                 </td>
                                 <td>
+                                    @Html.DisplayFor(modelItem => item.NombreArchivo)
+                                </td>
+                                <td>
                                     @Html.DisplayFor(modelItem => item.NombreIdDepto)
                                 </td>
+
                                 <td>
                                     @Html.DisplayFor(modelItem => item.NombreIdCiudad)
                                 </td>
@@ -123,7 +130,7 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.IdAspNetUser)
                                 </td>
-                                
+
                                 <td>
                                     @if (item.IdCiudad == null)
                                     {
