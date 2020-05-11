@@ -162,7 +162,7 @@ namespace AspNetIdentity.Models
 
         [Required(ErrorMessage = " * Requerido ")]
         ///[Required(ErrorMessage = " * Requerido RESOLUCION_DATOS_SOLICITANTE_EN ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Range(0, int.MaxValue, ErrorMessage = "* Requerido .")]
         public Nullable<int> RESOLUCION_DATOS_SOLICITANTE_EN { get; set; }
 
         [Required(ErrorMessage = " * Requerido ")]

@@ -475,6 +475,7 @@
                                         @Html.ValidationMessageFor(model => model.PUBLICACIONES_ALCALDIADESFIJACION, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
+                                
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">Firma</label>
@@ -486,6 +487,9 @@
                                         @Html.ValidationMessageFor(model => model.PUBLICACIONES_ALCALDIAFIRMA, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
+                                <br>
+                                <br>
+                                <br>
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">Publicaciones Incoder</label>
@@ -522,6 +526,9 @@
                                         @Html.ValidationMessageFor(model => model.PUBLICACIONES_INCODERFIRMA, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
+                                <br>
+                                <br>
+                                <br>
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">Publicaciones Emisora</label>
@@ -2228,7 +2235,6 @@
                     });
                 }
             ///
-            function iniciales2(){}
             function iniciales(){
                 /// SOLICITUD
 
@@ -2319,34 +2325,33 @@
                     }
                 /// PUBLICACIONES
                     if ($("#PUBLICACIONES_ALCALDIA").val() == "False" || $("#PUBLICACIONES_ALCALDIA").val() == "") {
-
                         $('#PUBLICACIONES_VISIBLE').prop("disabled", true);
                         $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').prop("disabled", true);
                         $('#PUBLICACIONES_ALCALDIADESFIJACION').prop("disabled", true);
                         $('#PUBLICACIONES_ALCALDIAFIRMA').prop("disabled", true);
-                        $('#PUBLICACIONES_INCODER').prop("disabled", true);
-                        $('#PUBLICACIONES_INCODERFECHAFIJACION').prop("disabled", true);
-                        $('#PUBLICACIONES_INCODERDESFIJACION').prop("disabled", true);
-                        $('#PUBLICACIONES_INCODERFIRMA').prop("disabled", true);
-                        $('#PUBLICACIONES_EMISORA').prop("disabled", true);
-                        $('#PUBLICACIONES_EMISORAFECHA1').prop("disabled", true);
-                        $('#PUBLICACIONES_EMISORAFECHA2').prop("disabled", true);
-                        $('#PUBLICACIONES_EMISORAFIRMA').prop("disabled", true);
                     }else{
-
                         $('#PUBLICACIONES_VISIBLE').prop("disabled", false);
                         $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').prop("disabled", false);
                         $('#PUBLICACIONES_ALCALDIADESFIJACION').prop("disabled", false);
                         $('#PUBLICACIONES_ALCALDIAFIRMA').prop("disabled", false);
-                        $('#PUBLICACIONES_INCODER').prop("disabled", false);
+                    }
+                    if ($("#PUBLICACIONES_INCODER").val() == "False" || $("#PUBLICACIONES_INCODER").val() == "") {
+                        $('#PUBLICACIONES_INCODERFECHAFIJACION').prop("disabled", true);
+                        $('#PUBLICACIONES_INCODERDESFIJACION').prop("disabled", true);
+                        $('#PUBLICACIONES_INCODERFIRMA').prop("disabled", true);
+                    }else{
                         $('#PUBLICACIONES_INCODERFECHAFIJACION').prop("disabled", false);
                         $('#PUBLICACIONES_INCODERDESFIJACION').prop("disabled", false);
                         $('#PUBLICACIONES_INCODERFIRMA').prop("disabled", false);
-                        $('#PUBLICACIONES_EMISORA').prop("disabled", false);
+                    }
+                    if ($("#PUBLICACIONES_EMISORA").val() == "False" || $("#PUBLICACIONES_EMISORA").val() == "") {
+                        $('#PUBLICACIONES_EMISORAFECHA1').prop("disabled", true);
+                        $('#PUBLICACIONES_EMISORAFECHA2').prop("disabled", true);
+                        $('#PUBLICACIONES_EMISORAFIRMA').prop("disabled", true);
+                    }else{
                         $('#PUBLICACIONES_EMISORAFECHA1').prop("disabled", false);
                         $('#PUBLICACIONES_EMISORAFECHA2').prop("disabled", false);
                         $('#PUBLICACIONES_EMISORAFIRMA').prop("disabled", false);
-
                     }
                 /// INSPECCION_OCULAR
                     if ($("#INSPECCION_OCULAR_INSPECCION_OCULAR_53").val() == "False" || $("#INSPECCION_OCULAR_INSPECCION_OCULAR_53").val() == "") {
@@ -2807,7 +2812,6 @@
                         $('#RESOLUCION_DECISION_78').val("@Model.RESOLUCION_DECISION_78");
                         $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').val("@Model.RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79");
                         $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').val("@Model.RESOLUCION_CONJUNTA_INDIVIDUAL_80");
-                        $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').val("@Model.RESOLUCION_CONJUNTA_INDIVIDUAL_80");
                         $('#RESOLUCION_DATOS_SOLICITANTE_BIEN').val("@Model.RESOLUCION_DATOS_SOLICITANTE_BIEN");
                         $('#RESOLUCION_DATOS_SOLICITANTE_EN').val("@Model.RESOLUCION_DATOS_SOLICITANTE_EN");
                     /// NOTIFICACION    
@@ -2965,38 +2969,48 @@
                                 }
                             /// COMUNICACIONES
                                 if ($("#COMUNICACIONES_SOLICITANTE").val() == "False") {
-                                        $('#COMUNICACIONES_VISIBLE').val("2");
-                                        $('#COMUNICACIONES_SOLICITANTEFECHA').val("1753-01-01");
-                                        $('#COMUNICACIONES_SOLICITANTEFIRMA').val("False");
-                                        $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').val("1753-01-01");
-                                        $('#COMUNICACIONES_PROCURADOR').val("False");
-                                        $('#COMUNICACIONES_PROCURADORFECHA').val("1753-01-01");
-                                        $('#COMUNICACIONES_PROCURADORFIRMA').val("False");
-                                        $('#COMUNICACIONES_AUTORIDADAMBIENTAL').val("False");
-                                        $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').val("1753-01-01");
-                                        $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').val("False");
-                                        $('#COMUNICACIONES_COLINDATES').val("2");
-                                        $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').val("999");
-                                        $('#COMUNICACIONES_COLINDATESFECHA').val("1753-01-01");
-                                        $('#COMUNICACIONES_COLINDATESFIRMA').val("False");
+                                    $('#COMUNICACIONES_VISIBLE').val("2");
+                                    $('#COMUNICACIONES_SOLICITANTEFECHA').val("1753-01-01");
+                                    $('#COMUNICACIONES_SOLICITANTEFIRMA').val("False");
+                                    $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').val("1753-01-01");
+                                    $('#COMUNICACIONES_PROCURADOR').val("False");
+                                    $('#COMUNICACIONES_PROCURADORFECHA').val("1753-01-01");
+                                    $('#COMUNICACIONES_PROCURADORFIRMA').val("False");
+                                    $('#COMUNICACIONES_AUTORIDADAMBIENTAL').val("False");
+                                    $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').val("1753-01-01");
+                                    $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').val("False");
+                                    $('#COMUNICACIONES_COLINDATES').val("2");
+                                    $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').val("999");
+                                    $('#COMUNICACIONES_COLINDATESFECHA').val("1753-01-01");
+                                    $('#COMUNICACIONES_COLINDATESFIRMA').val("False");
 
                                 }
+                                if ($("#COMUNICACIONES_COLINDATES").val() != "3") {
+                                    $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').val("999");
+                                }
+
+
+
                             /// PUBLICACIONES
-                                if ($("#PUBLICACIONES_ALCALDIA").val() == "False") {
-                                        $('#PUBLICACIONES_VISIBLE').val("2");
-                                        $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').val("1753-01-01");
-                                        $('#PUBLICACIONES_ALCALDIADESFIJACION').val("1753-01-01");
-                                        $('#PUBLICACIONES_ALCALDIAFIRMA').val("False");
-                                        $('#PUBLICACIONES_INCODER').val("False");
-                                        $('#PUBLICACIONES_INCODERFECHAFIJACION').val("1753-01-01");
-                                        $('#PUBLICACIONES_INCODERDESFIJACION').val("1753-01-01");
-                                        $('#PUBLICACIONES_INCODERFIRMA').val("False");
-                                        $('#PUBLICACIONES_EMISORA').val("False");
-                                        $('#PUBLICACIONES_EMISORAFECHA1').val("1753-01-01");
-                                        $('#PUBLICACIONES_EMISORAFECHA2').val("1753-01-01");
-                                        $('#PUBLICACIONES_EMISORAFIRMA').val("False");
 
+                                if ($("#PUBLICACIONES_ALCALDIA").val() == "False") {
+                                    $('#PUBLICACIONES_VISIBLE').val("2");
+                                    $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').val("1753-01-01");
+                                    $('#PUBLICACIONES_ALCALDIADESFIJACION').val("1753-01-01");
+                                    $('#PUBLICACIONES_ALCALDIAFIRMA').val("False");
                                 }
+                                if ($("#PUBLICACIONES_INCODER").val() == "False" || $("#PUBLICACIONES_INCODER").val() == "") {
+                                    $('#PUBLICACIONES_INCODERFECHAFIJACION').val("1753-01-01");
+                                    $('#PUBLICACIONES_INCODERDESFIJACION').val("1753-01-01");
+                                    $('#PUBLICACIONES_INCODERFIRMA').val("False");
+                                }
+                                if ($("#PUBLICACIONES_EMISORA").val() == "False" || $("#PUBLICACIONES_EMISORA").val() == "") {
+                                    $('#PUBLICACIONES_EMISORA').val("False");
+                                    $('#PUBLICACIONES_EMISORAFECHA1').val("1753-01-01");
+                                    $('#PUBLICACIONES_EMISORAFECHA2').val("1753-01-01");
+                                    $('#PUBLICACIONES_EMISORAFIRMA').val("False");
+                                }
+
                             /// INSPECCION_OCULAR
                                 if ($("#INSPECCION_OCULAR_INSPECCION_OCULAR_53").val() == "False") {
                                     $('#INSPECCION_OCULAR_VISIBLE').val("2");
@@ -3046,10 +3060,10 @@
                                     $('#RESOLUCION_FECHA_DE_RESOLUCION_76').val("1753-01-01");
                                     $('#RESOLUCION_FIRMADA_77').val("False");
                                     $("#RESOLUCION_DECISION_78").append('<option selected  value="1"> 1 </option>');
-                                    $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').val("0");
+                                    $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').val("1");
                                     $("#RESOLUCION_CONJUNTA_INDIVIDUAL_80").append('<option selected  value="1"> 1 </option>');
                                     $('#RESOLUCION_DATOS_SOLICITANTE_BIEN').val("2");
-                                    $('#RESOLUCION_DATOS_SOLICITANTE_EN').val("0");
+                                    $('#RESOLUCION_DATOS_SOLICITANTE_EN').val("1");
 
                                 }
                             /// NOTIFICACION_NOTIFICACION_SOLICITANTES
@@ -3348,7 +3362,7 @@
 
 
                         }else{
-
+                            alert("ok");
                                 $('#COMUNICACIONES_VISIBLE').prop("disabled", false);
                                 $('#COMUNICACIONES_SOLICITANTEFECHA').prop("disabled", false);
                                 $('#COMUNICACIONES_SOLICITANTEFIRMA').prop("disabled", false);
@@ -3379,34 +3393,16 @@
                 /// PUBLICACIONES
 
                     $("#PUBLICACIONES_ALCALDIA").change(function () {
-
                         if ($(this).val() == "False") {
                                 $('#PUBLICACIONES_VISIBLE').prop("disabled", true);
                                 $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').prop("disabled", true);
                                 $('#PUBLICACIONES_ALCALDIADESFIJACION').prop("disabled", true);
                                 $('#PUBLICACIONES_ALCALDIAFIRMA').prop("disabled", true);
-                                $('#PUBLICACIONES_INCODER').prop("disabled", true);
-                                $('#PUBLICACIONES_INCODERFECHAFIJACION').prop("disabled", true);
-                                $('#PUBLICACIONES_INCODERDESFIJACION').prop("disabled", true);
-                                $('#PUBLICACIONES_INCODERFIRMA').prop("disabled", true);
-                                $('#PUBLICACIONES_EMISORA').prop("disabled", true);
-                                $('#PUBLICACIONES_EMISORAFECHA1').prop("disabled", true);
-                                $('#PUBLICACIONES_EMISORAFECHA2').prop("disabled", true);
-                                $('#PUBLICACIONES_EMISORAFIRMA').prop("disabled", true);
 
                                 $('#PUBLICACIONES_VISIBLE').val("0");
                                 $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').val("1753-01-01");
                                 $('#PUBLICACIONES_ALCALDIADESFIJACION').val("1753-01-01");
                                 $('#PUBLICACIONES_ALCALDIAFIRMA').val("False");
-                                $('#PUBLICACIONES_INCODER').val("False");
-                                $('#PUBLICACIONES_INCODERFECHAFIJACION').val("1753-01-01");
-                                $('#PUBLICACIONES_INCODERDESFIJACION').val("1753-01-01");
-                                $('#PUBLICACIONES_INCODERFIRMA').val("False");
-                                $('#PUBLICACIONES_EMISORA').val("False");
-                                $('#PUBLICACIONES_EMISORAFECHA1').val("1753-01-01");
-                                $('#PUBLICACIONES_EMISORAFECHA2').val("1753-01-01");
-                                $('#PUBLICACIONES_EMISORAFIRMA').val("False");
-
 
                         }else{
 
@@ -3414,10 +3410,44 @@
                                 $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').prop("disabled", false);
                                 $('#PUBLICACIONES_ALCALDIADESFIJACION').prop("disabled", false);
                                 $('#PUBLICACIONES_ALCALDIAFIRMA').prop("disabled", false);
-                                $('#PUBLICACIONES_INCODER').prop("disabled", false);
+
+                        }
+                    });
+
+                    $("#PUBLICACIONES_INCODER").change(function () {
+                        if ($(this).val() == "False") {
+                                $('#PUBLICACIONES_INCODER').prop("disabled", true);
+                                $('#PUBLICACIONES_INCODERFECHAFIJACION').prop("disabled", true);
+                                $('#PUBLICACIONES_INCODERDESFIJACION').prop("disabled", true);
+                                $('#PUBLICACIONES_INCODERFIRMA').prop("disabled", true);
+
+                                $('#PUBLICACIONES_INCODER').val("False");
+                                $('#PUBLICACIONES_INCODERFECHAFIJACION').val("1753-01-01");
+                                $('#PUBLICACIONES_INCODERDESFIJACION').val("1753-01-01");
+                                $('#PUBLICACIONES_INCODERFIRMA').val("False");
+                        }else{
+
                                 $('#PUBLICACIONES_INCODERFECHAFIJACION').prop("disabled", false);
                                 $('#PUBLICACIONES_INCODERDESFIJACION').prop("disabled", false);
                                 $('#PUBLICACIONES_INCODERFIRMA').prop("disabled", false);
+
+                        }
+                    });
+
+                    $("#PUBLICACIONES_EMISORA").change(function () {
+                        if ($(this).val() == "False") {
+                                $('#PUBLICACIONES_EMISORA').prop("disabled", true);
+                                $('#PUBLICACIONES_EMISORAFECHA1').prop("disabled", true);
+                                $('#PUBLICACIONES_EMISORAFECHA2').prop("disabled", true);
+                                $('#PUBLICACIONES_EMISORAFIRMA').prop("disabled", true);
+
+                                $('#PUBLICACIONES_EMISORA').val("False");
+                                $('#PUBLICACIONES_EMISORAFECHA1').val("1753-01-01");
+                                $('#PUBLICACIONES_EMISORAFECHA2').val("1753-01-01");
+                                $('#PUBLICACIONES_EMISORAFIRMA').val("False");
+
+                        }else{
+
                                 $('#PUBLICACIONES_EMISORA').prop("disabled", false);
                                 $('#PUBLICACIONES_EMISORAFECHA1').prop("disabled", false);
                                 $('#PUBLICACIONES_EMISORAFECHA2').prop("disabled", false);
@@ -3570,7 +3600,7 @@
                             $('#RESOLUCION_FECHA_DE_RESOLUCION_76').val("1753-01-01");
                             $('#RESOLUCION_FIRMADA_77').val("False");
                             $("#RESOLUCION_DECISION_78").val("");
-                            $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').val("0");
+                            $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').val("1");
                             $("#RESOLUCION_CONJUNTA_INDIVIDUAL_80").val("");
                             $('#RESOLUCION_DATOS_SOLICITANTE_BIEN').val("0");
                             $('#RESOLUCION_DATOS_SOLICITANTE_EN').val("0");
