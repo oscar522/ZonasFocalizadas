@@ -12,675 +12,521 @@ namespace AspNetIdentity.Models
 
         public long Id { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido IdExpediente ")]
+        [Required(ErrorMessage = "")]
         public long IdExpediente { get; set; }
 
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido INSPECCION_OCULAR_INSPECCION_OCULAR_53 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> INSPECCION_OCULAR_INSPECCION_OCULAR_53 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido INSPECCION_OCULAR_FECHA_54 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> INSPECCION_OCULAR_FECHA_54 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido INSPECCION_OCULAR_FIRMA_55 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> INSPECCION_OCULAR_FIRMA_55 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido INSPECCION_OCULAR_OPOSICIONES_56 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> INSPECCION_OCULAR_OPOSICIONES_56 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido INSPECCION_OCULAR_CONCEPTO_57 ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> INSPECCION_OCULAR_CONCEPTO_57 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido INSPECCION_OCULAR_VISIBLE ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> INSPECCION_OCULAR_VISIBLE { get; set; }
 
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido ACLARACION_DE_INSPECCION_OCULAR_FECHA_59 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> ACLARACION_DE_INSPECCION_OCULAR_FECHA_59 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61 ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido ACLARACION_DE_INSPECCION_VISIBLE ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> ACLARACION_DE_INSPECCION_VISIBLE { get; set; }
 
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido FIJACION_EN_LISTA_FIJACION_EN_LISTA_64 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> FIJACION_EN_LISTA_FIJACION_EN_LISTA_64 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido FIJACION_EN_LISTA_FECHA_DE_FIJACION_65 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> FIJACION_EN_LISTA_FECHA_DE_FIJACION_65 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido FIJACION_EN_LISTA_FIRMA_67 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> FIJACION_EN_LISTA_FIRMA_67 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido FIJACION_EN_LISTA_VISIBLE ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> FIJACION_EN_LISTA_VISIBLE { get; set; }
 
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido OPOCISIONES_OPOCISIONES_68 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> OPOCISIONES_OPOCISIONES_68 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido OPOCISIONES_FECHA_69 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> OPOCISIONES_FECHA_69 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido OPOCISIONES_EN_LISTA_VISIBLE ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> OPOCISIONES_EN_LISTA_VISIBLE { get; set; }
 
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido FORMATO_DE_REVISION_JURIDICA_FECHA_71 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> FORMATO_DE_REVISION_JURIDICA_FECHA_71 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido FORMATO_DE_REVISION_JURIDICA_FIRMADA_72 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> FORMATO_DE_REVISION_JURIDICA_FIRMADA_72 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73 ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido FORMATO_DE_REVISION_JURIDICA_VISIBLE ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> FORMATO_DE_REVISION_JURIDICA_VISIBLE { get; set; }
 
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RESOLUCION_RESOLUCION_74 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> RESOLUCION_RESOLUCION_74 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RESOLUCION_NUMERO_DE_RESOLUCION_75 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<long> RESOLUCION_NUMERO_DE_RESOLUCION_75 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RESOLUCION_FECHA_DE_RESOLUCION_76 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> RESOLUCION_FECHA_DE_RESOLUCION_76 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RESOLUCION_FIRMADA_77 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> RESOLUCION_FIRMADA_77 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RESOLUCION_DECISION_78 ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> RESOLUCION_DECISION_78 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RESOLUCION_DATOS_SOLICITANTE_BIEN ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> RESOLUCION_DATOS_SOLICITANTE_BIEN { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RESOLUCION_DATOS_SOLICITANTE_EN ")]
-        [Range(0, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(0, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> RESOLUCION_DATOS_SOLICITANTE_EN { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<long> RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RESOLUCION_CONJUNTA_INDIVIDUAL_80 ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> RESOLUCION_CONJUNTA_INDIVIDUAL_80 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RESOLUCION_VISIBLE ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> RESOLUCION_VISIBLE { get; set; }
 
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido NOTIFICACION_NOTIFICACION_SOLICITANTES_81 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> NOTIFICACION_NOTIFICACION_SOLICITANTES_81 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido NOTIFICACION_VISIBLE ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> NOTIFICACION_VISIBLE { get; set; }
 
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_DECISION_N_1 ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> RECURSO_SOLICITANTE_DECISION_N_1 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_FIRMADA_88 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> RECURSO_SOLICITANTE_FIRMADA_88 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_ACTO_89 ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> RECURSO_SOLICITANTE_ACTO_89 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_NUMERO_90 ")]
+        [Required(ErrorMessage = "")]
         public string RECURSO_SOLICITANTE_NUMERO_90 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_FECHA_91 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_91 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92 ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3 ")]
+        [Required(ErrorMessage = "")]
         public string RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6 ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6 ")]
+        [Required(ErrorMessage = "")]
         public string RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_CONJUNA_IND_N_7 ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> RECURSO_SOLICITANTE_CONJUNA_IND_N_7 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_SOLICITANTE_VISIBLE ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> RECURSO_SOLICITANTE_VISIBLE { get; set; }
 
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_RECURSO_MINISTERIO_85 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> RECURSO_MINISTERIO_RECURSO_MINISTERIO_85 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_RESPUESTA_RECURSO_87 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> RECURSO_MINISTERIO_RESPUESTA_RECURSO_87 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_DECISION_N_1 ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> RECURSO_MINISTERIO_DECISION_N_1 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_FIRMADA_88 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> RECURSO_MINISTERIO_FIRMADA_88 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_ACTO_89 ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> RECURSO_MINISTERIO_ACTO_89 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_NUMERO_90 ")]
+        [Required(ErrorMessage = "")]
         public string RECURSO_MINISTERIO_NUMERO_90 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_FECHA_91 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> RECURSO_MINISTERIO_FECHA_91 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92 ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3 ")]
+        [Required(ErrorMessage = "")]
         public string RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6 ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6 ")]
+        [Required(ErrorMessage = "")]
         public string RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_CONJUNA_IND_N_7 ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> RECURSO_MINISTERIO_CONJUNA_IND_N_7 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido RECURSO_MINISTERIO_VISIBLE ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> RECURSO_MINISTERIO_VISIBLE { get; set; }
 
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido CONSTANCIA_DE_EJECUTORIA_FIRMADA_111 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> CONSTANCIA_DE_EJECUTORIA_FIRMADA_111 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION ")]
+        [Required(ErrorMessage = "")]
         public string CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido CONSTANCIA_DE_EJECUTORIA_VISIBLE ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> CONSTANCIA_DE_EJECUTORIA_VISIBLE { get; set; }
 
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido REVOCATORIA_REVOCATORIA_113 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> REVOCATORIA_REVOCATORIA_113 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido REVOCATORIA_NUMERO_RESOLUCION_114 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<long> REVOCATORIA_NUMERO_RESOLUCION_114 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido REVOCATORIA_FECHA_DE_RESOLUCION_115 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> REVOCATORIA_FECHA_DE_RESOLUCION_115 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido REVOCATORIA_VISIBLE ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> REVOCATORIA_VISIBLE { get; set; }
 
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido REGISTRO_FMI_ ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> REGISTRO_FMI_ { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido REGISTRO_FMI ")]
+        [Required(ErrorMessage = "")]
         public string REGISTRO_FMI { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido REGISTRO_FECHA_DE_REGISTRO_117 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> REGISTRO_FECHA_DE_REGISTRO_117 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido REGISTRO_NUMERO_DE_RESOLUCION_118 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<long> REGISTRO_NUMERO_DE_RESOLUCION_118 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido REGISTRO_FECHA_DE_RESOLUCION_119 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> REGISTRO_FECHA_DE_RESOLUCION_119 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido REGISTRO_VISIBLE ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> REGISTRO_VISIBLE { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido SOLICITUD_SOLICITUD ")]
+        [Required(ErrorMessage = "")]
 
         public Nullable<bool> SOLICITUD_SOLICITUD { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido SOLICITUD_FECHA ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> SOLICITUD_FECHA { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido SOLICITUD_FIRMA ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> SOLICITUD_FIRMA { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido SOLICITUD_TIPO_SOLICITUD ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> SOLICITUD_TIPO_SOLICITUD { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido SOLICITUD_CEDULA_SOLICITANTE ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> SOLICITUD_CEDULA_SOLICITANTE { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido SOLICITUD_CEDULA_CONYUGE ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> SOLICITUD_CEDULA_CONYUGE { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido SOLICITUD_CEDULA_PARIENTE ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> SOLICITUD_CEDULA_PARIENTE { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido SOLICITUD_VISIBLE ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> SOLICITUD_VISIBLE { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido AUTODEACEPTACION_AUTODEACEPTACION ")]
+        [Required(ErrorMessage = "")]
 
         public Nullable<bool> AUTODEACEPTACION_AUTODEACEPTACION { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido AUTODEACEPTACION_FECHA ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> AUTODEACEPTACION_FECHA { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido AUTODEACEPTACION_FIRMA ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> AUTODEACEPTACION_FIRMA { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido AUTODEACEPTACION_DATOSPREDIOSCORRECTO ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> AUTODEACEPTACION_DATOSPREDIOSCORRECTO { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido AUTODEACEPTACION_COLINDANTE_CORRECTO ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> AUTODEACEPTACION_COLINDANTE_CORRECTO { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido AUTODEACEPTACION_VISIBLE ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> AUTODEACEPTACION_VISIBLE { get; set; }
 
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido COMUNICACIONES_SOLICITANTE ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> COMUNICACIONES_SOLICITANTE { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido COMUNICACIONES_SOLICITANTEFECHA ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> COMUNICACIONES_SOLICITANTEFECHA { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido COMUNICACIONES_SOLICITANTEFIRMA ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> COMUNICACIONES_SOLICITANTEFIRMA { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido COMUNICACIONES_FECHAINSPECCIONOCULAR ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> COMUNICACIONES_FECHAINSPECCIONOCULAR { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido COMUNICACIONES_PROCURADOR ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> COMUNICACIONES_PROCURADOR { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido COMUNICACIONES_PROCURADORFECHA ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> COMUNICACIONES_PROCURADORFECHA { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido COMUNICACIONES_PROCURADORFIRMA ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> COMUNICACIONES_PROCURADORFIRMA { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido COMUNICACIONES_AUTORIDADAMBIENTAL ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> COMUNICACIONES_AUTORIDADAMBIENTAL { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido COMUNICACIONES_AUTORIDADAMBIENTALFECHA ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> COMUNICACIONES_AUTORIDADAMBIENTALFECHA { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido COMUNICACIONES_AUTORIDADAMBIENTALFIRMA ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> COMUNICACIONES_AUTORIDADAMBIENTALFIRMA { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido COMUNICACIONES_COLINDATES ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> COMUNICACIONES_COLINDATES { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido COMUNICACIONES_COLINDATES_INCOMPLETOS ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> COMUNICACIONES_COLINDATES_INCOMPLETOS { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido COMUNICACIONES_COLINDATESFECHA ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> COMUNICACIONES_COLINDATESFECHA { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido COMUNICACIONES_COLINDATESFIRMA ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> COMUNICACIONES_COLINDATESFIRMA { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido COMUNICACIONES_VISIBLE ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> COMUNICACIONES_VISIBLE { get; set; }
 
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido PUBLICACIONES_ALCALDIA ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> PUBLICACIONES_ALCALDIA { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido PUBLICACIONES_ALCALDIAFECHAFIJACION ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> PUBLICACIONES_ALCALDIAFECHAFIJACION { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido PUBLICACIONES_ALCALDIADESFIJACION ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> PUBLICACIONES_ALCALDIADESFIJACION { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido PUBLICACIONES_ALCALDIAFIRMA ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> PUBLICACIONES_ALCALDIAFIRMA { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido PUBLICACIONES_INCODER ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> PUBLICACIONES_INCODER { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido PUBLICACIONES_INCODERFECHAFIJACION ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> PUBLICACIONES_INCODERFECHAFIJACION { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido PUBLICACIONES_INCODERDESFIJACION ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> PUBLICACIONES_INCODERDESFIJACION { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido PUBLICACIONES_INCODERFIRMA ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> PUBLICACIONES_INCODERFIRMA { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido PUBLICACIONES_EMISORA ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> PUBLICACIONES_EMISORA { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido PUBLICACIONES_EMISORAFECHA1 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> PUBLICACIONES_EMISORAFECHA1 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido PUBLICACIONES_EMISORAFECHA2 ")]
+        [Required(ErrorMessage = "")]
         public Nullable<System.DateTime> PUBLICACIONES_EMISORAFECHA2 { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido PUBLICACIONES_EMISORAFIRMA ")]
+        [Required(ErrorMessage = "")]
         public Nullable<bool> PUBLICACIONES_EMISORAFIRMA { get; set; }
 
-        [Required(ErrorMessage = " * Requerido ")]
-        ///[Required(ErrorMessage = " * Requerido PUBLICACIONES_VISIBLE ")]
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Required(ErrorMessage = "")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> PUBLICACIONES_VISIBLE { get; set; }
 
         public string NombreINSPECCION_OCULAR_CONCEPTO_57 { get; set; }
@@ -706,7 +552,7 @@ namespace AspNetIdentity.Models
         public string IdAspNetUser { get; set; }
         public string rol { get; set; }
         public System.DateTime FechaModificacion { get; set; }
-        [Range(1, int.MaxValue, ErrorMessage = "* Requerido .")]
+        [Range(1, int.MaxValue, ErrorMessage = "")]
         public Nullable<int> Gestion { get; set; }
 
 
