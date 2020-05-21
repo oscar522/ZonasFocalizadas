@@ -373,39 +373,45 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdExpediente" Type="bigint" />
+    <Property Name="DocVisibleSol" Type="int" />
+    <Property Name="CedulaExpSol" Type="int" />
     <Property Name="NombreSolicitante" Type="varchar(max)" />
     <Property Name="TipoDocumento" Type="int" />
     <Property Name="NumeroIdentificacion" Type="bigint" />
+    <Property Name="DocVisibleCon" Type="int" />
+    <Property Name="CedulaExpCon" Type="int" />
     <Property Name="NombreConyuge" Type="varchar(max)" />
     <Property Name="TipoDocumentoConyuge" Type="int" />
     <Property Name="NumeroIdentificacionConyuge" Type="bigint" />
     <Property Name="FechaExpedicionSolicitante" Type="date" />
     <Property Name="FechaExpedicionConyuge" Type="date" />
     <Property Name="FModificacionExp" Type="datetime" />
-    <Property Name="VFechaSolicitante" Type="date" />
+    <Property Name="VFechaSolicitante" Type="datetime" />
     <Property Name="VArchivoSolicitante" Type="varchar(max)" />
     <Property Name="VFechaConyuge" Type="date" />
     <Property Name="VArchivoConyuge" Type="varchar(max)" />
     <Property Name="VVivoSolicitante" Type="int" />
     <Property Name="VVivoConyuge" Type="int" />
-    <Property Name="VFModificacion" Type="datetime" />
-    <Property Name="PFechaSolicitante" Type="date" />
+    <Property Name="PFechaSolicitante" Type="datetime" />
     <Property Name="PArchivoSolicitante" Type="varchar(max)" />
-    <Property Name="PFechaConyuge" Type="date" />
+    <Property Name="PInhabilidadSolicitante" Type="int" />
+    <Property Name="PFechaConyuge" Type="datetime" />
     <Property Name="PArchivoConyuge" Type="varchar(max)" />
-    <Property Name="PFModificacion" Type="datetime" />
-    <Property Name="CFechaSolicitante" Type="date" />
+    <Property Name="PInhabilidadConyuge" Type="int" />
+    <Property Name="CFechaSolicitante" Type="datetime" />
     <Property Name="CArchivoSolicitante" Type="varchar(max)" />
-    <Property Name="CFechaConyuge" Type="date" />
+    <Property Name="CInhabilidadSolicitante" Type="int" />
+    <Property Name="CFechaConyuge" Type="datetime" />
     <Property Name="CArchivoConyuge" Type="varchar(max)" />
-    <Property Name="CFModificacion" Type="datetime" />
-    <Property Name="AFechaSolicitante" Type="date" />
+    <Property Name="CInhabilidadConyuge" Type="int" />
+    <Property Name="AFechaSolicitante" Type="datetime" />
     <Property Name="AArchivoSolicitante" Type="varchar(max)" />
-    <Property Name="AFechaConyuge" Type="date" />
+    <Property Name="AInhabilidadSolicitante" Type="int" />
+    <Property Name="AFechaConyuge" Type="datetime" />
     <Property Name="AArchivoConyuge" Type="varchar(max)" />
-    <Property Name="AFModificacion" Type="datetime" />
+    <Property Name="AInhabilidadConyuge" Type="int" />
     <Property Name="Gestion" Type="int" />
-    <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" />
+    <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="Estado" Type="bit" />
     <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>

@@ -19,60 +19,83 @@ namespace AspNetIdentity.Models
     {
         public int Id { get; set; }
         public Nullable<long> IdExpediente { get; set; }
+        public string NumeroExpediente { get; set; }
+        public int IdDepto { get; set; }
+        public string NombreDepto { get; set; }
+        public int IdMunicipio { get; set; }
+        public string NombreMunicipio { get; set; }
+
+
         public string NombreSolicitanteExpediente { get; set; }
         public string DocSolicitanteExpediente { get; set; }
         public int IdTipoDocSolicitanteExpediente { get; set; }
         public string TipoDocSolicitanteExpediente { get; set; }
-        public string FechaExpedicionSolicitante { get; set; }
-        public string FechaExpedicionConyuge { get; set; }
 
         public string NombreConyugeExpediente { get; set; }
         public string DocConyugeExpediente { get; set; }
         public int IdTipoDocConyugeExpediente { get; set; }
         public string TipoDocConyugeExpediente { get; set; }
 
-        public string NumeroExpediente { get; set; }
+        public Nullable<int> CedulaExpSol { get; set; }
+        public Nullable<int> DocVisibleSol { get; set; }
         public string NombreSolicitante { get; set; }
         public Nullable<int> TipoDocumento { get; set; }
         public string NombreTipoDocumento { get; set; }
         public Nullable<long> NumeroIdentificacion { get; set; }
+        public string FechaExpedicionSolicitante { get; set; }
+
+        public Nullable<int> CedulaExpCon { get; set; }
+        public Nullable<int> DocVisibleCon { get; set; }
         public string NombreConyuge { get; set; }
         public Nullable<int> TipoDocumentoConyuge { get; set; }
         public string NombreTipoDocumentoConyuge { get; set; }
         public Nullable<long> NumeroIdentificacionConyuge { get; set; }
+        public string FechaExpedicionConyuge { get; set; }
+
 
         public string VFechaSolicitante { get; set; }
         public HttpPostedFileBase VArchivoSolicitante { get; set; }
         public string VArchivoSolicitanteNombre { get; set; }
+        public Nullable<int> VVivoSolicitante { get; set; }
+
+
         public string VFechaConyuge { get; set; }
         public HttpPostedFileBase VArchivoConyuge { get; set; }
         public string VArchivoConyugeNombre { get; set; }
-        public Nullable<int> VvivoSolicitante { get; set; }
-        public Nullable<int> VvivoConyuge { get; set; }
+        public Nullable<int> VVivoConyuge { get; set; }
+
 
         public string  PFechaSolicitante { get; set; }
         public HttpPostedFileBase PArchivoSolicitante { get; set; }
         public string PArchivoSolicitanteNombre { get; set; }
+        public Nullable<int> PInhabilidadSolicitante { get; set; }
+
         public string PFechaConyuge { get; set; }
         public HttpPostedFileBase PArchivoConyuge { get; set; }
         public string PArchivoConyugeNombre { get; set; }
+        public Nullable<int> PInhabilidadConyuge { get; set; }
 
 
         public string CFechaSolicitante { get; set; }
         public HttpPostedFileBase CArchivoSolicitante { get; set; }
         public string CArchivoSolicitanteNombre { get; set; }
+        public Nullable<int> CInhabilidadSolicitante { get; set; }
+
         public string CFechaConyuge { get; set; }
         public HttpPostedFileBase CArchivoConyuge { get; set; }
         public string CArchivoConyugeNombre { get; set; }
+        public Nullable<int> CInhabilidadConyuge { get; set; }
 
 
         public string AFechaSolicitante { get; set; }
         public HttpPostedFileBase AArchivoSolicitante { get; set; }
         public string AArchivoSolicitanteNombre { get; set; }
+        public Nullable<int> AInhabilidadSolicitante { get; set; }
+
         public string AFechaConyuge { get; set; }
         public HttpPostedFileBase AArchivoConyuge { get; set; }
         public string AArchivoConyugeNombre { get; set; }
-
+        public Nullable<int> AInhabilidadConyuge { get; set; }
 
 
         public Nullable<int> Gestion { get; set; }
@@ -80,12 +103,6 @@ namespace AspNetIdentity.Models
         public string NombretUser { get; set; }
         public string RolUser { get; set; }
         public Nullable<bool> Estado { get; set; }
-        public string FechaModificacion { get; set; }
-        public string FModificacionExp { get; set; }
-        public string VFModificacion { get; set; }
-        public string PFModificacion { get; set; }
-        public string CFModificacion { get; set; }
-        public string AFModificacion { get; set; }
 
         public string RolLogin { get; set; }
         public string UserLogin { get; set; }

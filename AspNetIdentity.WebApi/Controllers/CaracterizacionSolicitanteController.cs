@@ -34,16 +34,16 @@ namespace AspNetIdentity.WebApi.Controllers
             return a.Consulta();
         }
 
-        [HttpPost]
-        [Authorize]
-        [Route("CaracterizacionSolicitantecreate")]
-        public IHttpActionResult Post(CaracterizacionSolicitanteModel b)
-        {
-            CaracterizacionSolicitanteLogic a = new CaracterizacionSolicitanteLogic();
-            var result = a.Crear(b);
-            if (!string.IsNullOrEmpty(result.Id.ToString())) return Ok(result);
-            return NotFound();
-        }
+        //[HttpPost]
+        //[Authorize]
+        //[Route("CaracterizacionSolicitantecreate")]
+        //public IHttpActionResult Post(CaracterizacionSolicitanteModel b)
+        //{
+        //    CaracterizacionSolicitanteLogic a = new CaracterizacionSolicitanteLogic();
+        //    var result = a.Crear(b);
+        //    if (!string.IsNullOrEmpty(result.Id.ToString())) return Ok(result);
+        //    return NotFound();
+        //}
 
         [HttpPut]
         [Authorize]

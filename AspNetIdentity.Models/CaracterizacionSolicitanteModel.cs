@@ -16,6 +16,13 @@ namespace AspNetIdentity.Models
     {
         public int Id { get; set; }
         public Nullable<long> IdExpediente { get; set; }
+        public string NumeroExpediente { get; set; }
+        public int IdDepto { get; set; }
+        public string NombreDepto { get; set; }
+        public int IdMunicipio { get; set; }
+        public string NombreMunicipio { get; set; }
+
+
         public string NombreSolicitanteExpediente { get; set; }
         public string DocSolicitanteExpediente { get; set; }
         public int IdTipoDocSolicitanteExpediente { get; set; }
@@ -26,47 +33,66 @@ namespace AspNetIdentity.Models
         public int IdTipoDocConyugeExpediente { get; set; }
         public string TipoDocConyugeExpediente { get; set; }
 
-        public Nullable<System.DateTime> FechaExpedicionSolicitante { get; set; }
-        public Nullable<System.DateTime> FechaExpedicionConyuge { get; set; }
 
-        public string NumeroExpediente { get; set; }
+
+        public Nullable<int> DocVisibleSol { get; set; }
+        public Nullable<int> CedulaExpSol { get; set; }
         public string NombreSolicitante { get; set; }
         public Nullable<int> TipoDocumento { get; set; }
         public string NombreTipoDocumento { get; set; }
         public Nullable<long> NumeroIdentificacion { get; set; }
+        public Nullable<System.DateTime> FechaExpedicionSolicitante { get; set; }
+
+        public Nullable<int> DocVisibleCon { get; set; }
+        public Nullable<int> CedulaExpCon { get; set; }
         public string NombreConyuge { get; set; }
         public Nullable<int> TipoDocumentoConyuge { get; set; }
         public string NombreTipoDocumentoConyuge { get; set; }
         public Nullable<long> NumeroIdentificacionConyuge { get; set; }
+        public Nullable<System.DateTime> FechaExpedicionConyuge { get; set; }
+
+
         public Nullable<System.DateTime> VFechaSolicitante { get; set; }
         public string VArchivoSolicitante { get; set; }
+        public Nullable<int> VVivoSolicitante { get; set; }
+
         public Nullable<System.DateTime> VFechaConyuge { get; set; }
         public string VArchivoConyuge { get; set; }
-        public Nullable<int> VvivoSolicitante { get; set; }
-        public Nullable<int> VvivoConyuge { get; set; }
+        public Nullable<int> VVivoConyuge { get; set; }
+
+
         public Nullable<System.DateTime> PFechaSolicitante { get; set; }
         public string PArchivoSolicitante { get; set; }
+        public Nullable<int> PInhabilidadSolicitante { get; set; }
+
         public Nullable<System.DateTime> PFechaConyuge { get; set; }
         public string PArchivoConyuge { get; set; }
+        public Nullable<int> PInhabilidadConyuge { get; set; }
+
+
         public Nullable<System.DateTime> CFechaSolicitante { get; set; }
         public string CArchivoSolicitante { get; set; }
+        public Nullable<int> CInhabilidadSolicitante { get; set; }
+
         public Nullable<System.DateTime> CFechaConyuge { get; set; }
         public string CArchivoConyuge { get; set; }
+        public Nullable<int> CInhabilidadConyuge { get; set; }
+
+
         public Nullable<System.DateTime> AFechaSolicitante { get; set; }
         public string AArchivoSolicitante { get; set; }
+        public Nullable<int> AInhabilidadSolicitante { get; set; }
+
         public Nullable<System.DateTime> AFechaConyuge { get; set; }
         public string AArchivoConyuge { get; set; }
+        public Nullable<int> AInhabilidadConyuge { get; set; }
+
+
         public Nullable<int> Gestion { get; set; }
         public string IdAspNetUser { get; set; }
         public string NombretUser { get; set; }
         public string RolUser { get; set; }
         public Nullable<bool> Estado { get; set; }
-        public string FechaModificacion { get; set; }
-        public string FModificacionExp { get; set; }
-        public string VFModificacion { get; set; }
-        public string PFModificacion { get; set; }
-        public string CFModificacion { get; set; }
-        public string AFModificacion { get; set; }
 
         public string RolLogin { get; set; }
         public string UserLogin { get; set; }

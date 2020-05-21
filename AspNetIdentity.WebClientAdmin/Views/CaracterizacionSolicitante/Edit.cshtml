@@ -56,6 +56,33 @@
                             <div class="col-md-12">
 
                                 <div class="row mb-2">
+                                    <h6 class="col-md-12">Solicitante</h6>
+                                    <br>
+                                    <br>
+                                    <label class="control-label col-md-4 Letra">
+                                        La cedula esta en el expediente :
+                                    </label>
+                                    <div class="col-md-8 mb-2">
+                                        <select name="CedulaExpSol" id="CedulaExpSol" class="form-control col-md-4 Letra ">
+                                            <option value="0"> Seleccione</option>
+                                            <option value="1"> Si</option>
+                                            <option value="2"> No </option>
+                                        </select>
+                                    </div>
+                                    <span class=" Letra field-validation-valid text-danger col-md-12" data-valmsg-for="CedulaExpSol" data-valmsg-replace="true"></span>
+
+                                    <label class="control-label col-md-4 Letra">
+                                        Documento Visible :
+                                    </label>
+                                    <div class="col-md-8 mb-2">
+                                        <select name="DocVisibleSol" id="DocVisibleSol" class="form-control col-md-4 Letra ">
+                                            <option value="0"> Seleccione</option>
+                                            <option value="1"> Si</option>
+                                            <option value="2"> No </option>
+                                        </select>
+                                    </div>
+                                    <span class=" Letra field-validation-valid text-danger col-md-12" data-valmsg-for="DocVisibleSol" data-valmsg-replace="true"></span>
+
                                     <label class="control-label col-md-4 Letra">
                                         Nombre Solicitante : @Model.NombreSolicitanteExpediente
                                     </label>
@@ -66,13 +93,14 @@
                                         <i class="fa fa-times col-md-1 Letra" aria-hidden="true" style="color:#FF0000">
                                             <input type="radio" value="2" id="Ortografia-1-2" name="Ortografia-1" class="Ortografia-1 Letra" />
                                         </i>
-
                                     </div>
                                     
                                     @Html.EditorFor(model => model.NombreSolicitante, new { htmlAttributes = new { @class = "Letra form-control col-md-5" } })
                                     @Html.ValidationMessageFor(model => model.NombreSolicitante, "", new { @class = "text-danger col-md-10  text-right Letra" })
-                                    <span class=" Letra field-validation-valid text-danger col-md-5 text-right" data-valmsg-for="Ortografia-1" data-valmsg-replace="true"></span>
+                                    <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="Ortografia-1" data-valmsg-replace="true"></span>
                                 </div>
+
+                                
 
                                 <div class="row mb-2">
                                     <label class="control-label col-md-4 Letra ">
@@ -98,11 +126,37 @@
                                     @Html.ValidationMessageFor(model => model.FechaExpedicionSolicitante, "", new { @class = " Letra text-danger col-md-10  text-right" })
                                     @Html.ValidationMessageFor(model => model.NumeroIdentificacion, "", new { @class = " Letra text-danger col-md-10  text-right" })
                                     @Html.ValidationMessageFor(model => model.TipoDocumento, "", new { @class = " Letra text-danger col-md-10  text-right" })
-                                    <span class=" Letra field-validation-valid text-danger col-md-5 text-right" data-valmsg-for="Ortografia-2" data-valmsg-replace="true"></span>
+                                    <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="Ortografia-2" data-valmsg-replace="true"></span>
 
                                 </div>
-
+                                <br>
+                                <br>
                                 <div class="row mb-2">
+                                    <h6 class="col-md-12">Conyuge</h6>
+                                    <br>
+                                    <br>
+                                    <label class="control-label col-md-4 Letra">
+                                        La cedula esta en el expediente :
+                                    </label>
+                                    <div class="col-md-8 mb-2">
+                                        <select name="CedulaExpCon" id="CedulaExpCon" class="form-control col-md-4 Letra ">
+                                            <option value="0"> Seleccione</option>
+                                            <option value="1"> Si</option>
+                                            <option value="2"> No </option>
+                                        </select>
+                                    </div>
+                                    <span class=" Letra field-validation-valid text-danger col-md-12" data-valmsg-for="CedulaExpCon" data-valmsg-replace="true"></span>
+                                    <label class="control-label col-md-4 Letra">
+                                        Documento Visible :
+                                    </label>
+                                    <div class="col-md-8 mb-2">
+                                        <select name="DocVisibleCon" id="DocVisibleCon" class="form-control col-md-4 Letra ">
+                                            <option value="0"> Seleccione</option>
+                                            <option value="1"> Si</option>
+                                            <option value="2"> No </option>
+                                        </select>
+                                    </div>
+                                    <span class=" Letra field-validation-valid text-danger col-md-12" data-valmsg-for="DocVisibleCon" data-valmsg-replace="true"></span>
                                     <label class="control-label col-md-4 Letra">
                                         Nombre Conyuge : @Model.NombreConyugeExpediente
                                     </label>
@@ -163,17 +217,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="row  mb-4">
-                                    <label class=" Letra control-label col-md-3">
-                                        Esta Vivo el Solicitante :
-                                    </label>
-                                    <select name="VVivoSolicitante" id="VVivoSolicitante" class="form-control col-md-2 Letra ">
-                                        <option value="0"> Seleccione</option>
-                                        <option value="1"> Vivo</option>
-                                        <option value="2"> Fallecido </option>
-                                    </select>
-
-                                </div>
+                                
                                 <div class="row mb-2">
                                     <label class=" Letra control-label col-md-3">
                                         Solicitante :
@@ -205,38 +249,28 @@
                                         }
                                     </label>
 
-                                    <div class="col-md-1">
+                                    <label class=" Letra control-label col-md-1">
+                                        Esta Vivo ?
+                                    </label>
 
-                                        <i class="fa fa-check col-md-1 Letra " aria-hidden="true" style="color:#31B404">
-                                            <input type="radio" value="1" id="Vigencia-1-1" name="Vigencia-2" class=" Letra " />
-                                        </i>
-                                        <i class="fa fa-times col-md-1 Letra " aria-hidden="true" style="color:#FF0000">
-                                            <input type="radio" value="2" id="Vigencia-1-2" name="Vigencia-2" class=" Letra " />
-                                        </i>
+                                    <div class="col-md-2">
+                                        <select name="VVivoSolicitante" id="VVivoSolicitante" class="form-control col-md-12 Letra ">
+                                            <option value="0"> Seleccione</option>
+                                            <option value="1"> Vivo</option>
+                                            <option value="2"> Fallecido </option>
+                                        </select>
                                     </div>
-                                    @Html.EditorFor(model => model.VFechaSolicitante, new { htmlAttributes = new { @type = "date", @class = " Letra form-control col-md-2" } })
+                                    
                                     @Html.TextBoxFor(model => model.VArchivoSolicitante, new { type = "file", @class = " col-sm-2" })
                                     <label class="Letra control-label col-md-2" id="VArchivoSolicitanteNombre">
                                         @Model.VArchivoSolicitanteNombre
                                     </label>
-                                    @Html.ValidationMessageFor(model => model.VFechaSolicitante, "", new { @class = " Letra text-danger col-md-10  text-right" })
                                     @Html.ValidationMessageFor(model => model.VArchivoSolicitante, "", new { @class = " Letra text-danger col-md-10  text-right" })
                                     <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="Vigencia-1" data-valmsg-replace="true"></span>
-                                    @Html.ValidationMessageFor(model => model.VvivoSolicitante, "", new { @class = " Letra text-danger col-md-10  text-right" })
+                                    @Html.ValidationMessageFor(model => model.VVivoSolicitante, "", new { @class = " Letra text-danger col-md-10  text-right" })
 
                                 </div>
-
-                                <div class="row  mb-4">
-                                    <label class=" Letra control-label col-md-3">
-                                        Esta Vivo el Conyuge :
-                                    </label>
-                                    <select name="VVivoConyuge" id="VVivoConyuge" class="form-control col-md-2 Letra ">
-                                        <option value="0"> Seleccione</option>
-                                        <option value="1"> Vivo</option>
-                                        <option value="2"> Fallecido </option>
-                                    </select>
-                                </div>
-
+                               
                                 <div class="row mb-2">
                                     <label class=" Letra control-label col-md-3">
                                         Conyuge :
@@ -267,18 +301,18 @@
                                             @Model.DocConyugeExpediente
                                         }
                                     </label>
-                                    <div class="col-md-1">
+                                    <label class=" Letra control-label col-md-1">
+                                        Esta Vivo ?
+                                    </label>
 
-                                        <i class="fa fa-check col-md-1 Letra " aria-hidden="true" style="color:#31B404">
-                                            <input type="radio" value="1" id="Vigencia-1-3" name="Vigencia-3" class=" Letra " />
-                                        </i>
-                                        <i class="fa fa-times col-md-1 Letra " aria-hidden="true" style="color:#FF0000">
-                                            <input type="radio" value="2" id="Vigencia-1-4" name="Vigencia-3" class=" Letra " />
-                                        </i>
-
+                                    <div class="col-md-2">
+                                        <select name="VVivoConyuge" id="VVivoConyuge" class="form-control col-md-12 Letra ">
+                                            <option value="0"> Seleccione</option>
+                                            <option value="1"> Vivo</option>
+                                            <option value="2"> Fallecido </option>
+                                            <option value="3"> No Aplica </option>
+                                        </select>
                                     </div>
-
-                                    @Html.EditorFor(model => model.VFechaConyuge, new { htmlAttributes = new { @type = "date", @class = " Letra form-control col-md-2" } })
                                     @Html.TextBoxFor(model => model.VArchivoConyuge, new { type = "file", @class = " col-sm-2" })
                                     <label class="Letra control-label col-md-2" id="VArchivoConyugeNombre">
                                         @Model.VArchivoConyugeNombre
@@ -286,7 +320,7 @@
                                     @Html.ValidationMessageFor(model => model.VFechaConyuge, "", new { @class = " Letra text-danger col-md-10  text-right" })
                                     @Html.ValidationMessageFor(model => model.VArchivoConyuge, "", new { @class = " Letra text-danger col-md-10  text-right" })
                                     <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="Vigencia-2" data-valmsg-replace="true"></span>
-                                    @Html.ValidationMessageFor(model => model.VvivoConyuge, "", new { @class = " Letra text-danger col-md-10  text-right" })
+                                    @Html.ValidationMessageFor(model => model.VVivoConyuge, "", new { @class = " Letra text-danger col-md-10  text-right" })
 
                                 </div>
                                 
@@ -339,23 +373,24 @@
                                         }
                                     </label>
 
-                                    <div class="col-md-1">
+                                    <label class=" Letra control-label col-md-2">
+                                        Tiene alguna inhabilidad
+                                    </label>
 
-                                        <i class="fa fa-check col-md-1 Letra " aria-hidden="true" style="color:#31B404">
-                                            <input type="radio" value="1" id="Pro-1-1" name="Pro-2" class=" Letra " />
-                                        </i>
-                                        <i class="fa fa-times col-md-1 Letra " aria-hidden="true" style="color:#FF0000">
-                                            <input type="radio" value="2" id="Pro-1-2" name="Pro-2" class=" Letra " />
-                                        </i>
+                                    <div class="col-md-1">
+                                        <select name="PInhabilidadSolicitante" id="PInhabilidadSolicitante" class="form-control col-md-12 Letra ">
+                                            <option value="0"> Seleccione</option>
+                                            <option value="1"> Si</option>
+                                            <option value="2"> No </option>
+                                        </select>
                                     </div>
-                                    @Html.EditorFor(model => model.PFechaSolicitante, new { htmlAttributes = new {@type = "date",  @class = " Letra form-control col-md-2" } })
+
                                     @Html.TextBoxFor(model => model.PArchivoSolicitante, new { type = "file", @class = " col-sm-2" })
                                     <label class="Letra control-label col-md-2" id="PArchivoSolicitanteNombre">
                                     @Model.PArchivoSolicitanteNombre 
                                     </label>
-                                    @Html.ValidationMessageFor(model => model.PFechaSolicitante, "", new { @class = " Letra text-danger col-md-10  text-right" })
+                                    <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="PInhabilidadSolicitante" data-valmsg-replace="true"></span>
                                     @Html.ValidationMessageFor(model => model.PArchivoSolicitante, "", new { @class = " Letra text-danger col-md-10  text-right" })
-                                    <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="Pro-1" data-valmsg-replace="true"></span>
                                 </div>
 
                                 <div class="row mb-2">
@@ -388,25 +423,24 @@
                                             @Model.DocConyugeExpediente
                                         }
                                     </label>
-                                    <div class="col-md-1">
-                                        
-                                        <i class="fa fa-check col-md-1 Letra " aria-hidden="true" style="color:#31B404">
-                                            <input type="radio" value="1" id="Pro-1-3" name="Pro-3" class=" Letra " />
-                                        </i>
-                                        <i class="fa fa-times col-md-1 Letra " aria-hidden="true" style="color:#FF0000">
-                                            <input type="radio" value="2" id="Pro-1-4" name="Pro-3" class=" Letra " />
-                                        </i>
+                                    <label class=" Letra control-label col-md-2">
+                                        Tiene alguna inhabilidad
+                                    </label>
 
+                                    <div class="col-md-1">
+                                        <select name="PInhabilidadConyuge" id="PInhabilidadConyuge" class="form-control col-md-12 Letra ">
+                                            <option value="0"> Seleccione</option>
+                                            <option value="1"> Si</option>
+                                            <option value="2"> No </option>
+                                        </select>
                                     </div>
                                     
-                                    @Html.EditorFor(model => model.PFechaConyuge, new { htmlAttributes = new {@type = "date", @class = " Letra form-control col-md-2" } })
                                     @Html.TextBoxFor(model => model.PArchivoConyuge, new { type = "file", @class = " col-sm-2" })
                                     <label class="Letra control-label col-md-2" id="PArchivoConyugeNombre">
                                     @Model.PArchivoConyugeNombre 
                                     </label>
-                                    @Html.ValidationMessageFor(model => model.PFechaConyuge, "", new { @class = " Letra text-danger col-md-10  text-right" })
                                     @Html.ValidationMessageFor(model => model.PArchivoConyuge, "", new { @class = " Letra text-danger col-md-10  text-right" })
-                                    <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="Pro-2" data-valmsg-replace="true"></span>
+                                    <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="PInhabilidadConyuge" data-valmsg-replace="true"></span>
                                 </div>
 
                                 <div class="row">
@@ -458,23 +492,23 @@
                                         }
                                     </label>
 
-                                    <div class="col-md-1">
+                                    <label class=" Letra control-label col-md-2">
+                                        Tiene alguna inhabilidad
+                                    </label>
 
-                                        <i class="fa fa-check col-md-1 Letra " aria-hidden="true" style="color:#31B404">
-                                            <input type="radio" value="1" id="Contra-1-1" name="Contra-2" class=" Letra " />
-                                        </i>
-                                        <i class="fa fa-times col-md-1 Letra " aria-hidden="true" style="color:#FF0000">
-                                            <input type="radio" value="2" id="Contra-1-2" name="Contra-2" class=" Letra " />
-                                        </i>
+                                    <div class="col-md-1">
+                                        <select name="CInhabilidadSolicitante" id="CInhabilidadSolicitante" class="form-control col-md-12 Letra ">
+                                            <option value="0"> Seleccione</option>
+                                            <option value="1"> Si</option>
+                                            <option value="2"> No </option>
+                                        </select>
                                     </div>
-                                    @Html.EditorFor(model => model.CFechaSolicitante, new { htmlAttributes = new {@type = "date",  @class = " Letra form-control col-md-2" } })
                                     @Html.TextBoxFor(model => model.CArchivoSolicitante, new { type = "file", @class = " col-sm-2" })
                                     <label class="Letra control-label col-md-2" id="CArchivoSolicitanteNombre">
                                     @Model.CArchivoSolicitanteNombre 
                                     </label>
-                                    @Html.ValidationMessageFor(model => model.CFechaSolicitante, "", new { @class = " Letra text-danger col-md-10  text-right" })
                                     @Html.ValidationMessageFor(model => model.CArchivoSolicitante, "", new { @class = " Letra text-danger col-md-10  text-right" })
-                                    <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="Contra-1" data-valmsg-replace="true"></span>
+                                    <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="CInhabilidadSolicitante" data-valmsg-replace="true"></span>
                                 </div>
 
                                 <div class="row mb-2">
@@ -507,25 +541,24 @@
                                             @Model.DocConyugeExpediente
                                         }
                                     </label>
-                                    <div class="col-md-1">
-                                        
-                                        <i class="fa fa-check col-md-1 Letra " aria-hidden="true" style="color:#31B404">
-                                            <input type="radio" value="1" id="Contra-1-3" name="Contra-3" class=" Letra " />
-                                        </i>
-                                        <i class="fa fa-times col-md-1 Letra " aria-hidden="true" style="color:#FF0000">
-                                            <input type="radio" value="2" id="Contra-1-4" name="Contra-3" class=" Letra " />
-                                        </i>
+                                    <label class=" Letra control-label col-md-2">
+                                        Tiene alguna inhabilidad
+                                    </label>
 
+                                    <div class="col-md-1">
+                                        <select name="CInhabilidadConyuge" id="CInhabilidadConyuge" class="form-control col-md-12 Letra ">
+                                            <option value="0"> Seleccione</option>
+                                            <option value="1"> Si</option>
+                                            <option value="2"> No </option>
+                                        </select>
                                     </div>
                                     
-                                    @Html.EditorFor(model => model.CFechaConyuge, new { htmlAttributes = new {@type = "date", @class = " Letra form-control col-md-2" } })
                                     @Html.TextBoxFor(model => model.CArchivoConyuge, new { type = "file", @class = " col-sm-2" })
                                     <label class="Letra control-label col-md-2" id="CArchivoConyugeNombre">
                                     @Model.CArchivoConyugeNombre 
                                     </label>
-                                    @Html.ValidationMessageFor(model => model.CFechaConyuge, "", new { @class = " Letra text-danger col-md-10  text-right" })
                                     @Html.ValidationMessageFor(model => model.CArchivoConyuge, "", new { @class = " Letra text-danger col-md-10  text-right" })
-                                    <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="Contra-2" data-valmsg-replace="true"></span>
+                                    <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="CInhabilidadConyuge" data-valmsg-replace="true"></span>
                                 </div>
 
                                 <div class="row">
@@ -577,23 +610,23 @@
                                         }
                                     </label>
 
-                                    <div class="col-md-1">
+                                    <label class=" Letra control-label col-md-2">
+                                        Tiene alguna inhabilidad
+                                    </label>
 
-                                        <i class="fa fa-check col-md-1 Letra " aria-hidden="true" style="color:#31B404">
-                                            <input type="radio" value="1" id="Ante-1-1" name="Ante-2" class=" Letra " />
-                                        </i>
-                                        <i class="fa fa-times col-md-1 Letra " aria-hidden="true" style="color:#FF0000">
-                                            <input type="radio" value="2" id="Ante-1-2" name="Ante-2" class=" Letra " />
-                                        </i>
+                                    <div class="col-md-1">
+                                        <select name="AInhabilidadSolicitante" id="AInhabilidadSolicitante" class="form-control col-md-12 Letra ">
+                                            <option value="0"> Seleccione</option>
+                                            <option value="1"> Si</option>
+                                            <option value="2"> No </option>
+                                        </select>
                                     </div>
-                                    @Html.EditorFor(model => model.AFechaSolicitante, new { htmlAttributes = new {@type = "date",  @class = " Letra form-control col-md-2" } })
                                     @Html.TextBoxFor(model => model.AArchivoSolicitante, new { type = "file", @class = " col-sm-2" })
                                     <label class="Letra control-label col-md-2" id="AArchivoSolicitanteNombre">
                                     @Model.AArchivoSolicitanteNombre 
                                     </label>
-                                    @Html.ValidationMessageFor(model => model.AFechaSolicitante, "", new { @class = " Letra text-danger col-md-10  text-right" })
                                     @Html.ValidationMessageFor(model => model.AArchivoSolicitante, "", new { @class = " Letra text-danger col-md-10  text-right" })
-                                    <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="Ante-1" data-valmsg-replace="true"></span>
+                                    <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="AInhabilidadSolicitante" data-valmsg-replace="true"></span>
                                 </div>
 
                                 <div class="row mb-2">
@@ -626,25 +659,24 @@
                                             @Model.DocConyugeExpediente
                                         }
                                     </label>
-                                    <div class="col-md-1">
-                                        
-                                        <i class="fa fa-check col-md-1 Letra " aria-hidden="true" style="color:#31B404">
-                                            <input type="radio" value="1" id="Ante-1-3" name="Ante-3" class=" Letra " />
-                                        </i>
-                                        <i class="fa fa-times col-md-1 Letra " aria-hidden="true" style="color:#FF0000">
-                                            <input type="radio" value="2" id="Ante-1-4" name="Ante-3" class=" Letra " />
-                                        </i>
+                                    <label class=" Letra control-label col-md-2">
+                                        Tiene alguna inhabilidad
+                                    </label>
 
+                                    <div class="col-md-1">
+                                        <select name="AInhabilidadConyuge" id="AInhabilidadConyuge" class="form-control col-md-12 Letra ">
+                                            <option value="0"> Seleccione</option>
+                                            <option value="1"> Si</option>
+                                            <option value="2"> No </option>
+                                        </select>
                                     </div>
                                     
-                                    @Html.EditorFor(model => model.AFechaConyuge, new { htmlAttributes = new {@type = "date", @class = " Letra form-control col-md-2" } })
                                     @Html.TextBoxFor(model => model.AArchivoConyuge, new { type = "file", @class = " col-sm-2" })
                                     <label class="Letra control-label col-md-2" id="AArchivoConyugeNombre">
                                     @Model.AArchivoConyugeNombre 
                                     </label>
-                                    @Html.ValidationMessageFor(model => model.AFechaConyuge, "", new { @class = " Letra text-danger col-md-10  text-right" })
                                     @Html.ValidationMessageFor(model => model.AArchivoConyuge, "", new { @class = " Letra text-danger col-md-10  text-right" })
-                                    <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="Ante-2" data-valmsg-replace="true"></span>
+                                    <span class=" Letra field-validation-valid text-danger col-md-7 text-right" data-valmsg-for="AInhabilidadConyuge" data-valmsg-replace="true"></span>
                                 </div>
 
                                 <div class="row">
@@ -696,27 +728,136 @@
 
             $('#AArchivoSolicitanteNombre').html("<a target='_blank' href='"+ UrlValid +"/" + "@Model.AArchivoSolicitanteNombre" + "' >'"+ "@Model.AArchivoSolicitanteNombre"+"' </a>")
             $('#AArchivoConyugeNombre').html("<a target='_blank' href='"+ UrlValid +"/" + "@Model.AArchivoConyugeNombre" + "' >'"+ "@Model.AArchivoConyugeNombre"+"' </a>")
+            
+            var gestionin = "a"+'@Model.Gestion';
 
-            if ('@Model.Gestion' != null) {
+            if ( gestionin != "a") {
+
+                if('@Model.CedulaExpSol' == "1"){
+                    
+                    $("#DocVisibleSol").prop("disabled", false);
+                    @* $("#NombreSolicitante").prop("disabled", false);
+                    $("#TipoDocumento").prop("disabled", false);
+                    $("#NumeroIdentificacion").prop("disabled", false);
+                    $("#FechaExpedicionSolicitante").prop("disabled", false); *@
+                    
+                    $("#Ortografia-1-1").prop("checked", false);
+                    $("#Ortografia-1-2").prop("checked", false);
+                    $("#Ortografia-1-3").prop("checked", false);
+                    $("#Ortografia-1-4").prop("checked", false);
+                
+                }else if ("@Model.CedulaExpSol" == "0" || "@Model.CedulaExpSol" == null || "@Model.CedulaExpSol" == ""){
+                    $("#NombreSolicitante").prop("disabled", true);
+                    $("#TipoDocumento").prop("disabled", true);
+                    $("#NumeroIdentificacion").prop("disabled", true);
+                    $("#DocVisibleSol").prop("disabled", true);
+                    $("#FechaExpedicionSolicitante").prop("disabled", true);
+                    
+                    $("#Ortografia-1-1").prop("checked", false);
+                    $("#Ortografia-1-2").prop("checked", false);
+                    $("#Ortografia-1-3").prop("checked", false);
+                    $("#Ortografia-1-4").prop("checked", false);
+                }
+                if("@Model.DocVisibleSol" == "1"){
+                    
+                    $("#NombreSolicitante").prop("disabled", false);
+                    $("#TipoDocumento").prop("disabled", false);
+                    $("#NumeroIdentificacion").prop("disabled", false);
+                    $("#FechaExpedicionSolicitante").prop("disabled", false);
+                    
+                    var NombreSolicitanteV = '@Model.NombreSolicitante'+"a";
+                    if (NombreSolicitanteV != "a" ) {
+                        $("#Ortografia-1-2").prop("checked", true);
+                    }else{
+                        $("#Ortografia-1-1").prop("checked", true);
+                    }
+
+                    var NumeroIdentificacionV = '@Model.NumeroIdentificacion'+"a";
+                    if (NumeroIdentificacionV != "a") {
+                        $("#Ortografia-1-4").prop("checked", true);
+                    }else{
+                        $("#Ortografia-1-3").prop("checked", true);
+                    }
 
 
-
-                if ('@Model.NombreSolicitante' != null) {
-                    $("#Ortografia-1-1").prop("checked", true);
+                }else if ("@Model.DocVisibleSol" == "0" || "@Model.DocVisibleSol" == null || "@Model.DocVisibleSol" == ""){
+                    $("#DocVisibleSol").prop("disabled", true);
+                    $("#NombreSolicitante").prop("disabled", true);
+                    $("#TipoDocumento").prop("disabled", true);
+                    $("#NumeroIdentificacion").prop("disabled", true);
+                    $("#FechaExpedicionSolicitante").prop("disabled", true);
+                    $("#Ortografia-1-1").prop("checked", false);
+                    $("#Ortografia-1-2").prop("checked", false);
+                    $("#Ortografia-1-3").prop("checked", false);
+                    $("#Ortografia-1-4").prop("checked", false);
                 }
 
-                if ('@Model.NumeroIdentificacion' != null) {
-                    $("#Ortografia-1-3").prop("checked", true);
-                }
+                if("@Model.CedulaExpCon" == "1" || "@Model.CedulaExpCon" == null || "@Model.CedulaExpCon" == ""){
+                    
+                    $("#DocVisibleCon").prop("disabled", false);
+                    @* $("#NombreConyuge").prop("disabled", false);
+                    $("#TipoDocumentoConyuge").prop("disabled", false);
+                    $("#NumeroIdentificacionConyuge").prop("disabled", false);
+                    $("#FechaExpedicionConyuge").prop("disabled", false); *@
 
-                if ('@Model.NombreConyuge' != null) {
-                    $("#Ortografia-1-5").prop("checked", true);
-                }
+                    $("#Ortografia-1-5").prop("checked", false);
+                    $("#Ortografia-1-6").prop("checked", false);
+                    $("#Ortografia-1-7").prop("checked", false);
+                    $("#Ortografia-1-8").prop("checked", false);
+                
+                }else{
+                    
+                    $("#NombreConyuge").prop("disabled", true);
+                    $("#TipoDocumentoConyuge").prop("disabled", true);
+                    $("#NumeroIdentificacionConyuge").prop("disabled", true);
+                    $("#DocVisibleCon").prop("disabled", true);
+                    $("#FechaExpedicionConyuge").prop("disabled", true);
 
-                if ('@Model.NumeroIdentificacionConyuge' != null) {
-                    $("#Ortografia-1-7").prop("checked", true);
+                    $("#Ortografia-1-5").prop("checked", false);
+                    $("#Ortografia-1-6").prop("checked", false);
+                    $("#Ortografia-1-7").prop("checked", false);
+                    $("#Ortografia-1-8").prop("checked", false);
                 }
+                if("@Model.DocVisibleCon" == "1" || "@Model.DocVisibleCon" == null || "@Model.DocVisibleCon" == ""){
+                    $("#NombreConyuge").prop("disabled", false);
+                    $("#TipoDocumentoConyuge").prop("disabled", false);
+                    $("#NumeroIdentificacionConyuge").prop("disabled", false);
+                    $("#FechaExpedicionConyuge").prop("disabled", false);
 
+                    var NombreConyugeV = '@Model.NombreConyuge'+"a";
+                    if (NombreConyugeV != "a" ) {
+                        $("#Ortografia-1-6").prop("checked", true);
+                    }else{
+                        $("#Ortografia-1-5").prop("checked", true);
+                    }
+                    
+                    var NumeroIdentificacionV = '@Model.NumeroIdentificacionConyuge'+"a";
+                    if (NumeroIdentificacionV != "a") {
+                        $("#Ortografia-1-8").prop("checked", true);
+                    }else{
+                        $("#Ortografia-1-7").prop("checked", true);
+                    }
+
+                }else{
+                    $("#NombreConyuge").prop("disabled", true);
+                    $("#TipoDocumentoConyuge").prop("disabled", true);
+                    $("#NumeroIdentificacionConyuge").prop("disabled", true);
+                    $("#FechaExpedicionConyuge").prop("disabled", true);
+                }
+                
+                $("#CedulaExpSol").val("@Model.CedulaExpSol");
+                $("#DocVisibleSol").val("@Model.DocVisibleSol");
+                $("#NombreSolicitante").val("@Model.NombreSolicitante");
+                $("#TipoDocumento").val("@Model.TipoDocumento");
+                $("#NumeroIdentificacion").val("@Model.NumeroIdentificacion");
+                $("#FechaExpedicionSolicitante").val(DateConvert("@Model.FechaExpedicionSolicitante"));
+
+                $("#CedulaExpCon").val("@Model.CedulaExpCon");
+                $("#DocVisibleCon").val("@Model.DocVisibleCon");
+                $("#NombreConyuge").val("@Model.NombreConyuge");
+                $("#TipoDocumentoConyuge").val("@Model.TipoDocumentoConyuge");
+                $("#NumeroIdentificacionConyuge").val("@Model.NumeroIdentificacionConyuge");
+                $("#FechaExpedicionConyuge").val( DateConvert("@Model.FechaExpedicionConyuge"));
 
 
                 if ('@Model.VArchivoSolicitanteNombre' != null) {
@@ -754,11 +895,87 @@
                     $("#Ante-1-3").prop("checked", true);
                 }
 
-
-               
-
+                ///// Vigencia
 
 
+                var VVivoConyugeV = "a"+"@Model.VVivoConyuge";
+                var VVivoSolicitanteV = "a"+"@Model.VVivoSolicitante";
+
+                if (VVivoConyugeV != "a"  ) {
+                    $('#VVivoConyuge').val("@Model.VVivoConyuge");
+                }else{
+                    $('#VVivoConyuge').val("0");
+                }
+
+                if (VVivoSolicitanteV != "a"  ) {
+                    $('#VVivoSolicitante').val("@Model.VVivoSolicitante");
+                }else{
+                    $('#VVivoSolicitante').val("0");
+                }
+
+                ///// Procuraduria
+
+                var PInhabilidadSolicitanteV = "a"+"@Model.PInhabilidadSolicitante";
+                var PInhabilidadConyugeV = "a"+"@Model.PInhabilidadConyuge";
+
+                if (PInhabilidadSolicitanteV != "a"  ) {
+                    $('#PInhabilidadSolicitante').val("@Model.PInhabilidadSolicitante");
+                }else{
+                    $('#PInhabilidadSolicitante').val("0");
+                }
+
+                if (PInhabilidadConyugeV != "a"  ) {
+                    $('#PInhabilidadConyuge').val("@Model.PInhabilidadConyuge");
+                }else{
+                    $('#PInhabilidadConyuge').val("0");
+                }
+
+                ///// Contraloria
+
+                var CInhabilidadSolicitanteV = "a"+"@Model.CInhabilidadSolicitante";
+                var CInhabilidadConyugeV = "a"+"@Model.CInhabilidadConyuge";
+
+                if (CInhabilidadSolicitanteV != "a"  ) {
+                    $('#CInhabilidadSolicitante').val("@Model.CInhabilidadSolicitante");
+                }else{
+                    $('#CInhabilidadSolicitante').val("0");
+                }
+
+                if (CInhabilidadConyugeV != "a"  ) {
+                    $('#CInhabilidadConyuge').val("@Model.CInhabilidadConyuge");
+                }else{
+                    $('#CInhabilidadConyuge').val("0");
+                }
+                
+                ///// Antecedentes
+
+                var AInhabilidadSolicitanteV = "a"+"@Model.AInhabilidadSolicitante";
+                var AInhabilidadConyugeV = "a"+"@Model.AInhabilidadConyuge";
+                if (AInhabilidadSolicitanteV != "a"  ) {
+                    $('#AInhabilidadSolicitante').val("@Model.AInhabilidadSolicitante");
+                }else{
+                    $('#AInhabilidadSolicitante').val("0");
+                }
+
+                if (AInhabilidadConyugeV != "a"  ) {
+                    $('#AInhabilidadConyuge').val("@Model.AInhabilidadConyuge");
+                }else{
+                    $('#AInhabilidadConyuge').val("0");
+                }
+
+
+            }else{
+                $("#DocVisibleSol").prop("disabled", true);
+                $("#NombreSolicitante").prop("disabled", true);
+                $("#TipoDocumento").prop("disabled", true);
+                $("#NumeroIdentificacion").prop("disabled", true);
+                $("#FechaExpedicionSolicitante").prop("disabled", true);
+                
+                $("#DocVisibleCon").prop("disabled", true);
+                $("#NombreConyuge").prop("disabled", true);
+                $("#NumeroIdentificacionConyuge").prop("disabled", true);
+                $("#TipoDocumentoConyuge").prop("disabled", true);
+                $("#FechaExpedicionConyuge").prop("disabled", true);
 
             }
         });
@@ -784,22 +1001,69 @@
         }
         //////  Iniciales
             ///// Ortografia 
-                var FechaExpedicionConyugeI ='@Model.FechaExpedicionConyuge';
-                if( FechaExpedicionConyugeI != ""){
-                    $('#FechaExpedicionConyuge').val(DateConvert("@Model.FechaExpedicionConyuge"));
-                }
-                var FechaExpedicionSolicitanteI ='@Model.FechaExpedicionSolicitante';
-                if( FechaExpedicionSolicitanteI != ""){
-                    $('#FechaExpedicionSolicitante').val(DateConvert("@Model.FechaExpedicionSolicitante"));
-                }
-                //$("#FechaExpedicionConyuge").prop("disabled", true);
-                //$("#FechaExpedicionSolicitante").prop("disabled", true);
-                $("#NombreSolicitante").prop("disabled", true);
-                $("#TipoDocumento").prop("disabled", true);
-                $("#NumeroIdentificacion").prop("disabled", true);
-                $("#NombreConyuge").prop("disabled", true);
-                $("#NumeroIdentificacionConyuge").prop("disabled", true);
-                $("#TipoDocumentoConyuge").prop("disabled", true);
+             
+                $("#CedulaExpSol").change(function () {
+                    if($(this).val() == "1"){
+                        $("#DocVisibleSol").prop("disabled", false);
+                        @* $("#NombreSolicitante").prop("disabled", false);
+                        $("#TipoDocumento").prop("disabled", false);
+                        $("#NumeroIdentificacion").prop("disabled", false);
+                        $("#FechaExpedicionSolicitante").prop("disabled", false); *@
+                    }else{
+                        $("#NombreSolicitante").prop("disabled", true);
+                        $("#TipoDocumento").prop("disabled", true);
+                        $("#NumeroIdentificacion").prop("disabled", true);
+                        $("#DocVisibleSol").prop("disabled", true);
+                        $("#FechaExpedicionSolicitante").prop("disabled", true);
+                    }
+                        return false;
+                });
+                $("#DocVisibleSol").change(function () {
+                    if($(this).val() == "1"){
+                        $("#NombreSolicitante").prop("disabled", false);
+                        $("#TipoDocumento").prop("disabled", false);
+                        $("#NumeroIdentificacion").prop("disabled", false);
+                        $("#FechaExpedicionSolicitante").prop("disabled", false);
+                    }else{
+                        $("#NombreSolicitante").prop("disabled", true);
+                        $("#TipoDocumento").prop("disabled", true);
+                        $("#NumeroIdentificacion").prop("disabled", true);
+                        $("#FechaExpedicionSolicitante").prop("disabled", true);
+                    }
+                    return false;
+                });
+                $("#CedulaExpCon").change(function () {
+                    if($(this).val() == "1"){
+                        $("#DocVisibleCon").prop("disabled", false);
+                        @* $("#NombreConyuge").prop("disabled", false);
+                        $("#TipoDocumentoConyuge").prop("disabled", false);
+                        $("#NumeroIdentificacionConyuge").prop("disabled", false);
+                        $("#FechaExpedicionConyuge").prop("disabled", false); *@
+                    }else{
+                        $("#NombreConyuge").prop("disabled", true);
+                        $("#TipoDocumentoConyuge").prop("disabled", true);
+                        $("#NumeroIdentificacionConyuge").prop("disabled", true);
+                        $("#DocVisibleCon").prop("disabled", true);
+                        $("#FechaExpedicionConyuge").prop("disabled", true);
+                    }
+                    return false;
+                });
+                $("#DocVisibleCon").change(function () {
+                    if($(this).val() == "1"){
+                        $("#NombreConyuge").prop("disabled", false);
+                        $("#TipoDocumentoConyuge").prop("disabled", false);
+                        $("#NumeroIdentificacionConyuge").prop("disabled", false);
+                        $("#FechaExpedicionConyuge").prop("disabled", false);
+                    }else{
+                        $("#NombreConyuge").prop("disabled", true);
+                        $("#TipoDocumentoConyuge").prop("disabled", true);
+                        $("#NumeroIdentificacionConyuge").prop("disabled", true);
+                        $("#FechaExpedicionConyuge").prop("disabled", true);
+                    }
+                    return false;
+                });
+            
+            
     
                 $("#Ortografia-1-1").change(function () {
                     $("#NombreSolicitante").prop("disabled", true);
@@ -819,7 +1083,7 @@
                 $("#Ortografia-1-4").change(function () {
                     $("#TipoDocumento").prop("disabled", false);
                     $("#NumeroIdentificacion").prop("disabled", false);
-                 //   $("#FechaExpedicionSolicitante").prop("disabled", false);
+                    $("#FechaExpedicionSolicitante").prop("disabled", false);
                     return false;
                 });
 
@@ -847,173 +1111,94 @@
             ///// Vigencia
 
 
-                if ("@Model.VvivoConyuge" != null) {
-                    $('#VVivoConyuge').val("@Model.VvivoConyuge");
-                }
-
-                 if ("@Model.VvivoSolicitante" != null) {
-                    $('#VVivoSolicitante').val("@Model.VvivoSolicitante");
-                }
-
-
-                var VFechaSolicitanteI ='@Model.VFechaSolicitante';
-                if( VFechaSolicitanteI != ""){
-                    $('#VFechaSolicitante').val(DateConvert("@Model.VFechaSolicitante"));
-                }
-                var VFechaConyugeI ='@Model.VFechaConyuge';
-                if( VFechaConyugeI != ""){
-                    $('#VFechaConyuge').val(DateConvert("@Model.VFechaConyuge"));
-                }
-
-                $("#VFechaSolicitante").prop("disabled", true);
                 $("#VArchivoSolicitante").prop("disabled", true);
-                $("#VFechaConyuge").prop("disabled", true);
                 $("#VArchivoConyuge").prop("disabled", true);
-                $("#VVivoConyuge").prop("disabled", true);
-                $("#VVivoSolicitante").prop("disabled", true);
     
-                $("#Vigencia-1-2").change(function () {
-                    $("#VFechaSolicitante").prop("disabled", false);
-                    $("#VArchivoSolicitante").prop("disabled", false);
-                    $("#VVivoSolicitante").prop("disabled", false);
-                        return false;
+                $("#VVivoSolicitante").change(function () {
+                    if($(this).val() == "0"){
+                        $("#VArchivoSolicitante").prop("disabled", true);
+                    }else{
+                        $("#VArchivoSolicitante").prop("disabled", false);
+                    }
                 });
-
-                $("#Vigencia-1-4").change(function () {
-                    $("#VFechaConyuge").prop("disabled", false);
-                    $("#VVivoConyuge").prop("disabled", false);
-                    $("#VArchivoConyuge").prop("disabled", false);
+                
+                $("#VVivoConyuge").change(function () {
+                    if($(this).val() == "0"){
+                        $("#VArchivoConyuge").prop("disabled", true);
+                    }else{
+                        $("#VArchivoConyuge").prop("disabled", false);
+                    }
                     return false;
                 });
 
-                $("#Vigencia-1-1").change(function () {
-                    $("#VFechaSolicitante").prop("disabled", true);
-                    $("#VArchivoSolicitante").prop("disabled", true);
-                        return false;
-                });
 
-                $("#Vigencia-1-3").change(function () {
-                    $("#VFechaConyuge").prop("disabled", true );
-                    $("#VArchivoConyuge").prop("disabled", true);
-                    return false;
-                });
+              
             ///// Procuraduria
-                var PFechaSolicitanteI ='@Model.PFechaSolicitante';
-                if( PFechaSolicitanteI != ""){
-                    $('#PFechaSolicitante').val(DateConvert("@Model.PFechaSolicitante"));
-                }
-                var PFechaConyugeI ='@Model.PFechaConyuge';
-                if(PFechaConyugeI != ""){
-                    $('#PFechaConyuge').val(DateConvert("@Model.PFechaConyuge"));
-                }
-
-                $("#PFechaSolicitante").prop("disabled", true);
+               
                 $("#PArchivoSolicitante").prop("disabled", true);
-                $("#PFechaConyuge").prop("disabled", true);
                 $("#PArchivoConyuge").prop("disabled", true);
-    
-                $("#Pro-1-2").change(function () {
-                    $("#PFechaSolicitante").prop("disabled", false);
-                    $("#PArchivoSolicitante").prop("disabled", false);
-                        return false;
-                });
 
-                $("#Pro-1-4").change(function () {
-                    $("#PFechaConyuge").prop("disabled", false);
-                    $("#PArchivoConyuge").prop("disabled", false);
+                $("#PInhabilidadSolicitante").change(function () {
+                    if($(this).val() == "0"){
+                        $("#PArchivoSolicitante").prop("disabled", true);
+                    }else{
+                        $("#PArchivoSolicitante").prop("disabled", false);
+                    }
                     return false;
                 });
 
-                $("#Pro-1-1").change(function () {
-                    $("#PFechaSolicitante").prop("disabled", true);
-                    $("#PArchivoSolicitante").prop("disabled", true);
-                        return false;
-                });
-
-                $("#Pro-1-3").change(function () {
-                    $("#PFechaConyuge").prop("disabled", true );
-                    $("#PArchivoConyuge").prop("disabled", true);
+                $("#PInhabilidadConyuge").change(function () {
+                    if($(this).val() == "0"){
+                        $("#PArchivoConyuge").prop("disabled", true);
+                    }else{
+                        $("#PArchivoConyuge").prop("disabled", false);
+                    }
                     return false;
                 });
+
             ///// Contraloria
-                var CFechaSolicitanteI ='@Model.CFechaSolicitante';
-                if( CFechaSolicitanteI != ""){
-                    $('#CFechaSolicitante').val(DateConvert("@Model.CFechaSolicitante"));
-                }
-                var CFechaConyugeI ='@Model.CFechaConyuge';
-                if(CFechaConyugeI != ""){
-                    $('#CFechaConyuge').val(DateConvert("@Model.CFechaConyuge"));
-                }
-
-                $("#CFechaSolicitante").prop("disabled", true);
                 $("#CArchivoSolicitante").prop("disabled", true);
-                $("#CFechaConyuge").prop("disabled", true);
                 $("#CArchivoConyuge").prop("disabled", true);
-    
-                $("#Contra-1-2").change(function () {
-                    $("#CFechaSolicitante").prop("disabled", false);
-                    $("#CArchivoSolicitante").prop("disabled", false);
-                        return false;
-                });
 
-                $("#Contra-1-4").change(function () {
-                    $("#CFechaConyuge").prop("disabled", false);
-                    $("#CArchivoConyuge").prop("disabled", false);
+                $("#CInhabilidadSolicitante").change(function () {
+                    if($(this).val() == "0"){
+                        $("#CArchivoSolicitante").prop("disabled", true);
+                    }else{
+                        $("#CArchivoSolicitante").prop("disabled", false);
+                    }
                     return false;
                 });
 
-                $("#Contra-1-1").change(function () {
-                    $("#CFechaSolicitante").prop("disabled", true);
-                    $("#CArchivoSolicitante").prop("disabled", true);
-                        return false;
-                });
-
-                $("#Contra-1-3").change(function () {
-                    $("#CFechaConyuge").prop("disabled", true );
-                    $("#CArchivoConyuge").prop("disabled", true);
+                $("#CInhabilidadConyuge").change(function () {
+                    if($(this).val() == "0"){
+                        $("#CArchivoConyuge").prop("disabled", true);
+                    }else{
+                        $("#CArchivoConyuge").prop("disabled", false);
+                    }
                     return false;
                 });
             ///// Antecedentes
-                var AFechaSolicitanteI ='@Model.AFechaSolicitante';
-                if( AFechaSolicitanteI != ""){
-                    $('#AFechaSolicitante').val(DateConvert("@Model.AFechaSolicitante"));
-                }
-                var AFechaConyugeI ='@Model.AFechaConyuge';
-                if(AFechaConyugeI != ""){
-                    $('#AFechaConyuge').val(DateConvert("@Model.AFechaConyuge"));
-                }
-
-                $("#AFechaSolicitante").prop("disabled", true);
                 $("#AArchivoSolicitante").prop("disabled", true);
-                $("#AFechaConyuge").prop("disabled", true);
                 $("#AArchivoConyuge").prop("disabled", true);
-    
-                $("#Ante-1-2").change(function () {
-                    $("#AFechaSolicitante").prop("disabled", false);
-                    $("#AArchivoSolicitante").prop("disabled", false);
-                        return false;
-                });
 
-                $("#Ante-1-4").change(function () {
-                    $("#AFechaConyuge").prop("disabled", false);
-                    $("#AArchivoConyuge").prop("disabled", false);
+                $("#AInhabilidadSolicitante").change(function () {
+                    if($(this).val() == "0"){
+                        $("#AArchivoSolicitante").prop("disabled", true);
+                    }else{
+                        $("#AArchivoSolicitante").prop("disabled", false);
+                    }
                     return false;
                 });
 
-                $("#Ante-1-1").change(function () {
-                    $("#AFechaSolicitante").prop("disabled", true);
-                    $("#AArchivoSolicitante").prop("disabled", true);
-                        return false;
-                });
-
-                $("#Ante-1-3").change(function () {
-                    $("#AFechaConyuge").prop("disabled", true );
-                    $("#AArchivoConyuge").prop("disabled", true);
+                $("#AInhabilidadConyuge").change(function () {
+                    if($(this).val() == "0"){
+                        $("#AArchivoConyuge").prop("disabled", true);
+                    }else{
+                        $("#AArchivoConyuge").prop("disabled", false);
+                    }
                     return false;
                 });
-             
         ////// click guardar 
-
             ///// Ortografia 
 
                 $("#Ortografia").click(function () {
@@ -1021,101 +1206,168 @@
                     $("#Gestion").val("1");
                     var valid = 0 ;
 
-                    if (!$("#Ortografia-1-1").is(':checked') && !$("#Ortografia-1-2").is(':checked')) {
-                            $('span[data-valmsg-for="Ortografia-1"]').text("* Requerido Seleccione");
-                            valid = 1;
-                    };
+                    if($("#CedulaExpSol").val() == "0"){
 
-                    if (!$("#Ortografia-1-3").is(':checked') && !$("#Ortografia-1-4").is(':checked')) {
-                            $('span[data-valmsg-for="Ortografia-2"]').text("* Requerido Seleccione");
-                            valid = 1;
-                    };
+                        $('span[data-valmsg-for="CedulaExpSol"]').text("* Requerido Seleccione");
+                        return false;
 
-                    if (!$("#Ortografia-1-5").is(':checked') && !$("#Ortografia-1-6").is(':checked')) {
-                            $('span[data-valmsg-for="Ortografia-3"]').text("* Requerido Seleccione");
-                            valid = 1;
-                    };
+                    }else if($("#CedulaExpSol").val() == "1"){
 
-                    if (!$("#Ortografia-1-7").is(':checked') && !$("#Ortografia-1-8").is(':checked')) {
-                            $('span[data-valmsg-for="Ortografia-4"]').text("* Requerido Seleccione");
-                            valid = 1;
-                    };
+                        if($('#DocVisibleSol').val() == 0 ){
+                            
+                            $('span[data-valmsg-for="DocVisibleSol"]').text("* Requerido Seleccione");
+                            return false;
 
-                    if ($("#Ortografia-1-1").is(':checked')) {
+                        } else if($("#DocVisibleSol").val() == "1") {
+
+                            if (!$("#Ortografia-1-1").is(':checked') && !$("#Ortografia-1-2").is(':checked')) {
+                                $('span[data-valmsg-for="Ortografia-1"]').text("* Requerido Seleccione si se modifico el registro");
+                                valid = 1;
+                            };
+
+                            if (!$("#Ortografia-1-3").is(':checked') && !$("#Ortografia-1-4").is(':checked')) {
+                                    $('span[data-valmsg-for="Ortografia-2"]').text("* Requerido Seleccione si se modifico el registro");
+                                    valid = 1;
+                            };
+
+                            if ($("#Ortografia-1-1").is(':checked')) {
+                                $("#NombreSolicitante").val("N_A");
+                            };
+                        
+                            if ($("#Ortografia-1-3").is(':checked')) {
+                                $("#TipoDocumento").val("0");
+                                $("#NumeroIdentificacion").val("0");
+                                // $("#FechaExpedicionSolicitante").val("");
+                                if ($("#FechaExpedicionSolicitante").val() == ""){
+                                    $('span[data-valmsg-for="FechaExpedicionSolicitante"]').text("* Requerido  Fecha de Expedicion");
+                                    valid = 1;
+                                }
+                            };
+                            
+                            if ($("#Ortografia-1-2").is(':checked')) {
+                                if ($("#NombreSolicitante").val() == "") {
+                                    $('span[data-valmsg-for="NombreSolicitante"]').text("* Requerido");
+                                    valid = 1;
+                                }
+                                if ($("#FechaExpedicionSolicitante").val() == ""){
+                                $('span[data-valmsg-for="FechaExpedicionSolicitante"]').text("* Requerido  Fecha de Expedicion");
+                                valid = 1;
+                                }
+                            };
+
+                            if ($("#Ortografia-1-4").is(':checked')) {
+
+                                if ($("#TipoDocumento").val() == ""){
+                                    $('span[data-valmsg-for="TipoDocumento"]').text("* Requerido Tipo de Documento");
+                                    valid = 1;
+                                }
+
+                                if ($("#NumeroIdentificacion").val() == ""){
+                                    $('span[data-valmsg-for="NumeroIdentificacion"]').text("* Requerido  Numero de indentificacion");
+                                    valid = 1;
+                                }
+                            
+
+                            };
+                            
+                        } else if($("#DocVisibleSol").val() == "2") {
+                            $("#NombreSolicitante").val("N_A");
+                            $("#TipoDocumento").val("0");
+                            $("#NumeroIdentificacion").val("0");
+                            $("#FechaExpedicionSolicitante").val("1753-01-01");
+                        }
+
+                    } else if($("#CedulaExpSol").val() == "2") {
+
                         $("#NombreSolicitante").val("N_A");
-                    };
-                   
-                    if ($("#Ortografia-1-3").is(':checked')) {
                         $("#TipoDocumento").val("0");
                         $("#NumeroIdentificacion").val("0");
-                       // $("#FechaExpedicionSolicitante").val("");
-                    };
-                    
-                    if ($("#Ortografia-1-5").is(':checked')) {
+                        $("#FechaExpedicionSolicitante").val("1753-01-01");
+
+                    }
+
+                    if($("#CedulaExpCon").val() == "0"){
+
+                        $('span[data-valmsg-for="CedulaExpCon"]').text("* Requerido Seleccione");
+                        return false;
+
+                    }else if($("#CedulaExpCon").val() == "1"){
+
+                        if($('#DocVisibleCon').val() == 0 ){
+                            
+                            $('span[data-valmsg-for="DocVisibleCon"]').text("* Requerido Seleccione");
+                            return false;
+
+                        } else if($("#DocVisibleCon").val() == "1") {
+
+                            if (!$("#Ortografia-1-5").is(':checked') && !$("#Ortografia-1-6").is(':checked')) {
+                                    $('span[data-valmsg-for="Ortografia-3"]').text("* Requerido Seleccione");
+                                    valid = 1;
+                            };
+
+                            if (!$("#Ortografia-1-7").is(':checked') && !$("#Ortografia-1-8").is(':checked')) {
+                                    $('span[data-valmsg-for="Ortografia-4"]').text("* Requerido Seleccione");
+                                    valid = 1;
+                            };
+                            
+                            if ($("#Ortografia-1-5").is(':checked')) {
+                                $("#NombreConyuge").val("N_A");
+                            };
+
+                            if ($("#Ortografia-1-7").is(':checked')) {
+                                $("#NumeroIdentificacionConyuge").val("0")
+                                $("#TipoDocumentoConyuge").val("0");
+                                // $("#FechaExpedicionConyuge").val("");
+                                if ($("#FechaExpedicionConyuge").val() == ""){
+                                    $('span[data-valmsg-for="FechaExpedicionConyuge"]').text("* Requerido Fecha de Expedicion");
+                                    valid = 1;
+                                }
+
+                            };
+
+                            if ($("#Ortografia-1-6").is(':checked')) {
+
+                                if ($("#NombreConyuge").val() == ""){
+                                    $('span[data-valmsg-for="NombreConyuge"]').text("* Requerido");
+                                    valid = 1;
+                                }
+
+                            };
+
+                            if ($("#Ortografia-1-8").is(':checked')) {
+                                if ($("#NumeroIdentificacionConyuge").val() == ""){
+                                    $('span[data-valmsg-for="NumeroIdentificacionConyuge"]').text("* Requerido Numero de indentificacion");
+                                    valid = 1;
+                                }
+                                if ($("#TipoDocumentoConyuge").val() == ""){
+                                    $('span[data-valmsg-for="TipoDocumentoConyuge"]').text("* Requerido Tipo de Documento");
+                                    valid = 1;
+                                }
+                                if ($("#FechaExpedicionConyuge").val() == ""){
+                                    $('span[data-valmsg-for="FechaExpedicionConyuge"]').text("* Requerido Fecha de Expedicion");
+                                    valid = 1;
+                                }
+
+                            };
+
+                        } else if($("#DocVisibleCon").val() == "2") {
+                            $("#NombreConyuge").val("N_A");
+                            $("#TipoDocumentoConyuge").val("0");
+                            $("#NumeroIdentificacionConyuge").val("0");
+                            $("#FechaExpedicionConyuge").val("1753-01-01");
+                        }
+
+                    } else if($("#CedulaExpCon").val() == "2") {
+
                         $("#NombreConyuge").val("N_A");
-                    };
-
-
-                    if ($("#Ortografia-1-7").is(':checked')) {
-                        $("#NumeroIdentificacionConyuge").val("0")
                         $("#TipoDocumentoConyuge").val("0");
-                       // $("#FechaExpedicionConyuge").val("");
-                    };
+                        $("#NumeroIdentificacionConyuge").val("0");
+                        $("#FechaExpedicionConyuge").val("1753-01-01");
+
+                    }
 
 
-                    if ($("#Ortografia-1-2").is(':checked')) {
-                        if ($("#NombreSolicitante").val() == "") {
-                            $('span[data-valmsg-for="NombreSolicitante"]').text("* Requerido");
-                            valid = 1;
-                        }
-                    };
-                   
-                     if ($("#FechaExpedicionSolicitante").val() == ""){
-                            $('span[data-valmsg-for="FechaExpedicionSolicitante"]').text("* Requerido  Fecha de Expedicion");
-                            valid = 1;
-                        }
 
-                    if ($("#Ortografia-1-4").is(':checked')) {
-
-                        if ($("#TipoDocumento").val() == ""){
-                            $('span[data-valmsg-for="TipoDocumento"]').text("* Requerido Tipo de Documento");
-                            valid = 1;
-                        }
-
-                        if ($("#NumeroIdentificacion").val() == ""){
-                            $('span[data-valmsg-for="NumeroIdentificacion"]').text("* Requerido  Numero de indentificacion");
-                            valid = 1;
-                        }
-                       
-
-                    };
-                    
-                    if ($("#Ortografia-1-6").is(':checked')) {
-
-                        if ($("#NombreConyuge").val() == ""){
-                            $('span[data-valmsg-for="NombreConyuge"]').text("* Requerido");
-                            valid = 1;
-                        }
-
-                    };
-
-                    
-
-                    if ($("#Ortografia-1-8").is(':checked')) {
-                        if ($("#NumeroIdentificacionConyuge").val() == ""){
-                            $('span[data-valmsg-for="NumeroIdentificacionConyuge"]').text("* Requerido Numero de indentificacion");
-                            valid = 1;
-                        }
-                        if ($("#TipoDocumentoConyuge").val() == ""){
-                            $('span[data-valmsg-for="TipoDocumentoConyuge"]').text("* Requerido Tipo de Documento");
-                            valid = 1;
-                        }
-                        if ($("#FechaExpedicionConyuge").val() == ""){
-                            $('span[data-valmsg-for="FechaExpedicionConyuge"]').text("* Requerido Fecha de Expedicion");
-                            valid = 1;
-                        }
-
-                    };
                     
                     if (valid == 1) {
                         return false;
@@ -1157,66 +1409,45 @@
                     $("#Gestion").val("2");
                     var valid = 0 ;
 
-                    if (!$("#Vigencia-1-1").is(':checked') && !$("#Vigencia-1-2").is(':checked')) {
-                            $('span[data-valmsg-for="Vigencia-1"]').text("* Requerido Seleccione");
-                            valid = 1;
-                    };
+                    if($("#VVivoSolicitante").val() == 0){
 
-                    if (!$("#Vigencia-1-3").is(':checked') && !$("#Vigencia-1-4").is(':checked')) {
-                            $('span[data-valmsg-for="Vigencia-2"]').text("* Requerido Seleccione");
-                            valid = 1;
-                    };
+                        $('span[data-valmsg-for="VVivoSolicitante"]').text("* Requerido Seleccione si esta vivo");
+                        return false;
 
-                    if ($("#Vigencia-1-1").is(':checked')) {
+                    }else{
 
-                        $("#VFechaSolicitante").val("");
-                        $("#VArchivoSolicitante").val("");
-                    };
+                        if($("#VArchivoSolicitanteNombre a").text() == "'' "){
 
-                    if ($("#Vigencia-1-3").is(':checked')) {
+                            if ($("#VArchivoSolicitante").val() == "") {
 
-                        $("#VFechaConyuge").val("");
-                        $("#VArchivoConyuge").val("");
-                    };
-                    
-
-                    if ($("#Vigencia-1-2").is(':checked')) {
-                        //alert();
-                        if ($("#VFechaSolicitante").val() == "") {
-                            $('span[data-valmsg-for="VFechaSolicitante"]').text("* Requerido Fecha");
-                            valid = 1;
-                        }
-                        if ($("#VArchivoSolicitante").val() == "") {
                             $('span[data-valmsg-for="VArchivoSolicitante"]').text("* Requerido Archivo");
                             valid = 1;
-                        }
-                        if ($('#VVivoSolicitante').val() == "0") {
-                            $('span[data-valmsg-for="VvivoSolicitante"]').text("*  Seleccione si en Vivo ó Fallecido");
-                            valid = 1;
-                        }
 
-
-                    };
-                   
-                    if ($("#Vigencia-1-4").is(':checked')) {
-
-                        //alert();
-                        if ($("#VFechaConyuge").val() == "") {
-                            $('span[data-valmsg-for="VFechaConyuge"]').text("* Requerido Fecha");
-                            valid = 1;
-                        }
-                        if ($("#VArchivoConyuge").val() == "") {
-                            $('span[data-valmsg-for="VArchivoConyuge"]').text("* Requerido Archivo");
-                            valid = 1;
-                        }
-                        if ($('#VVivoConyuge').val() == "0") {
-                            $('span[data-valmsg-for="VvivoConyuge"]').text("* Seleccione si en Vivo ó Fallecido");
-                            valid = 1;
+                            }
 
                         }
+                        
+                    }
+                    
+                    if($("#VVivoConyuge").val() == 0){
 
-                    };
+                        $('span[data-valmsg-for="VVivoConyuge"]').text("* Requerido Seleccione si esta vivo");
+                        return false;
 
+                    }else if ($("#VVivoConyuge").val() != 3){
+
+                        if($("#VArchivoConyugeNombre a").text() == "'' "){
+
+                            if ($("#VArchivoConyuge").val() == "") {
+
+                                $('span[data-valmsg-for="VArchivoConyuge"]').text("* Requerido Archivo");
+                                valid = 1;
+                                return false;
+
+                            }
+                        }
+                    }
+                     
                     if (valid == 1) {
                         return false;
                     }else{
@@ -1252,58 +1483,37 @@
                 });
 
             /////
-
             ///// Procuraduria 
 
                 $("#Pro").click(function () {
                     $("#Gestion").val("3");
                     var valid = 0 ;
 
-                    if (!$("#Pro-1-1").is(':checked') && !$("#Pro-1-2").is(':checked')) {
-                            $('span[data-valmsg-for="Pro-1"]').text("* Requerido Seleccione");
-                            valid = 1;
-                    };
-
-                    if (!$("#Pro-1-3").is(':checked') && !$("#Pro-1-4").is(':checked')) {
-                            $('span[data-valmsg-for="Pro-2"]').text("* Requerido Seleccione");
-                            valid = 1;
-                    };
-
-                    if ($("#Pro-1-1").is(':checked')) {
-
-                        $("#PFechaSolicitante").val("");
-                        $("#PArchivoSolicitante").val("");
-                    };
-
-                    if ($("#Pro-1-3").is(':checked')) {
-
-                        $("#PFechaConyuge").val("");
-                        $("#PArchivoConyuge").val("");
-                    };
-                    
-
-                    if ($("#Pro-1-2").is(':checked')) {
-                        //alert();
-                        if ($("#PFechaSolicitante").val() == "") {
-                            $('span[data-valmsg-for="PFechaSolicitante"]').text("* Requerido Fecha");
-                            valid = 1;
-                        }
-                        if ($("#PArchivoSolicitante").val() == "") {
-                            $('span[data-valmsg-for="PArchivoSolicitante"]').text("* Requerido Archivo");
-                            valid = 1;
+                    if ($("#PInhabilidadSolicitante").val() == 0 ) {
+                        $('span[data-valmsg-for="PInhabilidadSolicitante"]').text("* Requerido Seleccione Inhabilidad");
+                        valid = 1;
+                        return false;
+                    }else{
+                        if($("#PArchivoSolicitanteNombre a").text() == "'' "){
+                            if ($("#PArchivoSolicitante").val() == "") {
+                                $('span[data-valmsg-for="PArchivoSolicitante"]').text("* Requerido Archivo");
+                                valid = 1;
+                                return false;
+                            }
                         }
                     };
-                   
-                    if ($("#Pro-1-4").is(':checked')) {
 
-                        //alert();
-                        if ($("#PFechaConyuge").val() == "") {
-                            $('span[data-valmsg-for="PFechaConyuge"]').text("* Requerido Fecha");
-                            valid = 1;
-                        }
-                        if ($("#PArchivoConyuge").val() == "") {
-                            $('span[data-valmsg-for="PArchivoConyuge"]').text("* Requerido Archivo");
-                            valid = 1;
+                    if ($("#PInhabilidadConyuge").val() == 0 ) {
+                        $('span[data-valmsg-for="PInhabilidadConyuge"]').text("* Requerido Seleccione Inhabilidad");
+                        valid = 1;
+                        return false;
+                    }else{
+                        if($("#PArchivoConyugeNombre a").text() == "'' "){
+                            if ($("#PArchivoConyuge").val() == "") {
+                                $('span[data-valmsg-for="PArchivoConyuge"]').text("* Requerido Archivo");
+                                valid = 1;
+                                return false;
+                            }
                         }
 
                     };
@@ -1343,62 +1553,41 @@
                 });
 
             /////
-
             ///// Contraloria 
 
                 $("#Contra").click(function () {
                     $("#Gestion").val("4");
                     var valid = 0 ;
 
-                    if (!$("#Contra-1-1").is(':checked') && !$("#Contra-1-2").is(':checked')) {
-                            $('span[data-valmsg-for="Contra-1"]').text("* Requerido Seleccione");
-                            valid = 1;
-                    };
+                    if ($("#CInhabilidadSolicitante").val() == 0 ) {
+                        $('span[data-valmsg-for="CInhabilidadSolicitante"]').text("* Requerido Seleccione Inhabilidad");
+                        valid = 1;
+                        return false;
+                    }else{
 
-                    if (!$("#Contra-1-3").is(':checked') && !$("#Contra-1-4").is(':checked')) {
-                            $('span[data-valmsg-for="Contra-2"]').text("* Requerido Seleccione");
-                            valid = 1;
-                    };
-
-                    if ($("#Contra-1-1").is(':checked')) {
-
-                        $("#CFechaSolicitante").val("");
-                        $("#CrchivoSolicitante").val("");
-                    };
-
-                    if ($("#Contra-1-3").is(':checked')) {
-
-                        $("#CFechaConyuge").val("");
-                        $("#CArchivoConyuge").val("");
-                    };
-                    
-
-                    if ($("#Contra-1-2").is(':checked')) {
-                        //alert();
-                        if ($("#CFechaSolicitante").val() == "") {
-                            $('span[data-valmsg-for="CFechaSolicitante"]').text("* Requerido Fecha");
-                            valid = 1;
-                        }
-                        if ($("#CArchivoSolicitante").val() == "") {
-                            $('span[data-valmsg-for="CArchivoSolicitante"]').text("* Requerido Archivo");
-                            valid = 1;
-                        }
-                    };
-                   
-                    if ($("#Contra-1-4").is(':checked')) {
-
-                        //alert();
-                        if ($("#CFechaConyuge").val() == "") {
-                            $('span[data-valmsg-for="CFechaConyuge"]').text("* Requerido Fecha");
-                            valid = 1;
-                        }
-                        if ($("#CArchivoConyuge").val() == "") {
-                            $('span[data-valmsg-for="CArchivoConyuge"]').text("* Requerido Archivo");
-                            valid = 1;
+                        if($("#CArchivoSolicitanteNombre a").text() == "'' "){
+                            if ($("#CArchivoSolicitante").val() == "") {
+                                $('span[data-valmsg-for="CArchivoSolicitante"]').text("* Requerido Archivo");
+                                valid = 1;
+                                return false;
+                            }
                         }
 
                     };
 
+                    if ($("#CInhabilidadConyuge").val() == 0 ) {
+                        $('span[data-valmsg-for="CInhabilidadConyuge"]').text("* Requerido Seleccione Inhabilidad");
+                        valid = 1;
+                        return false;
+                    }else{
+                        if($("#CArchivoConyugeNombre a").text() == "'' "){
+                            if ($("#CArchivoConyuge").val() == "") {
+                                $('span[data-valmsg-for="CArchivoConyuge"]').text("* Requerido Archivo");
+                                valid = 1;
+                                return false;
+                            }
+                        }
+                    };
                     if (valid == 1) {
                         return false;
                     }else{
@@ -1434,62 +1623,41 @@
                 });
 
             /////
-
             ///// Antecedentes 
 
                 $("#Ante").click(function () {
                     $("#Gestion").val("5");
                     var valid = 0 ;
 
-                    if (!$("#Ante-1-1").is(':checked') && !$("#Ante-1-2").is(':checked')) {
-                            $('span[data-valmsg-for="Ante-1"]').text("* Requerido Seleccione");
-                            valid = 1;
-                    };
+                    if ($("#AInhabilidadSolicitante").val() == 0 ) {
+                        $('span[data-valmsg-for="AInhabilidadSolicitante"]').text("* Requerido Seleccione Inhabilidad");
+                        valid = 1;
+                        return false;
+                    }else{
 
-                    if (!$("#Ante-1-3").is(':checked') && !$("#Ante-1-4").is(':checked')) {
-                            $('span[data-valmsg-for="Ante-2"]').text("* Requerido Seleccione");
-                            valid = 1;
-                    };
-
-                    if ($("#Ante-1-1").is(':checked')) {
-
-                        $("#AFechaSolicitante").val("");
-                        $("#AArchivoSolicitante").val("");
-                    };
-
-                    if ($("#Ante-1-3").is(':checked')) {
-
-                        $("#AFechaConyuge").val("");
-                        $("#AArchivoConyuge").val("");
-                    };
-                    
-
-                    if ($("#Ante-1-2").is(':checked')) {
-                        //alert();
-                        if ($("#AFechaSolicitante").val() == "") {
-                            $('span[data-valmsg-for="AFechaSolicitante"]').text("* Requerido Fecha");
-                            valid = 1;
-                        }
-                        if ($("#AArchivoSolicitante").val() == "") {
-                            $('span[data-valmsg-for="AArchivoSolicitante"]').text("* Requerido Archivo");
-                            valid = 1;
-                        }
-                    };
-                   
-                    if ($("#Ante-1-4").is(':checked')) {
-
-                        //alert();
-                        if ($("#AFechaConyuge").val() == "") {
-                            $('span[data-valmsg-for="AFechaConyuge"]').text("* Requerido Fecha");
-                            valid = 1;
-                        }
-                        if ($("#AArchivoConyuge").val() == "") {
-                            $('span[data-valmsg-for="AArchivoConyuge"]').text("* Requerido Archivo");
-                            valid = 1;
+                        if($("#AArchivoSolicitanteNombre a").text() == "'' "){
+                            if ($("#AArchivoSolicitante").val() == "") {
+                                $('span[data-valmsg-for="AArchivoSolicitante"]').text("* Requerido Archivo");
+                                valid = 1;
+                                return false;
+                            }
                         }
 
                     };
 
+                    if ($("#AInhabilidadConyuge").val() == 0 ) {
+                        $('span[data-valmsg-for="AInhabilidadConyuge"]').text("* Requerido Seleccione Inhabilidad");
+                        valid = 1;
+                        return false;
+                    }else{
+                        if($("#AArchivoConyugeNombre a").text() == "'' "){
+                            if ($("#AArchivoConyuge").val() == "") {
+                                $('span[data-valmsg-for="AArchivoConyuge"]').text("* Requerido Archivo");
+                                valid = 1;
+                                return false;
+                            }
+                        }
+                    };
                     if (valid == 1) {
                         return false;
                     }else{
@@ -1525,7 +1693,6 @@
                 });
 
             /////
-
         ////// Catalogos
             $.ajax({
                 type: 'POST',

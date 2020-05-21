@@ -2735,12 +2735,16 @@
                     if ($("#NOTIFICACION_NOTIFICACION_SOLICITANTES_81").val() == "False" || $("#NOTIFICACION_NOTIFICACION_SOLICITANTES_81").val() == "" || ($("#NOTIFICACION_VISIBLE").val() == "0" || $("#NOTIFICACION_VISIBLE").val() == "2")) {
                         //$('#NOTIFICACION_VISIBLE').prop("disabled", true);
                         $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').prop("disabled", true);
-                        $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').prop("disabled", true);
-                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').prop("disabled", true);
                     }else{
                         $('#NOTIFICACION_VISIBLE').prop("disabled", false);
                         $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').prop("disabled", false);
-                        $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').prop("disabled", false);
+                    }
+                    
+                    if ($("#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83").val() == "False" || $("#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83").val() == "" || ($("#NOTIFICACION_VISIBLE").val() == "0" || $("#NOTIFICACION_VISIBLE").val() == "2")) {
+                        //$('#NOTIFICACION_VISIBLE').prop("disabled", true);
+                        $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').prop("disabled", true);
+                    }else{
+                        $('#NOTIFICACION_VISIBLE').prop("disabled", false);
                         $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').prop("disabled", false);
                     }
                 /// #RECURSO_SOLICITANTE
@@ -3370,7 +3374,10 @@
                                 if ($("#NOTIFICACION_NOTIFICACION_SOLICITANTES_81").val() == "False" || $("#NOTIFICACION_NOTIFICACION_SOLICITANTES_81").val() == "" || ($("#NOTIFICACION_VISIBLE").val() == "0" || $("#NOTIFICACION_VISIBLE").val() == "2")) {
                                     $('#NOTIFICACION_VISIBLE').val("2");
                                     $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').val("1753-01-01");
-                                    $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').val("False");
+
+                                }
+                                if ($("#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83").val() == "False" || $("#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83").val() == "" || ($("#NOTIFICACION_VISIBLE").val() == "0" || $("#NOTIFICACION_VISIBLE").val() == "2")) {
+                                    $('#NOTIFICACION_VISIBLE').val("2");
                                     $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').val("1753-01-01");
 
                                 }
@@ -4013,22 +4020,37 @@
                             if( $('#NOTIFICACION_VISIBLE').val() == "2" || $('#NOTIFICACION_VISIBLE').val() == "0" ){
                                 //$('#NOTIFICACION_VISIBLE').prop("disabled", true);
                                 $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').prop("disabled", true);
-                                $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').prop("disabled", true);
-                                $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').prop("disabled", true);
 
                                 //$('#NOTIFICACION_VISIBLE').val("0");
                                 $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').val("1753-01-01");
-                                $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').val("False");
-                                $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').val("1753-01-01");
                             }
                         }else{
                                 //$('#NOTIFICACION_VISIBLE').prop("disabled", false);
                                 $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').prop("disabled", false);
-                                $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').prop("disabled", false);
-                                $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').prop("disabled", false);
 
                         }
                         if($('#NOTIFICACION_NOTIFICACION_SOLICITANTES_81').val() == "False" || $('#NOTIFICACION_NOTIFICACION_SOLICITANTES_81').val() == ""){
+                            $('#NOTIFICACION_VISIBLE').prop("disabled", true);
+                        }else{
+                            $('#NOTIFICACION_VISIBLE').prop("disabled", false);
+                        }
+                    });
+                    $("#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83").change(function () {
+                        
+                        if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
+                            if( $('#NOTIFICACION_VISIBLE').val() == "2" || $('#NOTIFICACION_VISIBLE').val() == "0" ){
+                                //$('#NOTIFICACION_VISIBLE').prop("disabled", true);
+                                $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').prop("disabled", true);
+
+                                //$('#NOTIFICACION_VISIBLE').val("0");
+                                $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').val("1753-01-01");
+                            }
+                        }else{
+                                //$('#NOTIFICACION_VISIBLE').prop("disabled", false);
+                                $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').prop("disabled", false);
+
+                        }
+                        if($('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').val() == "False" || $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').val() == ""){
                             $('#NOTIFICACION_VISIBLE').prop("disabled", true);
                         }else{
                             $('#NOTIFICACION_VISIBLE').prop("disabled", false);

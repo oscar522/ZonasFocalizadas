@@ -473,49 +473,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="CaracterizacionSolicitante">
-      <EntityTypeMapping TypeName="ZonasFModel.CaracterizacionSolicitante">
-        <MappingFragment StoreEntitySet="CaracterizacionSolicitante">
-          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-          <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />
-          <ScalarProperty Name="Gestion" ColumnName="Gestion" />
-          <ScalarProperty Name="AFModificacion" ColumnName="AFModificacion" />
-          <ScalarProperty Name="AArchivoConyuge" ColumnName="AArchivoConyuge" />
-          <ScalarProperty Name="AFechaConyuge" ColumnName="AFechaConyuge" />
-          <ScalarProperty Name="AArchivoSolicitante" ColumnName="AArchivoSolicitante" />
-          <ScalarProperty Name="AFechaSolicitante" ColumnName="AFechaSolicitante" />
-          <ScalarProperty Name="CFModificacion" ColumnName="CFModificacion" />
-          <ScalarProperty Name="CArchivoConyuge" ColumnName="CArchivoConyuge" />
-          <ScalarProperty Name="CFechaConyuge" ColumnName="CFechaConyuge" />
-          <ScalarProperty Name="CArchivoSolicitante" ColumnName="CArchivoSolicitante" />
-          <ScalarProperty Name="CFechaSolicitante" ColumnName="CFechaSolicitante" />
-          <ScalarProperty Name="PFModificacion" ColumnName="PFModificacion" />
-          <ScalarProperty Name="PArchivoConyuge" ColumnName="PArchivoConyuge" />
-          <ScalarProperty Name="PFechaConyuge" ColumnName="PFechaConyuge" />
-          <ScalarProperty Name="PArchivoSolicitante" ColumnName="PArchivoSolicitante" />
-          <ScalarProperty Name="PFechaSolicitante" ColumnName="PFechaSolicitante" />
-          <ScalarProperty Name="VFModificacion" ColumnName="VFModificacion" />
-          <ScalarProperty Name="VVivoConyuge" ColumnName="VVivoConyuge" />
-          <ScalarProperty Name="VVivoSolicitante" ColumnName="VVivoSolicitante" />
-          <ScalarProperty Name="VArchivoConyuge" ColumnName="VArchivoConyuge" />
-          <ScalarProperty Name="VFechaConyuge" ColumnName="VFechaConyuge" />
-          <ScalarProperty Name="VArchivoSolicitante" ColumnName="VArchivoSolicitante" />
-          <ScalarProperty Name="VFechaSolicitante" ColumnName="VFechaSolicitante" />
-          <ScalarProperty Name="FModificacionExp" ColumnName="FModificacionExp" />
-          <ScalarProperty Name="FechaExpedicionConyuge" ColumnName="FechaExpedicionConyuge" />
-          <ScalarProperty Name="FechaExpedicionSolicitante" ColumnName="FechaExpedicionSolicitante" />
-          <ScalarProperty Name="NumeroIdentificacionConyuge" ColumnName="NumeroIdentificacionConyuge" />
-          <ScalarProperty Name="TipoDocumentoConyuge" ColumnName="TipoDocumentoConyuge" />
-          <ScalarProperty Name="NombreConyuge" ColumnName="NombreConyuge" />
-          <ScalarProperty Name="NumeroIdentificacion" ColumnName="NumeroIdentificacion" />
-          <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
-          <ScalarProperty Name="NombreSolicitante" ColumnName="NombreSolicitante" />
-          <ScalarProperty Name="IdExpediente" ColumnName="IdExpediente" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="CaracterizacionJuridica">
       <EntityTypeMapping TypeName="ZonasFModel.CaracterizacionJuridica">
         <MappingFragment StoreEntitySet="CaracterizacionJuridica">
@@ -676,6 +633,55 @@
           <ScalarProperty Name="INSPECCION_OCULAR_FIRMA_55" ColumnName="INSPECCION_OCULAR_FIRMA_55" />
           <ScalarProperty Name="INSPECCION_OCULAR_FECHA_54" ColumnName="INSPECCION_OCULAR_FECHA_54" />
           <ScalarProperty Name="INSPECCION_OCULAR_INSPECCION_OCULAR_53" ColumnName="INSPECCION_OCULAR_INSPECCION_OCULAR_53" />
+          <ScalarProperty Name="IdExpediente" ColumnName="IdExpediente" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CaracterizacionSolicitante">
+      <EntityTypeMapping TypeName="ZonasFModel.CaracterizacionSolicitante">
+        <MappingFragment StoreEntitySet="CaracterizacionSolicitante">
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />
+          <ScalarProperty Name="Gestion" ColumnName="Gestion" />
+          <ScalarProperty Name="AInhabilidadConyuge" ColumnName="AInhabilidadConyuge" />
+          <ScalarProperty Name="AArchivoConyuge" ColumnName="AArchivoConyuge" />
+          <ScalarProperty Name="AFechaConyuge" ColumnName="AFechaConyuge" />
+          <ScalarProperty Name="AInhabilidadSolicitante" ColumnName="AInhabilidadSolicitante" />
+          <ScalarProperty Name="AArchivoSolicitante" ColumnName="AArchivoSolicitante" />
+          <ScalarProperty Name="AFechaSolicitante" ColumnName="AFechaSolicitante" />
+          <ScalarProperty Name="CInhabilidadConyuge" ColumnName="CInhabilidadConyuge" />
+          <ScalarProperty Name="CArchivoConyuge" ColumnName="CArchivoConyuge" />
+          <ScalarProperty Name="CFechaConyuge" ColumnName="CFechaConyuge" />
+          <ScalarProperty Name="CInhabilidadSolicitante" ColumnName="CInhabilidadSolicitante" />
+          <ScalarProperty Name="CArchivoSolicitante" ColumnName="CArchivoSolicitante" />
+          <ScalarProperty Name="CFechaSolicitante" ColumnName="CFechaSolicitante" />
+          <ScalarProperty Name="PInhabilidadConyuge" ColumnName="PInhabilidadConyuge" />
+          <ScalarProperty Name="PArchivoConyuge" ColumnName="PArchivoConyuge" />
+          <ScalarProperty Name="PFechaConyuge" ColumnName="PFechaConyuge" />
+          <ScalarProperty Name="PInhabilidadSolicitante" ColumnName="PInhabilidadSolicitante" />
+          <ScalarProperty Name="PArchivoSolicitante" ColumnName="PArchivoSolicitante" />
+          <ScalarProperty Name="PFechaSolicitante" ColumnName="PFechaSolicitante" />
+          <ScalarProperty Name="VVivoConyuge" ColumnName="VVivoConyuge" />
+          <ScalarProperty Name="VVivoSolicitante" ColumnName="VVivoSolicitante" />
+          <ScalarProperty Name="VArchivoConyuge" ColumnName="VArchivoConyuge" />
+          <ScalarProperty Name="VFechaConyuge" ColumnName="VFechaConyuge" />
+          <ScalarProperty Name="VArchivoSolicitante" ColumnName="VArchivoSolicitante" />
+          <ScalarProperty Name="VFechaSolicitante" ColumnName="VFechaSolicitante" />
+          <ScalarProperty Name="FModificacionExp" ColumnName="FModificacionExp" />
+          <ScalarProperty Name="FechaExpedicionConyuge" ColumnName="FechaExpedicionConyuge" />
+          <ScalarProperty Name="FechaExpedicionSolicitante" ColumnName="FechaExpedicionSolicitante" />
+          <ScalarProperty Name="NumeroIdentificacionConyuge" ColumnName="NumeroIdentificacionConyuge" />
+          <ScalarProperty Name="TipoDocumentoConyuge" ColumnName="TipoDocumentoConyuge" />
+          <ScalarProperty Name="NombreConyuge" ColumnName="NombreConyuge" />
+          <ScalarProperty Name="CedulaExpCon" ColumnName="CedulaExpCon" />
+          <ScalarProperty Name="DocVisibleCon" ColumnName="DocVisibleCon" />
+          <ScalarProperty Name="NumeroIdentificacion" ColumnName="NumeroIdentificacion" />
+          <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+          <ScalarProperty Name="NombreSolicitante" ColumnName="NombreSolicitante" />
+          <ScalarProperty Name="CedulaExpSol" ColumnName="CedulaExpSol" />
+          <ScalarProperty Name="DocVisibleSol" ColumnName="DocVisibleSol" />
           <ScalarProperty Name="IdExpediente" ColumnName="IdExpediente" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>

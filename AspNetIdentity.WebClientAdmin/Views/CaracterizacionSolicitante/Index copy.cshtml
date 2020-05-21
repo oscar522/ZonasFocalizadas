@@ -1,0 +1,345 @@
+﻿@model IEnumerable<AspNetIdentity.Models.CaracterizacionSolicitanteModel>
+
+@section Scripts
+{
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+             var oTable = $('#table_idd').dataTable({
+
+                "order": [[1, "desc"]],
+                "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
+                "pageLength": 10,
+                "searching": true,
+                dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
+                buttons: [
+                    { "extend": 'pdf', "text": 'Pdf', "className": 'btn-outline-success' },
+                    { "extend": 'excel', "text": 'Exc', "className": ' btn-outline-success ' },
+                    { "extend": 'print', "text": 'Imp', "className": ' btn-outline-success ' }
+                ],
+               
+            });
+
+
+        console.log("ready!");
+    });
+    </script>
+
+}
+<div class="card mb-4 wow fadeIn">
+
+    <!--Card content-->
+    <div class="card-body d-sm-flex justify-content-between">
+        <h3 class="card-title">Caracterizacion del Solicitante </h3>
+    </div>
+
+</div>
+<div class="row wow fadeIn">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">  </div>
+            <div class="card-body">
+                <div class="table-responsive text-nowrap">
+                    <table class="table" id="table_idd">
+                        <thead>
+                            <tr class="table-bordered">
+                                <th class="text-center">
+                                </th>
+                                <th colspan="5" class="text-center">
+                                    Solicitante - Conyuge
+                                </th>
+                                <th colspan="5" class="text-center">
+                                    Vigencia
+                                </th>
+                                <th colspan="3" class="text-center">
+                                    Procuraduria
+                                </th>
+                                <th colspan="3" class="text-center">
+                                    Contraloria
+                                </th>
+                                <th colspan="3" class="text-center">
+                                    Antecedentes
+                                </th>
+                                <th colspan="3" class="text-center">
+                                </th>
+                            </tr>
+
+                            <tr class="table-bordered">
+
+                                <th>
+                                    Numero Expediente
+                                </th>
+                                <th>
+                                    T - Identificacion
+                                </th>
+                                <th>
+                                    Solicitante
+                                </th>
+                                <th>
+                                    T - Identificacion
+                                </th>
+                                <th>
+                                    Conyuge
+                                </th>
+
+                                <th>
+                                    F Modificacion
+                                </th>
+
+
+                                <th>
+                                    F. Solicitante
+                                </th>
+                                <th>
+                                    Archivo
+                                </th>
+                                <th>
+                                    F. Conyuge
+                                </th>
+                                <th>
+                                    Archivo
+                                </th>
+                                <th>
+                                    F Modificacion
+                                </th>
+
+
+                                <th>
+                                    Archivo Solicitante
+                                </th>
+                                <th>
+                                    Archivo Conyuge
+                                </th>
+                                <th>
+                                    F Modificacion
+                                </th>
+
+
+                                <th>
+                                    Archivo Solicitante
+                                </th>
+                                <th>
+                                    Archivo Conyuge
+                                </th>
+                                <th>
+                                    F Modificacion
+                                </th>
+
+
+                                <th>
+                                    Archivo Solicitante
+                                </th>
+                                <th>
+                                    Archivo Conyuge
+                                </th>
+                                <th>
+                                    F Modificacion
+                                </th>
+
+
+                                <th>
+                                    @* @Html.DisplayNameFor(model => model.FechaModificacion) *@
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Estado)
+                                </th>
+
+                                <th></th>
+                            </tr>
+                        <thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                @if (item.Gestion != null)
+                                {
+                                    <td>
+                                        <a target="_blank" href='@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = item.IdExpediente })' title='Modificar' style='color: #013ADF;'> @Html.DisplayFor(modelItem => item.NumeroExpediente) <i class='fa fa-eye' aria-hidden='true'></i></a>
+                                    </td>
+                                    if (item.NombreSolicitante == null)
+                                    {
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TipoDocSolicitanteExpediente) @Html.DisplayFor(modelItem => item.DocSolicitanteExpediente)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NombreSolicitanteExpediente)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TipoDocConyugeExpediente)  @Html.DisplayFor(modelItem => item.DocConyugeExpediente)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NombreConyugeExpediente)
+                                        </td>
+                                        <td>
+                                            @* @Html.DisplayFor(modelItem => item.FModificacionExp) *@
+                                        </td>
+
+                                    }
+                                    else
+                                    {
+
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NombreTipoDocumento) @Html.DisplayFor(modelItem => item.NumeroIdentificacion) @Html.DisplayFor(modelItem => item.Gestion)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NombreSolicitante)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NombreTipoDocumentoConyuge)  @Html.DisplayFor(modelItem => item.NumeroIdentificacionConyuge)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NombreConyuge)
+                                        </td>
+                                        <td>
+                                            @* @Html.DisplayFor(modelItem => item.FModificacionExp) *@
+                                        </td>
+                                    }
+
+
+                                    if (item.VFechaSolicitante == null || item.VFechaConyuge.Equals("1/01/1900 12:00:00 a. m."))
+                                    {
+                                        <td>  </td>
+                                    }
+                                    else
+                                    {
+                                        <td> @Html.DisplayFor(modelItem => item.VFechaSolicitante) </td>
+                                    }
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.VArchivoSolicitante)
+                                    </td>
+                                    var VFechaConyuge_ = item.VFechaConyuge;
+                                    if (item.VFechaConyuge == null || item.VFechaConyuge.Equals("1/01/1900 12:00:00 a. m.") )
+                                    {
+                                        <td>  </td>
+                                    }
+                                    else
+                                    {
+                            <td> @Html.DisplayFor(modelItem => item.VFechaConyuge) | VFechaConyuge_ </td>
+                                    }
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.VArchivoConyuge)
+                                    </td>
+                                    <td>
+                                        @* @Html.DisplayFor(modelItem => item.VFModificacion) *@
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PArchivoSolicitante)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PArchivoConyuge)
+                                    </td>
+                                    <td>
+                                        @* @Html.DisplayFor(modelItem => item.PFModificacion) *@
+                                    </td>
+
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CArchivoSolicitante)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CArchivoConyuge)
+                                    </td>
+                                    <td>
+                                        @* @Html.DisplayFor(modelItem => item.CFModificacion) *@
+                                    </td>
+
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AArchivoSolicitante)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AArchivoConyuge)
+                                    </td>
+                                    <td>
+                                        @* @Html.DisplayFor(modelItem => item.AFModificacion) *@
+                                    </td>
+
+
+                                    <td>
+                                        @* @Html.DisplayFor(modelItem => item.FechaModificacion) *@
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Estado)
+                                    </td>
+
+
+                                }
+                                else
+                                {
+                                    <td>
+                                        <a target="_blank" href='@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = item.IdExpediente })' title='Modificar' style='color: #013ADF;'> @Html.DisplayFor(modelItem => item.NumeroExpediente) <i class='fa fa-eye' aria-hidden='true'></i></a>
+                                    </td>
+
+
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+
+
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+
+
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+
+
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                }
+
+                                <td>
+                                    <a href='@Url.Action("../CaracterizacionSolicitante/Edit", "Edit", new { IdTable = item.Id })' title='Modificar' style='color: #013ADF;'><i class='fa fa-refresh' aria-hidden='true'></i></a>
+                                </td>
+
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    

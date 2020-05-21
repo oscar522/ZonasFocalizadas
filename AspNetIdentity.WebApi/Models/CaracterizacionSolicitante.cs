@@ -16,9 +16,13 @@ namespace AspNetIdentity.WebApi.Models
     {
         public int Id { get; set; }
         public Nullable<long> IdExpediente { get; set; }
+        public Nullable<int> DocVisibleSol { get; set; }
+        public Nullable<int> CedulaExpSol { get; set; }
         public string NombreSolicitante { get; set; }
         public Nullable<int> TipoDocumento { get; set; }
         public Nullable<long> NumeroIdentificacion { get; set; }
+        public Nullable<int> DocVisibleCon { get; set; }
+        public Nullable<int> CedulaExpCon { get; set; }
         public string NombreConyuge { get; set; }
         public Nullable<int> TipoDocumentoConyuge { get; set; }
         public Nullable<long> NumeroIdentificacionConyuge { get; set; }
@@ -31,22 +35,24 @@ namespace AspNetIdentity.WebApi.Models
         public string VArchivoConyuge { get; set; }
         public Nullable<int> VVivoSolicitante { get; set; }
         public Nullable<int> VVivoConyuge { get; set; }
-        public Nullable<System.DateTime> VFModificacion { get; set; }
         public Nullable<System.DateTime> PFechaSolicitante { get; set; }
         public string PArchivoSolicitante { get; set; }
+        public Nullable<int> PInhabilidadSolicitante { get; set; }
         public Nullable<System.DateTime> PFechaConyuge { get; set; }
         public string PArchivoConyuge { get; set; }
-        public Nullable<System.DateTime> PFModificacion { get; set; }
+        public Nullable<int> PInhabilidadConyuge { get; set; }
         public Nullable<System.DateTime> CFechaSolicitante { get; set; }
         public string CArchivoSolicitante { get; set; }
+        public Nullable<int> CInhabilidadSolicitante { get; set; }
         public Nullable<System.DateTime> CFechaConyuge { get; set; }
         public string CArchivoConyuge { get; set; }
-        public Nullable<System.DateTime> CFModificacion { get; set; }
+        public Nullable<int> CInhabilidadConyuge { get; set; }
         public Nullable<System.DateTime> AFechaSolicitante { get; set; }
         public string AArchivoSolicitante { get; set; }
+        public Nullable<int> AInhabilidadSolicitante { get; set; }
         public Nullable<System.DateTime> AFechaConyuge { get; set; }
         public string AArchivoConyuge { get; set; }
-        public Nullable<System.DateTime> AFModificacion { get; set; }
+        public Nullable<int> AInhabilidadConyuge { get; set; }
         public Nullable<int> Gestion { get; set; }
         public string IdAspNetUser { get; set; }
         public Nullable<bool> Estado { get; set; }
