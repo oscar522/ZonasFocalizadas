@@ -34,9 +34,9 @@
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div id="DateError"></div>
         @Html.HiddenFor(model => model.Id)
         @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control", Style = "display : none" } })
-
 
         @Html.EditorFor(model => model.Gestion, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "N_A" } })
         @Html.EditorFor(model => model.IdExpediente, new { htmlAttributes = new { @class = "form-control", Style = "display : none" } })
@@ -2119,6 +2119,8 @@
                             <div class="form-group">
                                 <div class=" text-md-center justify-content-md-center">
                                     <input type="submit" value="Guardar" class="btn btn-default" />
+                                    <br>
+                                    <div id="DateError2"></div>
                                 </div>
                             </div>
                         </div>
@@ -3529,8 +3531,30 @@
                             ///
 
                             $("#CrearForm :input").prop("disabled", false);
+                    var valid = "";     
+                    $("#CrearForm").find('input[type="date"]').each(function() {
+                        var elemento= this;
+                        var FormDate = new Date($(this).val());
+                        var estandar = new Date("1753-01-01");
+                        debugger;
+                            if(FormDate < estandar){
+                            valid = "1";
+                            //validation-summary-errors text-danger
+                                $('#'+elemento.id).addClass("alert-danger");
 
-                    return true;
+                                
+                            }
+
+                    });
+                    if(valid != "1"){
+                            return true;
+                    }else{
+                        $('#DateError').addClass(" text-danger");
+                        $('#DateError').text("*Alguna de las fechas es menor a 1753-01-01, Verifique por favor");
+                        $('#DateError2').addClass(" text-danger");
+                        $('#DateError2').text("*Alguna de las fechas es menor a 1753-01-01, Verifique por favor");
+                        return false;
+                    }
                 });
             ///
             /// Change

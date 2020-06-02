@@ -1,0 +1,573 @@
+﻿@model IEnumerable<AspNetIdentity.Models.CaracterizacionSolicitanteModel>
+
+@section Scripts
+{
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/mapdata/countries/co/co-all.js"></script>
+
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    @* <script src="https://code.highcharts.com/modules/exporting.js"></script> *@
+    @* <script src="https://code.highcharts.com/modules/export-data.js"></script> *@
+    @* <script src="https://code.highcharts.com/modules/accessibility.js"></script> *@
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var oTable = $('#table_id').dataTable({
+                "order": [[1, "desc"]],
+                "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
+                "pageLength": 10,
+                "searching": false,
+                "bLengthChange" : false, //thought this line could hide the LengthMenu
+                "bInfo":false,   
+                "paging": false 
+            });  //Initialize the datatable
+
+            // Modulo 1 Mapa Tabla deptos x exp
+            function MapaTotalExp() {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("CountDepto","HomeAdministrator")',
+                    dataType: 'json',
+                    success: function (s) {
+                        oTable.fnClearTable();
+                        var TotalExp = 0 ;
+                        var dataList = [];
+                        $.each(s, function (i, obj) {
+
+                            var res = obj.NOMBRE_PAIS.split("-");
+
+                            var ExpCountIndv = parseInt(res[0]);
+                            TotalExp =  TotalExp + ExpCountIndv;
+
+                            oTable.fnAddData([
+                                obj.NOMBRE_DEPTO.toLowerCase(),
+                                res[0],
+                            ]);
+
+                            if(obj.IdCtDepto == "5")
+                            {   
+                                var dataEntity = ['co-an',  res[0]];
+                                dataList.push(dataEntity);
+                            }
+                            if(obj.IdCtDepto == "13")
+                            {
+                                var dataEntity = ['co-bl',  res[0]];
+                                dataList.push(dataEntity);
+                            }
+                            if(obj.IdCtDepto == "23")
+                            {
+                                var dataEntity = ['co-co',  res[0]];
+                                dataList.push(dataEntity);
+                            }
+                            if(obj.IdCtDepto == "25")
+                            {
+                                var dataEntity = ['co-cu',  res[0]];
+                                dataList.push(dataEntity);
+                            }
+                            if(obj.IdCtDepto == "44")
+                            {
+                                var dataEntity =['co-lg',  res[0]];
+                                dataList.push(dataEntity);
+                            }
+                            if(obj.IdCtDepto == "47")
+                            {
+                                var dataEntity = ['co-ma',  res[0]];
+                                dataList.push(dataEntity);
+                            }
+                            if(obj.IdCtDepto == "50")
+                            {
+                                var dataEntity = ['co-me',  res[0]];
+                                dataList.push(dataEntity);
+                            }
+                            if(obj.IdCtDepto == "68")
+                            {
+                                var dataEntity = ['co-st',  res[0]];
+                                dataList.push(dataEntity);
+                            }
+                            if(obj.IdCtDepto == "70")
+                            {
+                                var dataEntity = ['co-su',  res[0]];
+                                dataList.push(dataEntity);
+                            }
+                            if(obj.IdCtDepto == "73")
+                            {
+                                var dataEntity = ['co-to',  res[0]];
+                                dataList.push(dataEntity);
+                            }
+                            if(obj.IdCtDepto == "76")
+                            {
+                                var dataEntity = ['co-vc',  res[0]];
+                                dataList.push(dataEntity);
+                            }
+                        });
+                        
+                        $("#TituloTotalExp").text("TOTAL DE EXPEDIENTES"); 
+                        $("#TotalExp").text(+TotalExp); 
+
+                        Highcharts.mapChart('container', {
+                            chart: {
+                                map: 'countries/co/co-all'
+                            },
+
+                            title: {
+                                text: ''
+                            },
+
+                            subtitle: {
+                                text: ''
+                            },
+
+                            mapNavigation: {
+                                enabled: true,
+                                buttonOptions: {
+                                    verticalAlign: 'bottom'
+                                }
+                            },
+
+                            exporting:{
+                                enabled: false,
+                            },
+
+                            colorAxis: {
+                                min: 0
+                            },
+
+                            series: [{
+                                data: dataList,
+                                name: 'Random data',
+                                states: {
+                                    hover: {
+                                        color: '#BADA55'
+                                    }
+                                },
+                                dataLabels: {
+                                    enabled: true,
+                                    format: '{point.name}'
+                                },
+                                point: {
+                                        events: {
+                                            click: function () {
+                                                alert('Category: ' + this.name );
+                                                EventoMapa(this.name);
+
+                                            }
+                                        }
+                                }
+                            }]
+                        });
+                    },
+                    error: function(e){
+                        oTable.fnClearTable();
+                    }
+                });
+            }
+            
+            MapaTotalExp();
+
+            // Grafica de exp por municipio
+            function GrapExpPorMunicipio() {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("CountDeptoMuni","HomeAdministrator")',
+                    dataType: 'json',
+                    success: function (s) {
+                        var TotalExp = 0 ;
+                        var dataList = [];
+                        $.each(s, function (i, obj) {
+                            var res = obj.NOMBRE_PAIS.split("-");
+                            var ExpCountIndv = parseInt(res[0]);
+                            var dataEntity = {name : obj.Nombre.toLowerCase(), data: [ExpCountIndv], color:'#068C9B' };
+                            dataList.push(dataEntity);
+
+                        });
+                        Highcharts.chart('container-bar', {
+                            chart: {
+                                type: 'column'
+                            },
+                            title: {
+                                text: ''
+                            },
+                            subtitle: {
+                                text: 'Expedientes por municipio'
+                            },
+                            xAxis: {
+                                categories: [''],
+                            },
+                            yAxis: {
+                                title: {
+                                    text: 'Numero de expedientes'
+                                }
+                            },
+                            credits: {
+                                enabled: false
+                            },
+                            series: dataList,
+                        });
+                    },
+                    error: function(e){
+                        oTable.fnClearTable();
+                    }
+                });
+            }
+            
+            GrapExpPorMunicipio();
+
+            // Grafica de Tipificacion
+            function GrapGrupoTipificacion() {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ResumenAll")',
+                    dataType: 'json',
+                    success: function (s) {
+                        var TotalExp = 0 ;
+                        var dataList = [];
+                        $.each(s, function (i, obj) {
+                            TotalExp =  TotalExp + obj.Total;
+                            var dataEntity = {name : obj.Grupo, data: [obj.Total], color:'#068C9B' };
+                            dataList.push(dataEntity);
+                        });
+
+                        $("#TituloTotalTipi").text("TOTAL DE TIPIFICACION POR GRUPOS"); 
+                        $("#TotalTipi").text(TotalExp);
+
+                        Highcharts.chart('container-bar2', {
+                            chart: {
+                                type: 'column'
+                            },
+                            title: {
+                                text: ''
+                            },
+                            subtitle: {
+                                text: 'Tipificacion por grupos'
+                            },
+                            xAxis: {
+                                categories: [''],
+                            },
+                            yAxis: {
+                                title: {
+                                    text: 'Numero de expedientes'
+                                }
+                            },
+                            credits: {
+                                enabled: false
+                            },
+                            series: dataList,
+                        });
+                    },
+                    error: function(e){
+                        oTable.fnClearTable();
+                    }
+                });
+            }
+            
+            GrapGrupoTipificacion();
+
+            function SpeedCaracSolic(){
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("CaracterizacionSolicitante")',
+                    dataType: 'json',
+                    success: function (s) {
+                        var TotalExp = 0 ;
+                        var dataList = [];
+
+                        var Gestion1 = 0 ; 
+                        var Gestion2 = 0 ;
+                        var GestionTotal = 0 ;
+                        $.each(s, function (i, obj) {
+                            var NombreGestion = "";
+                            GestionTotal =  GestionTotal + obj.Total;
+                            if(obj.Grupo == "1") {
+                                Gestion1 = obj.Total ;
+                                NombreGestion = "Con Gestion";
+                                var dataEntity = {name : NombreGestion, y: Gestion1, color:'#068C9B' };
+                            } else {
+                                Gestion2 = obj.Total ;
+                                NombreGestion = "Sin Gestion";
+                                var dataEntity = {name : NombreGestion, y: Gestion2, color:'#DE1F15' };
+                            }
+                            dataList.push(dataEntity);
+                        });
+
+                        Highcharts.chart('container-solicitante', {
+                            chart: {
+                                plotBackgroundColor: null,
+                                plotBorderWidth: null,
+                                plotShadow: false,
+                                type: 'pie'
+                            },
+                            title: {
+                                text: ''
+                            },
+                            subtitle: {
+                                text: 'Caracterizacion de Solicitante'
+                            },
+                            tooltip: {
+                                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                            },
+                            accessibility: {
+                                point: {
+                                    valueSuffix: '%'
+                                }
+                            },
+                            plotOptions: {
+                                pie: {
+                                    allowPointSelect: true,
+                                    cursor: 'pointer',
+                                    dataLabels: {
+                                        enabled: true,
+                                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                                    }
+                                }
+                            },
+                            series: [{
+                                name: 'Expedientes',
+                                colorByPoint: true,
+                                data: dataList,
+                            }]
+                        });
+                        
+                    },
+                    error: function(e){
+                        oTable.fnClearTable();
+                    }
+                });
+                // The speed gauge
+                
+
+                
+
+            }
+
+            SpeedCaracSolic();
+
+            function SpeedCaracJurid(){
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("getCaracterizacionJuridica")',
+                    dataType: 'json',
+                    success: function (s) {
+                        var TotalExp = 0 ;
+                        var dataList = [];
+
+                        var Gestion1 = 0 ; 
+                        var Gestion2 = 0 ;
+                        var GestionTotal = 0 ;
+                        $.each(s, function (i, obj) {
+                            var NombreGestion = "";
+                            GestionTotal =  GestionTotal + obj.Total;
+                            if(obj.Grupo == "1") {
+                                Gestion1 = obj.Total ;
+                                NombreGestion = "Con Gestion";
+                                var dataEntity = {name : NombreGestion, y: Gestion1, color:'#068C9B' };
+                            } else {
+                                Gestion2 = obj.Total ;
+                                NombreGestion = "Sin Gestion";
+                                var dataEntity = {name : NombreGestion, y: Gestion2, color:'#DE1F15' };
+                            }
+                            dataList.push(dataEntity);
+                        });
+
+                        debugger;
+
+                        Highcharts.chart('container-juridica', {
+                            chart: {
+                                plotBackgroundColor: null,
+                                plotBorderWidth: null,
+                                plotShadow: false,
+                                type: 'pie'
+                            },
+                            title: {
+                                text: ''
+                            },
+                            subtitle: {
+                                text: 'Caracterizacion de Juridica'
+                            },
+                            tooltip: {
+                                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                            },
+                            accessibility: {
+                                point: {
+                                    valueSuffix: '%'
+                                }
+                            },
+                            plotOptions: {
+                                pie: {
+                                    allowPointSelect: true,
+                                    cursor: 'pointer',
+                                    dataLabels: {
+                                        enabled: true,
+                                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                                    }
+                                }
+                            },
+                            series: [{
+                                name: 'Expedientes',
+                                colorByPoint: true,
+                                data: dataList,
+                            }]
+                        });
+                        
+                    },
+                    error: function(e){
+                        oTable.fnClearTable();
+                    }
+                });
+                // The speed gauge
+                
+
+                
+
+            }
+
+            SpeedCaracJurid();
+
+            function EventoMapa(Name){
+                alert("ok + Name " + Name);
+
+            }
+
+        });
+    </script>
+
+}
+<link  href="StyleGrap.css" />
+
+@* <div class="card mb-4 wow fadeIn">
+
+    <div class="card-body d-sm-flex justify-content-between">
+        <h3 class="card-title">Caracterizacion del Solicitante </h3>
+    </div>
+
+</div> *@
+<div class="row wow  fadeIn">
+    <div class="col-md-5 p-1">
+        <div class="card">
+            <div class="card-header">  </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4  p-1" style="height: 530px !important;">
+                        <table id="table_id" class=" table-hover center  Letra" cellspacing="0" width="100%">  @*  Tabla de exp por municipio  *@
+                            <thead class="alert alert-success" >
+                                <tr>
+                                    <th  colspan="2">Num Expedientes  </th>
+                                </tr>
+                                <tr>
+                                    <th ></th>
+                                    <th ></th>
+                                </tr>
+                            </thead>
+                            <tbody class="alert alert-info" >
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-8">
+                        <div id="container" ></div> @*  Mapa  *@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7 ">
+        <div class="row ">
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header">  </div>
+                    <div class="card-body">
+                        <div class="col-md-12 justify-content-center align-content-center text-center ">  @*  Toltal de exp  *@
+                            <p class="text-capitalize" id = "TituloTotalExp"> </p>
+                            <h3 id = "TotalExp"> </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 p-1">
+                <div class="card">
+                    <div class="card-body">
+                        <figure class="highcharts-figure-bar"  >
+                            <div id="container-bar"  style="height: 250px !important;"></div>  @*  grap de exp por municipio  *@
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 p-1">
+                <div class="card">
+                    <div class="card-header">  </div>
+                    <div class="card-body">
+                        <div class="col-md-12 justify-content-center align-content-center text-center "> @*  Total de exp tipficados  *@
+                            <p class="text-capitalize" id = "TituloTotalTipi"> </p>
+                            <h3 id = "TotalTipi"> </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 p-1">
+                <div class="card">
+                    <div class="card-body">
+                        <figure class="highcharts-figure-bar2  ">
+                            <div id="container-bar2" style="height: 250px !important;"></div> @*  grap de exp por grupo tipificacion  *@
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row wow  fadeIn">
+
+    <div class="col-md-6 p-1 ">
+        <div class="card">
+            <div class="card-body">
+                <div class="row justify-content-center align-content-center text-center ">
+                    <div class="col-md-12 justify-content-center align-content-center text-center ">
+                        <figure class="highcharts-figure ">
+                            <div id="container-solicitante" class="highcharts-figure" style="
+                                width: 80% !important;
+                                height: 200px !important;"
+                                class="justify-content-center align-content-center text-center" >
+                            </div>  
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 p-1 ">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row justify-content-center align-content-center text-center ">
+                            <div class="col-md-12 justify-content-center align-content-center text-center ">
+                                <figure class="highcharts-figure ">
+                                    <div id="container-juridica" class="highcharts-figure" style="
+                                        width: 80% !important;
+                                        height: 200px !important;"
+                                        class="justify-content-center align-content-center text-center" >
+                                    </div>  
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+

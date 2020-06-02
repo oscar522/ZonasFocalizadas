@@ -193,6 +193,7 @@
     <Compile Include="Controllers\AssessmentsController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BaldiosPersonaNaturalController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\ConceptoController.cs" />
     <Compile Include="Controllers\ActividadesDiariasController.cs" />
     <Compile Include="Controllers\CaracterizacionJuridicaController.cs" />
@@ -968,6 +969,7 @@
     <Content Include="Views\CaracterizacionSolicitante\Edit.cshtml" />
     <Content Include="Views\CaracterizacionSolicitante\Details.cshtml" />
     <Content Include="Views\CaracterizacionSolicitante\Delete.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
