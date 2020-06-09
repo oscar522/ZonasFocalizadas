@@ -89,11 +89,8 @@ namespace AspNetIdentity.WebApi.Logic
                 .Where(x => x.munic.IdCtDepto == x.baldios.IdDepto)
                 .Join(Ctx.CtTipoIdentificacion, b => b.caracte.TipoDocumento, c => c.ID_CT_TIPO_IDENTIFICACION, (b, c) => new { b.caracte, b.baldios, b.depto, b.munic, TipoDocSol = c })
                 .Join(Ctx.CtTipoIdentificacion, b => b.caracte.TipoDocumentoConyuge, c => c.ID_CT_TIPO_IDENTIFICACION, (b, c) => new { b.caracte, b.baldios, b.depto, b.munic, b.TipoDocSol, TipoDocCon = c })
-                .Join(Ctx.Users, b => b.caracte.IdAspNetUser, c => c.Id_Hash, (b, c) => new { b.caracte, b.baldios, b.depto, b.munic, b.TipoDocSol, b.TipoDocCon, users = c })
-                .Join(Ctx.AspNetUserRoles, b => b.users.Id_Hash, c => c.UserId, (b, c) => new { b.caracte, b.baldios, b.depto, b.munic, b.TipoDocSol, b.TipoDocCon, b.users, UserRoles = c })
-                .Join(Ctx.AspNetRoles, b => b.UserRoles.RoleId, c => c.Id, (b, c) => new { b.caracte, b.baldios, b.depto, b.munic, b.TipoDocSol, b.TipoDocCon, b.users, b.UserRoles, Roles = c })
-                .Join(Ctx.CtTipoIdentificacion, b => b.baldios.IdTipoIdentificacion, c => c.ID_CT_TIPO_IDENTIFICACION, (b, c) => new { b.caracte, b.baldios, b.depto, b.munic, b.TipoDocSol, b.TipoDocCon, b.users, b.UserRoles, b.Roles, TipoDocSolExp = c })
-                .Join(Ctx.CtTipoIdentificacion, b => b.baldios.IdTipoIdentificacionConyuge, c => c.ID_CT_TIPO_IDENTIFICACION, (b, c) => new { b.caracte, b.baldios, b.depto, b.munic, b.TipoDocSol, b.TipoDocCon, b.users, b.UserRoles, b.Roles, b.TipoDocSolExp, TipoDocConExp = c })
+                .Join(Ctx.CtTipoIdentificacion, b => b.baldios.IdTipoIdentificacion, c => c.ID_CT_TIPO_IDENTIFICACION, (b, c) => new { b.caracte, b.baldios, b.depto, b.munic, b.TipoDocSol, b.TipoDocCon,  TipoDocSolExp = c })
+                .Join(Ctx.CtTipoIdentificacion, b => b.baldios.IdTipoIdentificacionConyuge, c => c.ID_CT_TIPO_IDENTIFICACION, (b, c) => new { b.caracte, b.baldios, b.depto, b.munic, b.TipoDocSol, b.TipoDocCon, b.TipoDocSolExp, TipoDocConExp = c })
                 .Where(x => x.caracte.Estado == true).Select(a => new CaracterizacionSolicitanteModel
                 {
                     Id = a.caracte.Id,
@@ -168,14 +165,18 @@ namespace AspNetIdentity.WebApi.Logic
                     AInhabilidadConyuge = a.caracte.AInhabilidadConyuge,
 
                     Gestion = a.caracte.Gestion,
-                    IdAspNetUser = a.caracte.IdAspNetUser,
-                    NombretUser = a.users.Name + " " + a.users.FirstName + " " + a.users.LastName,
-                    RolUser = a.Roles.Name,
+                    //IdAspNetUser = a.caracte.IdAspNetUser,
+                    IdAspNetUser = Ctx.Users.Where(c => c.Id_Hash == a.caracte.IdAspNetUser).Select(x =>x.Id_Hash).FirstOrDefault(),
+                    ///NombretUser = a.users.Name + " " + a.users.FirstName + " " + a.users.LastName,
+                    NombretUser = Ctx.Users.Where(c => c.Id_Hash == a.caracte.IdAspNetUser).Select(x => x.Name + " " + x.FirstName + " " + x.LastName).FirstOrDefault(),
+                    RolUser = Ctx.Users.Where(c => c.Id_Hash == a.caracte.IdAspNetUser)
+                                .Join(Ctx.AspNetUserRoles, b => b.Id_Hash, c => c.UserId, (b, c) => new { UserRoles = c })
+                                .Join(Ctx.AspNetRoles, b => b.UserRoles.RoleId, c => c.Id, (b, c) => new { c }).Select(f =>f.c.Name).FirstOrDefault(),
                     Estado = a.caracte.Estado,
 
-                }) ; 
+                }).ToList(); 
 
-            return lista.ToList();
+            return lista;
         }
 
         public CaracterizacionSolicitanteModel ConsultarId(long id)

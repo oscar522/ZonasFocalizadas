@@ -1560,6 +1560,7 @@
                         </div>
                         <div class="card-body">
                             <div class="row">
+
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-sm-6 ">Recurso Ministerio</label>
@@ -1571,6 +1572,7 @@
                                         @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_RECURSO_MINISTERIO_85, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
+
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6"> Documento Visible ? </label>
@@ -1582,6 +1584,7 @@
                                         @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_VISIBLE, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
+
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-sm-6">Fecha de solicitud</label>
@@ -1593,8 +1596,12 @@
                                         </div>
                                         @Html.EditorFor(model => model.RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86, new { htmlAttributes = new { Type = "date", @class = "form-control col-sm-5" } })
                                         @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86, "", new { @class = "text-danger" })
+
                                     </div>
-                                </div>
+                                </div>      
+
+                                <div class="col-md-12 p-3"></div>
+
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">
@@ -1621,7 +1628,6 @@
                                     </div>
                                 </div>
 
-
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">Firma</label>
@@ -1633,6 +1639,7 @@
                                         @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FIRMADA_88, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
+
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">Acto</label>
@@ -1642,6 +1649,7 @@
                                         @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_ACTO_89, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
+
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">
@@ -1651,6 +1659,7 @@
                                         @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_NUMERO_90, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
+
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">
@@ -1666,6 +1675,7 @@
                                         @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FECHA_91, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
+
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">
@@ -1677,6 +1687,7 @@
                                         @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
+
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">
@@ -1690,6 +1701,7 @@
                                         @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
+
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">
@@ -1705,6 +1717,7 @@
                                         @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
+
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">
@@ -1718,6 +1731,7 @@
                                         @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
+
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">Fecha de Notificacion Ministerio Publico</label>
@@ -1731,10 +1745,13 @@
                                         @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
+
+                                <div class="col-md-12 p-3"></div>
+
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">Resolucion despues de pruebas</label>
-                                         <select id="RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2" name="RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2" class="form-control col-md-6 bool">
+                                        <select id="RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2" name="RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2" class="form-control col-md-6 bool">
                                             <option value="">Seleccione</option>
                                             <option value="True">Si</option>
                                             <option value="False">no</option>
@@ -1749,7 +1766,7 @@
                                         @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
-                                 <div class="col-md-12">
+                                <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">Fecha de Resolucion</label>
                                         <div class="col-md-1 justify-content-center text-center align-content-center ">
@@ -2750,6 +2767,7 @@
                         $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').prop("disabled", false);
                     }
                 /// #RECURSO_SOLICITANTE
+                /*
                     if ($("#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85").val() == "False" || $("#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85").val() == "" || ($("#RECURSO_SOLICITANTE_VISIBLE").val() == "0" || $("#RECURSO_SOLICITANTE_VISIBLE").val() == "2")) {
                         //$('#RECURSO_SOLICITANTE_VISIBLE').prop("disabled", true);
                         $('#RECURSO_SOLICITANTE_DECISION_N_1').prop("disabled", true);
@@ -2827,10 +2845,88 @@
                             $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",false);
                         }
                     }
+                */
+                /// #RECURSO_SOLICITANTE
+                    if ($("#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85").val() == "False" || $("#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85").val() == "" || ($("#RECURSO_SOLICITANTE_VISIBLE").val() == "0" || $("#RECURSO_SOLICITANTE_VISIBLE").val() == "2")) {
+                        //$('#RECURSO_SOLICITANTE_VISIBLE').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_DECISION_N_1').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_FIRMADA_88').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_ACTO_89').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_NUMERO_90').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_FECHA_91').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').prop("disabled", true);
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').prop("disabled", true);
+                    }else{
+
+                        if ('@Model.RECURSO_SOLICITANTE_DECISION_N_1' == "31") {
+
+                            $('#RECURSO_SOLICITANTE_VISIBLE').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled",false);
+
+                        } else {
+                            $('#RECURSO_SOLICITANTE_VISIBLE').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
+
+                        }
+                        if($('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').val() != "16" ){
+                            $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
+                        }else{
+                            $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",false);
+                        }
+                    }
+                
                 /// #RECURSO_MINISTERIO
                     if ($("#RECURSO_MINISTERIO_RECURSO_MINISTERIO_85").val() == "False" || $("#RECURSO_MINISTERIO_RECURSO_MINISTERIO_85").val() == "" || ($("#RECURSO_MINISTERIO_VISIBLE").val() == "0" || $("#RECURSO_MINISTERIO_VISIBLE").val() == "2")) {
-                        //$('#RECURSO_MINISTERIO_VISIBLE').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').prop("disabled", true);
                         $('#RECURSO_MINISTERIO_DECISION_N_1').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_VISIBLE').prop("disabled", true);
                         $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled", true);
                         $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled", true);
                         $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled", true);
@@ -2843,42 +2939,20 @@
                         $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled", true);
                         $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled", true);
                         $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_FIRMADA_88').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_ACTO_89').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_NUMERO_90').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_FECHA_91').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95').prop("disabled", true);
-                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').prop("disabled", true);
-                    }else{
 
-                        if ('@Model.RECURSO_MINISTERIO_DECISION_N_1' == "31") {
-
+                        if ($("#RECURSO_MINISTERIO_VISIBLE").val() == "0" || $("#RECURSO_MINISTERIO_VISIBLE").val() == "2" ){
                             $('#RECURSO_MINISTERIO_VISIBLE').prop("disabled", false);
-                            $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled",false);
-
-                            
-                            
-
-                        } else {
-                            $('#RECURSO_MINISTERIO_VISIBLE').prop("disabled", true);
-                            $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled",true);
-                            $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
-                            $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
-                            $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
-                            $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
-                            $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
-                            $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled",true);
-                            $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled",true);
-                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
-                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
-                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
-                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
-
+                            $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').prop("disabled", true);
+                        } else{
+                            $('#RECURSO_MINISTERIO_VISIBLE').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').prop("disabled", false);
                         }
+
+                    }else{
+                        
+                        $('#RECURSO_MINISTERIO_VISIBLE').prop("disabled", false);
+                        $('#RECURSO_MINISTERIO_DECISION_N_1').prop("disabled", true);
+
                         if($('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92').val() != "16" ){
                             $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
                             $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
@@ -2904,7 +2978,43 @@
                             $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",false);
                             $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",false);
                         }
+                        
                     }
+                    
+                    if ($("#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87").val() == "False" || $("#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87").val() == "" || ($("#RECURSO_MINISTERIO_VISIBLE").val() == "0" || $("#RECURSO_MINISTERIO_VISIBLE").val() == "2")) {
+                        
+                        $('#RECURSO_MINISTERIO_DECISION_N_1').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_FIRMADA_88').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_ACTO_89').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_NUMERO_90').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_FECHA_91').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95').prop("disabled", true);
+                        $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').prop("disabled", true);
+                        if ('@Model.RECURSO_MINISTERIO_DECISION_N_1' == "31") {
+                            $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled",false);
+                        } else {
+                            $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
+
+                        }
+                    }else{
+                        $('#RECURSO_MINISTERIO_DECISION_N_1').prop("disabled", false);
+                        $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled", false);
+                    }
+
                 /// #CONSTANCIA_DE_EJECUTORIA
                     if ($("#CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109").val() == "False" || $("#CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109").val() == "" || ($("#CONSTANCIA_DE_EJECUTORIA_VISIBLE").val() == "0" || $("#CONSTANCIA_DE_EJECUTORIA_VISIBLE").val() == "2")) {
                         //$('#CONSTANCIA_DE_EJECUTORIA_VISIBLE').prop("disabled", true);
@@ -3116,6 +3226,33 @@
                         $('#NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82').val(DateConvert("@Model.NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82"));
                         $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').val("@Model.NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83");
                         $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').val(DateConvert("@Model.NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84"));
+                    /// RECURSO_SOLICITANTE
+                        /*
+                        $('#RECURSO_SOLICITANTE_DECISION_N_1').val("@Model.RECURSO_SOLICITANTE_DECISION_N_1");
+                        $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').val("@Model.RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2");
+                        $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').val("@Model.RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3");
+                        $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4"));
+                        $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').val("@Model.RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5");
+                        $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').val("@Model.RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6");
+                        $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').val("@Model.RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6");
+                        $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').val("@Model.RECURSO_SOLICITANTE_CONJUNA_IND_N_7");
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').val("@Model.RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8");
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9"));
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').val("@Model.RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10");
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11"));
+                        $('#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85').val("@Model.RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85");
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86"));
+                        $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').val("@Model.RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87");
+                        $('#RECURSO_SOLICITANTE_FIRMADA_88').val("@Model.RECURSO_SOLICITANTE_FIRMADA_88");
+                        $('#RECURSO_SOLICITANTE_ACTO_89').val("@Model.RECURSO_SOLICITANTE_ACTO_89");
+                        $('#RECURSO_SOLICITANTE_NUMERO_90').val("@Model.RECURSO_SOLICITANTE_NUMERO_90");
+                        $('#RECURSO_SOLICITANTE_FECHA_91').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_91"));
+                        $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').val("@Model.RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92");
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').val("@Model.RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93");
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94"));
+                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').val("@Model.RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95");
+                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96"));
+                        */
                     /// RECURSO_SOLICITANTE
                         $('#RECURSO_SOLICITANTE_DECISION_N_1').val("@Model.RECURSO_SOLICITANTE_DECISION_N_1");
                         $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').val("@Model.RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2");
@@ -3384,6 +3521,7 @@
 
                                 }
                             /// #RECURSO_SOLICITANTE
+                                /*
                                 if ($("#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85").val() == "False" || $("#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85").val() == "" || ($("#RECURSO_SOLICITANTE_VISIBLE").val() == "0" || $("#RECURSO_SOLICITANTE_VISIBLE").val() == "2")) {
                                     $('#RECURSO_SOLICITANTE_VISIBLE').val("2");
                                     $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').val("1753-01-01");
@@ -3426,7 +3564,7 @@
                                         $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').val("False");
                                         $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').val("1753-01-01");
                                     }else{
-                                       if($("#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92").val() != "16"){
+                                        if($("#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92").val() != "16"){
                                             $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').val("False");
                                             $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').val("0");
                                             $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').val("1753-01-01");
@@ -3438,10 +3576,83 @@
                                             $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').val("1753-01-01");
                                             $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').val("False");
                                             $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').val("1753-01-01");
-                                       }
+                                        }
                                     }
 
                                 }
+                                */
+                            /// #RECURSO_SOLICITANTE
+                                if ($("#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85").val() == "False" || $("#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85").val() == "" || ($("#RECURSO_SOLICITANTE_VISIBLE").val() == "0" || $("#RECURSO_SOLICITANTE_VISIBLE").val() == "2")) {
+                                    $('#RECURSO_SOLICITANTE_VISIBLE').val("2");
+                                    $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').val("1753-01-01");
+                                    $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').val("False");
+                                    $("#RECURSO_SOLICITANTE_DECISION_N_1").append('<option selected  value="1"> 1 </option>');
+                                    $('#RECURSO_SOLICITANTE_FIRMADA_88').val("False");
+                                    $("#RECURSO_SOLICITANTE_ACTO_89").append('<option selected  value="1"> 1 </option>');
+                                    $('#RECURSO_SOLICITANTE_NUMERO_90').val("0");
+                                    $('#RECURSO_SOLICITANTE_FECHA_91').val("1753-01-01");
+                                    $("#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92").append('<option selected  value="1"> 1 </option>');
+                                    $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').val("False");
+                                    $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').val("1753-01-01");
+                                    $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').val("False");
+                                    $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').val("1753-01-01");
+                                    $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').val("False");
+                                    $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').val("0");
+                                    $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').val("1753-01-01");
+                                    $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').val("False");
+                                    $("#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6").append('<option selected  value="1"> 1 </option>');
+                                    $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').val("0");
+                                    $("#RECURSO_SOLICITANTE_CONJUNA_IND_N_7").append('<option selected  value="1"> 1 </option>');
+                                    $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').val("False");
+                                    $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').val("1753-01-01");
+                                    $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').val("False");
+                                    $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').val("1753-01-01");
+
+                                }else{
+
+                                    if ($("#RECURSO_SOLICITANTE_DECISION_N_1").val() != "31") {
+                                        $("#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92").append('<option selected  value="1"> 1 </option>');
+                                        $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').val("False");
+                                        $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').val("0");
+                                        $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').val("1753-01-01");
+                                        $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').val("False");
+                                        $("#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6").append('<option selected  value="1"> 1 </option>');
+                                        $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').val("0");
+                                        $("#RECURSO_SOLICITANTE_CONJUNA_IND_N_7").append('<option selected  value="1"> 1 </option>');
+                                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').val("False");
+                                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').val("1753-01-01");
+                                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').val("False");
+                                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').val("1753-01-01");
+                                    }else{
+                                        if($("#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92").val() != "16"){
+                                            $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').val("False");
+                                            $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').val("0");
+                                            $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').val("1753-01-01");
+                                            $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').val("False");
+                                            $("#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6").append('<option selected  value="1"> 1 </option>');
+                                            $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').val("0");
+                                            $("#RECURSO_SOLICITANTE_CONJUNA_IND_N_7").append('<option selected  value="1"> 1 </option>');
+                                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').val("False");
+                                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').val("1753-01-01");
+                                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').val("False");
+                                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').val("1753-01-01");
+                                        }
+                                    }
+
+                                }
+                                if ($("#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87").val() == "False" || $("#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87").val() == "" || ($("#RECURSO_SOLICITANTE_VISIBLE").val() == "0" || $("#RECURSO_SOLICITANTE_VISIBLE").val() == "2")) {
+                                    $("#RECURSO_SOLICITANTE_DECISION_N_1").append('<option selected  value="1"> 1 </option>');
+                                    $('#RECURSO_SOLICITANTE_FIRMADA_88').val("False");
+                                    $("#RECURSO_SOLICITANTE_ACTO_89").append('<option selected  value="1"> 1 </option>');
+                                    $('#RECURSO_SOLICITANTE_NUMERO_90').val("0");
+                                    $('#RECURSO_SOLICITANTE_FECHA_91').val("1753-01-01");
+                                    $("#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92").append('<option selected  value="1"> 1 </option>');
+                                    $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').val("False");
+                                    $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').val("1753-01-01");
+                                    $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').val("False");
+                                    $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').val("1753-01-01");
+                                }
+                            
                             /// #RECURSO_MINISTERIO
                                 if ($("#RECURSO_MINISTERIO_RECURSO_MINISTERIO_85").val() == "False" || $("#RECURSO_MINISTERIO_RECURSO_MINISTERIO_85").val() == "" || ($("#RECURSO_MINISTERIO_VISIBLE").val() == "0" || $("#RECURSO_MINISTERIO_VISIBLE").val() == "2")) {
                                     $('#RECURSO_MINISTERIO_VISIBLE').val("2");
@@ -3485,7 +3696,7 @@
                                         $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').val("False");
                                         $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').val("1753-01-01");
                                     }else{
-                                       if($("#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92").val() != "16"){
+                                        if($("#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92").val() != "16"){
                                             $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').val("False");
                                             $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').val("0");
                                             $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').val("1753-01-01");
@@ -3497,9 +3708,21 @@
                                             $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').val("1753-01-01");
                                             $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').val("False");
                                             $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').val("1753-01-01");
-                                       }
+                                        }
                                     }
 
+                                }
+                                if ($("#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87").val() == "False" || $("#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87").val() == "" || ($("#RECURSO_MINISTERIO_VISIBLE").val() == "0" || $("#RECURSO_MINISTERIO_VISIBLE").val() == "2")) {
+                                    $("#RECURSO_MINISTERIO_DECISION_N_1").append('<option selected  value="1"> 1 </option>');
+                                    $('#RECURSO_MINISTERIO_FIRMADA_88').val("False");
+                                    $("#RECURSO_MINISTERIO_ACTO_89").append('<option selected  value="1"> 1 </option>');
+                                    $('#RECURSO_MINISTERIO_NUMERO_90').val("0");
+                                    $('#RECURSO_MINISTERIO_FECHA_91').val("1753-01-01");
+                                    $("#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92").append('<option selected  value="1"> 1 </option>');
+                                    $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93').val("False");
+                                    $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94').val("1753-01-01");
+                                    $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95').val("False");
+                                    $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').val("1753-01-01");
                                 }
                             /// #CONSTANCIA_DE_EJECUTORIA
                                 if ($("#CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109").val() == "False" || $("#CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109").val() == "" || ($("#CONSTANCIA_DE_EJECUTORIA_VISIBLE").val() == "0" || $("#CONSTANCIA_DE_EJECUTORIA_VISIBLE").val() == "2")) {
@@ -3511,7 +3734,7 @@
                                     $('#CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA').val("1753-01-01");
 
                                 }
-                            // #REVOCATORIA_REVOCATORIA
+                            /// #REVOCATORIA_REVOCATORIA
                                 if ($("#REVOCATORIA_REVOCATORIA_113").val() == "False" || $("#REVOCATORIA_REVOCATORIA_113").val() == "" || ($("#REVOCATORIA_VISIBLE").val() == "0" || $("#REVOCATORIA_VISIBLE").val() == "2")) {
                                     $('#REVOCATORIA_VISIBLE').val("2");
                                     $('#REVOCATORIA_NUMERO_RESOLUCION_114').val("0");
@@ -3538,13 +3761,10 @@
                         var estandar = new Date("1753-01-01");
                         debugger;
                             if(FormDate < estandar){
-                            valid = "1";
-                            //validation-summary-errors text-danger
+                                valid = "1";
+                                //validation-summary-errors text-danger
                                 $('#'+elemento.id).addClass("alert-danger");
-
-                                
                             }
-
                     });
                     if(valid != "1"){
                             return true;
@@ -3579,7 +3799,7 @@
                                     $('#SOLICITUD_CEDULA_CONYUGE').val("0");
                                     $('#SOLICITUD_CEDULA_PARIENTE').val("0");
                                     $('#SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA').val("1753-01-01");
-                               }
+                                }
 
                         }else{
                                 //$('#SOLICITUD_VISIBLE').prop("disabled", false);
@@ -4081,7 +4301,7 @@
                         }
                     });
                 /// #RECURSO_SOLICITANTE_
-
+                    /*
                     $(".CLASSRECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85").change(function () {
                         if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
                                 //$('#SOLICITUD_VISIBLE').prop("disabled", true);
@@ -4294,15 +4514,320 @@
                         }
 
                     });
+                    */
+                /// #RECURSO_SOLICITANTE_
+
+                    $("#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85").change(function () {
+                                    alert("ok0");
+                        if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
+                            alert("ok1");
+                            $('#RECURSO_SOLICITANTE_VISIBLE').val("0");
+                            $('#RECURSO_SOLICITANTE_VISIBLE').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').val("");
+                            $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').prop("disabled", true);
+
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').val("1753-01-01");
+                            $("#RECURSO_SOLICITANTE_DECISION_N_1").val('0');
+                            $('#RECURSO_SOLICITANTE_FIRMADA_88').val("False");
+                            $("#RECURSO_SOLICITANTE_ACTO_89").val('0');
+                            $('#RECURSO_SOLICITANTE_NUMERO_90').val("0");
+                            $('#RECURSO_SOLICITANTE_FECHA_91').val("1753-01-01");
+                            $("#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92").val('0');
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').val("False");
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').val("1753-01-01");
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').val("False");
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').val("1753-01-01");
+                            $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').val("False");
+                            $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').val("0");
+                            $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').val("1753-01-01");
+                            $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').val("False");
+                            $("#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6").append('<option selected  value="1"> 1 </option>');
+                            $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').val("0");
+                            $("#RECURSO_SOLICITANTE_CONJUNA_IND_N_7").append('<option selected  value="1"> 1 </option>');
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').val("False");
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').val("1753-01-01");
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').val("False");
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').val("1753-01-01");
+                            
+                            $("#RECURSO_SOLICITANTE_DECISION_N_1").prop("disabled", true)
+                            $('#RECURSO_SOLICITANTE_FIRMADA_88').prop("disabled", true);
+                            $("#RECURSO_SOLICITANTE_ACTO_89").prop("disabled", true)
+                            $('#RECURSO_SOLICITANTE_NUMERO_90').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_FECHA_91').prop("disabled", true);
+                            $("#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92").prop("disabled", true)
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled", true);
+                            $("#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6").prop("disabled", true)
+                            $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled", true);
+                            $("#RECURSO_SOLICITANTE_CONJUNA_IND_N_7").prop("disabled", true)
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled", true);
+
+
+                        }else{
+                            $('#RECURSO_SOLICITANTE_VISIBLE').val("0");
+                            $('#RECURSO_SOLICITANTE_VISIBLE').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').prop("disabled", true);
+                        }
+                        
+                    });
+
+                    $("#RECURSO_SOLICITANTE_VISIBLE").change(function () {
+                                    alert("ok0");
+                        if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
+                            alert("ok1");
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').val("");
+                            $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').prop("disabled", true);
+                        }else{
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').val("");
+                            $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').prop("disabled", false);
+                        }
+                        
+                    });
+
+                    $("#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87").change(function () {
+                        alert($(this).val());
+                        if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
+                            //
+                            $('#RECURSO_SOLICITANTE_DECISION_N_1').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_FIRMADA_88').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_ACTO_89').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_NUMERO_90').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_FECHA_91').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').prop("disabled", true);
+
+                            //$('#RECURSO_SOLICITANTE_VISIBLE').val("0");
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').val("1753-01-01");
+                            $("#RECURSO_SOLICITANTE_DECISION_N_1").val("");
+                            $('#RECURSO_SOLICITANTE_FIRMADA_88').val("False");
+                            $('#RECURSO_SOLICITANTE_ACTO_89').val("");
+                            $('#RECURSO_SOLICITANTE_NUMERO_90').val("0");
+                            $('#RECURSO_SOLICITANTE_FECHA_91').val("1753-01-01");
+                            $("#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92").val("");
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').val("False");
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').val("1753-01-01");
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').val("False");
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').val("1753-01-01");
+                            $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').val("False");
+                            $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').val("0");
+                            $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').val("1753-01-01");
+                            $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').val("False");
+                            $("#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6").val("");
+                            $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').val("0");
+                            $("#RECURSO_SOLICITANTE_CONJUNA_IND_N_7").val("");
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').val("False");
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').val("1753-01-01");
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').val("False");
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').val("1753-01-01");
+                        }else{
+
+                            //$('#RECURSO_SOLICITANTE_VISIBLE').prop("disabled", false);
+
+                            $('#RECURSO_SOLICITANTE_DECISION_N_1').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_FIRMADA_88').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_ACTO_89').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_NUMERO_90').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_FECHA_91').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled", true);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').prop("disabled", false);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').prop("disabled", false);
+
+                            $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
+                        }
+                        if($('#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85').val() == "False" || $('#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85').val() == ""){
+                            $('#RECURSO_SOLICITANTE_VISIBLE').prop("disabled", true);
+                        }else{
+                            $('#RECURSO_SOLICITANTE_VISIBLE').prop("disabled", false);
+                        }
+                    });
+                    
+                    $("#RECURSO_SOLICITANTE_DECISION_N_1").change(function () {
+                    
+                        if ($(this).val() == "31") {
+
+                            $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled",false);
+
+                        } else {
+                                $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled",true);
+                                $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
+                                $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
+                                $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
+                                $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
+                                $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
+                                $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled",true);
+                                $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled",true);
+                                $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
+                                $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
+                                $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
+                                $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
+
+                        }
+                    });
+
+                    
+                    $("#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2").change(function () {
+                    
+                        if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
+
+                            $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
+
+                        } else {
+
+                            $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",false);
+
+                        }
+                    });
+                    
+                    $("#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92").change(function () {
+                        if ($(this).val() == "16") {
+
+                            $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",false);
+
+                        }else{
+
+                            $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
+                        }
+                    });
+
+                    $("#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93").change(function () {
+
+                        if ($(this).val() == 'False') {
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').val("1753-01-01");
+                        }else {
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').prop("disabled",false);
+                        }
+
+                    });
+
+                    $("#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95").change(function () {
+
+                        if ($(this).val() == 'False') {
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').val("1753-01-01");
+                        }else {
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').prop("disabled",false);
+                        }
+
+                    });
+
+                    $("#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8").change(function () {
+
+                        if ($(this).val() == 'False') {
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').val("1753-01-01");
+                        }else {
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",false);
+                        }
+
+                    });
+
+                    $("#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10").change(function () {
+
+                        if ($(this).val() == 'False') {
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').val("1753-01-01");
+                        }else {
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",false);
+                        }
+
+                    });
+                            
+
                 /// #RECURSO_MINISTERIO_
 
-                    $(".CLASSRECURSO_MINISTERIO_RECURSO_MINISTERIO_85").change(function () {
+                    @* $(".CLASSRECURSO_MINISTERIO_RECURSO_MINISTERIO_85").change(function () {
+                                    alert("ok0");
                         if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
                             //$('#SOLICITUD_VISIBLE').prop("disabled", true);
-                            if( $('#RECURSO_MINISTERIO_VISIBLE').val() == "2" || $('#RECURSO_MINISTERIO_VISIBLE').val() == "0" ){
-                                    
+                                    alert("ok1");
+
+                            if( $('#RECURSO_MINISTERIO_RECURSO_MINISTERIO_85').val() == "False" || $('#RECURSO_MINISTERIO_RECURSO_MINISTERIO_85').val() == "" ){
+                                $('#RECURSO_MINISTERIO_VISIBLE').val("0");
+                                $('#RECURSO_MINISTERIO_VISIBLE').prop("disabled", true);
+                                $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').prop("disabled", true);
+
+                            }else{
+                                $('#RECURSO_MINISTERIO_VISIBLE').val("0");
+                                $('#RECURSO_MINISTERIO_VISIBLE').prop("disabled", false);
+                                $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').prop("disabled", true);
+
+                            }
+
+                            if( $(('#RECURSO_MINISTERIO_VISIBLE').val() == "2" || $('#RECURSO_MINISTERIO_VISIBLE').val() == "0") && $('#RECURSO_MINISTERIO_RECURSO_MINISTERIO_85').val() != "False" ){
+                                    alert("ok2");
                                 //$('#RECURSO_MINISTERIO_VISIBLE').prop("disabled", true);
-                                $('#RECURSO_MINISTERIO_DECISION_N_1').prop("disabled", true);
+                                $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').prop("disabled", true);
+                                    alert("ok3");
+
                                 $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled", true);
                                 $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled", true);
                                 $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled", true);
@@ -4315,22 +4840,172 @@
                                 $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled", true);
                                 $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled", true);
                                 $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86').prop("disabled", true);
-                                $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').prop("disabled", true);
-                                $('#RECURSO_MINISTERIO_FIRMADA_88').prop("disabled", true);
-                                $('#RECURSO_MINISTERIO_ACTO_89').prop("disabled", true);
-                                $('#RECURSO_MINISTERIO_NUMERO_90').prop("disabled", true);
-                                $('#RECURSO_MINISTERIO_FECHA_91').prop("disabled", true);
-                                $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled", true);
-                                $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93').prop("disabled", true);
-                                $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94').prop("disabled", true);
-                                $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95').prop("disabled", true);
-                                $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').prop("disabled", true);
                             }
 
+                            
 
                             //$('#RECURSO_MINISTERIO_VISIBLE').val("0");
                             $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86').val("1753-01-01");
+                            $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').val("False");
+                            $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').val("0");
+                            $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').val("1753-01-01");
+                            $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').val("False");
+                            $("#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6").val("");
+                            $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').val("0");
+                            $("#RECURSO_MINISTERIO_CONJUNA_IND_N_7").val("");
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').val("False");
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').val("1753-01-01");
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').val("False");
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').val("1753-01-01");
+
+
+                        }else{
+
+                            //$('#RECURSO_MINISTERIO_VISIBLE').prop("disabled", false);
+
+                            $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86').prop("disabled", false);
+
+                            $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
+                        }
+                        
+                        if($('#RECURSO_MINISTERIO_RECURSO_MINISTERIO_85').val() == "False" || $('#RECURSO_MINISTERIO_RECURSO_MINISTERIO_85').val() == ""){
+                            $('#RECURSO_MINISTERIO_VISIBLE').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_VISIBLE').val("0");
                             $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').val("False");
+                            
+                        }else{
+                            $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_VISIBLE').prop("disabled", false);
+                        }
+
+                        if($('#RECURSO_MINISTERIO_VISIBLE').val() == "2" ){
+                            $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').prop("disabled", true);
+                        }else{
+                            $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').prop("disabled", false);
+                        }
+                    }); *@
+
+                    $("#RECURSO_MINISTERIO_RECURSO_MINISTERIO_85").change(function () {
+                                    alert("ok0");
+                        if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
+                            alert("ok1");
+                            $('#RECURSO_MINISTERIO_VISIBLE').val("0");
+                            $('#RECURSO_MINISTERIO_VISIBLE').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').val("");
+                            $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').prop("disabled", true);
+
+                            $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86').val("1753-01-01");
+                            $("#RECURSO_MINISTERIO_DECISION_N_1").val('0');
+                            $('#RECURSO_MINISTERIO_FIRMADA_88').val("False");
+                            $("#RECURSO_MINISTERIO_ACTO_89").val('0');
+                            $('#RECURSO_MINISTERIO_NUMERO_90').val("0");
+                            $('#RECURSO_MINISTERIO_FECHA_91').val("1753-01-01");
+                            $("#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92").val('0');
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93').val("False");
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94').val("1753-01-01");
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95').val("False");
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').val("1753-01-01");
+                            $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').val("False");
+                            $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').val("0");
+                            $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').val("1753-01-01");
+                            $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').val("False");
+                            $("#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6").append('<option selected  value="1"> 1 </option>');
+                            $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').val("0");
+                            $("#RECURSO_MINISTERIO_CONJUNA_IND_N_7").append('<option selected  value="1"> 1 </option>');
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').val("False");
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').val("1753-01-01");
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').val("False");
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').val("1753-01-01");
+                            
+                            $("#RECURSO_MINISTERIO_DECISION_N_1").prop("disabled", true)
+                            $('#RECURSO_MINISTERIO_FIRMADA_88').prop("disabled", true);
+                            $("#RECURSO_MINISTERIO_ACTO_89").prop("disabled", true)
+                            $('#RECURSO_MINISTERIO_NUMERO_90').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FECHA_91').prop("disabled", true);
+                            $("#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92").prop("disabled", true)
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled", true);
+                            $("#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6").prop("disabled", true)
+                            $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled", true);
+                            $("#RECURSO_MINISTERIO_CONJUNA_IND_N_7").prop("disabled", true)
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled", true);
+
+
+                        }else{
+                            $('#RECURSO_MINISTERIO_VISIBLE').val("0");
+                            $('#RECURSO_MINISTERIO_VISIBLE').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86').prop("disabled", true);
+                        }
+                        
+                    });
+
+                    $("#RECURSO_MINISTERIO_VISIBLE").change(function () {
+                                    alert("ok0");
+                        if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
+                            alert("ok1");
+                            $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').val("");
+                            $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').prop("disabled", true);
+                        }else{
+                            $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86').prop("disabled", false);
+                            $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').val("");
+                            $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').prop("disabled", false);
+                        }
+                        
+                    });
+
+                    $("#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87").change(function () {
+                        alert($(this).val());
+                        if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
+                            //
+                            $('#RECURSO_MINISTERIO_DECISION_N_1').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FIRMADA_88').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_ACTO_89').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_NUMERO_90').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FECHA_91').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95').prop("disabled", true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').prop("disabled", true);
+
+                            //$('#RECURSO_MINISTERIO_VISIBLE').val("0");
+                            $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86').val("1753-01-01");
                             $("#RECURSO_MINISTERIO_DECISION_N_1").val("");
                             $('#RECURSO_MINISTERIO_FIRMADA_88').val("False");
                             $('#RECURSO_MINISTERIO_ACTO_89').val("");
@@ -4432,37 +5107,57 @@
 
                         }
                     });
+
+                    
+                    $("#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2").change(function () {
+                    
+                        if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
+
+                            $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
+
+                        } else {
+
+                            $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",false);
+
+                        }
+                    });
                     
                     $("#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92").change(function () {
                         if ($(this).val() == "16") {
 
                             $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",false);
-                            
-                                $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",false);
-                                $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",false);
-                                $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",false);
-                                $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",false);
-                                $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled",false);
-                                $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled",false);
-                                $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",false);
-                                $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",false);
-                                $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",false);
-                                $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",false);
 
                         }else{
 
-
-                                $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
-                                $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
-                                $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
-                                $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
-                                $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
-                                $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled",true);
-                                $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled",true);
-                                $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
-                                $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
-                                $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
-                                $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
                         }
                     });
 
@@ -4608,6 +5303,7 @@
             
             
             ///
+
             $(".field-validation-error").each(function(){
                 var IdClass = $(this).attr("class");
                 if( IdClass.indexOf("field-validation-error") != "-1"  ) {
@@ -4616,8 +5312,6 @@
                     $('#'+Id).prop("disabled",false);
                 }
             });
-            
-
         });
         </script>
     }

@@ -8,7 +8,17 @@ namespace AspNetIdentity.WebApi.Controllers
 {
     [RoutePrefix("api/Registro")]
     public class RegistroController : ApiController
+
+
     {
+        // GET api/values/
+        [Authorize]
+        [Route("getRegistro")]
+        public List<RegistroModel> GetAll()
+        {
+            RegistroLogic a = new RegistroLogic();
+            return a.Consulta();
+        }
         [Authorize]
         [Route("getRegistroid/{id}")]
         public List<RegistroModel> Get(string id)

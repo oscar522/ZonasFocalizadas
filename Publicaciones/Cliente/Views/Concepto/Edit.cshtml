@@ -156,12 +156,9 @@
 
                             </div>
                             <div class="col-sm-12">
-                                <div class="row">
-                                    @Html.LabelFor(model => model.Observacion, htmlAttributes: new { @class = "control-label col-sm-6" })
-                                    @Html.TextArea("Observacion", new { @class = "form-control col-sm-6" })
-                                    @Html.ValidationMessageFor(model => model.Observacion, "", new { @class = "text-danger col-sm-12" })
-
-                                </div>
+                                @Html.LabelFor(model => model.Observacion, htmlAttributes: new { @class = "control-label col-sm-12" })
+                                @Html.TextArea("Observacion", new { @class = "form-control col-sm-12" })
+                                @Html.ValidationMessageFor(model => model.Observacion, "", new { @class = "text-danger col-sm-12" })
                             </div>
                         </div>
                     </div>
@@ -389,10 +386,10 @@
                         </div>
                     </div>
                     <br />
-                    <div class="col-sm-12">
-                        <div class="row">
-                            <label class="control-label col-sm-12" for="GestionObservacion">Observaciones</label>
-                            <textarea class="form-control col-sm-12" cols="20" id="GestionObservacion" name="GestionObservacion" rows="4" ></textarea>
+                    <div class="col-sm-12 justify-content-center text-center align-content-center">
+                        <div class="row ">
+                            <label class="control-label col-sm-12 " for="GestionObservacion">Observaciones</label>
+                            <textarea class="form-control col-sm-12" cols="100" id="GestionObservacion" name="GestionObservacion" rows="50" ></textarea>
                             <span class="field-validation-valid text-danger col-sm-12" data-valmsg-for="GestionObservacion" data-valmsg-replace="true"></span>
                         </div>
                     </div>

@@ -203,14 +203,43 @@ namespace AspNetIdentity.WebApi.Logic
             }
         }
 
-        public List<CaracterizacionJuridicaModel> Consulta()
+        public List<CaracterizacionSolicitanteModel> Consulta()
         {
             ZonasFEntities Ctx = new ZonasFEntities();
-            var lista = Ctx.CaracterizacionJuridica.Where(x => x.Estado == true)
-                .Select(a => new CaracterizacionJuridicaModel
+            var lista = Ctx.CaracterizacionJuridica
+                .Join(Ctx.BaldiosPersonaNatural, b => b.IdExpediente, c => c.id, (b, c) => new { caracte = b, baldios = c })
+                .Join(Ctx.CtDepto, b => b.baldios.IdDepto, c => c.ID_CT_DEPTO, (b, c) => new { b.caracte, b.baldios, depto = c })
+                .Join(Ctx.CtCiudad, b => b.baldios.IdCiudad, c => c.IdCtMuncipio, (b, c) => new { b.caracte, b.baldios, b.depto, munic = c })
+                .Where(x => x.munic.IdCtDepto == x.baldios.IdDepto)
+                .Where(x => x.caracte.Estado == true).Select(a => new CaracterizacionSolicitanteModel
                 {
-                    Gestion = a.Gestion,
-                });
+                  //  Id = Convert.ToInt32( a.caracte.Id),
+                    IdExpediente = a.caracte.IdExpediente,
+                    NumeroExpediente = a.baldios.NumeroExpediente,
+                    IdDepto = a.depto.ID_CT_DEPTO,
+                    NombreDepto = a.depto.NOMBRE,
+                    IdMunicipio = a.munic.IdCtMuncipio,
+                    NombreMunicipio = a.munic.Nombre,
+
+                    NombreSolicitanteExpediente = a.baldios.NombreBeneficiario,
+                    DocSolicitanteExpediente = a.baldios.Identificacion.ToString(),
+
+                    NombreConyugeExpediente = a.baldios.NombreConyuge,
+                    DocConyugeExpediente = a.baldios.IdentificacionConyuge.ToString(),
+
+                    Gestion = a.caracte.Gestion,
+                    //IdAspNetUser = a.caracte.IdAspNetUser,
+                    IdAspNetUser = Ctx.Users.Where(c => c.Id_Hash == a.caracte.IdAspNetUser).Select(x => x.Id_Hash).FirstOrDefault(),
+                    ///NombretUser = a.users.Name + " " + a.users.FirstName + " " + a.users.LastName,
+                    NombretUser = Ctx.Users.Where(c => c.Id_Hash == a.caracte.IdAspNetUser).Select(x => x.Name + " " + x.FirstName + " " + x.LastName).FirstOrDefault(),
+                    RolUser = Ctx.Users.Where(c => c.Id_Hash == a.caracte.IdAspNetUser)
+                                .Join(Ctx.AspNetUserRoles, b => b.Id_Hash, c => c.UserId, (b, c) => new { UserRoles = c })
+                                .Join(Ctx.AspNetRoles, b => b.UserRoles.RoleId, c => c.Id, (b, c) => new { c }).Select(f => f.c.Name).FirstOrDefault(),
+                    Estado = a.caracte.Estado,
+
+                }).ToList();
+
+
 
             return lista.ToList();
         }

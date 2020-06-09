@@ -46,6 +46,35 @@ namespace AspNetIdentity.WebApi.Logic
             }
         }
 
+        public List<RegistroModel> Consulta()
+        {
+            ZonasFEntities Ctx = new ZonasFEntities();
+            var lista = Ctx.Registro
+                .Join(Ctx.BaldiosPersonaNatural, b => b.IdExpediente, c => c.id, (b, c) => new { caracte = b, baldios = c })
+                .Join(Ctx.CtDepto, b => b.baldios.IdDepto, c => c.ID_CT_DEPTO, (b, c) => new { b.caracte, b.baldios, depto = c })
+                .Join(Ctx.CtCiudad, b => b.baldios.IdCiudad, c => c.IdCtMuncipio, (b, c) => new { b.caracte, b.baldios, b.depto, munic = c })
+                .Where(x => x.munic.IdCtDepto == x.baldios.IdDepto)
+                .Where(x => x.caracte.EstadoRegistro == true).Select(a => new RegistroModel
+                {
+                    IdExpediente = a.caracte.IdExpediente,
+                    IdAspNetUser = a.caracte.IdAspNetUser,
+                    FVerificacion = a.caracte.FVerificacion,
+                    Estado = a.caracte.Estado,
+                    Matricula = a.caracte.Matricula,
+                    Fapertura = a.caracte.Fapertura,
+                    TipoDocumento = a.caracte.TipoDocumento,
+                    NumDocumento = a.caracte.NumDocumento,
+                    FDocumento = a.caracte.FDocumento,
+                    IdDepto = a.caracte.IdDepto,
+                    NombreIdDepto = Ctx.CtDepto.Where(w => w.ID_CT_DEPTO == a.caracte.IdDepto).Select(xq => xq.NOMBRE).FirstOrDefault(),
+                    IdMunicipio = a.caracte.IdMunicipio,
+                    NombreIdMunicipio = Ctx.CtCiudad.Where(w => w.Id == a.caracte.IdMunicipio && w.IdCtDepto == a.caracte.IdDepto).Select(xq => xq.Nombre).FirstOrDefault(),
+                    EstadoRegistro = a.caracte.EstadoRegistro,
+
+                }).ToList();
+
+            return lista;
+        }
 
         public List<RegistroModel> Consulta(string IdUser)
         {

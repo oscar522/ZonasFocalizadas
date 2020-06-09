@@ -24,94 +24,183 @@
             var oTable = $('#table_id').dataTable({
                 "order": [[1, "desc"]],
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
-                "pageLength": 10,
+                "pageLength": 3,
                 "searching": false,
                 "bLengthChange" : false, //thought this line could hide the LengthMenu
                 "bInfo":false,   
-                "paging": false 
+                //"paging": false 
             });  //Initialize the datatable
 
             // Modulo 1 Mapa Tabla deptos x exp
-            function MapaTotalExp() {
+            function MapaTotalExp( NameDepto ) {
                 $.ajax({
                     type: 'POST',
-                    url: '@Url.Action("CountDepto","HomeAdministrator")',
+                    url: '@Url.Action("CountDepto")',
                     dataType: 'json',
                     success: function (s) {
                         oTable.fnClearTable();
                         var TotalExp = 0 ;
+                        var TotalExpConPdf = 0 ;
                         var dataList = [];
                         $.each(s, function (i, obj) {
 
                             var res = obj.NOMBRE_PAIS.split("-");
 
-                            var ExpCountIndv = parseInt(res[0]);
-                            TotalExp =  TotalExp + ExpCountIndv;
+                            if(NameDepto != "0"){
+                                if(NameDepto == res[0]){
 
-                            oTable.fnAddData([
-                                obj.NOMBRE_DEPTO.toLowerCase(),
-                                res[0],
-                            ]);
+                                    var ExpTotal = parseInt(res[0]);
+                                    TotalExp =  TotalExp + ExpTotal;
 
-                            if(obj.IdCtDepto == "5")
-                            {   
-                                var dataEntity = ['co-an',  res[0]];
-                                dataList.push(dataEntity);
-                            }
-                            if(obj.IdCtDepto == "13")
-                            {
-                                var dataEntity = ['co-bl',  res[0]];
-                                dataList.push(dataEntity);
-                            }
-                            if(obj.IdCtDepto == "23")
-                            {
-                                var dataEntity = ['co-co',  res[0]];
-                                dataList.push(dataEntity);
-                            }
-                            if(obj.IdCtDepto == "25")
-                            {
-                                var dataEntity = ['co-cu',  res[0]];
-                                dataList.push(dataEntity);
-                            }
-                            if(obj.IdCtDepto == "44")
-                            {
-                                var dataEntity =['co-lg',  res[0]];
-                                dataList.push(dataEntity);
-                            }
-                            if(obj.IdCtDepto == "47")
-                            {
-                                var dataEntity = ['co-ma',  res[0]];
-                                dataList.push(dataEntity);
-                            }
-                            if(obj.IdCtDepto == "50")
-                            {
-                                var dataEntity = ['co-me',  res[0]];
-                                dataList.push(dataEntity);
-                            }
-                            if(obj.IdCtDepto == "68")
-                            {
-                                var dataEntity = ['co-st',  res[0]];
-                                dataList.push(dataEntity);
-                            }
-                            if(obj.IdCtDepto == "70")
-                            {
-                                var dataEntity = ['co-su',  res[0]];
-                                dataList.push(dataEntity);
-                            }
-                            if(obj.IdCtDepto == "73")
-                            {
-                                var dataEntity = ['co-to',  res[0]];
-                                dataList.push(dataEntity);
-                            }
-                            if(obj.IdCtDepto == "76")
-                            {
-                                var dataEntity = ['co-vc',  res[0]];
-                                dataList.push(dataEntity);
+                                    var ExpTotalConPdf = parseInt(res[1]);
+                                    TotalExpConPdf =  TotalExpConPdf + ExpTotalConPdf;
+
+                                    var ExpTotalTip = parseInt(res[3]);
+                                    TotalExpTip =  TotalExpTip + ExpTotalTip;
+
+                                    oTable.fnAddData([
+                                        obj.NOMBRE_DEPTO.toLowerCase(),
+                                        res[0],
+                                    ]);
+
+                                    if(obj.IdCtDepto == "5")
+                                    {   
+                                        var dataEntity = ['co-an',  res[0]];
+                                        dataList.push(dataEntity);
+                                    }
+                                    if(obj.IdCtDepto == "13")
+                                    {
+                                        var dataEntity = ['co-bl',  res[0]];
+                                        dataList.push(dataEntity);
+                                    }
+                                    if(obj.IdCtDepto == "23")
+                                    {
+                                        var dataEntity = ['co-co',  res[0]];
+                                        dataList.push(dataEntity);
+                                    }
+                                    if(obj.IdCtDepto == "25")
+                                    {
+                                        var dataEntity = ['co-cu',  res[0]];
+                                        dataList.push(dataEntity);
+                                    }
+                                    if(obj.IdCtDepto == "44")
+                                    {
+                                        var dataEntity =['co-lg',  res[0]];
+                                        dataList.push(dataEntity);
+                                    }
+                                    if(obj.IdCtDepto == "47")
+                                    {
+                                        var dataEntity = ['co-ma',  res[0]];
+                                        dataList.push(dataEntity);
+                                    }
+                                    if(obj.IdCtDepto == "50")
+                                    {
+                                        var dataEntity = ['co-me',  res[0]];
+                                        dataList.push(dataEntity);
+                                    }
+                                    if(obj.IdCtDepto == "68")
+                                    {
+                                        var dataEntity = ['co-st',  res[0]];
+                                        dataList.push(dataEntity);
+                                    }
+                                    if(obj.IdCtDepto == "70")
+                                    {
+                                        var dataEntity = ['co-su',  res[0]];
+                                        dataList.push(dataEntity);
+                                    }
+                                    if(obj.IdCtDepto == "73")
+                                    {
+                                        var dataEntity = ['co-to',  res[0]];
+                                        dataList.push(dataEntity);
+                                    }
+                                    if(obj.IdCtDepto == "76")
+                                    {
+                                        var dataEntity = ['co-vc',  res[0]];
+                                        dataList.push(dataEntity);
+                                    }
+                                }
+                            }else{
+                                var ExpTotal = parseInt(res[0]);
+                                    TotalExp =  TotalExp + ExpTotal;
+
+                                    var ExpTotalConPdf = parseInt(res[1]);
+                                    TotalExpConPdf =  TotalExpConPdf + ExpTotalConPdf;
+
+                                    var ExpTotalTip = parseInt(res[3]);
+                                    TotalExpTip =  TotalExpTip + ExpTotalTip;
+
+                                    oTable.fnAddData([
+                                        obj.NOMBRE_DEPTO.toLowerCase(),
+                                        res[0],
+                                    ]);
+
+                                    if(obj.IdCtDepto == "5")
+                                    {   
+                                        var dataEntity = ['co-an',  res[0]];
+                                        dataList.push(dataEntity);
+                                    }
+                                    if(obj.IdCtDepto == "13")
+                                    {
+                                        var dataEntity = ['co-bl',  res[0]];
+                                        dataList.push(dataEntity);
+                                    }
+                                    if(obj.IdCtDepto == "23")
+                                    {
+                                        var dataEntity = ['co-co',  res[0]];
+                                        dataList.push(dataEntity);
+                                    }
+                                    if(obj.IdCtDepto == "25")
+                                    {
+                                        var dataEntity = ['co-cu',  res[0]];
+                                        dataList.push(dataEntity);
+                                    }
+                                    if(obj.IdCtDepto == "44")
+                                    {
+                                        var dataEntity =['co-lg',  res[0]];
+                                        dataList.push(dataEntity);
+                                    }
+                                    if(obj.IdCtDepto == "47")
+                                    {
+                                        var dataEntity = ['co-ma',  res[0]];
+                                        dataList.push(dataEntity);
+                                    }
+                                    if(obj.IdCtDepto == "50")
+                                    {
+                                        var dataEntity = ['co-me',  res[0]];
+                                        dataList.push(dataEntity);
+                                    }
+                                    if(obj.IdCtDepto == "68")
+                                    {
+                                        var dataEntity = ['co-st',  res[0]];
+                                        dataList.push(dataEntity);
+                                    }
+                                    if(obj.IdCtDepto == "70")
+                                    {
+                                        var dataEntity = ['co-su',  res[0]];
+                                        dataList.push(dataEntity);
+                                    }
+                                    if(obj.IdCtDepto == "73")
+                                    {
+                                        var dataEntity = ['co-to',  res[0]];
+                                        dataList.push(dataEntity);
+                                    }
+                                    if(obj.IdCtDepto == "76")
+                                    {
+                                        var dataEntity = ['co-vc',  res[0]];
+                                        dataList.push(dataEntity);
+                                    }
+
                             }
                         });
-                        
-                        $("#TituloTotalExp").text("TOTAL DE EXPEDIENTES"); 
+
+                        $("#TituloTotalExp").html("TOTAL DE EXPEDIENTES "); 
                         $("#TotalExp").text(+TotalExp); 
+
+                        $("#TituloTotalExpConPdf").text("TOTAL DE EXPEDIENTES CON PDF"); 
+                        $("#TotalExpConPdf").text(+TotalExpConPdf); 
+
+                        $("#TituloTotalExpTip").text("TOTAL DE EXPEDIENTES TIPIFICADOS"); 
+                        $("#TotalExpTip").text(+TotalExpConPdf); 
 
                         Highcharts.mapChart('container', {
                             chart: {
@@ -138,7 +227,7 @@
                             },
 
                             colorAxis: {
-                                min: 0
+                                min: -10000
                             },
 
                             series: [{
@@ -156,9 +245,7 @@
                                 point: {
                                         events: {
                                             click: function () {
-                                                alert('Category: ' + this.name );
-                                                EventoMapa(this.name);
-
+                                                EventoMapa(this.value,this.name);
                                             }
                                         }
                                 }
@@ -171,25 +258,37 @@
                 });
             }
             
-            MapaTotalExp();
+            MapaTotalExp("0");
 
             // Grafica de exp por municipio
-            function GrapExpPorMunicipio() {
+            function GrapExpPorMunicipio(NameDepto) {
+
                 $.ajax({
                     type: 'POST',
-                    url: '@Url.Action("CountDeptoMuni","HomeAdministrator")',
+                    url: '@Url.Action("CountDeptoMuni")',
                     dataType: 'json',
                     success: function (s) {
                         var TotalExp = 0 ;
                         var dataList = [];
                         $.each(s, function (i, obj) {
-                            var res = obj.NOMBRE_PAIS.split("-");
-                            var ExpCountIndv = parseInt(res[0]);
-                            var dataEntity = {name : obj.Nombre.toLowerCase(), data: [ExpCountIndv], color:'#068C9B' };
-                            dataList.push(dataEntity);
 
+                            if(NameDepto != "N_A"){
+
+                                if(NameDepto.toLowerCase() == obj.NOMBRE_DEPTO.toLowerCase()){
+                                    var res = obj.NOMBRE_PAIS.split("-");
+                                    var ExpCountIndv = parseInt(res[0]);
+                                    var dataEntity = {name : obj.Nombre.toLowerCase(), data: [ExpCountIndv], color:'#068C9B' };
+                                    dataList.push(dataEntity);
+                                }
+
+                            }else{
+                                var res = obj.NOMBRE_PAIS.split("-");
+                                var ExpCountIndv = parseInt(res[0]);
+                                var dataEntity = {name :obj.Nombre.toLowerCase() , data: [ExpCountIndv], color:'#068C9B' };
+                                dataList.push(dataEntity);
+                            }
                         });
-                        Highcharts.chart('container-bar', {
+                        Highcharts.chart('container-Tipificacion', {
                             chart: {
                                 type: 'column'
                             },
@@ -219,14 +318,19 @@
                 });
             }
             
-            GrapExpPorMunicipio();
+            GrapExpPorMunicipio("N_A");
 
             // Grafica de Tipificacion
-            function GrapGrupoTipificacion() {
+            function GrapGrupoTipificacion(NameDepto ) {
+                var NameDeptoForm = "N_A";
+                if(NameDepto != "N_A"){
+                    NameDeptoForm = NameDepto;
+                }
                 $.ajax({
                     type: 'POST',
                     url: '@Url.Action("ResumenAll")',
                     dataType: 'json',
+                    data: { Depto: NameDeptoForm },
                     success: function (s) {
                         var TotalExp = 0 ;
                         var dataList = [];
@@ -269,7 +373,7 @@
                 });
             }
             
-            GrapGrupoTipificacion();
+            GrapGrupoTipificacion("N_A");
 
             function SpeedCaracSolic(){
                 $.ajax({
@@ -283,7 +387,9 @@
                         var Gestion1 = 0 ; 
                         var Gestion2 = 0 ;
                         var GestionTotal = 0 ;
+                        var Asignados = 0 ;
                         $.each(s, function (i, obj) {
+                            Asignados = obj.Plano;
                             var NombreGestion = "";
                             GestionTotal =  GestionTotal + obj.Total;
                             if(obj.Grupo == "1") {
@@ -297,6 +403,19 @@
                             }
                             dataList.push(dataEntity);
                         });
+                        GestionTotal = Gestion1 + Gestion2;
+                        $("#TituloTotalExpCarSol").html("Total Exp.<br><br>"); 
+                        $("#TotalExpCarSol").text(+GestionTotal); 
+
+                        $("#TituloTotalExpCarSolSinGestion").text("Total Exp. Sin Gestion"); 
+                        $("#TotalExpCarSolSinGestion").text(+Gestion2); 
+
+                        $("#TituloTotalExpCarSolConGestion").text("Total Exp. Con Gestion"); 
+                        $("#TotalExpCarSolConGestion").text(+Gestion1); 
+
+                        $("#TituloTituloTotalExpCarSolAsig").text("Total Exp. Asignados"); 
+                        $("#TituloTotalExpCarSolAsig").text(+Asignados); 
+
 
                         Highcharts.chart('container-solicitante', {
                             chart: {
@@ -362,7 +481,9 @@
                         var Gestion1 = 0 ; 
                         var Gestion2 = 0 ;
                         var GestionTotal = 0 ;
+                        var Asignados = 0 ;
                         $.each(s, function (i, obj) {
+                            Asignados = obj.Plano;
                             var NombreGestion = "";
                             GestionTotal =  GestionTotal + obj.Total;
                             if(obj.Grupo == "1") {
@@ -376,9 +497,20 @@
                             }
                             dataList.push(dataEntity);
                         });
+                        GestionTotal = Gestion1 + Gestion2;
+                        $("#TituloTotalExpCarJur").html("Total Exp. <br><br>"); 
+                        $("#TotalExpCarJur").text(+GestionTotal); 
 
-                        debugger;
+                        $("#TituloTotalExpCarJurSinGestion").text("Total Exp. Sin Gestion"); 
+                        $("#TotalExpCarJurSinGestion").text(+Gestion2); 
 
+                        $("#TituloTotalExpCarJurConGestion").text("Total Exp. Con Gestion"); 
+                        $("#TotalExpCarJurConGestion").text(+Gestion1); 
+
+                        $("#TituloTituloTotalExpCarJurAsig").text("Total Exp. Asignados"); 
+                        $("#TituloTotalExpCarJurAsig").text(+Asignados); 
+
+                        
                         Highcharts.chart('container-juridica', {
                             chart: {
                                 plotBackgroundColor: null,
@@ -431,9 +563,113 @@
 
             SpeedCaracJurid();
 
-            function EventoMapa(Name){
-                alert("ok + Name " + Name);
+            function SpeedCaracRegistro(){
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("getCaracterizacionRegistro")',
+                    dataType: 'json',
+                    success: function (s) {
+                        var TotalExp = 0 ;
+                        var dataList = [];
 
+                        var Gestion1 = 0 ; 
+                        var Gestion2 = 0 ;
+                        var Gestion3 = 0 ;
+                        var GestionTotal = 0 ;
+                        var Asignados = 0 ;
+                        $.each(s, function (i, obj) {
+                            debugger;
+                            Asignados = obj.Plano;
+                            var NombreGestion = "";
+                            GestionTotal =  GestionTotal + obj.Total;
+                            if(obj.Grupo == "False") {
+                                Gestion1 = obj.Total ;
+                                NombreGestion = "Sin Gestion";
+                                var dataEntity = {name : NombreGestion, y: Gestion1, color:'#068C9B' };
+                            } else if (obj.Grupo == "True"){
+                                Gestion2 = obj.Total ;
+                                NombreGestion = "Con Gestion";
+                                var dataEntity = {name : NombreGestion, y: Gestion2, color:'#DE1F15' };
+                            }
+                            else if (obj.Grupo == ""){
+                                Gestion3 = obj.Total ;
+                                NombreGestion = "No verificado";
+                                var dataEntity = {name : NombreGestion, y: obj.Total, color:'#DE1Fff' };
+                            }
+                            dataList.push(dataEntity);
+                        });
+                        GestionTotal = Gestion1 + Gestion2 + Gestion3;
+                        $("#TituloTotalExpCarRegis").html("Total Exp. <br><br>"); 
+                        $("#TotalExpCarRegis").text(+GestionTotal); 
+
+                        $("#TituloTotalExpCarRegisSinGestion").text("Total Exp. Sin Gestion"); 
+                        $("#TotalExpCarRegisSinGestion").text(+Gestion3); 
+
+                        $("#TituloTotalExpCarRegisConGestion").text("Total Exp. Con Gestion"); 
+                        $("#TotalExpCarRegisConGestion").text(Gestion1+Gestion2); 
+
+                        $("#TituloTituloTotalExpCarRegisAsig").text("Total Exp. Asignados"); 
+                        $("#TituloTotalExpCarRegisAsig").text(+Asignados); 
+
+                        
+                        Highcharts.chart('container-registro', {
+                            chart: {
+                                plotBackgroundColor: null,
+                                plotBorderWidth: null,
+                                plotShadow: false,
+                                type: 'pie'
+                            },
+                            title: {
+                                text: ''
+                            },
+                            subtitle: {
+                                text: 'Caracterizacion de Registro'
+                            },
+                            tooltip: {
+                                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                            },
+                            accessibility: {
+                                point: {
+                                    valueSuffix: '%'
+                                }
+                            },
+                            plotOptions: {
+                                pie: {
+                                    allowPointSelect: true,
+                                    cursor: 'pointer',
+                                    dataLabels: {
+                                        enabled: true,
+                                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                                    }
+                                }
+                            },
+                            series: [{
+                                name: 'Expedientes',
+                                colorByPoint: true,
+                                data: dataList,
+                            }]
+                        });
+                        
+                    },
+                    error: function(e){
+                        oTable.fnClearTable();
+                    }
+                });
+                // The speed gauge
+                
+
+                
+
+            }
+
+            SpeedCaracRegistro();
+
+
+
+            function EventoMapa(value,name){
+                MapaTotalExp( value );
+                GrapExpPorMunicipio( name );
+                GrapGrupoTipificacion(name )
             }
 
         });
@@ -445,99 +681,115 @@
 @* <div class="card mb-4 wow fadeIn">
 
     <div class="card-body d-sm-flex justify-content-between">
-        <h3 class="card-title">Caracterizacion del Solicitante </h3>
+        <h4 class="card-title">Caracterizacion del Solicitante </h3>
     </div>
 
 </div> *@
 <div class="row wow  fadeIn">
-    <div class="col-md-5 p-1">
+    <div class="col-md-4 p-1"> @* Mapa *@
         <div class="card">
-            <div class="card-header">  </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-4  p-1" style="height: 530px !important;">
-                        <table id="table_id" class=" table-hover center  Letra" cellspacing="0" width="100%">  @*  Tabla de exp por municipio  *@
-                            <thead class="alert alert-success" >
+                    <div class="col-md-12">
+                        <div id="container" ></div> @*  Mapa  *@
+                        <table id="table_id" class="table-sm" cellspacing="0" width="100%">  @*  Tabla de exp por municipio  *@
+                            <thead class="" >
                                 <tr>
-                                    <th  colspan="2">Num Expedientes  </th>
-                                </tr>
-                                <tr>
-                                    <th ></th>
-                                    <th ></th>
+                                    <th >Municipio</th>
+                                    <th >Num Expedientes </th>
                                 </tr>
                             </thead>
-                            <tbody class="alert alert-info" >
+                            <tbody class="" >
                             </tbody>
-                        </table>
-                    </div>
-                    <div class="col-md-8">
-                        <div id="container" ></div> @*  Mapa  *@
+                        </table> 
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-md-7 ">
+    <div class="col-md-8 ">
         <div class="row ">
-            <div class="col-md-3 p-1">
+            <div class="col-md-3 p-2">
                 <div class="card">
-                    <div class="card-header">  </div>
                     <div class="card-body">
                         <div class="col-md-12 justify-content-center align-content-center text-center ">  @*  Toltal de exp  *@
-                            <p class="text-capitalize" id = "TituloTotalExp"> </p>
-                            <h3 id = "TotalExp"> </h3>
+                            <p class="text-capitalize " id = "TituloTotalExp"> </p>
+                            <br>
+                            <h4 id = "TotalExp" class="alert alert-success"> </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2"></div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="col-md-12 justify-content-center align-content-center text-center ">  
+                            <p class="text-capitalize " id = "TituloTotalExpConPdf"> </p>
+                            <h4 id = "TotalExpConPdf" class="alert alert-success"> </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2"></div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="col-md-12 justify-content-center align-content-center text-center ">  
+                            <p class="text-capitalize " id = "TituloTotalExpTip"> </p>
+                            <h4 id = "TotalExpTip" class="alert alert-success"> </h3>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-9 p-1">
-                <div class="card">
+
+                <div class="card col-md-12">
                     <div class="card-body">
                         <figure class="highcharts-figure-bar"  >
-                            <div id="container-bar"  style="height: 250px !important;"></div>  @*  grap de exp por municipio  *@
+                            <div id="container-Tipificacion"  style="height: 267px !important;"></div>  @*  grap de exp por municipio  *@
                         </figure>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3 p-1">
-                <div class="card">
-                    <div class="card-header">  </div>
-                    <div class="card-body">
-                        <div class="col-md-12 justify-content-center align-content-center text-center "> @*  Total de exp tipficados  *@
-                            <p class="text-capitalize" id = "TituloTotalTipi"> </p>
-                            <h3 id = "TotalTipi"> </h3>
-                        </div>
-                    </div>
+                <div class="col-md-12 p-1">
                 </div>
-            </div>
-            <div class="col-md-9 p-1">
-                <div class="card">
+
+                <div class="card col-md-12 ">
                     <div class="card-body">
                         <figure class="highcharts-figure-bar2  ">
-                            <div id="container-bar2" style="height: 250px !important;"></div> @*  grap de exp por grupo tipificacion  *@
+                            <div id="container-bar2" style="height: 267px !important;"></div> @*  grap de exp por grupo tipificacion  *@
                         </figure>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
 </div>
 
-
 <div class="row wow  fadeIn">
-
-    <div class="col-md-6 p-1 ">
+    <div class="col-md-4 p-1">
         <div class="card">
+            <div class="card-header">
+                Caracterizacion del solicitante
+            </div>
             <div class="card-body">
-                <div class="row justify-content-center align-content-center text-center ">
+                <div class="row">
+                    <div class="col-md-4 justify-content-center align-content-center text-center ">  
+                        <p class=" Letra " id = "TituloTotalExpCarSol"> </p>
+                        <h4 id = "TotalExpCarSol" class="alert alert-success"> </h3>
+                    </div>
+                    <div class="col-md-4 justify-content-center align-content-center text-center ">  
+                        <p class="Letra" id = "TituloTotalExpCarSolConGestion"> </p>
+                        <h4 id = "TotalExpCarSolConGestion" class="alert alert-success"> </h3>
+                    </div>
+                    <div class="col-md-4 justify-content-center align-content-center text-center ">  
+                        <p class="Letra" id = "TituloTotalExpCarSolSinGestion"> </p>
+                        <h4 id = "TotalExpCarSolSinGestion" class="alert alert-success"> </h3>
+                    </div>
+                    <div class="col-md-12 justify-content-center align-content-center text-center ">  
+                        <p class="Letra" id = "TituloTituloTotalExpCarSolAsig"> </p>
+                        <h4 id = "TituloTotalExpCarSolAsig" class="alert alert-success"> </h3>
+                    </div>
                     <div class="col-md-12 justify-content-center align-content-center text-center ">
                         <figure class="highcharts-figure ">
-                            <div id="container-solicitante" class="highcharts-figure" style="
-                                width: 80% !important;
-                                height: 200px !important;"
-                                class="justify-content-center align-content-center text-center" >
+                            <div id="container-solicitante" class="highcharts-figure" style="height: 267px !important;" >
                             </div>  
                         </figure>
                     </div>
@@ -545,29 +797,70 @@
             </div>
         </div>
     </div>
-
-    <div class="col-md-6 p-1 ">
+    <div class="col-md-4 p-1">
         <div class="card">
+            <div class="card-header">
+                Caracterizacion Juridica
+            </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="row justify-content-center align-content-center text-center ">
-                            <div class="col-md-12 justify-content-center align-content-center text-center ">
-                                <figure class="highcharts-figure ">
-                                    <div id="container-juridica" class="highcharts-figure" style="
-                                        width: 80% !important;
-                                        height: 200px !important;"
-                                        class="justify-content-center align-content-center text-center" >
-                                    </div>  
-                                </figure>
-                            </div>
-                        </div>
+                    <div class="col-md-4 justify-content-center align-content-center text-center ">  
+                        <p class=" Letra " id = "TituloTotalExpCarJur"> </p>
+                        <h4 id = "TotalExpCarJur" class="alert alert-success"> </h3>
+                    </div>
+                    <div class="col-md-4 justify-content-center align-content-center text-center ">  
+                        <p class="Letra" id = "TituloTotalExpCarJurConGestion"> </p>
+                        <h4 id = "TotalExpCarJurConGestion" class="alert alert-success"> </h3>
+                    </div>
+                    <div class="col-md-4 justify-content-center align-content-center text-center ">  
+                        <p class="Letra" id = "TituloTotalExpCarJurSinGestion"> </p>
+                        <h4 id = "TotalExpCarJurSinGestion" class="alert alert-success"> </h3>
+                    </div>
+                    <div class="col-md-12 justify-content-center align-content-center text-center ">  
+                        <p class="Letra" id = "TituloTituloTotalExpCarJurAsig"> </p>
+                        <h4 id = "TituloTotalExpCarJurAsig" class="alert alert-success"> </h3>
+                    </div>
+                    <div class="col-md-12 justify-content-center align-content-center text-center ">
+                        <figure class="highcharts-figure ">
+                            <div id="container-juridica" class="highcharts-figure" style="height: 267px !important;" >
+                            </div>  
+                        </figure>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    
+    <div class="col-md-4 p-1">
+        <div class="card">
+            <div class="card-header">
+                Caracterizacion de registro
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 justify-content-center align-content-center text-center ">  
+                        <p class=" Letra " id = "TituloTotalExpCarRegis"> </p>
+                        <h4 id = "TotalExpCarRegis" class="alert alert-success"> </h3>
+                    </div>
+                    <div class="col-md-4 justify-content-center align-content-center text-center ">  
+                        <p class="Letra" id = "TituloTotalExpCarRegisConGestion"> </p>
+                        <h4 id = "TotalExpCarRegisConGestion" class="alert alert-success"> </h3>
+                    </div>
+                    <div class="col-md-4 justify-content-center align-content-center text-center ">  
+                        <p class="Letra" id = "TituloTotalExpCarRegisSinGestion"> </p>
+                        <h4 id = "TotalExpCarRegisSinGestion" class="alert alert-success"> </h3>
+                    </div>
+                    <div class="col-md-12 justify-content-center align-content-center text-center ">  
+                        <p class="Letra" id = "TituloTituloTotalExpCarRegisAsig"> </p>
+                        <h4 id = "TituloTotalExpCarRegisAsig" class="alert alert-success"> </h3>
+                    </div>
+                    <div class="col-md-12 justify-content-center align-content-center text-center ">
+                        <figure class="highcharts-figure ">
+                            <div id="container-registro" class="highcharts-figure" style="height: 267px !important;" >
+                            </div>  
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-

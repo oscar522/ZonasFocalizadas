@@ -37,6 +37,9 @@
                                     <thead>
                                         <tr>
                                             <th>
+                                                Id
+                                            </th>
+                                            <th>
                                                 F. Creacion
                                             </th>
                                             <th>
@@ -63,7 +66,7 @@
                                             <th>
                                                 Depto | Municipio  | Predio
                                             </th>
-                                           
+
                                             <th>
                                                 Solicitante
                                             </th>
@@ -81,7 +84,10 @@
                                         {
                                             
 
-                                        <tr >
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Id)
+                                            </td>
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.FechaCreacion)
                                             </td>
@@ -103,18 +109,21 @@
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.Rol)
                                             </td>
-                                             <td>
+                                            <td>
                                                 @Html.DisplayFor(modelItem => item.NombrePredio)
                                             </td>
                                             <td>
-                                                @if (item.IdExpediente == null) {
-                                                       <label>Sin Expediente</label>
-                                                }else{
+                                                @if (item.IdExpediente == null)
+                                                {
+                                                    <label>Sin Expediente</label>
+                                                }
+                                                else
+                                                {
                                                     @Html.DisplayFor(modelItem => item.Observacion)
                                                 }
                                             </td>
-                                            
-                                           
+
+
                                             <td>
                                                 @if (item.IdExpediente == null)
                                                 {

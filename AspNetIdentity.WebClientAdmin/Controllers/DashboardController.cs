@@ -55,7 +55,30 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
 
         }
 
-        public async Task<ActionResult> ResumenAll()
+        public async Task<ActionResult> CountDepto( )
+        {
+
+            string Id = "0";
+            string Controller = "Administrator";
+            string Method = "getAdministratorCountDepto";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            List<CtCiudadModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CtCiudadModel>>(jsonResult.ToString());
+                return Json(processModel, JsonRequestBehavior.AllowGet);
+        }
+
+        public async Task<ActionResult> CountDeptoMuni()
+        {
+            string Id = "0";
+            string Controller = "Administrator";
+            string Method = "getAdministratorCountDeptoMuni";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            List<CtCiudadModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CtCiudadModel>>(jsonResult.ToString());
+            return Json(processModel, JsonRequestBehavior.AllowGet);
+        }
+
+        public async Task<ActionResult> ResumenAll(string Depto)
         {
             string Id = "76" + "_" + "275" + "_" + GetTokenObject().nameid;
             string Controller = "Administrator";
@@ -63,21 +86,43 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             string result = await employeeProvider.Get(Id, Controller, Method);
             var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
             List<ResumenTipificacionAllModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ResumenTipificacionAllModel>>(jsonResult.ToString());
+            List<ResumenTipificacionVistaModel> Resumen = new List<ResumenTipificacionVistaModel>();
+            if (Depto.Equals("N_A"))
+            {
+                Resumen = processModel
+                    .GroupBy(z => z.Grupo)
+                    .Select(c => new ResumenTipificacionVistaModel
+                    {
+                        Total = c.Count(),
+                        Grupo = c.Select(v => v.Grupo).FirstOrDefault(),
+                        //Plano = processModel.Where(x => x.Plano == 21 && x.Grupo == c.Select(v => v.Grupo).FirstOrDefault()).Count(),
+                        Plano = c.Where(v => v.Plano != null).Count(),
+                        Orden = c.Select(v => v.Orden).FirstOrDefault(),
+                        Municipio = c.Select(v => v.MunicNombre).FirstOrDefault(),
+                        IdMunicipio = c.Select(v => v.MunicId.Value).FirstOrDefault(),
+                        Depto = c.Select(v => v.DeptoNombre).FirstOrDefault(),
+                        IdDepto = c.Select(v => v.DeptoId.Value).FirstOrDefault(),
+                    }).ToList();
+            }
+            else{
+                Resumen = processModel
+                    .Where(f=>f.DeptoNombre == Depto.ToUpper())
+                    .GroupBy(z => z.Grupo)
+                    .Select(c => new ResumenTipificacionVistaModel
+                    {
+                        Total = c.Count(),
+                        Grupo = c.Select(v => v.Grupo).FirstOrDefault(),
+                        //Plano = processModel.Where(x => x.Plano == 21 && x.Grupo == c.Select(v => v.Grupo).FirstOrDefault()).Count(),
+                        Plano = c.Where(v => v.Plano != null).Count(),
+                        Orden = c.Select(v => v.Orden).FirstOrDefault(),
+                        Municipio = c.Select(v => v.MunicNombre).FirstOrDefault(),
+                        IdMunicipio = c.Select(v => v.MunicId.Value).FirstOrDefault(),
+                        Depto = c.Select(v => v.DeptoNombre).FirstOrDefault(),
+                        IdDepto = c.Select(v => v.DeptoId.Value).FirstOrDefault(),
+                    }).ToList();
+            }
 
-            var Resumen = processModel
-                            .GroupBy(z => z.Grupo)
-                              .Select(c => new ResumenTipificacionVistaModel
-                              {
-                                  Total = c.Count(),
-                                  Grupo = c.Select(v => v.Grupo).FirstOrDefault(),
-                                  //Plano = processModel.Where(x => x.Plano == 21 && x.Grupo == c.Select(v => v.Grupo).FirstOrDefault()).Count(),
-                                  Plano = c.Where(v => v.Plano != null).Count(),
-                                  Orden = c.Select(v => v.Orden).FirstOrDefault(),
-                                  Municipio = c.Select(v => v.MunicNombre).FirstOrDefault(),
-                                  IdMunicipio = c.Select(v => v.MunicId.Value).FirstOrDefault(),
-                                  Depto = c.Select(v => v.DeptoNombre).FirstOrDefault(),
-                                  IdDepto = c.Select(v => v.DeptoId.Value).FirstOrDefault(),
-                              }).ToList();
+            
             return Json(Resumen, JsonRequestBehavior.AllowGet);
         }
 
@@ -89,13 +134,13 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             string result = await employeeProvider.Get(Id, Controller, Method);
             var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
             List<CaracterizacionSolicitanteModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CaracterizacionSolicitanteModel>>(jsonResult.ToString());
-
             var Resumen = processModel
                             .GroupBy(z => z.Gestion)
                               .Select(c => new ResumenTipificacionVistaModel
                               {
                                   Total = c.Count(),
                                   Grupo = c.Select(v => v.Gestion.ToString()).FirstOrDefault(),
+                                  Plano = processModel.Where(x => x.IdAspNetUser != null).Count(),
                               }).ToList();
             return Json(Resumen, JsonRequestBehavior.AllowGet);
         }
@@ -110,11 +155,34 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             List<CaracterizacionJuridicaModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CaracterizacionJuridicaModel>>(jsonResult.ToString());
 
             var Resumen = processModel
+                            .Select(x => x)
                             .GroupBy(z => z.Gestion)
                               .Select(c => new ResumenTipificacionVistaModel
                               {
                                   Total = c.Count(),
                                   Grupo = c.Select(v => v.Gestion.ToString()).FirstOrDefault(),
+                                  Plano = processModel.Where(x => x.IdAspNetUser != null).Count(),
+                              }).ToList();
+            return Json(Resumen, JsonRequestBehavior.AllowGet);
+        }
+
+        public async Task<ActionResult> getCaracterizacionRegistro()
+        {
+            string Id = "0";
+            string Controller = "Registro";
+            string Method = "getRegistro";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            List<RegistroModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<RegistroModel>>(jsonResult.ToString());
+
+            var Resumen = processModel
+                            .Select(x => x)
+                            .GroupBy(z => z.Estado)
+                              .Select(c => new ResumenTipificacionVistaModel
+                              {
+                                  Total = c.Count(),
+                                  Grupo = c.Select(v => v.Estado.ToString()).FirstOrDefault(),
+                                  Plano = processModel.Where(x => x.IdAspNetUser != null).Count(),
                               }).ToList();
             return Json(Resumen, JsonRequestBehavior.AllowGet);
         }

@@ -37,7 +37,7 @@ namespace AspNetIdentity.WebApi.Controllers
         // GET api/values/
         [Authorize]
         [Route("getCaracterizacionJuridica")]
-        public List<CaracterizacionJuridicaModel> GetAll()
+        public List<CaracterizacionSolicitanteModel> GetAll()
         {
             CaracterizacionJuridicaLogic a = new CaracterizacionJuridicaLogic();
             return a.Consulta();
