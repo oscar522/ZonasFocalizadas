@@ -70,18 +70,18 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             List<CtCiudadModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CtCiudadModel>>(jsonResult.ToString());
             return Json(processModel, JsonRequestBehavior.AllowGet);
         }
-        public async Task<ActionResult> ConsultarGestion(string TypeTable, string Fi, string Ff, string Mes, string Dia , string users)
+        public async Task<ActionResult> ConsultarGestion(string TypeTable, string Fi, string Ff, string Mes, int Dia , string users)
         {
             users = GetTokenObject().nameid;
-             string re = TypeTable +" " + Fi + " "  + Ff + " " + Mes + " " + Dia + " "+ users;
-            return Json(re, JsonRequestBehavior.AllowGet);
-            //string Id = TypeTable + "_" + Fi + "_" + Ff + "_" + Mes + "_" + Dia + "_" + users;
-            //string Controller = "Administrator";
-            //string Method = "getConsultarGestion";
-            //string result = await employeeProvider.Get(Id, Controller, Method);
-            //var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
-            //List<PlGestionUsersModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<PlGestionUsersModel>>(jsonResult.ToString());
-            //return Json(processModel, JsonRequestBehavior.AllowGet);
+            DateTime fecha = DateTime.Now;
+            string FechaFor = fecha.Day + "-" + fecha.Month + "-" + fecha.Year + "-" + fecha.Hour + "-" + fecha.Minute + "-" + fecha.Second + "-" + fecha.Millisecond;
+            string Id = TypeTable + "_" + Fi + "_" + Ff + "_" + Mes + "_" + Dia + "_" + users+"_"+FechaFor;
+            string Controller = "Administrator";
+            string Method = "getConsultarGestion";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            List<PlGestionUsersModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<PlGestionUsersModel>>(jsonResult.ToString());
+            return Json(processModel, JsonRequestBehavior.AllowGet);
         }
 
         public class Gestion {

@@ -27,8 +27,8 @@
                 "pageLength": 3,
                 "searching": false,
                 "bLengthChange" : false, //thought this line could hide the LengthMenu
-                "bInfo":false,   
-                //"paging": false 
+                "bInfo":false,
+                //"paging": false
             });  //Initialize the datatable
 
             var oTableReg = $('#table_id_Registro').dataTable({
@@ -37,13 +37,13 @@
                 "pageLength": 10,
                 "searching": true,
                 "bLengthChange" : true, //thought this line could hide the LengthMenu
-                "bInfo":true,  
+                "bInfo":true,
                 dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
                 buttons: [
                     { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
                     { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
                     { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
-                ], 
+                ],
                 "paging": false ,
                 "footerCallback": function (row, data, start, end, display) {
                     var api = this.api(), data;
@@ -66,7 +66,7 @@
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia03 = api
                         .column(3 ,  { page: 'current'})
                         .data()
@@ -80,28 +80,28 @@
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia05 = api
                         .column(5  ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia06 = api
                         .column(6  ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia07 = api
                         .column(7  ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia08 = api
                         .column(8  ,  { page: 'current'})
                         .data()
@@ -143,14 +143,14 @@
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia14 = api
                         .column(14  ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia15 = api
                         .column(15  ,  { page: 'current'})
                         .data()
@@ -164,7 +164,7 @@
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia17 = api
                         .column(17  ,  { page: 'current'})
                         .data()
@@ -192,7 +192,7 @@
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia21 = api
                         .column(21 ,  { page: 'current'})
                         .data()
@@ -206,7 +206,7 @@
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia23 = api
                         .column(23 ,  { page: 'current'})
                         .data()
@@ -220,28 +220,28 @@
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia25 = api
                         .column(25  ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia26 = api
                         .column(26  ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia27 = api
                         .column(27  ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia28 = api
                         .column(28  ,  { page: 'current'})
                         .data()
@@ -265,6 +265,13 @@
 
                     var dia31 = api
                         .column(31 ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var TotalAll = api
+                        .column(32 ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
@@ -306,7 +313,7 @@
 
                     $( api.column( 31 ).footer() ).html(dia31);
 
-                    $( api.column( 32 ).footer() ).html('Total');
+                    $( api.column( 32 ).footer() ).html(TotalAll);
 
 
                 }
@@ -318,13 +325,13 @@
                 "pageLength": 10,
                 "searching": true,
                 "bLengthChange" : true, //thought this line could hide the LengthMenu
-                "bInfo":true,  
+                "bInfo":true,
                 dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
                 buttons: [
                     { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
                     { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
                     { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
-                ], 
+                ],
                 "paging": false ,
                 "footerCallback": function (row, data, start, end, display) {
                     var api = this.api(), data;
@@ -347,7 +354,7 @@
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia03 = api
                         .column(3 ,  { page: 'current'})
                         .data()
@@ -361,28 +368,28 @@
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia05 = api
                         .column(5  ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia06 = api
                         .column(6  ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia07 = api
                         .column(7  ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia08 = api
                         .column(8  ,  { page: 'current'})
                         .data()
@@ -424,14 +431,14 @@
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia14 = api
                         .column(14  ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia15 = api
                         .column(15  ,  { page: 'current'})
                         .data()
@@ -445,7 +452,7 @@
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia17 = api
                         .column(17  ,  { page: 'current'})
                         .data()
@@ -473,7 +480,7 @@
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia21 = api
                         .column(21 ,  { page: 'current'})
                         .data()
@@ -487,7 +494,7 @@
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia23 = api
                         .column(23 ,  { page: 'current'})
                         .data()
@@ -501,28 +508,28 @@
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia25 = api
                         .column(25  ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia26 = api
                         .column(26  ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia27 = api
                         .column(27  ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia28 = api
                         .column(28  ,  { page: 'current'})
                         .data()
@@ -551,6 +558,12 @@
                             return intVal(a) + intVal(b);
                         }, 0);
 
+                    var TotalAll = api
+                        .column(32 ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
                     $( api.column( 0 ).footer() ).html('TOTAL');
                     $( api.column( 1 ).footer() ).html(dia01);
                     $( api.column( 2 ).footer() ).html(dia02);
@@ -587,7 +600,7 @@
 
                     $( api.column( 31 ).footer() ).html(dia31);
 
-                    $( api.column( 32 ).footer() ).html('Total');
+                    $( api.column( 32 ).footer() ).html(TotalAll);
 
 
                 }
@@ -599,13 +612,13 @@
                 "pageLength": 10,
                 "searching": true,
                 "bLengthChange" : true, //thought this line could hide the LengthMenu
-                "bInfo":true,  
+                "bInfo":true,
                 dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
                 buttons: [
                     { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
                     { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
                     { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
-                ], 
+                ],
                 "paging": false ,
                 "footerCallback": function (row, data, start, end, display) {
                     var api = this.api(), data;
@@ -628,7 +641,7 @@
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia03 = api
                         .column(3 ,  { page: 'current'})
                         .data()
@@ -642,28 +655,28 @@
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia05 = api
                         .column(5  ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia06 = api
                         .column(6  ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia07 = api
                         .column(7  ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia08 = api
                         .column(8  ,  { page: 'current'})
                         .data()
@@ -705,14 +718,14 @@
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia14 = api
                         .column(14  ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia15 = api
                         .column(15  ,  { page: 'current'})
                         .data()
@@ -726,7 +739,7 @@
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia17 = api
                         .column(17  ,  { page: 'current'})
                         .data()
@@ -754,7 +767,7 @@
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia21 = api
                         .column(21 ,  { page: 'current'})
                         .data()
@@ -768,7 +781,7 @@
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia23 = api
                         .column(23 ,  { page: 'current'})
                         .data()
@@ -782,28 +795,28 @@
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia25 = api
                         .column(25  ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia26 = api
                         .column(26  ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia27 = api
                         .column(27  ,  { page: 'current'})
                         .data()
                         .reduce(function (a, b) {
                             return intVal(a) + intVal(b);
                         }, 0);
-                    
+
                     var dia28 = api
                         .column(28  ,  { page: 'current'})
                         .data()
@@ -832,6 +845,12 @@
                             return intVal(a) + intVal(b);
                         }, 0);
 
+                    var TotalAll = api
+                        .column(32 ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
                     $( api.column( 0 ).footer() ).html('TOTAL');
                     $( api.column( 1 ).footer() ).html(dia01);
                     $( api.column( 2 ).footer() ).html(dia02);
@@ -868,12 +887,12 @@
 
                     $( api.column( 31 ).footer() ).html(dia31);
 
-                    $( api.column( 32 ).footer() ).html('Total');
+                    $( api.column( 32 ).footer() ).html(TotalAll);
 
 
                 }
             });  //Initialize the datatable
-            
+
 
             function Reg(TypeTableIn = "Registro", MesIn = "0") {
 
@@ -882,7 +901,7 @@
                 if(MesIn == "0"){
                     MesIn = FechaActual.getMonth()+1;
                     $(".RMont").each(function(){
-                        if ($(this).val() == MesIn ){        
+                        if ($(this).val() == MesIn ){
                             $(this).prop("checked", true);
                         }
                     });
@@ -897,7 +916,7 @@
                 let usersIn = "0";
 
                 var fecha = new Date();
-                
+
                 $.ajax({
                     type: 'POST',
                     url: '@Url.Action("ConsultarGestion")',
@@ -995,7 +1014,7 @@
                 if(MesIn == "0"){
                     MesIn = FechaActual.getMonth()+1;
                     $(".JMont").each(function(){
-                        if ($(this).val() == MesIn ){        
+                        if ($(this).val() == MesIn ){
                             $(this).prop("checked", true);
                         }
                     });
@@ -1010,7 +1029,7 @@
                 let usersIn = "0";
 
                 var fecha = new Date();
-                
+
                 $.ajax({
                     type: 'POST',
                     url: '@Url.Action("ConsultarGestion")',
@@ -1108,7 +1127,7 @@
                 if(MesIn == "0"){
                     MesIn = FechaActual.getMonth()+1;
                     $(".SMont").each(function(){
-                        if ($(this).val() == MesIn ){        
+                        if ($(this).val() == MesIn ){
                             $(this).prop("checked", true);
                         }
                     });
@@ -1123,7 +1142,7 @@
                 let usersIn = "0";
 
                 var fecha = new Date();
-                
+
                 $.ajax({
                     type: 'POST',
                     url: '@Url.Action("ConsultarGestion")',
@@ -1266,7 +1285,7 @@
                                     ]);
 
                                     if(obj.IdCtDepto == "5")
-                                    {   
+                                    {
                                         var dataEntity = ['co-an',  res[0]];
                                         dataList.push(dataEntity);
                                     }
@@ -1337,7 +1356,7 @@
                                     ]);
 
                                     if(obj.IdCtDepto == "5")
-                                    {   
+                                    {
                                         var dataEntity = ['co-an',  res[0]];
                                         dataList.push(dataEntity);
                                     }
@@ -1395,14 +1414,14 @@
                             }
                         });
 
-                        $("#TituloTotalExp").html("TOTAL DE EXPEDIENTES "); 
-                        $("#TotalExp").text(+TotalExp); 
+                        $("#TituloTotalExp").html("TOTAL DE EXPEDIENTES ");
+                        $("#TotalExp").text(+TotalExp);
 
-                        $("#TituloTotalExpConPdf").text("TOTAL DE EXPEDIENTES CON PDF"); 
-                        $("#TotalExpConPdf").text(+TotalExpConPdf); 
+                        $("#TituloTotalExpConPdf").text("TOTAL DE EXPEDIENTES CON PDF");
+                        $("#TotalExpConPdf").text(+TotalExpConPdf);
 
-                        $("#TituloTotalExpTip").text("TOTAL DE EXPEDIENTES TIPIFICADOS"); 
-                        $("#TotalExpTip").text(+TotalExpConPdf); 
+                        $("#TituloTotalExpTip").text("TOTAL DE EXPEDIENTES TIPIFICADOS");
+                        $("#TotalExpTip").text(+TotalExpConPdf);
 
                         Highcharts.mapChart('container', {
                             chart: {
@@ -1459,7 +1478,7 @@
                     }
                 });
             }
-            
+
             MapaTotalExp("0");
 
             // Grafica de exp por municipio
@@ -1519,7 +1538,7 @@
                     }
                 });
             }
-            
+
             GrapExpPorMunicipio("N_A");
 
             // Grafica de Tipificacion
@@ -1542,7 +1561,7 @@
                             dataList.push(dataEntity);
                         });
 
-                        $("#TituloTotalTipi").text("TOTAL DE TIPIFICACION POR GRUPOS"); 
+                        $("#TituloTotalTipi").text("TOTAL DE TIPIFICACION POR GRUPOS");
                         $("#TotalTipi").text(TotalExp);
 
                         Highcharts.chart('container-bar2', {
@@ -1574,7 +1593,7 @@
                     }
                 });
             }
-            
+
             GrapGrupoTipificacion("N_A");
 
             function SpeedCaracSolic(){
@@ -1586,7 +1605,7 @@
                         var TotalExp = 0 ;
                         var dataList = [];
 
-                        var Gestion1 = 0 ; 
+                        var Gestion1 = 0 ;
                         var Gestion2 = 0 ;
                         var GestionTotal = 0 ;
                         var Asignados = 0 ;
@@ -1606,17 +1625,17 @@
                             dataList.push(dataEntity);
                         });
                         GestionTotal = Gestion1 + Gestion2;
-                        $("#TituloTotalExpCarSol").html("Total Exp.<br><br>"); 
-                        $("#TotalExpCarSol").text(+GestionTotal); 
+                        $("#TituloTotalExpCarSol").html("Total Exp.<br><br>");
+                        $("#TotalExpCarSol").text(+GestionTotal);
 
-                        $("#TituloTotalExpCarSolSinGestion").text("Total Exp. Sin Gestion"); 
-                        $("#TotalExpCarSolSinGestion").text(+Gestion2); 
+                        $("#TituloTotalExpCarSolSinGestion").text("Total Exp. Sin Gestion");
+                        $("#TotalExpCarSolSinGestion").text(+Gestion2);
 
-                        $("#TituloTotalExpCarSolConGestion").text("Total Exp. Con Gestion"); 
-                        $("#TotalExpCarSolConGestion").text(+Gestion1); 
+                        $("#TituloTotalExpCarSolConGestion").text("Total Exp. Con Gestion");
+                        $("#TotalExpCarSolConGestion").text(+Gestion1);
 
-                        $("#TituloTituloTotalExpCarSolAsig").text("Total Exp. Asignados"); 
-                        $("#TituloTotalExpCarSolAsig").text(+Asignados); 
+                        $("#TituloTituloTotalExpCarSolAsig").text("Total Exp. Asignados");
+                        $("#TituloTotalExpCarSolAsig").text(+Asignados);
 
 
                         Highcharts.chart('container-solicitante', {
@@ -1656,17 +1675,13 @@
                                 data: dataList,
                             }]
                         });
-                        
+
                     },
                     error: function(e){
                         oTable.fnClearTable();
                     }
                 });
                 // The speed gauge
-                
-
-                
-
             }
 
             SpeedCaracSolic();
@@ -1680,7 +1695,7 @@
                         var TotalExp = 0 ;
                         var dataList = [];
 
-                        var Gestion1 = 0 ; 
+                        var Gestion1 = 0 ;
                         var Gestion2 = 0 ;
                         var GestionTotal = 0 ;
                         var Asignados = 0 ;
@@ -1700,19 +1715,19 @@
                             dataList.push(dataEntity);
                         });
                         GestionTotal = Gestion1 + Gestion2;
-                        $("#TituloTotalExpCarJur").html("Total Exp. <br><br>"); 
-                        $("#TotalExpCarJur").text(+GestionTotal); 
+                        $("#TituloTotalExpCarJur").html("Total Exp. <br><br>");
+                        $("#TotalExpCarJur").text(+GestionTotal);
 
-                        $("#TituloTotalExpCarJurSinGestion").text("Total Exp. Sin Gestion"); 
-                        $("#TotalExpCarJurSinGestion").text(+Gestion2); 
+                        $("#TituloTotalExpCarJurSinGestion").text("Total Exp. Sin Gestion");
+                        $("#TotalExpCarJurSinGestion").text(+Gestion2);
 
-                        $("#TituloTotalExpCarJurConGestion").text("Total Exp. Con Gestion"); 
-                        $("#TotalExpCarJurConGestion").text(+Gestion1); 
+                        $("#TituloTotalExpCarJurConGestion").text("Total Exp. Con Gestion");
+                        $("#TotalExpCarJurConGestion").text(+Gestion1);
 
-                        $("#TituloTituloTotalExpCarJurAsig").text("Total Exp. Asignados"); 
-                        $("#TituloTotalExpCarJurAsig").text(+Asignados); 
+                        $("#TituloTituloTotalExpCarJurAsig").text("Total Exp. Asignados");
+                        $("#TituloTotalExpCarJurAsig").text(+Asignados);
 
-                        
+
                         Highcharts.chart('container-juridica', {
                             chart: {
                                 plotBackgroundColor: null,
@@ -1750,17 +1765,13 @@
                                 data: dataList,
                             }]
                         });
-                        
+
                     },
                     error: function(e){
                         oTable.fnClearTable();
                     }
                 });
                 // The speed gauge
-                
-
-                
-
             }
 
             SpeedCaracJurid();
@@ -1774,7 +1785,7 @@
                         var TotalExp = 0 ;
                         var dataList = [];
 
-                        var Gestion1 = 0 ; 
+                        var Gestion1 = 0 ;
                         var Gestion2 = 0 ;
                         var Gestion3 = 0 ;
                         var GestionTotal = 0 ;
@@ -1800,19 +1811,19 @@
                             dataList.push(dataEntity);
                         });
                         GestionTotal = Gestion1 + Gestion2 + Gestion3;
-                        $("#TituloTotalExpCarRegis").html("Total Exp. <br><br>"); 
-                        $("#TotalExpCarRegis").text(+GestionTotal); 
+                        $("#TituloTotalExpCarRegis").html("Total Exp. <br><br>");
+                        $("#TotalExpCarRegis").text(+GestionTotal);
 
-                        $("#TituloTotalExpCarRegisSinGestion").text("Total Exp. Sin Gestion"); 
-                        $("#TotalExpCarRegisSinGestion").text(+Gestion3); 
+                        $("#TituloTotalExpCarRegisSinGestion").text("Total Exp. Sin Gestion");
+                        $("#TotalExpCarRegisSinGestion").text(+Gestion3);
 
-                        $("#TituloTotalExpCarRegisConGestion").text("Total Exp. Con Gestion"); 
-                        $("#TotalExpCarRegisConGestion").text(Gestion1+Gestion2); 
+                        $("#TituloTotalExpCarRegisConGestion").text("Total Exp. Con Gestion");
+                        $("#TotalExpCarRegisConGestion").text(Gestion1+Gestion2);
 
-                        $("#TituloTituloTotalExpCarRegisAsig").text("Total Exp. Asignados"); 
-                        $("#TituloTotalExpCarRegisAsig").text(+Asignados); 
+                        $("#TituloTituloTotalExpCarRegisAsig").text("Total Exp. Asignados");
+                        $("#TituloTotalExpCarRegisAsig").text(+Asignados);
 
-                        
+
                         Highcharts.chart('container-registro', {
                             chart: {
                                 plotBackgroundColor: null,
@@ -1850,17 +1861,13 @@
                                 data: dataList,
                             }]
                         });
-                        
+
                     },
                     error: function(e){
                         oTable.fnClearTable();
                     }
                 });
                 // The speed gauge
-                
-
-                
-
             }
 
             SpeedCaracRegistro();
@@ -1875,32 +1882,34 @@
     </script>
 
 }
-<link  href="StyleGrap.css" />
+<link href="StyleGrap.css" />
 
 @* <div class="card mb-4 wow fadeIn">
 
-    <div class="card-body d-sm-flex justify-content-between">
-        <h4 class="card-title">Caracterizacion del Solicitante </h3>
-    </div>
+        <div class="card-body d-sm-flex justify-content-between">
+            <h4 class="card-title">Caracterizacion del Solicitante </h3>
+        </div>
 
-</div> *@
+    </div> *@
 <div class="row wow  fadeIn">
-    <div class="col-md-4 p-1"> @* Mapa *@
+    <div class="col-md-4 p-1">
+        @* Mapa *@
         <div class="card">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <div id="container" ></div> @*  Mapa  *@
-                        <table id="table_id" class="table-sm" cellspacing="0" width="100%">  @*  Tabla de exp por municipio  *@
-                            <thead class="" >
+                        <div id="container"></div> @*  Mapa  *@
+                        <table id="table_id" class="table-sm" cellspacing="0" width="100%">
+                            @*  Tabla de exp por municipio  *@
+                            <thead class="">
                                 <tr>
-                                    <th >Municipio</th>
-                                    <th >Num Expedientes </th>
+                                    <th>Municipio</th>
+                                    <th>Num Expedientes </th>
                                 </tr>
                             </thead>
-                            <tbody class="" >
+                            <tbody class="">
                             </tbody>
-                        </table> 
+                        </table>
                     </div>
                 </div>
             </div>
@@ -1911,28 +1920,29 @@
             <div class="col-md-3 p-2">
                 <div class="card">
                     <div class="card-body">
-                        <div class="col-md-12 justify-content-center align-content-center text-center ">  @*  Toltal de exp  *@
-                            <p class="text-capitalize " id = "TituloTotalExp"> </p>
+                        <div class="col-md-12 justify-content-center align-content-center text-center ">
+                            @*  Toltal de exp  *@
+                            <p class="text-capitalize " id="TituloTotalExp"> </p>
                             <br>
-                            <h4 id = "TotalExp" class="alert alert-success"> </h3>
+                            <h4 id="TotalExp" class="alert alert-success"> </h3>
                         </div>
                     </div>
                 </div>
                 <div class="p-2"></div>
                 <div class="card">
                     <div class="card-body">
-                        <div class="col-md-12 justify-content-center align-content-center text-center ">  
-                            <p class="text-capitalize " id = "TituloTotalExpConPdf"> </p>
-                            <h4 id = "TotalExpConPdf" class="alert alert-success"> </h3>
+                        <div class="col-md-12 justify-content-center align-content-center text-center ">
+                            <p class="text-capitalize " id="TituloTotalExpConPdf"> </p>
+                            <h4 id="TotalExpConPdf" class="alert alert-success"> </h3>
                         </div>
                     </div>
                 </div>
                 <div class="p-2"></div>
                 <div class="card">
                     <div class="card-body">
-                        <div class="col-md-12 justify-content-center align-content-center text-center ">  
-                            <p class="text-capitalize " id = "TituloTotalExpTip"> </p>
-                            <h4 id = "TotalExpTip" class="alert alert-success"> </h3>
+                        <div class="col-md-12 justify-content-center align-content-center text-center ">
+                            <p class="text-capitalize " id="TituloTotalExpTip"> </p>
+                            <h4 id="TotalExpTip" class="alert alert-success"> </h3>
                         </div>
                     </div>
                 </div>
@@ -1941,8 +1951,8 @@
 
                 <div class="card col-md-12">
                     <div class="card-body">
-                        <figure class="highcharts-figure-bar"  >
-                            <div id="container-Tipificacion"  style="height: 267px !important;"></div>  @*  grap de exp por municipio  *@
+                        <figure class="highcharts-figure-bar">
+                            <div id="container-Tipificacion" style="height: 267px !important;"></div>  @*  grap de exp por municipio  *@
                         </figure>
                     </div>
                 </div>
@@ -1969,133 +1979,134 @@
                 Caracterizacion de Registro
             </div>
             <div class="card-body">
-                <div class="row justify-content-center align-content-center text-center  " >
+                <div class="row justify-content-center align-content-center text-center  ">
                     <div clas="col-md-12">
                         <ul class="list-group list-group-horizontal-xl center container-fluid   " style=" width=100%">
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="Mont" class="RMont" value="1"> Enero </li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="Mont" class="RMont" value="2"> Febrero </li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="Mont" class="RMont" value="3"> Marzo</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="Mont" class="RMont" value="4"> Abril</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="Mont" class="RMont" value="5"> Mayo</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="Mont" class="RMont" value="6"> Junio</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="Mont" class="RMont" value="7"> Julio</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="Mont" class="RMont" value="8"> Agosto</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="Mont" class="RMont" value="9"> Septiembre</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="Mont" class="RMont" value="10"> Octubre</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="Mont" class="RMont" value="11"> Noviembre</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="Mont" class="RMont" value="12"> Diciembre</li> 
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="Mont" class="RMont" value="1"> Enero </li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="Mont" class="RMont" value="2"> Febrero </li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="Mont" class="RMont" value="3"> Marzo</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="Mont" class="RMont" value="4"> Abril</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="Mont" class="RMont" value="5"> Mayo</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="Mont" class="RMont" value="6"> Junio</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="Mont" class="RMont" value="7"> Julio</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="Mont" class="RMont" value="8"> Agosto</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="Mont" class="RMont" value="9"> Septiembre</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="Mont" class="RMont" value="10"> Octubre</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="Mont" class="RMont" value="11"> Noviembre</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="Mont" class="RMont" value="12"> Diciembre</li>
                         </ul>
-                        
+
                     </div>
                 </div>
-                <div class="row p-4" >
-                    <div class="col-md-12">  
-                        
-                        <table id="table_id_Registro"  style="font-size:11px" class="table-sm table-striped table-bordered"   cellspacing="0" width="100%">  @*  Tabla de exp por municipio  *@
+                <div class="row p-4">
+                    <div class="col-md-12">
+
+                        <table id="table_id_Registro" style="font-size:11px" class="table-sm table-striped table-bordered table-hover" cellspacing="0" width="100%">
+                            @*  Tabla de exp por municipio  *@
                             <thead class="green white-text title">
                                 <tr>
-                                    <th >Usuario</th>
-                                    <th >1</th>
-                                    <th >2</th>
-                                    <th >3</th>
-                                    <th >4</th>
-                                    <th >5</th>
-                                    <th >6</th>
-                                    <th >7</th>
-                                    <th >8</th>
-                                    <th >9</th>
-                                    <th >10</th>
-                                    <th >11</th>
-                                    <th >12</th>
-                                    <th >13</th>
-                                    <th >14</th>
-                                    <th >15</th>
-                                    <th >16</th>
-                                    <th >17</th>
-                                    <th >18</th>
-                                    <th >19</th>
-                                    <th >20</th>
-                                    <th >21</th>
-                                    <th >22</th>
-                                    <th >23</th>
-                                    <th >24</th>
-                                    <th >25</th>
-                                    <th >26</th>
-                                    <th >27</th>
-                                    <th >28</th>
-                                    <th >29</th>
-                                    <th >30</th>
-                                    <th >31</th>
-                                    <th >TOTAL</th>
+                                    <th>Usuario</th>
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                    <th>4</th>
+                                    <th>5</th>
+                                    <th>6</th>
+                                    <th>7</th>
+                                    <th>8</th>
+                                    <th>9</th>
+                                    <th>10</th>
+                                    <th>11</th>
+                                    <th>12</th>
+                                    <th>13</th>
+                                    <th>14</th>
+                                    <th>15</th>
+                                    <th>16</th>
+                                    <th>17</th>
+                                    <th>18</th>
+                                    <th>19</th>
+                                    <th>20</th>
+                                    <th>21</th>
+                                    <th>22</th>
+                                    <th>23</th>
+                                    <th>24</th>
+                                    <th>25</th>
+                                    <th>26</th>
+                                    <th>27</th>
+                                    <th>28</th>
+                                    <th>29</th>
+                                    <th>30</th>
+                                    <th>31</th>
+                                    <th>TOTAL</th>
                                 </tr>
                             </thead>
-                            <tbody style="font-size:10px" >
+                            <tbody style="font-size:10px">
                             </tbody>
                             <tfoot class="green white-text title">
                                 <tr>
-                                    <th >Usuario</th>
-                                    <th >1</th>
-                                    <th >2</th>
-                                    <th >3</th>
-                                    <th >4</th>
-                                    <th >5</th>
-                                    <th >6</th>
-                                    <th >7</th>
-                                    <th >8</th>
-                                    <th >9</th>
-                                    <th >10</th>
-                                    <th >11</th>
-                                    <th >12</th>
-                                    <th >13</th>
-                                    <th >14</th>
-                                    <th >15</th>
-                                    <th >16</th>
-                                    <th >17</th>
-                                    <th >18</th>
-                                    <th >19</th>
-                                    <th >20</th>
-                                    <th >21</th>
-                                    <th >22</th>
-                                    <th >23</th>
-                                    <th >24</th>
-                                    <th >25</th>
-                                    <th >26</th>
-                                    <th >27</th>
-                                    <th >28</th>
-                                    <th >29</th>
-                                    <th >30</th>
-                                    <th >31</th>
-                                    <th ></th>
+                                    <th>Usuario</th>
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                    <th>4</th>
+                                    <th>5</th>
+                                    <th>6</th>
+                                    <th>7</th>
+                                    <th>8</th>
+                                    <th>9</th>
+                                    <th>10</th>
+                                    <th>11</th>
+                                    <th>12</th>
+                                    <th>13</th>
+                                    <th>14</th>
+                                    <th>15</th>
+                                    <th>16</th>
+                                    <th>17</th>
+                                    <th>18</th>
+                                    <th>19</th>
+                                    <th>20</th>
+                                    <th>21</th>
+                                    <th>22</th>
+                                    <th>23</th>
+                                    <th>24</th>
+                                    <th>25</th>
+                                    <th>26</th>
+                                    <th>27</th>
+                                    <th>28</th>
+                                    <th>29</th>
+                                    <th>30</th>
+                                    <th>31</th>
+                                    <th></th>
                                 </tr>
                             </tfoot>
-                        </table> 
+                        </table>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 justify-content-center align-content-center text-center ">  
+                    <div class="col-md-4 justify-content-center align-content-center text-center ">
                         <div class="row">
-                            <div class="col-md-4 justify-content-center align-content-center text-center ">  
-                                <p class=" Letra " id = "TituloTotalExpCarRegis"> </p>
-                                <h4 id = "TotalExpCarRegis" class="alert alert-success"> </h3>
+                            <div class="col-md-4 justify-content-center align-content-center text-center ">
+                                <p class=" Letra " id="TituloTotalExpCarRegis"> </p>
+                                <h4 id="TotalExpCarRegis" class="alert alert-success"> </h3>
                             </div>
-                            <div class="col-md-4 justify-content-center align-content-center text-center ">  
-                                <p class="Letra" id = "TituloTotalExpCarRegisConGestion"> </p>
-                                <h4 id = "TotalExpCarRegisConGestion" class="alert alert-success"> </h3>
+                            <div class="col-md-4 justify-content-center align-content-center text-center ">
+                                <p class="Letra" id="TituloTotalExpCarRegisConGestion"> </p>
+                                <h4 id="TotalExpCarRegisConGestion" class="alert alert-success"> </h3>
                             </div>
-                            <div class="col-md-4 justify-content-center align-content-center text-center ">  
-                                <p class="Letra" id = "TituloTotalExpCarRegisSinGestion"> </p>
-                                <h4 id = "TotalExpCarRegisSinGestion" class="alert alert-success"> </h3>
+                            <div class="col-md-4 justify-content-center align-content-center text-center ">
+                                <p class="Letra" id="TituloTotalExpCarRegisSinGestion"> </p>
+                                <h4 id="TotalExpCarRegisSinGestion" class="alert alert-success"> </h3>
                             </div>
-                            <div class="col-md-12 justify-content-center align-content-center text-center ">  
-                                <p class="Letra" id = "TituloTituloTotalExpCarRegisAsig"> </p>
-                                <h4 id = "TituloTotalExpCarRegisAsig" class="alert alert-success"> </h3>
+                            <div class="col-md-12 justify-content-center align-content-center text-center ">
+                                <p class="Letra" id="TituloTituloTotalExpCarRegisAsig"> </p>
+                                <h4 id="TituloTotalExpCarRegisAsig" class="alert alert-success"> </h3>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-8 justify-content-center align-content-center text-center ">
                         <figure class="highcharts-figure ">
-                            <div id="container-registro" class="highcharts-figure" style="height: 267px !important;" >
-                            </div>  
+                            <div id="container-registro" class="highcharts-figure" style="height: 267px !important;">
+                            </div>
                         </figure>
                     </div>
                 </div>
@@ -2109,270 +2120,272 @@
                 Caracterizacion Juridica
             </div>
             <div class="card-body">
-                <div class="row justify-content-center align-content-center text-center  " >
+                <div class="row justify-content-center align-content-center text-center  ">
                     <div clas="col-md-12">
                         <ul class="list-group list-group-horizontal-xl center container-fluid   " style=" width=100%">
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="JMont" class="JMont" value="1"> Enero </li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="JMont" class="JMont" value="2"> Febrero </li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="JMont" class="JMont" value="3"> Marzo</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="JMont" class="JMont" value="4"> Abril</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="JMont" class="JMont" value="5"> Mayo</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="JMont" class="JMont" value="6"> Junio</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="JMont" class="JMont" value="7"> Julio</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="JMont" class="JMont" value="8"> Agosto</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="JMont" class="JMont" value="9"> Septiembre</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="JMont" class="JMont" value="10"> Octubre</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="JMont" class="JMont" value="11"> Noviembre</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="JMont" class="JMont" value="12"> Diciembre</li> 
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="JMont" class="JMont" value="1"> Enero </li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="JMont" class="JMont" value="2"> Febrero </li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="JMont" class="JMont" value="3"> Marzo</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="JMont" class="JMont" value="4"> Abril</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="JMont" class="JMont" value="5"> Mayo</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="JMont" class="JMont" value="6"> Junio</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="JMont" class="JMont" value="7"> Julio</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="JMont" class="JMont" value="8"> Agosto</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="JMont" class="JMont" value="9"> Septiembre</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="JMont" class="JMont" value="10"> Octubre</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="JMont" class="JMont" value="11"> Noviembre</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="JMont" class="JMont" value="12"> Diciembre</li>
                         </ul>
                     </div>
                 </div>
-                <div class="row p-4" >
-                    <div class="col-md-12">  
-                        <table id="table_id_Juridica"  style="font-size:11px" class="table-sm table-striped table-bordered"   cellspacing="0" width="100%">  @*  Tabla de exp por municipio  *@
+                <div class="row p-4">
+                    <div class="col-md-12">
+                        <table id="table_id_Juridica" style="font-size:11px" class="table-sm table-striped table-bordered table-hover" cellspacing="0" width="100%">
+                            @*  Tabla de exp por municipio  *@
                             <thead class="green white-text title">
                                 <tr>
-                                    <th >Usuario</th>
-                                    <th >1</th>
-                                    <th >2</th>
-                                    <th >3</th>
-                                    <th >4</th>
-                                    <th >5</th>
-                                    <th >6</th>
-                                    <th >7</th>
-                                    <th >8</th>
-                                    <th >9</th>
-                                    <th >10</th>
-                                    <th >11</th>
-                                    <th >12</th>
-                                    <th >13</th>
-                                    <th >14</th>
-                                    <th >15</th>
-                                    <th >16</th>
-                                    <th >17</th>
-                                    <th >18</th>
-                                    <th >19</th>
-                                    <th >20</th>
-                                    <th >21</th>
-                                    <th >22</th>
-                                    <th >23</th>
-                                    <th >24</th>
-                                    <th >25</th>
-                                    <th >26</th>
-                                    <th >27</th>
-                                    <th >28</th>
-                                    <th >29</th>
-                                    <th >30</th>
-                                    <th >31</th>
-                                    <th >TOTAL</th>
+                                    <th>Usuario</th>
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                    <th>4</th>
+                                    <th>5</th>
+                                    <th>6</th>
+                                    <th>7</th>
+                                    <th>8</th>
+                                    <th>9</th>
+                                    <th>10</th>
+                                    <th>11</th>
+                                    <th>12</th>
+                                    <th>13</th>
+                                    <th>14</th>
+                                    <th>15</th>
+                                    <th>16</th>
+                                    <th>17</th>
+                                    <th>18</th>
+                                    <th>19</th>
+                                    <th>20</th>
+                                    <th>21</th>
+                                    <th>22</th>
+                                    <th>23</th>
+                                    <th>24</th>
+                                    <th>25</th>
+                                    <th>26</th>
+                                    <th>27</th>
+                                    <th>28</th>
+                                    <th>29</th>
+                                    <th>30</th>
+                                    <th>31</th>
+                                    <th>TOTAL</th>
                                 </tr>
                             </thead>
-                            <tbody style="font-size:10px" >
+                            <tbody style="font-size:10px">
                             </tbody>
                             <tfoot class="green white-text title">
                                 <tr>
-                                    <th >Usuario</th>
-                                    <th >1</th>
-                                    <th >2</th>
-                                    <th >3</th>
-                                    <th >4</th>
-                                    <th >5</th>
-                                    <th >6</th>
-                                    <th >7</th>
-                                    <th >8</th>
-                                    <th >9</th>
-                                    <th >10</th>
-                                    <th >11</th>
-                                    <th >12</th>
-                                    <th >13</th>
-                                    <th >14</th>
-                                    <th >15</th>
-                                    <th >16</th>
-                                    <th >17</th>
-                                    <th >18</th>
-                                    <th >19</th>
-                                    <th >20</th>
-                                    <th >21</th>
-                                    <th >22</th>
-                                    <th >23</th>
-                                    <th >24</th>
-                                    <th >25</th>
-                                    <th >26</th>
-                                    <th >27</th>
-                                    <th >28</th>
-                                    <th >29</th>
-                                    <th >30</th>
-                                    <th >31</th>
-                                    <th ></th>
+                                    <th>Usuario</th>
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                    <th>4</th>
+                                    <th>5</th>
+                                    <th>6</th>
+                                    <th>7</th>
+                                    <th>8</th>
+                                    <th>9</th>
+                                    <th>10</th>
+                                    <th>11</th>
+                                    <th>12</th>
+                                    <th>13</th>
+                                    <th>14</th>
+                                    <th>15</th>
+                                    <th>16</th>
+                                    <th>17</th>
+                                    <th>18</th>
+                                    <th>19</th>
+                                    <th>20</th>
+                                    <th>21</th>
+                                    <th>22</th>
+                                    <th>23</th>
+                                    <th>24</th>
+                                    <th>25</th>
+                                    <th>26</th>
+                                    <th>27</th>
+                                    <th>28</th>
+                                    <th>29</th>
+                                    <th>30</th>
+                                    <th>31</th>
+                                    <th></th>
                                 </tr>
                             </tfoot>
-                        </table> 
+                        </table>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 justify-content-center align-content-center text-center ">  
+                    <div class="col-md-4 justify-content-center align-content-center text-center ">
                         <div class="row">
-                            <div class="col-md-4 justify-content-center align-content-center text-center ">  
-                                <p class=" Letra " id = "TituloTotalExpCarJur"> </p>
-                                <h4 id = "TotalExpCarJur" class="alert alert-success"> </h3>
+                            <div class="col-md-4 justify-content-center align-content-center text-center ">
+                                <p class=" Letra " id="TituloTotalExpCarJur"> </p>
+                                <h4 id="TotalExpCarJur" class="alert alert-success"> </h3>
                             </div>
-                            <div class="col-md-4 justify-content-center align-content-center text-center ">  
-                                <p class="Letra" id = "TituloTotalExpCarJurConGestion"> </p>
-                                <h4 id = "TotalExpCarJurConGestion" class="alert alert-success"> </h3>
+                            <div class="col-md-4 justify-content-center align-content-center text-center ">
+                                <p class="Letra" id="TituloTotalExpCarJurConGestion"> </p>
+                                <h4 id="TotalExpCarJurConGestion" class="alert alert-success"> </h3>
                             </div>
-                            <div class="col-md-4 justify-content-center align-content-center text-center ">  
-                                <p class="Letra" id = "TituloTotalExpCarJurSinGestion"> </p>
-                                <h4 id = "TotalExpCarJurSinGestion" class="alert alert-success"> </h3>
+                            <div class="col-md-4 justify-content-center align-content-center text-center ">
+                                <p class="Letra" id="TituloTotalExpCarJurSinGestion"> </p>
+                                <h4 id="TotalExpCarJurSinGestion" class="alert alert-success"> </h3>
                             </div>
-                            <div class="col-md-12 justify-content-center align-content-center text-center ">  
-                                <p class="Letra" id = "TituloTituloTotalExpCarJurAsig"> </p>
-                                <h4 id = "TituloTotalExpCarJurAsig" class="alert alert-success"> </h3>
+                            <div class="col-md-12 justify-content-center align-content-center text-center ">
+                                <p class="Letra" id="TituloTituloTotalExpCarJurAsig"> </p>
+                                <h4 id="TituloTotalExpCarJurAsig" class="alert alert-success"> </h3>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-8 justify-content-center align-content-center text-center ">
                         <figure class="highcharts-figure ">
-                            <div id="container-juridica" class="highcharts-figure" style="height: 267px !important;" >
-                            </div>  
+                            <div id="container-juridica" class="highcharts-figure" style="height: 267px !important;">
+                            </div>
                         </figure>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <div class="col-md-12 p-1">
         <div class="card">
             <div class="card-header">
                 Caracterizacion de Solicitante
             </div>
             <div class="card-body">
-                <div class="row justify-content-center align-content-center text-center  " >
+                <div class="row justify-content-center align-content-center text-center  ">
                     <div clas="col-md-12">
                         <ul class="list-group list-group-horizontal-xl center container-fluid   " style=" width=100%">
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="SMont" class="SMont" value="1"> Enero </li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="SMont" class="SMont" value="2"> Febrero </li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="SMont" class="SMont" value="3"> Marzo</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="SMont" class="SMont" value="4"> Abril</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="SMont" class="SMont" value="5"> Mayo</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="SMont" class="SMont" value="6"> Junio</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="SMont" class="SMont" value="7"> Julio</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="SMont" class="SMont" value="8"> Agosto</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="SMont" class="SMont" value="9"> Septiembre</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="SMont" class="SMont" value="10"> Octubre</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="SMont" class="SMont" value="11"> Noviembre</li> 
-                            <li class="list-group-item list-group-item-success " style="font-size:11px" ><input type="radio" name="SMont" class="SMont" value="12"> Diciembre</li> 
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="SMont" class="SMont" value="1"> Enero </li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="SMont" class="SMont" value="2"> Febrero </li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="SMont" class="SMont" value="3"> Marzo</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="SMont" class="SMont" value="4"> Abril</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="SMont" class="SMont" value="5"> Mayo</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="SMont" class="SMont" value="6"> Junio</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="SMont" class="SMont" value="7"> Julio</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="SMont" class="SMont" value="8"> Agosto</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="SMont" class="SMont" value="9"> Septiembre</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="SMont" class="SMont" value="10"> Octubre</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="SMont" class="SMont" value="11"> Noviembre</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="SMont" class="SMont" value="12"> Diciembre</li>
                         </ul>
                     </div>
                 </div>
-                <div class="row p-4" >
-                    <div class="col-md-12">  
-                        <table id="table_id_Solicitante"  style="font-size:11px" class="table-sm table-striped table-bordered"   cellspacing="0" width="100%">  @*  Tabla de exp por municipio  *@
+                <div class="row p-4">
+                    <div class="col-md-12">
+                        <table id="table_id_Solicitante" style="font-size:11px" class="table-sm table-striped table-bordered table-hover" cellspacing="0" width="100%">
+                            @*  Tabla de exp por municipio  *@
                             <thead class="green white-text title">
                                 <tr>
-                                    <th >Usuario</th>
-                                    <th >1</th>
-                                    <th >2</th>
-                                    <th >3</th>
-                                    <th >4</th>
-                                    <th >5</th>
-                                    <th >6</th>
-                                    <th >7</th>
-                                    <th >8</th>
-                                    <th >9</th>
-                                    <th >10</th>
-                                    <th >11</th>
-                                    <th >12</th>
-                                    <th >13</th>
-                                    <th >14</th>
-                                    <th >15</th>
-                                    <th >16</th>
-                                    <th >17</th>
-                                    <th >18</th>
-                                    <th >19</th>
-                                    <th >20</th>
-                                    <th >21</th>
-                                    <th >22</th>
-                                    <th >23</th>
-                                    <th >24</th>
-                                    <th >25</th>
-                                    <th >26</th>
-                                    <th >27</th>
-                                    <th >28</th>
-                                    <th >29</th>
-                                    <th >30</th>
-                                    <th >31</th>
-                                    <th >TOTAL</th>
+                                    <th>Usuario</th>
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                    <th>4</th>
+                                    <th>5</th>
+                                    <th>6</th>
+                                    <th>7</th>
+                                    <th>8</th>
+                                    <th>9</th>
+                                    <th>10</th>
+                                    <th>11</th>
+                                    <th>12</th>
+                                    <th>13</th>
+                                    <th>14</th>
+                                    <th>15</th>
+                                    <th>16</th>
+                                    <th>17</th>
+                                    <th>18</th>
+                                    <th>19</th>
+                                    <th>20</th>
+                                    <th>21</th>
+                                    <th>22</th>
+                                    <th>23</th>
+                                    <th>24</th>
+                                    <th>25</th>
+                                    <th>26</th>
+                                    <th>27</th>
+                                    <th>28</th>
+                                    <th>29</th>
+                                    <th>30</th>
+                                    <th>31</th>
+                                    <th>TOTAL</th>
                                 </tr>
                             </thead>
-                            <tbody style="font-size:10px" >
+                            <tbody style="font-size:10px">
                             </tbody>
                             <tfoot class="green white-text title">
                                 <tr>
-                                    <th >Usuario</th>
-                                    <th >1</th>
-                                    <th >2</th>
-                                    <th >3</th>
-                                    <th >4</th>
-                                    <th >5</th>
-                                    <th >6</th>
-                                    <th >7</th>
-                                    <th >8</th>
-                                    <th >9</th>
-                                    <th >10</th>
-                                    <th >11</th>
-                                    <th >12</th>
-                                    <th >13</th>
-                                    <th >14</th>
-                                    <th >15</th>
-                                    <th >16</th>
-                                    <th >17</th>
-                                    <th >18</th>
-                                    <th >19</th>
-                                    <th >20</th>
-                                    <th >21</th>
-                                    <th >22</th>
-                                    <th >23</th>
-                                    <th >24</th>
-                                    <th >25</th>
-                                    <th >26</th>
-                                    <th >27</th>
-                                    <th >28</th>
-                                    <th >29</th>
-                                    <th >30</th>
-                                    <th >31</th>
-                                    <th ></th>
+                                    <th>Usuario</th>
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                    <th>4</th>
+                                    <th>5</th>
+                                    <th>6</th>
+                                    <th>7</th>
+                                    <th>8</th>
+                                    <th>9</th>
+                                    <th>10</th>
+                                    <th>11</th>
+                                    <th>12</th>
+                                    <th>13</th>
+                                    <th>14</th>
+                                    <th>15</th>
+                                    <th>16</th>
+                                    <th>17</th>
+                                    <th>18</th>
+                                    <th>19</th>
+                                    <th>20</th>
+                                    <th>21</th>
+                                    <th>22</th>
+                                    <th>23</th>
+                                    <th>24</th>
+                                    <th>25</th>
+                                    <th>26</th>
+                                    <th>27</th>
+                                    <th>28</th>
+                                    <th>29</th>
+                                    <th>30</th>
+                                    <th>31</th>
+                                    <th></th>
                                 </tr>
                             </tfoot>
-                        </table> 
+                        </table>
                     </div>
                 </div>
-                <div class="row p-4" >
-                    <div class="col-md-4 justify-content-center align-content-center text-center ">  
+                <div class="row p-4">
+                    <div class="col-md-4 justify-content-center align-content-center text-center ">
                         <div class="row">
-                            <div class="col-md-4 justify-content-center align-content-center text-center ">  
-                                <p class=" Letra " id = "TituloTotalExpCarSol"> </p>
-                                <h4 id = "TotalExpCarSol" class="alert alert-success"> </h3>
+                            <div class="col-md-4 justify-content-center align-content-center text-center ">
+                                <p class=" Letra " id="TituloTotalExpCarSol"> </p>
+                                <h4 id="TotalExpCarSol" class="alert alert-success"> </h3>
                             </div>
-                            <div class="col-md-4 justify-content-center align-content-center text-center ">  
-                                <p class="Letra" id = "TituloTotalExpCarSolConGestion"> </p>
-                                <h4 id = "TotalExpCarSolConGestion" class="alert alert-success"> </h3>
+                            <div class="col-md-4 justify-content-center align-content-center text-center ">
+                                <p class="Letra" id="TituloTotalExpCarSolConGestion"> </p>
+                                <h4 id="TotalExpCarSolConGestion" class="alert alert-success"> </h3>
                             </div>
-                            <div class="col-md-4 justify-content-center align-content-center text-center ">  
-                                <p class="Letra" id = "TituloTotalExpCarSolSinGestion"> </p>
-                                <h4 id = "TotalExpCarSolSinGestion" class="alert alert-success"> </h3>
+                            <div class="col-md-4 justify-content-center align-content-center text-center ">
+                                <p class="Letra" id="TituloTotalExpCarSolSinGestion"> </p>
+                                <h4 id="TotalExpCarSolSinGestion" class="alert alert-success"> </h3>
                             </div>
-                            <div class="col-md-12 justify-content-center align-content-center text-center ">  
-                                <p class="Letra" id = "TituloTituloTotalExpCarSolAsig"> </p>
-                                <h4 id = "TituloTotalExpCarSolAsig" class="alert alert-success"> </h3>
+                            <div class="col-md-12 justify-content-center align-content-center text-center ">
+                                <p class="Letra" id="TituloTituloTotalExpCarSolAsig"> </p>
+                                <h4 id="TituloTotalExpCarSolAsig" class="alert alert-success"> </h3>
                             </div>
-                            
+
                         </div>
                     </div>
                     <div class="col-md-8 justify-content-center align-content-center text-center ">
                         <figure class="highcharts-figure ">
-                            <div id="container-solicitante" class="highcharts-figure" style="height: 267px !important;" >
-                            </div>  
+                            <div id="container-solicitante" class="highcharts-figure" style="height: 267px !important;">
+                            </div>
                         </figure>
                     </div>
                 </div>
