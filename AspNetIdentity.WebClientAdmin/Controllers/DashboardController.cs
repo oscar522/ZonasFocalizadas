@@ -75,7 +75,7 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             users = GetTokenObject().nameid;
             DateTime fecha = DateTime.Now;
             string FechaFor = fecha.Day + "-" + fecha.Month + "-" + fecha.Year + "-" + fecha.Hour + "-" + fecha.Minute + "-" + fecha.Second + "-" + fecha.Millisecond;
-            string Id = TypeTable + "_" + Fi + "_" + Ff + "_" + Mes + "_" + Dia + "_" + users+"_"+FechaFor;
+            string Id = TypeTable + "_" + Fi + "_" + Ff + "_" + Mes + "_" + Dia + "_" + users+"-"+FechaFor;
             string Controller = "Administrator";
             string Method = "getConsultarGestion";
             string result = await employeeProvider.Get(Id, Controller, Method);
