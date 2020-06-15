@@ -539,6 +539,7 @@ C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocaliz
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebClientAdmin\bin\AspNetIdentity.Models.dll
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebClientAdmin\bin\EntityFramework.dll
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebClientAdmin\bin\EntityFramework.SqlServer.dll
+C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebClientAdmin\bin\LinqLib.dll
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebClientAdmin\bin\Microsoft.AI.Agent.Intercept.dll
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebClientAdmin\bin\Microsoft.AI.DependencyCollector.dll
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebClientAdmin\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -572,6 +573,7 @@ C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocaliz
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebClientAdmin\bin\AspNetIdentity.Models.pdb
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebClientAdmin\bin\EntityFramework.xml
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebClientAdmin\bin\EntityFramework.SqlServer.xml
+C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebClientAdmin\bin\LinqLib.xml
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebClientAdmin\bin\Microsoft.AI.DependencyCollector.xml
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebClientAdmin\bin\Microsoft.AI.PerfCounterCollector.xml
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebClientAdmin\bin\Microsoft.AI.ServerTelemetryChannel.xml
@@ -603,5 +605,3 @@ C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocaliz
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebClientAdmin\obj\Debug\AspNetIdentity.WebClientAdmin.csproj.CopyComplete
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebClientAdmin\obj\Debug\AspNetIdentity.WebClientAdmin.dll
 C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebClientAdmin\obj\Debug\AspNetIdentity.WebClientAdmin.pdb
-C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebClientAdmin\bin\LinqLib.dll
-C:\Users\balle\Desktop\Proyectos\Ant\Proyecto Zonas Focalizadas\Git\ZonasFocalizadas\AspNetIdentity.WebClientAdmin\bin\LinqLib.xml
