@@ -9,6 +9,10 @@ using System.Net.Http;
 using System.Linq;
 using System.Web;
 using System.IO;
+using System.Data;
+using System.Linq.Expressions;
+using System.Dynamic;
+using LinqLib.Sequence;
 
 namespace AspNetIdentity.WebClientAdmin.Controllers
 {
@@ -55,7 +59,7 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
 
         }
 
-        public async Task<ActionResult> CountDepto( )
+        public async Task<ActionResult> CountDepto()
         {
 
             string Id = "0";
@@ -64,9 +68,28 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             string result = await employeeProvider.Get(Id, Controller, Method);
             var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
             List<CtCiudadModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CtCiudadModel>>(jsonResult.ToString());
-                return Json(processModel, JsonRequestBehavior.AllowGet);
+            return Json(processModel, JsonRequestBehavior.AllowGet);
+        }
+        public async Task<ActionResult> ConsultarGestion(string TypeTable, string Fi , string Ff , string Mes , int Dia, string users )
+        {
+            users = GetTokenObject().nameid;
+
+            string Id = TypeTable + "_" + Fi + "_" + Ff + "_" + Mes + "_" + Dia + "_" + users;
+            string Controller = "Administrator";
+            string Method = "getConsultarGestion";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            List<PlGestionUsersModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<PlGestionUsersModel>>(jsonResult.ToString());
+            return Json(processModel, JsonRequestBehavior.AllowGet);
         }
 
+        public class Gestion {
+
+            public string fecha { get; set; }
+            public List<object> row { get; set; } 
+        
+        }
+       
         public async Task<ActionResult> CountDeptoMuni()
         {
             string Id = "0";

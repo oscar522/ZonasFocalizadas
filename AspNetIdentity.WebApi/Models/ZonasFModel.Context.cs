@@ -66,6 +66,7 @@ namespace AspNetIdentity.WebApi.Models
         public virtual DbSet<CaracterizacionJuridicaCatalogos> CaracterizacionJuridicaCatalogos { get; set; }
         public virtual DbSet<CaracterizacionJuridica> CaracterizacionJuridica { get; set; }
         public virtual DbSet<CaracterizacionSolicitante> CaracterizacionSolicitante { get; set; }
+        public virtual DbSet<PlGestionTable> PlGestionTable { get; set; }
     
         public virtual int AspNetUsers_Insertar(string firstName, string lastName, string email, string passwordHash, string id)
         {
@@ -158,6 +159,64 @@ namespace AspNetIdentity.WebApi.Models
                 new ObjectParameter("IdAspNetUser", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ResumenTipificacionAll>("PlResumenTipificacionAll", mergeOption, idDeptoInParameter, idCiudadInParameter, idAspNetUserParameter);
+        }
+    
+        public virtual ObjectResult<PlGestionTable> PlGestionUsers(string table, string mes1, string mes2, string mes, Nullable<int> dia, string usersId)
+        {
+            var tableParameter = table != null ?
+                new ObjectParameter("Table", table) :
+                new ObjectParameter("Table", typeof(string));
+    
+            var mes1Parameter = mes1 != null ?
+                new ObjectParameter("Mes1", mes1) :
+                new ObjectParameter("Mes1", typeof(string));
+    
+            var mes2Parameter = mes2 != null ?
+                new ObjectParameter("Mes2", mes2) :
+                new ObjectParameter("Mes2", typeof(string));
+    
+            var mesParameter = mes != null ?
+                new ObjectParameter("Mes", mes) :
+                new ObjectParameter("Mes", typeof(string));
+    
+            var diaParameter = dia.HasValue ?
+                new ObjectParameter("Dia", dia) :
+                new ObjectParameter("Dia", typeof(int));
+    
+            var usersIdParameter = usersId != null ?
+                new ObjectParameter("UsersId", usersId) :
+                new ObjectParameter("UsersId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PlGestionTable>("PlGestionUsers", tableParameter, mes1Parameter, mes2Parameter, mesParameter, diaParameter, usersIdParameter);
+        }
+    
+        public virtual ObjectResult<PlGestionTable> PlGestionUsers(string table, string mes1, string mes2, string mes, Nullable<int> dia, string usersId, MergeOption mergeOption)
+        {
+            var tableParameter = table != null ?
+                new ObjectParameter("Table", table) :
+                new ObjectParameter("Table", typeof(string));
+    
+            var mes1Parameter = mes1 != null ?
+                new ObjectParameter("Mes1", mes1) :
+                new ObjectParameter("Mes1", typeof(string));
+    
+            var mes2Parameter = mes2 != null ?
+                new ObjectParameter("Mes2", mes2) :
+                new ObjectParameter("Mes2", typeof(string));
+    
+            var mesParameter = mes != null ?
+                new ObjectParameter("Mes", mes) :
+                new ObjectParameter("Mes", typeof(string));
+    
+            var diaParameter = dia.HasValue ?
+                new ObjectParameter("Dia", dia) :
+                new ObjectParameter("Dia", typeof(int));
+    
+            var usersIdParameter = usersId != null ?
+                new ObjectParameter("UsersId", usersId) :
+                new ObjectParameter("UsersId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PlGestionTable>("PlGestionUsers", mergeOption, tableParameter, mes1Parameter, mes2Parameter, mesParameter, diaParameter, usersIdParameter);
         }
     }
 }

@@ -562,6 +562,45 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="UsuarioInserta" Type="nvarchar" MaxLength="128" />
     <Property Name="UsuarioModifica" Type="nvarchar" MaxLength="128" />
   </EntityType>
+  <EntityType Name="PlGestionTable">
+    <Key>
+      <PropertyRef Name="idd" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="128" />
+    <Property Name="UserName" Type="varchar(max)" />
+    <Property Name="dia01" Type="varchar(max)" />
+    <Property Name="dia02" Type="varchar(max)" />
+    <Property Name="dia03" Type="varchar(max)" />
+    <Property Name="dia04" Type="varchar(max)" />
+    <Property Name="dia05" Type="varchar(max)" />
+    <Property Name="dia06" Type="varchar(max)" />
+    <Property Name="dia07" Type="varchar(max)" />
+    <Property Name="dia08" Type="varchar(max)" />
+    <Property Name="dia09" Type="varchar(max)" />
+    <Property Name="dia10" Type="varchar(max)" />
+    <Property Name="dia11" Type="varchar(max)" />
+    <Property Name="dia12" Type="varchar(max)" />
+    <Property Name="dia13" Type="varchar(max)" />
+    <Property Name="dia14" Type="varchar(max)" />
+    <Property Name="dia15" Type="varchar(max)" />
+    <Property Name="dia16" Type="varchar(max)" />
+    <Property Name="dia17" Type="varchar(max)" />
+    <Property Name="dia18" Type="varchar(max)" />
+    <Property Name="dia19" Type="varchar(max)" />
+    <Property Name="dia20" Type="varchar(max)" />
+    <Property Name="dia21" Type="varchar(max)" />
+    <Property Name="dia22" Type="varchar(max)" />
+    <Property Name="dia23" Type="varchar(max)" />
+    <Property Name="dia24" Type="varchar(max)" />
+    <Property Name="dia25" Type="varchar(max)" />
+    <Property Name="dia26" Type="varchar(max)" />
+    <Property Name="dia27" Type="varchar(max)" />
+    <Property Name="dia28" Type="varchar(max)" />
+    <Property Name="dia29" Type="varchar(max)" />
+    <Property Name="dia30" Type="varchar(max)" />
+    <Property Name="dia31" Type="varchar(max)" />
+    <Property Name="idd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
   <EntityType Name="Registro">
     <Key>
       <PropertyRef Name="Id" />
@@ -718,6 +757,14 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
     <Parameter Name="PasswordHash" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="Id" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="PlGestionUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Table" Type="nvarchar" Mode="In" />
+    <Parameter Name="Mes1" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Mes2" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Mes" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Dia" Type="int" Mode="In" />
+    <Parameter Name="UsersId" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="PlResumenTipificacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IdDeptoIn" Type="int" Mode="In" />
     <Parameter Name="IdCiudadIn" Type="int" Mode="In" />
@@ -750,6 +797,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
     <EntitySet Name="CtPais" EntityType="Self.CtPais" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CtTipoIdentificacion" EntityType="Self.CtTipoIdentificacion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ExpedienteDocumentos" EntityType="Self.ExpedienteDocumentos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlGestionTable" EntityType="Self.PlGestionTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Registro" EntityType="Self.Registro" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ResumenTipificacion" EntityType="Self.ResumenTipificacion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RetencionDocumental" EntityType="Self.RetencionDocumental" Schema="dbo" store:Type="Tables" />

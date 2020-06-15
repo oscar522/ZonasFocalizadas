@@ -15,6 +15,9 @@
     .Letra {
         font-size: .8em
     }
+    .Letra2 {
+        font-size: 8px !important
+    }
 
     /* Speed  */ 
     .highcharts-figure .chart-container {

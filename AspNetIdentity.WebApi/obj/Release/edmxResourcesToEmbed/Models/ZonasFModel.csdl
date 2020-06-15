@@ -281,6 +281,15 @@
     <EntitySet Name="CaracterizacionJuridicaCatalogos" EntityType="ZonasFModel.CaracterizacionJuridicaCatalogos" />
     <EntitySet Name="CaracterizacionJuridica" EntityType="ZonasFModel.CaracterizacionJuridica" />
     <EntitySet Name="CaracterizacionSolicitante" EntityType="ZonasFModel.CaracterizacionSolicitante" />
+    <FunctionImport Name="PlGestionUsers" EntitySet="PlGestionTable" ReturnType="Collection(ZonasFModel.PlGestionTable)">
+      <Parameter Name="Table" Mode="In" Type="String" />
+      <Parameter Name="Mes1" Mode="In" Type="String" />
+      <Parameter Name="Mes2" Mode="In" Type="String" />
+      <Parameter Name="Mes" Mode="In" Type="String" />
+      <Parameter Name="Dia" Mode="In" Type="Int32" />
+      <Parameter Name="UsersId" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="PlGestionTable" EntityType="ZonasFModel.PlGestionTable" />
   </EntityContainer>
   <EntityType Name="ExpedienteDocumentos">
     <Key>
@@ -744,5 +753,44 @@
     <Property Name="IdAspNetUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="Estado" Type="Boolean" />
     <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="PlGestionTable">
+    <Key>
+      <PropertyRef Name="idd" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia01" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia02" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia03" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia04" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia05" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia06" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia07" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia08" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia09" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia10" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia11" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia12" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia13" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia14" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia15" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia16" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia17" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia18" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia19" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia20" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia21" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia22" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia23" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia24" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia25" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia26" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia27" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia28" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia29" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia30" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dia31" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="idd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
 </Schema>

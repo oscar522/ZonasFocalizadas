@@ -12,7 +12,7 @@ namespace AspNetIdentity.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ResumenTipificacionAllModel
+    public partial class GestionCaracterizacionModel
     {
         public long Id { get; set; }
         public long IdExpediente { get; set; }

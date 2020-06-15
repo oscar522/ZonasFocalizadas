@@ -687,5 +687,46 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="PlGestionUsers" FunctionName="ZonasFModel.Store.PlGestionUsers" />
+    <EntitySetMapping Name="PlGestionTable">
+      <EntityTypeMapping TypeName="ZonasFModel.PlGestionTable">
+        <MappingFragment StoreEntitySet="PlGestionTable">
+          <ScalarProperty Name="idd" ColumnName="idd" />
+          <ScalarProperty Name="dia31" ColumnName="dia31" />
+          <ScalarProperty Name="dia30" ColumnName="dia30" />
+          <ScalarProperty Name="dia29" ColumnName="dia29" />
+          <ScalarProperty Name="dia28" ColumnName="dia28" />
+          <ScalarProperty Name="dia27" ColumnName="dia27" />
+          <ScalarProperty Name="dia26" ColumnName="dia26" />
+          <ScalarProperty Name="dia25" ColumnName="dia25" />
+          <ScalarProperty Name="dia24" ColumnName="dia24" />
+          <ScalarProperty Name="dia23" ColumnName="dia23" />
+          <ScalarProperty Name="dia22" ColumnName="dia22" />
+          <ScalarProperty Name="dia21" ColumnName="dia21" />
+          <ScalarProperty Name="dia20" ColumnName="dia20" />
+          <ScalarProperty Name="dia19" ColumnName="dia19" />
+          <ScalarProperty Name="dia18" ColumnName="dia18" />
+          <ScalarProperty Name="dia17" ColumnName="dia17" />
+          <ScalarProperty Name="dia16" ColumnName="dia16" />
+          <ScalarProperty Name="dia15" ColumnName="dia15" />
+          <ScalarProperty Name="dia14" ColumnName="dia14" />
+          <ScalarProperty Name="dia13" ColumnName="dia13" />
+          <ScalarProperty Name="dia12" ColumnName="dia12" />
+          <ScalarProperty Name="dia11" ColumnName="dia11" />
+          <ScalarProperty Name="dia10" ColumnName="dia10" />
+          <ScalarProperty Name="dia09" ColumnName="dia09" />
+          <ScalarProperty Name="dia08" ColumnName="dia08" />
+          <ScalarProperty Name="dia07" ColumnName="dia07" />
+          <ScalarProperty Name="dia06" ColumnName="dia06" />
+          <ScalarProperty Name="dia05" ColumnName="dia05" />
+          <ScalarProperty Name="dia04" ColumnName="dia04" />
+          <ScalarProperty Name="dia03" ColumnName="dia03" />
+          <ScalarProperty Name="dia02" ColumnName="dia02" />
+          <ScalarProperty Name="dia01" ColumnName="dia01" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -50,12 +50,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountTableModel.cs" />
+    <Compile Include="PlGestionUsersModel.cs" />
     <Compile Include="CaracterizacionSolicitanteModel.cs" />
     <Compile Include="ConceptoEstadoModel.cs" />
     <Compile Include="ConceptoGestionModel.cs" />
     <Compile Include="ConceptoTipoSoporteModel.cs" />
     <Compile Include="CaracterizacionJuridicaModel.cs" />
     <Compile Include="CaracterizacionJuridicaCatalogosModel.cs" />
+    <Compile Include="GestionCaracterizacionModel.cs" />
     <Compile Include="TipoActividadModel.cs" />
     <Compile Include="BaldiosPersonaNaturalModel.cs" />
     <Compile Include="ArchivosModel.cs" />

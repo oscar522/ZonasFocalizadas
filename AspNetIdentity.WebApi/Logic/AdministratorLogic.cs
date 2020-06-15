@@ -12,6 +12,49 @@ namespace AspNetIdentity.WebApi.Logic
     {
         BaldiosPersonaNatural ModCtx = new BaldiosPersonaNatural();
 
+        public List<PlGestionUsersModel> ConsultarGestion(string TypeTable, string Fi, string Ff , string Mes, int Dia, string users  )
+        {
+            List<PlGestionUsersModel> list = new List<PlGestionUsersModel>();
+            using (ZonasFEntities context = new ZonasFEntities())
+            {
+                 list = context.PlGestionUsers(TypeTable, Fi, Ff, Mes, Dia, users)
+                    .Select(b => new PlGestionUsersModel {
+                        UserName = b.UserName,
+                        dia01 = b.dia01,
+                        dia02 = b.dia02,
+                        dia03 = b.dia03,
+                        dia04 = b.dia04,
+                        dia05 = b.dia05,
+                        dia06 = b.dia06,
+                        dia07 = b.dia07,
+                        dia08 = b.dia08,
+                        dia09 = b.dia09,
+                        dia10 = b.dia10,
+                        dia11 = b.dia11,
+                        dia12 = b.dia12,
+                        dia13 = b.dia13,
+                        dia14 = b.dia14,
+                        dia15 = b.dia15,
+                        dia16 = b.dia16,
+                        dia17 = b.dia17,
+                        dia18 = b.dia18,
+                        dia19 = b.dia19,
+                        dia20 = b.dia20,
+                        dia21 = b.dia21,
+                        dia22 = b.dia22,
+                        dia23 = b.dia23,
+                        dia24 = b.dia24,
+                        dia25 = b.dia25,
+                        dia26 = b.dia26,
+                        dia27 = b.dia27,
+                        dia28 = b.dia28,
+                        dia29 = b.dia29,
+                        dia30 = b.dia30,
+                        dia31 = b.dia31,
+                    }).ToList();
+            }
+            return list;
+        }
         public List<CtCiudadModel> ConsultarIdPCountDeptoMuni()
         {
             ZonasFEntities Ctx = new ZonasFEntities();

@@ -4,12 +4,22 @@ using System.Web.Http;
 using AspNetIdentity.WebApi.Logic;
 using System.Threading.Tasks;
 using AspNetIdentity.WebApi.Models;
+using System;
 
 namespace AspNetIdentity.WebApi.Controllers
 {
     [RoutePrefix("api/Administrator")]
     public class AdministratorController : ApiController
     {
+        [Authorize]
+        [Route("getConsultarGestion/{id}")]
+        public List<PlGestionUsersModel> GetGestion(string id)
+        {
+            string[] TypesAndaDate = id.Split('_');
+            AdministratorLogic a = new AdministratorLogic();
+            return a.ConsultarGestion(TypesAndaDate[0], TypesAndaDate[1], TypesAndaDate[2], TypesAndaDate[3], Convert.ToInt32(TypesAndaDate[4]), TypesAndaDate[5]);
+        }
+
         [Authorize]
         [Route("getAdministratorid/{id}")]
         public BaldiosPersonaNaturalModel Get(int id)

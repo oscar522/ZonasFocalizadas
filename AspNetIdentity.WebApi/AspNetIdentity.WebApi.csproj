@@ -384,6 +384,10 @@
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ModelFactory.cs" />
+    <Compile Include="Models\PlGestionTable.cs">
+      <DependentUpon>ZonasFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PlGestionUsers.cs" />
     <Compile Include="Models\Registro.cs">
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>
