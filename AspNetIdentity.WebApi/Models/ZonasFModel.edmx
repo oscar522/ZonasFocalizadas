@@ -515,6 +515,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
           <Property Name="Nombre" Type="varchar(max)" Nullable="false" />
           <Property Name="Estado" Type="int" Nullable="false" />
           <Property Name="ZonaFocalizada" Type="bit" />
+          <Property Name="FlagFocalizado" Type="bit" />
         </EntityType>
         <EntityType Name="CtDepto">
           <Key>
@@ -949,6 +950,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
           <Property Name="ZonaFocalizada" Type="Boolean" />
+          <Property Name="FlagFocalizado" Type="Boolean" />
         </EntityType>
         <EntityType Name="CtDepto">
           <Key>
@@ -1740,6 +1742,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <EntitySetMapping Name="CtCiudad">
             <EntityTypeMapping TypeName="ZonasFModel.CtCiudad">
               <MappingFragment StoreEntitySet="CtCiudad">
+                <ScalarProperty Name="FlagFocalizado" ColumnName="FlagFocalizado" />
                 <ScalarProperty Name="ZonaFocalizada" ColumnName="ZonaFocalizada" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdCtPais" ColumnName="IdCtPais" />

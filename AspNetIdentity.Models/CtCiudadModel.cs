@@ -22,5 +22,7 @@ namespace AspNetIdentity.Models
 
         public string Nombre { get; set; }
         public bool ZonaFocalizada { get; set; }
+
+        public bool FlagFocalizado { get; set; }
     }
 }

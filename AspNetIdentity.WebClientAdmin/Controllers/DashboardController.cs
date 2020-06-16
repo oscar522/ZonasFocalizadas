@@ -64,7 +64,7 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
 
             string Id = "0";
             string Controller = "Administrator";
-            string Method = "getAdministratorCountDepto";
+            string Method = "getAdministratorCountDeptoMuni";
             string result = await employeeProvider.Get(Id, Controller, Method);
             var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
             List<CtCiudadModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CtCiudadModel>>(jsonResult.ToString());

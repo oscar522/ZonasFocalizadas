@@ -75,7 +75,9 @@ namespace AspNetIdentity.WebApi.Logic
                      Muni_ZonaFocalizada = c.ZonaFocalizada,
                      b.MuniExp,
                      b.DeptoExp,
-                     b.RutaVerificado
+                     b.RutaVerificado,
+                     c.FlagFocalizado
+
                  })
                 //.Where(x => x.Muni_ZonaFocalizada == true && x.Muni_IdCtDepto == x.DeptoExp)
                 .Where(x => x.Muni_ZonaFocalizada == true && x.Muni_IdCtDepto == x.DeptoExp)
@@ -89,6 +91,7 @@ namespace AspNetIdentity.WebApi.Logic
                     NOMBRE_DEPTO = c.Select(v => v.Muni_NOMBRE_DEPTO).FirstOrDefault(),
                     IdCtPais = c.Count(),
                     NOMBRE_PAIS = "",
+                    FlagFocalizado = c.Select(v => v.FlagFocalizado.Value).FirstOrDefault(),
                 })
                 .ToList();
 
@@ -118,7 +121,7 @@ namespace AspNetIdentity.WebApi.Logic
                                     && x.IdDepto == Model.IdCtDepto && x.RutaVerificado == 1 && (x.ArchivoVerificado == 2 )).Count().ToString();
 
 
-                Model.NOMBRE_PAIS = NumeroPdf + "-" + NumeroTipificacion + "-" + NumeroAsociados + "-" + Malnombrados;
+                Model.NOMBRE_PAIS = NumeroPdf + "-" + NumeroTipificacion + "-" + NumeroAsociados + "-" + Malnombrados +"-" + Model.FlagFocalizado;
 
                 listaModel.Add(Model);
             }

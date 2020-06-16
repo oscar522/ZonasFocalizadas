@@ -21,5 +21,6 @@ namespace AspNetIdentity.WebApi.Models
         public string Nombre { get; set; }
         public int Estado { get; set; }
         public Nullable<bool> ZonaFocalizada { get; set; }
+        public Nullable<bool> FlagFocalizado { get; set; }
     }
 }

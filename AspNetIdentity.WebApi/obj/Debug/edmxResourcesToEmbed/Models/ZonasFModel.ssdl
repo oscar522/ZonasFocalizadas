@@ -510,6 +510,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="Nombre" Type="varchar(max)" Nullable="false" />
     <Property Name="Estado" Type="int" Nullable="false" />
     <Property Name="ZonaFocalizada" Type="bit" />
+    <Property Name="FlagFocalizado" Type="bit" />
   </EntityType>
   <EntityType Name="CtDepto">
     <Key>

@@ -1271,18 +1271,30 @@
                             if(NameDepto != "0"){
                                 if(NameDepto == res[0]){
 
-                                    var ExpTotal = parseInt(res[0]);
+                                    var ExpTotal = parseInt(obj.IdCtPais);
                                     TotalExp =  TotalExp + ExpTotal;
 
-                                    var ExpTotalConPdf = parseInt(res[1]);
+                                    var ExpTotalConPdf = parseInt(res[0]);
                                     TotalExpConPdf =  TotalExpConPdf + ExpTotalConPdf;
 
-                                    var ExpTotalTip = parseInt(res[3]);
+                                    var ExpTotalTip = parseInt(res[1]);
                                     TotalExpTip =  TotalExpTip + ExpTotalTip;
+
+                                    var flag = "";
+                                    var FlagFocalizado = obj.FlagFocalizado+".";
+
+                                    if(FlagFocalizado == "false.") {
+                                        flag = "Si" ;
+                                    } else if(FlagFocalizado == "true.")  {
+                                        flag = "No" ; 
+                                        
+                                    }
 
                                     oTable.fnAddData([
                                         obj.NOMBRE_DEPTO.toLowerCase(),
+                                        obj.Nombre.toLowerCase(),
                                         res[0],
+                                        flag ,
                                     ]);
 
                                     if(obj.IdCtDepto == "5")
@@ -1342,18 +1354,30 @@
                                     }
                                 }
                             }else{
-                                var ExpTotal = parseInt(res[0]);
+                                    var ExpTotal = parseInt(obj.IdCtPais);
                                     TotalExp =  TotalExp + ExpTotal;
 
-                                    var ExpTotalConPdf = parseInt(res[1]);
+                                    var ExpTotalConPdf = parseInt(res[0]);
                                     TotalExpConPdf =  TotalExpConPdf + ExpTotalConPdf;
 
-                                    var ExpTotalTip = parseInt(res[3]);
+                                    var ExpTotalTip = parseInt(res[1]);
                                     TotalExpTip =  TotalExpTip + ExpTotalTip;
+
+                                    var flag = "";
+                                    var FlagFocalizado = obj.FlagFocalizado+".";
+
+                                    if(FlagFocalizado == "false.") {
+                                        flag = "Si" ;
+                                    } else if(FlagFocalizado == "true.")  {
+                                        flag = "No" ; 
+                                        
+                                    }
 
                                     oTable.fnAddData([
                                         obj.NOMBRE_DEPTO.toLowerCase(),
+                                        obj.Nombre.toLowerCase(),
                                         res[0],
+                                        flag ,
                                     ]);
 
                                     if(obj.IdCtDepto == "5")
@@ -1912,8 +1936,10 @@
                             @*  Tabla de exp por municipio  *@
                             <thead class="">
                                 <tr>
+                                    <th>Departamento</th>
                                     <th>Municipio</th>
                                     <th>Num Expedientes </th>
+                                    <th>Focalizado</th>
                                 </tr>
                             </thead>
                             <tbody class="">

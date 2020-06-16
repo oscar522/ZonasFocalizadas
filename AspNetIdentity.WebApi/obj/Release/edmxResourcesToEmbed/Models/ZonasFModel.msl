@@ -4,6 +4,7 @@
     <EntitySetMapping Name="CtCiudad">
       <EntityTypeMapping TypeName="ZonasFModel.CtCiudad">
         <MappingFragment StoreEntitySet="CtCiudad">
+          <ScalarProperty Name="FlagFocalizado" ColumnName="FlagFocalizado" />
           <ScalarProperty Name="ZonaFocalizada" ColumnName="ZonaFocalizada" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="IdCtPais" ColumnName="IdCtPais" />

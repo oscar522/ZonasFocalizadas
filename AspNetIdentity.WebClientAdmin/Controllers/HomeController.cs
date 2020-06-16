@@ -14,9 +14,16 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             string IdRol = GetTokenObject().role;
             string ViewPage = "";
             string Controller = "";
-
+            if (IdRol == "Invitado" || IdRol == "Otros" || IdRol == "User")
+            {
                 ViewPage = "BuscarExpedientes";
                 Controller = "HomeUsuarios";
+            }
+            else {
+                ViewPage = "Index";
+                Controller = "Dashboard";
+            }
+            
 
             return RedirectToAction(ViewPage, Controller);
         }
