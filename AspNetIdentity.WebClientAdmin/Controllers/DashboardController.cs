@@ -72,7 +72,7 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
         }
         public async Task<ActionResult> ConsultarGestion(string TypeTable, string Fi, string Ff, string Mes, int Dia , string users)
         {
-            users = GetTokenObject().nameid;
+            users = users + GetTokenObject().nameid;
             DateTime fecha = DateTime.Now;
             string FechaFor = fecha.Day + "-" + fecha.Month + "-" + fecha.Year + "-" + fecha.Hour + "-" + fecha.Minute + "-" + fecha.Second + "-" + fecha.Millisecond;
             string Id = TypeTable + "_" + Fi + "_" + Ff + "_" + Mes + "_" + Dia + "_" + users+"-"+FechaFor;

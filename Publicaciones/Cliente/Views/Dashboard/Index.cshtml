@@ -913,7 +913,7 @@
                 let FiIn = "2020-"+MesIn+"-1";
                 let FfIn = "2020-"+MesIn+"-"+DiaIn;
 
-                let usersIn = "0";
+                let usersIn = "Registro";
 
                 var fecha = new Date();
 
@@ -1026,7 +1026,7 @@
                 let FiIn = "2020-"+MesIn+"-1";
                 let FfIn = "2020-"+MesIn+"-"+DiaIn;
 
-                let usersIn = "0";
+                let usersIn = "Juridica";
 
                 var fecha = new Date();
 
@@ -1139,7 +1139,7 @@
                 let FiIn = "2020-"+MesIn+"-1";
                 let FfIn = "2020-"+MesIn+"-"+DiaIn;
 
-                let usersIn = "0";
+                let usersIn = "Solicitud";
 
                 var fecha = new Date();
 
@@ -1253,7 +1253,7 @@
             Sol();
 
             // Modulo 1 Mapa Tabla deptos x exp
-            function MapaTotalExp( NameDepto ) {
+            function MapaTotalExp( NameDepto, name ) {
                 $.ajax({
                     type: 'POST',
                     url: '@Url.Action("CountDepto")',
@@ -1263,6 +1263,7 @@
                         var TotalExp = 0 ;
                         var TotalExpConPdf = 0 ;
                         var dataList = [];
+                        var Depto = name;
                         $.each(s, function (i, obj) {
 
                             var res = obj.NOMBRE_PAIS.split("-");
@@ -1414,13 +1415,13 @@
                             }
                         });
 
-                        $("#TituloTotalExp").html("TOTAL DE EXPEDIENTES ");
+                        $("#TituloTotalExp").html("TOTAL DE EXPEDIENTES <br>"+ name);
                         $("#TotalExp").text(+TotalExp);
 
-                        $("#TituloTotalExpConPdf").text("TOTAL DE EXPEDIENTES CON PDF");
+                        $("#TituloTotalExpConPdf").html("TOTAL DE EXPEDIENTES CON PDF <br>" + name);
                         $("#TotalExpConPdf").text(+TotalExpConPdf);
 
-                        $("#TituloTotalExpTip").text("TOTAL DE EXPEDIENTES TIPIFICADOS");
+                        $("#TituloTotalExpTip").html("TOTAL DE EXPEDIENTES TIPIFICADOS <br>" + name);
                         $("#TotalExpTip").text(+TotalExpConPdf);
 
                         Highcharts.mapChart('container', {
@@ -1479,11 +1480,11 @@
                 });
             }
 
-            MapaTotalExp("0");
+            MapaTotalExp("0" ,  "");
 
             // Grafica de exp por municipio
             function GrapExpPorMunicipio(NameDepto) {
-
+                var NameDepto2 = NameDepto;
                 $.ajax({
                     type: 'POST',
                     url: '@Url.Action("CountDeptoMuni")',
@@ -1494,12 +1495,12 @@
                         $.each(s, function (i, obj) {
 
                             if(NameDepto != "N_A"){
-
                                 if(NameDepto.toLowerCase() == obj.NOMBRE_DEPTO.toLowerCase()){
                                     var res = obj.NOMBRE_PAIS.split("-");
                                     var ExpCountIndv = parseInt(res[0]);
                                     var dataEntity = {name : obj.Nombre.toLowerCase(), data: [ExpCountIndv], color:'#068C9B' };
                                     dataList.push(dataEntity);
+
                                 }
 
                             }else{
@@ -1507,6 +1508,7 @@
                                 var ExpCountIndv = parseInt(res[0]);
                                 var dataEntity = {name :obj.Nombre.toLowerCase() , data: [ExpCountIndv], color:'#068C9B' };
                                 dataList.push(dataEntity);
+                                NameDepto2 = ""
                             }
                         });
                         Highcharts.chart('container-Tipificacion', {
@@ -1517,14 +1519,14 @@
                                 text: ''
                             },
                             subtitle: {
-                                text: 'Expedientes por municipio'
+                                text: 'Expedientes por Municipio' + NameDepto2
                             },
                             xAxis: {
                                 categories: [''],
                             },
                             yAxis: {
                                 title: {
-                                    text: 'Numero de expedientes'
+                                    text: 'Numero de Expedientes' + NameDepto2
                                 }
                             },
                             credits: {
@@ -1546,6 +1548,8 @@
                 var NameDeptoForm = "N_A";
                 if(NameDepto != "N_A"){
                     NameDeptoForm = NameDepto;
+                }else{
+
                 }
                 $.ajax({
                     type: 'POST',
@@ -1555,6 +1559,11 @@
                     success: function (s) {
                         var TotalExp = 0 ;
                         var dataList = [];
+
+                        if(NameDepto == "N_A"){
+                             NameDepto = "";
+                        }
+
                         $.each(s, function (i, obj) {
                             TotalExp =  TotalExp + obj.Total;
                             var dataEntity = {name : obj.Grupo, data: [obj.Total], color:'#068C9B' };
@@ -1572,14 +1581,14 @@
                                 text: ''
                             },
                             subtitle: {
-                                text: 'Tipificacion por grupos'
+                                text: 'Tipificacion por Grupos ' + NameDepto
                             },
                             xAxis: {
                                 categories: [''],
                             },
                             yAxis: {
                                 title: {
-                                    text: 'Numero de expedientes'
+                                    text: 'Numero de Expedientes ' + NameDepto
                                 }
                             },
                             credits: {
@@ -1625,7 +1634,7 @@
                             dataList.push(dataEntity);
                         });
                         GestionTotal = Gestion1 + Gestion2;
-                        $("#TituloTotalExpCarSol").html("Total Exp.<br><br>");
+                        $("#TituloTotalExpCarSol").html("Total Exp.<br>");
                         $("#TotalExpCarSol").text(+GestionTotal);
 
                         $("#TituloTotalExpCarSolSinGestion").text("Total Exp. Sin Gestion");
@@ -1715,7 +1724,7 @@
                             dataList.push(dataEntity);
                         });
                         GestionTotal = Gestion1 + Gestion2;
-                        $("#TituloTotalExpCarJur").html("Total Exp. <br><br>");
+                        $("#TituloTotalExpCarJur").html("Total Exp. <br>");
                         $("#TotalExpCarJur").text(+GestionTotal);
 
                         $("#TituloTotalExpCarJurSinGestion").text("Total Exp. Sin Gestion");
@@ -1811,7 +1820,7 @@
                             dataList.push(dataEntity);
                         });
                         GestionTotal = Gestion1 + Gestion2 + Gestion3;
-                        $("#TituloTotalExpCarRegis").html("Total Exp. <br><br>");
+                        $("#TituloTotalExpCarRegis").html("Total Exp. <br>");
                         $("#TotalExpCarRegis").text(+GestionTotal);
 
                         $("#TituloTotalExpCarRegisSinGestion").text("Total Exp. Sin Gestion");
@@ -1873,7 +1882,7 @@
             SpeedCaracRegistro();
 
             function EventoMapa(value,name){
-                MapaTotalExp( value );
+                MapaTotalExp( value, name );
                 GrapExpPorMunicipio( name );
                 GrapGrupoTipificacion(name )
             }
