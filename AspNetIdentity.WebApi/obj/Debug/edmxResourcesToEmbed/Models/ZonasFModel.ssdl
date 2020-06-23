@@ -329,30 +329,35 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="COMUNICACIONES_SOLICITANTEFECHA" Type="datetime" />
     <Property Name="COMUNICACIONES_SOLICITANTEFIRMA" Type="bit" />
     <Property Name="COMUNICACIONES_FECHAINSPECCIONOCULAR" Type="datetime" />
+    <Property Name="COMUNICACIONES_VISIBLE" Type="int" />
     <Property Name="COMUNICACIONES_PROCURADOR" Type="bit" />
     <Property Name="COMUNICACIONES_PROCURADORFECHA" Type="datetime" />
     <Property Name="COMUNICACIONES_PROCURADORFIRMA" Type="bit" />
+    <Property Name="COMUNICACIONES_VISIBLE_PROCURADOR" Type="int" />
     <Property Name="COMUNICACIONES_AUTORIDADAMBIENTAL" Type="bit" />
     <Property Name="COMUNICACIONES_AUTORIDADAMBIENTALFECHA" Type="datetime" />
     <Property Name="COMUNICACIONES_AUTORIDADAMBIENTALFIRMA" Type="bit" />
+    <Property Name="COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL" Type="int" />
     <Property Name="COMUNICACIONES_COLINDATES" Type="int" />
     <Property Name="COMUNICACIONES_COLINDATES_INCOMPLETOS" Type="int" />
     <Property Name="COMUNICACIONES_COLINDATESFECHA" Type="datetime" />
     <Property Name="COMUNICACIONES_COLINDATESFIRMA" Type="bit" />
-    <Property Name="COMUNICACIONES_VISIBLE" Type="int" />
+    <Property Name="COMUNICACIONES_VISIBLE_COLINDATES" Type="int" />
     <Property Name="PUBLICACIONES_ALCALDIA" Type="bit" />
     <Property Name="PUBLICACIONES_ALCALDIAFECHAFIJACION" Type="datetime" />
     <Property Name="PUBLICACIONES_ALCALDIADESFIJACION" Type="datetime" />
     <Property Name="PUBLICACIONES_ALCALDIAFIRMA" Type="bit" />
+    <Property Name="PUBLICACIONES_VISIBLE" Type="int" />
     <Property Name="PUBLICACIONES_INCODER" Type="bit" />
     <Property Name="PUBLICACIONES_INCODERFECHAFIJACION" Type="datetime" />
     <Property Name="PUBLICACIONES_INCODERDESFIJACION" Type="datetime" />
     <Property Name="PUBLICACIONES_INCODERFIRMA" Type="bit" />
+    <Property Name="PUBLICACIONES_VISIBLE_INCODER" Type="int" />
     <Property Name="PUBLICACIONES_EMISORA" Type="bit" />
     <Property Name="PUBLICACIONES_EMISORAFECHA1" Type="datetime" />
     <Property Name="PUBLICACIONES_EMISORAFECHA2" Type="datetime" />
     <Property Name="PUBLICACIONES_EMISORAFIRMA" Type="bit" />
-    <Property Name="PUBLICACIONES_VISIBLE" Type="int" />
+    <Property Name="PUBLICACIONES_VISIBLE_EMISORA" Type="int" />
     <Property Name="Estado" Type="bit" Nullable="false" />
     <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="FechaModificacion" Type="datetime" Nullable="false" />

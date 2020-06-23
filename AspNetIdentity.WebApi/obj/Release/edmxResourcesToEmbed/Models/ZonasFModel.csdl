@@ -706,6 +706,11 @@
     <Property Name="IdAspNetUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Gestion" Type="Int32" />
+    <Property Name="COMUNICACIONES_VISIBLE_PROCURADOR" Type="Int32" />
+    <Property Name="COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL" Type="Int32" />
+    <Property Name="COMUNICACIONES_VISIBLE_COLINDATES" Type="Int32" />
+    <Property Name="PUBLICACIONES_VISIBLE_INCODER" Type="Int32" />
+    <Property Name="PUBLICACIONES_VISIBLE_EMISORA" Type="Int32" />
   </EntityType>
   <EntityType Name="CaracterizacionSolicitante">
     <Key>

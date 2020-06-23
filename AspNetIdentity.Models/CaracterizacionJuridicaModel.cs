@@ -453,6 +453,10 @@ namespace AspNetIdentity.Models
         public Nullable<System.DateTime> COMUNICACIONES_FECHAINSPECCIONOCULAR { get; set; }
 
         [Required(ErrorMessage = ".")]
+        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        public Nullable<int> COMUNICACIONES_VISIBLE { get; set; }
+
+        [Required(ErrorMessage = ".")]
         public Nullable<bool> COMUNICACIONES_PROCURADOR { get; set; }
 
         [Required(ErrorMessage = ".")]
@@ -462,6 +466,10 @@ namespace AspNetIdentity.Models
         public Nullable<bool> COMUNICACIONES_PROCURADORFIRMA { get; set; }
 
         [Required(ErrorMessage = ".")]
+        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        public Nullable<int> COMUNICACIONES_VISIBLE_PROCURADOR { get; set; }
+
+        [Required(ErrorMessage = ".")]
         public Nullable<bool> COMUNICACIONES_AUTORIDADAMBIENTAL { get; set; }
 
         [Required(ErrorMessage = ".")]
@@ -469,6 +477,10 @@ namespace AspNetIdentity.Models
 
         [Required(ErrorMessage = ".")]
         public Nullable<bool> COMUNICACIONES_AUTORIDADAMBIENTALFIRMA { get; set; }
+
+        [Required(ErrorMessage = ".")]
+        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        public Nullable<int> COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL { get; set; }
 
         [Required(ErrorMessage = ".")]
         [Range(1, int.MaxValue, ErrorMessage = ".")]
@@ -486,7 +498,9 @@ namespace AspNetIdentity.Models
 
         [Required(ErrorMessage = ".")]
         [Range(1, int.MaxValue, ErrorMessage = ".")]
-        public Nullable<int> COMUNICACIONES_VISIBLE { get; set; }
+        public Nullable<int> COMUNICACIONES_VISIBLE_COLINDATES { get; set; }
+
+        
 
 
         [Required(ErrorMessage = ".")]
@@ -502,6 +516,11 @@ namespace AspNetIdentity.Models
         public Nullable<bool> PUBLICACIONES_ALCALDIAFIRMA { get; set; }
 
         [Required(ErrorMessage = ".")]
+        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        public Nullable<int> PUBLICACIONES_VISIBLE { get; set; }
+
+
+        [Required(ErrorMessage = ".")]
         public Nullable<bool> PUBLICACIONES_INCODER { get; set; }
 
         [Required(ErrorMessage = ".")]
@@ -512,6 +531,10 @@ namespace AspNetIdentity.Models
 
         [Required(ErrorMessage = ".")]
         public Nullable<bool> PUBLICACIONES_INCODERFIRMA { get; set; }
+
+        [Required(ErrorMessage = ".")]
+        public Nullable<int> PUBLICACIONES_VISIBLE_INCODER { get; set; }
+
 
         [Required(ErrorMessage = ".")]
         public Nullable<bool> PUBLICACIONES_EMISORA { get; set; }
@@ -527,7 +550,9 @@ namespace AspNetIdentity.Models
 
         [Required(ErrorMessage = ".")]
         [Range(1, int.MaxValue, ErrorMessage = ".")]
-        public Nullable<int> PUBLICACIONES_VISIBLE { get; set; }
+        public Nullable<int> PUBLICACIONES_VISIBLE_EMISORA { get; set; }
+
+
 
         public string NombreINSPECCION_OCULAR_CONCEPTO_57 { get; set; }
         public string NombreACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61 { get; set; }

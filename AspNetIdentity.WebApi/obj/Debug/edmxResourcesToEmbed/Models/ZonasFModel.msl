@@ -477,6 +477,11 @@
     <EntitySetMapping Name="CaracterizacionJuridica">
       <EntityTypeMapping TypeName="ZonasFModel.CaracterizacionJuridica">
         <MappingFragment StoreEntitySet="CaracterizacionJuridica">
+          <ScalarProperty Name="PUBLICACIONES_VISIBLE_EMISORA" ColumnName="PUBLICACIONES_VISIBLE_EMISORA" />
+          <ScalarProperty Name="PUBLICACIONES_VISIBLE_INCODER" ColumnName="PUBLICACIONES_VISIBLE_INCODER" />
+          <ScalarProperty Name="COMUNICACIONES_VISIBLE_COLINDATES" ColumnName="COMUNICACIONES_VISIBLE_COLINDATES" />
+          <ScalarProperty Name="COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL" ColumnName="COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL" />
+          <ScalarProperty Name="COMUNICACIONES_VISIBLE_PROCURADOR" ColumnName="COMUNICACIONES_VISIBLE_PROCURADOR" />
           <ScalarProperty Name="Gestion" ColumnName="Gestion" />
           <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
           <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />

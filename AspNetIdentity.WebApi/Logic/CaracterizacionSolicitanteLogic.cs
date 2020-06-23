@@ -372,7 +372,7 @@ namespace AspNetIdentity.WebApi.Logic
                     AInhabilidadConyuge = a.caracte.AInhabilidadConyuge,
 
                     Gestion = a.caracte.Gestion,
-                    IdAspNetUser = a.caracte.IdAspNetUser,
+                    IdAspNetUser =a.caracte.FechaModificacion.ToString(),
                     NombretUser = a.users.Name + " " + a.users.FirstName + " " + a.users.LastName,
                     RolUser = a.Roles.Name,
                     Estado = a.caracte.Estado,

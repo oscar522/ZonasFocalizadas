@@ -173,5 +173,10 @@ namespace AspNetIdentity.WebApi.Models
         public string IdAspNetUser { get; set; }
         public System.DateTime FechaModificacion { get; set; }
         public Nullable<int> Gestion { get; set; }
+        public Nullable<int> COMUNICACIONES_VISIBLE_PROCURADOR { get; set; }
+        public Nullable<int> COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL { get; set; }
+        public Nullable<int> COMUNICACIONES_VISIBLE_COLINDATES { get; set; }
+        public Nullable<int> PUBLICACIONES_VISIBLE_INCODER { get; set; }
+        public Nullable<int> PUBLICACIONES_VISIBLE_EMISORA { get; set; }
     }
 }

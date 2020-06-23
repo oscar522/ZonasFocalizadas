@@ -87,7 +87,7 @@
           "sub": null
         },
         {
-          "order" : 8 ,
+          "order": 8,
           "controllerName": "CaracterizacionJuridica",
           "actionName": "Index",
           "linkText": "Carac. Juridica",
@@ -100,6 +100,14 @@
           "actionName": "Index",
           "linkText": "Carac. Solicitante",
           "iconText": "fa fa-address-card mr-3",
+          "sub": null
+        },
+        {
+          "order": 10,
+          "controllerName": "CaracterizacionJuridicaResumen",
+          "actionName": "Index",
+          "linkText": "Carac. Jurdica Resumen",
+          "iconText": "fa fa-gavel mr-3",
           "sub": null
         }
       ]
@@ -205,6 +213,14 @@
           "linkText": "Carac. Solicitante",
           "iconText": "fa fa-address-card mr-3",
           "sub": null
+        },
+        {
+          "order": 10,
+          "controllerName": "CaracterizacionJuridicaResumen",
+          "actionName": "Index",
+          "linkText": "Carac. Jurdica Resumen",
+          "iconText": "fa fa-gavel mr-3",
+          "sub": null
         }
       ]
     },
@@ -308,6 +324,14 @@
           "actionName": "Index",
           "linkText": "Carac. Solicitante",
           "iconText": "fa fa-address-card mr-3",
+          "sub": null
+        },
+        {
+          "order": 10,
+          "controllerName": "CaracterizacionJuridicaResumen",
+          "actionName": "Index",
+          "linkText": "Carac. Jurdica Resumen",
+          "iconText": "fa fa-gavel mr-3",
           "sub": null
         }
       ]
@@ -413,6 +437,14 @@
           "linkText": "Carac. Solicitante",
           "iconText": "fa fa-address-card mr-3",
           "sub": null
+        },
+        {
+          "order": 10,
+          "controllerName": "CaracterizacionJuridicaResumen",
+          "actionName": "Index",
+          "linkText": "Carac. Jurdica Resumen",
+          "iconText": "fa fa-gavel mr-3",
+          "sub": null
         }
       ]
     },
@@ -426,7 +458,8 @@
           "linkText": "Estadisticas",
           "iconText": "fa fa-line-chart mr-3",
           "sub": null
-        },{
+        },
+        {
           "order": 2,
           "controllerName": "HomeTipificacion",
           "actionName": "Index",
@@ -515,6 +548,14 @@
           "actionName": "Index",
           "linkText": "Carac. Solicitante",
           "iconText": "fa fa-address-card mr-3",
+          "sub": null
+        },
+        {
+          "order": 10,
+          "controllerName": "CaracterizacionJuridicaResumen",
+          "actionName": "Index",
+          "linkText": "Carac. Jurdica Resumen",
+          "iconText": "fa fa-gavel mr-3",
           "sub": null
         }
       ]
@@ -542,7 +583,8 @@
           "linkText": "Estadisticas",
           "iconText": "fa fa-line-chart mr-3",
           "sub": null
-        },{
+        },
+        {
           "order": 2,
           "controllerName": "HomeTipificacion",
           "actionName": "Index",
@@ -631,6 +673,14 @@
           "actionName": "Index",
           "linkText": "Carac. Solicitante",
           "iconText": "fa fa-address-card mr-3",
+          "sub": null
+        },
+        {
+          "order": 10,
+          "controllerName": "CaracterizacionJuridicaResumen",
+          "actionName": "Index",
+          "linkText": "Carac. Jurdica Resumen",
+          "iconText": "fa fa-gavel mr-3",
           "sub": null
         }
       ]
@@ -645,7 +695,8 @@
           "linkText": "Estadisticas",
           "iconText": "fa fa-line-chart mr-3",
           "sub": null
-        },{
+        },
+        {
           "order": 2,
           "controllerName": "HomeTipificacion",
           "actionName": "Index",
@@ -735,6 +786,14 @@
           "linkText": "Carac. Solicitante",
           "iconText": "fa fa-address-card mr-3",
           "sub": null
+        },
+        {
+          "order": 10,
+          "controllerName": "CaracterizacionJuridicaResumen",
+          "actionName": "Index",
+          "linkText": "Carac. Jurdica Resumen",
+          "iconText": "fa fa-gavel mr-3",
+          "sub": null
         }
       ]
     },
@@ -748,7 +807,8 @@
           "linkText": "Estadisticas",
           "iconText": "fa fa-line-chart mr-3",
           "sub": null
-        },{
+        },
+        {
           "order": 2,
           "controllerName": "HomeTipificacion",
           "actionName": "Index",
@@ -837,6 +897,14 @@
           "actionName": "Index",
           "linkText": "Carac. Solicitante",
           "iconText": "fa fa-address-card mr-3",
+          "sub": null
+        },
+        {
+          "order": 10,
+          "controllerName": "CaracterizacionJuridicaResumen",
+          "actionName": "Index",
+          "linkText": "Carac. Jurdica Resumen",
+          "iconText": "fa fa-gavel mr-3",
           "sub": null
         }
       ]

@@ -66,6 +66,9 @@
         @Html.EditorFor(model => model.NombreRESOLUCION_CONJUNTA_INDIVIDUAL_80, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
         @Html.EditorFor(model => model.nombreSOLICITUD_TIPO_SOLICITUD, new { htmlAttributes = new { @class = "form-control", Style = "display : none", @value = "N_A" } })
 
+        
+        @Html.EditorFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "35" } })
+
 
         <div class="form-horizontal">
 
@@ -294,6 +297,7 @@
                         <div class="card-header"><h5>COMUNICACIONES</h5>  </div>
                         <div class="card-body">
                             <div class="row">
+                                
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">Comunicaciones al Solicitante</label>
@@ -305,10 +309,11 @@
                                         @Html.ValidationMessageFor(model => model.COMUNICACIONES_SOLICITANTE, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
-                                 <div class="col-md-12">
+
+                                <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6"> Documento Visible ? </label>
-                                        <select id="COMUNICACIONES_VISIBLE" name="COMUNICACIONES_VISIBLE" class="form-control col-md-6 CLASSCOMUNICACIONES_SOLICITANTE">
+                                        <select id="COMUNICACIONES_VISIBLE" name="COMUNICACIONES_VISIBLE" class="form-control col-md-6 CLASSCOMUNICACIONES_SOLICITANTEV">
                                             <option value="0">Seleccione</option>
                                             <option value="1">Si</option>
                                             <option value="2">no</option>
@@ -316,6 +321,7 @@
                                         @Html.ValidationMessageFor(model => model.COMUNICACIONES_VISIBLE, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
+                                
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">Fecha de recibido</label>
@@ -331,7 +337,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="row">
-                                        <label class="control-label col-md-6">Firma</label>
+                                        <label class="control-label col-md-6">Firma del Notificado</label>
                                         <select id="COMUNICACIONES_SOLICITANTEFIRMA" name="COMUNICACIONES_SOLICITANTEFIRMA" class="form-control col-md-6 bool">
                                             <option value="">Seleccione</option>
                                             <option value="True">Si</option>
@@ -365,6 +371,17 @@
                                             <option value="False">no</option>
                                         </select>
                                         @Html.ValidationMessageFor(model => model.COMUNICACIONES_PROCURADOR, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <label class="control-label col-md-6"> Documento Visible ? </label>
+                                        <select id="COMUNICACIONES_VISIBLE_PROCURADOR" name="COMUNICACIONES_VISIBLE_PROCURADOR" class="form-control col-md-6 CLASSCOMUNICACIONES_VISIBLE_PROCURADORV">
+                                            <option value="0">Seleccione</option>
+                                            <option value="1">Si</option>
+                                            <option value="2">no</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.COMUNICACIONES_VISIBLE_PROCURADOR, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -407,6 +424,17 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="row">
+                                        <label class="control-label col-md-6"> Documento Visible ? </label>
+                                        <select id="COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL" name="COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL" class="form-control col-md-6 CLASSCOMUNICACIONES_VISIBLE_AUTORIDADAMBIENTALV">
+                                            <option value="0">Seleccione</option>
+                                            <option value="1">Si</option>
+                                            <option value="2">no</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="row">
                                         <label class="control-label col-md-6">Fecha</label>
                                         <div class="col-md-1 justify-content-center text-center align-content-center ">
                                             <div class="custom-control custom-checkbox  ">
@@ -429,7 +457,7 @@
                                         @Html.ValidationMessageFor(model => model.COMUNICACIONES_AUTORIDADAMBIENTALFIRMA, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
-                                 <br>
+                                <br>
                                 <br>
                                 <br>
                                 <div class="col-md-12">
@@ -442,6 +470,17 @@
                                             <option value="3">Incompleto</option>
                                         </select>
                                         @Html.ValidationMessageFor(model => model.COMUNICACIONES_COLINDATES, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <label class="control-label col-md-6"> Documento Visible ? </label>
+                                        <select id="COMUNICACIONES_VISIBLE_COLINDATES" name="COMUNICACIONES_VISIBLE_COLINDATES" class="form-control col-md-6 CLASSCOMUNICACIONES_VISIBLE_COLINDATESV">
+                                            <option value="0">Seleccione</option>
+                                            <option value="1">Si</option>
+                                            <option value="2">no</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.COMUNICACIONES_VISIBLE_COLINDATES, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -500,7 +539,7 @@
                                         @Html.ValidationMessageFor(model => model.PUBLICACIONES_ALCALDIA, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
-                                 <div class="col-md-12">
+                                <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6"> Documento Visible ? </label>
                                         <select id="PUBLICACIONES_VISIBLE" name="PUBLICACIONES_VISIBLE" class="form-control col-md-6 CLASSPUBLICACIONES_ALCALDIA ">
@@ -514,7 +553,7 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">Fecha Fijacion</label>
-                                         <div class="col-md-1 justify-content-center text-center align-content-center ">
+                                        <div class="col-md-1 justify-content-center text-center align-content-center ">
                                             <div class="custom-control custom-checkbox  ">
                                                 <input type="checkbox" class="custom-control-input checkFecha" id="PUBLICACIONES_ALCALDIAFECHAFIJACIONV" name="PUBLICACIONES_ALCALDIAFECHAFIJACIONV" Data = "PUBLICACIONES_ALCALDIAFECHAFIJACION">
                                                 <label class="custom-control-label" for="PUBLICACIONES_ALCALDIAFECHAFIJACIONV"></label>
@@ -561,6 +600,17 @@
                                             <option value="False">no</option>
                                         </select>
                                         @Html.ValidationMessageFor(model => model.PUBLICACIONES_INCODER, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <label class="control-label col-md-6"> Documento Visible ? </label>
+                                        <select id="PUBLICACIONES_VISIBLE_INCODER" name="PUBLICACIONES_VISIBLE_INCODER" class="form-control col-md-6 CLASSPUBLICACIONES_VISIBLE_INCODER ">
+                                            <option value="0">Seleccione</option>
+                                            <option value="1">Si</option>
+                                            <option value="2">no</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.PUBLICACIONES_VISIBLE_INCODER, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -612,6 +662,17 @@
                                             <option value="False">no</option>
                                         </select>
                                         @Html.ValidationMessageFor(model => model.PUBLICACIONES_EMISORA, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <label class="control-label col-md-6"> Documento Visible ? </label>
+                                        <select id="PUBLICACIONES_VISIBLE_EMISORA" name="PUBLICACIONES_VISIBLE_EMISORA" class="form-control col-md-6 CLASSPUBLICACIONES_VISIBLE_EMISORA ">
+                                            <option value="0">Seleccione</option>
+                                            <option value="1">Si</option>
+                                            <option value="2">no</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.PUBLICACIONES_VISIBLE_EMISORA, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -676,7 +737,7 @@
                                         @Html.ValidationMessageFor(model => model.INSPECCION_OCULAR_INSPECCION_OCULAR_53, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
-                                 <div class="col-md-12">
+                                <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6"> Documento Visible ? </label>
                                         <select id="INSPECCION_OCULAR_VISIBLE" name="INSPECCION_OCULAR_VISIBLE" class="form-control col-md-6 CLASSINSPECCION_OCULAR_INSPECCION_OCULAR_53 ">
@@ -791,7 +852,7 @@
                                         @Html.ValidationMessageFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                @* <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">Concepto</label>
                                         <select id="ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61" name="ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61" class="form-control col-md-6">
@@ -799,7 +860,7 @@
                                         </select>
                                         @Html.ValidationMessageFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61, "", new { @class = "text-danger" })
                                     </div>
-                                </div>
+                                </div> *@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">
@@ -1105,7 +1166,7 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">
-                                            Desicion
+                                            Decisión 
                                         </label>
                                         <select id="RESOLUCION_DECISION_78" name="RESOLUCION_DECISION_78" class="form-control col-md-6">
                                             <option value="">Seleccione</option>
@@ -1300,7 +1361,7 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">
-                                            Decision del recurso
+                                            Decisión del recurso
                                         </label>
                                         <select id="RECURSO_SOLICITANTE_DECISION_N_1" name="RECURSO_SOLICITANTE_DECISION_N_1" class="form-control col-md-6">
                                             <option value="">Seleccione</option>
@@ -1357,7 +1418,7 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">
-                                            Decision sobre la adjudicacion
+                                            Decisión  sobre la adjudicacion
                                         </label>
                                         <select id="RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92" name="RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92" class="form-control col-md-6">
                                             <option value="">Seleccione</option>
@@ -1466,7 +1527,7 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">
-                                            Decision 
+                                            Decisión  
                                         </label>
                                         <select id="RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6" name="RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6" class="form-control col-md-6">
                                             <option value="">Seleccione</option>
@@ -1619,7 +1680,7 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">
-                                            Decision del recurso
+                                            Decisión del recurso
                                         </label>
                                         <select id="RECURSO_MINISTERIO_DECISION_N_1" name="RECURSO_MINISTERIO_DECISION_N_1" class="form-control col-md-6">
                                             <option value="">Seleccione</option>
@@ -1679,7 +1740,7 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">
-                                            Decision sobre la adjudicacion
+                                            Decisión sobre la adjudicacion
                                         </label>
                                         <select id="RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92" name="RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92" class="form-control col-md-6">
                                             <option value="">Seleccione</option>
@@ -1795,7 +1856,7 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <label class="control-label col-md-6">
-                                            Decision 
+                                            Decisión 
                                         </label>
                                         <select id="RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6" name="RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6" class="form-control col-md-6">
                                             <option value="">Seleccione</option>
@@ -2196,7 +2257,7 @@
                         }
                     });
                 
-                    $.ajax({
+                    @* $.ajax({
                         type: 'POST',
                         url: '@Url.Action("ListTipos")', // we are calling json method
                         dataType: 'json',
@@ -2210,7 +2271,7 @@
                         error: function (ex) {
                             console.log(ex.responseText);
                         }
-                    });
+                    }); *@
                     //
                     $.ajax({
                         type: 'POST',
@@ -2553,7 +2614,7 @@
                         $('#AUTODEACEPTACION_COLINDANTE_CORRECTO').prop("disabled", false);
                     }
                 /// COMUNICACIONES_
-                    if (($("#COMUNICACIONES_SOLICITANTE").val() == "False" || $("#COMUNICACIONES_SOLICITANTE").val() == "") || ($("#COMUNICACIONES_VISIBLE").val() == "0" || $("#COMUNICACIONES_VISIBLE").val() == "2") )  {
+                    @* if (($("#COMUNICACIONES_SOLICITANTE").val() == "False" || $("#COMUNICACIONES_SOLICITANTE").val() == "") || ($("#COMUNICACIONES_VISIBLE").val() == "0" || $("#COMUNICACIONES_VISIBLE").val() == "2") )  {
 
                         $('#COMUNICACIONES_SOLICITANTEFECHA').prop("disabled", true);
                         $('#COMUNICACIONES_SOLICITANTEFIRMA').prop("disabled", true);
@@ -2628,10 +2689,196 @@
                             $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", true);
                         }
 
+                    } *@
+
+                    if (($("#COMUNICACIONES_SOLICITANTE").val() == "False" || $("#COMUNICACIONES_SOLICITANTE").val() == "") || ($("#COMUNICACIONES_SOLICITANTE").val() == "0" || $("#COMUNICACIONES_SOLICITANTE").val() == "2") )  {
+                        if ($("#COMUNICACIONES_VISIBLE").val() != "2" && $("#COMUNICACIONES_VISIBLE").val() != "0") {
+                            $('#COMUNICACIONES_SOLICITANTE').prop("disabled", false);
+                            $('#COMUNICACIONES_SOLICITANTEFECHA').prop("disabled", false);
+                            $('#COMUNICACIONES_SOLICITANTEFIRMA').prop("disabled", false);
+                            $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').prop("disabled", false);
+                        }else{
+                            $('#COMUNICACIONES_VISIBLE').prop("disabled", true);
+                            $('#COMUNICACIONES_SOLICITANTEFECHA').prop("disabled", true);
+                            $('#COMUNICACIONES_SOLICITANTEFIRMA').prop("disabled", true);
+                            $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').prop("disabled", true);
+                        }
+                    } else {
+                        if ($("#COMUNICACIONES_VISIBLE").val() != "2") {
+                            $('#COMUNICACIONES_SOLICITANTE').prop("disabled", false);
+                            $('#COMUNICACIONES_SOLICITANTEFECHA').prop("disabled", false);
+                            $('#COMUNICACIONES_SOLICITANTEFIRMA').prop("disabled", false);
+                            $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').prop("disabled", false);
+                        }else{
+                            $('#COMUNICACIONES_SOLICITANTEFECHA').prop("disabled", true);
+                            $('#COMUNICACIONES_SOLICITANTEFIRMA').prop("disabled", true);
+                            $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').prop("disabled", true);
+                        }
                     }
+
+                    if (($("#COMUNICACIONES_PROCURADOR").val() == "False" || $("#COMUNICACIONES_PROCURADOR").val() == "") || ($("#COMUNICACIONES_PROCURADOR").val() == "0" || $("#COMUNICACIONES_PROCURADOR").val() == "2") )  {
+                        
+                        if ($("#COMUNICACIONES_VISIBLE_PROCURADOR").val() != "2" && $("#COMUNICACIONES_VISIBLE_PROCURADOR").val() != "0") {
+                            $('#COMUNICACIONES_VISIBLE_PROCURADOR').prop("disabled", false);
+                            $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", false);
+                            $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", false);
+                        }else{
+                            $('#COMUNICACIONES_VISIBLE_PROCURADOR').prop("disabled", true);
+                            $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", true);
+                            $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", true);
+                        }
+                    }else{
+                        if ($("#COMUNICACIONES_VISIBLE_PROCURADOR").val() != "2" && $("#COMUNICACIONES_VISIBLE_PROCURADOR").val() != "0") {
+                            $('#COMUNICACIONES_VISIBLE_PROCURADOR').prop("disabled", false);
+                            $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", false);
+                            $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", false);
+                        }else{
+                            $('#COMUNICACIONES_VISIBLE_PROCURADOR').prop("disabled", true);
+                            $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", true);
+                            $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", true);
+                        }
+                    }
+                    if (($("#COMUNICACIONES_AUTORIDADAMBIENTAL").val() == "False" || $("#COMUNICACIONES_AUTORIDADAMBIENTAL").val() == "") || ($("#COMUNICACIONES_AUTORIDADAMBIENTAL").val() == "0" || $("#COMUNICACIONES_AUTORIDADAMBIENTAL").val() == "2") )  {
+                        if ($("#COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL").val() != "2" && $("#COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL").val() != "0") {
+                            $('#COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL').prop("disabled", false);
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", false);
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", false);
+                        }else{
+                            $('#COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL').prop("disabled", true);
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", true);
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", true);
+                        }
+                    }else{
+                        if ($("#COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL").val() != "2" && $("#COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL").val() != "0") {
+                            $('#COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL').prop("disabled", false);
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", false);
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", false);
+                        }else{
+                            $('#COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL').prop("disabled", true);
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", true);
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", true);
+                        }
+                    }
+                    if (($("#COMUNICACIONES_COLINDATES").val() == "False" || $("#COMUNICACIONES_COLINDATES").val() == "") || ($("#COMUNICACIONES_COLINDATES").val() == "0" || $("#COMUNICACIONES_COLINDATES").val() == "2") )  {
+                        $("#COMUNICACIONES_COLINDATES").val('2');
+                        if ($("#COMUNICACIONES_VISIBLE_COLINDATES").val() != "2" && $("#COMUNICACIONES_VISIBLE_COLINDATES").val() != "0") {
+                            if ($("#COMUNICACIONES_COLINDATES").val() != "3") {
+                            $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", true);
+                            }else{
+                                $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", false);
+                            }
+                            $('#COMUNICACIONES_COLINDATESFECHA').prop("disabled", false);
+                            $('#COMUNICACIONES_COLINDATESFIRMA').prop("disabled", false);
+                            $('#COMUNICACIONES_VISIBLE_COLINDATES').prop("disabled", false);
+                            $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", false);
+                        }else{
+
+                            if ($("#COMUNICACIONES_COLINDATES").val() != "3") {
+                            $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", false);
+                            }else{
+                                $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", false);
+                            }
+                            $('#COMUNICACIONES_COLINDATESFECHA').prop("disabled", true);
+                            $('#COMUNICACIONES_COLINDATESFIRMA').prop("disabled", true);
+                            $('#COMUNICACIONES_VISIBLE_COLINDATES').prop("disabled", true);
+                            $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", true);
+                            
+                        }
+
+                        
+                    }else{
+                        if ($("#COMUNICACIONES_COLINDATES").val() != "3") {
+                            $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", true);
+                        }else{
+                            $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", false);
+                        }
+                    }
+
+                    @* if (($("#COMUNICACIONES_VISIBLE").val() == "0" || $("#COMUNICACIONES_VISIBLE").val() == "2") )  {
+                       
+                        $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", true);
+                        $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", true);
+                        $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", true);
+                        $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", true);
+                        $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", true);
+                        $('#COMUNICACIONES_COLINDATESFECHA').prop("disabled", true);
+                        $('#COMUNICACIONES_COLINDATESFIRMA').prop("disabled", true);
+                        //$('#COMUNICACIONES_VISIBLE').prop("disabled", true);
+
+                        
+                        
+                        $("#COMUNICACIONES_COLINDATES").val('2');
+                        if ($("#COMUNICACIONES_COLINDATES").val() != "3") {
+                            $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", true);
+                        }else{
+                            $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", false);
+                        }
+
+                        if ($("#COMUNICACIONES_PROCURADOR").val() != "False") {
+                            $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", false);
+                            $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", false);
+                        }else{
+                            $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", true);
+                            $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", true);
+                        }
+
+                        if ($("#COMUNICACIONES_AUTORIDADAMBIENTAL").val() != "False") {
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", false);
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", false);
+                        }else{
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", true);
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", true);
+                        }
+
+
+                    }else{
+                        $('#COMUNICACIONES_VISIBLE').prop("disabled", false);
+                        $("#COMUNICACIONES_SOLICITANTE").prop("disabled", false);
+                        $('#COMUNICACIONES_SOLICITANTEFECHA').prop("disabled", false);
+                        $('#COMUNICACIONES_SOLICITANTEFIRMA').prop("disabled", false);
+                        $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').prop("disabled", false);
+                        $('#COMUNICACIONES_PROCURADOR').prop("disabled", false);
+                        $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", false);
+                        $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", false);
+                        $('#COMUNICACIONES_AUTORIDADAMBIENTAL').prop("disabled", false);
+                        $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", false);
+                        $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", false);
+                        $('#COMUNICACIONES_COLINDATES').prop("disabled", false);
+                        $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", false);
+                        $('#COMUNICACIONES_COLINDATESFECHA').prop("disabled", false);
+                        $('#COMUNICACIONES_COLINDATESFIRMA').prop("disabled", false);
+
+                        if ($("#COMUNICACIONES_SOLICITANTE").val() != "False") {
+                            $('#COMUNICACIONES_SOLICITANTEFECHA').prop("disabled", false);
+                            $('#COMUNICACIONES_SOLICITANTEFIRMA').prop("disabled", false);
+                            $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').prop("disabled", false);
+                        }else{
+                            $('#COMUNICACIONES_SOLICITANTEFECHA').prop("disabled", true);
+                            $('#COMUNICACIONES_SOLICITANTEFIRMA').prop("disabled", true);
+                            $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').prop("disabled", true);
+                        }
+
+
+                        if ($("#COMUNICACIONES_COLINDATES").val() != "3") {
+                            $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", true);
+                        }else{
+                            $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", false);
+                        }
+
+                        if ($("#COMUNICACIONES_PROCURADOR").val() != "False") {
+                            $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", false);
+                            $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", false);
+                        }else{
+                            $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", true);
+                            $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", true);
+                        }
+
+                       
+
+                    } *@
                 /// PUBLICACIONES
                     if (($("#PUBLICACIONES_ALCALDIA").val() == "False" || $("#PUBLICACIONES_ALCALDIA").val() == "") || ($("#PUBLICACIONES_VISIBLE").val() == "0" || $("#PUBLICACIONES_VISIBLE").val() == "2") )  {
-                    //  $('#PUBLICACIONES_VISIBLE').prop("disabled", true);
+                        $('#PUBLICACIONES_VISIBLE').prop("disabled", true);
                         $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').prop("disabled", true);
                         $('#PUBLICACIONES_ALCALDIADESFIJACION').prop("disabled", true);
                         $('#PUBLICACIONES_ALCALDIAFIRMA').prop("disabled", true);
@@ -2641,20 +2888,24 @@
                         $('#PUBLICACIONES_ALCALDIADESFIJACION').prop("disabled", false);
                         $('#PUBLICACIONES_ALCALDIAFIRMA').prop("disabled", false);
                     }
-                    if ($("#PUBLICACIONES_INCODER").val() == "False" || $("#PUBLICACIONES_INCODER").val() == "" || ($("#PUBLICACIONES_VISIBLE").val() == "0" || $("#PUBLICACIONES_VISIBLE").val() == "2")) {
+                    if ($("#PUBLICACIONES_INCODER").val() == "False" || $("#PUBLICACIONES_INCODER").val() == "" || ($("#PUBLICACIONES_VISIBLE_INCODER").val() == "0" || $("#PUBLICACIONES_VISIBLE_INCODER").val() == "2")) {
+                        $('#PUBLICACIONES_VISIBLE_INCODER').prop("disabled", true);
                         $('#PUBLICACIONES_INCODERFECHAFIJACION').prop("disabled", true);
                         $('#PUBLICACIONES_INCODERDESFIJACION').prop("disabled", true);
                         $('#PUBLICACIONES_INCODERFIRMA').prop("disabled", true);
                     }else{
+                        $('#PUBLICACIONES_VISIBLE_INCODER').prop("disabled", false);
                         $('#PUBLICACIONES_INCODERFECHAFIJACION').prop("disabled", false);
                         $('#PUBLICACIONES_INCODERDESFIJACION').prop("disabled", false);
                         $('#PUBLICACIONES_INCODERFIRMA').prop("disabled", false);
                     }
-                    if ($("#PUBLICACIONES_EMISORA").val() == "False" || $("#PUBLICACIONES_EMISORA").val() == "" || ($("#PUBLICACIONES_VISIBLE").val() == "0" || $("#PUBLICACIONES_VISIBLE").val() == "2")) {
+                    if ($("#PUBLICACIONES_EMISORA").val() == "False" || $("#PUBLICACIONES_EMISORA").val() == "" || ($("#PUBLICACIONES_VISIBLE_EMISORA").val() == "0" || $("#PUBLICACIONES_VISIBLE_EMISORA").val() == "2")) {
+                        $('#PUBLICACIONES_VISIBLE_EMISORA').prop("disabled", true);
                         $('#PUBLICACIONES_EMISORAFECHA1').prop("disabled", true);
                         $('#PUBLICACIONES_EMISORAFECHA2').prop("disabled", true);
                         $('#PUBLICACIONES_EMISORAFIRMA').prop("disabled", true);
                     }else{
+                        $('#PUBLICACIONES_VISIBLE_EMISORA').prop("disabled", false);
                         $('#PUBLICACIONES_EMISORAFECHA1').prop("disabled", false);
                         $('#PUBLICACIONES_EMISORAFECHA2').prop("disabled", false);
                         $('#PUBLICACIONES_EMISORAFIRMA').prop("disabled", false);
@@ -3130,6 +3381,12 @@
 
                     if ("@Model.COMUNICACIONES_VISIBLE" == "")    $("#COMUNICACIONES_VISIBLE").val("0"); else   $("#COMUNICACIONES_VISIBLE").val("@Model.COMUNICACIONES_VISIBLE");
 
+                    if ("@Model.COMUNICACIONES_VISIBLE_PROCURADOR" == "")    $("#COMUNICACIONES_VISIBLE_PROCURADOR").val("0"); else   $("#COMUNICACIONES_VISIBLE_PROCURADOR").val("@Model.COMUNICACIONES_VISIBLE_PROCURADOR");
+
+                    if ("@Model.COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL" == "")    $("#COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL").val("0"); else   $("#COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL").val("@Model.COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL");
+                    
+                    if ("@Model.COMUNICACIONES_VISIBLE_COLINDATES" == "")    $("#COMUNICACIONES_VISIBLE_COLINDATES").val("0"); else   $("#COMUNICACIONES_VISIBLE_COLINDATES").val("@Model.COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL");
+
                     if ("@Model.PUBLICACIONES_VISIBLE" == "")    $("#PUBLICACIONES_VISIBLE").val("0"); else   $("#PUBLICACIONES_VISIBLE").val("@Model.PUBLICACIONES_VISIBLE");
                 ///
                     
@@ -3156,29 +3413,44 @@
                         $('#COMUNICACIONES_SOLICITANTEFECHA').val(DateConvert("@Model.COMUNICACIONES_SOLICITANTEFECHA"));
                         $('#COMUNICACIONES_SOLICITANTEFIRMA').val("@Model.COMUNICACIONES_SOLICITANTEFIRMA");
                         $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').val(DateConvert("@Model.COMUNICACIONES_FECHAINSPECCIONOCULAR"));
+                        $('#COMUNICACIONES_VISIBLE').val("@Model.COMUNICACIONES_VISIBLE");
+                        
+
+
                         $('#COMUNICACIONES_PROCURADOR').val("@Model.COMUNICACIONES_PROCURADOR");
                         $('#COMUNICACIONES_PROCURADORFECHA').val(DateConvert("@Model.COMUNICACIONES_PROCURADORFECHA"));
                         $('#COMUNICACIONES_PROCURADORFIRMA').val("@Model.COMUNICACIONES_PROCURADORFIRMA");
+                        $('#COMUNICACIONES_VISIBLE_PROCURADOR').val("@Model.COMUNICACIONES_VISIBLE_PROCURADOR");
+
                         $('#COMUNICACIONES_AUTORIDADAMBIENTAL').val("@Model.COMUNICACIONES_AUTORIDADAMBIENTAL");
                         $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').val(DateConvert("@Model.COMUNICACIONES_AUTORIDADAMBIENTALFECHA"));
                         $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').val("@Model.COMUNICACIONES_AUTORIDADAMBIENTALFIRMA");
+                        $('#COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL').val("@Model.COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL");
+
                         $('#COMUNICACIONES_COLINDATES').val("@Model.COMUNICACIONES_COLINDATES");
                         $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').val("@Model.COMUNICACIONES_COLINDATES_INCOMPLETOS");
                         $('#COMUNICACIONES_COLINDATESFECHA').val(DateConvert("@Model.COMUNICACIONES_COLINDATESFECHA"));
                         $('#COMUNICACIONES_COLINDATESFIRMA').val("@Model.COMUNICACIONES_COLINDATESFIRMA");
+                        $('#COMUNICACIONES_VISIBLE_COLINDATES').val("@Model.COMUNICACIONES_VISIBLE_COLINDATES");
                     /// PUBLICACIONES
                         $('#PUBLICACIONES_ALCALDIA').val("@Model.PUBLICACIONES_ALCALDIA");
                         $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').val(DateConvert("@Model.PUBLICACIONES_ALCALDIAFECHAFIJACION"));
                         $('#PUBLICACIONES_ALCALDIADESFIJACION').val(DateConvert("@Model.PUBLICACIONES_ALCALDIADESFIJACION"));
                         $('#PUBLICACIONES_ALCALDIAFIRMA').val("@Model.PUBLICACIONES_ALCALDIAFIRMA");
+                        $('#PUBLICACIONES_VISIBLE').val("@Model.PUBLICACIONES_VISIBLE");
+
                         $('#PUBLICACIONES_INCODER').val("@Model.PUBLICACIONES_INCODER");
                         $('#PUBLICACIONES_INCODERFECHAFIJACION').val(DateConvert("@Model.PUBLICACIONES_INCODERFECHAFIJACION"));
                         $('#PUBLICACIONES_INCODERDESFIJACION').val(DateConvert("@Model.PUBLICACIONES_INCODERDESFIJACION"));
                         $('#PUBLICACIONES_INCODERFIRMA').val("@Model.PUBLICACIONES_INCODERFIRMA");
+                        $('#PUBLICACIONES_VISIBLE_INCODER').val("@Model.PUBLICACIONES_VISIBLE_INCODER");
+
                         $('#PUBLICACIONES_EMISORA').val("@Model.PUBLICACIONES_EMISORA");
                         $('#PUBLICACIONES_EMISORAFECHA1').val(DateConvert("@Model.PUBLICACIONES_EMISORAFECHA1"));
                         $('#PUBLICACIONES_EMISORAFECHA2').val(DateConvert("@Model.PUBLICACIONES_EMISORAFECHA2"));
                         $('#PUBLICACIONES_EMISORAFIRMA').val("@Model.PUBLICACIONES_EMISORAFIRMA");
+                        $('#PUBLICACIONES_VISIBLE_EMISORA').val("@Model.PUBLICACIONES_VISIBLE_EMISORA");
+
                     /// INSPECCION_OCULAR
                     
                         $('#INSPECCION_OCULAR_INSPECCION_OCULAR_53').val("@Model.INSPECCION_OCULAR_INSPECCION_OCULAR_53");
@@ -3346,6 +3618,7 @@
 
                         $('#NombreINSPECCION_OCULAR_CONCEPTO_57').val("N_A");
                         $('#NombreACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61').val("N_A");
+                        $('#ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61').val("35");
                         $('#NombreFORMATO_DE_REVISION_JURIDICA_CONCEPTO_73').val("N_A");
                         $('#NombreRESOLUCION_DECISION_78').val("N_A");
                         $('#NombreRESOLUCION_CONJUNTA_INDIVIDUAL_80').val("N_A");
@@ -3403,34 +3676,51 @@
 
                                 }
                             /// COMUNICACIONES
-                                if (($("#COMUNICACIONES_SOLICITANTE").val() == "False" || $("#COMUNICACIONES_SOLICITANTE").val() == "") || ($("#COMUNICACIONES_VISIBLE").val() == "0" || $("#COMUNICACIONES_VISIBLE").val() == "2") )  {
+                                @* if (($("#COMUNICACIONES_VISIBLE").val() == "0" || $("#COMUNICACIONES_VISIBLE").val() == "2") )  {
+                                    
                                     $('#COMUNICACIONES_VISIBLE').val("2");
-                                    $('#COMUNICACIONES_SOLICITANTEFECHA').val("1753-01-01");
-                                    $('#COMUNICACIONES_SOLICITANTEFIRMA').val("False");
-                                    $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').val("1753-01-01");
+
                                     $('#COMUNICACIONES_PROCURADOR').val("False");
                                     
                                     $('#COMUNICACIONES_AUTORIDADAMBIENTAL').val("False");
+
+                                } *@
+
+                                if ($("#COMUNICACIONES_SOLICITANTE").val() == "False" || $("#COMUNICACIONES_VISIBLE").val() == "0" || $("#COMUNICACIONES_VISIBLE").val() == "2" )  {
                                     
-                                    $('#COMUNICACIONES_COLINDATES').val("2");
+                                    $("#COMUNICACIONES_SOLICITANTE").val("False")
+                                    $('#COMUNICACIONES_SOLICITANTEFECHA').val("1753-01-01");
+                                    $('#COMUNICACIONES_SOLICITANTEFIRMA').val("False");
+                                    $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').val("1753-01-01");
+
+                                }
+
+                                if ($("#COMUNICACIONES_COLINDATES").val() == "1" ) {
+
+                                    $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').val("999");
+
+                                }else if ($("#COMUNICACIONES_COLINDATES").val() == "2" || $("#COMUNICACIONES_VISIBLE_COLINDATES").val() == "0" || $("#COMUNICACIONES_VISIBLE_COLINDATES").val() == "2") {
+
                                     $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').val("999");
                                     $('#COMUNICACIONES_COLINDATESFECHA').val("1753-01-01");
-                                    $('#COMUNICACIONES_COLINDATESFIRMA').val("False");
+                                    $('#COMUNICACIONES_COLINDATESFIRMA').val("False");   
+                                    $('#COMUNICACIONES_VISIBLE_COLINDATES').val("2");   
+                                    
+                                    
+                                }else if ($("#COMUNICACIONES_COLINDATES").val() == "3") {
 
                                 }
 
-                                if ($("#COMUNICACIONES_COLINDATES").val() != "3") {
-                                    $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').val("999");
-                                }
-
-                                if ($("#COMUNICACIONES_PROCURADOR").val() == "False") {
+                                if ($("#COMUNICACIONES_PROCURADOR").val() == "False" || $("#COMUNICACIONES_VISIBLE_PROCURADOR").val() == "0" || $("#COMUNICACIONES_VISIBLE_PROCURADOR").val() == "2" ) {
                                     $('#COMUNICACIONES_PROCURADORFECHA').val("1753-01-01");
                                     $('#COMUNICACIONES_PROCURADORFIRMA').val("False");
+                                    $('#COMUNICACIONES_VISIBLE_PROCURADOR').val("2");   
                                 }
 
-                                if ($("#COMUNICACIONES_AUTORIDADAMBIENTAL").val() == "False") {
+                                if ($("#COMUNICACIONES_AUTORIDADAMBIENTAL").val() == "False" || $("#COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL").val() == "0" || $("#COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL").val() == "2") {
                                     $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').val("1753-01-01");
                                     $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').val("False");
+                                    $('#COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL').val("2");   
                                 }
 
 
@@ -3442,12 +3732,14 @@
                                     $('#PUBLICACIONES_ALCALDIADESFIJACION').val("1753-01-01");
                                     $('#PUBLICACIONES_ALCALDIAFIRMA').val("False");
                                 }
-                                if ($("#PUBLICACIONES_INCODER").val() == "False" || $("#PUBLICACIONES_INCODER").val() == "") {
+                                if ($("#PUBLICACIONES_INCODER").val() == "False" || $("#PUBLICACIONES_INCODER").val() == "" || ($("#PUBLICACIONES_VISIBLE_INCODER").val() == "0" || $("#PUBLICACIONES_VISIBLE_INCODER").val() == "2") )  {
+                                    $('#PUBLICACIONES_VISIBLE_INCODER').val("2");
                                     $('#PUBLICACIONES_INCODERFECHAFIJACION').val("1753-01-01");
                                     $('#PUBLICACIONES_INCODERDESFIJACION').val("1753-01-01");
                                     $('#PUBLICACIONES_INCODERFIRMA').val("False");
                                 }
-                                if ($("#PUBLICACIONES_EMISORA").val() == "False" || $("#PUBLICACIONES_EMISORA").val() == "") {
+                                if ($("#PUBLICACIONES_EMISORA").val() == "False" || $("#PUBLICACIONES_EMISORA").val() == "" || ($("#PUBLICACIONES_VISIBLE_EMISORA").val() == "0" || $("#PUBLICACIONES_VISIBLE_EMISORA").val() == "2") )  {
+                                    $('#PUBLICACIONES_VISIBLE_EMISORA').val("2");
                                     $('#PUBLICACIONES_EMISORA').val("False");
                                     $('#PUBLICACIONES_EMISORAFECHA1').val("1753-01-01");
                                     $('#PUBLICACIONES_EMISORAFECHA2').val("1753-01-01");
@@ -3895,160 +4187,225 @@
                     });
                 /// COMUNICACIONES_
 
-                    $(".CLASSCOMUNICACIONES_SOLICITANTE").change(function () {
-                        if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
-                            //$('#COMUNICACIONES_VISIBLE').prop("disabled", true);
-                            
-                            if( $('#COMUNICACIONES_VISIBLE').val() == "2" || $('#SOLICITUD_VISIBLE').val() == "0" ){
-                                $('#COMUNICACIONES_SOLICITANTEFECHA').prop("disabled", true);
-                                $('#COMUNICACIONES_SOLICITANTEFIRMA').prop("disabled", true);
-                                $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').prop("disabled", true);
 
-                                $('#COMUNICACIONES_PROCURADOR').prop("disabled", true);
-                                $('#COMUNICACIONES_AUTORIDADAMBIENTAL').prop("disabled", true);
-                                
-                                $('#COMUNICACIONES_COLINDATES').prop("disabled", true);
-                                $('#COMUNICACIONES_COLINDATESFECHA').prop("disabled", true);
-                                $('#COMUNICACIONES_COLINDATESFIRMA').prop("disabled", true);
-                                $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", true);
-
-                                //$('#COMUNICACIONES_VISIBLE').val("0");
-                                $('#COMUNICACIONES_SOLICITANTEFECHA').val("1753-01-01");
-                                $('#COMUNICACIONES_SOLICITANTEFIRMA').val("False");
-                                $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').val("1753-01-01");
-                                $('#COMUNICACIONES_COLINDATES').val("0");
-                                $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').val("0");
-                                $('#COMUNICACIONES_COLINDATESFECHA').val("1753-01-01");
-                                $('#COMUNICACIONES_COLINDATESFIRMA').val("False");
-                            }
-
-                        }else{
-                            //$('#COMUNICACIONES_VISIBLE').prop("disabled", false);
+                    $("#COMUNICACIONES_SOLICITANTE").change(function () {
+                        if ($(this).val() == "True") {
+                            $('#COMUNICACIONES_VISIBLE').prop("disabled", false);
+                        }else if ($(this).val() == "False") {
+                            $('#COMUNICACIONES_VISIBLE').prop("disabled", true);
+                            $('#COMUNICACIONES_SOLICITANTEFECHA').prop("disabled", true);
+                            $('#COMUNICACIONES_SOLICITANTEFIRMA').prop("disabled", true);
+                            $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').prop("disabled", true); 
+                        }
+                    });
+                    $("#COMUNICACIONES_VISIBLE").change(function () {
+                        if ($(this).val() == "1") {
                             $('#COMUNICACIONES_SOLICITANTEFECHA').prop("disabled", false);
                             $('#COMUNICACIONES_SOLICITANTEFIRMA').prop("disabled", false);
                             $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').prop("disabled", false);
-
-                            $('#COMUNICACIONES_PROCURADOR').prop("disabled", false);
-                            $('#COMUNICACIONES_AUTORIDADAMBIENTAL').prop("disabled", false);
-
-                            $('#COMUNICACIONES_COLINDATES').prop("disabled", false);
-                            $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", false);
-                            $('#COMUNICACIONES_COLINDATESFECHA').prop("disabled", false);
-                            $('#COMUNICACIONES_COLINDATESFIRMA').prop("disabled", false);
+                        }else if ($(this).val() == "2") {
+                            $('#COMUNICACIONES_SOLICITANTEFECHA').prop("disabled", true);
+                            $('#COMUNICACIONES_SOLICITANTEFIRMA').prop("disabled", true);
+                            $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').prop("disabled", true);    
                         }
-                        if($('#COMUNICACIONES_SOLICITANTE').val() == "False" || $('#COMUNICACIONES_SOLICITANTE').val() == ""){
-                            $('#COMUNICACIONES_VISIBLE').prop("disabled", true);
-                        }else{
-                            $('#COMUNICACIONES_VISIBLE').prop("disabled", false);
-                        }
-
                     });
                     $("#COMUNICACIONES_COLINDATES").change(function () {
-                        if ($(this).val() == "3") {
-                            $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", false);
-                        }else{
+                        if ($(this).val() == "1") {
                             $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", true);
+                            $('#COMUNICACIONES_COLINDATESFECHA').prop("disabled", false);
+                            $('#COMUNICACIONES_COLINDATESFIRMA').prop("disabled", false);   
+                            $('#COMUNICACIONES_VISIBLE_COLINDATES').prop("disabled", false);   
+                        }else if ($(this).val() == "2") {
+                            $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", true);
+                            $('#COMUNICACIONES_COLINDATESFECHA').prop("disabled", true);
+                            $('#COMUNICACIONES_COLINDATESFIRMA').prop("disabled", true);   
+                            $('#COMUNICACIONES_VISIBLE_COLINDATES').prop("disabled", true);   
+                        }else if ($(this).val() == "3") {
+                            $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", false);
+                            $('#COMUNICACIONES_COLINDATESFECHA').prop("disabled", false);
+                            $('#COMUNICACIONES_COLINDATESFIRMA').prop("disabled", false);   
+                            $('#COMUNICACIONES_VISIBLE_COLINDATES').prop("disabled", false);   
+                        }
+                    });
+                    $("#COMUNICACIONES_VISIBLE_COLINDATES").change(function () {
+                        if ($(this).val() == "1") {
+                            $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", true);
+                            $('#COMUNICACIONES_COLINDATESFECHA').prop("disabled", false);
+                            $('#COMUNICACIONES_COLINDATESFIRMA').prop("disabled", false);   
+                        }else if ($(this).val() == "2") {
+                            $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", true);
+                            $('#COMUNICACIONES_COLINDATESFECHA').prop("disabled", true);
+                            $('#COMUNICACIONES_COLINDATESFIRMA').prop("disabled", true);   
                         }
                     });
                     $("#COMUNICACIONES_PROCURADOR").change(function () {
                         if ($(this).val() == "False") {
-                            $('#COMUNICACIONES_PROCURADOR').prop("disabled", true);
+                            $('#COMUNICACIONES_VISIBLE_PROCURADOR').prop("disabled", true);
                             $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", true);
                             $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", true);
 
-                            $('#COMUNICACIONES_PROCURADOR').val("False");
+                            $('#COMUNICACIONES_VISIBLE_PROCURADOR').val("2");
                             $('#COMUNICACIONES_PROCURADORFECHA').val("1753-01-01");
                             $('#COMUNICACIONES_PROCURADORFIRMA').val("False");
                         }else{
-                            $('#COMUNICACIONES_PROCURADOR').prop("disabled", false);
+                            $('#COMUNICACIONES_VISIBLE_PROCURADOR').prop("disabled", false);
+                        }
+                    });
+                    $("#COMUNICACIONES_VISIBLE_PROCURADOR").change(function () {
+                        if ($(this).val() == "0" || $(this).val() == "2" ) {
+                            $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", true);
+                            $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", true);
+
+                            $('#COMUNICACIONES_PROCURADORFECHA').val("1753-01-01");
+                            $('#COMUNICACIONES_PROCURADORFIRMA').val("False");
+                        }else{
                             $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", false);
                             $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", false);
                         }
                     });
                     $("#COMUNICACIONES_AUTORIDADAMBIENTAL").change(function () {
                         if ($(this).val() == "False") {
+                            $('#COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL').prop("disabled", true);
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", true);
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", true);
+
+                            $('#COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL').val("False");
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').val("1753-01-01");
+                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').val("False");
+                        }else{
+                            $('#COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL').prop("disabled", false);
+                        }
+                    });
+                    $("#COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL").change(function () {
+                        if ($(this).val() == "0" || $(this).val() == "2" ) {
 
                             $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", true);
                             $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", true);
 
                             $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').val("1753-01-01");
                             $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').val("False");
-                            
 
                         }else{
-
                             $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", false);
                             $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", false);
                         }
                     });
                 /// PUBLICACIONES
+                
+                    $("#PUBLICACIONES_ALCALDIA").change(function () {
 
-                    $(".CLASSPUBLICACIONES_ALCALDIA").change(function () {
                         if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
-                            if( $('#PUBLICACIONES_VISIBLE').val() == "2" || $('#PUBLICACIONES_VISIBLE').val() == "0" ){
 
-                                //$('#PUBLICACIONES_VISIBLE').prop("disabled", true);
-                                $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').prop("disabled", true);
-                                $('#PUBLICACIONES_ALCALDIADESFIJACION').prop("disabled", true);
-                                $('#PUBLICACIONES_ALCALDIAFIRMA').prop("disabled", true);
+                            $('#PUBLICACIONES_VISIBLE').prop("disabled", true);
+                            $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').prop("disabled", true);
+                            $('#PUBLICACIONES_ALCALDIADESFIJACION').prop("disabled", true);
+                            $('#PUBLICACIONES_ALCALDIAFIRMA').prop("disabled", true);
 
-                                //$('#PUBLICACIONES_VISIBLE').val("0");
-                                $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').val("1753-01-01");
-                                $('#PUBLICACIONES_ALCALDIADESFIJACION').val("1753-01-01");
-                                $('#PUBLICACIONES_ALCALDIAFIRMA').val("False");
-                            }
+                            //$('#PUBLICACIONES_VISIBLE').val("0");
+                            $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').val("1753-01-01");
+                            $('#PUBLICACIONES_ALCALDIADESFIJACION').val("1753-01-01");
+                            $('#PUBLICACIONES_ALCALDIAFIRMA').val("False");
 
                         }else{
+                            $('#PUBLICACIONES_VISIBLE').prop("disabled", false);
+                        }
+                    });
+                    $("#PUBLICACIONES_VISIBLE").change(function () {
 
-                                //$('#PUBLICACIONES_VISIBLE').prop("disabled", false);
-                                $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').prop("disabled", false);
-                                $('#PUBLICACIONES_ALCALDIADESFIJACION').prop("disabled", false);
-                                $('#PUBLICACIONES_ALCALDIAFIRMA').prop("disabled", false);
+                        if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
+
+                            $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').prop("disabled", true);
+                            $('#PUBLICACIONES_ALCALDIADESFIJACION').prop("disabled", true);
+                            $('#PUBLICACIONES_ALCALDIAFIRMA').prop("disabled", true);
+
+                            //$('#PUBLICACIONES_VISIBLE').val("0");
+                            $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').val("1753-01-01");
+                            $('#PUBLICACIONES_ALCALDIADESFIJACION').val("1753-01-01");
+                            $('#PUBLICACIONES_ALCALDIAFIRMA').val("False");
+
+                        }else{
+                            $('#PUBLICACIONES_ALCALDIAFECHAFIJACION').prop("disabled", false);
+                            $('#PUBLICACIONES_ALCALDIADESFIJACION').prop("disabled", false);
+                            $('#PUBLICACIONES_ALCALDIAFIRMA').prop("disabled", false);
 
                         }
                     });
 
                     $("#PUBLICACIONES_INCODER").change(function () {
-                        if ($(this).val() == "False") {
-                                $('#PUBLICACIONES_INCODER').prop("disabled", true);
-                                $('#PUBLICACIONES_INCODERFECHAFIJACION').prop("disabled", true);
-                                $('#PUBLICACIONES_INCODERDESFIJACION').prop("disabled", true);
-                                $('#PUBLICACIONES_INCODERFIRMA').prop("disabled", true);
 
-                                $('#PUBLICACIONES_INCODER').val("False");
-                                $('#PUBLICACIONES_INCODERFECHAFIJACION').val("1753-01-01");
-                                $('#PUBLICACIONES_INCODERDESFIJACION').val("1753-01-01");
-                                $('#PUBLICACIONES_INCODERFIRMA').val("False");
+                        if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
+
+                            $('#PUBLICACIONES_VISIBLE_INCODER').prop("disabled", true);
+                            $('#PUBLICACIONES_INCODERFECHAFIJACION').prop("disabled", true);
+                            $('#PUBLICACIONES_INCODERDESFIJACION').prop("disabled", true);
+                            $('#PUBLICACIONES_INCODERFIRMA').prop("disabled", true);
+
+                            $('#PUBLICACIONES_INCODERFECHAFIJACION').val("1753-01-01");
+                            $('#PUBLICACIONES_INCODERDESFIJACION').val("1753-01-01");
+                            $('#PUBLICACIONES_INCODERFIRMA').val("False");
+
                         }else{
+                            $('#PUBLICACIONES_VISIBLE_INCODER').prop("disabled", false);
+                        }
+                    });
+                    $("#PUBLICACIONES_VISIBLE_INCODER").change(function () {
 
-                                $('#PUBLICACIONES_INCODERFECHAFIJACION').prop("disabled", false);
-                                $('#PUBLICACIONES_INCODERDESFIJACION').prop("disabled", false);
-                                $('#PUBLICACIONES_INCODERFIRMA').prop("disabled", false);
+                        if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
+
+                            $('#PUBLICACIONES_INCODERFECHAFIJACION').prop("disabled", true);
+                            $('#PUBLICACIONES_INCODERDESFIJACION').prop("disabled", true);
+                            $('#PUBLICACIONES_INCODERFIRMA').prop("disabled", true);
+
+                            $('#PUBLICACIONES_INCODERFECHAFIJACION').val("1753-01-01");
+                            $('#PUBLICACIONES_INCODERDESFIJACION').val("1753-01-01");
+                            $('#PUBLICACIONES_INCODERFIRMA').val("False");
+
+                        }else{
+                            $('#PUBLICACIONES_INCODERFECHAFIJACION').prop("disabled", false);
+                            $('#PUBLICACIONES_INCODERDESFIJACION').prop("disabled", false);
+                            $('#PUBLICACIONES_INCODERFIRMA').prop("disabled", false);
 
                         }
                     });
 
                     $("#PUBLICACIONES_EMISORA").change(function () {
-                        if ($(this).val() == "False") {
-                                $('#PUBLICACIONES_EMISORA').prop("disabled", true);
-                                $('#PUBLICACIONES_EMISORAFECHA1').prop("disabled", true);
-                                $('#PUBLICACIONES_EMISORAFECHA2').prop("disabled", true);
-                                $('#PUBLICACIONES_EMISORAFIRMA').prop("disabled", true);
 
-                                $('#PUBLICACIONES_EMISORA').val("False");
-                                $('#PUBLICACIONES_EMISORAFECHA1').val("1753-01-01");
-                                $('#PUBLICACIONES_EMISORAFECHA2').val("1753-01-01");
-                                $('#PUBLICACIONES_EMISORAFIRMA').val("False");
+                        if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
+
+                            $('#PUBLICACIONES_VISIBLE_EMISORA').prop("disabled", true);
+                            $('#PUBLICACIONES_EMISORAFECHA1').prop("disabled", true);
+                            $('#PUBLICACIONES_EMISORAFECHA2').prop("disabled", true);
+                            $('#PUBLICACIONES_EMISORAFIRMA').prop("disabled", true);
+
+                            $('#PUBLICACIONES_VISIBLE_EMISORA').val("0");
+                            $('#PUBLICACIONES_EMISORAFECHA1').val("1753-01-01");
+                            $('#PUBLICACIONES_EMISORAFECHA2').val("1753-01-01");
+                            $('#PUBLICACIONES_EMISORAFIRMA').val("False");
 
                         }else{
+                            $('#PUBLICACIONES_VISIBLE_EMISORA').prop("disabled", false);
+                        }
+                    });
+                    $("#PUBLICACIONES_VISIBLE_EMISORA").change(function () {
 
-                                $('#PUBLICACIONES_EMISORA').prop("disabled", false);
-                                $('#PUBLICACIONES_EMISORAFECHA1').prop("disabled", false);
-                                $('#PUBLICACIONES_EMISORAFECHA2').prop("disabled", false);
-                                $('#PUBLICACIONES_EMISORAFIRMA').prop("disabled", false);
+                        if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
+
+                            $('#PUBLICACIONES_EMISORAFECHA1').prop("disabled", true);
+                            $('#PUBLICACIONES_EMISORAFECHA2').prop("disabled", true);
+                            $('#PUBLICACIONES_EMISORAFIRMA').prop("disabled", true);
+
+                            $('#PUBLICACIONES_EMISORAFECHA1').val("1753-01-01");
+                            $('#PUBLICACIONES_EMISORAFECHA2').val("1753-01-01");
+                            $('#PUBLICACIONES_EMISORAFIRMA').val("False");
+
+                        }else{
+                            $('#PUBLICACIONES_EMISORAFECHA1').prop("disabled", false);
+                            $('#PUBLICACIONES_EMISORAFECHA2').prop("disabled", false);
+                            $('#PUBLICACIONES_EMISORAFIRMA').prop("disabled", false);
 
                         }
                     });
+                    
                 /// INSPECCION_OCULAR
 
                     $(".CLASSINSPECCION_OCULAR_INSPECCION_OCULAR_53").change(function () {
@@ -4518,9 +4875,7 @@
                 /// #RECURSO_SOLICITANTE_
 
                     $("#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85").change(function () {
-                                    alert("ok0");
                         if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
-                            alert("ok1");
                             $('#RECURSO_SOLICITANTE_VISIBLE').val("0");
                             $('#RECURSO_SOLICITANTE_VISIBLE').prop("disabled", true);
                             $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').prop("disabled", true);
@@ -4582,9 +4937,7 @@
                     });
 
                     $("#RECURSO_SOLICITANTE_VISIBLE").change(function () {
-                                    alert("ok0");
                         if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
-                            alert("ok1");
                             $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').prop("disabled", true);
                             $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').val("");
                             $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').prop("disabled", true);
@@ -4597,7 +4950,6 @@
                     });
 
                     $("#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87").change(function () {
-                        alert($(this).val());
                         if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
                             //
                             $('#RECURSO_SOLICITANTE_DECISION_N_1').prop("disabled", true);
@@ -4805,10 +5157,8 @@
                 /// #RECURSO_MINISTERIO_
 
                     @* $(".CLASSRECURSO_MINISTERIO_RECURSO_MINISTERIO_85").change(function () {
-                                    alert("ok0");
                         if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
                             //$('#SOLICITUD_VISIBLE').prop("disabled", true);
-                                    alert("ok1");
 
                             if( $('#RECURSO_MINISTERIO_RECURSO_MINISTERIO_85').val() == "False" || $('#RECURSO_MINISTERIO_RECURSO_MINISTERIO_85').val() == "" ){
                                 $('#RECURSO_MINISTERIO_VISIBLE').val("0");
@@ -4823,10 +5173,8 @@
                             }
 
                             if( $(('#RECURSO_MINISTERIO_VISIBLE').val() == "2" || $('#RECURSO_MINISTERIO_VISIBLE').val() == "0") && $('#RECURSO_MINISTERIO_RECURSO_MINISTERIO_85').val() != "False" ){
-                                    alert("ok2");
                                 //$('#RECURSO_MINISTERIO_VISIBLE').prop("disabled", true);
                                 $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').prop("disabled", true);
-                                    alert("ok3");
 
                                 $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled", true);
                                 $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled", true);
@@ -4911,9 +5259,7 @@
                     }); *@
 
                     $("#RECURSO_MINISTERIO_RECURSO_MINISTERIO_85").change(function () {
-                                    alert("ok0");
                         if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
-                            alert("ok1");
                             $('#RECURSO_MINISTERIO_VISIBLE').val("0");
                             $('#RECURSO_MINISTERIO_VISIBLE').prop("disabled", true);
                             $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86').prop("disabled", true);
@@ -4975,9 +5321,7 @@
                     });
 
                     $("#RECURSO_MINISTERIO_VISIBLE").change(function () {
-                                    alert("ok0");
                         if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
-                            alert("ok1");
                             $('#RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86').prop("disabled", true);
                             $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').val("");
                             $('#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87').prop("disabled", true);
@@ -4990,7 +5334,6 @@
                     });
 
                     $("#RECURSO_MINISTERIO_RESPUESTA_RECURSO_87").change(function () {
-                        alert($(this).val());
                         if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
                             //
                             $('#RECURSO_MINISTERIO_DECISION_N_1').prop("disabled", true);
