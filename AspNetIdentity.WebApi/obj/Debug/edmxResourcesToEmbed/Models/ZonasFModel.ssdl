@@ -236,6 +236,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79" Type="bigint" />
     <Property Name="RESOLUCION_CONJUNTA_INDIVIDUAL_80" Type="int" />
     <Property Name="RESOLUCION_VISIBLE" Type="int" />
+    <Property Name="RESOLUCION_RAZON_NEGACION" Type="int" />
     <Property Name="NOTIFICACION_NOTIFICACION_SOLICITANTES_81" Type="bit" />
     <Property Name="NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82" Type="datetime" />
     <Property Name="NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83" Type="bit" />
@@ -358,6 +359,11 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="PUBLICACIONES_EMISORAFECHA2" Type="datetime" />
     <Property Name="PUBLICACIONES_EMISORAFIRMA" Type="bit" />
     <Property Name="PUBLICACIONES_VISIBLE_EMISORA" Type="int" />
+    <Property Name="SUBSIDIODEAPELACION" Type="bit" />
+    <Property Name="SUBSIDIODEAPELACION_VISIBLE" Type="int" />
+    <Property Name="SUBSIDIODEAPELACION_FECHA" Type="datetime" />
+    <Property Name="SUBSIDIODEAPELACION_RESPUESTA" Type="int" />
+    <Property Name="SUBSIDIODEAPELACION_DECISION" Type="int" />
     <Property Name="Estado" Type="bit" Nullable="false" />
     <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="FechaModificacion" Type="datetime" Nullable="false" />

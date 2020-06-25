@@ -178,5 +178,11 @@ namespace AspNetIdentity.WebApi.Models
         public Nullable<int> COMUNICACIONES_VISIBLE_COLINDATES { get; set; }
         public Nullable<int> PUBLICACIONES_VISIBLE_INCODER { get; set; }
         public Nullable<int> PUBLICACIONES_VISIBLE_EMISORA { get; set; }
+        public Nullable<int> RESOLUCION_RAZON_NEGACION { get; set; }
+        public Nullable<bool> SUBSIDIODEAPELACION { get; set; }
+        public Nullable<int> SUBSIDIODEAPELACION_VISIBLE { get; set; }
+        public Nullable<System.DateTime> SUBSIDIODEAPELACION_FECHA { get; set; }
+        public Nullable<int> SUBSIDIODEAPELACION_RESPUESTA { get; set; }
+        public Nullable<int> SUBSIDIODEAPELACION_DECISION { get; set; }
     }
 }

@@ -477,6 +477,12 @@
     <EntitySetMapping Name="CaracterizacionJuridica">
       <EntityTypeMapping TypeName="ZonasFModel.CaracterizacionJuridica">
         <MappingFragment StoreEntitySet="CaracterizacionJuridica">
+          <ScalarProperty Name="SUBSIDIODEAPELACION_DECISION" ColumnName="SUBSIDIODEAPELACION_DECISION" />
+          <ScalarProperty Name="SUBSIDIODEAPELACION_RESPUESTA" ColumnName="SUBSIDIODEAPELACION_RESPUESTA" />
+          <ScalarProperty Name="SUBSIDIODEAPELACION_FECHA" ColumnName="SUBSIDIODEAPELACION_FECHA" />
+          <ScalarProperty Name="SUBSIDIODEAPELACION_VISIBLE" ColumnName="SUBSIDIODEAPELACION_VISIBLE" />
+          <ScalarProperty Name="SUBSIDIODEAPELACION" ColumnName="SUBSIDIODEAPELACION" />
+          <ScalarProperty Name="RESOLUCION_RAZON_NEGACION" ColumnName="RESOLUCION_RAZON_NEGACION" />
           <ScalarProperty Name="PUBLICACIONES_VISIBLE_EMISORA" ColumnName="PUBLICACIONES_VISIBLE_EMISORA" />
           <ScalarProperty Name="PUBLICACIONES_VISIBLE_INCODER" ColumnName="PUBLICACIONES_VISIBLE_INCODER" />
           <ScalarProperty Name="COMUNICACIONES_VISIBLE_COLINDATES" ColumnName="COMUNICACIONES_VISIBLE_COLINDATES" />

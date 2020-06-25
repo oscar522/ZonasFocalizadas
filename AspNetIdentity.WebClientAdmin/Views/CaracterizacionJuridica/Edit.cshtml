@@ -399,7 +399,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="row">
-                                        <label class="control-label col-md-6">Firma</label>
+                                        <label class="control-label col-md-6">Firma del Notificado</label>
                                         <select id="COMUNICACIONES_PROCURADORFIRMA" name="COMUNICACIONES_PROCURADORFIRMA" class="form-control col-md-6 bool">
                                             <option value="">Seleccione</option>
                                             <option value="True">Si</option>
@@ -448,7 +448,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="row">
-                                        <label class="control-label col-md-6">Firma</label>
+                                        <label class="control-label col-md-6">Firma del Notificado </label>
                                         <select id="COMUNICACIONES_AUTORIDADAMBIENTALFIRMA" name="COMUNICACIONES_AUTORIDADAMBIENTALFIRMA" class="form-control col-md-6 bool">
                                             <option value="">Seleccione</option>
                                             <option value="True">Si</option>
@@ -505,7 +505,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="row">
-                                        <label class="control-label col-md-6">Firma</label>
+                                        <label class="control-label col-md-6">Firma del Notificado</label>
                                         <select id="COMUNICACIONES_COLINDATESFIRMA" name="COMUNICACIONES_COLINDATESFIRMA" class="form-control col-md-6 bool">
                                             <option value="">Seleccione</option>
                                             <option value="True">Si</option>
@@ -1211,6 +1211,17 @@
                                         </label>
                                         @Html.EditorFor(model => model.RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79, new { htmlAttributes = new { @class = "form-control col-md-6" } })
                                         @Html.ValidationMessageFor(model => model.RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <label class="control-label col-md-6">
+                                            Razon de la negacion
+                                        </label>
+                                        <select id="RESOLUCION_RAZON_NEGACION" name="RESOLUCION_RAZON_NEGACION" class="form-control col-md-6">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.RESOLUCION_RAZON_NEGACION, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
@@ -2189,6 +2200,85 @@
                     </div>
                 </div>
             </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>RAZON DE LA NEGACION</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <label class="control-label col-md-6">
+                                            Subsidio de apelacion
+                                        </label>
+                                        <select id="SUBSIDIODEAPELACION" name="SUBSIDIODEAPELACION" class="form-control bool col-md-6 bool CLASSSUBSIDIODEAPELACION">
+                                            <option value="">Seleccione</option>
+                                            <option value="True">Si</option>
+                                            <option value="False">no</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.SUBSIDIODEAPELACION, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <label class="control-label col-md-6"> Documento Visible ? </label>
+                                        <select id="SUBSIDIODEAPELACION_VISIBLE" name="SUBSIDIODEAPELACION_VISIBLE" class="form-control col-md-6 CLASSSUBSIDIODEAPELACION">
+                                            <option value="0">Seleccione</option>
+                                            <option value="1">Si</option>
+                                            <option value="2">no</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.SUBSIDIODEAPELACION_VISIBLE, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <label class="control-label col-md-6">
+                                            Fecha de solicitud
+                                        </label>
+                                        <div class="col-md-1 justify-content-center text-center align-content-center ">
+                                            <div class="custom-control custom-checkbox  ">
+                                                <input type="checkbox" class="custom-control-input checkFecha" id="SUBSIDIODEAPELACION_FECHAV" name="SUBSIDIODEAPELACION_FECHAV" Data = "SUBSIDIODEAPELACION_FECHA">
+                                                <label class="custom-control-label" for="SUBSIDIODEAPELACION_FECHAV"></label>
+                                            </div>
+                                        </div>
+                                        @Html.EditorFor(model => model.SUBSIDIODEAPELACION_FECHA, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-5" } })
+                                        @Html.ValidationMessageFor(model => model.SUBSIDIODEAPELACION_FECHA, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <label class="control-label col-md-6">
+                                            Respuesta
+                                        </label>
+                                        <select id="SUBSIDIODEAPELACION_RESPUESTA" name="SUBSIDIODEAPELACION_RESPUESTA" class="form-control col-md-6 bool CLASSSUBSIDIODEAPELACION_RESPUESTA">
+                                            <option value="0">Seleccione</option>
+                                            <option value="1">si</option>
+                                            <option value="2">no</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.SUBSIDIODEAPELACION_RESPUESTA, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <label class="control-label col-md-6">
+                                            Decision 
+                                        </label>
+                                        <select id="SUBSIDIODEAPELACION_DECISION" name="SUBSIDIODEAPELACION_DECISION" class="form-control col-md-6 bool CLASSSUBSIDIODEAPELACION_DECISION">
+                                            <option value="0">Seleccione</option>
+                                            <option value="1">Procede</option>
+                                            <option value="2">No Procede</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.SUBSIDIODEAPELACION_DECISION, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <br />
             <div class="row">
                 <div class="col-md-4">
@@ -2241,6 +2331,21 @@
             }
             /// catalogos
                 function Catalogos(){
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("ListTipos")', // we are calling json method
+                        dataType: 'json',
+                        data: { Id: 109 },
+                        success: function(states) {
+                            $.each(states, function (i, state) {
+                                if (state.Value=="@Model.RESOLUCION_RAZON_NEGACION") $("#RESOLUCION_RAZON_NEGACION").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                                else $("#RESOLUCION_RAZON_NEGACION").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                            });
+                        },
+                        error: function (ex) {
+                            console.log(ex.responseText);
+                        }
+                    });
                     $.ajax({
                         type: 'POST',
                         url: '@Url.Action("ListTipos")', // we are calling json method
@@ -2981,15 +3086,56 @@
                     }
                 /// RESOLUCION_RESOLUCION
                     if ($("#RESOLUCION_RESOLUCION_74").val() == "False" || $("#RESOLUCION_RESOLUCION_74").val() == "" || ($("#RESOLUCION_VISIBLE").val() == "0" || $("#RESOLUCION_VISIBLE").val() == "2")) {
-                        //$('#RESOLUCION_VISIBLE').prop("disabled", true);
-                        $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').prop("disabled", true);
-                        $('#RESOLUCION_FECHA_DE_RESOLUCION_76').prop("disabled", true);
-                        $('#RESOLUCION_FIRMADA_77').prop("disabled", true);
-                        $('#RESOLUCION_DECISION_78').prop("disabled", true);
-                        $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", true);
-                        $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", true);
-                        $('#RESOLUCION_DATOS_SOLICITANTE_BIEN').prop("disabled", true);
-                        $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", true);
+                        
+                        if ($("#RESOLUCION_RESOLUCION_74").val() == "False" || $("#RESOLUCION_RESOLUCION_74").val() == "" ) {
+                            if ( $("#RESOLUCION_RESOLUCION_74").val() == "" ) {
+
+                                $('#RESOLUCION_VISIBLE').prop("disabled", false);
+
+                            } else if ( $("#RESOLUCION_RESOLUCION_74").val() == "False" ) {
+
+                                $('#RESOLUCION_VISIBLE').prop("disabled", true);
+                                $('#RESOLUCION_VISIBLE').val("0");
+                                $('#RESOLUCION_RAZON_NEGACION').prop("disabled", true);
+
+                            }
+
+                            $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').prop("disabled", true);
+                            $('#RESOLUCION_FECHA_DE_RESOLUCION_76').prop("disabled", true);
+                            $('#RESOLUCION_FIRMADA_77').prop("disabled", true);
+                            $('#RESOLUCION_DECISION_78').prop("disabled", true);
+                            $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", true);
+                            $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", true);
+                            $('#RESOLUCION_DATOS_SOLICITANTE_BIEN').prop("disabled", true);
+                            $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", true);
+                            $('#RESOLUCION_RAZON_NEGACION').prop("disabled", true);
+
+                        } else {
+                            $('#RESOLUCION_VISIBLE').prop("disabled", false);
+
+                            if ( $("#RESOLUCION_VISIBLE").val() == "" ) {
+
+                                $('#RESOLUCION_RAZON_NEGACION').prop("disabled", true);
+
+                            } else if ( $("#RESOLUCION_VISIBLE").val() == "0" || $("#RESOLUCION_VISIBLE").val() == "2" ) {
+
+                                $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').prop("disabled", true);
+                                $('#RESOLUCION_FECHA_DE_RESOLUCION_76').prop("disabled", true);
+                                $('#RESOLUCION_FIRMADA_77').prop("disabled", true);
+                                $('#RESOLUCION_DECISION_78').prop("disabled", true);
+                                $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", true);
+                                $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", true);
+                                $('#RESOLUCION_DATOS_SOLICITANTE_BIEN').prop("disabled", true);
+                                $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", true);
+                                $('#RESOLUCION_RAZON_NEGACION').prop("disabled", true);
+
+                            }
+
+                            
+
+
+                        }
+
                     }else{
                         $('#RESOLUCION_VISIBLE').prop("disabled", false);
                         $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').prop("disabled", false);
@@ -3000,7 +3146,25 @@
                         $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", false);
                         $('#RESOLUCION_DATOS_SOLICITANTE_BIEN').prop("disabled", false);
                         $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", false);
+                        $('#RESOLUCION_RAZON_NEGACION').prop("disabled", false);
                     }
+                    if( '@Model.RESOLUCION_DECISION_78' == "7"){
+
+                                $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", false);
+                                $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", false);
+                                $('#RESOLUCION_RAZON_NEGACION').prop("disabled", true);
+                        
+                            }else if('@Model.RESOLUCION_DECISION_78' == ""){
+                                $('#RESOLUCION_RAZON_NEGACION').prop("disabled", true);
+                                $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", true);
+                                $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", true);
+                            }else{
+                                $('#RESOLUCION_RAZON_NEGACION').prop("disabled", false);
+                                $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", true);
+                                $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", true);
+                            }
+
+
                 /// NOTIFICACION_NOTIFICACION_SOLICITANTES
                     if ($("#NOTIFICACION_NOTIFICACION_SOLICITANTES_81").val() == "False" || $("#NOTIFICACION_NOTIFICACION_SOLICITANTES_81").val() == "" || ($("#NOTIFICACION_VISIBLE").val() == "0" || $("#NOTIFICACION_VISIBLE").val() == "2")) {
                         //$('#NOTIFICACION_VISIBLE').prop("disabled", true);
@@ -3311,7 +3475,42 @@
                         $('#REGISTRO_VISIBLE').prop("disabled", false);
 
                     }
-            }
+                /// #SUBSIDIODEAPELACION
+                    if ($("#SUBSIDIODEAPELACION").val() == "False" || $("#SUBSIDIODEAPELACION").val() == "" || ($("#SUBSIDIODEAPELACION_VISIBLE").val() == "0" || $("#SUBSIDIODEAPELACION_VISIBLE").val() == "2")) {
+
+                        $('#SUBSIDIODEAPELACION_VISIBLE').prop("disabled", true);
+                        $('#SUBSIDIODEAPELACION_FECHA').prop("disabled", true);
+                        $('#SUBSIDIODEAPELACION_RESPUESTA').prop("disabled", true);
+                        $('#SUBSIDIODEAPELACION_DECISION').prop("disabled", true);
+
+                        $('#SUBSIDIODEAPELACION').val("False");
+                        $('#SUBSIDIODEAPELACION_RESPUESTA').val("0");
+                        $('#SUBSIDIODEAPELACION_DECISION').val("0");
+
+                    }else{
+                        $('#SUBSIDIODEAPELACION_FECHA').prop("disabled", false);
+                        $('#SUBSIDIODEAPELACION_RESPUESTA').prop("disabled", false);
+                        $('#SUBSIDIODEAPELACION_DECISION').prop("disabled", false);
+                        $('#SUBSIDIODEAPELACION_VISIBLE').prop("disabled", false);
+                    }
+
+                    if ($("#SUBSIDIODEAPELACION_RESPUESTA").val() == "2" ) {
+
+                        $('#SUBSIDIODEAPELACION_DECISION').prop("disabled", true);
+                        $('#SUBSIDIODEAPELACION_DECISION').val("0");
+
+                    }else if ($("#SUBSIDIODEAPELACION_RESPUESTA").val() == "" ) {
+
+                        $('#SUBSIDIODEAPELACION_DECISION').prop("disabled", true);
+                        $('#SUBSIDIODEAPELACION_DECISION').val("0");
+
+                    }else if ($("#SUBSIDIODEAPELACION_RESPUESTA").val() == "1" ) {
+
+                        $('#SUBSIDIODEAPELACION_DECISION').prop("disabled", false);
+
+                    }
+
+                }
 
             /// VALIDA GESTION
                 
@@ -3414,8 +3613,6 @@
                         $('#COMUNICACIONES_SOLICITANTEFIRMA').val("@Model.COMUNICACIONES_SOLICITANTEFIRMA");
                         $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').val(DateConvert("@Model.COMUNICACIONES_FECHAINSPECCIONOCULAR"));
                         $('#COMUNICACIONES_VISIBLE').val("@Model.COMUNICACIONES_VISIBLE");
-                        
-
 
                         $('#COMUNICACIONES_PROCURADOR').val("@Model.COMUNICACIONES_PROCURADOR");
                         $('#COMUNICACIONES_PROCURADORFECHA').val(DateConvert("@Model.COMUNICACIONES_PROCURADORFECHA"));
@@ -3484,14 +3681,17 @@
                     /// RESOLUCION  
                         
                         $('#RESOLUCION_RESOLUCION_74').val("@Model.RESOLUCION_RESOLUCION_74");
+                        $('#RESOLUCION_VISIBLE').val("@Model.RESOLUCION_VISIBLE");
                         $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').val("@Model.RESOLUCION_NUMERO_DE_RESOLUCION_75");
                         $('#RESOLUCION_FECHA_DE_RESOLUCION_76').val(DateConvert("@Model.RESOLUCION_FECHA_DE_RESOLUCION_76"));
                         $('#RESOLUCION_FIRMADA_77').val("@Model.RESOLUCION_FIRMADA_77");
                         $('#RESOLUCION_DECISION_78').val("@Model.RESOLUCION_DECISION_78");
+
                         $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').val("@Model.RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79");
                         $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').val("@Model.RESOLUCION_CONJUNTA_INDIVIDUAL_80");
                         $('#RESOLUCION_DATOS_SOLICITANTE_BIEN').val("@Model.RESOLUCION_DATOS_SOLICITANTE_BIEN");
                         $('#RESOLUCION_DATOS_SOLICITANTE_EN').val("@Model.RESOLUCION_DATOS_SOLICITANTE_EN");
+                        $('#RESOLUCION_RAZON_NEGACION').val("@Model.RESOLUCION_RAZON_NEGACION");
                     /// NOTIFICACION    
                     
                         $('#NOTIFICACION_NOTIFICACION_SOLICITANTES_81').val("@Model.NOTIFICACION_NOTIFICACION_SOLICITANTES_81");
@@ -3593,6 +3793,13 @@
                         $('#REGISTRO_FECHA_DE_REGISTRO_117').val(DateConvert("@Model.REGISTRO_FECHA_DE_REGISTRO_117"));
                         $('#REGISTRO_NUMERO_DE_RESOLUCION_118').val("@Model.REGISTRO_NUMERO_DE_RESOLUCION_118");
                         $('#REGISTRO_FECHA_DE_RESOLUCION_119').val(DateConvert("@Model.REGISTRO_FECHA_DE_RESOLUCION_119"));
+                    
+                    /// SUBSIDIODEAPELACION
+                        $('#SUBSIDIODEAPELACION').val("@Model.SUBSIDIODEAPELACION");
+                        $('#SUBSIDIODEAPELACION_VISIBLE').val("@Model.SUBSIDIODEAPELACION_VISIBLE");
+                        $('#SUBSIDIODEAPELACION_FECHA').val(DateConvert("@Model.SUBSIDIODEAPELACION_FECHA"));
+                        $('#SUBSIDIODEAPELACION_RESPUESTA').val("@Model.SUBSIDIODEAPELACION_RESPUESTA");
+                        $('#SUBSIDIODEAPELACION_DECISION').val("@Model.SUBSIDIODEAPELACION_DECISION");
                     ///
 
                     iniciales();
@@ -3692,6 +3899,7 @@
                                     $('#COMUNICACIONES_SOLICITANTEFECHA').val("1753-01-01");
                                     $('#COMUNICACIONES_SOLICITANTEFIRMA').val("False");
                                     $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').val("1753-01-01");
+                                    $('#COMUNICACIONES_VISIBLE').val("2");   
 
                                 }
 
@@ -3799,6 +4007,7 @@
                                     $("#RESOLUCION_CONJUNTA_INDIVIDUAL_80").append('<option selected  value="1"> 1 </option>');
                                     $('#RESOLUCION_DATOS_SOLICITANTE_BIEN').val("2");
                                     $('#RESOLUCION_DATOS_SOLICITANTE_EN').val("1");
+                                    $('#RESOLUCION_RAZON_NEGACION').val("0");
 
                                 }
                             /// NOTIFICACION_NOTIFICACION_SOLICITANTES
@@ -4040,6 +4249,16 @@
                                     $('#REGISTRO_FECHA_DE_REGISTRO_117').val("1753-01-01");
                                     $('#REGISTRO_NUMERO_DE_RESOLUCION_118').val("0");
                                     $('#REGISTRO_FECHA_DE_RESOLUCION_119').val("1753-01-01");
+
+                                }
+
+                            
+                            /// #SUBSIDIODEAPELACION
+                                if ($("#SUBSIDIODEAPELACION").val() == "False" || $("#SUBSIDIODEAPELACION").val() == "" || ($("#SUBSIDIODEAPELACION_VISIBLE").val() == "0" || $("#SUBSIDIODEAPELACION_VISIBLE").val() == "2")) {
+                                    $('#SUBSIDIODEAPELACION_VISIBLE').val("2");
+                                    $('#SUBSIDIODEAPELACION_FECHA').val("1753-01-01");
+                                    $('#SUBSIDIODEAPELACION_RESPUESTA').val("0");
+                                    $('#SUBSIDIODEAPELACION_DECISION').val("1");
 
                                 }
 
@@ -4571,7 +4790,7 @@
                     });
                 /// RESOLUCION_RESOLUCION
 
-                    $(".CLASSRESOLUCION_RESOLUCION_74").change(function () {
+                    @* $(".CLASSRESOLUCION_RESOLUCION_74").change(function () {
                         if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
                             
                             if( $('#RESOLUCION_VISIBLE').val() == "2" || $('#RESOLUCION_VISIBLE').val() == "0" ){
@@ -4584,6 +4803,7 @@
                                 $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", true);
                                 $('#RESOLUCION_DATOS_SOLICITANTE_BIEN').prop("disabled", true);
                                 $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", true);
+                                $('#RESOLUCION_RAZON_NEGACION').prop("disabled", true);
 
                                 //$('#RESOLUCION_VISIBLE').val("0");
                                 $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').val("0");
@@ -4594,7 +4814,15 @@
                                 $("#RESOLUCION_CONJUNTA_INDIVIDUAL_80").val("");
                                 $('#RESOLUCION_DATOS_SOLICITANTE_BIEN').val("0");
                                 $('#RESOLUCION_DATOS_SOLICITANTE_EN').val("0");
+                                $('#RESOLUCION_RAZON_NEGACION').val("0");
+
+                                if ($("#RESOLUCION_DECISION_78").val() == "8" ) {
+                                    $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", false);
+                                }else{
+                                    $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", true);
+                                }
                             }
+                            
                         }else{
                             //$('#RESOLUCION_VISIBLE').prop("disabled", false);
                             $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').prop("disabled", false);
@@ -4605,6 +4833,13 @@
                             $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", false);
                             $('#RESOLUCION_DATOS_SOLICITANTE_BIEN').prop("disabled", false);
                             $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", false);
+                            $('#RESOLUCION_RAZON_NEGACION').prop("disabled", false);
+
+                            if ($("#RESOLUCION_DECISION_78").val() == "8" ) {
+                                $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", false);
+                            }else{
+                                $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", true);
+                            }
 
                         }
                         if($('#RESOLUCION_RESOLUCION_74').val() == "False" || $('#RESOLUCION_RESOLUCION_74').val() == ""){
@@ -4612,7 +4847,91 @@
                         }else{
                             $('#RESOLUCION_VISIBLE').prop("disabled", false);
                         }
+                    }); *@
+
+                    $("#RESOLUCION_RESOLUCION_74").change(function () {
+                        if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
+                            
+                                $('#RESOLUCION_VISIBLE').prop("disabled", true);
+                                $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').prop("disabled", true);
+                                $('#RESOLUCION_FECHA_DE_RESOLUCION_76').prop("disabled", true);
+                                $('#RESOLUCION_FIRMADA_77').prop("disabled", true);
+                                $('#RESOLUCION_DECISION_78').prop("disabled", true);
+                                $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", true);
+                                $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", true);
+                                $('#RESOLUCION_DATOS_SOLICITANTE_BIEN').prop("disabled", true);
+                                $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", true);
+                                $('#RESOLUCION_RAZON_NEGACION').prop("disabled", true);
+
+                                $('#RESOLUCION_VISIBLE').val("0");
+                                $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').val("0");
+                                $('#RESOLUCION_FECHA_DE_RESOLUCION_76').val("1753-01-01");
+                                $('#RESOLUCION_FIRMADA_77').val("False");
+                                $("#RESOLUCION_DECISION_78").val("");
+                                $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').val("1");
+                                $("#RESOLUCION_CONJUNTA_INDIVIDUAL_80").val("");
+                                $('#RESOLUCION_DATOS_SOLICITANTE_BIEN').val("0");
+                                $('#RESOLUCION_DATOS_SOLICITANTE_EN').val("0");
+                                $('#RESOLUCION_RAZON_NEGACION').val("0");
+
+                                if ($("#RESOLUCION_DECISION_78").val() == "8" ) {
+                                    $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", false);
+                                }else{
+                                    $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", true);
+                                }
+                            
+                        }else{
+                            $('#RESOLUCION_VISIBLE').prop("disabled", false);
+                        }
                     });
+
+                    $("#RESOLUCION_VISIBLE").change(function () {
+                        if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
+                            
+                                //$('#RESOLUCION_VISIBLE').prop("disabled", true);
+                                $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').prop("disabled", true);
+                                $('#RESOLUCION_FECHA_DE_RESOLUCION_76').prop("disabled", true);
+                                $('#RESOLUCION_FIRMADA_77').prop("disabled", true);
+                                $('#RESOLUCION_DECISION_78').prop("disabled", true);
+                                $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", true);
+                                $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", true);
+                                $('#RESOLUCION_DATOS_SOLICITANTE_BIEN').prop("disabled", true);
+                                $('#RESOLUCION_RAZON_NEGACION').prop("disabled", true);
+
+                                //$('#RESOLUCION_VISIBLE').val("0");
+                                $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').val("0");
+                                $('#RESOLUCION_FECHA_DE_RESOLUCION_76').val("1753-01-01");
+                                $('#RESOLUCION_FIRMADA_77').val("False");
+                                $("#RESOLUCION_DECISION_78").val("");
+                                $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').val("1");
+                                $("#RESOLUCION_CONJUNTA_INDIVIDUAL_80").val("");
+                                $('#RESOLUCION_DATOS_SOLICITANTE_BIEN').val("0");
+                                $('#RESOLUCION_RAZON_NEGACION').val("0");
+
+                        }else{
+                            //$('#RESOLUCION_VISIBLE').prop("disabled", false);
+                            $('#RESOLUCION_NUMERO_DE_RESOLUCION_75').prop("disabled", false);
+                            $('#RESOLUCION_FECHA_DE_RESOLUCION_76').prop("disabled", false);
+                            $('#RESOLUCION_FIRMADA_77').prop("disabled", false);
+                            $('#RESOLUCION_DECISION_78').prop("disabled", false);
+                            $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').prop("disabled", false);
+                            $('#RESOLUCION_DATOS_SOLICITANTE_BIEN').prop("disabled", false);
+                        }
+                    });
+
+                    $("#RESOLUCION_DECISION_78").change(function () {
+                        if ($(this).val() == "8"  ) {
+                            $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", true);
+                            $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", true);
+                            $('#RESOLUCION_RAZON_NEGACION').prop("disabled", false);
+                            
+                        }else{
+                            $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", false);
+                            $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", false);
+                            $('#RESOLUCION_RAZON_NEGACION').prop("disabled", true);
+                        }
+                    });
+
                 /// NOTIFICACION_NOTIFICACION_SOLICITANTES
 
                     $(".CLASSNOTIFICACION_NOTIFICACION_SOLICITANTES_81").change(function () {
@@ -5644,6 +5963,64 @@
                         }
                     });
             
+            
+                /// #SUBSIDIODEAPELACION
+
+                    $("#SUBSIDIODEAPELACION").change(function () {
+                        if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
+                            
+                                $('#SUBSIDIODEAPELACION_VISIBLE').prop("disabled", true);
+                                $('#SUBSIDIODEAPELACION_FECHA').prop("disabled", true);
+                                $('#SUBSIDIODEAPELACION_RESPUESTA').prop("disabled", true);
+                                $('#SUBSIDIODEAPELACION_DECISION').prop("disabled", true);
+
+                                $('#SUBSIDIODEAPELACION_VISIBLE').val("0");
+                                $('#SUBSIDIODEAPELACION_FECHA').val("1753-01-01");
+                                $('#SUBSIDIODEAPELACION_RESPUESTA').val("0");
+                                $("#SUBSIDIODEAPELACION_DECISION").val("0");
+
+                                @* if ($("#RESOLUCION_DECISION_78").val() == "8" ) {
+                                    $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", false);
+                                }else{
+                                    $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", true);
+                                } *@
+                            
+                        }else{
+                            $('#SUBSIDIODEAPELACION_VISIBLE').prop("disabled", false);
+                        }
+                    });
+
+                    $("#SUBSIDIODEAPELACION_VISIBLE").change(function () {
+                        if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
+                            
+                            $('#SUBSIDIODEAPELACION_VISIBLE').prop("disabled", true);
+                            $('#SUBSIDIODEAPELACION_FECHA').prop("disabled", true);
+                            $('#SUBSIDIODEAPELACION_RESPUESTA').prop("disabled", true);
+                            $('#SUBSIDIODEAPELACION_DECISION').prop("disabled", true);
+
+                            $('#SUBSIDIODEAPELACION_VISIBLE').val("0");
+                            $('#SUBSIDIODEAPELACION_FECHA').val("1753-01-01");
+                            $('#SUBSIDIODEAPELACION_RESPUESTA').val("0");
+                            $("#SUBSIDIODEAPELACION_DECISION").val("0");
+
+                        }else{
+                            
+                            $('#SUBSIDIODEAPELACION_VISIBLE').prop("disabled", false);
+                            $('#SUBSIDIODEAPELACION_FECHA').prop("disabled", false);
+                            $('#SUBSIDIODEAPELACION_RESPUESTA').prop("disabled", false);
+                            $('#SUBSIDIODEAPELACION_DECISION').prop("disabled", false);
+                        }
+                    });
+
+                    
+                    $("#SUBSIDIODEAPELACION_RESPUESTA").change(function () {
+                        if ($(this).val() == "1" ) {
+                            $('#SUBSIDIODEAPELACION_DECISION').prop("disabled", false);
+                        }else{
+                            $('#SUBSIDIODEAPELACION_DECISION').prop("disabled", true);
+                            $('#SUBSIDIODEAPELACION_DECISION').val("0");
+                        }
+                    });   
             
             ///
 

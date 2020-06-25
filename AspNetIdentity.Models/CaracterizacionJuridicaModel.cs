@@ -29,11 +29,11 @@ namespace AspNetIdentity.Models
         public Nullable<bool> INSPECCION_OCULAR_OPOSICIONES_56 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> INSPECCION_OCULAR_CONCEPTO_57 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> INSPECCION_OCULAR_VISIBLE { get; set; }
 
 
@@ -47,7 +47,7 @@ namespace AspNetIdentity.Models
         public Nullable<bool> ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61 { get; set; }
 
         [Required(ErrorMessage = ".")]
@@ -57,7 +57,7 @@ namespace AspNetIdentity.Models
         public Nullable<bool> ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> ACLARACION_DE_INSPECCION_VISIBLE { get; set; }
 
 
@@ -74,7 +74,7 @@ namespace AspNetIdentity.Models
         public Nullable<bool> FIJACION_EN_LISTA_FIRMA_67 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> FIJACION_EN_LISTA_VISIBLE { get; set; }
 
 
@@ -85,7 +85,7 @@ namespace AspNetIdentity.Models
         public Nullable<System.DateTime> OPOCISIONES_FECHA_69 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> OPOCISIONES_EN_LISTA_VISIBLE { get; set; }
 
 
@@ -99,14 +99,15 @@ namespace AspNetIdentity.Models
         public Nullable<bool> FORMATO_DE_REVISION_JURIDICA_FIRMADA_72 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> FORMATO_DE_REVISION_JURIDICA_VISIBLE { get; set; }
 
 
+        // RESOLUCION_RESOLUCION
         [Required(ErrorMessage = ".")]
         public Nullable<bool> RESOLUCION_RESOLUCION_74 { get; set; }
 
@@ -120,11 +121,11 @@ namespace AspNetIdentity.Models
         public Nullable<bool> RESOLUCION_FIRMADA_77 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> RESOLUCION_DECISION_78 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> RESOLUCION_DATOS_SOLICITANTE_BIEN { get; set; }
 
         [Required(ErrorMessage = ".")]
@@ -135,12 +136,17 @@ namespace AspNetIdentity.Models
         public Nullable<long> RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> RESOLUCION_CONJUNTA_INDIVIDUAL_80 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> RESOLUCION_VISIBLE { get; set; }
+
+        [Required(ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
+        public Nullable<int> RESOLUCION_RAZON_NEGACION { get; set; }
+
 
 
         [Required(ErrorMessage = ".")]
@@ -156,7 +162,7 @@ namespace AspNetIdentity.Models
         public Nullable<System.DateTime> NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> NOTIFICACION_VISIBLE { get; set; }
 
 
@@ -170,14 +176,14 @@ namespace AspNetIdentity.Models
         public Nullable<bool> RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> RECURSO_SOLICITANTE_DECISION_N_1 { get; set; }
 
         [Required(ErrorMessage = ".")]
         public Nullable<bool> RECURSO_SOLICITANTE_FIRMADA_88 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> RECURSO_SOLICITANTE_ACTO_89 { get; set; }
 
         [Required(ErrorMessage = ".")]
@@ -187,7 +193,7 @@ namespace AspNetIdentity.Models
         public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_91 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92 { get; set; }
 
         [Required(ErrorMessage = ".")]
@@ -215,14 +221,14 @@ namespace AspNetIdentity.Models
         public Nullable<bool> RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6 { get; set; }
 
         [Required(ErrorMessage = ".")]
         public string RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> RECURSO_SOLICITANTE_CONJUNA_IND_N_7 { get; set; }
 
         [Required(ErrorMessage = ".")]
@@ -238,7 +244,7 @@ namespace AspNetIdentity.Models
         public Nullable<System.DateTime> RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> RECURSO_SOLICITANTE_VISIBLE { get; set; }
 
 
@@ -252,14 +258,14 @@ namespace AspNetIdentity.Models
         public Nullable<bool> RECURSO_MINISTERIO_RESPUESTA_RECURSO_87 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> RECURSO_MINISTERIO_DECISION_N_1 { get; set; }
 
         [Required(ErrorMessage = ".")]
         public Nullable<bool> RECURSO_MINISTERIO_FIRMADA_88 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> RECURSO_MINISTERIO_ACTO_89 { get; set; }
 
         [Required(ErrorMessage = ".")]
@@ -269,7 +275,7 @@ namespace AspNetIdentity.Models
         public Nullable<System.DateTime> RECURSO_MINISTERIO_FECHA_91 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92 { get; set; }
 
         [Required(ErrorMessage = ".")]
@@ -297,14 +303,14 @@ namespace AspNetIdentity.Models
         public Nullable<bool> RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6 { get; set; }
 
         [Required(ErrorMessage = ".")]
         public string RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> RECURSO_MINISTERIO_CONJUNA_IND_N_7 { get; set; }
 
         [Required(ErrorMessage = ".")]
@@ -320,7 +326,7 @@ namespace AspNetIdentity.Models
         public Nullable<System.DateTime> RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> RECURSO_MINISTERIO_VISIBLE { get; set; }
 
 
@@ -343,7 +349,7 @@ namespace AspNetIdentity.Models
         public Nullable<System.DateTime> CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> CONSTANCIA_DE_EJECUTORIA_VISIBLE { get; set; }
 
 
@@ -357,7 +363,7 @@ namespace AspNetIdentity.Models
         public Nullable<System.DateTime> REVOCATORIA_FECHA_DE_RESOLUCION_115 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> REVOCATORIA_VISIBLE { get; set; }
 
 
@@ -377,7 +383,7 @@ namespace AspNetIdentity.Models
         public Nullable<System.DateTime> REGISTRO_FECHA_DE_RESOLUCION_119 { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> REGISTRO_VISIBLE { get; set; }
 
         [Required(ErrorMessage = ".")]
@@ -391,26 +397,26 @@ namespace AspNetIdentity.Models
         public Nullable<bool> SOLICITUD_FIRMA { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> SOLICITUD_TIPO_SOLICITUD { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> SOLICITUD_CEDULA_SOLICITANTE { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> SOLICITUD_CEDULA_CONYUGE { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> SOLICITUD_CEDULA_PARIENTE { get; set; }
 
         [Required(ErrorMessage = ".")]
         public Nullable<System.DateTime> SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> SOLICITUD_VISIBLE { get; set; }
 
         [Required(ErrorMessage = ".")]
@@ -436,7 +442,7 @@ namespace AspNetIdentity.Models
         public Nullable<bool> AUTODEACEPTACION_COLINDANTE_CORRECTO { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> AUTODEACEPTACION_VISIBLE { get; set; }
 
 
@@ -453,7 +459,7 @@ namespace AspNetIdentity.Models
         public Nullable<System.DateTime> COMUNICACIONES_FECHAINSPECCIONOCULAR { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> COMUNICACIONES_VISIBLE { get; set; }
 
         [Required(ErrorMessage = ".")]
@@ -466,7 +472,7 @@ namespace AspNetIdentity.Models
         public Nullable<bool> COMUNICACIONES_PROCURADORFIRMA { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> COMUNICACIONES_VISIBLE_PROCURADOR { get; set; }
 
         [Required(ErrorMessage = ".")]
@@ -479,15 +485,15 @@ namespace AspNetIdentity.Models
         public Nullable<bool> COMUNICACIONES_AUTORIDADAMBIENTALFIRMA { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> COMUNICACIONES_COLINDATES { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> COMUNICACIONES_COLINDATES_INCOMPLETOS { get; set; }
 
         [Required(ErrorMessage = ".")]
@@ -497,7 +503,7 @@ namespace AspNetIdentity.Models
         public Nullable<bool> COMUNICACIONES_COLINDATESFIRMA { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> COMUNICACIONES_VISIBLE_COLINDATES { get; set; }
 
         
@@ -516,7 +522,7 @@ namespace AspNetIdentity.Models
         public Nullable<bool> PUBLICACIONES_ALCALDIAFIRMA { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> PUBLICACIONES_VISIBLE { get; set; }
 
 
@@ -549,8 +555,30 @@ namespace AspNetIdentity.Models
         public Nullable<bool> PUBLICACIONES_EMISORAFIRMA { get; set; }
 
         [Required(ErrorMessage = ".")]
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> PUBLICACIONES_VISIBLE_EMISORA { get; set; }
+
+
+        // SUBSIDIODEAPELACION
+        [Required(ErrorMessage = ".")]
+        public Nullable<bool> SUBSIDIODEAPELACION { get; set; }
+        
+        [Required(ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
+        public Nullable<int> SUBSIDIODEAPELACION_VISIBLE { get; set; }
+
+        [Required(ErrorMessage = ".")]
+        public Nullable<System.DateTime>  SUBSIDIODEAPELACION_FECHA { get; set; }
+
+        [Required(ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
+        public Nullable<int> SUBSIDIODEAPELACION_RESPUESTA { get; set; }
+
+        [Required(ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
+        public Nullable<int> SUBSIDIODEAPELACION_DECISION { get; set; }
+
+
 
 
 
@@ -577,7 +605,7 @@ namespace AspNetIdentity.Models
         public string IdAspNetUser { get; set; }
         public string rol { get; set; }
         public System.DateTime FechaModificacion { get; set; }
-        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> Gestion { get; set; }
 
 

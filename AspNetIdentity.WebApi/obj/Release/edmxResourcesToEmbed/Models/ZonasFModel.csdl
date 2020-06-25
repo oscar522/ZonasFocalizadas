@@ -711,6 +711,12 @@
     <Property Name="COMUNICACIONES_VISIBLE_COLINDATES" Type="Int32" />
     <Property Name="PUBLICACIONES_VISIBLE_INCODER" Type="Int32" />
     <Property Name="PUBLICACIONES_VISIBLE_EMISORA" Type="Int32" />
+    <Property Name="RESOLUCION_RAZON_NEGACION" Type="Int32" />
+    <Property Name="SUBSIDIODEAPELACION" Type="Boolean" />
+    <Property Name="SUBSIDIODEAPELACION_VISIBLE" Type="Int32" />
+    <Property Name="SUBSIDIODEAPELACION_FECHA" Type="DateTime" Precision="3" />
+    <Property Name="SUBSIDIODEAPELACION_RESPUESTA" Type="Int32" />
+    <Property Name="SUBSIDIODEAPELACION_DECISION" Type="Int32" />
   </EntityType>
   <EntityType Name="CaracterizacionSolicitante">
     <Key>
