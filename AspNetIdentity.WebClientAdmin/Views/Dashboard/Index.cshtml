@@ -1264,6 +1264,7 @@
                         var TotalExpConPdf = 0 ;
                         var dataList = [];
                         var Depto = name;
+                        debugger ;
                         $.each(s, function (i, obj) {
 
                             var res = obj.NOMBRE_PAIS.split("-");
@@ -1355,7 +1356,7 @@
                                 }
                             }else{
                                     var ExpTotal = parseInt(obj.IdCtPais);
-                                    TotalExp =  TotalExp + ExpTotal;
+                                    
 
                                     var ExpTotalConPdf = parseInt(res[0]);
                                     TotalExpConPdf =  TotalExpConPdf + ExpTotalConPdf;
@@ -1368,6 +1369,7 @@
 
                                     if(FlagFocalizado == "false.") {
                                         flag = "Si" ;
+                                        TotalExp =  TotalExp + ExpTotal;
                                     } else if(FlagFocalizado == "true.")  {
                                         flag = "No" ; 
                                         
