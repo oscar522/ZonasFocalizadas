@@ -67,6 +67,7 @@ namespace AspNetIdentity.WebApi.Models
         public virtual DbSet<CaracterizacionJuridica> CaracterizacionJuridica { get; set; }
         public virtual DbSet<CaracterizacionSolicitante> CaracterizacionSolicitante { get; set; }
         public virtual DbSet<PlGestionTable> PlGestionTable { get; set; }
+        public virtual DbSet<CaracterizacionJuridicaResumen> CaracterizacionJuridicaResumen { get; set; }
     
         public virtual int AspNetUsers_Insertar(string firstName, string lastName, string email, string passwordHash, string id)
         {
@@ -217,6 +218,24 @@ namespace AspNetIdentity.WebApi.Models
                 new ObjectParameter("UsersId", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PlGestionTable>("PlGestionUsers", mergeOption, tableParameter, mes1Parameter, mes2Parameter, mesParameter, diaParameter, usersIdParameter);
+        }
+    
+        public virtual ObjectResult<CaracterizacionJuridicaResumen> ResumenCaracterizacionJuridica(string idAspNetUser)
+        {
+            var idAspNetUserParameter = idAspNetUser != null ?
+                new ObjectParameter("IdAspNetUser", idAspNetUser) :
+                new ObjectParameter("IdAspNetUser", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CaracterizacionJuridicaResumen>("ResumenCaracterizacionJuridica", idAspNetUserParameter);
+        }
+    
+        public virtual ObjectResult<CaracterizacionJuridicaResumen> ResumenCaracterizacionJuridica(string idAspNetUser, MergeOption mergeOption)
+        {
+            var idAspNetUserParameter = idAspNetUser != null ?
+                new ObjectParameter("IdAspNetUser", idAspNetUser) :
+                new ObjectParameter("IdAspNetUser", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CaracterizacionJuridicaResumen>("ResumenCaracterizacionJuridica", mergeOption, idAspNetUserParameter);
         }
     }
 }

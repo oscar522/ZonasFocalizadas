@@ -108,6 +108,28 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
              return View("ResumenAllIndex", Resumen);
         }
 
+        public async Task<ActionResult> ResumenCaracterizacionAll()
+        {
+            string Id = "76" + "_" + "275" + "_" + GetTokenObject().nameid;
+            string Controller = "Administrator";
+            string Method = "GetRegumenCaracterizacionJuridicaAll";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            List<CaracterizacionJuridicaResumenModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CaracterizacionJuridicaResumenModel>>(jsonResult.ToString());
+
+            var Resumen = processModel
+                            .GroupBy(z => z.IdAspNetUser)
+                            .Select(c => new ResumenTipificacionVistaModel
+                            {
+                                Total = c.Count(),
+                                Grupo = c.Select(v => v.IdAspNetUser).FirstOrDefault(),
+                            }).ToList();
+
+            return View("ResumenAllCaracterizacionIndex", Resumen);
+        }
+
+        
+
         public async Task<ActionResult> ResumenRegistro(int IdDepto, int IdCiudad)
         {
             string Id = IdDepto + "_" + IdCiudad + "_" + GetTokenObject().nameid;

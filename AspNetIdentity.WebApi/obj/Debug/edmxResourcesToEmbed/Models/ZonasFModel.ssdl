@@ -378,6 +378,190 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="Tipo" Type="int" />
     <Property Name="Estado" Type="bit" />
   </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ZonasF.dbo.CaracterizacionJuridicaResumen' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="CaracterizacionJuridicaResumen">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="IdExpediente" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdExpediente" Type="bigint" Nullable="false" />
+    <Property Name="INSPECCION_OCULAR_INSPECCION_OCULAR_53" Type="bit" />
+    <Property Name="INSPECCION_OCULAR_FECHA_54" Type="datetime" />
+    <Property Name="INSPECCION_OCULAR_FIRMA_55" Type="bit" />
+    <Property Name="INSPECCION_OCULAR_OPOSICIONES_56" Type="bit" />
+    <Property Name="INSPECCION_OCULAR_CONCEPTO_57" Type="int" />
+    <Property Name="INSPECCION_OCULAR_VISIBLE" Type="int" />
+    <Property Name="ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58" Type="bit" />
+    <Property Name="ACLARACION_DE_INSPECCION_OCULAR_FECHA_59" Type="datetime" />
+    <Property Name="ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60" Type="bit" />
+    <Property Name="ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61" Type="int" />
+    <Property Name="ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62" Type="bit" />
+    <Property Name="ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63" Type="bit" />
+    <Property Name="ACLARACION_DE_INSPECCION_VISIBLE" Type="int" />
+    <Property Name="FIJACION_EN_LISTA_FIJACION_EN_LISTA_64" Type="bit" />
+    <Property Name="FIJACION_EN_LISTA_FECHA_DE_FIJACION_65" Type="datetime" />
+    <Property Name="FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66" Type="datetime" />
+    <Property Name="FIJACION_EN_LISTA_FIRMA_67" Type="bit" />
+    <Property Name="FIJACION_EN_LISTA_VISIBLE" Type="int" />
+    <Property Name="OPOCISIONES_OPOCISIONES_68" Type="bit" />
+    <Property Name="OPOCISIONES_FECHA_69" Type="datetime" />
+    <Property Name="OPOCISIONES_EN_LISTA_VISIBLE" Type="int" />
+    <Property Name="FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70" Type="bit" />
+    <Property Name="FORMATO_DE_REVISION_JURIDICA_FECHA_71" Type="datetime" />
+    <Property Name="FORMATO_DE_REVISION_JURIDICA_FIRMADA_72" Type="bit" />
+    <Property Name="FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73" Type="int" />
+    <Property Name="FORMATO_DE_REVISION_JURIDICA_VISIBLE" Type="int" />
+    <Property Name="RESOLUCION_RESOLUCION_74" Type="bit" />
+    <Property Name="RESOLUCION_NUMERO_DE_RESOLUCION_75" Type="bigint" />
+    <Property Name="RESOLUCION_FECHA_DE_RESOLUCION_76" Type="datetime" />
+    <Property Name="RESOLUCION_FIRMADA_77" Type="bit" />
+    <Property Name="RESOLUCION_DECISION_78" Type="int" />
+    <Property Name="RESOLUCION_DATOS_SOLICITANTE_BIEN" Type="int" />
+    <Property Name="RESOLUCION_DATOS_SOLICITANTE_EN" Type="int" />
+    <Property Name="RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79" Type="bigint" />
+    <Property Name="RESOLUCION_CONJUNTA_INDIVIDUAL_80" Type="int" />
+    <Property Name="RESOLUCION_VISIBLE" Type="int" />
+    <Property Name="RESOLUCION_RAZON_NEGACION" Type="int" />
+    <Property Name="NOTIFICACION_NOTIFICACION_SOLICITANTES_81" Type="bit" />
+    <Property Name="NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82" Type="datetime" />
+    <Property Name="NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83" Type="bit" />
+    <Property Name="NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84" Type="datetime" />
+    <Property Name="NOTIFICACION_VISIBLE" Type="int" />
+    <Property Name="RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85" Type="bit" />
+    <Property Name="RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86" Type="datetime" />
+    <Property Name="RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87" Type="bit" />
+    <Property Name="RECURSO_SOLICITANTE_DECISION_N_1" Type="int" />
+    <Property Name="RECURSO_SOLICITANTE_FIRMADA_88" Type="bit" />
+    <Property Name="RECURSO_SOLICITANTE_ACTO_89" Type="int" />
+    <Property Name="RECURSO_SOLICITANTE_NUMERO_90" Type="nvarchar" MaxLength="128" />
+    <Property Name="RECURSO_SOLICITANTE_FECHA_91" Type="datetime" />
+    <Property Name="RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92" Type="int" />
+    <Property Name="RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93" Type="bit" />
+    <Property Name="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94" Type="datetime" />
+    <Property Name="RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95" Type="bit" />
+    <Property Name="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96" Type="datetime" />
+    <Property Name="RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2" Type="bit" />
+    <Property Name="RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3" Type="nvarchar" MaxLength="128" />
+    <Property Name="RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4" Type="datetime" />
+    <Property Name="RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5" Type="bit" />
+    <Property Name="RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6" Type="int" />
+    <Property Name="RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6" Type="nvarchar" MaxLength="128" />
+    <Property Name="RECURSO_SOLICITANTE_CONJUNA_IND_N_7" Type="int" />
+    <Property Name="RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8" Type="bit" />
+    <Property Name="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9" Type="datetime" />
+    <Property Name="RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10" Type="bit" />
+    <Property Name="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11" Type="datetime" />
+    <Property Name="RECURSO_SOLICITANTE_VISIBLE" Type="int" />
+    <Property Name="RECURSO_MINISTERIO_RECURSO_MINISTERIO_85" Type="bit" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86" Type="datetime" />
+    <Property Name="RECURSO_MINISTERIO_RESPUESTA_RECURSO_87" Type="bit" />
+    <Property Name="RECURSO_MINISTERIO_DECISION_N_1" Type="int" />
+    <Property Name="RECURSO_MINISTERIO_FIRMADA_88" Type="bit" />
+    <Property Name="RECURSO_MINISTERIO_ACTO_89" Type="int" />
+    <Property Name="RECURSO_MINISTERIO_NUMERO_90" Type="nvarchar" MaxLength="128" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_91" Type="datetime" />
+    <Property Name="RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92" Type="int" />
+    <Property Name="RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93" Type="bit" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94" Type="datetime" />
+    <Property Name="RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95" Type="bit" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96" Type="datetime" />
+    <Property Name="RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2" Type="bit" />
+    <Property Name="RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3" Type="nvarchar" MaxLength="128" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4" Type="datetime" />
+    <Property Name="RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5" Type="bit" />
+    <Property Name="RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6" Type="int" />
+    <Property Name="RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6" Type="nvarchar" MaxLength="128" />
+    <Property Name="RECURSO_MINISTERIO_CONJUNA_IND_N_7" Type="int" />
+    <Property Name="RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8" Type="bit" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9" Type="datetime" />
+    <Property Name="RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10" Type="bit" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11" Type="datetime" />
+    <Property Name="RECURSO_MINISTERIO_VISIBLE" Type="int" />
+    <Property Name="CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109" Type="bit" />
+    <Property Name="CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110" Type="datetime" />
+    <Property Name="CONSTANCIA_DE_EJECUTORIA_FIRMADA_111" Type="bit" />
+    <Property Name="CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112" Type="bit" />
+    <Property Name="CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION" Type="nvarchar" MaxLength="128" />
+    <Property Name="CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA" Type="datetime" />
+    <Property Name="CONSTANCIA_DE_EJECUTORIA_VISIBLE" Type="int" />
+    <Property Name="REVOCATORIA_REVOCATORIA_113" Type="bit" />
+    <Property Name="REVOCATORIA_NUMERO_RESOLUCIÓN_114" Type="bigint" />
+    <Property Name="REVOCATORIA_FECHA_DE_RESOLUCIÓN_115" Type="datetime" />
+    <Property Name="REVOCATORIA_VISIBLE" Type="int" />
+    <Property Name="REGISTRO_FMI_" Type="bit" />
+    <Property Name="REGISTRO_FMI" Type="nvarchar" MaxLength="128" />
+    <Property Name="REGISTRO_FECHA_DE_REGISTRO_117" Type="datetime" />
+    <Property Name="REGISTRO_NUMERO_DE_RESOLUCION_118" Type="bigint" />
+    <Property Name="REGISTRO_FECHA_DE_RESOLUCION_119" Type="datetime" />
+    <Property Name="REGISTRO_VISIBLE" Type="int" />
+    <Property Name="SOLICITUD_SOLICITUD" Type="bit" />
+    <Property Name="SOLICITUD_FECHA" Type="datetime" />
+    <Property Name="SOLICITUD_FIRMA" Type="bit" />
+    <Property Name="SOLICITUD_TIPO_SOLICITUD" Type="int" />
+    <Property Name="SOLICITUD_CEDULA_SOLICITANTE" Type="int" />
+    <Property Name="SOLICITUD_CEDULA_CONYUGE" Type="int" />
+    <Property Name="SOLICITUD_CEDULA_PARIENTE" Type="int" />
+    <Property Name="SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA" Type="datetime" />
+    <Property Name="SOLICITUD_VISIBLE" Type="int" />
+    <Property Name="AUTODEACEPTACION_AUTODEACEPTACION" Type="bit" />
+    <Property Name="AUTODEACEPTACION_FECHA" Type="datetime" />
+    <Property Name="AUTODEACEPTACION_FIRMA" Type="bit" />
+    <Property Name="AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO" Type="bit" />
+    <Property Name="AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO" Type="bit" />
+    <Property Name="AUTODEACEPTACION_DATOSPREDIOSCORRECTO" Type="bit" />
+    <Property Name="AUTODEACEPTACION_COLINDANTE_CORRECTO" Type="bit" />
+    <Property Name="AUTODEACEPTACION_VISIBLE" Type="int" />
+    <Property Name="COMUNICACIONES_SOLICITANTE" Type="bit" />
+    <Property Name="COMUNICACIONES_SOLICITANTEFECHA" Type="datetime" />
+    <Property Name="COMUNICACIONES_SOLICITANTEFIRMA" Type="bit" />
+    <Property Name="COMUNICACIONES_FECHAINSPECCIONOCULAR" Type="datetime" />
+    <Property Name="COMUNICACIONES_VISIBLE" Type="int" />
+    <Property Name="COMUNICACIONES_PROCURADOR" Type="bit" />
+    <Property Name="COMUNICACIONES_PROCURADORFECHA" Type="datetime" />
+    <Property Name="COMUNICACIONES_PROCURADORFIRMA" Type="bit" />
+    <Property Name="COMUNICACIONES_VISIBLE_PROCURADOR" Type="int" />
+    <Property Name="COMUNICACIONES_AUTORIDADAMBIENTAL" Type="bit" />
+    <Property Name="COMUNICACIONES_AUTORIDADAMBIENTALFECHA" Type="datetime" />
+    <Property Name="COMUNICACIONES_AUTORIDADAMBIENTALFIRMA" Type="bit" />
+    <Property Name="COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL" Type="int" />
+    <Property Name="COMUNICACIONES_COLINDATES" Type="int" />
+    <Property Name="COMUNICACIONES_COLINDATES_INCOMPLETOS" Type="int" />
+    <Property Name="COMUNICACIONES_COLINDATESFECHA" Type="datetime" />
+    <Property Name="COMUNICACIONES_COLINDATESFIRMA" Type="bit" />
+    <Property Name="COMUNICACIONES_VISIBLE_COLINDATES" Type="int" />
+    <Property Name="PUBLICACIONES_ALCALDIA" Type="bit" />
+    <Property Name="PUBLICACIONES_ALCALDIAFECHAFIJACION" Type="datetime" />
+    <Property Name="PUBLICACIONES_ALCALDIADESFIJACION" Type="datetime" />
+    <Property Name="PUBLICACIONES_ALCALDIAFIRMA" Type="bit" />
+    <Property Name="PUBLICACIONES_VISIBLE" Type="int" />
+    <Property Name="PUBLICACIONES_INCODER" Type="bit" />
+    <Property Name="PUBLICACIONES_INCODERFECHAFIJACION" Type="datetime" />
+    <Property Name="PUBLICACIONES_INCODERDESFIJACION" Type="datetime" />
+    <Property Name="PUBLICACIONES_INCODERFIRMA" Type="bit" />
+    <Property Name="PUBLICACIONES_VISIBLE_INCODER" Type="int" />
+    <Property Name="PUBLICACIONES_EMISORA" Type="bit" />
+    <Property Name="PUBLICACIONES_EMISORAFECHA1" Type="datetime" />
+    <Property Name="PUBLICACIONES_EMISORAFECHA2" Type="datetime" />
+    <Property Name="PUBLICACIONES_EMISORAFIRMA" Type="bit" />
+    <Property Name="PUBLICACIONES_VISIBLE_EMISORA" Type="int" />
+    <Property Name="SUBSIDIODEAPELACION" Type="bit" />
+    <Property Name="SUBSIDIODEAPELACION_VISIBLE" Type="int" />
+    <Property Name="SUBSIDIODEAPELACION_FECHA" Type="datetime" />
+    <Property Name="SUBSIDIODEAPELACION_RESPUESTA" Type="int" />
+    <Property Name="SUBSIDIODEAPELACION_DECISION" Type="int" />
+    <Property Name="Estado" Type="bit" />
+    <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" />
+    <Property Name="FechaModificacion" Type="datetime" />
+    <Property Name="Gestion" Type="int" />
+    <Property Name="Tipo" Type="varchar" MaxLength="100" />
+    <Property Name="IdMunicipio" Type="int" />
+    <Property Name="NombreMuni" Type="varchar" MaxLength="100" />
+    <Property Name="IdDepto" Type="varchar" MaxLength="100" />
+    <Property Name="NombreDepto" Type="varchar" MaxLength="100" />
+    <Property Name="Orden" Type="int" />
+  </EntityType>
   <EntityType Name="CaracterizacionSolicitante">
     <Key>
       <PropertyRef Name="Id" />
@@ -787,6 +971,9 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
     <Parameter Name="IdCiudadIn" Type="int" Mode="In" />
     <Parameter Name="IdAspNetUser" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="ResumenCaracterizacionJuridica" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdAspNetUser" Type="nvarchar" Mode="In" />
+  </Function>
   <EntityContainer Name="ZonasFModelStoreContainer">
     <EntitySet Name="ActDiaModalidad" EntityType="Self.ActDiaModalidad" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ActDiaProceso" EntityType="Self.ActDiaProceso" Schema="dbo" store:Type="Tables" />
@@ -898,6 +1085,186 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
     [AspNetUsers].[AccessFailedCount] AS [AccessFailedCount], 
     [AspNetUsers].[UserName] AS [UserName]
     FROM [dbo].[AspNetUsers] AS [AspNetUsers]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CaracterizacionJuridicaResumen" EntityType="Self.CaracterizacionJuridicaResumen" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CaracterizacionJuridicaResumen].[Id] AS [Id], 
+    [CaracterizacionJuridicaResumen].[IdExpediente] AS [IdExpediente], 
+    [CaracterizacionJuridicaResumen].[INSPECCION_OCULAR_INSPECCION_OCULAR_53] AS [INSPECCION_OCULAR_INSPECCION_OCULAR_53], 
+    [CaracterizacionJuridicaResumen].[INSPECCION_OCULAR_FECHA_54] AS [INSPECCION_OCULAR_FECHA_54], 
+    [CaracterizacionJuridicaResumen].[INSPECCION_OCULAR_FIRMA_55] AS [INSPECCION_OCULAR_FIRMA_55], 
+    [CaracterizacionJuridicaResumen].[INSPECCION_OCULAR_OPOSICIONES_56] AS [INSPECCION_OCULAR_OPOSICIONES_56], 
+    [CaracterizacionJuridicaResumen].[INSPECCION_OCULAR_CONCEPTO_57] AS [INSPECCION_OCULAR_CONCEPTO_57], 
+    [CaracterizacionJuridicaResumen].[INSPECCION_OCULAR_VISIBLE] AS [INSPECCION_OCULAR_VISIBLE], 
+    [CaracterizacionJuridicaResumen].[ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58] AS [ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58], 
+    [CaracterizacionJuridicaResumen].[ACLARACION_DE_INSPECCION_OCULAR_FECHA_59] AS [ACLARACION_DE_INSPECCION_OCULAR_FECHA_59], 
+    [CaracterizacionJuridicaResumen].[ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60] AS [ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60], 
+    [CaracterizacionJuridicaResumen].[ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61] AS [ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61], 
+    [CaracterizacionJuridicaResumen].[ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62] AS [ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62], 
+    [CaracterizacionJuridicaResumen].[ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63] AS [ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63], 
+    [CaracterizacionJuridicaResumen].[ACLARACION_DE_INSPECCION_VISIBLE] AS [ACLARACION_DE_INSPECCION_VISIBLE], 
+    [CaracterizacionJuridicaResumen].[FIJACION_EN_LISTA_FIJACION_EN_LISTA_64] AS [FIJACION_EN_LISTA_FIJACION_EN_LISTA_64], 
+    [CaracterizacionJuridicaResumen].[FIJACION_EN_LISTA_FECHA_DE_FIJACION_65] AS [FIJACION_EN_LISTA_FECHA_DE_FIJACION_65], 
+    [CaracterizacionJuridicaResumen].[FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66] AS [FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66], 
+    [CaracterizacionJuridicaResumen].[FIJACION_EN_LISTA_FIRMA_67] AS [FIJACION_EN_LISTA_FIRMA_67], 
+    [CaracterizacionJuridicaResumen].[FIJACION_EN_LISTA_VISIBLE] AS [FIJACION_EN_LISTA_VISIBLE], 
+    [CaracterizacionJuridicaResumen].[OPOCISIONES_OPOCISIONES_68] AS [OPOCISIONES_OPOCISIONES_68], 
+    [CaracterizacionJuridicaResumen].[OPOCISIONES_FECHA_69] AS [OPOCISIONES_FECHA_69], 
+    [CaracterizacionJuridicaResumen].[OPOCISIONES_EN_LISTA_VISIBLE] AS [OPOCISIONES_EN_LISTA_VISIBLE], 
+    [CaracterizacionJuridicaResumen].[FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70] AS [FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70], 
+    [CaracterizacionJuridicaResumen].[FORMATO_DE_REVISION_JURIDICA_FECHA_71] AS [FORMATO_DE_REVISION_JURIDICA_FECHA_71], 
+    [CaracterizacionJuridicaResumen].[FORMATO_DE_REVISION_JURIDICA_FIRMADA_72] AS [FORMATO_DE_REVISION_JURIDICA_FIRMADA_72], 
+    [CaracterizacionJuridicaResumen].[FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73] AS [FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73], 
+    [CaracterizacionJuridicaResumen].[FORMATO_DE_REVISION_JURIDICA_VISIBLE] AS [FORMATO_DE_REVISION_JURIDICA_VISIBLE], 
+    [CaracterizacionJuridicaResumen].[RESOLUCION_RESOLUCION_74] AS [RESOLUCION_RESOLUCION_74], 
+    [CaracterizacionJuridicaResumen].[RESOLUCION_NUMERO_DE_RESOLUCION_75] AS [RESOLUCION_NUMERO_DE_RESOLUCION_75], 
+    [CaracterizacionJuridicaResumen].[RESOLUCION_FECHA_DE_RESOLUCION_76] AS [RESOLUCION_FECHA_DE_RESOLUCION_76], 
+    [CaracterizacionJuridicaResumen].[RESOLUCION_FIRMADA_77] AS [RESOLUCION_FIRMADA_77], 
+    [CaracterizacionJuridicaResumen].[RESOLUCION_DECISION_78] AS [RESOLUCION_DECISION_78], 
+    [CaracterizacionJuridicaResumen].[RESOLUCION_DATOS_SOLICITANTE_BIEN] AS [RESOLUCION_DATOS_SOLICITANTE_BIEN], 
+    [CaracterizacionJuridicaResumen].[RESOLUCION_DATOS_SOLICITANTE_EN] AS [RESOLUCION_DATOS_SOLICITANTE_EN], 
+    [CaracterizacionJuridicaResumen].[RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79] AS [RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79], 
+    [CaracterizacionJuridicaResumen].[RESOLUCION_CONJUNTA_INDIVIDUAL_80] AS [RESOLUCION_CONJUNTA_INDIVIDUAL_80], 
+    [CaracterizacionJuridicaResumen].[RESOLUCION_VISIBLE] AS [RESOLUCION_VISIBLE], 
+    [CaracterizacionJuridicaResumen].[RESOLUCION_RAZON_NEGACION] AS [RESOLUCION_RAZON_NEGACION], 
+    [CaracterizacionJuridicaResumen].[NOTIFICACION_NOTIFICACION_SOLICITANTES_81] AS [NOTIFICACION_NOTIFICACION_SOLICITANTES_81], 
+    [CaracterizacionJuridicaResumen].[NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82] AS [NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82], 
+    [CaracterizacionJuridicaResumen].[NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83] AS [NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83], 
+    [CaracterizacionJuridicaResumen].[NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84] AS [NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84], 
+    [CaracterizacionJuridicaResumen].[NOTIFICACION_VISIBLE] AS [NOTIFICACION_VISIBLE], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85] AS [RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86] AS [RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87] AS [RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_DECISION_N_1] AS [RECURSO_SOLICITANTE_DECISION_N_1], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_FIRMADA_88] AS [RECURSO_SOLICITANTE_FIRMADA_88], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_ACTO_89] AS [RECURSO_SOLICITANTE_ACTO_89], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_NUMERO_90] AS [RECURSO_SOLICITANTE_NUMERO_90], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_FECHA_91] AS [RECURSO_SOLICITANTE_FECHA_91], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92] AS [RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93] AS [RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94] AS [RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95] AS [RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96] AS [RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2] AS [RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3] AS [RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4] AS [RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5] AS [RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6] AS [RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6] AS [RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_CONJUNA_IND_N_7] AS [RECURSO_SOLICITANTE_CONJUNA_IND_N_7], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8] AS [RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9] AS [RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10] AS [RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11] AS [RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11], 
+    [CaracterizacionJuridicaResumen].[RECURSO_SOLICITANTE_VISIBLE] AS [RECURSO_SOLICITANTE_VISIBLE], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_RECURSO_MINISTERIO_85] AS [RECURSO_MINISTERIO_RECURSO_MINISTERIO_85], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86] AS [RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_RESPUESTA_RECURSO_87] AS [RECURSO_MINISTERIO_RESPUESTA_RECURSO_87], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_DECISION_N_1] AS [RECURSO_MINISTERIO_DECISION_N_1], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_FIRMADA_88] AS [RECURSO_MINISTERIO_FIRMADA_88], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_ACTO_89] AS [RECURSO_MINISTERIO_ACTO_89], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_NUMERO_90] AS [RECURSO_MINISTERIO_NUMERO_90], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_FECHA_91] AS [RECURSO_MINISTERIO_FECHA_91], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92] AS [RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93] AS [RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94] AS [RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95] AS [RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96] AS [RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2] AS [RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3] AS [RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4] AS [RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5] AS [RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6] AS [RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6] AS [RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_CONJUNA_IND_N_7] AS [RECURSO_MINISTERIO_CONJUNA_IND_N_7], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8] AS [RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9] AS [RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10] AS [RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11] AS [RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11], 
+    [CaracterizacionJuridicaResumen].[RECURSO_MINISTERIO_VISIBLE] AS [RECURSO_MINISTERIO_VISIBLE], 
+    [CaracterizacionJuridicaResumen].[CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109] AS [CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109], 
+    [CaracterizacionJuridicaResumen].[CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110] AS [CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110], 
+    [CaracterizacionJuridicaResumen].[CONSTANCIA_DE_EJECUTORIA_FIRMADA_111] AS [CONSTANCIA_DE_EJECUTORIA_FIRMADA_111], 
+    [CaracterizacionJuridicaResumen].[CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112] AS [CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112], 
+    [CaracterizacionJuridicaResumen].[CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION] AS [CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION], 
+    [CaracterizacionJuridicaResumen].[CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA] AS [CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA], 
+    [CaracterizacionJuridicaResumen].[CONSTANCIA_DE_EJECUTORIA_VISIBLE] AS [CONSTANCIA_DE_EJECUTORIA_VISIBLE], 
+    [CaracterizacionJuridicaResumen].[REVOCATORIA_REVOCATORIA_113] AS [REVOCATORIA_REVOCATORIA_113], 
+    [CaracterizacionJuridicaResumen].[REVOCATORIA_NUMERO_RESOLUCIÓN_114] AS [REVOCATORIA_NUMERO_RESOLUCIÓN_114], 
+    [CaracterizacionJuridicaResumen].[REVOCATORIA_FECHA_DE_RESOLUCIÓN_115] AS [REVOCATORIA_FECHA_DE_RESOLUCIÓN_115], 
+    [CaracterizacionJuridicaResumen].[REVOCATORIA_VISIBLE] AS [REVOCATORIA_VISIBLE], 
+    [CaracterizacionJuridicaResumen].[REGISTRO_FMI_] AS [REGISTRO_FMI_], 
+    [CaracterizacionJuridicaResumen].[REGISTRO_FMI] AS [REGISTRO_FMI], 
+    [CaracterizacionJuridicaResumen].[REGISTRO_FECHA_DE_REGISTRO_117] AS [REGISTRO_FECHA_DE_REGISTRO_117], 
+    [CaracterizacionJuridicaResumen].[REGISTRO_NUMERO_DE_RESOLUCION_118] AS [REGISTRO_NUMERO_DE_RESOLUCION_118], 
+    [CaracterizacionJuridicaResumen].[REGISTRO_FECHA_DE_RESOLUCION_119] AS [REGISTRO_FECHA_DE_RESOLUCION_119], 
+    [CaracterizacionJuridicaResumen].[REGISTRO_VISIBLE] AS [REGISTRO_VISIBLE], 
+    [CaracterizacionJuridicaResumen].[SOLICITUD_SOLICITUD] AS [SOLICITUD_SOLICITUD], 
+    [CaracterizacionJuridicaResumen].[SOLICITUD_FECHA] AS [SOLICITUD_FECHA], 
+    [CaracterizacionJuridicaResumen].[SOLICITUD_FIRMA] AS [SOLICITUD_FIRMA], 
+    [CaracterizacionJuridicaResumen].[SOLICITUD_TIPO_SOLICITUD] AS [SOLICITUD_TIPO_SOLICITUD], 
+    [CaracterizacionJuridicaResumen].[SOLICITUD_CEDULA_SOLICITANTE] AS [SOLICITUD_CEDULA_SOLICITANTE], 
+    [CaracterizacionJuridicaResumen].[SOLICITUD_CEDULA_CONYUGE] AS [SOLICITUD_CEDULA_CONYUGE], 
+    [CaracterizacionJuridicaResumen].[SOLICITUD_CEDULA_PARIENTE] AS [SOLICITUD_CEDULA_PARIENTE], 
+    [CaracterizacionJuridicaResumen].[SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA] AS [SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA], 
+    [CaracterizacionJuridicaResumen].[SOLICITUD_VISIBLE] AS [SOLICITUD_VISIBLE], 
+    [CaracterizacionJuridicaResumen].[AUTODEACEPTACION_AUTODEACEPTACION] AS [AUTODEACEPTACION_AUTODEACEPTACION], 
+    [CaracterizacionJuridicaResumen].[AUTODEACEPTACION_FECHA] AS [AUTODEACEPTACION_FECHA], 
+    [CaracterizacionJuridicaResumen].[AUTODEACEPTACION_FIRMA] AS [AUTODEACEPTACION_FIRMA], 
+    [CaracterizacionJuridicaResumen].[AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO] AS [AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO], 
+    [CaracterizacionJuridicaResumen].[AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO] AS [AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO], 
+    [CaracterizacionJuridicaResumen].[AUTODEACEPTACION_DATOSPREDIOSCORRECTO] AS [AUTODEACEPTACION_DATOSPREDIOSCORRECTO], 
+    [CaracterizacionJuridicaResumen].[AUTODEACEPTACION_COLINDANTE_CORRECTO] AS [AUTODEACEPTACION_COLINDANTE_CORRECTO], 
+    [CaracterizacionJuridicaResumen].[AUTODEACEPTACION_VISIBLE] AS [AUTODEACEPTACION_VISIBLE], 
+    [CaracterizacionJuridicaResumen].[COMUNICACIONES_SOLICITANTE] AS [COMUNICACIONES_SOLICITANTE], 
+    [CaracterizacionJuridicaResumen].[COMUNICACIONES_SOLICITANTEFECHA] AS [COMUNICACIONES_SOLICITANTEFECHA], 
+    [CaracterizacionJuridicaResumen].[COMUNICACIONES_SOLICITANTEFIRMA] AS [COMUNICACIONES_SOLICITANTEFIRMA], 
+    [CaracterizacionJuridicaResumen].[COMUNICACIONES_FECHAINSPECCIONOCULAR] AS [COMUNICACIONES_FECHAINSPECCIONOCULAR], 
+    [CaracterizacionJuridicaResumen].[COMUNICACIONES_VISIBLE] AS [COMUNICACIONES_VISIBLE], 
+    [CaracterizacionJuridicaResumen].[COMUNICACIONES_PROCURADOR] AS [COMUNICACIONES_PROCURADOR], 
+    [CaracterizacionJuridicaResumen].[COMUNICACIONES_PROCURADORFECHA] AS [COMUNICACIONES_PROCURADORFECHA], 
+    [CaracterizacionJuridicaResumen].[COMUNICACIONES_PROCURADORFIRMA] AS [COMUNICACIONES_PROCURADORFIRMA], 
+    [CaracterizacionJuridicaResumen].[COMUNICACIONES_VISIBLE_PROCURADOR] AS [COMUNICACIONES_VISIBLE_PROCURADOR], 
+    [CaracterizacionJuridicaResumen].[COMUNICACIONES_AUTORIDADAMBIENTAL] AS [COMUNICACIONES_AUTORIDADAMBIENTAL], 
+    [CaracterizacionJuridicaResumen].[COMUNICACIONES_AUTORIDADAMBIENTALFECHA] AS [COMUNICACIONES_AUTORIDADAMBIENTALFECHA], 
+    [CaracterizacionJuridicaResumen].[COMUNICACIONES_AUTORIDADAMBIENTALFIRMA] AS [COMUNICACIONES_AUTORIDADAMBIENTALFIRMA], 
+    [CaracterizacionJuridicaResumen].[COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL] AS [COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL], 
+    [CaracterizacionJuridicaResumen].[COMUNICACIONES_COLINDATES] AS [COMUNICACIONES_COLINDATES], 
+    [CaracterizacionJuridicaResumen].[COMUNICACIONES_COLINDATES_INCOMPLETOS] AS [COMUNICACIONES_COLINDATES_INCOMPLETOS], 
+    [CaracterizacionJuridicaResumen].[COMUNICACIONES_COLINDATESFECHA] AS [COMUNICACIONES_COLINDATESFECHA], 
+    [CaracterizacionJuridicaResumen].[COMUNICACIONES_COLINDATESFIRMA] AS [COMUNICACIONES_COLINDATESFIRMA], 
+    [CaracterizacionJuridicaResumen].[COMUNICACIONES_VISIBLE_COLINDATES] AS [COMUNICACIONES_VISIBLE_COLINDATES], 
+    [CaracterizacionJuridicaResumen].[PUBLICACIONES_ALCALDIA] AS [PUBLICACIONES_ALCALDIA], 
+    [CaracterizacionJuridicaResumen].[PUBLICACIONES_ALCALDIAFECHAFIJACION] AS [PUBLICACIONES_ALCALDIAFECHAFIJACION], 
+    [CaracterizacionJuridicaResumen].[PUBLICACIONES_ALCALDIADESFIJACION] AS [PUBLICACIONES_ALCALDIADESFIJACION], 
+    [CaracterizacionJuridicaResumen].[PUBLICACIONES_ALCALDIAFIRMA] AS [PUBLICACIONES_ALCALDIAFIRMA], 
+    [CaracterizacionJuridicaResumen].[PUBLICACIONES_VISIBLE] AS [PUBLICACIONES_VISIBLE], 
+    [CaracterizacionJuridicaResumen].[PUBLICACIONES_INCODER] AS [PUBLICACIONES_INCODER], 
+    [CaracterizacionJuridicaResumen].[PUBLICACIONES_INCODERFECHAFIJACION] AS [PUBLICACIONES_INCODERFECHAFIJACION], 
+    [CaracterizacionJuridicaResumen].[PUBLICACIONES_INCODERDESFIJACION] AS [PUBLICACIONES_INCODERDESFIJACION], 
+    [CaracterizacionJuridicaResumen].[PUBLICACIONES_INCODERFIRMA] AS [PUBLICACIONES_INCODERFIRMA], 
+    [CaracterizacionJuridicaResumen].[PUBLICACIONES_VISIBLE_INCODER] AS [PUBLICACIONES_VISIBLE_INCODER], 
+    [CaracterizacionJuridicaResumen].[PUBLICACIONES_EMISORA] AS [PUBLICACIONES_EMISORA], 
+    [CaracterizacionJuridicaResumen].[PUBLICACIONES_EMISORAFECHA1] AS [PUBLICACIONES_EMISORAFECHA1], 
+    [CaracterizacionJuridicaResumen].[PUBLICACIONES_EMISORAFECHA2] AS [PUBLICACIONES_EMISORAFECHA2], 
+    [CaracterizacionJuridicaResumen].[PUBLICACIONES_EMISORAFIRMA] AS [PUBLICACIONES_EMISORAFIRMA], 
+    [CaracterizacionJuridicaResumen].[PUBLICACIONES_VISIBLE_EMISORA] AS [PUBLICACIONES_VISIBLE_EMISORA], 
+    [CaracterizacionJuridicaResumen].[SUBSIDIODEAPELACION] AS [SUBSIDIODEAPELACION], 
+    [CaracterizacionJuridicaResumen].[SUBSIDIODEAPELACION_VISIBLE] AS [SUBSIDIODEAPELACION_VISIBLE], 
+    [CaracterizacionJuridicaResumen].[SUBSIDIODEAPELACION_FECHA] AS [SUBSIDIODEAPELACION_FECHA], 
+    [CaracterizacionJuridicaResumen].[SUBSIDIODEAPELACION_RESPUESTA] AS [SUBSIDIODEAPELACION_RESPUESTA], 
+    [CaracterizacionJuridicaResumen].[SUBSIDIODEAPELACION_DECISION] AS [SUBSIDIODEAPELACION_DECISION], 
+    [CaracterizacionJuridicaResumen].[Estado] AS [Estado], 
+    [CaracterizacionJuridicaResumen].[IdAspNetUser] AS [IdAspNetUser], 
+    [CaracterizacionJuridicaResumen].[FechaModificacion] AS [FechaModificacion], 
+    [CaracterizacionJuridicaResumen].[Gestion] AS [Gestion], 
+    [CaracterizacionJuridicaResumen].[Tipo] AS [Tipo], 
+    [CaracterizacionJuridicaResumen].[IdMunicipio] AS [IdMunicipio], 
+    [CaracterizacionJuridicaResumen].[NombreMuni] AS [NombreMuni], 
+    [CaracterizacionJuridicaResumen].[IdDepto] AS [IdDepto], 
+    [CaracterizacionJuridicaResumen].[NombreDepto] AS [NombreDepto], 
+    [CaracterizacionJuridicaResumen].[Orden] AS [Orden]
+    FROM [dbo].[CaracterizacionJuridicaResumen] AS [CaracterizacionJuridicaResumen]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="ResumenTipificacionAll" EntityType="Self.ResumenTipificacionAll" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 

@@ -30,100 +30,16 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             }
         }
 
-        public async Task<ActionResult> Index()
-        {
-            return View();
-
-        }
-
-        public class RecursiveGroup
-        {
-            public string Nombre { get; set; }
-            public string Tipo { get; set; }
-
-            public string Total { get; set; }
-
-            public List<RecursiveGroup> ListRecursiveGroup { get; set; }
-        }
-
-        public async Task<ActionResult> Index2()
-        {
-            string Id = "0";
-            string Controller = "CaracterizacionJuridicaResumen";
-            string Method = "getConsultar";
-            string result = await employeeProvider.Get(Id, Controller, Method);
-            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
-            List<CaracterizacionJuridicaModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CaracterizacionJuridicaModel>>(jsonResult.ToString());
-
-            var SOLICITUD_SOLICITUD = processModel
-            .GroupBy(z => z.SOLICITUD_SOLICITUD)
-            .Select(c => new RecursiveGroup
-            {
-                Nombre = "Solicitud",
-                Tipo = c.Select(v => v.SOLICITUD_SOLICITUD).FirstOrDefault().ToString(),
-                Total = c.Count().ToString(),
-            }).ToList();
-
-            List<RecursiveGroup> ListResultObjec = new  List<RecursiveGroup>();
-
-            foreach (var Entity in SOLICITUD_SOLICITUD) {
-                
-                RecursiveGroup ResultObjec = new RecursiveGroup();
-
-                ResultObjec.Nombre = Entity.Nombre;
-                ResultObjec.Tipo = Entity.Tipo;
-                ResultObjec.Total = Entity.Total;
-
-                ResultObjec.ListRecursiveGroup = processModel.Where(x => x.SOLICITUD_SOLICITUD == true)
-                 .GroupBy(z => z.SOLICITUD_VISIBLE)
-                 .Select(c => new RecursiveGroup
-                 {
-                     Nombre = "SOLICITUD_VISIBLE",
-                     Tipo = c.Select(v => v.SOLICITUD_VISIBLE).FirstOrDefault().ToString(),
-                     Total = c.Count().ToString(),
-                 }).ToList();
-
-                ListResultObjec.Add(ResultObjec);
-
-            }
-
-            
-            var AUTODEACEPTACION_AUTODEACEPTACION = processModel
-            .GroupBy(z => z.AUTODEACEPTACION_AUTODEACEPTACION)
-            .Select(c => new RecursiveGroup
-            {
-                Nombre = "Auto de Aceptacion",
-                Tipo = c.Select(v => v.SOLICITUD_SOLICITUD).FirstOrDefault().ToString(),
-                Total = c.Count().ToString(),
-            }).ToList();
-
-            foreach (var Entity in AUTODEACEPTACION_AUTODEACEPTACION)
-            {
-
-                RecursiveGroup ResultObjec = new RecursiveGroup();
-
-                ResultObjec.Nombre = Entity.Nombre;
-                ResultObjec.Tipo = Entity.Tipo;
-                ResultObjec.Total = Entity.Total;
-
-                ResultObjec.ListRecursiveGroup = processModel.Where(x => x.AUTODEACEPTACION_AUTODEACEPTACION == true)
-                 .GroupBy(z => z.AUTODEACEPTACION_AUTODEACEPTACION)
-                 .Select(c => new RecursiveGroup
-                 {
-                     Nombre = "Auto de Aceptacion visible",
-                     Tipo = c.Select(v => v.AUTODEACEPTACION_AUTODEACEPTACION).FirstOrDefault().ToString(),
-                     Total = c.Count().ToString(),
-                 }).ToList();
-
-                ListResultObjec.Add(ResultObjec);
-
-            }
-
-            
-
-            return Json(ListResultObjec, JsonRequestBehavior.AllowGet);
-
-        }
+        //public async Task<ActionResult> CountDeptoMuni()
+        //{
+        //    string Id = "0";
+        //    string Controller = "Administrator";
+        //    string Method = "getAdministratorCountDeptoMuni";
+        //    string result = await employeeProvider.Get(Id, Controller, Method);
+        //    var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+        //    List<CtCiudadModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CtCiudadModel>>(jsonResult.ToString());
+        //    return Json(processModel, JsonRequestBehavior.AllowGet);
+        //}
 
         //public async Task<ActionResult> CountDepto()
         //{
@@ -136,34 +52,30 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
         //    return Json(processModel, JsonRequestBehavior.AllowGet);
         //}
 
-        //public async Task<ActionResult> Resumen(int IdDepto, int IdCiudad)
-        //{
-        //    string Id = IdDepto + "_" + IdCiudad + "_" + GetTokenObject().nameid;
-        //    string Controller = "Administrator";
-        //    string Method = "getResumen";
-        //    string result = await employeeProvider.Get(Id, Controller, Method);
-        //    var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
-        //    List<ResumenTipificacionModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ResumenTipificacionModel>>(jsonResult.ToString());
+        public async Task<ActionResult> Resumen(int IdDepto, int IdCiudad)
+        {
+            string Id = "76" + "_" + "275" + "_" + GetTokenObject().nameid;
+            string Controller = "Administrator";
+            string Method = "GetRegumenCaracterizacionJuridicaAll";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            List<CaracterizacionJuridicaResumenModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CaracterizacionJuridicaResumenModel>>(jsonResult.ToString());
 
-        //    var Resumen = processModel
-        //                    .GroupBy(z => z.Grupo)
-        //                      .Select(c => new ResumenTipificacionVistaModel
-        //                      {
-        //                          Total = c.Count(),
-        //                          Grupo = c.Select(v => v.Grupo).FirstOrDefault(),
-        //                          //Plano = processModel.Where(x => x.Plano == 21 && x.Grupo == c.Select(v => v.Grupo).FirstOrDefault()).Count(),
-        //                          Plano = c.Where(v => v.Plano == 21).Count(),
-        //                          Orden = c.Select(v => v.Orden).FirstOrDefault(),
-        //                          Municipio = c.Select(v => v.Municipio).FirstOrDefault(),
-        //                          IdMunicipio = c.Select(v => v.IdMunicipio).FirstOrDefault(),
-        //                          Depto = c.Select(v => v.Depto).FirstOrDefault(),
-        //                          IdDepto = c.Select(v => v.IdDepto).FirstOrDefault(),
-        //                      })
+            var Resumen = processModel
+                            .GroupBy(z => z.Tipo)
+                            .Select(c => new ResumenTipificacionVistaModel
+                            {
+                                Total = c.Count(),
+                                Grupo = c.Select(v => v.Tipo).FirstOrDefault(),
+                                Municipio = c.Select(v => v.NombreMuni).FirstOrDefault(),
+                                IdMunicipio = c.Select(v => v.IdMunicipio.Value).FirstOrDefault(),
+                                Depto = c.Select(v => v.NombreDepto).FirstOrDefault(),
+                                IdDepto = Convert.ToInt32(c.Select(v => v.IdDepto).FirstOrDefault()),
+                            }).ToList();
 
-        //                  .ToList();
 
-        //    return View("ResumenIndex", Resumen);
-        //}
+            return View("ResumenIndex", Resumen);
+        }
 
         //public async Task<ActionResult> ResumenAll()
         //{
@@ -191,6 +103,32 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
 
         //     return View("ResumenAllIndex", Resumen);
         //}
+
+        public async Task<ActionResult> ResumenCaracterizacionJuridicaAll()
+        {
+            string Id = "76" + "_" + "275" + "_" + GetTokenObject().nameid;
+            string Controller = "Administrator";
+            string Method = "GetRegumenCaracterizacionJuridicaAll";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            List<CaracterizacionJuridicaResumenModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CaracterizacionJuridicaResumenModel>>(jsonResult.ToString());
+
+            var Resumen = processModel
+                            .GroupBy(z => z.NombreMuni)
+                            .Select(c => new ResumenTipificacionVistaModel
+                            {
+                                Total = c.Count(),
+                                Grupo = c.Select(v => v.IdAspNetUser).FirstOrDefault(),
+                                Municipio = c.Select(v => v.NombreMuni).FirstOrDefault(),
+                                IdMunicipio = c.Select(v => v.IdMunicipio.Value).FirstOrDefault(),
+                                Depto = c.Select(v => v.NombreDepto).FirstOrDefault(),
+                                IdDepto = Convert.ToInt32( c.Select(v => v.IdDepto).FirstOrDefault()),
+                            }).ToList();
+
+            return Json(Resumen, JsonRequestBehavior.AllowGet);
+        }
+
+        
 
         //public async Task<ActionResult> ResumenRegistro(int IdDepto, int IdCiudad)
         //{
@@ -249,16 +187,16 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
         //    return View("ResumenLista", processModel);
         //}
 
-        //public async Task<ActionResult> ResumenLista(int IdDepto, int IdCiudad, string Grupo)
-        //{
-        //    string Id = IdDepto + "_" + IdCiudad + "_" + GetTokenObject().nameid + "_" + Grupo;
-        //    string Controller = "Administrator";
-        //    string Method = "getResumenLista";
-        //    string result = await employeeProvider.Get(Id, Controller, Method);
-        //    var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
-        //    List<BaldiosPersonaNaturalModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<BaldiosPersonaNaturalModel>>(jsonResult.ToString());
-        //    return View("ResumenLista", processModel);
-        //}
+        public async Task<ActionResult> ResumenLista(int IdDepto, int IdCiudad, string Grupo)
+        {
+            string Id = IdDepto + "_" + IdCiudad + "_" + GetTokenObject().nameid + "_" + Grupo;
+            string Controller = "Administrator";
+            string Method = "getResumenListaRegumenCaracterizacionJuridica";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            List<BaldiosPersonaNaturalModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<BaldiosPersonaNaturalModel>>(jsonResult.ToString());
+            return View("ResumenLista", processModel);
+        }
 
         //public async Task<ActionResult> ResumenListaAll(int IdDepto, int IdCiudad, string Grupo)
         //{
@@ -304,16 +242,16 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
         //    return Json(processModel);
         //}
 
-        //public ActionResult ResumenIndex(int IdDeptoIn, int IdCiudadIn)
-        //{
-        //    return Json(new { result = "Redirect", url = Url.Action("Resumen", "CaracterizacionJuridicaResumen", new { IdDepto = IdDeptoIn, IdCiudad = IdCiudadIn }) });
-        //}
+        public ActionResult ResumenIndex(int IdDeptoIn, int IdCiudadIn)
+        {
+            return Json(new { result = "Redirect", url = Url.Action("Resumen", "CaracterizacionJuridicaResumen", new { IdDepto = IdDeptoIn, IdCiudad = IdCiudadIn }) });
+        }
 
-        //public ActionResult Index()
-        //{
-        //    return View();
+        public ActionResult Index()
+        {
+            return View();
 
-        //}
+        }
 
         //public ActionResult IndexDepto()
         //{

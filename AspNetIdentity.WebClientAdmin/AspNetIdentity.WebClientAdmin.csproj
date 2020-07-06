@@ -979,6 +979,7 @@
     <Content Include="Views\CaracterizacionJuridicaResumen\ResumenAllIndex.cshtml" />
     <Content Include="Views\CaracterizacionJuridicaResumen\ResumenIndex.cshtml" />
     <Content Include="Views\CaracterizacionJuridicaResumen\ResumenLista.cshtml" />
+    <Content Include="Views\HomeAdministrator\ResumenAllCaracterizacionIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

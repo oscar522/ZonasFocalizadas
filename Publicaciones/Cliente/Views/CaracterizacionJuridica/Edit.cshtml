@@ -2413,7 +2413,8 @@
                         data: { Id: 109 },
                         success: function(states) {
                             $.each(states, function (i, state) {
-                                if (state.Value=="@Model.RESOLUCION_RAZON_NEGACION") $("#RESOLUCION_RAZON_NEGACION").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+
+                                if (state.Value=="@Model.RESOLUCION_RAZON_NEGACION" && '@Model.RESOLUCION_DECISION_78' == '8') $("#RESOLUCION_RAZON_NEGACION").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
                                 else $("#RESOLUCION_RAZON_NEGACION").append('<option value="' + state.Value + '">' +state.Text + '</option>');
                             });
                         },
@@ -3162,6 +3163,7 @@
                     if ($("#RESOLUCION_RESOLUCION_74").val() == "False" || $("#RESOLUCION_RESOLUCION_74").val() == "" || ($("#RESOLUCION_VISIBLE").val() == "0" || $("#RESOLUCION_VISIBLE").val() == "2")) {
                         
                         if ($("#RESOLUCION_RESOLUCION_74").val() == "False" || $("#RESOLUCION_RESOLUCION_74").val() == "" ) {
+
                             if ( $("#RESOLUCION_RESOLUCION_74").val() == "" ) {
 
                                 $('#RESOLUCION_VISIBLE').prop("disabled", false);
@@ -3224,19 +3226,27 @@
                     }
                     if( '@Model.RESOLUCION_DECISION_78' == "7"){
 
-                                $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", false);
-                                $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", false);
-                                $('#RESOLUCION_RAZON_NEGACION').prop("disabled", true);
-                        
-                            }else if('@Model.RESOLUCION_DECISION_78' == ""){
-                                $('#RESOLUCION_RAZON_NEGACION').prop("disabled", true);
-                                $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", true);
-                                $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", true);
-                            }else{
-                                $('#RESOLUCION_RAZON_NEGACION').prop("disabled", false);
-                                $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", true);
-                                $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", true);
-                            }
+                        $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", false);
+                        $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", false);
+                        $('#RESOLUCION_RAZON_NEGACION').prop("disabled", true);
+                
+                    }else if('@Model.RESOLUCION_DECISION_78' == ""){
+                        $('#RESOLUCION_RAZON_NEGACION').prop("disabled", true);
+                        $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", true);
+                        $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", true);
+                    }else{
+                        $('#RESOLUCION_RAZON_NEGACION').prop("disabled", false);
+                        $('#RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79').prop("disabled", true);
+                        $('#RESOLUCION_DATOS_SOLICITANTE_EN').prop("disabled", true);
+                    }
+
+                    if($('#RESOLUCION_DECISION_78').val() == '8' ){
+                        $('#RESOLUCION_RAZON_NEGACION').prop("disabled", false);
+                        $('#RESOLUCION_RAZON_NEGACION').val('0');
+                    }else{
+                        $('#RESOLUCION_RAZON_NEGACION').val('0');
+                        $('#RESOLUCION_RAZON_NEGACION').prop("disabled", true);
+                    }
 
 
                 /// NOTIFICACION_NOTIFICACION_SOLICITANTES
@@ -3799,7 +3809,10 @@
                         $('#RESOLUCION_CONJUNTA_INDIVIDUAL_80').val("@Model.RESOLUCION_CONJUNTA_INDIVIDUAL_80");
                         $('#RESOLUCION_DATOS_SOLICITANTE_BIEN').val("@Model.RESOLUCION_DATOS_SOLICITANTE_BIEN");
                         $('#RESOLUCION_DATOS_SOLICITANTE_EN').val("@Model.RESOLUCION_DATOS_SOLICITANTE_EN");
-                        $('#RESOLUCION_RAZON_NEGACION').val("@Model.RESOLUCION_RAZON_NEGACION");
+
+                        if ( $('#RESOLUCION_DECISION_78').val() == '8' ) {
+                            $('#RESOLUCION_RAZON_NEGACION').val("@Model.RESOLUCION_RAZON_NEGACION");
+                        } 
                     /// NOTIFICACION    
                     
                         $('#NOTIFICACION_NOTIFICACION_SOLICITANTES_81').val("@Model.NOTIFICACION_NOTIFICACION_SOLICITANTES_81");
@@ -4117,6 +4130,10 @@
                                     $('#RESOLUCION_DATOS_SOLICITANTE_EN').val("1");
                                     $('#RESOLUCION_RAZON_NEGACION').val("37");
 
+                                }
+
+                                if( $("#RESOLUCION_DECISION_78").val() != '8') {
+                                    $("#RESOLUCION_RAZON_NEGACION").append('<option selected  value="1"> 1 </option>');
                                 }
                             /// NOTIFICACION_NOTIFICACION_SOLICITANTES
                                 if ($("#NOTIFICACION_NOTIFICACION_SOLICITANTES_81").val() == "False" || $("#NOTIFICACION_NOTIFICACION_SOLICITANTES_81").val() == "" || ( $("#NOTIFICACION_VISIBLE").val() == "2")) {

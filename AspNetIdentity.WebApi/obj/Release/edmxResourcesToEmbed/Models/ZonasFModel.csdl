@@ -291,6 +291,10 @@
       <Parameter Name="UsersId" Mode="In" Type="String" />
     </FunctionImport>
     <EntitySet Name="PlGestionTable" EntityType="ZonasFModel.PlGestionTable" />
+    <FunctionImport Name="ResumenCaracterizacionJuridica" EntitySet="CaracterizacionJuridicaResumen" ReturnType="Collection(ZonasFModel.CaracterizacionJuridicaResumen)">
+      <Parameter Name="IdAspNetUser" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="CaracterizacionJuridicaResumen" EntityType="ZonasFModel.CaracterizacionJuridicaResumen" />
   </EntityContainer>
   <EntityType Name="ExpedienteDocumentos">
     <Key>
@@ -804,5 +808,187 @@
     <Property Name="dia30" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="dia31" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="idd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="CaracterizacionJuridicaResumen">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="IdExpediente" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdExpediente" Type="Int64" Nullable="false" />
+    <Property Name="INSPECCION_OCULAR_INSPECCION_OCULAR_53" Type="Boolean" />
+    <Property Name="INSPECCION_OCULAR_FECHA_54" Type="DateTime" Precision="3" />
+    <Property Name="INSPECCION_OCULAR_FIRMA_55" Type="Boolean" />
+    <Property Name="INSPECCION_OCULAR_OPOSICIONES_56" Type="Boolean" />
+    <Property Name="INSPECCION_OCULAR_CONCEPTO_57" Type="Int32" />
+    <Property Name="INSPECCION_OCULAR_VISIBLE" Type="Int32" />
+    <Property Name="ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58" Type="Boolean" />
+    <Property Name="ACLARACION_DE_INSPECCION_OCULAR_FECHA_59" Type="DateTime" Precision="3" />
+    <Property Name="ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60" Type="Boolean" />
+    <Property Name="ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61" Type="Int32" />
+    <Property Name="ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62" Type="Boolean" />
+    <Property Name="ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63" Type="Boolean" />
+    <Property Name="ACLARACION_DE_INSPECCION_VISIBLE" Type="Int32" />
+    <Property Name="FIJACION_EN_LISTA_FIJACION_EN_LISTA_64" Type="Boolean" />
+    <Property Name="FIJACION_EN_LISTA_FECHA_DE_FIJACION_65" Type="DateTime" Precision="3" />
+    <Property Name="FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66" Type="DateTime" Precision="3" />
+    <Property Name="FIJACION_EN_LISTA_FIRMA_67" Type="Boolean" />
+    <Property Name="FIJACION_EN_LISTA_VISIBLE" Type="Int32" />
+    <Property Name="OPOCISIONES_OPOCISIONES_68" Type="Boolean" />
+    <Property Name="OPOCISIONES_FECHA_69" Type="DateTime" Precision="3" />
+    <Property Name="OPOCISIONES_EN_LISTA_VISIBLE" Type="Int32" />
+    <Property Name="FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70" Type="Boolean" />
+    <Property Name="FORMATO_DE_REVISION_JURIDICA_FECHA_71" Type="DateTime" Precision="3" />
+    <Property Name="FORMATO_DE_REVISION_JURIDICA_FIRMADA_72" Type="Boolean" />
+    <Property Name="FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73" Type="Int32" />
+    <Property Name="FORMATO_DE_REVISION_JURIDICA_VISIBLE" Type="Int32" />
+    <Property Name="RESOLUCION_RESOLUCION_74" Type="Boolean" />
+    <Property Name="RESOLUCION_NUMERO_DE_RESOLUCION_75" Type="Int64" />
+    <Property Name="RESOLUCION_FECHA_DE_RESOLUCION_76" Type="DateTime" Precision="3" />
+    <Property Name="RESOLUCION_FIRMADA_77" Type="Boolean" />
+    <Property Name="RESOLUCION_DECISION_78" Type="Int32" />
+    <Property Name="RESOLUCION_DATOS_SOLICITANTE_BIEN" Type="Int32" />
+    <Property Name="RESOLUCION_DATOS_SOLICITANTE_EN" Type="Int32" />
+    <Property Name="RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79" Type="Int64" />
+    <Property Name="RESOLUCION_CONJUNTA_INDIVIDUAL_80" Type="Int32" />
+    <Property Name="RESOLUCION_VISIBLE" Type="Int32" />
+    <Property Name="RESOLUCION_RAZON_NEGACION" Type="Int32" />
+    <Property Name="NOTIFICACION_NOTIFICACION_SOLICITANTES_81" Type="Boolean" />
+    <Property Name="NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82" Type="DateTime" Precision="3" />
+    <Property Name="NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83" Type="Boolean" />
+    <Property Name="NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84" Type="DateTime" Precision="3" />
+    <Property Name="NOTIFICACION_VISIBLE" Type="Int32" />
+    <Property Name="RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85" Type="Boolean" />
+    <Property Name="RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86" Type="DateTime" Precision="3" />
+    <Property Name="RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87" Type="Boolean" />
+    <Property Name="RECURSO_SOLICITANTE_DECISION_N_1" Type="Int32" />
+    <Property Name="RECURSO_SOLICITANTE_FIRMADA_88" Type="Boolean" />
+    <Property Name="RECURSO_SOLICITANTE_ACTO_89" Type="Int32" />
+    <Property Name="RECURSO_SOLICITANTE_NUMERO_90" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="RECURSO_SOLICITANTE_FECHA_91" Type="DateTime" Precision="3" />
+    <Property Name="RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92" Type="Int32" />
+    <Property Name="RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93" Type="Boolean" />
+    <Property Name="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94" Type="DateTime" Precision="3" />
+    <Property Name="RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95" Type="Boolean" />
+    <Property Name="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96" Type="DateTime" Precision="3" />
+    <Property Name="RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2" Type="Boolean" />
+    <Property Name="RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4" Type="DateTime" Precision="3" />
+    <Property Name="RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5" Type="Boolean" />
+    <Property Name="RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6" Type="Int32" />
+    <Property Name="RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="RECURSO_SOLICITANTE_CONJUNA_IND_N_7" Type="Int32" />
+    <Property Name="RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8" Type="Boolean" />
+    <Property Name="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9" Type="DateTime" Precision="3" />
+    <Property Name="RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10" Type="Boolean" />
+    <Property Name="RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11" Type="DateTime" Precision="3" />
+    <Property Name="RECURSO_SOLICITANTE_VISIBLE" Type="Int32" />
+    <Property Name="RECURSO_MINISTERIO_RECURSO_MINISTERIO_85" Type="Boolean" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86" Type="DateTime" Precision="3" />
+    <Property Name="RECURSO_MINISTERIO_RESPUESTA_RECURSO_87" Type="Boolean" />
+    <Property Name="RECURSO_MINISTERIO_DECISION_N_1" Type="Int32" />
+    <Property Name="RECURSO_MINISTERIO_FIRMADA_88" Type="Boolean" />
+    <Property Name="RECURSO_MINISTERIO_ACTO_89" Type="Int32" />
+    <Property Name="RECURSO_MINISTERIO_NUMERO_90" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_91" Type="DateTime" Precision="3" />
+    <Property Name="RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92" Type="Int32" />
+    <Property Name="RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93" Type="Boolean" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94" Type="DateTime" Precision="3" />
+    <Property Name="RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95" Type="Boolean" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96" Type="DateTime" Precision="3" />
+    <Property Name="RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2" Type="Boolean" />
+    <Property Name="RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4" Type="DateTime" Precision="3" />
+    <Property Name="RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5" Type="Boolean" />
+    <Property Name="RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6" Type="Int32" />
+    <Property Name="RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="RECURSO_MINISTERIO_CONJUNA_IND_N_7" Type="Int32" />
+    <Property Name="RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8" Type="Boolean" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9" Type="DateTime" Precision="3" />
+    <Property Name="RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10" Type="Boolean" />
+    <Property Name="RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11" Type="DateTime" Precision="3" />
+    <Property Name="RECURSO_MINISTERIO_VISIBLE" Type="Int32" />
+    <Property Name="CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109" Type="Boolean" />
+    <Property Name="CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110" Type="DateTime" Precision="3" />
+    <Property Name="CONSTANCIA_DE_EJECUTORIA_FIRMADA_111" Type="Boolean" />
+    <Property Name="CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112" Type="Boolean" />
+    <Property Name="CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA" Type="DateTime" Precision="3" />
+    <Property Name="CONSTANCIA_DE_EJECUTORIA_VISIBLE" Type="Int32" />
+    <Property Name="REVOCATORIA_REVOCATORIA_113" Type="Boolean" />
+    <Property Name="REVOCATORIA_NUMERO_RESOLUCIÓN_114" Type="Int64" />
+    <Property Name="REVOCATORIA_FECHA_DE_RESOLUCIÓN_115" Type="DateTime" Precision="3" />
+    <Property Name="REVOCATORIA_VISIBLE" Type="Int32" />
+    <Property Name="REGISTRO_FMI_" Type="Boolean" />
+    <Property Name="REGISTRO_FMI" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="REGISTRO_FECHA_DE_REGISTRO_117" Type="DateTime" Precision="3" />
+    <Property Name="REGISTRO_NUMERO_DE_RESOLUCION_118" Type="Int64" />
+    <Property Name="REGISTRO_FECHA_DE_RESOLUCION_119" Type="DateTime" Precision="3" />
+    <Property Name="REGISTRO_VISIBLE" Type="Int32" />
+    <Property Name="SOLICITUD_SOLICITUD" Type="Boolean" />
+    <Property Name="SOLICITUD_FECHA" Type="DateTime" Precision="3" />
+    <Property Name="SOLICITUD_FIRMA" Type="Boolean" />
+    <Property Name="SOLICITUD_TIPO_SOLICITUD" Type="Int32" />
+    <Property Name="SOLICITUD_CEDULA_SOLICITANTE" Type="Int32" />
+    <Property Name="SOLICITUD_CEDULA_CONYUGE" Type="Int32" />
+    <Property Name="SOLICITUD_CEDULA_PARIENTE" Type="Int32" />
+    <Property Name="SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA" Type="DateTime" Precision="3" />
+    <Property Name="SOLICITUD_VISIBLE" Type="Int32" />
+    <Property Name="AUTODEACEPTACION_AUTODEACEPTACION" Type="Boolean" />
+    <Property Name="AUTODEACEPTACION_FECHA" Type="DateTime" Precision="3" />
+    <Property Name="AUTODEACEPTACION_FIRMA" Type="Boolean" />
+    <Property Name="AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO" Type="Boolean" />
+    <Property Name="AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO" Type="Boolean" />
+    <Property Name="AUTODEACEPTACION_DATOSPREDIOSCORRECTO" Type="Boolean" />
+    <Property Name="AUTODEACEPTACION_COLINDANTE_CORRECTO" Type="Boolean" />
+    <Property Name="AUTODEACEPTACION_VISIBLE" Type="Int32" />
+    <Property Name="COMUNICACIONES_SOLICITANTE" Type="Boolean" />
+    <Property Name="COMUNICACIONES_SOLICITANTEFECHA" Type="DateTime" Precision="3" />
+    <Property Name="COMUNICACIONES_SOLICITANTEFIRMA" Type="Boolean" />
+    <Property Name="COMUNICACIONES_FECHAINSPECCIONOCULAR" Type="DateTime" Precision="3" />
+    <Property Name="COMUNICACIONES_VISIBLE" Type="Int32" />
+    <Property Name="COMUNICACIONES_PROCURADOR" Type="Boolean" />
+    <Property Name="COMUNICACIONES_PROCURADORFECHA" Type="DateTime" Precision="3" />
+    <Property Name="COMUNICACIONES_PROCURADORFIRMA" Type="Boolean" />
+    <Property Name="COMUNICACIONES_VISIBLE_PROCURADOR" Type="Int32" />
+    <Property Name="COMUNICACIONES_AUTORIDADAMBIENTAL" Type="Boolean" />
+    <Property Name="COMUNICACIONES_AUTORIDADAMBIENTALFECHA" Type="DateTime" Precision="3" />
+    <Property Name="COMUNICACIONES_AUTORIDADAMBIENTALFIRMA" Type="Boolean" />
+    <Property Name="COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL" Type="Int32" />
+    <Property Name="COMUNICACIONES_COLINDATES" Type="Int32" />
+    <Property Name="COMUNICACIONES_COLINDATES_INCOMPLETOS" Type="Int32" />
+    <Property Name="COMUNICACIONES_COLINDATESFECHA" Type="DateTime" Precision="3" />
+    <Property Name="COMUNICACIONES_COLINDATESFIRMA" Type="Boolean" />
+    <Property Name="COMUNICACIONES_VISIBLE_COLINDATES" Type="Int32" />
+    <Property Name="PUBLICACIONES_ALCALDIA" Type="Boolean" />
+    <Property Name="PUBLICACIONES_ALCALDIAFECHAFIJACION" Type="DateTime" Precision="3" />
+    <Property Name="PUBLICACIONES_ALCALDIADESFIJACION" Type="DateTime" Precision="3" />
+    <Property Name="PUBLICACIONES_ALCALDIAFIRMA" Type="Boolean" />
+    <Property Name="PUBLICACIONES_VISIBLE" Type="Int32" />
+    <Property Name="PUBLICACIONES_INCODER" Type="Boolean" />
+    <Property Name="PUBLICACIONES_INCODERFECHAFIJACION" Type="DateTime" Precision="3" />
+    <Property Name="PUBLICACIONES_INCODERDESFIJACION" Type="DateTime" Precision="3" />
+    <Property Name="PUBLICACIONES_INCODERFIRMA" Type="Boolean" />
+    <Property Name="PUBLICACIONES_VISIBLE_INCODER" Type="Int32" />
+    <Property Name="PUBLICACIONES_EMISORA" Type="Boolean" />
+    <Property Name="PUBLICACIONES_EMISORAFECHA1" Type="DateTime" Precision="3" />
+    <Property Name="PUBLICACIONES_EMISORAFECHA2" Type="DateTime" Precision="3" />
+    <Property Name="PUBLICACIONES_EMISORAFIRMA" Type="Boolean" />
+    <Property Name="PUBLICACIONES_VISIBLE_EMISORA" Type="Int32" />
+    <Property Name="SUBSIDIODEAPELACION" Type="Boolean" />
+    <Property Name="SUBSIDIODEAPELACION_VISIBLE" Type="Int32" />
+    <Property Name="SUBSIDIODEAPELACION_FECHA" Type="DateTime" Precision="3" />
+    <Property Name="SUBSIDIODEAPELACION_RESPUESTA" Type="Int32" />
+    <Property Name="SUBSIDIODEAPELACION_DECISION" Type="Int32" />
+    <Property Name="Estado" Type="Boolean" />
+    <Property Name="IdAspNetUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="Gestion" Type="Int32" />
+    <Property Name="Tipo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IdMunicipio" Type="Int32" />
+    <Property Name="NombreMuni" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IdDepto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NombreDepto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Orden" Type="Int32" />
   </EntityType>
 </Schema>

@@ -7,20 +7,20 @@
     @Scripts.Render("~/Scripts/ModalControl.js")
 
     <script type="text/javascript">
-    $(document).ready(function () {
-        $('#table_idd').dataTable({
-             dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
+        $(document).ready(function () {
+            $('#table_idd').dataTable({
+                dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
                 buttons: [
-                    { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
-                    { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
-                    { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
+                    { "extend": 'pdf', "text": 'Pdf', "className": 'btn-outline-success' },
+                    { "extend": 'excel', "text": 'Exc', "className": ' btn-outline-success ' },
+                    { "extend": 'print', "text": 'Imp', "className": ' btn-outline-success ' }
                 ],
-            "order": [[6, "asc"]],
-            "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
-            "pageLength": 10,
-            "paging": true
-        }); 
-    });
+                "order": [[6, "asc"]],
+                "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
+                "pageLength": 10,
+                "paging": true
+            });
+        });
     </script>
 
 }

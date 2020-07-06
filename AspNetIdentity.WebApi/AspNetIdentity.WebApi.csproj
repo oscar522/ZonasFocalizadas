@@ -335,6 +335,9 @@
     <Compile Include="Models\CaracterizacionJuridicaCatalogos.cs">
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CaracterizacionJuridicaResumen.cs">
+      <DependentUpon>ZonasFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CaracterizacionSolicitante.cs">
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>

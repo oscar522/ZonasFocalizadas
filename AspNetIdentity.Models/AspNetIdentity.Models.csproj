@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountTableModel.cs" />
+    <Compile Include="CaracterizacionJuridicaResumenModel.cs" />
     <Compile Include="PlGestionUsersModel.cs" />
     <Compile Include="CaracterizacionSolicitanteModel.cs" />
     <Compile Include="ConceptoEstadoModel.cs" />
