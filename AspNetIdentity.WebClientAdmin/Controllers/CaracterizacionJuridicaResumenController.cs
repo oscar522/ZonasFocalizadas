@@ -62,6 +62,7 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             List<CaracterizacionJuridicaResumenModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CaracterizacionJuridicaResumenModel>>(jsonResult.ToString());
 
             var Resumen = processModel
+                            .Where(x => x.IdMunicipio == IdCiudad && x.IdDepto == IdDepto.ToString())
                             .GroupBy(z => z.Tipo)
                             .Select(c => new ResumenTipificacionVistaModel
                             {
