@@ -990,5 +990,6 @@
     <Property Name="IdDepto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="NombreDepto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Orden" Type="Int32" />
+    <Property Name="SubTipo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

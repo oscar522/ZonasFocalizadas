@@ -203,7 +203,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="IdExpediente" Type="bigint" Nullable="false" />
           <Property Name="INSPECCION_OCULAR_INSPECCION_OCULAR_53" Type="bit" />
           <Property Name="INSPECCION_OCULAR_FECHA_54" Type="datetime" />
@@ -561,6 +561,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.CaracterizacionJuridicaResumen' n
           <Property Name="FechaModificacion" Type="datetime" />
           <Property Name="Gestion" Type="int" />
           <Property Name="Tipo" Type="varchar" MaxLength="100" />
+          <Property Name="SubTipo" Type="varchar" MaxLength="100" />
           <Property Name="IdMunicipio" Type="int" />
           <Property Name="NombreMuni" Type="varchar" MaxLength="100" />
           <Property Name="IdDepto" Type="varchar" MaxLength="100" />
@@ -1264,6 +1265,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
     [CaracterizacionJuridicaResumen].[FechaModificacion] AS [FechaModificacion], 
     [CaracterizacionJuridicaResumen].[Gestion] AS [Gestion], 
     [CaracterizacionJuridicaResumen].[Tipo] AS [Tipo], 
+    [CaracterizacionJuridicaResumen].[SubTipo] AS [SubTipo], 
     [CaracterizacionJuridicaResumen].[IdMunicipio] AS [IdMunicipio], 
     [CaracterizacionJuridicaResumen].[NombreMuni] AS [NombreMuni], 
     [CaracterizacionJuridicaResumen].[IdDepto] AS [IdDepto], 
@@ -2307,6 +2309,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Property Name="IdDepto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="NombreDepto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Orden" Type="Int32" />
+          <Property Name="SubTipo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3057,6 +3060,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <EntitySetMapping Name="CaracterizacionJuridicaResumen">
             <EntityTypeMapping TypeName="ZonasFModel.CaracterizacionJuridicaResumen">
               <MappingFragment StoreEntitySet="CaracterizacionJuridicaResumen">
+                <ScalarProperty Name="SubTipo" ColumnName="SubTipo" />
                 <ScalarProperty Name="Orden" ColumnName="Orden" />
                 <ScalarProperty Name="NombreDepto" ColumnName="NombreDepto" />
                 <ScalarProperty Name="IdDepto" ColumnName="IdDepto" />

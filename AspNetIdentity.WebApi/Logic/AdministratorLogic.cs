@@ -763,6 +763,7 @@ namespace AspNetIdentity.WebApi.Logic
                                FechaModificacion = c.FechaModificacion,
                                Gestion = c.Gestion,
                                Tipo = c.Tipo,
+                               SubTipo = c.SubTipo,
                                IdMunicipio = c.IdMunicipio,
                                NombreMuni = c.NombreMuni,
                                IdDepto = c.IdDepto,

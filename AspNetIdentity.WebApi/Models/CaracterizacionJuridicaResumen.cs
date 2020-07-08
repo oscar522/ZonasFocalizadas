@@ -190,5 +190,6 @@ namespace AspNetIdentity.WebApi.Models
         public string IdDepto { get; set; }
         public string NombreDepto { get; set; }
         public Nullable<int> Orden { get; set; }
+        public string SubTipo { get; set; }
     }
 }

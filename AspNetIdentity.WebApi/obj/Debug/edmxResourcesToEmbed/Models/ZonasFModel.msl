@@ -744,6 +744,7 @@
     <EntitySetMapping Name="CaracterizacionJuridicaResumen">
       <EntityTypeMapping TypeName="ZonasFModel.CaracterizacionJuridicaResumen">
         <MappingFragment StoreEntitySet="CaracterizacionJuridicaResumen">
+          <ScalarProperty Name="SubTipo" ColumnName="SubTipo" />
           <ScalarProperty Name="Orden" ColumnName="Orden" />
           <ScalarProperty Name="NombreDepto" ColumnName="NombreDepto" />
           <ScalarProperty Name="IdDepto" ColumnName="IdDepto" />

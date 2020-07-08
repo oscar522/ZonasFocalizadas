@@ -22,16 +22,16 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/15/2019 13:29:52</publishTime>
     </File>
     <File Include="bin/AspNetIdentity.Models.dll">
-      <publishTime>05/07/2020 21:02:41</publishTime>
+      <publishTime>07/07/2020 21:57:39</publishTime>
     </File>
     <File Include="bin/AspNetIdentity.Models.pdb">
-      <publishTime>05/07/2020 21:02:41</publishTime>
+      <publishTime>07/07/2020 21:57:39</publishTime>
     </File>
     <File Include="bin/AspNetIdentity.WebClientAdmin.dll">
-      <publishTime>07/05/2020 21:43:58</publishTime>
+      <publishTime>07/07/2020 21:59:34</publishTime>
     </File>
     <File Include="bin/AspNetIdentity.WebClientAdmin.pdb">
-      <publishTime>07/05/2020 21:43:58</publishTime>
+      <publishTime>07/07/2020 21:59:34</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/23/2017 13:15:18</publishTime>
@@ -2203,7 +2203,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>05/06/2020 09:28:14</publishTime>
     </File>
     <File Include="Views/CaracterizacionJuridicaResumen/ResumenIndex.cshtml">
-      <publishTime>05/07/2020 20:59:44</publishTime>
+      <publishTime>07/07/2020 20:37:36</publishTime>
     </File>
     <File Include="Views/CaracterizacionJuridicaResumen/ResumenLista.cshtml">
       <publishTime>05/07/2020 20:55:38</publishTime>

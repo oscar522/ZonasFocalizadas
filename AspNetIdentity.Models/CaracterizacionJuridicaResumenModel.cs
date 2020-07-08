@@ -181,6 +181,7 @@ namespace AspNetIdentity.Models
         public Nullable<System.DateTime> FechaModificacion { get; set; }
         public Nullable<int> Gestion { get; set; }
         public string Tipo { get; set; }
+        public string SubTipo { get; set; }
         public Nullable<int> IdMunicipio { get; set; }
         public string NombreMuni { get; set; }
         public string IdDepto { get; set; }
