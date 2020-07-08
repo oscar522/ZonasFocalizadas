@@ -6,10 +6,205 @@
     <div class="card-body d-sm-flex justify-content-between">
         <h3 class="card-title">CARACTERIZACION JURIDICA  </h3>
         <div id="info"></div>
-       
     </div>
 
 </div>
+
+
+<div class="row">
+    <div class="col-md-8">
+        <!-- Card -->
+        <div class="card">
+            <div class="card-header"> <div id="CT" >  </div > </div>
+            <div class="card-body">
+                <div class="form-horizontal">
+                    <div class="row  justify-content-center">
+                        <div class="form-group col-md-12">
+                            <div class="table-responsive text-nowrap">
+                                
+                                <table id="table_id" class="table center" cellspacing="0" width="100%">
+                                    <thead class="green white-text title">
+                                        <tr>
+                                            <th>
+                                                <div class="row">
+                                                    <div class="col-md-6">@Html.DisplayNameFor(model => model.Grupo) </div>
+                                                    <div class="col-md-6"> @Html.DisplayNameFor(model => model.Total)</div>
+                                                </div>
+                                                
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr class="bg-light">
+                                                <td>
+                                                    <div class="row">
+                                                        <div class="col-md-6">@item.Grupo </div>
+                                                        <div class="col-md-6">@item.Total </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @if (@item.Grupo == "RESOLUCION")
+                                                    { 
+                                                     
+                                                        <input type="text" 
+                                                        name="@item.Grupo" 
+                                                        id="@item.Grupo" 
+                                                        class ="IGrupo" 
+                                                        value="@item.IdDepto"
+                                                        value2="@item.IdMunicipio"
+                                                        value3="@item.Grupo" style = 'display : none' />
+                                                        <div id='TRESOLUCION' class="TypeTable">
+                                                            <table id="IdRESOLUCION" class="table-striped table-hover center" cellspacing="0" width="100%">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th> </th>
+                                                                        <th>Sin Firma</th>
+                                                                        <th>Error de Datos Solicitantes</th>
+                                                                        <th>Firmados</th>
+                                                                        <th>SubTotal</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                </tbody>
+                                                                <tfoot class="">
+                                                                    <tr>
+                                                                        <th> </th>
+                                                                        <th>Sin Firma</th>
+                                                                        <th>Error de Fecha</th>
+                                                                        <th>Firmados</th>
+                                                                        <th>SubTotal</th>
+                                                                    </tr>
+                                                                </tfoot>
+                                                            </table>
+                                                        </div>
+                                                    }
+                                                    @if (@item.Grupo == "CONSTANCIA DE EJECUTORIA")
+                                                    {
+                                                       <input type="text" 
+                                                        name="@item.Grupo" 
+                                                        id="@item.Grupo" 
+                                                        class ="IGrupo" 
+                                                        value="@item.IdDepto"
+                                                        value2="@item.IdMunicipio"
+                                                        value3="@item.Grupo" style = 'display : none' />
+                                                        <div id='TCONSTANCIA_DE_EJECUTORIA' class="TypeTable">
+                                                            <table id="IdCONSTANCIA_DE_EJECUTORIA" class="table-striped table-hover center" cellspacing="0" width="100%">
+                                                                <thead class="">
+                                                                    <tr>
+                                                                        <th> </th>
+                                                                        <th>Borrosos</th>
+                                                                        <th>Sin Firma</th>
+                                                                        <th>Error de Fecha</th>
+                                                                        <th>Firmados</th>
+                                                                        <th>SubTotal</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                </tbody>
+                                                                <tfoot class="">
+                                                                    <tr>
+                                                                        <th> </th>
+                                                                        <th>Borrosos</th>
+                                                                        <th>Sin Firma</th>
+                                                                        <th>Error de Fecha</th>
+                                                                        <th>Firmados</th>
+                                                                        <th>SubTotal</th>
+                                                                    </tr>
+                                                                </tfoot>
+                                                            </table>
+                                                        </div>
+                                                    }
+                                                    @if (@item.Grupo == "RECURSOS")
+                                                    {
+                                                        <input type="text" 
+                                                        name="@item.Grupo" 
+                                                        id="@item.Grupo" 
+                                                        class ="IGrupo" 
+                                                        value="@item.IdDepto"
+                                                        value2="@item.IdMunicipio"
+                                                        value3="@item.Grupo" style = 'display : none' />
+                                                        <div id='TRECURSOS' class="TypeTable">
+                                                            <table id="IdRECURSOS" class="table-striped table-hover center" cellspacing="0" width="100%">
+                                                                <thead class="">
+                                                                    <tr>
+                                                                        <th> </th>
+                                                                        <th> Sin Respuesta</th>
+                                                                        <th>No Precede</th>
+                                                                        <th>Adjudica</th>
+                                                                        <th>Niega</th>
+                                                                        <th>Pruebas</th>
+                                                                        <th>Revoca</th>
+                                                                        <th>SubTotal</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                </tbody>
+                                                                <tfoot class="">
+                                                                    <tr>
+                                                                        <th> </th>
+                                                                        <th> Sin Respuesta</th>
+                                                                        <th>No Precede</th>
+                                                                        <th>Adjudica</th>
+                                                                        <th>Niega</th>
+                                                                        <th>Pruebas</th>
+                                                                        <th>Revoca</th>
+                                                                        <th>SubTotal</th>
+                                                                    </tr>
+                                                                </tfoot>
+                                                            </table>
+                                                        </div>
+                                                    }
+
+                                                    @if (@item.Grupo == "NOTIFICACIONES")
+                                                    {
+                                                        <input type="text" 
+                                                        name="@item.Grupo" 
+                                                        id="@item.Grupo" 
+                                                        class ="IGrupo" 
+                                                        value="@item.IdDepto"
+                                                        value2="@item.IdMunicipio"
+                                                        value3="@item.Grupo" style = 'display : none' />
+                                                        <div id="TNOTIFICACIONES">
+                                                            <table id="IdNOTIFICACIONES" class="table-striped table-hover center" cellspacing="0" width="100%">
+                                                                <thead class="">
+                                                                    <tr>
+                                                                        <th>Sub Grupo </th>
+                                                                        <th>
+                                                                            Cantidad
+                                                                        </th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                </tbody>
+                                                                <tfoot class="">
+                                                                    <tr>
+                                                                        <th>Sub Total</th>
+                                                                        <th></th>
+                                                                    </tr>
+                                                                </tfoot>
+                                                            </table>
+                                                        </div>
+                                                    }
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+
 
 @section Scripts
 {
@@ -30,12 +225,7 @@
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
                 "paging": false,
                 "searching": false,
-                dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
-                buttons: [
-                    { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
-                    { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
-                    { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
-                ],
+                "info": false,
                 "footerCallback": function (row, data, start, end, display) {
                     var api = this.api(), data;
                     var intVal = function (i) {
@@ -60,14 +250,10 @@
             // Table RECURSOS
             var TRECURSOS = $('#IdRECURSOS').dataTable({
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
-                "paging": false,"ordering": false,
+                "paging": false,
+                "ordering": false,
                 "searching": false,
-                dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
-                buttons: [
-                    { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
-                    { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
-                    { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
-                ],
+                "info": false,
                 "footerCallback": function (row, data, start, end, display) {
                     var api = this.api(), data;
                     var intVal = function (i) {
@@ -135,12 +321,7 @@
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
                 "paging": false,"ordering": false,
                 "searching": false,
-                dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
-                buttons: [
-                    { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
-                    { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
-                    { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
-                ],
+                "info": false,
                 "footerCallback": function (row, data, start, end, display) {
                     var api = this.api(), data;
                     var intVal = function (i) {
@@ -187,12 +368,7 @@
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
                 "paging": false,"ordering": false,
                 "searching": false,
-                dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
-                buttons: [
-                    { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
-                    { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
-                    { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
-                ],
+                "info": false,
                 "footerCallback": function (row, data, start, end, display) {
                     var api = this.api(), data;
                     var intVal = function (i) {
@@ -233,72 +409,171 @@
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
                 "paging": false,
                 "searching": false,
+                "ordering": false,
                 dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
                 buttons: [
                     { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
                     { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
                     { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
-                ],
-                "columnDefs": [
-                {
-                    "targets": [ 2 ],
-                    "visible": false,
-                    "searchable": false
-                },
-                {
-                    "targets": [ 3 ],
-                    "visible": false,
-                    "searchable": false
-                },
-                {
-                    "targets": [ 4 ],
-                    "visible": false,
-                    "searchable": false}
-                ],
-                "footerCallback": function (row, data, start, end, display) {
-                    var api = this.api(), data;
-                    var intVal = function (i) {
-                        return typeof i === 'string' ?
-                            i.replace(/[\$,]/g, '') * 1 :
-                            typeof i === 'number' ?
-                                i : 0;
-                    };
-                    var monTotal = api
-                        .column(2 ,  { page: 'current'})
-                        .data()
-                        .reduce(function (a, b) {
-                            return intVal(a) + intVal(b);
-                        }, 0);
-
-
-                    $( api.column(1).footer() ).html(monTotal);
-
-                }
+                ]
             });  //Initialize the datatable
 
             var TableIndex = $('#table_id').DataTable();
             $('#table_id tbody').on('click', 'z1', function () {
                 var data = TableIndex.row($(this).parents('tr')).data();
-                $.ajax({
-                    type: 'POST',
-                    url: '@Url.Action("ResumenListaDetalle")',
-                    dataType: 'json',
-                    data: { IdDeptoIn: data[2], IdCiudadIn: data[3] , GrupoIn: data[0]  },
-                    success: function (states) {
-                        TNOTIFICACIONES.fnClearTable();
-                        if (data[0] == "NOTIFICACIONES") {
-                            $.each(states, function (i, obj) {
-                                debugger;
-                                TNOTIFICACIONES.fnAddData([
-                                    obj.RECURSO_SOLICITANTE_NUMERO_90,
-                                    obj.Orden,
-                                ]);
-                            });
-                            $('#TNOTIFICACIONES').show('1000');
+            });
 
+            $(".IGrupo").each(function(){
+                var Tipo =  $(this).attr("value3");
+                console.log(Tipo);
+                if (Tipo == "NOTIFICACIONES") {
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("ResumenListaDetalle")',
+                        dataType: 'json',
+                        data: { IdDeptoIn: $(this).attr("value"), IdCiudadIn: $(this).attr("value2") , GrupoIn: $(this).attr("value3")  },
+                        success: function (states) {
+
+                            TNOTIFICACIONES.fnClearTable();
+                            if (Tipo == "NOTIFICACIONES") {
+                                $('#CT').html("Cargando NOTIFICACIONES por favor espere ... ");
+                                $.each(states, function (i, obj) {
+                                    debugger;
+                                    TNOTIFICACIONES.fnAddData([
+                                        obj.RECURSO_SOLICITANTE_NUMERO_90,
+                                        obj.Orden,
+                                    ]);
+                                });
+                            }
+                            alert('1');
+                        },
+                        error: function (ex) {
+                            console.log(ex.responseText);
                         }
+                    });
+                }else
+                if (Tipo == "RESOLUCION") {
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("ResumenListaDetalle")',
+                        dataType: 'json',
+                        data: { IdDeptoIn: $(this).attr("value"), IdCiudadIn: $(this).attr("value2") , GrupoIn: $(this).attr("value3")  },
+                        success: function (states) {
+
+                            TRESOLUCION.fnClearTable();
+                            if (Tipo== "RESOLUCION") {
+                                $('#CT').html("Cargando RESOLUCION por favor espere ... ");
+                                $.each(states, function (i, obj) {
+
+                                    var RECURSO_SOLICITANTE_ACTO_89 = 0 ;
+                                    var RECURSO_SOLICITANTE_VISIBLE = 0 ;
+                                    var IdMunicipio = 0 ;
+                                    var CONSTANCIA_DE_EJECUTORIA_VISIBLE = 0 ;
+
+                                    RECURSO_SOLICITANTE_ACTO_89 = obj.RECURSO_SOLICITANTE_ACTO_89 ;
+                                    if (RECURSO_SOLICITANTE_ACTO_89 == null) RECURSO_SOLICITANTE_ACTO_89 = 0;  
+                                    RECURSO_SOLICITANTE_VISIBLE = obj.RECURSO_SOLICITANTE_VISIBLE ;
+                                    if (RECURSO_SOLICITANTE_VISIBLE == null) RECURSO_SOLICITANTE_VISIBLE = 0;  
+                                    IdMunicipio = obj.IdMunicipio ;
+                                    if (IdMunicipio == null) IdMunicipio = 0;  
+                                    CONSTANCIA_DE_EJECUTORIA_VISIBLE = obj.CONSTANCIA_DE_EJECUTORIA_VISIBLE ;
+                                    if (CONSTANCIA_DE_EJECUTORIA_VISIBLE == null) CONSTANCIA_DE_EJECUTORIA_VISIBLE = 0;  
+
+                                    var Subtotal = 
+                                    RECURSO_SOLICITANTE_ACTO_89+
+                                    RECURSO_SOLICITANTE_VISIBLE+
+                                    IdMunicipio+
+                                    CONSTANCIA_DE_EJECUTORIA_VISIBLE;
+
+
+                                    console.log(RECURSO_SOLICITANTE_ACTO_89);
+                                    console.log(RECURSO_SOLICITANTE_VISIBLE);
+                                    console.log(IdMunicipio);
+                                    console.log(CONSTANCIA_DE_EJECUTORIA_VISIBLE);
+
+                                    var TipoResolucion = "";
+                                    if(obj.INSPECCION_OCULAR_VISIBLE == "7"){
+                                        TipoResolucion = 'Resolucion de Adjudicacion';
+                                    }else if(obj.INSPECCION_OCULAR_VISIBLE == "1") {
+                                        TipoResolucion = 'Borrosos';
+                                        obj.RECURSO_SOLICITANTE_ACTO_89 = "0";
+                                        obj.RECURSO_SOLICITANTE_VISIBLE = "0";
+                                        obj.IdMunicipio = "0";
+                                        obj.CONSTANCIA_DE_EJECUTORIA_VISIBLE= "0";
+                                    }else if(obj.INSPECCION_OCULAR_VISIBLE == "8") {
+                                        TipoResolucion = 'Resolucion de Negacion';
+                                    }
+
+                                    TRESOLUCION.fnAddData([
+                                        TipoResolucion + " - " +obj.Gestion,
+                                        obj.RECURSO_SOLICITANTE_ACTO_89,
+                                        obj.RECURSO_SOLICITANTE_VISIBLE,
+                                        obj.IdMunicipio,
+                                        obj.CONSTANCIA_DE_EJECUTORIA_VISIBLE,
+                                        Subtotal,
+                                    ]);
+
+                                });
+                            }
+                            alert('2');
+                        },
+                        error: function (ex) {
+                            console.log(ex.responseText);
+                        }
+                    });
+                } else
+                if (Tipo == "CONSTANCIA DE EJECUTORIA") {
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("ResumenListaDetalle")',
+                        dataType: 'json',
+                        data: { IdDeptoIn: $(this).attr("value"), IdCiudadIn: $(this).attr("value2") , GrupoIn: $(this).attr("value3")  },
+                        success: function (states) {
+
+                            TCONSTANCIA_DE_EJECUTORIA.fnClearTable();
+                            if (Tipo == "CONSTANCIA DE EJECUTORIA") {
+                                $('#CT').html("Cargando CONSTANCIA DE EJECUTORIA por favor espere ... ");
+                                $.each(states, function (i, obj) {
+                                    
+                                    var Subtotal = obj.Orden + obj.RECURSO_SOLICITANTE_ACTO_89 + obj.RECURSO_SOLICITANTE_VISIBLE + obj.IdMunicipio + obj.CONSTANCIA_DE_EJECUTORIA_VISIBLE + obj.SOLICITUD_VISIBLE ;
+
+                                    var TipoResolucion = "";
+                                    if(obj.INSPECCION_OCULAR_VISIBLE == "7"){
+                                        TipoResolucion = 'Resolucion de Adjudicacion';
+                                        
+                                    }else{
+                                        TipoResolucion = 'Resolucion de Negacion';
+                                    }
+                                    TCONSTANCIA_DE_EJECUTORIA.fnAddData([
+                                        TipoResolucion + " - " +obj.Gestion,
+                                        obj.Orden,
+                                        obj.RECURSO_SOLICITANTE_ACTO_89,
+                                        obj.RECURSO_SOLICITANTE_VISIBLE,
+                                        obj.IdMunicipio,
+                                        obj.CONSTANCIA_DE_EJECUTORIA_VISIBLE,
+                                        Subtotal,
+                                    ]);
+
+                                });
+                            }
+                            alert('3');
+                        },
+                        error: function (ex) {
+                            console.log(ex.responseText);
+                        }
+                    });
+                }
+                if (Tipo == "RECURSOS") {
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("ResumenListaDetalle")',
+                        dataType: 'json',
+                        data: { IdDeptoIn: $(this).attr("value"), IdCiudadIn: $(this).attr("value2") , GrupoIn: $(this).attr("value3")  },
+                        success: function (states) {
+
                         TRECURSOS.fnClearTable();
-                        if (data[0] == "RECURSOS") {
+                        if (Tipo == "RECURSOS") {
+                            $('#CT').html("Cargando RECURSOS por favor espere ... ");
                             $.each(states, function (i, obj) {
                                 
                                 var Subtotal = obj.Orden + obj.RECURSO_SOLICITANTE_ACTO_89 + obj.RECURSO_SOLICITANTE_VISIBLE + obj.IdMunicipio + obj.CONSTANCIA_DE_EJECUTORIA_VISIBLE + obj.SOLICITUD_VISIBLE ;
@@ -333,294 +608,20 @@
                                 ]);
 
                             });
-                            $('#TRECURSOS').show('1000');
+                            return false;
                         }
-                        TCONSTANCIA_DE_EJECUTORIA.fnClearTable();
-                        if (data[0] == "CONSTANCIA DE EJECUTORIA") {
-                            $.each(states, function (i, obj) {
-                                
-                                var Subtotal = obj.Orden + obj.RECURSO_SOLICITANTE_ACTO_89 + obj.RECURSO_SOLICITANTE_VISIBLE + obj.IdMunicipio + obj.CONSTANCIA_DE_EJECUTORIA_VISIBLE + obj.SOLICITUD_VISIBLE ;
-
-                                var TipoResolucion = "";
-                                if(obj.INSPECCION_OCULAR_VISIBLE == "7"){
-                                    TipoResolucion = 'Resolucion de Adjudicacion';
-                                    
-                                }else{
-                                    TipoResolucion = 'Resolucion de Negacion';
-                                }
-                                TCONSTANCIA_DE_EJECUTORIA.fnAddData([
-                                    TipoResolucion + " - " +obj.Gestion,
-                                    obj.Orden,
-                                    obj.RECURSO_SOLICITANTE_ACTO_89,
-                                    obj.RECURSO_SOLICITANTE_VISIBLE,
-                                    obj.IdMunicipio,
-                                    obj.CONSTANCIA_DE_EJECUTORIA_VISIBLE,
-                                    Subtotal,
-                                ]);
-
-                            });
-                            $('#TCONSTANCIA_DE_EJECUTORIA').show('1000');
-                            
+                            alert('4');
+                        },
+                        error: function (ex) {
+                            console.log(ex.responseText);
                         }
-                        TRESOLUCION.fnClearTable();
-                        if (data[0] == "RESOLUCION") {
-                            $.each(states, function (i, obj) {
+                    });
+                }
+        	});
 
-                                
-                                    var RECURSO_SOLICITANTE_ACTO_89 = 0 ;
-                                    var RECURSO_SOLICITANTE_VISIBLE = 0 ;
-                                    var IdMunicipio = 0 ;
-                                    var CONSTANCIA_DE_EJECUTORIA_VISIBLE = 0 ;
-
-                                    RECURSO_SOLICITANTE_ACTO_89 = obj.RECURSO_SOLICITANTE_ACTO_89 ;
-                                    if (RECURSO_SOLICITANTE_ACTO_89 == null) RECURSO_SOLICITANTE_ACTO_89 = 0;  
-                                    RECURSO_SOLICITANTE_VISIBLE = obj.RECURSO_SOLICITANTE_VISIBLE ;
-                                    if (RECURSO_SOLICITANTE_VISIBLE == null) RECURSO_SOLICITANTE_VISIBLE = 0;  
-                                    IdMunicipio = obj.IdMunicipio ;
-                                    if (IdMunicipio == null) IdMunicipio = 0;  
-                                    CONSTANCIA_DE_EJECUTORIA_VISIBLE = obj.CONSTANCIA_DE_EJECUTORIA_VISIBLE ;
-                                    if (CONSTANCIA_DE_EJECUTORIA_VISIBLE == null) CONSTANCIA_DE_EJECUTORIA_VISIBLE = 0;  
-
-                                    var Subtotal = 
-                                    RECURSO_SOLICITANTE_ACTO_89+
-                                    RECURSO_SOLICITANTE_VISIBLE+
-                                    IdMunicipio+
-                                    CONSTANCIA_DE_EJECUTORIA_VISIBLE;
-
-
-                                    console.log(RECURSO_SOLICITANTE_ACTO_89);
-                                    console.log(RECURSO_SOLICITANTE_VISIBLE);
-                                    console.log(IdMunicipio);
-                                    console.log(CONSTANCIA_DE_EJECUTORIA_VISIBLE);
-
-                                var TipoResolucion = "";
-                                if(obj.INSPECCION_OCULAR_VISIBLE == "7"){
-                                    TipoResolucion = 'Resolucion de Adjudicacion';
-                                }else if(obj.INSPECCION_OCULAR_VISIBLE == "1") {
-                                    TipoResolucion = 'Borrosos';
-                                    obj.RECURSO_SOLICITANTE_ACTO_89 = "0";
-                                    obj.RECURSO_SOLICITANTE_VISIBLE = "0";
-                                    obj.IdMunicipio = "0";
-                                    obj.CONSTANCIA_DE_EJECUTORIA_VISIBLE= "0";
-                                }else if(obj.INSPECCION_OCULAR_VISIBLE == "8") {
-                                    TipoResolucion = 'Resolucion de Negacion';
-                                }
-
-                                TRESOLUCION.fnAddData([
-                                    TipoResolucion + " - " +obj.Gestion,
-                                    obj.RECURSO_SOLICITANTE_ACTO_89,
-                                    obj.RECURSO_SOLICITANTE_VISIBLE,
-                                    obj.IdMunicipio,
-                                    obj.CONSTANCIA_DE_EJECUTORIA_VISIBLE,
-                                    Subtotal,
-                                ]);
-
-                            });
-                            $('#TRESOLUCION').show('1000');
-                        }
-                    },
-                    error: function (ex) {
-                        console.log(ex.responseText);
-                    }
-                });
-
-            });
-
-            
             
             
         });
     </script>
 
 }
-<div class="row">
-    <div class="col-md-4">
-        <!-- Card -->
-        <div class="card">
-            <div class="card-header"> <h4>  </h4></div>
-            <div class="card-body">
-                <div class="form-horizontal">
-                    <div class="row  justify-content-center">
-                        <div class="form-group col-md-12">
-                            <div class="table-responsive text-nowrap">
-                                <table id="table_id" class="table table-hover center" cellspacing="0" width="100%">
-                                    <thead class="green white-text title">
-                                        <tr>
-                                            <th>
-                                                @Html.DisplayNameFor(model => model.Grupo)
-                                            </th>
-                                            <th>
-                                                @Html.DisplayNameFor(model => model.Total)
-                                            </th>
-                                            <th>
-                                                @Html.DisplayNameFor(model => model.Total)
-                                            </th>
-                                            <th>
-                                                @Html.DisplayNameFor(model => model.IdDepto)
-                                            </th>
-                                            <th>
-                                                @Html.DisplayNameFor(model => model.IdMunicipio)
-                                            </th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var item in Model)
-                                        {
-
-                                            <tr>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Grupo)
-                                                </td>
-                                                <td>
-                                                    <a target="_blank" href='@Url.Action("../CaracterizacionJuridicaResumen/ResumenLista", "ResumenLista", new { IdDepto = item.IdDepto, IdCiudad = item.IdMunicipio, Grupo = item.Grupo  })' style='color: #013ADF;'><i class='fa fa-search' aria-hidden='true'></i>  @Html.DisplayFor(modelItem => item.Total)</a>
-                                                    <z1 Data1='@item.IdDepto' style='color: #013ADF;' class='Municipio'> <i class='fa fa-eye'>  </i></z1>
-
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.IdDepto)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.IdMunicipio)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Total)
-                                                </td>
-
-                                            </tr>
-                                        }
-                                    </tbody>
-                                    <tfoot class="green white-text title">
-                                        <tr>
-                                            <th>Total</th>
-                                            <th></th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-8">
-        <!-- Card -->
-        <div class="card">
-            <div class="card-header"> <h4>  </h4></div>
-            <div class="card-body">
-                <div class="form-horizontal">
-                    <div class="row  justify-content-center">
-                        <div class="form-group col-md-12">
-                            <div class="table-responsive text-nowrap">
-                                <div id="TNOTIFICACIONES" style="display : none;">
-                                    <table id="IdNOTIFICACIONES" class="table table-hover center" cellspacing="0" width="100%">
-                                        <thead class="green white-text title">
-                                            <tr>
-                                                <th>Sub Grupo </th>
-                                                <th>
-                                                    Cantidad
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                        <tfoot class="green white-text title">
-                                            <tr>
-                                                <th>Sub Total</th>
-                                                <th></th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
-                                <div id="TRECURSOS" style="display : none;">
-                                    <table id="IdRECURSOS" class="table table-hover center" cellspacing="0" width="100%">
-                                        <thead class="green white-text title">
-                                            <tr> 
-                                                <th> </th> 
-                                                <th> Sin Respuesta</th> 
-                                                <th>No Precede</th> 
-                                                <th>Adjudica</th> 
-                                                <th>Niega</th> 
-                                                <th>Pruebas</th> 
-                                                <th>Revoca</th> 
-                                                <th>SubTotal</th> 
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                        <tfoot class="green white-text title">
-                                            <tr>
-                                                <th> </th> 
-                                                <th> Sin Respuesta</th> 
-                                                <th>No Precede</th> 
-                                                <th>Adjudica</th> 
-                                                <th>Niega</th> 
-                                                <th>Pruebas</th> 
-                                                <th>Revoca</th> 
-                                                <th>SubTotal</th> 
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
-                                
-                                <div id="TCONSTANCIA_DE_EJECUTORIA" style="display : none;">
-                                    <table id="IdCONSTANCIA_DE_EJECUTORIA" class="table table-hover center" cellspacing="0" width="100%">
-                                        <thead class="green white-text title">
-                                            <tr> 
-                                                <th> </th> 
-                                                <th>Borrosos</th> 
-                                                <th>Sin Firma</th> 
-                                                <th>Error de Fecha</th> 
-                                                <th>Firmados</th> 
-                                                <th>SubTotal</th> 
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                        <tfoot class="green white-text title">
-                                            <tr>
-                                                <th> </th> 
-                                                <th>Borrosos</th> 
-                                                <th>Sin Firma</th> 
-                                                <th>Error de Fecha</th> 
-                                                <th>Firmados</th> 
-                                                <th>SubTotal</th> 
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
-
-                                <div id="TRESOLUCION" style="display : none;">
-                                    <table id="IdRESOLUCION" class="table table-hover center" cellspacing="0" width="100%">
-                                        <thead class="green white-text title">
-                                            <tr> 
-                                                <th> </th> 
-                                                <th>Sin Firma</th> 
-                                                <th>Error de Datos Solicitantes</th> 
-                                                <th>Firmados</th> 
-                                                <th>SubTotal</th> 
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                        <tfoot class="green white-text title">
-                                            <tr>
-                                                <th> </th> 
-                                                <th>Sin Firma</th> 
-                                                <th>Error de Fecha</th> 
-                                                <th>Firmados</th> 
-                                                <th>SubTotal</th> 
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
