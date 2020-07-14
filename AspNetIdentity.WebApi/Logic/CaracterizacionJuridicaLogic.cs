@@ -280,7 +280,8 @@ namespace AspNetIdentity.WebApi.Logic
                     IdCiudad = c.b.c.Gestion,
                     Vereda = c.b.b.Vereda,
                     NombrePredio = tipo.Where(x =>x.IdExpediente == c.b.b.id).Select(u =>u.Tipo).FirstOrDefault(),
-                    NombreBeneficiario = tipo.Where(x => x.IdExpediente == c.b.b.id).Select(u => u.SubTipo).FirstOrDefault(),
+                    NombreBeneficiario = c.b.b.NombreBeneficiario,
+                    NombreIdGenero = tipo.Where(x => x.IdExpediente == c.b.b.id).Select(u => u.SubTipo).FirstOrDefault(),
                     IdTipoIdentificacion = c.b.b.IdTipoIdentificacion,
                     Identificacion = c.b.b.Identificacion,
                     IdGenero = c.b.b.IdGenero,
@@ -296,7 +297,6 @@ namespace AspNetIdentity.WebApi.Logic
                     NombreIdDepto = c.NombrDepto,
                     NombreIdCiudad = c.NombreMunicipio,
                     NombreIdTipoIdentificacion = c.NombreTipoIdentificacion,
-                    NombreIdGenero = c.NombreGenero,
                     NombreIdTipoIdentificacionConyuge = c.NombreTipoIdentificacionConyuge,
                 }).OrderByDescending(d => d.EstadoCaracterizacion);
 
