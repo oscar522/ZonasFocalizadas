@@ -562,6 +562,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.CaracterizacionJuridicaResumen' n
     <Property Name="IdDepto" Type="varchar" MaxLength="100" />
     <Property Name="NombreDepto" Type="varchar" MaxLength="100" />
     <Property Name="Orden" Type="int" />
+    <Property Name="NumeroExpediente" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="CaracterizacionSolicitante">
     <Key>
@@ -1265,7 +1266,8 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
     [CaracterizacionJuridicaResumen].[NombreMuni] AS [NombreMuni], 
     [CaracterizacionJuridicaResumen].[IdDepto] AS [IdDepto], 
     [CaracterizacionJuridicaResumen].[NombreDepto] AS [NombreDepto], 
-    [CaracterizacionJuridicaResumen].[Orden] AS [Orden]
+    [CaracterizacionJuridicaResumen].[Orden] AS [Orden], 
+    [CaracterizacionJuridicaResumen].[NumeroExpediente] AS [NumeroExpediente]
     FROM [dbo].[CaracterizacionJuridicaResumen] AS [CaracterizacionJuridicaResumen]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="ResumenTipificacionAll" EntityType="Self.ResumenTipificacionAll" store:Type="Tables" store:Schema="dbo">

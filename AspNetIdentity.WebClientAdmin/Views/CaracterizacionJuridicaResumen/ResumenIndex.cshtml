@@ -84,7 +84,7 @@
                                                     }
                                                     @if (@item.Grupo == "CONSTANCIA DE EJECUTORIA")
                                                     {
-                                                       <input type="text" 
+                                                        <input type="text" 
                                                         name="@item.Grupo" 
                                                         id="@item.Grupo" 
                                                         class ="IGrupo" 
@@ -184,6 +184,40 @@
                                                                     <tr>
                                                                         <th>Sub Total</th>
                                                                         <th></th>
+                                                                    </tr>
+                                                                </tfoot>
+                                                            </table>
+                                                        </div>
+                                                    }
+                                                    @if (@item.Grupo == "INSPECCION OCULAR")
+                                                    {
+                                                        <input type="text" 
+                                                        name="@item.Grupo" 
+                                                        id="@item.Grupo" 
+                                                        class ="IGrupo" 
+                                                        value="@item.IdDepto"
+                                                        value2="@item.IdMunicipio"
+                                                        value3="@item.Grupo" style = 'display : none' />
+                                                        <div id='TINSPECCION_OCULAR' class="TypeTable">
+                                                            <table id="IdINSPECCION_OCULAR" class="table-striped table-hover center" cellspacing="0" width="100%">
+                                                                <thead class="">
+                                                                    <tr>
+                                                                        <th> </th>
+                                                                        <th>Sin Firma</th>
+                                                                        <th>Error de Fecha</th>
+                                                                        <th>Firmados</th>
+                                                                        <th>SubTotal</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                </tbody>
+                                                                <tfoot class="">
+                                                                    <tr>
+                                                                        <th> </th>
+                                                                        <th>Sin Firma</th>
+                                                                        <th>Error de Fecha</th>
+                                                                        <th>Firmados</th>
+                                                                        <th>SubTotal</th>
                                                                     </tr>
                                                                 </tfoot>
                                                             </table>
@@ -403,6 +437,45 @@
                 }
             });  //Initialize the datatable
 
+             // Table INSPECCION OCULAR
+            var TINSPECCION_OCULAR = $('#IdINSPECCION_OCULAR').dataTable({
+                "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
+                "paging": false,"ordering": false,
+                "searching": false,
+                "info": false,
+                "footerCallback": function (row, data, start, end, display) {
+                    var api = this.api(), data;
+                    var intVal = function (i) {
+                        return typeof i === 'string' ?
+                            i.replace(/[\$,]/g, '') * 1 :
+                            typeof i === 'number' ?
+                                i : 0;
+                    };
+                    var monTotal1 = api
+                    .column(1 ,  { page: 'current'})
+                    .data()
+                    .reduce(function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0);
+                    var monTotal2 = api
+                    .column(2 ,  { page: 'current'})
+                    .data()
+                    .reduce(function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0);
+                    var monTotal3 = api
+                    .column(3 ,  { page: 'current'})
+                    .data()
+                    .reduce(function (a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0);
+                    $( api.column(1).footer() ).html(monTotal1);
+                    $( api.column(2).footer() ).html(monTotal2);
+                    $( api.column(3).footer() ).html(monTotal3);
+
+                }
+            });  //Initialize the datatable
+
 
             //Table Index 
             $('#table_id').dataTable({
@@ -438,7 +511,6 @@
                             if (Tipo == "NOTIFICACIONES") {
                                 $('#CT').html("Cargando NOTIFICACIONES por favor espere ... ");
                                 $.each(states, function (i, obj) {
-                                    debugger;
                                     TNOTIFICACIONES.fnAddData([
                                         obj.RECURSO_SOLICITANTE_NUMERO_90,
                                         obj.Orden,
@@ -486,10 +558,7 @@
                                     CONSTANCIA_DE_EJECUTORIA_VISIBLE;
 
 
-                                    console.log(RECURSO_SOLICITANTE_ACTO_89);
-                                    console.log(RECURSO_SOLICITANTE_VISIBLE);
-                                    console.log(IdMunicipio);
-                                    console.log(CONSTANCIA_DE_EJECUTORIA_VISIBLE);
+                                   
 
                                     var TipoResolucion = "";
                                     if(obj.INSPECCION_OCULAR_VISIBLE == "7"){
@@ -608,9 +677,58 @@
                                 ]);
 
                             });
-                            return false;
                         }
                             alert('4');
+                        },
+                        error: function (ex) {
+                            console.log(ex.responseText);
+                        }
+                    });
+                }
+                if (Tipo == "INSPECCION OCULAR") {
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("ResumenListaDetalle")',
+                        dataType: 'json',
+                        data: { IdDeptoIn: $(this).attr("value"), IdCiudadIn: $(this).attr("value2") , GrupoIn: $(this).attr("value3")  },
+                        success: function (states) {
+
+                        TINSPECCION_OCULAR.fnClearTable();
+                        if (Tipo == "INSPECCION OCULAR") {
+                            $('#CT').html("Cargando INSPECCION OCULAR por favor espere ... ");
+                            $.each(states, function (i, obj) {
+                                
+                                var Subtotal = obj.Orden + obj.RECURSO_SOLICITANTE_ACTO_89 + obj.RECURSO_SOLICITANTE_VISIBLE + obj.IdMunicipio + obj.CONSTANCIA_DE_EJECUTORIA_VISIBLE + obj.SOLICITUD_VISIBLE ;
+
+                                var TipoResolucion = "";
+                                if(obj.INSPECCION_OCULAR_VISIBLE == "1"){
+                                    TipoResolucion = 'Adjudicacion';
+                                    
+                                }else if(obj.INSPECCION_OCULAR_VISIBLE == "2"){
+                                    TipoResolucion = 'Niega';
+                                }else if(obj.INSPECCION_OCULAR_VISIBLE == "34"){
+                                    TipoResolucion = 'No Concluye';
+                                }
+
+                                 console.log('========================');
+                                 console.log(obj.INSPECCION_OCULAR_VISIBLE);
+                                 console.log(obj.RECURSO_SOLICITANTE_ACTO_89);
+                                    console.log(obj.RECURSO_SOLICITANTE_VISIBLE);
+                                    console.log(TipoResolucion);
+                                    console.log(obj.IdMunicipio);
+                                
+
+                                TINSPECCION_OCULAR.fnAddData([
+                                    TipoResolucion+ ' - ' + obj.Gestion,
+                                    obj.RECURSO_SOLICITANTE_ACTO_89,
+                                    obj.RECURSO_SOLICITANTE_VISIBLE,
+                                    obj.IdMunicipio,
+                                    Subtotal,
+                                ]);
+
+                            });
+                        }
+                            alert('5');
                         },
                         error: function (ex) {
                             console.log(ex.responseText);

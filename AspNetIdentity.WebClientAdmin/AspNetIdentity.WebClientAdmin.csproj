@@ -201,7 +201,6 @@
     <Compile Include="Controllers\ActividadesDiariasController.cs" />
     <Compile Include="Controllers\CaracterizacionJuridicaController.cs" />
     <Compile Include="Controllers\CaracterizacionSolicitanteController.cs" />
-    <Compile Include="Controllers\CaracterizacionJuridicaResumenController.cs" />
     <Compile Include="Controllers\HomeUsuariosController.cs" />
     <Compile Include="Controllers\RegistroController.cs" />
     <Compile Include="Controllers\ExpedienteDocumentosController.cs" />
@@ -974,11 +973,6 @@
     <Content Include="Views\CaracterizacionSolicitante\Details.cshtml" />
     <Content Include="Views\CaracterizacionSolicitante\Delete.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
-    <Content Include="Views\CaracterizacionJuridicaResumen\Index.cshtml" />
-    <Content Include="Views\CaracterizacionJuridicaResumen\IndexDepto.cshtml" />
-    <Content Include="Views\CaracterizacionJuridicaResumen\ResumenAllIndex.cshtml" />
-    <Content Include="Views\CaracterizacionJuridicaResumen\ResumenIndex.cshtml" />
-    <Content Include="Views\CaracterizacionJuridicaResumen\ResumenLista.cshtml" />
     <Content Include="Views\HomeAdministrator\ResumenAllCaracterizacionIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>

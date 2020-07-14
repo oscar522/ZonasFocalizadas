@@ -10,9 +10,8 @@
 namespace AspNetIdentity.WebApi.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class CaracterizacionJuridicaResumen
+    public partial class ResumenCaracterizacionJuridica1_Result
     {
         public long Id { get; set; }
         public long IdExpediente { get; set; }
@@ -185,12 +184,12 @@ namespace AspNetIdentity.WebApi.Models
         public Nullable<System.DateTime> FechaModificacion { get; set; }
         public Nullable<int> Gestion { get; set; }
         public string Tipo { get; set; }
+        public string SubTipo { get; set; }
         public Nullable<int> IdMunicipio { get; set; }
         public string NombreMuni { get; set; }
         public string IdDepto { get; set; }
         public string NombreDepto { get; set; }
         public Nullable<int> Orden { get; set; }
-        public string SubTipo { get; set; }
         public string NumeroExpediente { get; set; }
     }
 }

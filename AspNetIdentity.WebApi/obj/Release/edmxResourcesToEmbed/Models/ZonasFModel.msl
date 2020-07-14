@@ -740,10 +740,10 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="ResumenCaracterizacionJuridica" FunctionName="ZonasFModel.Store.ResumenCaracterizacionJuridica" />
     <EntitySetMapping Name="CaracterizacionJuridicaResumen">
       <EntityTypeMapping TypeName="ZonasFModel.CaracterizacionJuridicaResumen">
         <MappingFragment StoreEntitySet="CaracterizacionJuridicaResumen">
+          <ScalarProperty Name="NumeroExpediente" ColumnName="NumeroExpediente" />
           <ScalarProperty Name="SubTipo" ColumnName="SubTipo" />
           <ScalarProperty Name="Orden" ColumnName="Orden" />
           <ScalarProperty Name="NombreDepto" ColumnName="NombreDepto" />
@@ -924,5 +924,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ResumenCaracterizacionJuridica" FunctionName="ZonasFModel.Store.ResumenCaracterizacionJuridica" />
   </EntityContainerMapping>
 </Mapping>

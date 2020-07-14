@@ -77,23 +77,23 @@ namespace AspNetIdentity.WebApi.Controllers
         // CaracterizacionJuridicaAll
         [Authorize]
         [Route("GetRegumenCaracterizacionJuridicaAll/{IdP}")]
-        public List<CaracterizacionJuridicaResumenModel> GetRegumenCaracterizacionJuridicaAll(string IdP)
-        {
-            AdministratorLogic a = new AdministratorLogic();
-            var model = new List<CaracterizacionJuridicaResumenModel>();
-            model = a.ConsultarResumenCaracterizacionJuridicaAll(IdP);
-            return model;
-        }
+        //public List<CaracterizacionJuridicaResumenModel> GetRegumenCaracterizacionJuridicaAll(string IdP)
+        //{
+        //    AdministratorLogic a = new AdministratorLogic();
+        //    var model = new List<CaracterizacionJuridicaResumenModel>();
+        //    model = a.ConsultarResumenCaracterizacionJuridicaAll(IdP);
+        //    return model;
+        //}
 
-        [Authorize]
-        [Route("getResumenListaRegumenCaracterizacionJuridica/{IdP}")]
-        public List<BaldiosPersonaNaturalModel> GetRegumenListaRegumenCaracterizacionJuridica(string IdP)
-        {
-            AdministratorLogic a = new AdministratorLogic();
-            var model = new List<BaldiosPersonaNaturalModel>();
-            model = a.ConsultarResumenListaResumenCaracterizacionJuridica(IdP);
-            return model;
-        }
+        //[Authorize]
+        //[Route("getResumenListaRegumenCaracterizacionJuridica/{IdP}")]
+        //public List<BaldiosPersonaNaturalModel> GetRegumenListaRegumenCaracterizacionJuridica(string IdP)
+        //{
+        //    AdministratorLogic a = new AdministratorLogic();
+        //    var model = new List<BaldiosPersonaNaturalModel>();
+        //    model = a.ConsultarResumenListaResumenCaracterizacionJuridica(IdP);
+        //    return model;
+        //}
 
         //
 

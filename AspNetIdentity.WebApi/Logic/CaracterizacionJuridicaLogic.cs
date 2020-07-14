@@ -254,7 +254,7 @@ namespace AspNetIdentity.WebApi.Logic
 
             var Resumen = Ctx.PlResumenTipificacionAll(73, 73, "da825085-c7c2-48b8-ab8f-11637623e1bd") 
                             .Select(c => c).ToList();
-
+            var tipo = Ctx.ResumenCaracterizacionJuridica(id).Select(c => c).ToList(); ; //NombrePredio
             var listaBaldios = Ctx.BaldiosPersonaNatural
                  .Join(Ctx.CaracterizacionJuridica, b => b.id, c => c.IdExpediente, (b, c) => new { b, c })
                  .Where(w => w.c.IdAspNetUser == id).ToList();
@@ -279,8 +279,8 @@ namespace AspNetIdentity.WebApi.Logic
                     IdDepto = c.b.b.IdDepto,
                     IdCiudad = c.b.c.Gestion,
                     Vereda = c.b.b.Vereda,
-                    NombrePredio = c.b.b.NombrePredio,
-                    NombreBeneficiario = c.b.b.NombreBeneficiario,
+                    NombrePredio = tipo.Where(x =>x.IdExpediente == c.b.b.id).Select(u =>u.Tipo).FirstOrDefault(),
+                    NombreBeneficiario = tipo.Where(x => x.IdExpediente == c.b.b.id).Select(u => u.SubTipo).FirstOrDefault(),
                     IdTipoIdentificacion = c.b.b.IdTipoIdentificacion,
                     Identificacion = c.b.b.Identificacion,
                     IdGenero = c.b.b.IdGenero,

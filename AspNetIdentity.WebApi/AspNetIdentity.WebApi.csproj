@@ -236,7 +236,6 @@
     <Compile Include="Charts\CustomCharts.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\AccountTableController.cs" />
-    <Compile Include="Controllers\CaracterizacionJuridicaResumenController.cs" />
     <Compile Include="Controllers\ConceptosGestionController.cs" />
     <Compile Include="Controllers\CaracterizacionJuridicaController.cs" />
     <Compile Include="Controllers\CaracterizacionSolicitanteController.cs" />
@@ -268,7 +267,6 @@
     <Compile Include="Infrastructure\ExtendedClaimsProvider.cs" />
     <Compile Include="Infrastructure\RolesFromClaims.cs" />
     <Compile Include="Logic\AccountTableLogic.cs" />
-    <Compile Include="Logic\CaracterizacionJuridicaResumenLogic.cs" />
     <Compile Include="Logic\ConceptoGestionLogic.cs" />
     <Compile Include="Logic\CaracterizacionJuridicaLogic.cs" />
     <Compile Include="Logic\CaracterizacionSolicitanteLogic.cs" />
@@ -394,6 +392,9 @@
     </Compile>
     <Compile Include="Models\PlGestionUsers.cs" />
     <Compile Include="Models\Registro.cs">
+      <DependentUpon>ZonasFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ResumenCaracterizacionJuridica1_Result.cs">
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ResumenTipificacion.cs">
