@@ -373,6 +373,10 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
           <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
           <Property Name="Gestion" Type="int" />
+          <Property Name="DESISTIMIENTO_DESISTIMIENTO_113" Type="bit" />
+          <Property Name="DESISTIMIENTO_VISIBLE" Type="int" />
+          <Property Name="DESISTIMIENTO_FECHA" Type="datetime" />
+          <Property Name="DESISTIMIENTO_FIRMADO" Type="bit" />
         </EntityType>
         <EntityType Name="CaracterizacionJuridicaCatalogos">
           <Key>
@@ -1614,7 +1618,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <EntitySet Name="PlGestionTable" EntityType="ZonasFModel.PlGestionTable" />
           <EntitySet Name="CaracterizacionJuridicaResumen" EntityType="ZonasFModel.CaracterizacionJuridicaResumen" />
           <FunctionImport Name="ResumenCaracterizacionJuridica" EntitySet="CaracterizacionJuridicaResumen" ReturnType="Collection(ZonasFModel.CaracterizacionJuridicaResumen)">
-            <Parameter Name="IdAspNetUser" Mode="In" Type="String" />
+          <Parameter Name="IdAspNetUser" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="ExpedienteDocumentos">
@@ -2042,6 +2046,10 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Property Name="SUBSIDIODEAPELACION_FECHA" Type="DateTime" Precision="3" />
           <Property Name="SUBSIDIODEAPELACION_RESPUESTA" Type="Int32" />
           <Property Name="SUBSIDIODEAPELACION_DECISION" Type="Int32" />
+          <Property Name="DESISTIMIENTO_DESISTIMIENTO_113" Type="Boolean" />
+          <Property Name="DESISTIMIENTO_VISIBLE" Type="Int32" />
+          <Property Name="DESISTIMIENTO_FIRMADO" Type="Boolean" />
+          <Property Name="DESISTIMIENTO_FECHA" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="CaracterizacionSolicitante">
           <Key>
@@ -2976,6 +2984,10 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <EntitySetMapping Name="CaracterizacionJuridica">
             <EntityTypeMapping TypeName="ZonasFModel.CaracterizacionJuridica">
               <MappingFragment StoreEntitySet="CaracterizacionJuridica">
+                <ScalarProperty Name="DESISTIMIENTO_FECHA" ColumnName="DESISTIMIENTO_FECHA" />
+                <ScalarProperty Name="DESISTIMIENTO_FIRMADO" ColumnName="DESISTIMIENTO_FIRMADO" />
+                <ScalarProperty Name="DESISTIMIENTO_VISIBLE" ColumnName="DESISTIMIENTO_VISIBLE" />
+                <ScalarProperty Name="DESISTIMIENTO_DESISTIMIENTO_113" ColumnName="DESISTIMIENTO_DESISTIMIENTO_113" />
                 <ScalarProperty Name="SUBSIDIODEAPELACION_DECISION" ColumnName="SUBSIDIODEAPELACION_DECISION" />
                 <ScalarProperty Name="SUBSIDIODEAPELACION_RESPUESTA" ColumnName="SUBSIDIODEAPELACION_RESPUESTA" />
                 <ScalarProperty Name="SUBSIDIODEAPELACION_FECHA" ColumnName="SUBSIDIODEAPELACION_FECHA" />

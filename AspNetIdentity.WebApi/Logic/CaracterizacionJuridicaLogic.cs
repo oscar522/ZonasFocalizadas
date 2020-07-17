@@ -526,7 +526,13 @@ namespace AspNetIdentity.WebApi.Logic
             CaracterizacionJuridicaModel_.SUBSIDIODEAPELACION_FECHA = a.b.SUBSIDIODEAPELACION_FECHA;
             CaracterizacionJuridicaModel_.SUBSIDIODEAPELACION_RESPUESTA = a.b.SUBSIDIODEAPELACION_RESPUESTA;
             CaracterizacionJuridicaModel_.SUBSIDIODEAPELACION_DECISION = a.b.SUBSIDIODEAPELACION_DECISION;
-            
+
+            //DESISTIMIENTO
+            CaracterizacionJuridicaModel_.DESISTIMIENTO_DESISTIMIENTO_113 = a.b.DESISTIMIENTO_DESISTIMIENTO_113;
+            CaracterizacionJuridicaModel_.DESISTIMIENTO_VISIBLE = a.b.DESISTIMIENTO_VISIBLE;
+            CaracterizacionJuridicaModel_.DESISTIMIENTO_FECHA = a.b.DESISTIMIENTO_FECHA;
+            CaracterizacionJuridicaModel_.DESISTIMIENTO_FIRMADO = a.b.DESISTIMIENTO_FIRMADO;
+
             CaracterizacionJuridicaModel_.Estado = true;
             CaracterizacionJuridicaModel_.IdAspNetUser = a.b.IdAspNetUser;
             CaracterizacionJuridicaModel_.rol = a.Name;
@@ -727,6 +733,12 @@ namespace AspNetIdentity.WebApi.Logic
                     ResCtx.SUBSIDIODEAPELACION_FECHA = a.SUBSIDIODEAPELACION_FECHA;
                     ResCtx.SUBSIDIODEAPELACION_RESPUESTA = a.SUBSIDIODEAPELACION_RESPUESTA;
                     ResCtx.SUBSIDIODEAPELACION_DECISION = a.SUBSIDIODEAPELACION_DECISION;
+
+                    //DESISTIMIENTO
+                    ResCtx.DESISTIMIENTO_DESISTIMIENTO_113 = a.DESISTIMIENTO_DESISTIMIENTO_113;
+                    ResCtx.DESISTIMIENTO_VISIBLE = a.DESISTIMIENTO_VISIBLE;
+                    ResCtx.DESISTIMIENTO_FECHA = a.DESISTIMIENTO_FECHA;
+                    ResCtx.DESISTIMIENTO_FIRMADO = a.DESISTIMIENTO_FIRMADO;
 
                     ResCtx.FechaModificacion = DateTime.Now;
                     ResCtx.Gestion = 1;

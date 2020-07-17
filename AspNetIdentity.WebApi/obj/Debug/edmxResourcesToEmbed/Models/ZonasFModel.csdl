@@ -721,6 +721,10 @@
     <Property Name="SUBSIDIODEAPELACION_FECHA" Type="DateTime" Precision="3" />
     <Property Name="SUBSIDIODEAPELACION_RESPUESTA" Type="Int32" />
     <Property Name="SUBSIDIODEAPELACION_DECISION" Type="Int32" />
+    <Property Name="DESISTIMIENTO_DESISTIMIENTO_113" Type="Boolean" />
+    <Property Name="DESISTIMIENTO_VISIBLE" Type="Int32" />
+    <Property Name="DESISTIMIENTO_FIRMADO" Type="Boolean" />
+    <Property Name="DESISTIMIENTO_FECHA" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="CaracterizacionSolicitante">
     <Key>

@@ -477,6 +477,10 @@
     <EntitySetMapping Name="CaracterizacionJuridica">
       <EntityTypeMapping TypeName="ZonasFModel.CaracterizacionJuridica">
         <MappingFragment StoreEntitySet="CaracterizacionJuridica">
+          <ScalarProperty Name="DESISTIMIENTO_FECHA" ColumnName="DESISTIMIENTO_FECHA" />
+          <ScalarProperty Name="DESISTIMIENTO_FIRMADO" ColumnName="DESISTIMIENTO_FIRMADO" />
+          <ScalarProperty Name="DESISTIMIENTO_VISIBLE" ColumnName="DESISTIMIENTO_VISIBLE" />
+          <ScalarProperty Name="DESISTIMIENTO_DESISTIMIENTO_113" ColumnName="DESISTIMIENTO_DESISTIMIENTO_113" />
           <ScalarProperty Name="SUBSIDIODEAPELACION_DECISION" ColumnName="SUBSIDIODEAPELACION_DECISION" />
           <ScalarProperty Name="SUBSIDIODEAPELACION_RESPUESTA" ColumnName="SUBSIDIODEAPELACION_RESPUESTA" />
           <ScalarProperty Name="SUBSIDIODEAPELACION_FECHA" ColumnName="SUBSIDIODEAPELACION_FECHA" />

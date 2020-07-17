@@ -5,47 +5,47 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="7bf23a5b4ccf451db53ce4687f87db1d" Name="Diagram1" ZoomLevel="62">
-        <EntityTypeShape EntityType="ZonasFModel.CtCiudad" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZonasFModel.CtDepto" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZonasFModel.CtGenero" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZonasFModel.CtPais" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZonasFModel.CtTipoIdentificacion" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZonasFModel.Users" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZonasFModel.C__MigrationHistory" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZonasFModel.Accounts" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZonasFModel.Accounts_AdditionalInformation" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZonasFModel.AspNetRoles" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZonasFModel.AspNetUserClaims" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZonasFModel.AspNetUserLogins" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZonasFModel.AspNetUserRoles" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZonasFModel.AspNetUsers" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZonasFModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZonasFModel.Temp_AspNetUsersTests" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZonasFModel.Temp_AspNetUsersTests_Details" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZonasFModel.ExpedienteDocumentos" Width="1.5" PointX="5.375" PointY="11.75" />
-        <EntityTypeShape EntityType="ZonasFModel.RetencionDocumentalGrupo" Width="1.5" PointX="11.375" PointY="9.75" />
+        <EntityTypeShape EntityType="ZonasFModel.CtCiudad" Width="1.5" PointX="3.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZonasFModel.CtDepto" Width="1.5" PointX="3.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZonasFModel.CtGenero" Width="1.5" PointX="5.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZonasFModel.CtPais" Width="1.5" PointX="5.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZonasFModel.CtTipoIdentificacion" Width="1.5" PointX="7.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZonasFModel.Users" Width="1.5" PointX="17.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZonasFModel.C__MigrationHistory" Width="1.5" PointX="24.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZonasFModel.Accounts" Width="1.5" PointX="15.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZonasFModel.Accounts_AdditionalInformation" Width="1.5" PointX="19.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZonasFModel.AspNetRoles" Width="1.5" PointX="22.625" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZonasFModel.AspNetUserClaims" Width="1.5" PointX="24.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZonasFModel.AspNetUserLogins" Width="1.5" PointX="15.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZonasFModel.AspNetUserRoles" Width="1.5" PointX="20.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZonasFModel.AspNetUsers" Width="1.5" PointX="20.875" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZonasFModel.sysdiagrams" Width="1.5" PointX="19.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZonasFModel.Temp_AspNetUsersTests" Width="1.5" PointX="22.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZonasFModel.Temp_AspNetUsersTests_Details" Width="1.5" PointX="17.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZonasFModel.ExpedienteDocumentos" Width="1.5" PointX="9.375" PointY="7.25" />
+        <EntityTypeShape EntityType="ZonasFModel.RetencionDocumentalGrupo" Width="1.5" PointX="6.125" PointY="5" />
         <EntityTypeShape EntityType="ZonasFModel.RetencionDocumental" Width="1.5" PointX="0.75" PointY="11.75" />
-        <EntityTypeShape EntityType="ZonasFModel.BaldiosPersonaNatural" Width="1.5" PointX="11.375" PointY="12.75" />
-        <EntityTypeShape EntityType="ZonasFModel.Registro" Width="1.5" PointX="13.375" PointY="0.75" />
-        <EntityTypeShape EntityType="ZonasFModel.ResumenTipificacion" Width="1.5" PointX="13.375" PointY="6.75" />
-        <EntityTypeShape EntityType="ZonasFModel.CtCausas" Width="1.5" PointX="13.375" PointY="13.75" />
+        <EntityTypeShape EntityType="ZonasFModel.BaldiosPersonaNatural" Width="2.125" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="ZonasFModel.Registro" Width="1.5" PointX="9.375" PointY="0.5" />
+        <EntityTypeShape EntityType="ZonasFModel.ResumenTipificacion" Width="1.5" PointX="13.5" PointY="6.25" />
+        <EntityTypeShape EntityType="ZonasFModel.CtCausas" Width="1.5" PointX="9.375" PointY="5.375" />
         <EntityTypeShape EntityType="ZonasFModel.ConceptoAsociado" Width="1.5" PointX="0.75" PointY="14.75" />
-        <EntityTypeShape EntityType="ZonasFModel.ResumenTipificacionAll" Width="1.5" PointX="7.375" PointY="14.75" />
-        <EntityTypeShape EntityType="ZonasFModel.TipoActividad" Width="1.5" PointX="15.375" PointY="4.75" />
-        <EntityTypeShape EntityType="ZonasFModel.ActDiaModalidad" Width="1.5" PointX="15.375" PointY="7.75" />
-        <EntityTypeShape EntityType="ZonasFModel.ActDiaProceso" Width="1.5" PointX="15.375" PointY="10.75" />
-        <EntityTypeShape EntityType="ZonasFModel.ActividadesDiarias" Width="1.5" PointX="15.375" PointY="0.75" />
-        <EntityTypeShape EntityType="ZonasFModel.CoceptosExpediente" Width="1.5" PointX="15.375" PointY="13.75" />
-        <EntityTypeShape EntityType="ZonasFModel.ConceptosDocumentos" Width="1.5" PointX="3.375" PointY="16.75" />
-        <EntityTypeShape EntityType="ZonasFModel.Concepto" Width="1.5" PointX="13.375" PointY="16.75" />
-        <EntityTypeShape EntityType="ZonasFModel.ConceptoEstado" Width="1.5" PointX="15.75" PointY="16.75" />
+        <EntityTypeShape EntityType="ZonasFModel.ResumenTipificacionAll" Width="1.5" PointX="9.375" PointY="11" />
+        <EntityTypeShape EntityType="ZonasFModel.TipoActividad" Width="1.5" PointX="11.5" PointY="4.125" />
+        <EntityTypeShape EntityType="ZonasFModel.ActDiaModalidad" Width="1.5" PointX="13.625" PointY="4.125" />
+        <EntityTypeShape EntityType="ZonasFModel.ActDiaProceso" Width="1.5" PointX="13.375" PointY="10.875" />
+        <EntityTypeShape EntityType="ZonasFModel.ActividadesDiarias" Width="1.5" PointX="11.5" PointY="0.5" />
+        <EntityTypeShape EntityType="ZonasFModel.CoceptosExpediente" Width="1.5" PointX="11.375" PointY="7.25" />
+        <EntityTypeShape EntityType="ZonasFModel.ConceptosDocumentos" Width="1.5" PointX="9.5" PointY="14.375" />
+        <EntityTypeShape EntityType="ZonasFModel.Concepto" Width="1.5" PointX="11.375" PointY="9.5" />
+        <EntityTypeShape EntityType="ZonasFModel.ConceptoEstado" Width="1.5" PointX="13.5" PointY="8.75" />
         <EntityTypeShape EntityType="ZonasFModel.ConceptoTipoSoporte" Width="1.5" PointX="0.75" PointY="17.75" />
-        <EntityTypeShape EntityType="ZonasFModel.ConceptoGestion" Width="1.5" PointX="17.375" PointY="0.75" />
-        <EntityTypeShape EntityType="ZonasFModel.CaracterizacionJuridicaCatalogos" Width="1.5" PointX="5.375" PointY="18.75" />
-        <EntityTypeShape EntityType="ZonasFModel.CaracterizacionJuridica" Width="1.5" PointX="18.375" PointY="4.75" />
-        <EntityTypeShape EntityType="ZonasFModel.CaracterizacionSolicitante" Width="3.125" PointX="7.375" PointY="18.75" />
-        <EntityTypeShape EntityType="ZonasFModel.PlGestionTable" Width="1.5" PointX="15.375" PointY="19.75" />
-        <EntityTypeShape EntityType="ZonasFModel.CaracterizacionJuridicaResumen" Width="1.5" PointX="20.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ZonasFModel.ConceptoGestion" Width="1.5" PointX="13.625" PointY="0.5" />
+        <EntityTypeShape EntityType="ZonasFModel.CaracterizacionJuridicaCatalogos" Width="1.5" PointX="7.25" PointY="2.75" />
+        <EntityTypeShape EntityType="ZonasFModel.CaracterizacionJuridica" Width="2" PointX="3.25" PointY="6.25" />
+        <EntityTypeShape EntityType="ZonasFModel.CaracterizacionSolicitante" Width="3.125" PointX="5.625" PointY="7.125" />
+        <EntityTypeShape EntityType="ZonasFModel.PlGestionTable" Width="1.5" PointX="5.625" PointY="16.625" />
+        <EntityTypeShape EntityType="ZonasFModel.CaracterizacionJuridicaResumen" Width="2.375" PointX="0.5" PointY="6.25" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

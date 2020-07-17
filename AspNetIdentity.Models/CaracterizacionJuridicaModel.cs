@@ -578,7 +578,18 @@ namespace AspNetIdentity.Models
         [Range(1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> SUBSIDIODEAPELACION_DECISION { get; set; }
 
-
+        
+        
+        
+        [Required(ErrorMessage = ".")]
+        public Nullable<bool> DESISTIMIENTO_DESISTIMIENTO_113 { get; set; }
+        [Required(ErrorMessage = ".")]
+        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        public Nullable<int> DESISTIMIENTO_VISIBLE { get; set; }
+        [Required(ErrorMessage = ".")]
+        public Nullable<System.DateTime> DESISTIMIENTO_FECHA { get; set; }
+        [Required(ErrorMessage = ".")]
+        public Nullable<bool> DESISTIMIENTO_FIRMADO { get; set; }
 
 
 
@@ -600,6 +611,8 @@ namespace AspNetIdentity.Models
         public string nombreRECURSO_MINISTERIO_ACTO_89 { get; set; }
         public string nombreRECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92 { get; set; }
         public string NumeroExpediente { get; set; }
+       
+        
 
         public bool Estado { get; set; }
         public string IdAspNetUser { get; set; }

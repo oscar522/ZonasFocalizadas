@@ -184,5 +184,9 @@ namespace AspNetIdentity.WebApi.Models
         public Nullable<System.DateTime> SUBSIDIODEAPELACION_FECHA { get; set; }
         public Nullable<int> SUBSIDIODEAPELACION_RESPUESTA { get; set; }
         public Nullable<int> SUBSIDIODEAPELACION_DECISION { get; set; }
+        public Nullable<bool> DESISTIMIENTO_DESISTIMIENTO_113 { get; set; }
+        public Nullable<int> DESISTIMIENTO_VISIBLE { get; set; }
+        public Nullable<bool> DESISTIMIENTO_FIRMADO { get; set; }
+        public Nullable<System.DateTime> DESISTIMIENTO_FECHA { get; set; }
     }
 }
