@@ -94,6 +94,8 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Accounts_AdditionalInformation' n
           <Property Name="Observacion" Type="text" />
           <Property Name="Estado" Type="bit" />
           <Property Name="FInsercion" Type="datetime" />
+          <Property Name="IdDepto" Type="int" />
+          <Property Name="IdMuni" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetRoles' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -769,6 +771,28 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.CaracterizacionJuridicaResumen' n
           <Property Name="UsuarioInserta" Type="nvarchar" MaxLength="128" />
           <Property Name="UsuarioModifica" Type="nvarchar" MaxLength="128" />
         </EntityType>
+        <EntityType Name="GeneracionDocumentos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdExpediente" Type="int" />
+          <Property Name="Validacion1" Type="int" />
+          <Property Name="Validacion2" Type="int" />
+          <Property Name="Validacion3" Type="int" />
+          <Property Name="Validacion4" Type="int" />
+          <Property Name="Validacion5" Type="int" />
+          <Property Name="Validacion6" Type="int" />
+          <Property Name="Validacion7" Type="int" />
+          <Property Name="Validacion8" Type="int" />
+          <Property Name="Validacion9" Type="int" />
+          <Property Name="Validacion10" Type="int" />
+          <Property Name="Gestion" Type="int" />
+          <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" />
+          <Property Name="Estado" Type="bit" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="FechaCargue" Type="datetime" />
+        </EntityType>
         <EntityType Name="PlGestionTable">
           <Key>
             <PropertyRef Name="idd" />
@@ -1007,6 +1031,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <EntitySet Name="CtPais" EntityType="Self.CtPais" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CtTipoIdentificacion" EntityType="Self.CtTipoIdentificacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ExpedienteDocumentos" EntityType="Self.ExpedienteDocumentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GeneracionDocumentos" EntityType="Self.GeneracionDocumentos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PlGestionTable" EntityType="Self.PlGestionTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Registro" EntityType="Self.Registro" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ResumenTipificacion" EntityType="Self.ResumenTipificacion" Schema="dbo" store:Type="Tables" />
@@ -1620,6 +1645,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <FunctionImport Name="ResumenCaracterizacionJuridica" EntitySet="CaracterizacionJuridicaResumen" ReturnType="Collection(ZonasFModel.CaracterizacionJuridicaResumen)">
           <Parameter Name="IdAspNetUser" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="GeneracionDocumentos" EntityType="ZonasFModel.GeneracionDocumentos" />
         </EntityContainer>
         <EntityType Name="ExpedienteDocumentos">
           <Key>
@@ -1796,6 +1822,8 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Boolean" />
           <Property Name="FInsercion" Type="DateTime" Precision="3" />
+          <Property Name="IdDepto" Type="Int32" />
+          <Property Name="IdMuni" Type="Int32" />
         </EntityType>
         <EntityType Name="CoceptosExpediente">
           <Key>
@@ -2502,6 +2530,28 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Property Type="Int32" Name="Orden" Nullable="true" />
           <Property Type="String" Name="NumeroExpediente" Nullable="true" MaxLength="100" />
         </ComplexType>
+        <EntityType Name="GeneracionDocumentos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdExpediente" Type="Int32" />
+          <Property Name="Validacion1" Type="Int32" />
+          <Property Name="Validacion2" Type="Int32" />
+          <Property Name="Validacion3" Type="Int32" />
+          <Property Name="Validacion4" Type="Int32" />
+          <Property Name="Validacion5" Type="Int32" />
+          <Property Name="Validacion6" Type="Int32" />
+          <Property Name="Validacion7" Type="Int32" />
+          <Property Name="Validacion8" Type="Int32" />
+          <Property Name="Validacion9" Type="Int32" />
+          <Property Name="Validacion10" Type="Int32" />
+          <Property Name="Gestion" Type="Int32" />
+          <Property Name="IdAspNetUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="Boolean" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="FechaCargue" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2885,6 +2935,8 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <EntitySetMapping Name="ActividadesDiarias">
             <EntityTypeMapping TypeName="ZonasFModel.ActividadesDiarias">
               <MappingFragment StoreEntitySet="ActividadesDiarias">
+                <ScalarProperty Name="IdMuni" ColumnName="IdMuni" />
+                <ScalarProperty Name="IdDepto" ColumnName="IdDepto" />
                 <ScalarProperty Name="FInsercion" ColumnName="FInsercion" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="Observacion" ColumnName="Observacion" />
@@ -3436,6 +3488,29 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="ResumenCaracterizacionJuridica" FunctionName="ZonasFModel.Store.ResumenCaracterizacionJuridica" />
+          <EntitySetMapping Name="GeneracionDocumentos">
+            <EntityTypeMapping TypeName="ZonasFModel.GeneracionDocumentos">
+              <MappingFragment StoreEntitySet="GeneracionDocumentos">
+                <ScalarProperty Name="FechaCargue" ColumnName="FechaCargue" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />
+                <ScalarProperty Name="Gestion" ColumnName="Gestion" />
+                <ScalarProperty Name="Validacion10" ColumnName="Validacion10" />
+                <ScalarProperty Name="Validacion9" ColumnName="Validacion9" />
+                <ScalarProperty Name="Validacion8" ColumnName="Validacion8" />
+                <ScalarProperty Name="Validacion7" ColumnName="Validacion7" />
+                <ScalarProperty Name="Validacion6" ColumnName="Validacion6" />
+                <ScalarProperty Name="Validacion5" ColumnName="Validacion5" />
+                <ScalarProperty Name="Validacion4" ColumnName="Validacion4" />
+                <ScalarProperty Name="Validacion3" ColumnName="Validacion3" />
+                <ScalarProperty Name="Validacion2" ColumnName="Validacion2" />
+                <ScalarProperty Name="Validacion1" ColumnName="Validacion1" />
+                <ScalarProperty Name="IdExpediente" ColumnName="IdExpediente" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

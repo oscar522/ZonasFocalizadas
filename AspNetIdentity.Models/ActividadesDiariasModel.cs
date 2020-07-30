@@ -23,6 +23,8 @@ namespace AspNetIdentity.Models
         public string NombreProceso { get; set; }
         public Nullable<int> IdModalidad { get; set; }
         public string  NombreModalidad { get; set; }
+        public Nullable<int> IdDepto { get; set; }
+        public Nullable<int> IdMuni { get; set; }
 
     }
 }

@@ -46,6 +46,7 @@
         <EntityTypeShape EntityType="ZonasFModel.CaracterizacionSolicitante" Width="3.125" PointX="5.625" PointY="7.125" />
         <EntityTypeShape EntityType="ZonasFModel.PlGestionTable" Width="1.5" PointX="5.625" PointY="16.625" />
         <EntityTypeShape EntityType="ZonasFModel.CaracterizacionJuridicaResumen" Width="2.375" PointX="0.5" PointY="6.25" />
+        <EntityTypeShape EntityType="ZonasFModel.GeneracionDocumentos" Width="1.5" PointX="12.375" PointY="13.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

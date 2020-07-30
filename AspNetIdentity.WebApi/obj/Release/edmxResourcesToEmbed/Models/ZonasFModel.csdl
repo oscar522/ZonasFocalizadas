@@ -295,6 +295,7 @@
     <FunctionImport Name="ResumenCaracterizacionJuridica" EntitySet="CaracterizacionJuridicaResumen" ReturnType="Collection(ZonasFModel.CaracterizacionJuridicaResumen)">
       <Parameter Name="IdAspNetUser" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="GeneracionDocumentos" EntityType="ZonasFModel.GeneracionDocumentos" />
   </EntityContainer>
   <EntityType Name="ExpedienteDocumentos">
     <Key>
@@ -471,6 +472,8 @@
     <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Estado" Type="Boolean" />
     <Property Name="FInsercion" Type="DateTime" Precision="3" />
+    <Property Name="IdDepto" Type="Int32" />
+    <Property Name="IdMuni" Type="Int32" />
   </EntityType>
   <EntityType Name="CoceptosExpediente">
     <Key>
@@ -1177,4 +1180,26 @@
     <Property Type="Int32" Name="Orden" Nullable="true" />
     <Property Type="String" Name="NumeroExpediente" Nullable="true" MaxLength="100" />
   </ComplexType>
+  <EntityType Name="GeneracionDocumentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdExpediente" Type="Int32" />
+    <Property Name="Validacion1" Type="Int32" />
+    <Property Name="Validacion2" Type="Int32" />
+    <Property Name="Validacion3" Type="Int32" />
+    <Property Name="Validacion4" Type="Int32" />
+    <Property Name="Validacion5" Type="Int32" />
+    <Property Name="Validacion6" Type="Int32" />
+    <Property Name="Validacion7" Type="Int32" />
+    <Property Name="Validacion8" Type="Int32" />
+    <Property Name="Validacion9" Type="Int32" />
+    <Property Name="Validacion10" Type="Int32" />
+    <Property Name="Gestion" Type="Int32" />
+    <Property Name="IdAspNetUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Estado" Type="Boolean" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="FechaCargue" Type="DateTime" Precision="3" />
+  </EntityType>
 </Schema>

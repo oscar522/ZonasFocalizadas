@@ -1,0 +1,749 @@
+﻿@model AspNetIdentity.Models.CaracterizacionJuridicaModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Crear</title>
+</head>
+<body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    
+    
+    @using (Html.BeginForm()) 
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="form-horizontal">
+            <h4>CaracterizacionJuridicaModel</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdExpediente, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.IdExpediente, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.IdExpediente, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.INSPECCION_OCULAR_INSPECCION_OCULAR_53, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.INSPECCION_OCULAR_INSPECCION_OCULAR_53)
+                        @Html.ValidationMessageFor(model => model.INSPECCION_OCULAR_INSPECCION_OCULAR_53, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.INSPECCION_OCULAR_FECHA_54, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.INSPECCION_OCULAR_FECHA_54, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.INSPECCION_OCULAR_FECHA_54, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.INSPECCION_OCULAR_FIRMA_55, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.INSPECCION_OCULAR_FIRMA_55)
+                        @Html.ValidationMessageFor(model => model.INSPECCION_OCULAR_FIRMA_55, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.INSPECCION_OCULAR_OPOSICIONES_56, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.INSPECCION_OCULAR_OPOSICIONES_56)
+                        @Html.ValidationMessageFor(model => model.INSPECCION_OCULAR_OPOSICIONES_56, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.INSPECCION_OCULAR_CONCEPTO_57, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.INSPECCION_OCULAR_CONCEPTO_57, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.INSPECCION_OCULAR_CONCEPTO_57, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.NombreINSPECCION_OCULAR_CONCEPTO_57, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NombreINSPECCION_OCULAR_CONCEPTO_57, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NombreINSPECCION_OCULAR_CONCEPTO_57, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58)
+                        @Html.ValidationMessageFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_FECHA_59, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_FECHA_59, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_FECHA_59, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60)
+                        @Html.ValidationMessageFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.NombreACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NombreACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NombreACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62)
+                        @Html.ValidationMessageFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63)
+                        @Html.ValidationMessageFor(model => model.ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.FIJACION_EN_LISTA_FIJACION_EN_LISTA_64, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.FIJACION_EN_LISTA_FIJACION_EN_LISTA_64)
+                        @Html.ValidationMessageFor(model => model.FIJACION_EN_LISTA_FIJACION_EN_LISTA_64, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.FIJACION_EN_LISTA_FECHA_DE_FIJACION_65, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FIJACION_EN_LISTA_FECHA_DE_FIJACION_65, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FIJACION_EN_LISTA_FECHA_DE_FIJACION_65, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.FIJACION_EN_LISTA_FIRMA_67, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.FIJACION_EN_LISTA_FIRMA_67)
+                        @Html.ValidationMessageFor(model => model.FIJACION_EN_LISTA_FIRMA_67, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.OPOCISIONES_OPOCISIONES_68, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.OPOCISIONES_OPOCISIONES_68)
+                        @Html.ValidationMessageFor(model => model.OPOCISIONES_OPOCISIONES_68, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.OPOCISIONES_FECHA_69, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.OPOCISIONES_FECHA_69, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.OPOCISIONES_FECHA_69, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70)
+                        @Html.ValidationMessageFor(model => model.FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.FORMATO_DE_REVISION_JURIDICA_FECHA_71, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FORMATO_DE_REVISION_JURIDICA_FECHA_71, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FORMATO_DE_REVISION_JURIDICA_FECHA_71, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.FORMATO_DE_REVISION_JURIDICA_FIRMADA_72, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.FORMATO_DE_REVISION_JURIDICA_FIRMADA_72)
+                        @Html.ValidationMessageFor(model => model.FORMATO_DE_REVISION_JURIDICA_FIRMADA_72, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.NombreFORMATO_DE_REVISION_JURIDICA_CONCEPTO_73, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NombreFORMATO_DE_REVISION_JURIDICA_CONCEPTO_73, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NombreFORMATO_DE_REVISION_JURIDICA_CONCEPTO_73, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RESOLUCION_RESOLUCION_74, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.RESOLUCION_RESOLUCION_74)
+                        @Html.ValidationMessageFor(model => model.RESOLUCION_RESOLUCION_74, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RESOLUCION_NUMERO_DE_RESOLUCION_75, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RESOLUCION_NUMERO_DE_RESOLUCION_75, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RESOLUCION_NUMERO_DE_RESOLUCION_75, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RESOLUCION_FECHA_DE_RESOLUCION_76, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RESOLUCION_FECHA_DE_RESOLUCION_76, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RESOLUCION_FECHA_DE_RESOLUCION_76, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RESOLUCION_FIRMADA_77, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.RESOLUCION_FIRMADA_77)
+                        @Html.ValidationMessageFor(model => model.RESOLUCION_FIRMADA_77, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RESOLUCION_DECISION_78, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RESOLUCION_DECISION_78, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RESOLUCION_DECISION_78, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.NombreRESOLUCION_DECISION_78, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NombreRESOLUCION_DECISION_78, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NombreRESOLUCION_DECISION_78, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RESOLUCION_CONJUNTA_INDIVIDUAL_80, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RESOLUCION_CONJUNTA_INDIVIDUAL_80, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RESOLUCION_CONJUNTA_INDIVIDUAL_80, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.NombreRESOLUCION_CONJUNTA_INDIVIDUAL_80, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NombreRESOLUCION_CONJUNTA_INDIVIDUAL_80, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NombreRESOLUCION_CONJUNTA_INDIVIDUAL_80, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.NOTIFICACION_NOTIFICACION_SOLICITANTES_81, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.NOTIFICACION_NOTIFICACION_SOLICITANTES_81)
+                        @Html.ValidationMessageFor(model => model.NOTIFICACION_NOTIFICACION_SOLICITANTES_81, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83)
+                        @Html.ValidationMessageFor(model => model.NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85)
+                        @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87)
+                        @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_SOLICITANTE_FIRMADA_88, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.RECURSO_SOLICITANTE_FIRMADA_88)
+                        @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_FIRMADA_88, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_SOLICITANTE_ACTO_89, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RECURSO_SOLICITANTE_ACTO_89, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_ACTO_89, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.NombreRECURSO_SOLICITANTE_ACTO_89, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NombreRECURSO_SOLICITANTE_ACTO_89, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NombreRECURSO_SOLICITANTE_ACTO_89, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_SOLICITANTE_NUMERO_90, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RECURSO_SOLICITANTE_NUMERO_90, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_NUMERO_90, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_SOLICITANTE_FECHA_91, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RECURSO_SOLICITANTE_FECHA_91, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_FECHA_91, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.NombreRECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NombreRECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NombreRECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93)
+                        @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95)
+                        @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_MINISTERIO_RECURSO_MINISTERIO_97, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.RECURSO_MINISTERIO_RECURSO_MINISTERIO_97)
+                        @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_RECURSO_MINISTERIO_97, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_98, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_MINISTERIO_RESPUESTA_RECURSO_99, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.RECURSO_MINISTERIO_RESPUESTA_RECURSO_99)
+                        @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_RESPUESTA_RECURSO_99, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_MINISTERIO_FIRMADA_100, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.RECURSO_MINISTERIO_FIRMADA_100)
+                        @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FIRMADA_100, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_MINISTERIO_ACTO_101, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_ACTO_101, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_ACTO_101, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.NombreRECURSO_MINISTERIO_ACTO_101, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NombreRECURSO_MINISTERIO_ACTO_101, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NombreRECURSO_MINISTERIO_ACTO_101, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_MINISTERIO_NUMERO_102, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_NUMERO_102, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_NUMERO_102, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_MINISTERIO_FECHA_103, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_FECHA_103, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FECHA_103, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.NombreRECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NombreRECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NombreRECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_104, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105)
+                        @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_105, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_106, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107)
+                        @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_107, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_108, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109)
+                        @Html.ValidationMessageFor(model => model.CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.CONSTANCIA_DE_EJECUTORIA_FIRMADA_111, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.CONSTANCIA_DE_EJECUTORIA_FIRMADA_111)
+                        @Html.ValidationMessageFor(model => model.CONSTANCIA_DE_EJECUTORIA_FIRMADA_111, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112)
+                        @Html.ValidationMessageFor(model => model.CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.REVOCATORIA_REVOCATORIA_113, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.REVOCATORIA_REVOCATORIA_113)
+                        @Html.ValidationMessageFor(model => model.REVOCATORIA_REVOCATORIA_113, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.REVOCATORIA_NUMERO_RESOLUCION_114, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.REVOCATORIA_NUMERO_RESOLUCION_114, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.REVOCATORIA_NUMERO_RESOLUCION_114, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.REVOCATORIA_FECHA_DE_RESOLUCION_115, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.REVOCATORIA_FECHA_DE_RESOLUCION_115, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.REVOCATORIA_FECHA_DE_RESOLUCION_115, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.REGISTRO_FMI_116, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.REGISTRO_FMI_116, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.REGISTRO_FMI_116, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.REGISTRO_FECHA_DE_REGISTRO_117, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.REGISTRO_FECHA_DE_REGISTRO_117, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.REGISTRO_FECHA_DE_REGISTRO_117, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.REGISTRO_NUMERO_DE_RESOLUCION_118, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.REGISTRO_NUMERO_DE_RESOLUCION_118, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.REGISTRO_NUMERO_DE_RESOLUCION_118, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.REGISTRO_FECHA_DE_RESOLUCION_119, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.REGISTRO_FECHA_DE_RESOLUCION_119, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.REGISTRO_FECHA_DE_RESOLUCION_119, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Estado)
+                        @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdAspNetUser, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.IdAspNetUser, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.IdAspNetUser, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.NombreIdAspNetUser, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NombreIdAspNetUser, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NombreIdAspNetUser, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.FechaModificacion, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FechaModificacion, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FechaModificacion, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+    
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>

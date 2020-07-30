@@ -27,8 +27,10 @@ namespace AspNetIdentity.WebApi.Logic
                 Cantidad = a.Cantidad,
                 Observacion = a.Observacion,
                 Estado = true,
-                FInsercion = DateTime.Now 
-            };
+                FInsercion = DateTime.Now,
+                IdMuni = a.IdMuni,
+                    IdDepto = a.IdDepto
+                };
                 Ctx.ActividadesDiarias.Add(Nuevo);
                 Ctx.SaveChanges();
                 return a;

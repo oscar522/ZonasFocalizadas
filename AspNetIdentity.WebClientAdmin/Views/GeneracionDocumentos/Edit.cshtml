@@ -1,0 +1,421 @@
+﻿@model AspNetIdentity.Models.GeneracionDocumentosModel
+
+<div class="card mb-4 wow fadeIn">
+
+    <!--Card content-->
+    <div class="card-body d-sm-flex justify-content-between">
+        <h4 class="mb-2 mb-sm-0 pt-1">
+            <span>
+                Validacion de archivos 
+            </span>
+        </h4>
+        <h5 class="mb-2 mb-sm-0 pt-1">
+            <span>
+                Numero de Expediente :
+                <a target="_blank" href='@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = Model.IdExpediente })' style='color: #013ADF;'>
+                    @Model.NumeroExpediente
+                    <i class='fa fa-eye' aria-hidden='true'></i>
+                </a>
+
+            </span>
+            <br />
+        </h5>
+        <h5 class="mb-2 mb-sm-0 pt-1">
+            <span>Responsable </span>
+            <br />
+            <span>Usuario : @Model.NombreIdAspNetUser</span>
+            <br />
+            <span>Rol : @Model.rol</span>
+            <br />
+        </h5>""
+    </div>
+
+</div>
+<div class="wow fadeIn">
+    @using (Html.BeginForm("Edit", "GeneracionDocumentos", FormMethod.Post, new { id = "CrearForm" }))
+
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div id="DateError"></div>
+        @Html.HiddenFor(model => model.Id)
+        @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control", Style = "display : none" } })
+
+        @Html.EditorFor(model => model.Gestion, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "N_A" } })
+        @Html.EditorFor(model => model.IdExpediente, new { htmlAttributes = new { @class = "form-control", Style = "display : none" } })
+        @Html.EditorFor(model => model.rol, new { htmlAttributes = new { @class = "form-control", Style = "display : none" } })
+        @Html.EditorFor(model => model.IdAspNetUser, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "N_A" } })
+        @Html.EditorFor(model => model.NumeroExpediente, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "@Model.NumeroExpediente" } })
+        @Html.EditorFor(model => model.NombreIdAspNetUser, new { htmlAttributes = new { @class = "form-control", Style = "display : none" } })
+
+        @Html.EditorFor(model => model.Validacion7, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "0" } })
+        @Html.EditorFor(model => model.Validacion8, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "0" } })
+        @Html.EditorFor(model => model.Validacion9, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "0" } })
+        @Html.EditorFor(model => model.Validacion10, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "0" } })
+        @Html.EditorFor(model => model.FechaCargue, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "1753-01-01" } })
+        @Html.EditorFor(model => model.FechaModificacion, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "1753-01-01" } })
+
+
+        <div class="form-horizontal">
+            <div class="row ">
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">  </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <label class="control-label col-md-8"> El expediente cuenta con auto de archivo ? </label>
+                                                <select id="Validacion1" name="Validacion1" class="form-control col-md-4 bool CLASSValidacion1">
+                                                    <option value="-2">Seleccione</option>
+                                                    <option value="1">Si</option>
+                                                    <option value="2">no</option>
+                                                </select>
+                                                @Html.ValidationMessageFor(model => model.Validacion1, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <label class="control-label col-md-8"> La Resolución se encuentra registrada en VUR ?  </label>
+                                                <select id="Validacion2" name="Validacion2" class="form-control col-md-4 bool CLASSValidacion2">
+                                                    <option value="-2">Seleccione</option>
+                                                    <option value="1">Si</option>
+                                                    <option value="2">no</option>
+                                                </select>
+                                                @Html.ValidationMessageFor(model => model.Validacion2, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <label class="control-label col-md-8"> Dentro del expediente evidencia, la existencia de algún acto administrativo en trámite, tales como revocatoria, nulidad, suspensión, recursos entre otros?</label>
+                                                <select id="Validacion3" name="Validacion3" class="form-control col-md-4 bool CLASSValidacion3">
+                                                    <option value="-2">Seleccione</option>
+                                                    <option value="1">Si</option>
+                                                    <option value="2">no</option>
+                                                </select>
+                                                @Html.ValidationMessageFor(model => model.Validacion3, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <label class="control-label col-md-8"> Caul ?</label>
+                                                <select id="Validacion4" name="Validacion4" class="form-control col-md-4 bool CLASSValidacion4">
+                                                    <option value="-2">Seleccione</option>
+                                                    <option value="1">revocatoria</option>
+                                                    <option value="2">nulidad</option>
+                                                    <option value="3">suspensión</option>
+                                                    <option value="4">recursos</option>
+                                                    <option value="5">oposiciones</option>
+                                                </select>
+                                                @Html.ValidationMessageFor(model => model.Validacion4, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <label class="control-label col-md-8">  Hasta donde llega el expediente?</label>
+                                                <select id="Validacion5" name="Validacion5" class="form-control col-md-4 bool CLASSValidacion5">
+                                                    <option value="-2">Seleccione</option>
+                                                    <option value="1">formulario de calificación</option>
+                                                    <option value="2">constancia de ejecutoria</option>
+                                                    <option value="3">resolución de adjudicación</option>
+                                                    <option value="4">formato de revisión jurídica</option>
+                                                    <option value="5">fijación en lista</option>
+                                                    <option value="6">aclaración de inspección ocular</option>
+                                                    <option value="7">inspección ocular</option>
+                                                </select>
+                                                @Html.ValidationMessageFor(model => model.Validacion5, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-md-center justify-content-md-center">
+                                            <div class="row text-md-center justify-content-md-center">
+                                                <div class="form-group text-md-center justify-content-md-center">
+                                                    <div class=" text-md-center justify-content-md-center">
+                                                        <input type="submit" value="Guardar" class="btn btn-default" />
+                                                        <br>
+                                                        <div id="DateError2"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    }
+
+</div>
+    @section Scripts
+    {
+        @Scripts.Render("~/Scripts/ModalControl.js")
+        <script>
+            $(document).ready(function () { //
+                $('#FechaCargue').val("1753-01-01");
+                $('#FechaModificacion').val("1753-01-01");
+                $('#Validacion2').prop("disabled", true);
+                $('#Validacion3').prop("disabled", true);
+                $('#Validacion4').prop("disabled", true);
+                $('#Validacion5').prop("disabled", true);
+                $('#Validacion6').prop("disabled", true);
+                $('#Validacion7').prop("disabled", true);
+            var ResDate = "";
+           
+            function iniciales()
+            {
+                
+            }
+
+            /// VALIDA GESTION
+                
+
+             var pathname = window.location+"";
+            alert(pathname);
+
+            if ('@Model.Gestion' != "" || pathname.indexOf("Edit?IdTable") == "-1") {
+
+                if ("@Model.Validacion1" == "") $("#Validacion1").val("0"); else $("#Validacion1").val("@Model.Validacion1");
+                if ("@Model.Validacion2" == "") $("#Validacion2").val("0"); else $("#Validacion2").val("@Model.Validacion2");
+                if ("@Model.Validacion3" == "") $("#Validacion3").val("0"); else $("#Validacion3").val("@Model.Validacion3");
+                if ("@Model.Validacion4" == "") $("#Validacion4").val("0"); else $("#Validacion4").val("@Model.Validacion4");
+                if ("@Model.Validacion5" == "") $("#Validacion5").val("0"); else $("#Validacion5").val("@Model.Validacion5");
+                if ("@Model.Validacion6" == "") $("#Validacion6").val("0"); else $("#Validacion6").val("@Model.Validacion6");
+                if ("@Model.Validacion7" == "") $("#Validacion7").val("0"); else $("#Validacion7").val("@Model.Validacion7");
+                if ("@Model.Validacion8" == "") $("#Validacion8").val("0"); else $("#Validacion8").val("@Model.Validacion8");
+                if ("@Model.Validacion9" == "") $("#Validacion9").val("0"); else $("#Validacion9").val("@Model.Validacion9");
+                if ("@Model.Validacion10" == "") $("#Validacion10").val("0"); else $("#Validacion10").val("@Model.Validacion10");
+
+                if ($("#Validacion1").val() == "1" || $("#Validacion1").val() == "0") {
+
+                    $('#Validacion2').prop("disabled", true);
+                    $('#Validacion3').prop("disabled", true);
+                    $('#Validacion4').prop("disabled", true);
+                    $('#Validacion5').prop("disabled", true);
+                    $('#Validacion6').prop("disabled", true);
+                    $('#Validacion7').prop("disabled", true);
+
+                } else {
+
+                    $('#Validacion2').prop("disabled", false);
+                    $('#Validacion3').prop("disabled", false);
+                    $('#Validacion4').prop("disabled", false);
+                    $('#Validacion5').prop("disabled", false);
+                    $('#Validacion6').prop("disabled", false);
+                    $('#Validacion7').prop("disabled", false);
+
+                }
+
+
+
+            } 
+
+            /// Envio Formulario
+                $("#CrearForm").submit(function (event) {
+                    /// Nombres y data de control
+                    $("#CrearForm :input").prop("disabled", false);
+                    var valid = "";     
+
+                     if ($('#Validacion1').val() == "0" || $('#Validacion1').val() == "1") {
+
+                            $('#Validacion2').val("-2");
+                            $('#Validacion3').val("-2");
+                            $('#Validacion4').val("-2");
+                            $('#Validacion5').val("-2");
+                            $('#Validacion6').val("-2");
+                            $('#Validacion7').val("-2");
+                            $('#Validacion8').val("-2");
+                            $('#Validacion9').val("-2");
+                            $('#Validacion10').val("-2");
+                     }
+
+                    //if ($('#Validacion2').val() == "0" || $('#Validacion1').val() == "1") {
+
+                    //        $('#Validacion3').val("0");
+                    //        $('#Validacion4').val("0");
+                    //        $('#Validacion5').val("0");
+                    //        $('#Validacion6').val("0");
+                    //        $('#Validacion7').val("0");
+                    //        $('#Validacion8').val("0");
+                    //        $('#Validacion9').val("0");
+                    //        $('#Validacion10').val("0");
+                    //}
+
+                    //if ($('#Validacion3').val() == "0" || $('#Validacion1').val() == "1") {
+
+                    //        $('#Validacion3').val("0");
+                    //        $('#Validacion4').val("0");
+                    //        $('#Validacion5').val("0");
+                    //        $('#Validacion6').val("0");
+                    //        $('#Validacion7').val("0");
+                    //        $('#Validacion8').val("0");
+                    //        $('#Validacion9').val("0");
+                    //        $('#Validacion10').val("0");
+                    //}
+
+                    //if ($('#Validacion4').val() == "0" || $('#Validacion4').val() == "1") {
+
+                    //        $('#Validacion5').val("0");
+                    //        $('#Validacion6').val("0");
+                    //        $('#Validacion7').val("0");
+                    //        $('#Validacion8').val("0");
+                    //        $('#Validacion9').val("0");
+                    //        $('#Validacion10').val("0");
+                    //}
+
+                    //if ($('#Validacion5').val() == "0" || $('#Validacion5').val() == "1") {
+
+                    //        $('#Validacion6').val("0");
+                    //        $('#Validacion7').val("0");
+                    //        $('#Validacion8').val("0");
+                    //        $('#Validacion9').val("0");
+                    //        $('#Validacion10').val("0");
+                    //}
+
+                    // if ($('#Validacion6').val() == "0" || $('#Validacion6').val() == "1") {
+
+                    //        $('#Validacion7').val("0");
+                    //        $('#Validacion8').val("0");
+                    //        $('#Validacion9').val("0");
+                    //        $('#Validacion10').val("0");
+                    //}
+
+                    //if ($('#Validacion7').val() == "0" || $('#Validacion7').val() == "1") {
+
+                    //        $('#Validacion8').val("0");
+                    //        $('#Validacion9').val("0");
+                    //        $('#Validacion10').val("0");
+                    //}
+
+                    //if ($('#Validacion8').val() == "0" || $('#Validacion8').val() == "1") {
+
+                    //        $('#Validacion9').val("0");
+                    //        $('#Validacion10').val("0");
+                    //}
+
+                    //if ($('#Validacion9').val() == "0" || $('#Validacion9').val() == "1") {
+
+                    //        $('#Validacion10').val("0");
+                    //}
+
+                   
+
+                    if(valid != "1"){
+                            return true;
+                    }else{
+                        $('#DateError').addClass(" text-danger");
+                        $('#DateError').text("*Alguna de las fechas es menor a 1753-01-01, Verifique por favor");
+                        $('#DateError2').addClass(" text-danger");
+                        $('#DateError2').text("*Alguna de las fechas es menor a 1753-01-01, Verifique por favor");
+                        return false;
+                    }
+                });
+            ///
+            ///
+            /// Change
+
+            $("#Validacion1").change(function () {
+                if ($(this).val() == "1" || $(this).val() == "0") {
+
+                    $('#Validacion2').prop("disabled", true);
+                    $('#Validacion3').prop("disabled", true);
+                    $('#Validacion4').prop("disabled", true);
+                    $('#Validacion5').prop("disabled", true);
+                    $('#Validacion6').prop("disabled", true);
+                    $('#Validacion7').prop("disabled", true);
+
+                } else {
+
+                    $('#Validacion2').prop("disabled", false);
+                    //$('#Validacion3').prop("disabled", false);
+                    //$('#Validacion4').prop("disabled", false);
+                    //$('#Validacion5').prop("disabled", false);
+                    //$('#Validacion6').prop("disabled", false);
+                    //$('#Validacion7').prop("disabled", false);
+
+                }
+            });
+            $("#Validacion2").change(function () {
+                if ($(this).val() == "1" || $(this).val() == "0") {
+
+                    $('#Validacion3').prop("disabled", true);
+                    $('#Validacion4').prop("disabled", true);
+                    $('#Validacion5').prop("disabled", true);
+                    $('#Validacion6').prop("disabled", true);
+                    $('#Validacion7').prop("disabled", true);
+
+                } else {
+
+                    $('#Validacion3').prop("disabled", false);
+                    //$('#Validacion4').prop("disabled", false);
+                    //$('#Validacion5').prop("disabled", false);
+                    //$('#Validacion6').prop("disabled", false);
+                    //$('#Validacion7').prop("disabled", false);
+
+                }
+            });
+            $("#Validacion3").change(function () {
+                if ($(this).val() == "2" || $(this).val() == "0") {
+
+                    $('#Validacion4').prop("disabled", true);
+                    $('#Validacion5').prop("disabled", true);
+                    $('#Validacion6').prop("disabled", true);
+                    //$('#Validacion7').prop("disabled", true);
+
+                } else {
+
+                    $('#Validacion4').prop("disabled", false);
+                    $('#Validacion5').prop("disabled", false);
+                    $('#Validacion6').prop("disabled", false);
+                    //$('#Validacion7').prop("disabled", false);
+
+                }
+            });
+
+
+                    $(".checkFecha").change(function () {
+                        var Id = $(this).attr("Data");
+                        if( $(this).prop('checked') ) {
+                            $('#'+Id).prop("disabled", true);
+                            $('#'+Id).val("1753-01-01");
+                        }else{
+                            $('#'+Id).prop("disabled", false);
+                        }
+                    });
+               
+            ///
+
+                $(".field-validation-error").each(function(){
+                    var IdClass = $(this).attr("class");
+                    if( IdClass.indexOf("field-validation-error") != "-1"  ) {
+                        var Id = $(this).attr("data-valmsg-for");
+                        $('#'+Id).addClass("alert-danger");
+                        $('#'+Id).prop("disabled",false);
+                    }
+                });
+        });
+        </script>
+    }
+
+    

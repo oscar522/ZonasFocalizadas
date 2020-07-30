@@ -794,7 +794,7 @@
                     $("#Ortografia-1-3").prop("checked", false);
                     $("#Ortografia-1-4").prop("checked", false);
                 }
-
+                alert("@Model.CedulaExpCon");
                 if("@Model.CedulaExpCon" == "1" || "@Model.CedulaExpCon" == null || "@Model.CedulaExpCon" == ""){
 
                     $("#DocVisibleCon").prop("disabled", false);
@@ -1021,7 +1021,7 @@
             if ("@Model.NombreConyugeExpediente" == "DESCONOCIDO") {
 
                 $("#DocVisibleCon").prop("disabled", true);
-                $("#CedulaExpCon").prop("disabled", true);
+                $("#CedulaExpCon").prop("disabled", false);
                 $("#NombreConyuge").prop("disabled", true);
                 $("#TipoDocumentoConyuge").prop("disabled", true);
                 $("#NumeroIdentificacionConyuge").prop("disabled", true);

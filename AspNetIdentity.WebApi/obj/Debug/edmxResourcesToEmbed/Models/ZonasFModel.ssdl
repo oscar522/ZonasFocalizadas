@@ -89,6 +89,8 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Accounts_AdditionalInformation' n
     <Property Name="Observacion" Type="text" />
     <Property Name="Estado" Type="bit" />
     <Property Name="FInsercion" Type="datetime" />
+    <Property Name="IdDepto" Type="int" />
+    <Property Name="IdMuni" Type="int" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetRoles' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -764,6 +766,28 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.CaracterizacionJuridicaResumen' n
     <Property Name="UsuarioInserta" Type="nvarchar" MaxLength="128" />
     <Property Name="UsuarioModifica" Type="nvarchar" MaxLength="128" />
   </EntityType>
+  <EntityType Name="GeneracionDocumentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdExpediente" Type="int" />
+    <Property Name="Validacion1" Type="int" />
+    <Property Name="Validacion2" Type="int" />
+    <Property Name="Validacion3" Type="int" />
+    <Property Name="Validacion4" Type="int" />
+    <Property Name="Validacion5" Type="int" />
+    <Property Name="Validacion6" Type="int" />
+    <Property Name="Validacion7" Type="int" />
+    <Property Name="Validacion8" Type="int" />
+    <Property Name="Validacion9" Type="int" />
+    <Property Name="Validacion10" Type="int" />
+    <Property Name="Gestion" Type="int" />
+    <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" />
+    <Property Name="Estado" Type="bit" />
+    <Property Name="FechaModificacion" Type="datetime" />
+    <Property Name="FechaCargue" Type="datetime" />
+  </EntityType>
   <EntityType Name="PlGestionTable">
     <Key>
       <PropertyRef Name="idd" />
@@ -1002,6 +1026,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
     <EntitySet Name="CtPais" EntityType="Self.CtPais" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CtTipoIdentificacion" EntityType="Self.CtTipoIdentificacion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ExpedienteDocumentos" EntityType="Self.ExpedienteDocumentos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GeneracionDocumentos" EntityType="Self.GeneracionDocumentos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PlGestionTable" EntityType="Self.PlGestionTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Registro" EntityType="Self.Registro" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ResumenTipificacion" EntityType="Self.ResumenTipificacion" Schema="dbo" store:Type="Tables" />

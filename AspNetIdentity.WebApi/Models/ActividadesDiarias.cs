@@ -25,5 +25,7 @@ namespace AspNetIdentity.WebApi.Models
         public string Observacion { get; set; }
         public Nullable<bool> Estado { get; set; }
         public Nullable<System.DateTime> FInsercion { get; set; }
+        public Nullable<int> IdDepto { get; set; }
+        public Nullable<int> IdMuni { get; set; }
     }
 }

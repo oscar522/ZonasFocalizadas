@@ -36,7 +36,10 @@ namespace AspNetIdentity.WebApi.Logic
                     Conyuge = a.Conyuge,
                     EstadoRegistro = a.EstadoRegistro,
                     UsuarioActualiza = a.UsuarioActualiza,
-                    UsuarioModifica = a.UsuarioModifica
+                    UsuarioModifica = a.UsuarioModifica,
+                    
+
+
 
                 };
 
