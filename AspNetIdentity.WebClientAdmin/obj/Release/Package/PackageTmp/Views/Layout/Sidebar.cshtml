@@ -7,7 +7,7 @@
         <div id="MenuClose" class="align-content-xl-end">
             <i class="fa fa-times-circle" aria-hidden="true"></i>
         </div>
-        <ul id="no-waves" class="list-group list-group-flush">
+        <div id="no-waves" class="list-group list-group-flush">
             @foreach (AspNetIdentity.WebClientAdmin.Models.SidebarItem sidebarItem in Model)
             {
                 if (sidebarItem.Sub == null)
@@ -36,7 +36,7 @@
                     </div>
                 }
             }
-        </ul>
+        </div>
 
     </div>
 <div class="modal fade" id="centralModalLGInfoDemoSlim" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">

@@ -19,7 +19,7 @@ namespace AspNetIdentity.WebApi.Logic
                 ActividadesDiarias Nuevo = new ActividadesDiarias
                 {
                 IdApsNetUser = a.IdApsNetUser,
-                IdProceso = a.IdModalidad,
+                IdProceso = a.IdProceso,
                 IdModalidad = a.IdModalidad,
                 IdRol = a.IdRolActividad,
                 FechaActividad = a.FechaActividad,

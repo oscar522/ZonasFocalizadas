@@ -74,9 +74,7 @@
               "iconText": "fa fa-globe",
               "sub": null
             }
-
           ]
-
         },
         {
           "order": 7,
@@ -109,6 +107,23 @@
           "linkText": "Carac. Jurdica Resumen",
           "iconText": "fa fa-gavel mr-3",
           "sub": null
+        },
+        {
+          "order": 11,
+          "controllerName": "Consolidadosyyy",
+          "actionName": "Indexuuu",
+          "linkText": "Consolidadosiiiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "iconText": "fa fa-pie-chartooo",
+          "sub": [
+            {
+              "order": 11,
+              "controllerName": "HomeAdministratorppp",
+              "actionName": "Indexlll",
+              "linkText": "Municipioskkk",
+              "iconText": "",
+              "sub": null
+            }
+          ]
         }
       ]
     },
@@ -221,6 +236,23 @@
           "linkText": "Carac. Jurdica Resumen",
           "iconText": "fa fa-gavel mr-3",
           "sub": null
+        },
+        {
+          "order": 11,
+          "controllerName": "Consolidadosyyy",
+          "actionName": "Indexuuu",
+          "linkText": "Consolidadosiii",
+          "iconText": "fa fa-pie-chartooo",
+          "sub": [
+            {
+              "order": 1,
+              "controllerName": "HomeAdministratorppp",
+              "actionName": "Indexlll",
+              "linkText": "Municipioskkk",
+              "iconText": "fa fa-map-markerggg",
+              "sub": null
+            }
+          ]
         }
       ]
     },
@@ -333,6 +365,23 @@
           "linkText": "Carac. Jurdica Resumen",
           "iconText": "fa fa-gavel mr-3",
           "sub": null
+        },
+        {
+          "order": 11,
+          "controllerName": "Consolidadosyyy",
+          "actionName": "Indexuuu",
+          "linkText": "Consolidadosiii",
+          "iconText": "fa fa-pie-chartooo",
+          "sub": [
+            {
+              "order": 1,
+              "controllerName": "HomeAdministratorppp",
+              "actionName": "Indexlll",
+              "linkText": "Municipioskkk",
+              "iconText": "fa fa-map-markerggg",
+              "sub": null
+            }
+          ]
         }
       ]
     },
@@ -445,6 +494,23 @@
           "linkText": "Carac. Jurdica Resumen",
           "iconText": "fa fa-gavel mr-3",
           "sub": null
+        },
+        {
+          "order": 11,
+          "controllerName": "Consolidadosyyy",
+          "actionName": "Indexuuu",
+          "linkText": "Consolidadosiii",
+          "iconText": "fa fa-pie-chartooo",
+          "sub": [
+            {
+              "order": 1,
+              "controllerName": "HomeAdministratorppp",
+              "actionName": "Indexlll",
+              "linkText": "Municipioskkk",
+              "iconText": "fa fa-map-markerggg",
+              "sub": null
+            }
+          ]
         }
       ]
     },
@@ -557,6 +623,23 @@
           "linkText": "Carac. Jurdica Resumen",
           "iconText": "fa fa-gavel mr-3",
           "sub": null
+        },
+        {
+          "order": 11,
+          "controllerName": "Consolidadosyyy",
+          "actionName": "Indexuuu",
+          "linkText": "Consolidadosiii",
+          "iconText": "fa fa-pie-chartooo",
+          "sub": [
+            {
+              "order": 1,
+              "controllerName": "HomeAdministratorppp",
+              "actionName": "Indexlll",
+              "linkText": "Municipioskkk",
+              "iconText": "fa fa-map-markerggg",
+              "sub": null
+            }
+          ]
         }
       ]
     },
@@ -682,6 +765,23 @@
           "linkText": "Carac. Jurdica Resumen",
           "iconText": "fa fa-gavel mr-3",
           "sub": null
+        },
+        {
+          "order": 11,
+          "controllerName": "Consolidadosyyy",
+          "actionName": "Indexuuu",
+          "linkText": "Consolidadosiii",
+          "iconText": "fa fa-pie-chartooo",
+          "sub": [
+            {
+              "order": 1,
+              "controllerName": "HomeAdministratorppp",
+              "actionName": "Indexlll",
+              "linkText": "Municipioskkk",
+              "iconText": "fa fa-map-markerggg",
+              "sub": null
+            }
+          ]
         }
       ]
     },
@@ -794,6 +894,23 @@
           "linkText": "Carac. Jurdica Resumen",
           "iconText": "fa fa-gavel mr-3",
           "sub": null
+        },
+        {
+          "order": 11,
+          "controllerName": "Consolidadosyyy",
+          "actionName": "Indexuuu",
+          "linkText": "Consolidadosiii",
+          "iconText": "fa fa-pie-chartooo",
+          "sub": [
+            {
+              "order": 1,
+              "controllerName": "HomeAdministratorppp",
+              "actionName": "Indexlll",
+              "linkText": "Municipioskkk",
+              "iconText": "fa fa-map-markerggg",
+              "sub": null
+            }
+          ]
         }
       ]
     },
@@ -906,6 +1023,23 @@
           "linkText": "Carac. Jurdica Resumen",
           "iconText": "fa fa-gavel mr-3",
           "sub": null
+        },
+        {
+          "order": 11,
+          "controllerName": "Consolidadosyyy",
+          "actionName": "Indexuuu",
+          "linkText": "Consolidadosiii",
+          "iconText": "fa fa-pie-chartooo",
+          "sub": [
+            {
+              "order": 1,
+              "controllerName": "HomeAdministratorppp",
+              "actionName": "Indexlll",
+              "linkText": "Municipioskkk",
+              "iconText": "fa fa-map-markerggg",
+              "sub": null
+            }
+          ]
         }
       ]
     }

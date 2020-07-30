@@ -85,7 +85,7 @@
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
                 "paging": true,
                 "searching":true,
-               
+
 
                  dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
                 buttons: [
@@ -104,7 +104,7 @@
                     success: function (s) {
                         oTable.fnClearTable();
                         debugger;
-                       
+
                         $.each(s, function (i, obj) {
 
                             var Delete = "";
@@ -180,7 +180,7 @@
             $("#IdDepto").change(function () {
                 $("#IdMuni").empty();
 
-                if ($(this).val() != '0') { 
+                if ($(this).val() != '0') {
                     $.ajax({
                         type: 'POST',
                         url: '@Url.Action("ListCiudadId","Registro")', // we are calling json method
@@ -288,15 +288,24 @@
                         $('span[data-valmsg-for="IdMuni"]').text("* Requerido");
                     }
                 }
-               
+
+
 
                 if (estado == true) {
                     return false;
                 } else {
-                    return true;
+                    var opcion = confirm("Esta seguro que desea crea esta Actividad ? ");
+                    if (opcion == true) {
+                        return true;
+	                } else {
+                        return false;
+	                }
                 }
 
-        });
+            });
+            if ('@Model.FechaActividad' != '1/1/0001 00:00:00') {
+                alert('Registro Guardado');
+            }
         });
     </script>
 
@@ -325,7 +334,7 @@
                         <hr />
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         @Html.EditorFor(model => model.IdApsNetUser, new { htmlAttributes = new { @class = "form-control", @style = "display:none", @value = Model.IdApsNetUser } })
-                        @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control", @style = "display:none", @value = true } })
+
                         @Html.EditorFor(model => model.NombreUsuario, new { htmlAttributes = new { @class = "form-control", @style = "display:none", @value = Model.NombreUsuario } })
                         @Html.EditorFor(model => model.RolUsuario, new { htmlAttributes = new { @class = "form-control", @style = "display:none", @value = Model.RolUsuario } })
                         @Html.EditorFor(model => model.NombreActividad, new { htmlAttributes = new { @style = "display:none", @Value = "N_A" } })
@@ -333,6 +342,8 @@
                         @Html.EditorFor(model => model.NombreModalidad, new { htmlAttributes = new { @style = "display:none", @Value = "N_A" } })
                         @Html.EditorFor(model => model.NombreProceso, new { htmlAttributes = new { @style = "display:none", @Value = "N_A" } })
                         @Html.EditorFor(model => model.NombreRolActividad, new { htmlAttributes = new { @style = "display:none", @Value = "N_A" } })
+                        @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control", @style = "display:none", @value = true } })
+
 
                         <div class="row">
                             <div class="col-md-5">
