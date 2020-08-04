@@ -73,16 +73,17 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             return Json(processModel.Select(x => new SelectListItem { Text = x.NOMBRE, Value = x.ID_CT_PAIS.ToString() }).ToList());
         }
 
-        public async Task<ActionResult> ListGeneral(string Id)
+        public async Task<ActionResult> ListGeneral(string Id = "1")
         {
-            List<ActividadesDiariasModel> processModel = new List<ActividadesDiariasModel>();
+            PaginadorCustomersModel processModel = new PaginadorCustomersModel();
             if (Id != "")
             {
                 string Controller = "ActividadesDiarias";
                 string Method = "getActividadesDiarias";
                 string result = await employeeProvider.Get(Id, Controller, Method);
+                
                 var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
-                processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ActividadesDiariasModel>>(jsonResult.ToString());
+                processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<PaginadorCustomersModel>(jsonResult.ToString());
             }
             
             return Json(processModel, JsonRequestBehavior.AllowGet);
@@ -151,7 +152,7 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
                     }
                     else
                     {
-                        return View(ObjData);
+                        return View(processModel);
                     }
                 }
                 catch

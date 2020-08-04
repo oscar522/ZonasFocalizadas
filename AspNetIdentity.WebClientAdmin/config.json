@@ -74,7 +74,9 @@
               "iconText": "fa fa-globe",
               "sub": null
             }
+
           ]
+
         },
         {
           "order": 7,
@@ -110,20 +112,11 @@
         },
         {
           "order": 11,
-          "controllerName": "Consolidadosyyy",
-          "actionName": "Indexuuu",
-          "linkText": "Consolidadosiiiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-          "iconText": "fa fa-pie-chartooo",
-          "sub": [
-            {
-              "order": 11,
-              "controllerName": "HomeAdministratorppp",
-              "actionName": "Indexlll",
-              "linkText": "Municipioskkk",
-              "iconText": "",
-              "sub": null
-            }
-          ]
+          "controllerName": "GeneracionDocumentos",
+          "actionName": "Index",
+          "linkText": "Validacion de Archivos",
+          "iconText": "fa fa-file-text mr-3",
+          "sub": null
         }
       ]
     },
@@ -239,20 +232,11 @@
         },
         {
           "order": 11,
-          "controllerName": "Consolidadosyyy",
-          "actionName": "Indexuuu",
-          "linkText": "Consolidadosiii",
-          "iconText": "fa fa-pie-chartooo",
-          "sub": [
-            {
-              "order": 1,
-              "controllerName": "HomeAdministratorppp",
-              "actionName": "Indexlll",
-              "linkText": "Municipioskkk",
-              "iconText": "fa fa-map-markerggg",
-              "sub": null
-            }
-          ]
+          "controllerName": "GeneracionDocumentos",
+          "actionName": "Index",
+          "linkText": "Validacion de Archivos",
+          "iconText": "fa fa-file-text mr-3",
+          "sub": null
         }
       ]
     },
@@ -368,20 +352,11 @@
         },
         {
           "order": 11,
-          "controllerName": "Consolidadosyyy",
-          "actionName": "Indexuuu",
-          "linkText": "Consolidadosiii",
-          "iconText": "fa fa-pie-chartooo",
-          "sub": [
-            {
-              "order": 1,
-              "controllerName": "HomeAdministratorppp",
-              "actionName": "Indexlll",
-              "linkText": "Municipioskkk",
-              "iconText": "fa fa-map-markerggg",
-              "sub": null
-            }
-          ]
+          "controllerName": "GeneracionDocumentos",
+          "actionName": "Index",
+          "linkText": "Validacion de Archivos",
+          "iconText": "fa fa-file-text mr-3",
+          "sub": null
         }
       ]
     },
@@ -497,20 +472,11 @@
         },
         {
           "order": 11,
-          "controllerName": "Consolidadosyyy",
-          "actionName": "Indexuuu",
-          "linkText": "Consolidadosiii",
-          "iconText": "fa fa-pie-chartooo",
-          "sub": [
-            {
-              "order": 1,
-              "controllerName": "HomeAdministratorppp",
-              "actionName": "Indexlll",
-              "linkText": "Municipioskkk",
-              "iconText": "fa fa-map-markerggg",
-              "sub": null
-            }
-          ]
+          "controllerName": "GeneracionDocumentos",
+          "actionName": "Index",
+          "linkText": "Validacion de Archivos",
+          "iconText": "fa fa-file-text mr-3",
+          "sub": null
         }
       ]
     },
@@ -626,20 +592,11 @@
         },
         {
           "order": 11,
-          "controllerName": "Consolidadosyyy",
-          "actionName": "Indexuuu",
-          "linkText": "Consolidadosiii",
-          "iconText": "fa fa-pie-chartooo",
-          "sub": [
-            {
-              "order": 1,
-              "controllerName": "HomeAdministratorppp",
-              "actionName": "Indexlll",
-              "linkText": "Municipioskkk",
-              "iconText": "fa fa-map-markerggg",
-              "sub": null
-            }
-          ]
+          "controllerName": "GeneracionDocumentos",
+          "actionName": "Index",
+          "linkText": "Validacion de Archivos",
+          "iconText": "fa fa-file-text mr-3",
+          "sub": null
         }
       ]
     },
@@ -768,20 +725,11 @@
         },
         {
           "order": 11,
-          "controllerName": "Consolidadosyyy",
-          "actionName": "Indexuuu",
-          "linkText": "Consolidadosiii",
-          "iconText": "fa fa-pie-chartooo",
-          "sub": [
-            {
-              "order": 1,
-              "controllerName": "HomeAdministratorppp",
-              "actionName": "Indexlll",
-              "linkText": "Municipioskkk",
-              "iconText": "fa fa-map-markerggg",
-              "sub": null
-            }
-          ]
+          "controllerName": "GeneracionDocumentos",
+          "actionName": "Index",
+          "linkText": "Validacion de Archivos",
+          "iconText": "fa fa-file-text mr-3",
+          "sub": null
         }
       ]
     },
@@ -897,20 +845,11 @@
         },
         {
           "order": 11,
-          "controllerName": "Consolidadosyyy",
-          "actionName": "Indexuuu",
-          "linkText": "Consolidadosiii",
-          "iconText": "fa fa-pie-chartooo",
-          "sub": [
-            {
-              "order": 1,
-              "controllerName": "HomeAdministratorppp",
-              "actionName": "Indexlll",
-              "linkText": "Municipioskkk",
-              "iconText": "fa fa-map-markerggg",
-              "sub": null
-            }
-          ]
+          "controllerName": "GeneracionDocumentos",
+          "actionName": "Index",
+          "linkText": "Validacion de Archivos",
+          "iconText": "fa fa-file-text mr-3",
+          "sub": null
         }
       ]
     },
@@ -1026,20 +965,11 @@
         },
         {
           "order": 11,
-          "controllerName": "Consolidadosyyy",
-          "actionName": "Indexuuu",
-          "linkText": "Consolidadosiii",
-          "iconText": "fa fa-pie-chartooo",
-          "sub": [
-            {
-              "order": 1,
-              "controllerName": "HomeAdministratorppp",
-              "actionName": "Indexlll",
-              "linkText": "Municipioskkk",
-              "iconText": "fa fa-map-markerggg",
-              "sub": null
-            }
-          ]
+          "controllerName": "GeneracionDocumentos",
+          "actionName": "Index",
+          "linkText": "Validacion de Archivos",
+          "iconText": "fa fa-file-text mr-3",
+          "sub": null
         }
       ]
     }

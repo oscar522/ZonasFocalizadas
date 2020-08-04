@@ -78,10 +78,69 @@
                 }
             });
 
-            $("#DateInfo").change(function () {
-                TablaGeneral();
+            $.ajax({
+            type: 'POST',
+            url: '@Url.Action("ListDepto","Registro")', // we are calling json method
+            dataType: 'json',
+            success: function(states) {
+
+                $.each(states, function (i, state) {
+                    //$("#IdDepto").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                    if ('@Model.IdDepto' == state.Value) {
+                        $("#IdDepto").append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                    } else {
+                        $("#IdDepto").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                    }
+                });
+            },
+            error: function (ex) {
+                console.log(ex.responseText);
+            }
             });
-            var oTable = $('#table_General').dataTable({
+
+            $("#IdDepto").change(function () {
+                $("#IdMuni").empty();
+
+                if ($(this).val() != '0') {
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("ListCiudadId","Registro")', // we are calling json method
+                        dataType: 'json',
+                        data: { IdP: $("#IdDepto").val() },
+                        success: function(states) {
+                            //  alert("okdepto" + $("#ID_CT_DEPTO").val());
+                            $.each(states, function (i, state) {
+                                //  alert(state.Value);
+                                $("#IdMuni").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                            });
+                        },
+                        error: function (ex) {
+                            console.log(ex.responseText);
+                        }
+                    });
+                }
+                return false;
+            });
+
+
+            //$("#DateInfo").change(function () {
+            //    TablaGeneral();
+            //});
+            //var oTable = $('#table_General').dataTable({
+            //    "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
+            //    "paging": true,
+            //    "searching":true,
+
+
+            //     dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
+            //    buttons: [
+            //        { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
+            //        { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
+            //        { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
+            //    ]
+            //});
+
+            var oTable2 = $('#table_User').dataTable({
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
                 "paging": true,
                 "searching":true,
@@ -95,17 +154,17 @@
                 ]
              });
 
-            function TablaGeneral() {
+            @*function TablaGeneral() {
                  $.ajax({
                     type: 'POST',
                     url: '@Url.Action("ListGeneral")',
                     dataType: 'json',
-                    data: { Id: $("#DateInfo").val() },
+                    data: { Id: "1" },
                     success: function (s) {
                         oTable.fnClearTable();
                         debugger;
 
-                        $.each(s, function (i, obj) {
+                        $.each(s.Resultado, function (i, obj) {
 
                             var Delete = "";
 
@@ -135,9 +194,9 @@
                     }
                 });
             }
-            TablaGeneral();
+            TablaGeneral();*@
 
-            var tabla2 = $('#table_General').DataTable();
+            @*var tabla2 = $('#table_General').DataTable();
             $('#table_General tbody').on('click', 'z1', function () {
                 var data = tabla2.row($(this).parents('tr')).data();
 
@@ -155,71 +214,32 @@
                     }
                 });
 
-            });
+            });*@
 
-             $.ajax({
-                type: 'POST',
-                url: '@Url.Action("ListDepto","Registro")', // we are calling json method
-                dataType: 'json',
-                success: function(states) {
-
-                    $.each(states, function (i, state) {
-                        //$("#IdDepto").append('<option value="' + state.Value + '">' + state.Text + '</option>');
-                        if ('@Model.IdDepto' == state.Value) {
-                            $("#IdDepto").append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
-                        } else {
-                            $("#IdDepto").append('<option value="' + state.Value + '">' + state.Text + '</option>');
-                        }
-                    });
-                },
-                error: function (ex) {
-                    console.log(ex.responseText);
-                }
-             });
-
-            $("#IdDepto").change(function () {
-                $("#IdMuni").empty();
-
-                if ($(this).val() != '0') {
-                    $.ajax({
-                        type: 'POST',
-                        url: '@Url.Action("ListCiudadId","Registro")', // we are calling json method
-                        dataType: 'json',
-                        data: { IdP: $("#IdDepto").val() },
-                        success: function(states) {
-                            //  alert("okdepto" + $("#ID_CT_DEPTO").val());
-                            $.each(states, function (i, state) {
-                                //  alert(state.Value);
-                                $("#IdMuni").append('<option value="' + state.Value + '">' + state.Text + '</option>');
-                            });
-                        },
-                        error: function (ex) {
-                            console.log(ex.responseText);
-                        }
-                    });
-                }
-                return false;
-            });
-            @*function TablaUser() {
-                 $.ajax({
+            function TablaUser() {
+                $.ajax({
                     type: 'POST',
                     url: '@Url.Action("ListUser")',
-                     dataType: 'json',
+                    dataType: 'json',
                     data: { Id: '@Model.IdApsNetUser' },
                     success: function (s) {
                         oTable2.fnClearTable();
                         debugger;
                         var Delete = "";
-                        alert($("#RolUsuario").val());
-                        if ($("#RolUsuario").val() == "Administrator") {
-                             alert($("#RolUsuario").val()+ " 1");
-                             Delete = "x";
-                                }
+                        
                         $.each(s, function (i, obj) {
+                            Delete = '<z1 target="_blank" href=' + obj.Id + '  style="color: #013ADF;"><i class="fa fa-times-circle" aria-hidden="true"></i></z1>';
+                            var MuniDepto = obj.NombreRolActividad;
+                            var arrayMuniDepto = MuniDepto.split("-");  
                             oTable2.fnAddData([
-                                obj.NombreUsuario ,
-                                obj.FechaActividadS ,
-                                obj.RolUsuario ,
+                                obj.Id,
+                                obj.FechaActividadS,
+                                arrayMuniDepto[2] + "-" +arrayMuniDepto[1] ,
+                                obj.NombreProceso ,
+                                obj.NombreModalidad ,
+                                //obj.RolUsuario ,
+                                //obj.NombreUsuario ,
+                                arrayMuniDepto[0] ,
                                 obj.NombreActividad ,
                                 obj.Cantidad ,
                                 obj.Observacion,
@@ -235,7 +255,28 @@
                     }
                 });
             }
-            TablaUser();*@
+            TablaUser();
+
+            var tabla3 = $('#table_User').DataTable();
+            $('#table_User tbody').on('click', 'z1', function () {
+                var data = tabla3.row($(this).parents('tr')).data();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("DeleteActivity")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: data[0] },
+                    success: function(states) {
+                        TablaUser();
+                        alert(states);
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+
+            });
+
 
             $("form").submit(function (event) {
                 var estado  = false;
@@ -303,253 +344,218 @@
                 }
 
             });
-            if ('@Model.FechaActividad' != '1/1/0001 00:00:00') {
+            debugger;
+            if ('@Model.Id' > 0) {
                 alert('Registro Guardado');
             }
-        });
+        }); 
     </script>
 
 }
 <div class="card mb-4 wow fadeIn">
+
     <!--Card content-->
     <div class="card-body d-sm-flex justify-content-between">
-        <h3 class="card-title">Seguimiento</h3>
-        <h6>
-            Ususario : @Model.NombreUsuario <br />
-            Rol :  @Model.RolUsuario
-        </h6>
+        <h4 class="mb-2 mb-sm-0 pt-1">
+            <span>Seguimiento</span>
+        </h4>
+        <h5 class="mb-2 mb-sm-0 pt-1">
+            <span>Usuario : @Model.NombreUsuario</span>
+            <br />
+            <span>Rol : @Model.RolUsuario</span>
+            <br />
+        </h5>
     </div>
 </div>
-<div class="row wow fadeIn">
-    <div class="col-md-12">
-        <div class="row justify-content-sm-center ">
-            <div class="card col-md-4">
-                <div class="card-body">
-                    @using (Html.BeginForm("Crear", "ActividadesDiarias", FormMethod.Post))
-                    {
-                        @Html.AntiForgeryToken()
+    <div class="wow fadeIn">
+        @using (Html.BeginForm("Crear", "ActividadesDiarias", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
 
-                    <div class="form-horizontal">
-                        <h5>Actividades</h5>
-                        <hr />
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        @Html.EditorFor(model => model.IdApsNetUser, new { htmlAttributes = new { @class = "form-control", @style = "display:none", @value = Model.IdApsNetUser } })
+            <div class="form-horizontal">
+                <div class="row">
 
-                        @Html.EditorFor(model => model.NombreUsuario, new { htmlAttributes = new { @class = "form-control", @style = "display:none", @value = Model.NombreUsuario } })
-                        @Html.EditorFor(model => model.RolUsuario, new { htmlAttributes = new { @class = "form-control", @style = "display:none", @value = Model.RolUsuario } })
-                        @Html.EditorFor(model => model.NombreActividad, new { htmlAttributes = new { @style = "display:none", @Value = "N_A" } })
-                        @Html.EditorFor(model => model.FechaActividadS, new { htmlAttributes = new { @style = "display:none", @Value = "N_A" } })
-                        @Html.EditorFor(model => model.NombreModalidad, new { htmlAttributes = new { @style = "display:none", @Value = "N_A" } })
-                        @Html.EditorFor(model => model.NombreProceso, new { htmlAttributes = new { @style = "display:none", @Value = "N_A" } })
-                        @Html.EditorFor(model => model.NombreRolActividad, new { htmlAttributes = new { @style = "display:none", @Value = "N_A" } })
-                        @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control", @style = "display:none", @value = true } })
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5>Actividades</h5>
+                                        <hr />
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.IdApsNetUser, new { htmlAttributes = new { @class = "form-control", @style = "display:none", @value = Model.IdApsNetUser } })
 
+                                        @Html.EditorFor(model => model.NombreUsuario, new { htmlAttributes = new { @class = "form-control", @style = "display:none", @value = Model.NombreUsuario } })
+                                        @Html.EditorFor(model => model.RolUsuario, new { htmlAttributes = new { @class = "form-control", @style = "display:none", @value = Model.RolUsuario } })
+                                        @Html.EditorFor(model => model.NombreActividad, new { htmlAttributes = new { @style = "display:none", @Value = "N_A" } })
+                                        @Html.EditorFor(model => model.FechaActividadS, new { htmlAttributes = new { @style = "display:none", @Value = "N_A" } })
+                                        @Html.EditorFor(model => model.NombreModalidad, new { htmlAttributes = new { @style = "display:none", @Value = "N_A" } })
+                                        @Html.EditorFor(model => model.NombreProceso, new { htmlAttributes = new { @style = "display:none", @Value = "N_A" } })
+                                        @Html.EditorFor(model => model.NombreRolActividad, new { htmlAttributes = new { @style = "display:none", @Value = "N_A" } })
+                                        @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control", @style = "display:none", @value = true } })
 
-                        <div class="row">
-                            <div class="col-md-5">
-                                <label class="control-label col-md-12">Fecha</label>
-                            </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <label class="control-label col-md-12">Fecha</label>
+                                            </div>
 
-                            <div class="col-md-7">
-                                @Html.EditorFor(model => model.FechaActividad, new { htmlAttributes = new { @class = "form-control", @Type = "date" } })
-                                @Html.ValidationMessageFor(model => model.FechaActividad, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <label class="control-label col-md-12">Proceso</label>
-                            </div>
-                            <div class="col-md-7">
-                                @Html.DropDownList("IdProceso", new SelectList(string.Empty, "Value", "Text"), "Seleccione", new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.IdProceso, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <label class="control-label col-md-12">Modalidad</label>
-                            </div>
-                            <div class="col-md-7">
-                                @Html.DropDownList("IdModalidad", new SelectList(string.Empty, "Value", "Text"), "Seleccione", new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.IdModalidad, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <label class="control-label col-md-12">Rol</label>
-                            </div>
-                            <div class="col-md-7">
-                                @Html.DropDownList("IdRolActividad", new SelectList(string.Empty, "Value", "Text"), "Seleccione", new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.IdRolActividad, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <label class="control-label col-md-12">Actividad</label>
-                            </div>
-                            <div class="col-md-7">
-                                @Html.DropDownList("IdActividad", new SelectList(string.Empty, "Value", "Text"), "Seleccione", new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.IdActividad, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <label class="control-label col-md-12">Departamento</label>
-                            </div>
-                            <div class="col-md-7">
-                                <select id="IdDepto" name="IdDepto" class="form-control col-md-6 bool CLASSIdDepto">
-                                    <option value="">Seleccione</option>
-                                    <option value="0">No Aplica</option>
-                                </select>
-                                @Html.ValidationMessageFor(model => model.IdDepto, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <label class="control-label col-md-12">Municipio</label>
-                            </div>
-                            <div class="col-md-7">
-                                <select id="IdMuni" name="IdMuni" class="form-control col-md-6 bool CLASSIdMuni ">
-                                    <option value="">Seleccione</option>
-                                    <option value="0">No Aplica</option>
-                                </select>
-                                @Html.ValidationMessageFor(model => model.IdMuni, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5">
-                                @Html.LabelFor(model => model.Cantidad, htmlAttributes: new { @class = "control-label col-md-12" })
-                            </div>
-                            <div class="col-md-7">
-                                @Html.EditorFor(model => model.Cantidad, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Cantidad, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5">
-                                @Html.LabelFor(model => model.Observacion, htmlAttributes: new { @class = "control-label col-md-12" })
-                            </div>
-                            <div class="col-md-7">
-                                <textarea id="Observacion" name="Observacion" class="form-control col-md-12"></textarea>
-                                @Html.ValidationMessageFor(model => model.Observacion, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-12 justify-content-center text-center">
-                                <input type="submit" value="Create" class="btn btn-default" />
+                                            <div class="col-md-7">
+                                                @Html.EditorFor(model => model.FechaActividad, new { htmlAttributes = new { @class = "form-control", @Type = "date" } })
+                                                @Html.ValidationMessageFor(model => model.FechaActividad, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <label class="control-label col-md-12">Proceso</label>
+                                            </div>
+                                            <div class="col-md-7">
+                                                @Html.DropDownList("IdProceso", new SelectList(string.Empty, "Value", "Text"), "Seleccione", new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.IdProceso, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <label class="control-label col-md-12">Modalidad</label>
+                                            </div>
+                                            <div class="col-md-7">
+                                                @Html.DropDownList("IdModalidad", new SelectList(string.Empty, "Value", "Text"), "Seleccione", new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.IdModalidad, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <label class="control-label col-md-12">Rol</label>
+                                            </div>
+                                            <div class="col-md-7">
+                                                @Html.DropDownList("IdRolActividad", new SelectList(string.Empty, "Value", "Text"), "Seleccione", new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.IdRolActividad, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <label class="control-label col-md-12">Actividad</label>
+                                            </div>
+                                            <div class="col-md-7">
+                                                @Html.DropDownList("IdActividad", new SelectList(string.Empty, "Value", "Text"), "Seleccione", new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.IdActividad, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <label class="control-label col-md-12">Departamento</label>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <select id="IdDepto" name="IdDepto" class="form-control col-md-6 bool CLASSIdDepto">
+                                                    <option value="">Seleccione</option>
+                                                    <option value="0">No Aplica</option>
+                                                </select>
+                                                @Html.ValidationMessageFor(model => model.IdDepto, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <label class="control-label col-md-12">Municipio</label>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <select id="IdMuni" name="IdMuni" class="form-control col-md-6 bool CLASSIdMuni ">
+                                                    <option value="">Seleccione</option>
+                                                    <option value="0">No Aplica</option>
+                                                </select>
+                                                @Html.ValidationMessageFor(model => model.IdMuni, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                @Html.LabelFor(model => model.Cantidad, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                            <div class="col-md-7">
+                                                @Html.EditorFor(model => model.Cantidad, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Cantidad, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                @Html.LabelFor(model => model.Observacion, htmlAttributes: new { @class = "control-label col-md-12" })
+                                            </div>
+                                            <div class="col-md-7">
+                                                <textarea id="Observacion" name="Observacion" class="form-control col-md-12"></textarea>
+                                                @Html.ValidationMessageFor(model => model.Observacion, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-12 justify-content-center text-center">
+                                                <input type="submit" value="Create" class="btn btn-default" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    }
-                </div>
-            </div>
-
-            <div class="">
-                &nbsp;
-            </div>
-
-            <div class="card col-md-7">
-                <div class="card-body">
-                    <div class="form-horizontal">
-                        <div class="col-md-12">
-                            <h5> <label class="control-label col-md-12">Resumen Actividades</label> </h5>
-                            <div class="row">
-                                <h6 class="col-md-6"><label class="control-label ">Seleccione la fecha de inicio para consultar las actividades</label></h6> <input type="date" name="DateInfo" id="DateInfo" value="" class="form-control col-md-4" />
-
-                            </div>
-                            <hr />
-                            <div class="table-responsive ">
-                                <table class="table table-hover " id="table_General">
-                                    <thead>
-                                        <tr>
-                                            <th>
-                                                Id
-                                            </th>
-                                            <th>
-                                                Fecha
-                                            </th>
-                                            <th>
-                                                Proceso
-                                            </th>
-                                            <th>
-                                                Modalidad
-                                            </th>
-                                            <th>
-                                                Rol
-                                            </th>
-                                            <th>
-                                                Usuario
-                                            </th>
-                                            <th>
-                                                Rol
-                                            </th>
-                                            <th>
-                                                Actividad
-                                            </th>
-                                            <th>
-                                                Cantidad
-                                            </th>
-                                            <th>
-                                                Observacion
-                                            </th>
-                                            @if (@Model.RolUsuario == "Administrator")
-                                            {
-                                                <th>
-                                                </th>
-
-
-                                            }
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5> <label class="control-label col-md-12">Resumen Actividades</label> </h5>
+                                        <hr />
+                                        <div class="table-responsive ">
+                                            <table class="table table-hover " id="table_User">
+                                                <thead>
+                                                    <tr>
+                                                        <th>
+                                                            Id
+                                                        </th>
+                                                        <th>
+                                                            Fecha
+                                                        </th>
+                                                        <th>
+                                                            Depto - Municipio
+                                                        </th>
+                                                        <th>
+                                                            Proceso
+                                                        </th>
+                                                        <th>
+                                                            Modalidad
+                                                        </th>
+                                                        @*<th>
+                                                            Rol
+                                                        </th>*@
+                                                        @*<th>
+                                                            Usuario
+                                                        </th>*@
+                                                        <th>
+                                                            Rol
+                                                        </th>
+                                                        <th>
+                                                            Actividad
+                                                        </th>
+                                                        <th>
+                                                            Cantidad
+                                                        </th>
+                                                        <th>
+                                                            Observacion
+                                                        </th>
+                                                        <th>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        @*<br />
-            <div class="row justify-content-sm-center ">
-                <div class="card col-md-5">
-                    <div class="col-md-12">
-                        <div class="table-responsive ">
-                            <table class="table table-hover " id="table_User">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Usuario
-                                        </th>
-                                        <th>Fecha</th>
-                                        <th>
-                                            Rol
-                                        </th>
-                                        <th>
-                                            Actividad
-                                        </th>
-                                        <th>
-                                            Cantidad
-                                        </th>
-                                        <th>
-                                            Observacion
-                                        </th>
-                                        <th>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-auto">
-                    &nbsp;
-                </div>
-                <div class=" col-md-6">
 
                 </div>
-            </div>*@
+
+            </div>
+
+          
+
+        }
     </div>
-</div>

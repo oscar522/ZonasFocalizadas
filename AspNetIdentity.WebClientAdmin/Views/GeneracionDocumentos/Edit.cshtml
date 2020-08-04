@@ -192,7 +192,6 @@
                 
 
              var pathname = window.location+"";
-            alert(pathname);
 
             if ('@Model.Gestion' != "" || pathname.indexOf("Edit?IdTable") == "-1") {
 
@@ -236,8 +235,7 @@
                     /// Nombres y data de control
                     $("#CrearForm :input").prop("disabled", false);
                     var valid = "";     
-
-                     if ($('#Validacion1').val() == "0" || $('#Validacion1').val() == "1") {
+                     if ($('#Validacion1').val() == "0" ) {
 
                             $('#Validacion2').val("-2");
                             $('#Validacion3').val("-2");
@@ -248,78 +246,65 @@
                             $('#Validacion8').val("-2");
                             $('#Validacion9').val("-2");
                             $('#Validacion10').val("-2");
-                     }
+                    }
 
-                    //if ($('#Validacion2').val() == "0" || $('#Validacion1').val() == "1") {
+                    if ($('#Validacion1').val() == "1") {
 
-                    //        $('#Validacion3').val("0");
-                    //        $('#Validacion4').val("0");
-                    //        $('#Validacion5').val("0");
-                    //        $('#Validacion6').val("0");
-                    //        $('#Validacion7').val("0");
-                    //        $('#Validacion8').val("0");
-                    //        $('#Validacion9').val("0");
-                    //        $('#Validacion10').val("0");
-                    //}
+                        $('#Validacion2').append('<option value="0">NA</option>');
+                          $('#Validacion3').append('<option value="0">NA</option>');
+                            $('#Validacion4').append('<option value="0">NA</option>');
+                            $('#Validacion5').append('<option value="0">NA</option>');
+                            $('#Validacion6').append('<option value="0">NA</option>');
+                            $('#Validacion7').append('<option value="0">NA</option>');
+                            $('#Validacion8').append('<option value="0">NA</option>');
+                            $('#Validacion9').append('<option value="0">NA</option>');
+                            $('#Validacion10').append('<option value="0">NA</option>');
+                          
 
-                    //if ($('#Validacion3').val() == "0" || $('#Validacion1').val() == "1") {
+                        $('#Validacion2').val("0");
+                        $('#Validacion3').val("0");
+                        $('#Validacion4').val("0");
+                        $('#Validacion5').val("0");
+                        $('#Validacion6').val("0");
+                        $('#Validacion7').val("0");
+                        $('#Validacion8').val("0");
+                        $('#Validacion9').val("0");
+                        $('#Validacion10').val("0");
 
-                    //        $('#Validacion3').val("0");
-                    //        $('#Validacion4').val("0");
-                    //        $('#Validacion5').val("0");
-                    //        $('#Validacion6').val("0");
-                    //        $('#Validacion7').val("0");
-                    //        $('#Validacion8').val("0");
-                    //        $('#Validacion9').val("0");
-                    //        $('#Validacion10').val("0");
-                    //}
+                    } else if ($('#Validacion1').val() == "2") {
 
-                    //if ($('#Validacion4').val() == "0" || $('#Validacion4').val() == "1") {
+                        if ($('#Validacion2').val() == "1") {
 
-                    //        $('#Validacion5').val("0");
-                    //        $('#Validacion6').val("0");
-                    //        $('#Validacion7').val("0");
-                    //        $('#Validacion8').val("0");
-                    //        $('#Validacion9').val("0");
-                    //        $('#Validacion10').val("0");
-                    //}
+                            $('#Validacion3').append('<option value="0">NA</option>');
+                            $('#Validacion4').append('<option value="0">NA</option>');
+                            $('#Validacion5').append('<option value="0">NA</option>');
+                            $('#Validacion6').append('<option value="0">NA</option>');
+                            $('#Validacion7').append('<option value="0">NA</option>');
+                            $('#Validacion8').append('<option value="0">NA</option>');
+                            $('#Validacion9').append('<option value="0">NA</option>');
+                            $('#Validacion10').append('<option value="0">NA</option>');
+                            $('#Validacion3').val("0");
+                            $('#Validacion4').val("0");
+                            $('#Validacion5').val("0");
+                            $('#Validacion6').val("0");
+                            $('#Validacion7').val("0");
+                            $('#Validacion8').val("0");
+                            $('#Validacion9').val("0");
+                            $('#Validacion10').val("0");
 
-                    //if ($('#Validacion5').val() == "0" || $('#Validacion5').val() == "1") {
 
-                    //        $('#Validacion6').val("0");
-                    //        $('#Validacion7').val("0");
-                    //        $('#Validacion8').val("0");
-                    //        $('#Validacion9').val("0");
-                    //        $('#Validacion10').val("0");
-                    //}
+                        } else if ($('#Validacion2').val() == "2") {
 
-                    // if ($('#Validacion6').val() == "0" || $('#Validacion6').val() == "1") {
+                            if ($('#Validacion3').val() == "2") {
+                                $('#Validacion4').append('<option value="0">NA</option>');
+                                $('#Validacion4').val("0");
+                            }
 
-                    //        $('#Validacion7').val("0");
-                    //        $('#Validacion8').val("0");
-                    //        $('#Validacion9').val("0");
-                    //        $('#Validacion10').val("0");
-                    //}
+                        }
 
-                    //if ($('#Validacion7').val() == "0" || $('#Validacion7').val() == "1") {
+                    }
 
-                    //        $('#Validacion8').val("0");
-                    //        $('#Validacion9').val("0");
-                    //        $('#Validacion10').val("0");
-                    //}
 
-                    //if ($('#Validacion8').val() == "0" || $('#Validacion8').val() == "1") {
-
-                    //        $('#Validacion9').val("0");
-                    //        $('#Validacion10').val("0");
-                    //}
-
-                    //if ($('#Validacion9').val() == "0" || $('#Validacion9').val() == "1") {
-
-                    //        $('#Validacion10').val("0");
-                    //}
-
-                   
 
                     if(valid != "1"){
                             return true;
@@ -350,7 +335,7 @@
                     $('#Validacion2').prop("disabled", false);
                     //$('#Validacion3').prop("disabled", false);
                     //$('#Validacion4').prop("disabled", false);
-                    //$('#Validacion5').prop("disabled", false);
+                    $('#Validacion5').prop("disabled", false);
                     //$('#Validacion6').prop("disabled", false);
                     //$('#Validacion7').prop("disabled", false);
 
@@ -361,13 +346,14 @@
 
                     $('#Validacion3').prop("disabled", true);
                     $('#Validacion4').prop("disabled", true);
-                    $('#Validacion5').prop("disabled", true);
+                    $('#Validacion5').prop("disabled", false);
                     $('#Validacion6').prop("disabled", true);
                     $('#Validacion7').prop("disabled", true);
 
                 } else {
 
                     $('#Validacion3').prop("disabled", false);
+                    $('#Validacion5').prop("disabled", false);
                     //$('#Validacion4').prop("disabled", false);
                     //$('#Validacion5').prop("disabled", false);
                     //$('#Validacion6').prop("disabled", false);
@@ -379,14 +365,12 @@
                 if ($(this).val() == "2" || $(this).val() == "0") {
 
                     $('#Validacion4').prop("disabled", true);
-                    $('#Validacion5').prop("disabled", true);
                     $('#Validacion6').prop("disabled", true);
                     //$('#Validacion7').prop("disabled", true);
 
                 } else {
 
                     $('#Validacion4').prop("disabled", false);
-                    $('#Validacion5').prop("disabled", false);
                     $('#Validacion6').prop("disabled", false);
                     //$('#Validacion7').prop("disabled", false);
 

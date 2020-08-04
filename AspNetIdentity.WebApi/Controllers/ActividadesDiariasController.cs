@@ -20,7 +20,7 @@ namespace AspNetIdentity.WebApi.Controllers
         // GET api/values/
         [Authorize]
         [Route("getActividadesDiarias/{id}")]
-        public List<ActividadesDiariasModel> GetF(string id)
+        public PaginadorCustomersModel GetF(string id)
         {
             ActividadesDiariasLogic a = new ActividadesDiariasLogic();
             return a.Consulta(id);
