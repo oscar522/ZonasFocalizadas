@@ -170,11 +170,7 @@ namespace AspNetIdentity.WebApi.Logic
                     new { b.b, b.Id_Hash, b.NombreUsuario, b.RoleId, b.NombreRol, b.Estado, b.Actividad, b.NombreRolActividad, IdProceso = c.Id, NombreProceso = c.Nombre })
                    .Join(Ctx.ActDiaModalidad, b => b.b.IdModalidad, c => c.Id, (b, c) =>
                     new { b.b, b.Id_Hash, b.NombreUsuario, b.RoleId, b.NombreRol, b.Estado, b.Actividad, b.NombreRolActividad, b.IdProceso, b.NombreProceso, IdModalidad = c.Id, NombreModalidad = c.Nombre })
-                   .Join(Ctx.CtDepto, b => b.b.IdDepto.Value, c => c.ID_CT_DEPTO, (b, c) =>
-                    new { b.b, b.Id_Hash, b.NombreUsuario, b.RoleId, b.NombreRol, b.Estado, b.Actividad, b.NombreRolActividad, b.IdProceso, b.NombreProceso, b.IdModalidad, b.NombreModalidad, NombreDeptoAct = c.NOMBRE.ToString(), IdDeptoAct = c.ID_CT_DEPTO })
-                   .Join(Ctx.CtCiudad, b => b.b.IdMuni.Value, c => c.IdCtMuncipio, (b, c) =>
-                   new { b.b, b.Id_Hash, b.NombreUsuario, b.RoleId, b.NombreRol, b.Estado, b.Actividad, b.NombreRolActividad, b.IdProceso, b.NombreProceso, b.IdModalidad, b.NombreModalidad, b.NombreDeptoAct, b.IdDeptoAct, NombreCiudadAct = c.Nombre, IdCiudadAct = c.IdCtMuncipio, IdCiudadDeptoAct = c.IdCtDepto })
-                   .Where(x => x.Estado == true && x.b.IdApsNetUser == id && x.IdDeptoAct == x.IdCiudadDeptoAct)
+                   .Where(x => x.Estado == true && x.b.IdApsNetUser == id)
                    .Select(a => new ActividadesDiariasModel
                    {
                        Id = a.b.Id,
@@ -182,13 +178,15 @@ namespace AspNetIdentity.WebApi.Logic
                        NombreUsuario = a.NombreUsuario,
                        RolUsuario = a.NombreRol,
                        IdProceso = a.IdProceso,
-                       NombreProceso = a.NombreProceso ,
+                       NombreProceso = a.NombreProceso,
                        IdModalidad = a.IdModalidad,
                        NombreModalidad = a.NombreModalidad,
                        FechaActividad = a.b.FechaActividad.Value,
                        FechaActividadS = a.b.FechaActividad.Value.ToString(),
                        IdRolActividad = a.b.IdRol,
-                       NombreRolActividad = a.NombreRolActividad + "-" + a.NombreCiudadAct.ToString() +"-" + a.NombreDeptoAct,
+                       NombreRolActividad = a.NombreRolActividad +
+                       "-" + Ctx.CtCiudad.Where(x => x.IdCtMuncipio == a.b.IdMuni).FirstOrDefault().Nombre +
+                       "-" + Ctx.CtDepto.Where(x => x.ID_CT_DEPTO == a.b.IdDepto).FirstOrDefault().NOMBRE,
                        IdActividad = a.b.IdActividad.Value,
                        NombreActividad = a.Actividad,
                        Cantidad = a.b.Cantidad.Value,
