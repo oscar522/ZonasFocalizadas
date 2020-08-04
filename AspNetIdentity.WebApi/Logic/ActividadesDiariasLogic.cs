@@ -185,7 +185,7 @@ namespace AspNetIdentity.WebApi.Logic
                        FechaActividadS = a.b.FechaActividad.Value.ToString(),
                        IdRolActividad = a.b.IdRol,
                        NombreRolActividad = a.NombreRolActividad +
-                       "-" + Ctx.CtCiudad.Where(x => x.IdCtMuncipio == a.b.IdMuni).FirstOrDefault().Nombre +
+                       "-" + Ctx.CtCiudad.Where(x => x.IdCtMuncipio == a.b.IdMuni && x.IdCtDepto == a.b.IdDepto).FirstOrDefault().Nombre +
                        "-" + Ctx.CtDepto.Where(x => x.ID_CT_DEPTO == a.b.IdDepto).FirstOrDefault().NOMBRE,
                        IdActividad = a.b.IdActividad.Value,
                        NombreActividad = a.Actividad,
