@@ -317,9 +317,23 @@ namespace AspNetIdentity.WebApi.Logic
 
             GeneracionDocumentosModel GeneracionDocumentosModel_ = new GeneracionDocumentosModel();
 
+            string RegistroDepto = "";
+            string RegistroMuni = "";
+
+            var Registro = Ctx.Registro.Where(x => x.IdExpediente == a.b.IdExpediente).FirstOrDefault();
+            if (Registro.IdDepto > 0)
+            {
+                RegistroDepto = Ctx.CtDepto.Where(x => x.ID_CT_DEPTO == Registro.IdDepto).FirstOrDefault().NOMBRE;
+
+                if (RegistroDepto != "")
+                {
+                    RegistroMuni = Ctx.CtCiudad.Where(x => x.IdCtDepto == Registro.IdDepto && x.IdCtMuncipio == Registro.IdMunicipio).FirstOrDefault().Nombre;
+                }
+            }
+            
             GeneracionDocumentosModel_.Id = a.b.Id;
             GeneracionDocumentosModel_.IdExpediente = a.b.IdExpediente;
-            GeneracionDocumentosModel_.NumeroExpediente = a.ll.NumeroExpediente;
+            GeneracionDocumentosModel_.NumeroExpediente = a.ll.NumeroExpediente + "-" + RegistroDepto + "-" + RegistroMuni + "-" + Registro.Matricula + "-" +Registro.IdExpediente ;
             GeneracionDocumentosModel_.Validacion1 = a.b.Validacion1;
             GeneracionDocumentosModel_.Validacion2 = a.b.Validacion2;
             GeneracionDocumentosModel_.Validacion3 = a.b.Validacion3;

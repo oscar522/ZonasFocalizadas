@@ -12,10 +12,11 @@
         <h5 class="mb-2 mb-sm-0 pt-1">
             <span>
                 Numero de Expediente :
-                <a target="_blank" href='@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = Model.IdExpediente })' style='color: #013ADF;'>
-                    @Model.NumeroExpediente
-                    <i class='fa fa-eye' aria-hidden='true'></i>
-                </a>
+                <div id="RNumExp">
+
+                </div>
+                
+
 
             </span>
             <br />
@@ -64,6 +65,22 @@
                             <div class="card">
                                 <div class="card-header">  </div>
                                 <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row">
+
+                                                <div id="Rdepto">
+                                                    <label class="control-label col-md-12">
+                                                        <hr>
+                                                        F.M.I :
+                                                    </label>
+                                                    <label class="control-label col-md-12"> Departamento : Tolima</label>
+                                                    <label class="control-label col-md-12"> Municipio :  Ibague <hr>  </label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="row">
@@ -138,6 +155,19 @@
                                         </div>
                                     </div>
                                     <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <label class="control-label col-md-8"> El expediente esta completo ?</label>
+                                                <select id="Validacion6" name="Validacion6" class="form-control col-md-4 bool CLASSValidacion5">
+                                                    <option value="-2">Seleccione</option>
+                                                    <option value="1">Si</option>
+                                                    <option value="2">No</option>
+                                                </select>
+                                                @Html.ValidationMessageFor(model => model.Validacion6, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-12 text-md-center justify-content-md-center">
                                             <div class="row text-md-center justify-content-md-center">
                                                 <div class="form-group text-md-center justify-content-md-center">
@@ -173,17 +203,36 @@
         @Scripts.Render("~/Scripts/ModalControl.js")
         <script>
             $(document).ready(function () { //
-                $('#FechaCargue').val("1753-01-01");
-                $('#FechaModificacion').val("1753-01-01");
-                $('#Validacion2').prop("disabled", true);
-                $('#Validacion3').prop("disabled", true);
-                $('#Validacion4').prop("disabled", true);
-                $('#Validacion5').prop("disabled", true);
-                $('#Validacion6').prop("disabled", true);
-                $('#Validacion7').prop("disabled", true);
-            var ResDate = "";
-           
-            function iniciales()
+                alert('@Model.NumeroExpediente');
+
+
+
+                var arrayDeCadenas = '@Model.NumeroExpediente'.split("-");
+
+                var urlNumExp = '@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = "js-id" })'.replace("js-id", "@Model.IdExpediente"); 
+                $('#RNumExp').html('<a target="_blank" href="'+urlNumExp+'" style="color: #013ADF;"> '+encodeURIComponent(arrayDeCadenas[0])+' <i class="fa fa-eye" aria-hidden="true"></i></a>' );
+                var urlReg = '@Url.Action("../Registro/Details", "Details", new { IdTable = "js-id" })'.replace("js-id", encodeURIComponent(arrayDeCadenas[4])); 
+                var DataRegistro = '<div id="Rdepto">'+
+                    '<label class="control-label col-md-12">'+
+                    '<hr>' +
+                    '<label class="control-label col-md-12"> F.M.I : <a target="_blank" href="'+urlReg+'" title="Modificar" style="color: #013ADF;"><i class="fa fa-eye" aria-hidden="true"></i></a></label>' + 
+                    '<label class="control-label col-md-12"> Departamento : '+arrayDeCadenas[1]+'</label>' +
+                    '<label class="control-label col-md-12"> Municipio :'+arrayDeCadenas[2]+' <hr>  </label>'+
+                    '</div>';
+
+                $('#Rdepto').html(DataRegistro);
+
+                        $('#FechaCargue').val("1753-01-01");
+                        $('#FechaModificacion').val("1753-01-01");
+                        //$('#Validacion2').prop("disabled", true);
+                        //$('#Validacion3').prop("disabled", true);
+                        $('#Validacion4').prop("disabled", true);
+                        //$('#Validacion5').prop("disabled", true);
+                        //$('#Validacion6').prop("disabled", true);
+                        //$('#Validacion7').prop("disabled", true);
+                    var ResDate = "";
+                   
+                    function iniciales()
             {
                 
             }
@@ -365,13 +414,13 @@
                 if ($(this).val() == "2" || $(this).val() == "0") {
 
                     $('#Validacion4').prop("disabled", true);
-                    $('#Validacion6').prop("disabled", true);
+                    //$('#Validacion6').prop("disabled", true);
                     //$('#Validacion7').prop("disabled", true);
 
                 } else {
 
                     $('#Validacion4').prop("disabled", false);
-                    $('#Validacion6').prop("disabled", false);
+                    //$('#Validacion6').prop("disabled", false);
                     //$('#Validacion7').prop("disabled", false);
 
                 }

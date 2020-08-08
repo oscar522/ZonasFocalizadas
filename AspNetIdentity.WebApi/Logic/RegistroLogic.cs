@@ -191,6 +191,43 @@ namespace AspNetIdentity.WebApi.Logic
             return lista.FirstOrDefault();
         }
 
+        public RegistroModel ConsultaIdExp(long Id)
+        {
+            ZonasFEntities Ctx = new ZonasFEntities();
+            var lista = Ctx.Registro
+                 .Join(Ctx.BaldiosPersonaNatural, b => b.IdExpediente, c => c.id, (b, c) =>
+                 new { b.UsuarioActualiza, b.UsuarioModifica, c.NumeroExpediente, b.Id, b.IdExpediente, b.IdAspNetUser, b.FVerificacion, b.Estado, b.Matricula, b.Fapertura, b.TipoDocumento, b.NumDocumento, b.FDocumento, b.IdDepto, b.IdMunicipio, b.Area, b.CcSolicitante, b.CcConyugue, b.Conyuge, b.EstadoRegistro })
+                 .Where(xa => xa.EstadoRegistro.Value == true && xa.IdExpediente == Id)
+                .Select(a => new RegistroModel
+                {
+                    Id = a.Id,
+                    IdExpediente = a.IdExpediente,
+                    NumeroExpediente = a.NumeroExpediente,
+                    IdAspNetUser = a.IdAspNetUser,
+                    FVerificacion = a.FVerificacion,
+                    Estado = a.Estado,
+                    Matricula = a.Matricula,
+                    Fapertura = a.Fapertura,
+                    TipoDocumento = a.TipoDocumento,
+                    NumDocumento = a.NumDocumento,
+                    FDocumento = a.FDocumento,
+                    IdDepto = a.IdDepto,
+                    NombreIdDepto = Ctx.CtDepto.Where(w => w.ID_CT_DEPTO == a.IdDepto).Select(xq => xq.NOMBRE).FirstOrDefault(),
+                    IdMunicipio = a.IdMunicipio,
+                    NombreIdMunicipio = Ctx.CtCiudad.Where(w => w.Id == a.IdMunicipio && w.IdCtDepto == a.IdDepto).Select(xq => xq.Nombre).FirstOrDefault(),
+                    Area = a.Area,
+                    CcSolicitante = a.CcSolicitante,
+                    CcConyugue = a.CcConyugue,
+                    Conyuge = a.Conyuge,
+                    EstadoRegistro = a.EstadoRegistro,
+                    UsuarioActualiza = a.UsuarioActualiza,
+                    UsuarioModifica = a.UsuarioModifica
+
+                });
+
+            return lista.FirstOrDefault();
+        }
+
 
 
         //public RegistroModel ConsultarId(int id)

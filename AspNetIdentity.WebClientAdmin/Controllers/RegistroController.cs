@@ -151,7 +151,7 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
         {
             string Id = IdTable.ToString();
             string Controller = "Registro";
-            string Method = "getRegistroidExp";
+            string Method = "getRegistroid";
             string result = await employeeProvider.Get(Id, Controller, Method);
             var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
             RegistroModel processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<RegistroModel>(jsonResult.ToString());
@@ -230,11 +230,11 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
         {
             string Id = IdTable.ToString();
             string Controller = "Registro";
-            string Method = "getRegistroid";
+            string Method = "getRegistroidExp";
             string result = await employeeProvider.Get(Id, Controller, Method);
             var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
             RegistroModel processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<RegistroModel>(jsonResult.ToString());
-            return PartialView(processModel);
+            return View(processModel);
         }
 
         public async Task<ActionResult> Delete(int IdTable)

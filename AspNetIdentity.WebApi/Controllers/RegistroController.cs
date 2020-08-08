@@ -47,7 +47,7 @@ namespace AspNetIdentity.WebApi.Controllers
         }
 
         [Authorize]
-        [Route("getRegistroidExp/{id}")]
+        [Route("getRegistroid/{id}")]
         public RegistroModel Getid(string id)
         {
             long IdRegistro = Convert.ToInt64(id);
@@ -56,6 +56,21 @@ namespace AspNetIdentity.WebApi.Controllers
             {
                 RegistroLogic a = new RegistroLogic();
                 model = a.ConsultaId(IdRegistro);
+            }
+
+            return model;
+        }
+
+        [Authorize]
+        [Route("getRegistroidExp/{id}")]
+        public RegistroModel GetExp(string id)
+        {
+            long IdRegistro = Convert.ToInt64(id);
+            var model = new RegistroModel();
+            if (!id.Equals(""))
+            {
+                RegistroLogic a = new RegistroLogic();
+                model = a.ConsultaIdExp(IdRegistro);
             }
 
             return model;
