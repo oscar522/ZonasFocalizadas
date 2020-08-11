@@ -319,21 +319,30 @@ namespace AspNetIdentity.WebApi.Logic
 
             string RegistroDepto = "";
             string RegistroMuni = "";
+            string TipoDocumento = "";
 
             var Registro = Ctx.Registro.Where(x => x.IdExpediente == a.b.IdExpediente).FirstOrDefault();
-            if (Registro.IdDepto > 0)
-            {
-                RegistroDepto = Ctx.CtDepto.Where(x => x.ID_CT_DEPTO == Registro.IdDepto).FirstOrDefault().NOMBRE;
 
-                if (RegistroDepto != "")
+            if (Registro != null)
+            {
+                int IdTipo = Convert.ToInt32(Registro.TipoDocumento);
+                TipoDocumento = Ctx.CtTipoIdentificacion.Where(x => x.ID_CT_TIPO_IDENTIFICACION == IdTipo).FirstOrDefault().NOMBRE;
+
+                if (Registro.IdDepto > 0)
                 {
-                    RegistroMuni = Ctx.CtCiudad.Where(x => x.IdCtDepto == Registro.IdDepto && x.IdCtMuncipio == Registro.IdMunicipio).FirstOrDefault().Nombre;
+                    RegistroDepto = Ctx.CtDepto.Where(x => x.ID_CT_DEPTO == Registro.IdDepto).FirstOrDefault().NOMBRE;
+
+                    if (RegistroDepto != "")
+                    {
+                        RegistroMuni = Ctx.CtCiudad.Where(x => x.IdCtDepto == Registro.IdDepto && x.IdCtMuncipio == Registro.IdMunicipio).FirstOrDefault().Nombre;
+                    }
                 }
             }
             
+            
             GeneracionDocumentosModel_.Id = a.b.Id;
             GeneracionDocumentosModel_.IdExpediente = a.b.IdExpediente;
-            GeneracionDocumentosModel_.NumeroExpediente = a.ll.NumeroExpediente + "-" + RegistroDepto + "-" + RegistroMuni + "-" + Registro.Matricula + "-" +Registro.IdExpediente ;
+            GeneracionDocumentosModel_.NumeroExpediente = a.ll.NumeroExpediente + "|" + RegistroDepto + "|" + RegistroMuni + "|" + Registro.Matricula + "|" +Registro.IdExpediente + "|" + Registro.Fapertura + "|" + Registro.NumDocumento + "|" + TipoDocumento;
             GeneracionDocumentosModel_.Validacion1 = a.b.Validacion1;
             GeneracionDocumentosModel_.Validacion2 = a.b.Validacion2;
             GeneracionDocumentosModel_.Validacion3 = a.b.Validacion3;

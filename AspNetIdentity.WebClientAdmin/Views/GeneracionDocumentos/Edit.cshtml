@@ -15,9 +15,6 @@
                 <div id="RNumExp">
 
                 </div>
-                
-
-
             </span>
             <br />
         </h5>
@@ -28,7 +25,7 @@
             <br />
             <span>Rol : @Model.rol</span>
             <br />
-        </h5>""
+        </h5>
     </div>
 
 </div>
@@ -131,6 +128,7 @@
                                                     <option value="3">suspensión</option>
                                                     <option value="4">recursos</option>
                                                     <option value="5">oposiciones</option>
+                                                    <option value="0">NA</option>
                                                 </select>
                                                 @Html.ValidationMessageFor(model => model.Validacion4, "", new { @class = "text-danger" })
                                             </div>
@@ -201,44 +199,49 @@
     @section Scripts
     {
         @Scripts.Render("~/Scripts/ModalControl.js")
-        <script>
+<script>
             $(document).ready(function () { //
-                alert('@Model.NumeroExpediente');
 
-
-
-                var arrayDeCadenas = '@Model.NumeroExpediente'.split("-");
-
-                var urlNumExp = '@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = "js-id" })'.replace("js-id", "@Model.IdExpediente"); 
+                var arrayDeCadenas = '@Model.NumeroExpediente'.split("|");
+                debugger;
+                var urlNumExp = '@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = "js-id" })'.replace("js-id", "@Model.IdExpediente");
                 $('#RNumExp').html('<a target="_blank" href="'+urlNumExp+'" style="color: #013ADF;"> '+encodeURIComponent(arrayDeCadenas[0])+' <i class="fa fa-eye" aria-hidden="true"></i></a>' );
-                var urlReg = '@Url.Action("../Registro/Details", "Details", new { IdTable = "js-id" })'.replace("js-id", encodeURIComponent(arrayDeCadenas[4])); 
-                var DataRegistro = '<div id="Rdepto">'+
-                    '<label class="control-label col-md-12">'+
-                    '<hr>' +
-                    '<label class="control-label col-md-12"> F.M.I : <a target="_blank" href="'+urlReg+'" title="Modificar" style="color: #013ADF;"><i class="fa fa-eye" aria-hidden="true"></i></a></label>' + 
-                    '<label class="control-label col-md-12"> Departamento : '+arrayDeCadenas[1]+'</label>' +
-                    '<label class="control-label col-md-12"> Municipio :'+arrayDeCadenas[2]+' <hr>  </label>'+
+                var urlReg = '@Url.Action("../Registro/Details", "Details", new { IdTable = "js-id" })'.replace("js-id", encodeURIComponent(arrayDeCadenas[4]));
+                var DataRegistro = '<div id="Rdepto" class= " justify-content-between">'+
+                    '<label class="control-label col-md-12"> <hr> </label>'+
+                    '<label class="control-label col-md-6"> F.M.I : <a target="_blank" href="'+urlReg+'" title="Modificar" style="color: #013ADF;">'+arrayDeCadenas[3]+'<i class="fa fa-eye" aria-hidden="true"></i></a></label>' +
+                    '<label class="control-label col-md-6"> Fecha : ' + arrayDeCadenas[5] + '</label>' +
+                    '<label class="control-label col-md-6"> Documento : '+arrayDeCadenas[6]+'</label>' +
+                    '<label class="control-label col-md-6"> Tipo : '+arrayDeCadenas[7]+'</label>' +
+                    '<label class="control-label col-md-6"> Departamento : '+arrayDeCadenas[1]+'</label>' +
+                    '<label class="control-label col-md-6"> Municipio :'+arrayDeCadenas[2]+' </label>'+
+                    '<label class="control-label col-md-12"> <hr> </label>'+
                     '</div>';
 
                 $('#Rdepto').html(DataRegistro);
 
-                        $('#FechaCargue').val("1753-01-01");
-                        $('#FechaModificacion').val("1753-01-01");
-                        //$('#Validacion2').prop("disabled", true);
-                        //$('#Validacion3').prop("disabled", true);
-                        $('#Validacion4').prop("disabled", true);
-                        //$('#Validacion5').prop("disabled", true);
-                        //$('#Validacion6').prop("disabled", true);
-                        //$('#Validacion7').prop("disabled", true);
-                    var ResDate = "";
-                   
-                    function iniciales()
-            {
-                
-            }
+                $('#FechaCargue').val("1753-01-01");
+                $('#FechaModificacion').val("1753-01-01");
+                //$('#Validacion2').prop("disabled", true);
+                //$('#Validacion3').prop("disabled", true);
+                //$('#Validacion5').prop("disabled", true);
+                //$('#Validacion6').prop("disabled", true);
+                //$('#Validacion7').prop("disabled", true);
+
+                if ("@Model.Validacion3" == "2") {
+                    $('#Validacion4').val("-2");
+                    $('#Validacion4').prop("disabled", true);
+                }
+
+                var ResDate = "";
+
+                function iniciales()
+                {
+
+                }
 
             /// VALIDA GESTION
-                
+
 
              var pathname = window.location+"";
 
@@ -255,103 +258,25 @@
                 if ("@Model.Validacion9" == "") $("#Validacion9").val("0"); else $("#Validacion9").val("@Model.Validacion9");
                 if ("@Model.Validacion10" == "") $("#Validacion10").val("0"); else $("#Validacion10").val("@Model.Validacion10");
 
-                if ($("#Validacion1").val() == "1" || $("#Validacion1").val() == "0") {
 
-                    $('#Validacion2').prop("disabled", true);
-                    $('#Validacion3').prop("disabled", true);
-                    $('#Validacion4').prop("disabled", true);
-                    $('#Validacion5').prop("disabled", true);
-                    $('#Validacion6').prop("disabled", true);
-                    $('#Validacion7').prop("disabled", true);
-
-                } else {
-
-                    $('#Validacion2').prop("disabled", false);
-                    $('#Validacion3').prop("disabled", false);
-                    $('#Validacion4').prop("disabled", false);
-                    $('#Validacion5').prop("disabled", false);
-                    $('#Validacion6').prop("disabled", false);
-                    $('#Validacion7').prop("disabled", false);
-
-                }
-
-
-
-            } 
+            }
 
             /// Envio Formulario
                 $("#CrearForm").submit(function (event) {
                     /// Nombres y data de control
                     $("#CrearForm :input").prop("disabled", false);
-                    var valid = "";     
-                     if ($('#Validacion1').val() == "0" ) {
-
-                            $('#Validacion2').val("-2");
-                            $('#Validacion3').val("-2");
-                            $('#Validacion4').val("-2");
-                            $('#Validacion5').val("-2");
-                            $('#Validacion6').val("-2");
-                            $('#Validacion7').val("-2");
-                            $('#Validacion8').val("-2");
-                            $('#Validacion9').val("-2");
-                            $('#Validacion10').val("-2");
-                    }
-
-                    if ($('#Validacion1').val() == "1") {
-
-                        $('#Validacion2').append('<option value="0">NA</option>');
-                          $('#Validacion3').append('<option value="0">NA</option>');
-                            $('#Validacion4').append('<option value="0">NA</option>');
-                            $('#Validacion5').append('<option value="0">NA</option>');
-                            $('#Validacion6').append('<option value="0">NA</option>');
                             $('#Validacion7').append('<option value="0">NA</option>');
-                            $('#Validacion8').append('<option value="0">NA</option>');
-                            $('#Validacion9').append('<option value="0">NA</option>');
-                            $('#Validacion10').append('<option value="0">NA</option>');
-                          
 
-                        $('#Validacion2').val("0");
-                        $('#Validacion3').val("0");
-                        $('#Validacion4').val("0");
-                        $('#Validacion5').val("0");
-                        $('#Validacion6').val("0");
-                        $('#Validacion7').val("0");
-                        $('#Validacion8').val("0");
-                        $('#Validacion9').val("0");
-                        $('#Validacion10').val("0");
-
-                    } else if ($('#Validacion1').val() == "2") {
-
-                        if ($('#Validacion2').val() == "1") {
-
-                            $('#Validacion3').append('<option value="0">NA</option>');
-                            $('#Validacion4').append('<option value="0">NA</option>');
-                            $('#Validacion5').append('<option value="0">NA</option>');
-                            $('#Validacion6').append('<option value="0">NA</option>');
-                            $('#Validacion7').append('<option value="0">NA</option>');
-                            $('#Validacion8').append('<option value="0">NA</option>');
-                            $('#Validacion9').append('<option value="0">NA</option>');
-                            $('#Validacion10').append('<option value="0">NA</option>');
-                            $('#Validacion3').val("0");
-                            $('#Validacion4').val("0");
-                            $('#Validacion5').val("0");
-                            $('#Validacion6').val("0");
-                            $('#Validacion7').val("0");
-                            $('#Validacion8').val("0");
-                            $('#Validacion9').val("0");
-                            $('#Validacion10').val("0");
-
-
-                        } else if ($('#Validacion2').val() == "2") {
-
-                            if ($('#Validacion3').val() == "2") {
-                                $('#Validacion4').append('<option value="0">NA</option>');
-                                $('#Validacion4').val("0");
-                            }
-
-                        }
-
-                    }
+                    if ($("#Validacion1").val() == "-2" )$("#Validacion1" ).append('<option value="0">NA</option>');
+                    if ($("#Validacion2").val() == "-2" )$("#Validacion2" ).append('<option value="0">NA</option>');
+                    if ($("#Validacion3").val() == "-2" )$("#Validacion3" ).append('<option value="0">NA</option>');
+                    if ($("#Validacion4").val() == "-2" )$("#Validacion4" ).append('<option value="0">NA</option>');
+                    if ($("#Validacion5").val() == "-2" )$("#Validacion5" ).append('<option value="0">NA</option>');
+                    if ($("#Validacion6").val() == "-2" )$("#Validacion6" ).append('<option value="0">NA</option>');
+                    if ($("#Validacion7").val() == "-2" )$("#Validacion7" ).append('<option value="0">NA</option>');
+                    if ($("#Validacion8").val() == "-2" )$("#Validacion8" ).append('<option value="0">NA</option>');
+                    if ($("#Validacion9").val() == "-2" )$("#Validacion9" ).append('<option value="0">NA</option>');
+                    if ($("#Validacion10").val() == "-2")$("#Validacion10").append('<option value="0">NA</option>');
 
 
 
@@ -372,19 +297,19 @@
             $("#Validacion1").change(function () {
                 if ($(this).val() == "1" || $(this).val() == "0") {
 
-                    $('#Validacion2').prop("disabled", true);
-                    $('#Validacion3').prop("disabled", true);
-                    $('#Validacion4').prop("disabled", true);
-                    $('#Validacion5').prop("disabled", true);
-                    $('#Validacion6').prop("disabled", true);
-                    $('#Validacion7').prop("disabled", true);
+                    //$('#Validacion2').prop("disabled", true);
+                    //$('#Validacion3').prop("disabled", true);
+                    //$('#Validacion4').prop("disabled", true);
+                    //$('#Validacion5').prop("disabled", true);
+                    //$('#Validacion6').prop("disabled", true);
+                    //$('#Validacion7').prop("disabled", true);
 
                 } else {
 
                     $('#Validacion2').prop("disabled", false);
                     //$('#Validacion3').prop("disabled", false);
                     //$('#Validacion4').prop("disabled", false);
-                    $('#Validacion5').prop("disabled", false);
+                  //  $('#Validacion5').prop("disabled", false);
                     //$('#Validacion6').prop("disabled", false);
                     //$('#Validacion7').prop("disabled", false);
 
@@ -393,16 +318,16 @@
             $("#Validacion2").change(function () {
                 if ($(this).val() == "1" || $(this).val() == "0") {
 
-                    $('#Validacion3').prop("disabled", true);
-                    $('#Validacion4').prop("disabled", true);
-                    $('#Validacion5').prop("disabled", false);
-                    $('#Validacion6').prop("disabled", true);
-                    $('#Validacion7').prop("disabled", true);
+                    //$('#Validacion3').prop("disabled", true);
+                    //$('#Validacion4').prop("disabled", true);
+                    //$('#Validacion5').prop("disabled", false);
+                    //$('#Validacion6').prop("disabled", true);
+                    //$('#Validacion7').prop("disabled", true);
 
                 } else {
 
                     $('#Validacion3').prop("disabled", false);
-                    $('#Validacion5').prop("disabled", false);
+                    //$('#Validacion5').prop("disabled", false);
                     //$('#Validacion4').prop("disabled", false);
                     //$('#Validacion5').prop("disabled", false);
                     //$('#Validacion6').prop("disabled", false);
@@ -414,6 +339,7 @@
                 if ($(this).val() == "2" || $(this).val() == "0") {
 
                     $('#Validacion4').prop("disabled", true);
+                    $('#Validacion4').val("0");
                     //$('#Validacion6').prop("disabled", true);
                     //$('#Validacion7').prop("disabled", true);
 
@@ -427,28 +353,26 @@
             });
 
 
-                    $(".checkFecha").change(function () {
-                        var Id = $(this).attr("Data");
-                        if( $(this).prop('checked') ) {
-                            $('#'+Id).prop("disabled", true);
-                            $('#'+Id).val("1753-01-01");
-                        }else{
-                            $('#'+Id).prop("disabled", false);
-                        }
-                    });
-               
-            ///
+            $(".checkFecha").change(function () {
+                var Id = $(this).attr("Data");
+                if( $(this).prop('checked') ) {
+                    $('#'+Id).prop("disabled", true);
+                    $('#'+Id).val("1753-01-01");
+                }else{
+                    $('#'+Id).prop("disabled", false);
+                }
+            });
 
-                $(".field-validation-error").each(function(){
-                    var IdClass = $(this).attr("class");
-                    if( IdClass.indexOf("field-validation-error") != "-1"  ) {
-                        var Id = $(this).attr("data-valmsg-for");
-                        $('#'+Id).addClass("alert-danger");
-                        $('#'+Id).prop("disabled",false);
-                    }
-                });
+            $(".field-validation-error").each(function(){
+                var IdClass = $(this).attr("class");
+                if( IdClass.indexOf("field-validation-error") != "-1"  ) {
+                    var Id = $(this).attr("data-valmsg-for");
+                    $('#'+Id).addClass("alert-danger");
+                    $('#'+Id).prop("disabled",false);
+                }
+            });
         });
-        </script>
+</script>
     }
 
     
