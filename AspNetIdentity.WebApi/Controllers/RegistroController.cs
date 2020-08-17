@@ -20,7 +20,7 @@ namespace AspNetIdentity.WebApi.Controllers
             return a.Consulta();
         }
         [Authorize]
-        [Route("getRegistroid/{id}")]
+        [Route("getRegistroidUser/{id}")]
         public List<RegistroModel> Get(string id)
         {
             var model = new List<RegistroModel>();

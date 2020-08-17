@@ -77,7 +77,7 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
         {
             string Id = GetTokenObject().nameid;
             string Controller = "Registro";
-            string Method = "getRegistroid";
+            string Method = "getRegistroidUser";
             string result = await employeeProvider.Get(Id, Controller, Method);
             var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
             List<RegistroModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<RegistroModel>>(jsonResult.ToString());

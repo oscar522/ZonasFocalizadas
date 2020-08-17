@@ -25,10 +25,20 @@ namespace AspNetIdentity.Models
         [Required(ErrorMessage = ".")]
         [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> Validacion5 { get; set; }
+        [Required(ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> Validacion6 { get; set; }
+        [Required(ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> Validacion7 { get; set; }
+        [Required(ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> Validacion8 { get; set; }
+        [Required(ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> Validacion9 { get; set; }
+        [Required(ErrorMessage = ".")]
+        [Range(-1, int.MaxValue, ErrorMessage = ".")]
         public Nullable<int> Validacion10 { get; set; }
         public Nullable<int> Gestion { get; set; }
 

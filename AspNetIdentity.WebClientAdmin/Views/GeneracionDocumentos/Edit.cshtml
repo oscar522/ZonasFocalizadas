@@ -46,10 +46,8 @@
         @Html.EditorFor(model => model.NumeroExpediente, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "@Model.NumeroExpediente" } })
         @Html.EditorFor(model => model.NombreIdAspNetUser, new { htmlAttributes = new { @class = "form-control", Style = "display : none" } })
 
-        @Html.EditorFor(model => model.Validacion7, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "0" } })
-        @Html.EditorFor(model => model.Validacion8, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "0" } })
-        @Html.EditorFor(model => model.Validacion9, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "0" } })
-        @Html.EditorFor(model => model.Validacion10, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "0" } })
+        @Html.EditorFor(model => model.Validacion9, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "1" } })
+        @Html.EditorFor(model => model.Validacion10, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "1" } })
         @Html.EditorFor(model => model.FechaCargue, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "1753-01-01" } })
         @Html.EditorFor(model => model.FechaModificacion, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "1753-01-01" } })
 
@@ -166,6 +164,32 @@
                                         </div>
                                     </div>
                                     <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <label class="control-label col-md-8"> Los datos de la resolución son correctos ?</label>
+                                                <select id="Validacion7" name="Validacion7" class="form-control col-md-4 bool CLASSValidacion7">
+                                                    <option value="-2">Seleccione</option>
+                                                    <option value="1">Si</option>
+                                                    <option value="2">No</option>
+                                                </select>
+                                                @Html.ValidationMessageFor(model => model.Validacion7, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <label class="control-label col-md-8"> La resolcuión esta firmada y numerada ?</label>
+                                                <select id="Validacion8" name="Validacion8" class="form-control col-md-4 bool CLASSValidacion8">
+                                                    <option value="-2">Seleccione</option>
+                                                    <option value="1">Si</option>
+                                                    <option value="2">No</option>
+                                                </select>
+                                                @Html.ValidationMessageFor(model => model.Validacion8, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-12 text-md-center justify-content-md-center">
                                             <div class="row text-md-center justify-content-md-center">
                                                 <div class="form-group text-md-center justify-content-md-center">
@@ -211,9 +235,9 @@
                     '<label class="control-label col-md-12"> <hr> </label>'+
                     '<label class="control-label col-md-6"> F.M.I : <a target="_blank" href="'+urlReg+'" title="Modificar" style="color: #013ADF;">'+arrayDeCadenas[3]+'<i class="fa fa-eye" aria-hidden="true"></i></a></label>' +
                     '<label class="control-label col-md-6"> Fecha : ' + arrayDeCadenas[5] + '</label>' +
-                    '<label class="control-label col-md-6"> Documento : '+arrayDeCadenas[6]+'</label>' +
-                    '<label class="control-label col-md-6"> Tipo : '+arrayDeCadenas[7]+'</label>' +
+                   // '<label class="control-label col-md-6"> Tipo : '+arrayDeCadenas[7]+'</label>' +
                     '<label class="control-label col-md-6"> Departamento : '+arrayDeCadenas[1]+'</label>' +
+                    '<label class="control-label col-md-6"> Documento : '+arrayDeCadenas[6]+'</label>' +
                     '<label class="control-label col-md-6"> Municipio :'+arrayDeCadenas[2]+' </label>'+
                     '<label class="control-label col-md-12"> <hr> </label>'+
                     '</div>';
@@ -237,7 +261,7 @@
 
                 function iniciales()
                 {
-
+                     
                 }
 
             /// VALIDA GESTION
@@ -265,7 +289,7 @@
                 $("#CrearForm").submit(function (event) {
                     /// Nombres y data de control
                     $("#CrearForm :input").prop("disabled", false);
-                            $('#Validacion7').append('<option value="0">NA</option>');
+
 
                     if ($("#Validacion1").val() == "-2" )$("#Validacion1" ).append('<option value="0">NA</option>');
                     if ($("#Validacion2").val() == "-2" )$("#Validacion2" ).append('<option value="0">NA</option>');
@@ -275,9 +299,12 @@
                     if ($("#Validacion6").val() == "-2" )$("#Validacion6" ).append('<option value="0">NA</option>');
                     if ($("#Validacion7").val() == "-2" )$("#Validacion7" ).append('<option value="0">NA</option>');
                     if ($("#Validacion8").val() == "-2" )$("#Validacion8" ).append('<option value="0">NA</option>');
-                    if ($("#Validacion9").val() == "-2" )$("#Validacion9" ).append('<option value="0">NA</option>');
-                    if ($("#Validacion10").val() == "-2")$("#Validacion10").append('<option value="0">NA</option>');
+                    if ($("#Validacion9").val() == "" )$("#Validacion9" ).val('0');
+                    if ($("#Validacion10").val() == "")$("#Validacion10").val('0');
 
+                    debugger;
+
+                    alert($("#Validacion8").val()+'-'+$("#Validacion9").val()+'-'+$("#Validacion10").val());
 
 
                     if(valid != "1"){
