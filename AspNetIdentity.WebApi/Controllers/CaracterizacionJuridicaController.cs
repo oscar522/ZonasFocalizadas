@@ -18,6 +18,14 @@ namespace AspNetIdentity.WebApi.Controllers
         }
 
         [Authorize]
+        [Route("getCaracterizacionJuridicaidExp/{id}")]
+        public CaracterizacionJuridicaModel GetExp(int id)
+        {
+            CaracterizacionJuridicaLogic a = new CaracterizacionJuridicaLogic();
+            return a.ConsultarIdExp(id);
+        }
+
+        [Authorize]
         [Route("getCaracterizacionJuridicaCatalogoid/{id}")]
         public List<CaracterizacionJuridicaCatalogosModel> GetCatalogo(int id)
         {

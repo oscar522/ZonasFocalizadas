@@ -18,6 +18,14 @@ namespace AspNetIdentity.WebApi.Controllers
         }
 
         [Authorize]
+        [Route("getCaracterizacionSolicitanteidExp/{id}")]
+        public CaracterizacionSolicitanteModel GetExp(int id)
+        {
+            CaracterizacionSolicitanteLogic a = new CaracterizacionSolicitanteLogic();
+            return a.ConsultarIdExp(id);
+        }
+
+        [Authorize]
         [Route("getCaracterizacionSolicitanteidUser/{id}")]
         public List<CaracterizacionSolicitanteModel> GetUser(string id)
         {

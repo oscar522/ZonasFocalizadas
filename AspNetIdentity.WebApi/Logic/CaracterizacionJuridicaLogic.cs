@@ -542,6 +542,251 @@ namespace AspNetIdentity.WebApi.Logic
             return CaracterizacionJuridicaModel_;
         }
 
+        public CaracterizacionJuridicaModel ConsultarIdExp(int id)
+        {
+            ZonasFEntities Ctx = new ZonasFEntities();
+
+            var a = Ctx.CaracterizacionJuridica.Where(x => x.Id == id)
+                .Join(Ctx.Users, b => b.IdAspNetUser, c => c.Id_Hash, (b, c) => new { b, c })
+                .Join(Ctx.AspNetUserRoles, b => b.c.Id_Hash, c => c.UserId, (b, c) => new { c.RoleId, b.b, b.c })
+                .Join(Ctx.AspNetRoles, b => b.RoleId, c => c.Id, (b, c) => new { b.b, b.c, c.Name })
+                .Join(Ctx.BaldiosPersonaNatural, b => b.b.IdExpediente, ll => ll.id, (b, ll) => new { b.b, b.c, ll, b.Name })
+                .FirstOrDefault();
+            
+            CaracterizacionJuridicaModel CaracterizacionJuridicaModel_ = new CaracterizacionJuridicaModel();
+
+
+            if (a != null)
+            {
+
+                CaracterizacionJuridicaModel_.Id = a.b.Id;
+                CaracterizacionJuridicaModel_.IdExpediente = a.b.IdExpediente;
+                CaracterizacionJuridicaModel_.NumeroExpediente = a.ll.NumeroExpediente;
+                CaracterizacionJuridicaModel_.INSPECCION_OCULAR_INSPECCION_OCULAR_53 = a.b.INSPECCION_OCULAR_INSPECCION_OCULAR_53;
+                CaracterizacionJuridicaModel_.INSPECCION_OCULAR_FECHA_54 = a.b.INSPECCION_OCULAR_FECHA_54;
+                CaracterizacionJuridicaModel_.INSPECCION_OCULAR_FIRMA_55 = a.b.INSPECCION_OCULAR_FIRMA_55;
+                CaracterizacionJuridicaModel_.INSPECCION_OCULAR_OPOSICIONES_56 = a.b.INSPECCION_OCULAR_OPOSICIONES_56;
+                CaracterizacionJuridicaModel_.INSPECCION_OCULAR_CONCEPTO_57 = a.b.INSPECCION_OCULAR_CONCEPTO_57;
+                CaracterizacionJuridicaModel_.NombreINSPECCION_OCULAR_CONCEPTO_57 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.INSPECCION_OCULAR_CONCEPTO_57.Value).Select(g => g.Nombre).FirstOrDefault();
+
+                CaracterizacionJuridicaModel_.ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58 = a.b.ACLARACION_DE_INSPECCION_OCULAR_ACLARACION_DE_INSPECCION_OCULAR_58;
+                CaracterizacionJuridicaModel_.ACLARACION_DE_INSPECCION_OCULAR_FECHA_59 = a.b.ACLARACION_DE_INSPECCION_OCULAR_FECHA_59;
+                CaracterizacionJuridicaModel_.ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60 = a.b.ACLARACION_DE_INSPECCION_OCULAR_FIRMA_60;
+                CaracterizacionJuridicaModel_.ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61 = a.b.ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61;
+                CaracterizacionJuridicaModel_.NombreACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61.Value).Select(g => g.Nombre).FirstOrDefault();
+                CaracterizacionJuridicaModel_.ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62 = a.b.ACLARACION_DE_INSPECCION_OCULAR_PUBLICACION_EN_EMISORA_62;
+                CaracterizacionJuridicaModel_.ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63 = a.b.ACLARACION_DE_INSPECCION_OCULAR_FIRMA_DE_PUBLICACION_63;
+
+                CaracterizacionJuridicaModel_.FIJACION_EN_LISTA_FIJACION_EN_LISTA_64 = a.b.FIJACION_EN_LISTA_FIJACION_EN_LISTA_64;
+                CaracterizacionJuridicaModel_.FIJACION_EN_LISTA_FECHA_DE_FIJACION_65 = a.b.FIJACION_EN_LISTA_FECHA_DE_FIJACION_65;
+                CaracterizacionJuridicaModel_.FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66 = a.b.FIJACION_EN_LISTA_FECHA_DE_DESFIJACION_66;
+                CaracterizacionJuridicaModel_.FIJACION_EN_LISTA_FIRMA_67 = a.b.FIJACION_EN_LISTA_FIRMA_67;
+
+                CaracterizacionJuridicaModel_.OPOCISIONES_OPOCISIONES_68 = a.b.OPOCISIONES_OPOCISIONES_68;
+                CaracterizacionJuridicaModel_.OPOCISIONES_FECHA_69 = a.b.OPOCISIONES_FECHA_69;
+
+                CaracterizacionJuridicaModel_.FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70 = a.b.FORMATO_DE_REVISION_JURIDICA_FORMATO_DE_REVISION_JURIDICA_70;
+                CaracterizacionJuridicaModel_.FORMATO_DE_REVISION_JURIDICA_FECHA_71 = a.b.FORMATO_DE_REVISION_JURIDICA_FECHA_71;
+                CaracterizacionJuridicaModel_.FORMATO_DE_REVISION_JURIDICA_FIRMADA_72 = a.b.FORMATO_DE_REVISION_JURIDICA_FIRMADA_72;
+                CaracterizacionJuridicaModel_.FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73 = a.b.FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73;
+                CaracterizacionJuridicaModel_.NombreFORMATO_DE_REVISION_JURIDICA_CONCEPTO_73 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73.Value).Select(g => g.Nombre).FirstOrDefault();
+
+                CaracterizacionJuridicaModel_.RESOLUCION_RESOLUCION_74 = a.b.RESOLUCION_RESOLUCION_74;
+                CaracterizacionJuridicaModel_.RESOLUCION_NUMERO_DE_RESOLUCION_75 = a.b.RESOLUCION_NUMERO_DE_RESOLUCION_75;
+                CaracterizacionJuridicaModel_.RESOLUCION_FECHA_DE_RESOLUCION_76 = a.b.RESOLUCION_FECHA_DE_RESOLUCION_76;
+                CaracterizacionJuridicaModel_.RESOLUCION_FIRMADA_77 = a.b.RESOLUCION_FIRMADA_77;
+                CaracterizacionJuridicaModel_.RESOLUCION_DECISION_78 = a.b.RESOLUCION_DECISION_78;
+                CaracterizacionJuridicaModel_.NombreRESOLUCION_DECISION_78 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.RESOLUCION_DECISION_78.Value).Select(g => g.Nombre).FirstOrDefault();
+                CaracterizacionJuridicaModel_.RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79 = a.b.RESOLUCION_AREA_ADJUDICADA_metros_cuadrados_79;
+                CaracterizacionJuridicaModel_.NombreRESOLUCION_CONJUNTA_INDIVIDUAL_80 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.RESOLUCION_CONJUNTA_INDIVIDUAL_80.Value).Select(g => g.Nombre).FirstOrDefault();
+                CaracterizacionJuridicaModel_.RESOLUCION_CONJUNTA_INDIVIDUAL_80 = a.b.RESOLUCION_CONJUNTA_INDIVIDUAL_80;
+                CaracterizacionJuridicaModel_.RESOLUCION_RAZON_NEGACION = a.b.RESOLUCION_RAZON_NEGACION;
+
+                CaracterizacionJuridicaModel_.NOTIFICACION_NOTIFICACION_SOLICITANTES_81 = a.b.NOTIFICACION_NOTIFICACION_SOLICITANTES_81;
+                CaracterizacionJuridicaModel_.NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82 = a.b.NOTIFICACION_FECHA_DE_NOTIFICACION_SOLICITANTES_82;
+                CaracterizacionJuridicaModel_.NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83 = a.b.NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83;
+                CaracterizacionJuridicaModel_.NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84 = a.b.NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84;
+
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_DECISION_N_1 = a.b.RECURSO_SOLICITANTE_DECISION_N_1;
+                CaracterizacionJuridicaModel_.nombreRECURSO_SOLICITANTE_DECISION_N_1 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.RECURSO_SOLICITANTE_DECISION_N_1.Value).Select(g => g.Nombre).FirstOrDefault();
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2 = a.b.RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2;
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3 = a.b.RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3;
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4 = a.b.RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4;
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5 = a.b.RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5;
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6 = a.b.RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6;
+                CaracterizacionJuridicaModel_.nombreRECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6.Value).Select(g => g.Nombre).FirstOrDefault();
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6 = a.b.RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6;
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_CONJUNA_IND_N_7 = a.b.RECURSO_SOLICITANTE_CONJUNA_IND_N_7;
+                CaracterizacionJuridicaModel_.nombreRECURSO_SOLICITANTE_CONJUNA_IND_N_7 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.RECURSO_SOLICITANTE_CONJUNA_IND_N_7.Value).Select(g => g.Nombre).FirstOrDefault();
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8 = a.b.RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8;
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9 = a.b.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9;
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10 = a.b.RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10;
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11 = a.b.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11;
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85 = a.b.RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85;
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86 = a.b.RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86;
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87 = a.b.RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87;
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_FIRMADA_88 = a.b.RECURSO_SOLICITANTE_FIRMADA_88;
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_ACTO_89 = a.b.RECURSO_SOLICITANTE_ACTO_89;
+                CaracterizacionJuridicaModel_.nombreRECURSO_SOLICITANTE_ACTO_89 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.RECURSO_SOLICITANTE_ACTO_89.Value).Select(g => g.Nombre).FirstOrDefault();
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_NUMERO_90 = a.b.RECURSO_SOLICITANTE_NUMERO_90;
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_FECHA_91 = a.b.RECURSO_SOLICITANTE_FECHA_91;
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92 = a.b.RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92;
+                CaracterizacionJuridicaModel_.nombreRECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92.Value).Select(g => g.Nombre).FirstOrDefault();
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93 = a.b.RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93;
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94 = a.b.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94;
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95 = a.b.RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95;
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96 = a.b.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96;
+
+
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_DECISION_N_1 = a.b.RECURSO_MINISTERIO_DECISION_N_1;
+                CaracterizacionJuridicaModel_.nombreRECURSO_MINISTERIO_DECISION_N_1 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.RECURSO_MINISTERIO_DECISION_N_1.Value).Select(g => g.Nombre).FirstOrDefault();
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2 = a.b.RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2;
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3 = a.b.RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3;
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4 = a.b.RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4;
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5 = a.b.RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5;
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6 = a.b.RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6;
+                CaracterizacionJuridicaModel_.nombreRECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6.Value).Select(g => g.Nombre).FirstOrDefault();
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6 = a.b.RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6;
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_CONJUNA_IND_N_7 = a.b.RECURSO_MINISTERIO_CONJUNA_IND_N_7;
+                CaracterizacionJuridicaModel_.nombreRECURSO_MINISTERIO_CONJUNA_IND_N_7 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.RECURSO_MINISTERIO_CONJUNA_IND_N_7.Value).Select(g => g.Nombre).FirstOrDefault();
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8 = a.b.RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8;
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9 = a.b.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9;
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10 = a.b.RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10;
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11 = a.b.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11;
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_RECURSO_MINISTERIO_85 = a.b.RECURSO_MINISTERIO_RECURSO_MINISTERIO_85;
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86 = a.b.RECURSO_MINISTERIO_FECHA_DE_SOLICITUD_86;
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_RESPUESTA_RECURSO_87 = a.b.RECURSO_MINISTERIO_RESPUESTA_RECURSO_87;
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_FIRMADA_88 = a.b.RECURSO_MINISTERIO_FIRMADA_88;
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_ACTO_89 = a.b.RECURSO_MINISTERIO_ACTO_89;
+                CaracterizacionJuridicaModel_.nombreRECURSO_MINISTERIO_ACTO_89 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.RECURSO_MINISTERIO_ACTO_89.Value).Select(g => g.Nombre).FirstOrDefault();
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_NUMERO_90 = a.b.RECURSO_MINISTERIO_NUMERO_90;
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_FECHA_91 = a.b.RECURSO_MINISTERIO_FECHA_91;
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92 = a.b.RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92;
+                CaracterizacionJuridicaModel_.nombreRECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92 = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92.Value).Select(g => g.Nombre).FirstOrDefault();
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93 = a.b.RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_93;
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94 = a.b.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_94;
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95 = a.b.RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_95;
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96 = a.b.RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96;
+
+
+                CaracterizacionJuridicaModel_.CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109 = a.b.CONSTANCIA_DE_EJECUTORIA_CONSTANCIA_DE_EJECUTOIA_109;
+                CaracterizacionJuridicaModel_.CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110 = a.b.CONSTANCIA_DE_EJECUTORIA_FECHA_CONSTANCIA_EJECUTORIA_110;
+                CaracterizacionJuridicaModel_.CONSTANCIA_DE_EJECUTORIA_FIRMADA_111 = a.b.CONSTANCIA_DE_EJECUTORIA_FIRMADA_111;
+                CaracterizacionJuridicaModel_.CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112 = a.b.CONSTANCIA_DE_EJECUTORIA_LA_FECHA_ES_CORRECTA_112;
+                CaracterizacionJuridicaModel_.CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION = a.b.CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION;
+                CaracterizacionJuridicaModel_.CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA = a.b.CONSTANCIA_DE_EJECUTORIA_NUMERO_RESOLUCION_FECHA;
+
+                CaracterizacionJuridicaModel_.REVOCATORIA_REVOCATORIA_113 = a.b.REVOCATORIA_REVOCATORIA_113;
+                CaracterizacionJuridicaModel_.REVOCATORIA_NUMERO_RESOLUCION_114 = a.b.REVOCATORIA_NUMERO_RESOLUCIÓN_114;
+                CaracterizacionJuridicaModel_.REVOCATORIA_FECHA_DE_RESOLUCION_115 = a.b.REVOCATORIA_FECHA_DE_RESOLUCIÓN_115;
+                CaracterizacionJuridicaModel_.REGISTRO_FMI_ = a.b.REGISTRO_FMI_;
+                CaracterizacionJuridicaModel_.REGISTRO_FMI = a.b.REGISTRO_FMI;
+                CaracterizacionJuridicaModel_.REGISTRO_FECHA_DE_REGISTRO_117 = a.b.REGISTRO_FECHA_DE_REGISTRO_117;
+                CaracterizacionJuridicaModel_.REGISTRO_NUMERO_DE_RESOLUCION_118 = a.b.REGISTRO_NUMERO_DE_RESOLUCION_118;
+                CaracterizacionJuridicaModel_.REGISTRO_FECHA_DE_RESOLUCION_119 = a.b.REGISTRO_FECHA_DE_RESOLUCION_119;
+
+                CaracterizacionJuridicaModel_.SOLICITUD_SOLICITUD = a.b.SOLICITUD_SOLICITUD;
+                CaracterizacionJuridicaModel_.SOLICITUD_FECHA = a.b.SOLICITUD_FECHA;
+                CaracterizacionJuridicaModel_.SOLICITUD_FIRMA = a.b.SOLICITUD_FIRMA;
+                CaracterizacionJuridicaModel_.SOLICITUD_TIPO_SOLICITUD = a.b.SOLICITUD_TIPO_SOLICITUD;
+                CaracterizacionJuridicaModel_.nombreSOLICITUD_TIPO_SOLICITUD = Ctx.CaracterizacionJuridicaCatalogos.Where(x => x.Id == a.b.SOLICITUD_TIPO_SOLICITUD.Value).Select(g => g.Nombre).FirstOrDefault();
+                CaracterizacionJuridicaModel_.SOLICITUD_CEDULA_SOLICITANTE = a.b.SOLICITUD_CEDULA_SOLICITANTE;
+                CaracterizacionJuridicaModel_.SOLICITUD_CEDULA_CONYUGE = a.b.SOLICITUD_CEDULA_CONYUGE;
+                CaracterizacionJuridicaModel_.SOLICITUD_CEDULA_PARIENTE = a.b.SOLICITUD_CEDULA_PARIENTE;
+                CaracterizacionJuridicaModel_.SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA = a.b.SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA;
+
+                CaracterizacionJuridicaModel_.AUTODEACEPTACION_AUTODEACEPTACION = a.b.AUTODEACEPTACION_AUTODEACEPTACION;
+                CaracterizacionJuridicaModel_.AUTODEACEPTACION_FECHA = a.b.AUTODEACEPTACION_FECHA;
+                CaracterizacionJuridicaModel_.AUTODEACEPTACION_FIRMA = a.b.AUTODEACEPTACION_FIRMA;
+                CaracterizacionJuridicaModel_.AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO = a.b.AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO;
+                CaracterizacionJuridicaModel_.AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO = a.b.AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO;
+                CaracterizacionJuridicaModel_.AUTODEACEPTACION_DATOSPREDIOSCORRECTO = a.b.AUTODEACEPTACION_DATOSPREDIOSCORRECTO;
+
+
+                CaracterizacionJuridicaModel_.COMUNICACIONES_SOLICITANTE = a.b.COMUNICACIONES_SOLICITANTE;
+                CaracterizacionJuridicaModel_.COMUNICACIONES_SOLICITANTEFECHA = a.b.COMUNICACIONES_SOLICITANTEFECHA;
+                CaracterizacionJuridicaModel_.COMUNICACIONES_SOLICITANTEFIRMA = a.b.COMUNICACIONES_SOLICITANTEFIRMA;
+                CaracterizacionJuridicaModel_.COMUNICACIONES_FECHAINSPECCIONOCULAR = a.b.COMUNICACIONES_FECHAINSPECCIONOCULAR;
+                CaracterizacionJuridicaModel_.COMUNICACIONES_VISIBLE = a.b.COMUNICACIONES_VISIBLE;
+
+                CaracterizacionJuridicaModel_.COMUNICACIONES_PROCURADOR = a.b.COMUNICACIONES_PROCURADOR;
+                CaracterizacionJuridicaModel_.COMUNICACIONES_PROCURADORFECHA = a.b.COMUNICACIONES_PROCURADORFECHA;
+                CaracterizacionJuridicaModel_.COMUNICACIONES_PROCURADORFIRMA = a.b.COMUNICACIONES_PROCURADORFIRMA;
+                CaracterizacionJuridicaModel_.COMUNICACIONES_VISIBLE_PROCURADOR = a.b.COMUNICACIONES_VISIBLE_PROCURADOR;
+
+                CaracterizacionJuridicaModel_.COMUNICACIONES_AUTORIDADAMBIENTAL = a.b.COMUNICACIONES_AUTORIDADAMBIENTAL;
+                CaracterizacionJuridicaModel_.COMUNICACIONES_AUTORIDADAMBIENTALFECHA = a.b.COMUNICACIONES_AUTORIDADAMBIENTALFECHA;
+                CaracterizacionJuridicaModel_.COMUNICACIONES_AUTORIDADAMBIENTALFIRMA = a.b.COMUNICACIONES_AUTORIDADAMBIENTALFIRMA;
+                CaracterizacionJuridicaModel_.COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL = a.b.COMUNICACIONES_VISIBLE_AUTORIDADAMBIENTAL;
+
+                CaracterizacionJuridicaModel_.COMUNICACIONES_COLINDATES = a.b.COMUNICACIONES_COLINDATES;
+                CaracterizacionJuridicaModel_.COMUNICACIONES_COLINDATESFECHA = a.b.COMUNICACIONES_COLINDATESFECHA;
+                CaracterizacionJuridicaModel_.COMUNICACIONES_COLINDATESFIRMA = a.b.COMUNICACIONES_COLINDATESFIRMA;
+                CaracterizacionJuridicaModel_.COMUNICACIONES_COLINDATES_INCOMPLETOS = a.b.COMUNICACIONES_COLINDATES_INCOMPLETOS;
+                CaracterizacionJuridicaModel_.COMUNICACIONES_VISIBLE_COLINDATES = a.b.COMUNICACIONES_VISIBLE_COLINDATES;
+
+
+                CaracterizacionJuridicaModel_.PUBLICACIONES_ALCALDIA = a.b.PUBLICACIONES_ALCALDIA;
+                CaracterizacionJuridicaModel_.PUBLICACIONES_ALCALDIAFECHAFIJACION = a.b.PUBLICACIONES_ALCALDIAFECHAFIJACION;
+                CaracterizacionJuridicaModel_.PUBLICACIONES_ALCALDIADESFIJACION = a.b.PUBLICACIONES_ALCALDIADESFIJACION;
+                CaracterizacionJuridicaModel_.PUBLICACIONES_ALCALDIAFIRMA = a.b.PUBLICACIONES_ALCALDIAFIRMA;
+                CaracterizacionJuridicaModel_.PUBLICACIONES_VISIBLE = a.b.PUBLICACIONES_VISIBLE;
+
+                CaracterizacionJuridicaModel_.PUBLICACIONES_INCODER = a.b.PUBLICACIONES_INCODER;
+                CaracterizacionJuridicaModel_.PUBLICACIONES_INCODERFECHAFIJACION = a.b.PUBLICACIONES_INCODERFECHAFIJACION;
+                CaracterizacionJuridicaModel_.PUBLICACIONES_INCODERDESFIJACION = a.b.PUBLICACIONES_INCODERDESFIJACION;
+                CaracterizacionJuridicaModel_.PUBLICACIONES_INCODERFIRMA = a.b.PUBLICACIONES_INCODERFIRMA;
+                CaracterizacionJuridicaModel_.PUBLICACIONES_VISIBLE_INCODER = a.b.PUBLICACIONES_VISIBLE_INCODER;
+
+                CaracterizacionJuridicaModel_.PUBLICACIONES_EMISORA = a.b.PUBLICACIONES_EMISORA;
+                CaracterizacionJuridicaModel_.PUBLICACIONES_EMISORAFECHA1 = a.b.PUBLICACIONES_EMISORAFECHA1;
+                CaracterizacionJuridicaModel_.PUBLICACIONES_EMISORAFECHA2 = a.b.PUBLICACIONES_EMISORAFECHA2;
+                CaracterizacionJuridicaModel_.PUBLICACIONES_EMISORAFIRMA = a.b.PUBLICACIONES_EMISORAFIRMA;
+                CaracterizacionJuridicaModel_.PUBLICACIONES_VISIBLE_EMISORA = a.b.PUBLICACIONES_VISIBLE_EMISORA;
+
+                CaracterizacionJuridicaModel_.INSPECCION_OCULAR_VISIBLE = a.b.INSPECCION_OCULAR_VISIBLE;
+                CaracterizacionJuridicaModel_.ACLARACION_DE_INSPECCION_VISIBLE = a.b.ACLARACION_DE_INSPECCION_VISIBLE;
+                CaracterizacionJuridicaModel_.FIJACION_EN_LISTA_VISIBLE = a.b.FIJACION_EN_LISTA_VISIBLE;
+                CaracterizacionJuridicaModel_.OPOCISIONES_EN_LISTA_VISIBLE = a.b.OPOCISIONES_EN_LISTA_VISIBLE;
+                CaracterizacionJuridicaModel_.FORMATO_DE_REVISION_JURIDICA_VISIBLE = a.b.FORMATO_DE_REVISION_JURIDICA_VISIBLE;
+                CaracterizacionJuridicaModel_.RESOLUCION_VISIBLE = a.b.RESOLUCION_VISIBLE;
+                CaracterizacionJuridicaModel_.NOTIFICACION_VISIBLE = a.b.NOTIFICACION_VISIBLE;
+                CaracterizacionJuridicaModel_.RECURSO_SOLICITANTE_VISIBLE = a.b.RECURSO_SOLICITANTE_VISIBLE;
+                CaracterizacionJuridicaModel_.RECURSO_MINISTERIO_VISIBLE = a.b.RECURSO_MINISTERIO_VISIBLE;
+                CaracterizacionJuridicaModel_.CONSTANCIA_DE_EJECUTORIA_VISIBLE = a.b.CONSTANCIA_DE_EJECUTORIA_VISIBLE;
+                CaracterizacionJuridicaModel_.REVOCATORIA_VISIBLE = a.b.REVOCATORIA_VISIBLE;
+                CaracterizacionJuridicaModel_.REGISTRO_VISIBLE = a.b.REGISTRO_VISIBLE;
+                CaracterizacionJuridicaModel_.SOLICITUD_VISIBLE = a.b.SOLICITUD_VISIBLE;
+                CaracterizacionJuridicaModel_.AUTODEACEPTACION_VISIBLE = a.b.AUTODEACEPTACION_VISIBLE;
+                CaracterizacionJuridicaModel_.AUTODEACEPTACION_COLINDANTE_CORRECTO = a.b.AUTODEACEPTACION_COLINDANTE_CORRECTO;
+                CaracterizacionJuridicaModel_.RESOLUCION_DATOS_SOLICITANTE_BIEN = a.b.RESOLUCION_DATOS_SOLICITANTE_BIEN;
+                CaracterizacionJuridicaModel_.RESOLUCION_DATOS_SOLICITANTE_EN = a.b.RESOLUCION_DATOS_SOLICITANTE_EN;
+
+                //SUBSIDIODEAPELACION
+                CaracterizacionJuridicaModel_.SUBSIDIODEAPELACION = a.b.SUBSIDIODEAPELACION;
+                CaracterizacionJuridicaModel_.SUBSIDIODEAPELACION_VISIBLE = a.b.SUBSIDIODEAPELACION_VISIBLE;
+                CaracterizacionJuridicaModel_.SUBSIDIODEAPELACION_FECHA = a.b.SUBSIDIODEAPELACION_FECHA;
+                CaracterizacionJuridicaModel_.SUBSIDIODEAPELACION_RESPUESTA = a.b.SUBSIDIODEAPELACION_RESPUESTA;
+                CaracterizacionJuridicaModel_.SUBSIDIODEAPELACION_DECISION = a.b.SUBSIDIODEAPELACION_DECISION;
+
+                //DESISTIMIENTO
+                CaracterizacionJuridicaModel_.DESISTIMIENTO_DESISTIMIENTO_113 = a.b.DESISTIMIENTO_DESISTIMIENTO_113;
+                CaracterizacionJuridicaModel_.DESISTIMIENTO_VISIBLE = a.b.DESISTIMIENTO_VISIBLE;
+                CaracterizacionJuridicaModel_.DESISTIMIENTO_FECHA = a.b.DESISTIMIENTO_FECHA;
+                CaracterizacionJuridicaModel_.DESISTIMIENTO_FIRMADO = a.b.DESISTIMIENTO_FIRMADO;
+
+                CaracterizacionJuridicaModel_.Estado = true;
+                CaracterizacionJuridicaModel_.IdAspNetUser = a.b.IdAspNetUser;
+                CaracterizacionJuridicaModel_.rol = a.Name;
+                CaracterizacionJuridicaModel_.NombreIdAspNetUser = a.c.Name + " " + a.c.FirstName + " " + a.c.LastName;
+                CaracterizacionJuridicaModel_.FechaModificacion = a.b.FechaModificacion;
+                CaracterizacionJuridicaModel_.Gestion = a.b.Gestion;
+
+            }
+
+            return CaracterizacionJuridicaModel_;
+        }
+
         public CaracterizacionJuridicaModel Actualizar(CaracterizacionJuridicaModel a)
         {
             using (var Ctx = new ZonasFEntities())

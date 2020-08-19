@@ -162,11 +162,18 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
         {
             string Id = IdTable.ToString();
             string Controller = "CaracterizacionJuridica";
-            string Method = "getCaracterizacionJuridicaid";
+            string Method = "getCaracterizacionJuridicaidExp";
             string result = await employeeProvider.Get(Id, Controller, Method);
-            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
-            CaracterizacionJuridicaModel processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<CaracterizacionJuridicaModel>(jsonResult.ToString());
-            return PartialView(processModel);
+
+            CaracterizacionJuridicaModel processModel = new CaracterizacionJuridicaModel();
+            if (result != null)
+            {
+                var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+                processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<CaracterizacionJuridicaModel>(jsonResult.ToString());
+            }
+
+            return View(processModel);
+
         }
 
         public async Task<ActionResult> Delete(int IdTable)

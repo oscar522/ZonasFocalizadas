@@ -484,11 +484,101 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
         {
             string Id = IdTable.ToString();
             string Controller = "CaracterizacionSolicitante";
-            string Method = "getCaracterizacionSolicitanteid";
+            string Method = "getCaracterizacionSolicitanteidExp";
             string result = await employeeProvider.Get(Id, Controller, Method);
-            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
-            CaracterizacionSolicitanteModel processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<CaracterizacionSolicitanteModel>(jsonResult.ToString());
-            return View(processModel);
+            CaracterizacionSolicitanteViewModels Entity = new CaracterizacionSolicitanteViewModels();
+
+            if (result != null)
+            {
+                var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+                CaracterizacionSolicitanteModel processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<CaracterizacionSolicitanteModel>(jsonResult.ToString());
+                
+                Entity = new CaracterizacionSolicitanteViewModels
+                {
+
+                    Id = processModel.Id,
+                    IdExpediente = processModel.IdExpediente,
+                    NumeroExpediente = processModel.NumeroExpediente,
+                    IdDepto = processModel.IdDepto,
+                    NombreDepto = processModel.NombreDepto,
+                    IdMunicipio = processModel.IdMunicipio,
+                    NombreMunicipio = processModel.NombreMunicipio,
+
+
+                    NombreSolicitanteExpediente = processModel.NombreSolicitanteExpediente,
+                    DocSolicitanteExpediente = processModel.DocSolicitanteExpediente,
+                    IdTipoDocSolicitanteExpediente = processModel.IdTipoDocSolicitanteExpediente,
+                    TipoDocSolicitanteExpediente = processModel.TipoDocSolicitanteExpediente,
+
+                    NombreConyugeExpediente = processModel.NombreConyugeExpediente,
+                    DocConyugeExpediente = processModel.DocConyugeExpediente,
+                    IdTipoDocConyugeExpediente = processModel.IdTipoDocConyugeExpediente,
+                    TipoDocConyugeExpediente = processModel.TipoDocConyugeExpediente,
+
+                    CedulaExpSol = processModel.CedulaExpSol,
+                    DocVisibleSol = processModel.DocVisibleSol,
+                    NombreSolicitante = processModel.NombreSolicitante,
+                    TipoDocumento = processModel.TipoDocumento,
+                    NombreTipoDocumento = processModel.NombreTipoDocumento,
+                    NumeroIdentificacion = processModel.NumeroIdentificacion,
+                    FechaExpedicionSolicitante = processModel.FechaExpedicionSolicitante.ToString(),
+
+                    CedulaExpCon = processModel.CedulaExpCon,
+                    DocVisibleCon = processModel.DocVisibleCon,
+                    NombreConyuge = processModel.NombreConyuge,
+                    TipoDocumentoConyuge = processModel.TipoDocumentoConyuge,
+                    NombreTipoDocumentoConyuge = processModel.NombreTipoDocumentoConyuge,
+                    NumeroIdentificacionConyuge = processModel.NumeroIdentificacionConyuge,
+                    FechaExpedicionConyuge = processModel.FechaExpedicionConyuge.ToString(),
+
+
+                    VFechaSolicitante = processModel.VFechaSolicitante.ToString(),
+                    VArchivoSolicitanteNombre = processModel.VArchivoSolicitante,
+                    VVivoSolicitante = processModel.VVivoSolicitante,
+
+                    VFechaConyuge = processModel.VFechaConyuge.ToString(),
+                    VArchivoConyugeNombre = processModel.VArchivoConyuge,
+                    VVivoConyuge = processModel.VVivoConyuge,
+
+
+                    PFechaSolicitante = processModel.PFechaSolicitante.ToString(),
+                    PArchivoSolicitanteNombre = processModel.PArchivoSolicitante,
+                    PInhabilidadSolicitante = processModel.PInhabilidadSolicitante,
+
+                    PFechaConyuge = processModel.PFechaConyuge.ToString(),
+                    PArchivoConyugeNombre = processModel.PArchivoConyuge,
+                    PInhabilidadConyuge = processModel.PInhabilidadConyuge,
+
+
+                    CFechaSolicitante = processModel.CFechaSolicitante.ToString(),
+                    CArchivoSolicitanteNombre = processModel.CArchivoSolicitante,
+                    CInhabilidadSolicitante = processModel.CInhabilidadSolicitante,
+
+                    CFechaConyuge = processModel.CFechaConyuge.ToString(),
+                    CArchivoConyugeNombre = processModel.CArchivoConyuge,
+                    CInhabilidadConyuge = processModel.CInhabilidadConyuge,
+
+
+                    AFechaSolicitante = processModel.AFechaSolicitante.ToString(),
+                    AArchivoSolicitanteNombre = processModel.AArchivoSolicitante,
+                    AInhabilidadSolicitante = processModel.AInhabilidadSolicitante,
+
+                    AFechaConyuge = processModel.AFechaConyuge.ToString(),
+                    AArchivoConyugeNombre = processModel.AArchivoConyuge,
+                    AInhabilidadConyuge = processModel.AInhabilidadConyuge,
+
+
+                    Gestion = processModel.Gestion,
+                    IdAspNetUser = processModel.IdAspNetUser,
+                    NombretUser = processModel.NombretUser,
+                    RolUser = processModel.RolUser,
+                    Estado = processModel.Estado,
+                    RolLogin = processModel.RolLogin,
+                    UserLogin = processModel.UserLogin,
+                };
+
+            }
+            return View(Entity);
         }
 
         public async Task<ActionResult> Delete(int IdTable)

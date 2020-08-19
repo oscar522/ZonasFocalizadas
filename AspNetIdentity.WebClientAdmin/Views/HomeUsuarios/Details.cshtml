@@ -134,6 +134,14 @@
 
     </script>
 }
+
+<style type="text/css">
+
+    #example iframe {
+        margin: -10px -10px;
+    }
+</style>
+
 <div class="card mb-4 wow fadeIn">
     <div class="card-body d-sm-flex justify-content-between">
         <h3 class="card-title">Numero de Expediente @Model.NumeroExpediente     </h3>
@@ -333,5 +341,7 @@
         </div>
     </div>
 </div>
+<br />
+<iframe frameborder="0" src="@Url.Action("../CaracterizacionJuridica/Details", "Details", new { IdTable = Model.id })" class="col-md-12" height="400"></iframe>
+<iframe frameborder="0" src="@Url.Action("../CaracterizacionSolicitante/Details", "Details", new { IdTable = Model.id  })" class="col-md-12" height="400"></iframe>
 
-<iframe src="@Url.Action("../CaracterizacionJuridica/Edit", "Edit", new { IdTable = 111 })" width="1000" height="400"></iframe> 
