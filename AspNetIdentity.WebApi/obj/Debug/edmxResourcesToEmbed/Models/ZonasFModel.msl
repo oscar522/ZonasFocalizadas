@@ -479,6 +479,10 @@
     <EntitySetMapping Name="CaracterizacionJuridica">
       <EntityTypeMapping TypeName="ZonasFModel.CaracterizacionJuridica">
         <MappingFragment StoreEntitySet="CaracterizacionJuridica">
+          <ScalarProperty Name="SUSPENCION_FIRMADO" ColumnName="SUSPENCION_FIRMADO" />
+          <ScalarProperty Name="SUSPENCION_FECHA" ColumnName="SUSPENCION_FECHA" />
+          <ScalarProperty Name="SUSPENCION_VISIBLE" ColumnName="SUSPENCION_VISIBLE" />
+          <ScalarProperty Name="SUSPENCION_SUSPENCION_113" ColumnName="SUSPENCION_SUSPENCION_113" />
           <ScalarProperty Name="DESISTIMIENTO_FECHA" ColumnName="DESISTIMIENTO_FECHA" />
           <ScalarProperty Name="DESISTIMIENTO_FIRMADO" ColumnName="DESISTIMIENTO_FIRMADO" />
           <ScalarProperty Name="DESISTIMIENTO_VISIBLE" ColumnName="DESISTIMIENTO_VISIBLE" />

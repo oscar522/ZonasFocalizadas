@@ -188,5 +188,9 @@ namespace AspNetIdentity.WebApi.Models
         public Nullable<int> DESISTIMIENTO_VISIBLE { get; set; }
         public Nullable<bool> DESISTIMIENTO_FIRMADO { get; set; }
         public Nullable<System.DateTime> DESISTIMIENTO_FECHA { get; set; }
+        public Nullable<bool> SUSPENCION_SUSPENCION_113 { get; set; }
+        public Nullable<int> SUSPENCION_VISIBLE { get; set; }
+        public Nullable<System.DateTime> SUSPENCION_FECHA { get; set; }
+        public Nullable<bool> SUSPENCION_FIRMADO { get; set; }
     }
 }

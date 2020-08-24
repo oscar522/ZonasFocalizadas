@@ -893,6 +893,292 @@
                 }
             });  //Initialize the datatable
 
+             var oTableVal = $('#table_id_Validacion').dataTable({
+                "order": [[1, "desc"]],
+                "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
+                "pageLength": 10,
+                "searching": true,
+                "bLengthChange" : true, //thought this line could hide the LengthMenu
+                "bInfo":true,
+                dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
+                buttons: [
+                    { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
+                    { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
+                    { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
+                ],
+                "paging": false ,
+                "footerCallback": function (row, data, start, end, display) {
+                    var api = this.api(), data;
+                    var intVal = function (i) {
+                        return typeof i === 'string' ?
+                            i.replace(/[\$,]/g, '') * 1 :
+                            typeof i === 'number' ?
+                                i : 0;
+                    };
+                    var dia01 = api
+                        .column(1 ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia02 = api
+                        .column(2  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia03 = api
+                        .column(3 ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia04 = api
+                        .column(4 ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia05 = api
+                        .column(5  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia06 = api
+                        .column(6  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia07 = api
+                        .column(7  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia08 = api
+                        .column(8  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia09 = api
+                        .column(9  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia10 = api
+                        .column(10  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia11 = api
+                        .column(11  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia12 = api
+                        .column(12  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia13 = api
+                        .column(13  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia14 = api
+                        .column(14  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia15 = api
+                        .column(15  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia16 = api
+                        .column(16  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia17 = api
+                        .column(17  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia18 = api
+                        .column(18  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia19 = api
+                        .column(19  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia20 = api
+                        .column(20  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia21 = api
+                        .column(21 ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia22 = api
+                        .column(22  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia23 = api
+                        .column(23 ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia24 = api
+                        .column(24 ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia25 = api
+                        .column(25  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia26 = api
+                        .column(26  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia27 = api
+                        .column(27  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia28 = api
+                        .column(28  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia29 = api
+                        .column(29  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia30 = api
+                        .column(30  ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var dia31 = api
+                        .column(31 ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    var TotalAll = api
+                        .column(32 ,  { page: 'current'})
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+                    $( api.column( 0 ).footer() ).html('TOTAL');
+                    $( api.column( 1 ).footer() ).html(dia01);
+                    $( api.column( 2 ).footer() ).html(dia02);
+                    $( api.column( 3 ).footer() ).html(dia03);
+                    $( api.column( 4 ).footer() ).html(dia04);
+                    $( api.column( 5 ).footer() ).html(dia05);
+                    $( api.column( 6 ).footer() ).html(dia06);
+                    $( api.column( 7 ).footer() ).html(dia07);
+                    $( api.column( 8 ).footer() ).html(dia08);
+                    $( api.column( 9 ).footer() ).html(dia09);
+                    $( api.column( 10 ).footer() ).html(dia10);
+
+                    $( api.column( 11 ).footer() ).html(dia11);
+                    $( api.column( 12 ).footer() ).html(dia12);
+                    $( api.column( 13 ).footer() ).html(dia13);
+                    $( api.column( 14 ).footer() ).html(dia14);
+                    $( api.column( 15 ).footer() ).html(dia15);
+                    $( api.column( 16 ).footer() ).html(dia16);
+                    $( api.column( 17 ).footer() ).html(dia17);
+                    $( api.column( 18 ).footer() ).html(dia18);
+                    $( api.column( 19 ).footer() ).html(dia19);
+                    $( api.column( 20 ).footer() ).html(dia20);
+
+                    $( api.column( 21 ).footer() ).html(dia21);
+                    $( api.column( 22 ).footer() ).html(dia22);
+                    $( api.column( 23 ).footer() ).html(dia23);
+                    $( api.column( 24 ).footer() ).html(dia24);
+                    $( api.column( 25 ).footer() ).html(dia25);
+                    $( api.column( 26 ).footer() ).html(dia26);
+                    $( api.column( 27 ).footer() ).html(dia27);
+                    $( api.column( 28 ).footer() ).html(dia28);
+                    $( api.column( 29 ).footer() ).html(dia29);
+                    $( api.column( 30 ).footer() ).html(dia30);
+
+                    $( api.column( 31 ).footer() ).html(dia31);
+
+                    $( api.column( 32 ).footer() ).html(TotalAll);
+
+
+                }
+            });  //Initialize the datatable
 
             function Reg(TypeTableIn = "Registro", MesIn = "0") {
 
@@ -1233,6 +1519,121 @@
                 });
             }
 
+            function Val(TypeTableIn = "ValidacionArchivos", MesIn = "0") {
+
+                var FechaActual = new Date();
+
+                if(MesIn == "0"){
+                    MesIn = FechaActual.getMonth()+1;
+                    $(".VMont").each(function(){
+                        if ($(this).val() == MesIn ){
+                            $(this).prop("checked", true);
+                        }
+                    });
+                }
+
+                var GetDias = new Date(FechaActual.getYear(), MesIn, 0);
+                var DiaIn = GetDias.getDate();
+
+                let FiIn = "2020-"+MesIn+"-1";
+                let FfIn = "2020-"+MesIn+"-"+DiaIn;
+
+                let usersIn = "ValidacionArchivos";
+
+                var fecha = new Date();
+                        debugger;
+
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ConsultarGestion")',
+                    dataType: 'json',
+                    data: { TypeTable : TypeTableIn, Fi : FiIn, Ff : FfIn , Mes : MesIn, Dia : DiaIn , users : usersIn },
+                    success: function (s) {
+                        oTableVal.fnClearTable();
+                        $.each(s, function (i, obj) {
+
+                            if (obj.dia01 == null) obj.dia01 = 0 ;
+                            if (obj.dia02 == null) obj.dia02 = 0 ;
+                            if (obj.dia03 == null) obj.dia03 = 0 ;
+                            if (obj.dia04 == null) obj.dia04 = 0 ;
+                            if (obj.dia05 == null) obj.dia05 = 0 ;
+                            if (obj.dia06 == null) obj.dia06 = 0 ;
+                            if (obj.dia07 == null) obj.dia07 = 0 ;
+                            if (obj.dia08 == null) obj.dia08 = 0 ;
+                            if (obj.dia09 == null) obj.dia09 = 0 ;
+                            if (obj.dia10 == null) obj.dia10 = 0 ;
+                            if (obj.dia11 == null) obj.dia11 = 0 ;
+                            if (obj.dia12 == null) obj.dia12 = 0 ;
+                            if (obj.dia13 == null) obj.dia13 = 0 ;
+                            if (obj.dia14 == null) obj.dia14 = 0 ;
+                            if (obj.dia15 == null) obj.dia15 = 0 ;
+                            if (obj.dia16 == null) obj.dia16 = 0 ;
+                            if (obj.dia17 == null) obj.dia17 = 0 ;
+                            if (obj.dia18 == null) obj.dia18 = 0 ;
+                            if (obj.dia19 == null) obj.dia19 = 0 ;
+                            if (obj.dia20 == null) obj.dia20 = 0 ;
+                            if (obj.dia21 == null) obj.dia21 = 0 ;
+                            if (obj.dia22 == null) obj.dia22 = 0 ;
+                            if (obj.dia23 == null) obj.dia23 = 0 ;
+                            if (obj.dia24 == null) obj.dia24 = 0 ;
+                            if (obj.dia25 == null) obj.dia25 = 0 ;
+                            if (obj.dia26 == null) obj.dia26 = 0 ;
+                            if (obj.dia27 == null) obj.dia27 = 0 ;
+                            if (obj.dia28 == null) obj.dia28 = 0 ;
+                            if (obj.dia29 == null) obj.dia29 = 0 ;
+                            if (obj.dia30 == null) obj.dia30 = 0 ;
+                            if (obj.dia31 == null) obj.dia31 = 0 ;
+
+                            Total = parseInt(obj.dia01)+parseInt(obj.dia02)+parseInt(obj.dia03)+parseInt(obj.dia04)+parseInt(obj.dia05)+parseInt(obj.dia06)+parseInt(obj.dia07)+parseInt(obj.dia08)+parseInt(obj.dia09)+parseInt(obj.dia10)+parseInt(obj.dia11)+parseInt(obj.dia12)+parseInt(obj.dia13)+parseInt(obj.dia14)+parseInt(obj.dia15)+parseInt(obj.dia16)+parseInt(obj.dia17)+parseInt(obj.dia18)+parseInt(obj.dia19)+parseInt(obj.dia20)+parseInt(obj.dia21)+parseInt(obj.dia22)+parseInt(obj.dia23)+parseInt(obj.dia24)+parseInt(obj.dia25)+parseInt(obj.dia26)+parseInt(obj.dia27)+parseInt(obj.dia28)+parseInt(obj.dia29)+parseInt(obj.dia30)+parseInt(obj.dia31);
+
+                            oTableVal.fnAddData([
+                                '<label class="text-capitalize">'+obj.UserName.toLowerCase()+'</label>',
+                                obj.dia01,
+                                obj.dia02,
+                                obj.dia03,
+                                obj.dia04,
+                                obj.dia05,
+                                obj.dia06,
+                                obj.dia07,
+                                obj.dia08,
+                                obj.dia09,
+                                obj.dia10,
+                                obj.dia11,
+                                obj.dia12,
+                                obj.dia13,
+                                obj.dia14,
+                                obj.dia15,
+                                obj.dia16,
+                                obj.dia17,
+                                obj.dia18,
+                                obj.dia19,
+                                obj.dia20,
+                                obj.dia21,
+                                obj.dia22,
+                                obj.dia23,
+                                obj.dia24,
+                                obj.dia25,
+                                obj.dia26,
+                                obj.dia27,
+                                obj.dia28,
+                                obj.dia29,
+                                obj.dia30,
+                                obj.dia31,
+                                Total
+                            ]);
+                        });
+
+
+                        // usage example:
+
+                    },
+                    error: function(e){
+                        oTable.fnClearTable();
+                    }
+                });
+            }
+
+
             $(".RMont").change(function () {
                 Reg(TypeTableIn = "Registro", MesIn = $(this).val());
                 $(this).prop("checked", true);
@@ -1248,10 +1649,15 @@
                 $(this).prop("checked", true);
             });
 
+            $(".VMont").change(function () {
+                Val(TypeTableIn = "ValidacionArchivos", MesIn = $(this).val());
+                $(this).prop("checked", true);
+            });
+
             Reg();
             Jur();
             Sol();
-
+            Val();
             // Modulo 1 Mapa Tabla deptos x exp
             function MapaTotalExp( NameDepto, name ) {
                 $.ajax({
@@ -1961,7 +2367,7 @@
                             @*  Toltal de exp  *@
                             <p class="text-capitalize " id="TituloTotalExp"> </p>
                             <br>
-                            <h4 id="TotalExp" class="alert alert-success"> </h3>
+                            <h4 id="TotalExp" class="alert alert-success"> </h4>
                         </div>
                     </div>
                 </div>
@@ -1970,7 +2376,7 @@
                     <div class="card-body">
                         <div class="col-md-12 justify-content-center align-content-center text-center ">
                             <p class="text-capitalize " id="TituloTotalExpConPdf"> </p>
-                            <h4 id="TotalExpConPdf" class="alert alert-success"> </h3>
+                            <h4 id="TotalExpConPdf" class="alert alert-success"> </h4>
                         </div>
                     </div>
                 </div>
@@ -1979,7 +2385,7 @@
                     <div class="card-body">
                         <div class="col-md-12 justify-content-center align-content-center text-center ">
                             <p class="text-capitalize " id="TituloTotalExpTip"> </p>
-                            <h4 id="TotalExpTip" class="alert alert-success"> </h3>
+                            <h4 id="TotalExpTip" class="alert alert-success"> </h4>
                         </div>
                     </div>
                 </div>
@@ -2018,7 +2424,7 @@
             <div class="card-body">
                 <div class="row justify-content-center align-content-center text-center  ">
                     <div clas="col-md-12">
-                        <ul class="list-group list-group-horizontal-xl center container-fluid   " style=" width=100%">
+                        <ul class="list-group list-group-horizontal-xl center container-fluid   " style=" width:100%">
                             <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="Mont" class="RMont" value="1"> Enero </li>
                             <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="Mont" class="RMont" value="2"> Febrero </li>
                             <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="Mont" class="RMont" value="3"> Marzo</li>
@@ -2124,19 +2530,19 @@
                         <div class="row">
                             <div class="col-md-4 justify-content-center align-content-center text-center ">
                                 <p class=" Letra " id="TituloTotalExpCarRegis"> </p>
-                                <h4 id="TotalExpCarRegis" class="alert alert-success"> </h3>
+                                <h4 id="TotalExpCarRegis" class="alert alert-success"> </h4>
                             </div>
                             <div class="col-md-4 justify-content-center align-content-center text-center ">
                                 <p class="Letra" id="TituloTotalExpCarRegisConGestion"> </p>
-                                <h4 id="TotalExpCarRegisConGestion" class="alert alert-success"> </h3>
+                                <h4 id="TotalExpCarRegisConGestion" class="alert alert-success"> </h4>
                             </div>
                             <div class="col-md-4 justify-content-center align-content-center text-center ">
                                 <p class="Letra" id="TituloTotalExpCarRegisSinGestion"> </p>
-                                <h4 id="TotalExpCarRegisSinGestion" class="alert alert-success"> </h3>
+                                <h4 id="TotalExpCarRegisSinGestion" class="alert alert-success"> </h4>
                             </div>
                             <div class="col-md-12 justify-content-center align-content-center text-center ">
                                 <p class="Letra" id="TituloTituloTotalExpCarRegisAsig"> </p>
-                                <h4 id="TituloTotalExpCarRegisAsig" class="alert alert-success"> </h3>
+                                <h4 id="TituloTotalExpCarRegisAsig" class="alert alert-success"> </h4>
                             </div>
                         </div>
                     </div>
@@ -2159,7 +2565,7 @@
             <div class="card-body">
                 <div class="row justify-content-center align-content-center text-center  ">
                     <div clas="col-md-12">
-                        <ul class="list-group list-group-horizontal-xl center container-fluid   " style=" width=100%">
+                        <ul class="list-group list-group-horizontal-xl center container-fluid   " style=" width:100%">
                             <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="JMont" class="JMont" value="1"> Enero </li>
                             <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="JMont" class="JMont" value="2"> Febrero </li>
                             <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="JMont" class="JMont" value="3"> Marzo</li>
@@ -2263,19 +2669,19 @@
                         <div class="row">
                             <div class="col-md-4 justify-content-center align-content-center text-center ">
                                 <p class=" Letra " id="TituloTotalExpCarJur"> </p>
-                                <h4 id="TotalExpCarJur" class="alert alert-success"> </h3>
+                                <h4 id="TotalExpCarJur" class="alert alert-success"> </h4>
                             </div>
                             <div class="col-md-4 justify-content-center align-content-center text-center ">
                                 <p class="Letra" id="TituloTotalExpCarJurConGestion"> </p>
-                                <h4 id="TotalExpCarJurConGestion" class="alert alert-success"> </h3>
+                                <h4 id="TotalExpCarJurConGestion" class="alert alert-success"> </h4>
                             </div>
                             <div class="col-md-4 justify-content-center align-content-center text-center ">
                                 <p class="Letra" id="TituloTotalExpCarJurSinGestion"> </p>
-                                <h4 id="TotalExpCarJurSinGestion" class="alert alert-success"> </h3>
+                                <h4 id="TotalExpCarJurSinGestion" class="alert alert-success"> </h4>
                             </div>
                             <div class="col-md-12 justify-content-center align-content-center text-center ">
                                 <p class="Letra" id="TituloTituloTotalExpCarJurAsig"> </p>
-                                <h4 id="TituloTotalExpCarJurAsig" class="alert alert-success"> </h3>
+                                <h4 id="TituloTotalExpCarJurAsig" class="alert alert-success"> </h4>
                             </div>
                         </div>
                     </div>
@@ -2298,7 +2704,7 @@
             <div class="card-body">
                 <div class="row justify-content-center align-content-center text-center  ">
                     <div clas="col-md-12">
-                        <ul class="list-group list-group-horizontal-xl center container-fluid   " style=" width=100%">
+                        <ul class="list-group list-group-horizontal-xl center container-fluid   " style=" width :100%">
                             <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="SMont" class="SMont" value="1"> Enero </li>
                             <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="SMont" class="SMont" value="2"> Febrero </li>
                             <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="SMont" class="SMont" value="3"> Marzo</li>
@@ -2402,19 +2808,159 @@
                         <div class="row">
                             <div class="col-md-4 justify-content-center align-content-center text-center ">
                                 <p class=" Letra " id="TituloTotalExpCarSol"> </p>
-                                <h4 id="TotalExpCarSol" class="alert alert-success"> </h3>
+                                <h4 id="TotalExpCarSol" class="alert alert-success"> </h4>
                             </div>
                             <div class="col-md-4 justify-content-center align-content-center text-center ">
                                 <p class="Letra" id="TituloTotalExpCarSolConGestion"> </p>
-                                <h4 id="TotalExpCarSolConGestion" class="alert alert-success"> </h3>
+                                <h4 id="TotalExpCarSolConGestion" class="alert alert-success"> </h4>
                             </div>
                             <div class="col-md-4 justify-content-center align-content-center text-center ">
                                 <p class="Letra" id="TituloTotalExpCarSolSinGestion"> </p>
-                                <h4 id="TotalExpCarSolSinGestion" class="alert alert-success"> </h3>
+                                <h4 id="TotalExpCarSolSinGestion" class="alert alert-success"> </h4>
                             </div>
                             <div class="col-md-12 justify-content-center align-content-center text-center ">
                                 <p class="Letra" id="TituloTituloTotalExpCarSolAsig"> </p>
-                                <h4 id="TituloTotalExpCarSolAsig" class="alert alert-success"> </h3>
+                                <h4 id="TituloTotalExpCarSolAsig" class="alert alert-success"> </h4>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-8 justify-content-center align-content-center text-center ">
+                        <figure class="highcharts-figure ">
+                            <div id="container-solicitante" class="highcharts-figure" style="height: 267px !important;">
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 p-1">
+        <div class="card">
+            <div class="card-header">
+                Validación de Archivos
+            </div>
+            <div class="card-body">
+                <div class="row justify-content-center align-content-center text-center  ">
+                    <div clas="col-md-12">
+                        <ul class="list-group list-group-horizontal-xl center container-fluid   " style=" width:100%">
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="VMont" class="VMont" value="1"> Enero </li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="VMont" class="VMont" value="2"> Febrero </li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="VMont" class="VMont" value="3"> Marzo</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="VMont" class="VMont" value="4"> Abril</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="VMont" class="VMont" value="5"> Mayo</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="VMont" class="VMont" value="6"> Junio</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="VMont" class="VMont" value="7"> Julio</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="VMont" class="VMont" value="8"> Agosto</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="VMont" class="VMont" value="9"> Septiembre</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="VMont" class="VMont" value="10"> Octubre</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="VMont" class="VMont" value="11"> Noviembre</li>
+                            <li class="list-group-item list-group-item-success " style="font-size:11px"><input type="radio" name="VMont" class="VMont" value="12"> Diciembre</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row p-4">
+                    <div class="col-md-12">
+                        <table id="table_id_Validacion" style="font-size:11px" class="table-sm table-striped table-bordered table-hover" cellspacing="0" width="100%">
+                            @*  Tabla de exp por municipio  *@
+                            <thead class="green white-text title">
+                                <tr>
+                                    <th>Usuario</th>
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                    <th>4</th>
+                                    <th>5</th>
+                                    <th>6</th>
+                                    <th>7</th>
+                                    <th>8</th>
+                                    <th>9</th>
+                                    <th>10</th>
+                                    <th>11</th>
+                                    <th>12</th>
+                                    <th>13</th>
+                                    <th>14</th>
+                                    <th>15</th>
+                                    <th>16</th>
+                                    <th>17</th>
+                                    <th>18</th>
+                                    <th>19</th>
+                                    <th>20</th>
+                                    <th>21</th>
+                                    <th>22</th>
+                                    <th>23</th>
+                                    <th>24</th>
+                                    <th>25</th>
+                                    <th>26</th>
+                                    <th>27</th>
+                                    <th>28</th>
+                                    <th>29</th>
+                                    <th>30</th>
+                                    <th>31</th>
+                                    <th>TOTAL</th>
+                                </tr>
+                            </thead>
+                            <tbody style="font-size:10px">
+                            </tbody>
+                            <tfoot class="green white-text title">
+                                <tr>
+                                    <th>Usuario</th>
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                    <th>4</th>
+                                    <th>5</th>
+                                    <th>6</th>
+                                    <th>7</th>
+                                    <th>8</th>
+                                    <th>9</th>
+                                    <th>10</th>
+                                    <th>11</th>
+                                    <th>12</th>
+                                    <th>13</th>
+                                    <th>14</th>
+                                    <th>15</th>
+                                    <th>16</th>
+                                    <th>17</th>
+                                    <th>18</th>
+                                    <th>19</th>
+                                    <th>20</th>
+                                    <th>21</th>
+                                    <th>22</th>
+                                    <th>23</th>
+                                    <th>24</th>
+                                    <th>25</th>
+                                    <th>26</th>
+                                    <th>27</th>
+                                    <th>28</th>
+                                    <th>29</th>
+                                    <th>30</th>
+                                    <th>31</th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <div class="row p-4">
+                    <div class="col-md-4 justify-content-center align-content-center text-center ">
+                        <div class="row">
+                            <div class="col-md-4 justify-content-center align-content-center text-center ">
+                                <p class=" Letra " id="TituloTotalExpValidacion"> </p>
+                                <h4 id="TotalExpValidacion" class="alert alert-success"> </h4>
+                            </div>
+                            <div class="col-md-4 justify-content-center align-content-center text-center ">
+                                <p class="Letra" id="TituloTotalExpValidacionConGestion"> </p>
+                                <h4 id="TotalExpValidacionConGestion" class="alert alert-success"> </h4>
+                            </div>
+                            <div class="col-md-4 justify-content-center align-content-center text-center ">
+                                <p class="Letra" id="TituloTotalExpValidacionSinGestion"> </p>
+                                <h4 id="TotalExpValidacionSinGestion" class="alert alert-success"> </h4>
+                            </div>
+                            <div class="col-md-12 justify-content-center align-content-center text-center ">
+                                <p class="Letra" id="TituloTituloTotalExpValidacionAsig"> </p>
+                                <h4 id="TituloTotalExpValidacionAsig" class="alert alert-success"> </h4>
                             </div>
 
                         </div>

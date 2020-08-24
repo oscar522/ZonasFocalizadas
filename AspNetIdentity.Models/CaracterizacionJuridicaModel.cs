@@ -582,6 +582,16 @@ namespace AspNetIdentity.Models
         
         
         [Required(ErrorMessage = ".")]
+        public Nullable<bool> SUSPENCION_SUSPENCION_113 { get; set; }
+        [Required(ErrorMessage = ".")]
+        [Range(1, int.MaxValue, ErrorMessage = ".")]
+        public Nullable<int> SUSPENCION_VISIBLE { get; set; }
+        [Required(ErrorMessage = ".")]
+        public Nullable<System.DateTime> SUSPENCION_FECHA { get; set; }
+        [Required(ErrorMessage = ".")]
+        public Nullable<bool> SUSPENCION_FIRMADO { get; set; }
+
+        [Required(ErrorMessage = ".")]
         public Nullable<bool> DESISTIMIENTO_DESISTIMIENTO_113 { get; set; }
         [Required(ErrorMessage = ".")]
         [Range(1, int.MaxValue, ErrorMessage = ".")]

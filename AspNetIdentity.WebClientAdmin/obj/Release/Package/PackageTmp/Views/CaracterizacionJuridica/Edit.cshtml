@@ -2411,14 +2411,11 @@
 
                                             <div class="col-md-12">
                                                 <div class="row">
-                                                    <label class="control-label col-md-6">
-                                                        Fecha
-                                                    </label>
-
+                                                    <label class="control-label col-md-6">Fecha</label>
                                                     <div class="col-md-1 justify-content-center text-center align-content-center ">
                                                         <div class="custom-control custom-checkbox  ">
                                                             <input type="checkbox" class="custom-control-input checkFecha" id="DESISTIMIENTO_FECHAV" name="DESISTIMIENTO_FECHAV" Data="DESISTIMIENTO_FECHA">
-                                                            <label class="custom-control-label" for="cV"></label>
+                                                            <label class="custom-control-label" for="DESISTIMIENTO_FECHAV"></label>
                                                         </div>
                                                     </div>
                                                     @Html.EditorFor(model => model.DESISTIMIENTO_FECHA, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-5" } })
@@ -2446,6 +2443,76 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header"><h5>SUSPENSION</h5>  </div>
+                                <div class="card-body">
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <label class="control-label col-md-6">
+                                                    Suspension
+                                                </label>
+                                                <select id="SUSPENCION_SUSPENCION_113" name="SUSPENCION_SUSPENCION_113" class="form-control col-md-6 bool CLASSSUSPENCION_SUSPENCION_113">
+                                                    <option value="">Seleccione</option>
+                                                    <option value="True">Si</option>
+                                                    <option value="False">no</option>
+                                                </select>
+                                                @Html.ValidationMessageFor(model => model.SUSPENCION_SUSPENCION_113, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <br />
+                                        <div id="DivSUSPENCION" class="col-md-12">
+
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <label class="control-label col-md-6"> Documento Visible ? </label>
+                                                    <select id="SUSPENCION_VISIBLE" name="SUSPENCION_VISIBLE" class="form-control col-md-6 CLASSSUSPENCION_SUSPENCION_113">
+                                                        <option value="0">Seleccione</option>
+                                                        <option value="1">Si</option>
+                                                        <option value="2">no</option>
+                                                    </select>
+                                                    @Html.ValidationMessageFor(model => model.SUSPENCION_VISIBLE, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <label class="control-label col-md-6">Fecha</label>
+                                                    <div class="col-md-1 justify-content-center text-center align-content-center ">
+                                                        <div class="custom-control custom-checkbox  ">
+                                                            <input type="checkbox" class="custom-control-input checkFecha" id="SUSPENCION_FECHAV" name="SUSPENCION_FECHAV" Data="SUSPENCION_FECHA">
+                                                            <label class="custom-control-label" for="SUSPENCION_FECHAV"></label>
+                                                        </div>
+                                                    </div>
+                                                    @Html.EditorFor(model => model.SUSPENCION_FECHA, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-5" } })
+                                                    @Html.ValidationMessageFor(model => model.SUSPENCION_FECHA, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <label class="control-label col-md-6">
+                                                        Firma
+                                                    </label>
+                                                    <select id="SUSPENCION_FIRMADO" name="SUSPENCION_FIRMADO" class="form-control col-md-6 CLASSSUSPENCION_FIRMADO">
+                                                        <option value="">Seleccione</option>
+                                                        <option value="True">Si</option>
+                                                        <option value="False">no</option>
+                                                    </select>
+                                                    @Html.ValidationMessageFor(model => model.SUSPENCION_FIRMADO, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -3349,85 +3416,7 @@
                         $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').prop("disabled", false);
                     }
                 /// #RECURSO_SOLICITANTE
-                /*
-                    if ($("#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85").val() == "False" || $("#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85").val() == "" || ($("#RECURSO_SOLICITANTE_VISIBLE").val() == "0" || $("#RECURSO_SOLICITANTE_VISIBLE").val() == "2")) {
-                        //$('#RECURSO_SOLICITANTE_VISIBLE').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_DECISION_N_1').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_FIRMADA_88').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_ACTO_89').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_NUMERO_90').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_FECHA_91').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').prop("disabled", true);
-                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').prop("disabled", true);
-                    }else{
-
-                        if ('@Model.RECURSO_SOLICITANTE_DECISION_N_1' == "31") {
-
-                            $('#RECURSO_SOLICITANTE_VISIBLE').prop("disabled", false);
-                            $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled",false);
-
-                            
-                            
-
-                        } else {
-                            $('#RECURSO_SOLICITANTE_VISIBLE').prop("disabled", true);
-                            $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').prop("disabled",true);
-                            $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
-                            $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
-                            $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
-                            $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
-                            $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
-                            $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled",true);
-                            $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled",true);
-                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
-                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
-                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
-                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
-
-                        }
-                        if($('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').val() != "16" ){
-                            $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
-                            $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
-                            $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
-                            $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
-                            $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
-                            $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled",true);
-                            $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled",true);
-                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
-                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
-                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
-                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
-                        }else{
-                            $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",false);
-                            $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",false);
-                            $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",false);
-                            $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",false);
-                            $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",false);
-                            $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled",false);
-                            $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled",false);
-                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",false);
-                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",false);
-                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",false);
-                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",false);
-                        }
-                    }
-                */
+                
                 /// #RECURSO_SOLICITANTE
                     if ($("#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85").val() == "False" || $("#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85").val() == "" || ($("#RECURSO_SOLICITANTE_VISIBLE").val() == "0" || $("#RECURSO_SOLICITANTE_VISIBLE").val() == "2")) {
                         //$('#RECURSO_SOLICITANTE_VISIBLE').prop("disabled", true);
@@ -3636,10 +3625,19 @@
                         $('#DESISTIMIENTO_FECHA').prop("disabled", false);
                     }
 
+                    // SUSPENCION_SUSPENCION
+                    if ($("#SUSPENCION_SUSPENCION_113").val() == "False" || $("#SUSPENCION_SUSPENCION_113").val() == "" || ($("#SUSPENCION_VISIBLE").val() == "0" || $("#SUSPENCION_VISIBLE").val() == "2")) {
+                        $('#SUSPENCION_FIRMADO').prop("disabled", true);
+                        $('#SUSPENCION_FECHA').prop("disabled", true);
+                    }else{
+                        $('#SUSPENCION_VISIBLE').prop("disabled", false);
+                        $('#SUSPENCION_FIRMADO').prop("disabled", false);
+                        $('#SUSPENCION_FECHA').prop("disabled", false);
+                    }
 
 
                     
-                /// #REGISTRO_FMI_
+                    /// #REGISTRO_FMI_
                     if ($("#REGISTRO_FMI").val() == "False" || $("#REGISTRO_FMI").val() == "" || ($("#REGISTRO_VISIBLE").val() == "0" || $("#REGISTRO_VISIBLE").val() == "2")) {
 
                         $('#REGISTRO_FMI').prop("disabled", true);
@@ -3741,6 +3739,7 @@
                 $('#DivSUBSIDIODEAPELACION').hide();
                 $('#DivREVOCATORIA').hide();
                 $('#DivDESISTIMIENTO').hide();
+                $('#DivSUSPENCION').hide();
                 $('#DivREGISTRO').hide();
 
 
@@ -3763,6 +3762,7 @@
                     $('#DivSUBSIDIODEAPELACION').show("1000");
                     $('#DivREVOCATORIA').show("1000");
                     $('#DivDESISTIMIENTO').show("1000");
+                    $('#DivSUSPENCION').show("1000");
                     $('#DivREGISTRO').show("1000");
 
                 /// _VISIBLE
@@ -3787,8 +3787,10 @@
                     if ("@Model.CONSTANCIA_DE_EJECUTORIA_VISIBLE" == "")    $("#CONSTANCIA_DE_EJECUTORIA_VISIBLE").val("0"); else   $("#CONSTANCIA_DE_EJECUTORIA_VISIBLE").val("@Model.CONSTANCIA_DE_EJECUTORIA_VISIBLE");
 
                     if ("@Model.REVOCATORIA_VISIBLE" == "") $("#REVOCATORIA_VISIBLE").val("0"); else $("#REVOCATORIA_VISIBLE").val("@Model.REVOCATORIA_VISIBLE");
-
+                    
                     if ("@Model.DESISTIMIENTO_VISIBLE" == "")    $("#DESISTIMIENTO_VISIBLE").val("0"); else   $("#DESISTIMIENTO_VISIBLE").val("@Model.DESISTIMIENTO_VISIBLE");
+
+                    if ("@Model.SUSPENCION_VISIBLE" == "") $("#SUSPENCION_VISIBLE").val("0"); else $("#SUSPENCION_VISIBLE").val("@Model.SUSPENCION_VISIBLE");
 
                     if ("@Model.REGISTRO_VISIBLE" == "")    $("#REGISTRO_VISIBLE").val("0"); else   $("#REGISTRO_VISIBLE").val("@Model.REGISTRO_VISIBLE");
                     
@@ -3920,32 +3922,7 @@
                         $('#NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83').val("@Model.NOTIFICACION_NOTIFICACION_MINISTERIO_PUBLICO_83");
                         $('#NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84').val(DateConvert("@Model.NOTIFICACION_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_84"));
                     /// RECURSO_SOLICITANTE
-                        /*
-                        $('#RECURSO_SOLICITANTE_DECISION_N_1').val("@Model.RECURSO_SOLICITANTE_DECISION_N_1");
-                        $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').val("@Model.RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2");
-                        $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').val("@Model.RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3");
-                        $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4"));
-                        $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').val("@Model.RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5");
-                        $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').val("@Model.RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6");
-                        $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').val("@Model.RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6");
-                        $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').val("@Model.RECURSO_SOLICITANTE_CONJUNA_IND_N_7");
-                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').val("@Model.RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8");
-                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9"));
-                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').val("@Model.RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10");
-                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11"));
-                        $('#RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85').val("@Model.RECURSO_SOLICITANTE_RECURSO_SOLICITANTE_85");
-                        $('#RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_DE_SOLICITUD_86"));
-                        $('#RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87').val("@Model.RECURSO_SOLICITANTE_RESPUESTA_RECURSO_87");
-                        $('#RECURSO_SOLICITANTE_FIRMADA_88').val("@Model.RECURSO_SOLICITANTE_FIRMADA_88");
-                        $('#RECURSO_SOLICITANTE_ACTO_89').val("@Model.RECURSO_SOLICITANTE_ACTO_89");
-                        $('#RECURSO_SOLICITANTE_NUMERO_90').val("@Model.RECURSO_SOLICITANTE_NUMERO_90");
-                        $('#RECURSO_SOLICITANTE_FECHA_91').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_91"));
-                        $('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').val("@Model.RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92");
-                        $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93').val("@Model.RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_93");
-                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_94"));
-                        $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95').val("@Model.RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_95");
-                        $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96').val(DateConvert("@Model.RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_96"));
-                        */
+                       
                     /// RECURSO_SOLICITANTE
                         $('#RECURSO_SOLICITANTE_DECISION_N_1').val("@Model.RECURSO_SOLICITANTE_DECISION_N_1");
                         $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').val("@Model.RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2");
@@ -4011,10 +3988,15 @@
                         $('#REVOCATORIA_FECHA_DE_RESOLUCION_115').val(DateConvert("@Model.REVOCATORIA_FECHA_DE_RESOLUCION_115"));
 
                     /// DESISTIMIENTO  
-                        
                         $('#DESISTIMIENTO_DESISTIMIENTO_113').val("@Model.DESISTIMIENTO_DESISTIMIENTO_113");
                         $('#DESISTIMIENTO_FECHA').val(DateConvert("@Model.DESISTIMIENTO_FECHA", 'oscar'));
-                        $('#DESISTIMIENTO_FIRMADO').val("@Model.DESISTIMIENTO_FIRMADO");
+                    $('#DESISTIMIENTO_FIRMADO').val("@Model.DESISTIMIENTO_FIRMADO");
+
+                    /// SUSPENCION  
+                        
+                        $('#SUSPENCION_SUSPENCION_113').val("@Model.SUSPENCION_SUSPENCION_113");
+                        $('#SUSPENCION_FECHA').val(DateConvert("@Model.SUSPENCION_FECHA", 'oscar'));
+                        $('#SUSPENCION_FIRMADO').val("@Model.SUSPENCION_FIRMADO");
                     /// REGISTRO_FMI
                         $('#REGISTRO_FMI_').val("@Model.REGISTRO_FMI_");
                         $('#REGISTRO_FECHA_DE_REGISTRO_117').val(DateConvert("@Model.REGISTRO_FECHA_DE_REGISTRO_117",'re'));
@@ -4473,7 +4455,7 @@
                                     $('#REVOCATORIA_FECHA_DE_RESOLUCION_115').val("1753-01-01");
 
                                 }
-                            /// #DESISTIMIENTO
+                                /// #DESISTIMIENTO
                                 if ($("#DESISTIMIENTO_DESISTIMIENTO_113").val() == "False" || $("#DESISTIMIENTO_DESISTIMIENTO_113").val() == "" || ( $("#DESISTIMIENTO_VISIBLE").val() == "2")) {
                                     $('#DESISTIMIENTO_VISIBLE').val("2");
                                     $('#DESISTIMIENTO_FIRMADO').val("False");
@@ -4481,6 +4463,14 @@
 
                                 }
 
+                                /// #SUSPENCION
+                                if ($("#SUSPENCION_SUSPENCION_113").val() == "False" || $("#SUSPENCION_SUSPENCION_113").val() == "" || ( $("#SUSPENCION_VISIBLE").val() == "2")) {
+                                    $('#SUSPENCION_VISIBLE').val("2");
+                                    $('#SUSPENCION_FIRMADO').val("False");
+                                    $('#SUSPENCION_FECHA').val("1753-01-01");
+
+                                }
+                                //SUSPENCION
                             /// #REGISTRO_FMI_
                                 if ($("#REGISTRO_FMI").val() == "False" || $("#REGISTRO_FMI").val() == "" || ( $("#REGISTRO_VISIBLE").val() == "2")) {
                                     $('#REGISTRO_VISIBLE').val("2");
@@ -5977,7 +5967,6 @@
                     });
 
                  /// #DESISTIMIENTO_DESISTIMIENTO
-                    
                     $(".CLASSDESISTIMIENTO_DESISTIMIENTO_113").change(function () {
                         if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
                             //$('#SOLICITUD_VISIBLE').prop("disabled", true);
@@ -6014,8 +6003,44 @@
                             $('#DESISTIMIENTO_VISIBLE').prop("disabled", false);
                         }
                     });
+                    
+                    // SUSPENCION
+                    $(".CLASSSUSPENCION_SUSPENCION_113").change(function () {
+                        if ($(this).val() == "False" ||  $(this).val() == "" || $(this).val() == "2" || $(this).val() == "0" ) {
+                            //$('#SOLICITUD_VISIBLE').prop("disabled", true);
+                            if( $('#SUSPENCION_VISIBLE').val() == "2" || $('#SUSPENCION_VISIBLE').val() == "0" ){
+                                //$('#SUSPENCION_VISIBLE').prop("disabled", true);
+                                $('#SUSPENCION_FIRMADO').prop("disabled", true);
+                                $('#SUSPENCION_FECHA').prop("disabled", true);
 
+                                //$('#SUSPENCION_VISIBLE').val("0");
+                                $('#SUSPENCION_FIRMADO').val("False");
+                                $('#SUSPENCION_FECHA').val("1753-01-01");
+                            }
+                            if($('#SUSPENCION_SUSPENCION_113').val() == "False" || $('#SUSPENCION_SUSPENCION_113').val() == ""){
+                                $('#DivSUSPENCION').hide("1000");
+                            }
+                        }else{
+                            //$('#SUSPENCION_VISIBLE').prop("disabled", false);
+                            $('#DivSUSPENCION').show("1000");
+                            $('#SUSPENCION_FIRMADO').prop("disabled", false);
+                            $('#SUSPENCION_FECHA').prop("disabled", false);
+                            if( $('#SUSPENCION_VISIBLE').val() == "2" || $('#SUSPENCION_VISIBLE').val() == "0" ){
+                                //$('#SUSPENCION_VISIBLE').prop("disabled", true);
+                                $('#SUSPENCION_FIRMADO').prop("disabled", true);
+                                $('#SUSPENCION_FECHA').prop("disabled", true);
 
+                                //$('#SUSPENCION_VISIBLE').val("0");
+                                $('#SUSPENCION_FIRMADO').val("False");
+                                $('#SUSPENCION_FECHA').val("1753-01-01");
+                            }
+                        }
+                        if($('#SUSPENCION_SUSPENCION_113').val() == "False" || $('#SUSPENCION_SUSPENCION_113').val() == ""){
+                            $('#SUSPENCION_VISIBLE').prop("disabled", true);
+                        }else{
+                            $('#SUSPENCION_VISIBLE').prop("disabled", false);
+                        }
+                    });
                 /// #REGISTRO_FMI_
 
                     $(".CLASSREGISTRO_FMI_").change(function () {

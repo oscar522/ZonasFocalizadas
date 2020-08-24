@@ -8,6 +8,22 @@
             $('#HeaderSlim').html("")
             $('#BodySlim').html('<div class="loading">Cargando ...</div>');
 
+            $('.Acor').hide();
+
+            $( ".card-header" ).click(function() {
+                var id = $(this).attr("value");
+                var esVisible = $("#" + id).is(":visible");
+                if (esVisible == false) {
+                    $("#" + id).show();
+
+                } else {
+                    $("#" + id).hide();
+                }
+            });
+
+
+
+
             $.getJSON('@Url.Content("~/Content/ConfigPdfUri.json")', function (data) {
                 var UriLo = data.result[0].Uri;
                 var UriPdf ="";
@@ -150,8 +166,12 @@
 <div class="row wow fadeIn">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-header"> Información General</div>
-            <div class="card-body">
+            <div class="card-header" value="Info">
+                <h5>
+                    Información General
+                </h5>
+            </div>
+            <div class="card-body Acor" id="Info">
                 <div class="table-responsive text-nowrap">
                     <table id="" class="table table-hover table-striped">
                         <tr>
@@ -281,12 +301,12 @@
 <div class="row wow fadeIn">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-header d-sm-flex justify-content-between">
+            <div class="card-header d-sm-flex justify-content-between" value ="Tipi">
                 <h5>Tipificación</h5>
                 <div><h6>Grupo : </h6> @Model.Grupo  </div>
                 <div>  <h6> Responsable de la Verificacion : </h6> @Model.NombreUsuario </div>
             </div>
-            <div class="card-body">
+            <div class="card-body Acor" id="Tipi">
                 <div class="table-responsive text-nowrap">
                     <div id="Info_ExpedienteDocumentos">
                         <table id="table_id" class="table table-hover table-striped " cellspacing="0">
@@ -309,11 +329,11 @@
 <div class="row wow fadeIn">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-header d-sm-flex justify-content-between">
+            <div class="card-header d-sm-flex justify-content-between" value ="Regi">
                 <h5>Registro</h5>
                 <div>  <h6> Responsable de la Verificacion : </h6> <div id="ResRegistro"></div>  </div>
             </div>
-            <div class="card-body">
+            <div class="card-body Acor" id="Regi">
                 <div class="table-responsive text-nowrap">
                     <div id="Info_ExpedienteDocumentos">
                         <table id="table_Registro" class="table table-hover  " cellspacing="0">
@@ -342,6 +362,28 @@
     </div>
 </div>
 <br />
-<iframe frameborder="0" src="@Url.Action("../CaracterizacionJuridica/Details", "Details", new { IdTable = Model.id })" class="col-md-12" height="400"></iframe>
-<iframe frameborder="0" src="@Url.Action("../CaracterizacionSolicitante/Details", "Details", new { IdTable = Model.id  })" class="col-md-12" height="400"></iframe>
-
+<div class="row wow fadeIn">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header d-sm-flex justify-content-between" value ="Juri">
+                <h5>Caracterizacion Juridica</h5>
+            </div>
+            <div class="card-body Acor" id="Juri">
+                <iframe frameborder="0" src="@Url.Action("../CaracterizacionJuridica/Details", "Details", new { IdTable = Model.id })" class="col-md-12" height="400"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="row wow fadeIn">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header d-sm-flex justify-content-between" value ="Soli">
+                <h5>Caracterizacion Solicitante</h5>
+            </div>
+            <div class="card-body Acor" id="Soli">
+                <iframe frameborder="0" src="@Url.Action("../CaracterizacionSolicitante/Details", "Details", new { IdTable = Model.id  })" class="col-md-12" height="400"></iframe>
+            </div>
+        </div>
+    </div>
+</div>

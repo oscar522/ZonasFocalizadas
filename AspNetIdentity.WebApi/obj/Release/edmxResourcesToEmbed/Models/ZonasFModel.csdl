@@ -728,6 +728,10 @@
     <Property Name="DESISTIMIENTO_VISIBLE" Type="Int32" />
     <Property Name="DESISTIMIENTO_FIRMADO" Type="Boolean" />
     <Property Name="DESISTIMIENTO_FECHA" Type="DateTime" Precision="3" />
+    <Property Name="SUSPENCION_SUSPENCION_113" Type="Boolean" />
+    <Property Name="SUSPENCION_VISIBLE" Type="Int32" />
+    <Property Name="SUSPENCION_FECHA" Type="DateTime" Precision="3" />
+    <Property Name="SUSPENCION_FIRMADO" Type="Boolean" />
   </EntityType>
   <EntityType Name="CaracterizacionSolicitante">
     <Key>

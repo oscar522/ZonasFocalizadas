@@ -533,6 +533,12 @@ namespace AspNetIdentity.WebApi.Logic
             CaracterizacionJuridicaModel_.DESISTIMIENTO_FECHA = a.b.DESISTIMIENTO_FECHA;
             CaracterizacionJuridicaModel_.DESISTIMIENTO_FIRMADO = a.b.DESISTIMIENTO_FIRMADO;
 
+            //SUSPENCION
+            CaracterizacionJuridicaModel_.SUSPENCION_SUSPENCION_113 = a.b.SUSPENCION_SUSPENCION_113;
+            CaracterizacionJuridicaModel_.SUSPENCION_VISIBLE = a.b.SUSPENCION_VISIBLE;
+            CaracterizacionJuridicaModel_.SUSPENCION_FECHA = a.b.SUSPENCION_FECHA;
+            CaracterizacionJuridicaModel_.SUSPENCION_FIRMADO = a.b.SUSPENCION_FIRMADO;
+
             CaracterizacionJuridicaModel_.Estado = true;
             CaracterizacionJuridicaModel_.IdAspNetUser = a.b.IdAspNetUser;
             CaracterizacionJuridicaModel_.rol = a.Name;
@@ -775,6 +781,12 @@ namespace AspNetIdentity.WebApi.Logic
                 CaracterizacionJuridicaModel_.DESISTIMIENTO_FECHA = a.b.DESISTIMIENTO_FECHA;
                 CaracterizacionJuridicaModel_.DESISTIMIENTO_FIRMADO = a.b.DESISTIMIENTO_FIRMADO;
 
+                //SUSPENCION
+                CaracterizacionJuridicaModel_.SUSPENCION_SUSPENCION_113 = a.b.SUSPENCION_SUSPENCION_113;
+                CaracterizacionJuridicaModel_.SUSPENCION_VISIBLE = a.b.SUSPENCION_VISIBLE;
+                CaracterizacionJuridicaModel_.SUSPENCION_FECHA = a.b.SUSPENCION_FECHA;
+                CaracterizacionJuridicaModel_.SUSPENCION_FIRMADO = a.b.SUSPENCION_FIRMADO;
+
                 CaracterizacionJuridicaModel_.Estado = true;
                 CaracterizacionJuridicaModel_.IdAspNetUser = a.b.IdAspNetUser;
                 CaracterizacionJuridicaModel_.rol = a.Name;
@@ -984,6 +996,12 @@ namespace AspNetIdentity.WebApi.Logic
                     ResCtx.DESISTIMIENTO_VISIBLE = a.DESISTIMIENTO_VISIBLE;
                     ResCtx.DESISTIMIENTO_FECHA = a.DESISTIMIENTO_FECHA;
                     ResCtx.DESISTIMIENTO_FIRMADO = a.DESISTIMIENTO_FIRMADO;
+
+                    //SUSPENCION
+                    ResCtx.SUSPENCION_SUSPENCION_113 = a.SUSPENCION_SUSPENCION_113;
+                    ResCtx.SUSPENCION_VISIBLE = a.SUSPENCION_VISIBLE;
+                    ResCtx.SUSPENCION_FECHA = a.SUSPENCION_FECHA;
+                    ResCtx.SUSPENCION_FIRMADO = a.SUSPENCION_FIRMADO;
 
                     ResCtx.FechaModificacion = DateTime.Now;
                     ResCtx.Gestion = 1;
