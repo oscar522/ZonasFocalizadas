@@ -552,7 +552,7 @@ namespace AspNetIdentity.WebApi.Logic
         {
             ZonasFEntities Ctx = new ZonasFEntities();
 
-            var a = Ctx.CaracterizacionJuridica.Where(x => x.Id == id)
+            var a = Ctx.CaracterizacionJuridica.Where(x => x.IdExpediente == id)
                 .Join(Ctx.Users, b => b.IdAspNetUser, c => c.Id_Hash, (b, c) => new { b, c })
                 .Join(Ctx.AspNetUserRoles, b => b.c.Id_Hash, c => c.UserId, (b, c) => new { c.RoleId, b.b, b.c })
                 .Join(Ctx.AspNetRoles, b => b.RoleId, c => c.Id, (b, c) => new { b.b, b.c, c.Name })
