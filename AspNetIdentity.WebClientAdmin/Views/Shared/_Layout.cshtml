@@ -56,6 +56,14 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
+        $('.child').hide(); //Hide children by default
+
+        $('.parent').children().click(function () {
+            event.preventDefault();
+            $(this).children('.child').slideToggle('slow');
+            $(this).find('span').toggle();
+        });
+        console.log("ready!");
             $('.tableData').DataTable({
                 dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
                 buttons: [

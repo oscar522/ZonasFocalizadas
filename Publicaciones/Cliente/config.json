@@ -1,977 +1,970 @@
 {
   "menus": [
-    {
+      {
       "role": "Abogados",
       "links": [
-        {
+          {
           "order": 1,
           "controllerName": "Dashboard",
           "actionName": "Index",
           "linkText": "Estadisticas",
           "iconText": "fa fa-line-chart mr-3",
           "sub": null
-        },
-        {
+          },
+          {
           "order": 2,
           "controllerName": "HomeTipificacion",
           "actionName": "Index",
           "linkText": "Tipificacion",
           "iconText": "fa fa-bar-chart mr-3",
           "sub": null
-        },
-        {
+          },
+          {
           "order": 3,
-          "controllerName": "HomeUsuarios",
-          "actionName": "IndexRegistro",
-          "linkText": "Registro",
-          "iconText": "fa fa-registered mr-3",
-          "sub": null
-        },
-        {
-          "order": 4,
           "controllerName": "HomeUsuarios",
           "actionName": "BuscarExpedientes",
           "linkText": "Buscar Expedientes",
           "iconText": "fa fa-search mr-3",
           "sub": null
-        },
-        {
-          "order": 5,
+          },
+          {
+          "order": 4,
           "controllerName": "Concepto",
           "actionName": "Index",
           "linkText": "Conceptos",
           "iconText": "fa fa-clipboard mr-3",
           "sub": null
-        },
-        {
-          "order": 6,
+          },
+          {
+          "order": 5,
           "controllerName": "Consolidados",
           "actionName": "Index",
           "linkText": "Consolidados",
           "iconText": "fa fa-pie-chart",
           "sub": [
-            {
+              {
               "order": 1,
               "controllerName": "HomeAdministrator",
               "actionName": "Index",
               "linkText": "Municipios",
               "iconText": "fa fa-map-marker",
               "sub": null
-            },
-            {
+              },
+              {
               "order": 2,
               "controllerName": "HomeAdministrator",
               "actionName": "IndexDepto",
               "linkText": "Departamentos",
               "iconText": "fa fa-map",
               "sub": null
-            },
-            {
+              },
+              {
               "order": 3,
               "controllerName": "HomeAdministrator",
               "actionName": "ResumenAll",
               "linkText": "Totales",
               "iconText": "fa fa-globe",
               "sub": null
-            }
-
+              }
           ]
-
-        },
-        {
-          "order": 7,
+          },
+          {
+          "order": 6,
           "controllerName": "ActividadesDiarias",
           "actionName": "Crear",
           "linkText": "Res. Actividades",
           "iconText": "fa fa-tablet mr-3",
           "sub": null
-        },
-        {
-          "order": 8,
-          "controllerName": "CaracterizacionJuridica",
+          },
+          {
+          "order": 7,
+          "controllerName": "Caracterizacion",
           "actionName": "Index",
-          "linkText": "Carac. Juridica",
+          "linkText": "Caracterizaciones",
           "iconText": "fa fa-university mr-3",
-          "sub": null
-        },
-        {
-          "order": 9,
-          "controllerName": "CaracterizacionSolicitante",
-          "actionName": "Index",
-          "linkText": "Carac. Solicitante",
-          "iconText": "fa fa-address-card mr-3",
-          "sub": null
-        },
-        {
-          "order": 10,
-          "controllerName": "CaracterizacionJuridicaResumen",
-          "actionName": "Index",
-          "linkText": "Carac. Jurdica Resumen",
-          "iconText": "fa fa-gavel mr-3",
-          "sub": null
-        },
-        {
-          "order": 11,
+          "sub": [
+              {
+                  "order": 1,
+                  "controllerName": "HomeUsuarios",
+                  "actionName": "IndexRegistro",
+                  "linkText": "Registro",
+                  "iconText": "fa fa-registered mr-3",
+                  "sub": null
+              },
+              {
+                  "order": 1,
+                  "controllerName": "CaracterizacionJuridica",
+                  "actionName": "Index",
+                  "linkText": "Juridica",
+                  "iconText": "fa fa-address-card mr-3",
+                  "sub": null
+              },
+              {
+                  "order": 1,
+                  "controllerName": "CaracterizacionSolicitante",
+                  "actionName": "Index",
+                  "linkText": "Solicitante",
+                  "iconText": "fa fa-address-card mr-3",
+                  "sub": null
+              }
+          ]
+          },
+          {
+          "order": 8,
           "controllerName": "GeneracionDocumentos",
           "actionName": "Index",
           "linkText": "Validacion de Archivos",
           "iconText": "fa fa-file-text mr-3",
           "sub": null
-        }
+          }
       ]
-    },
-    {
+      },
+      {
       "role": "Administrator",
       "links": [
-        {
+          {
           "order": 1,
           "controllerName": "Dashboard",
           "actionName": "Index",
           "linkText": "Estadisticas",
           "iconText": "fa fa-line-chart mr-3",
           "sub": null
-        },
-        {
+          },
+          {
           "order": 2,
           "controllerName": "HomeTipificacion",
           "actionName": "Index",
           "linkText": "Tipificacion",
           "iconText": "fa fa-bar-chart mr-3",
           "sub": null
-        },
-        {
+          },
+          {
           "order": 3,
-          "controllerName": "HomeUsuarios",
-          "actionName": "IndexRegistro",
-          "linkText": "Registro",
-          "iconText": "fa fa-registered mr-3",
-          "sub": null
-        },
-        {
-          "order": 4,
           "controllerName": "HomeUsuarios",
           "actionName": "BuscarExpedientes",
           "linkText": "Buscar Expedientes",
           "iconText": "fa fa-search mr-3",
           "sub": null
-        },
-        {
-          "order": 5,
+          },
+          {
+          "order": 4,
           "controllerName": "Concepto",
           "actionName": "Index",
           "linkText": "Conceptos",
           "iconText": "fa fa-clipboard mr-3",
           "sub": null
-        },
-        {
-          "order": 6,
+          },
+          {
+          "order": 5,
           "controllerName": "Consolidados",
           "actionName": "Index",
           "linkText": "Consolidados",
           "iconText": "fa fa-pie-chart",
           "sub": [
-            {
+              {
               "order": 1,
               "controllerName": "HomeAdministrator",
               "actionName": "Index",
               "linkText": "Municipios",
               "iconText": "fa fa-map-marker",
               "sub": null
-            },
-            {
+              },
+              {
               "order": 2,
               "controllerName": "HomeAdministrator",
               "actionName": "IndexDepto",
               "linkText": "Departamentos",
               "iconText": "fa fa-map",
               "sub": null
-            },
-            {
+              },
+              {
               "order": 3,
               "controllerName": "HomeAdministrator",
               "actionName": "ResumenAll",
               "linkText": "Totales",
               "iconText": "fa fa-globe",
               "sub": null
-            }
-
+              }
           ]
-
-        },
-        {
-          "order": 7,
+          },
+          {
+          "order": 6,
           "controllerName": "ActividadesDiarias",
           "actionName": "Crear",
           "linkText": "Res. Actividades",
           "iconText": "fa fa-tablet mr-3",
           "sub": null
-        },
-        {
-          "order": 8,
-          "controllerName": "CaracterizacionJuridica",
+          },
+          {
+          "order": 7,
+          "controllerName": "Caracterizacion",
           "actionName": "Index",
-          "linkText": "Carac. Juridica",
+          "linkText": "Caracterizaciones",
           "iconText": "fa fa-university mr-3",
-          "sub": null
-        },
-        {
-          "order": 9,
-          "controllerName": "CaracterizacionSolicitante",
-          "actionName": "Index",
-          "linkText": "Carac. Solicitante",
-          "iconText": "fa fa-address-card mr-3",
-          "sub": null
-        },
-        {
-          "order": 10,
-          "controllerName": "CaracterizacionJuridicaResumen",
-          "actionName": "Index",
-          "linkText": "Carac. Jurdica Resumen",
-          "iconText": "fa fa-gavel mr-3",
-          "sub": null
-        },
-        {
-          "order": 11,
+          "sub": [
+              {
+                  "order": 1,
+                  "controllerName": "HomeUsuarios",
+                  "actionName": "IndexRegistro",
+                  "linkText": "Registro",
+                  "iconText": "fa fa-registered mr-3",
+                  "sub": null
+              },
+              {
+                  "order": 1,
+                  "controllerName": "CaracterizacionJuridica",
+                  "actionName": "Index",
+                  "linkText": "Juridica",
+                  "iconText": "fa fa-address-card mr-3",
+                  "sub": null
+              },
+              {
+                  "order": 1,
+                  "controllerName": "CaracterizacionSolicitante",
+                  "actionName": "Index",
+                  "linkText": "Solicitante",
+                  "iconText": "fa fa-address-card mr-3",
+                  "sub": null
+              }
+          ]
+          },
+          {
+          "order": 8,
           "controllerName": "GeneracionDocumentos",
           "actionName": "Index",
           "linkText": "Validacion de Archivos",
           "iconText": "fa fa-file-text mr-3",
           "sub": null
-        }
+          }
       ]
-    },
-    {
+      },
+      {
       "role": "Agronomo",
       "links": [
-        {
+          {
           "order": 1,
           "controllerName": "Dashboard",
           "actionName": "Index",
           "linkText": "Estadisticas",
           "iconText": "fa fa-line-chart mr-3",
           "sub": null
-        },
-        {
+          },
+          {
           "order": 2,
           "controllerName": "HomeTipificacion",
           "actionName": "Index",
           "linkText": "Tipificacion",
           "iconText": "fa fa-bar-chart mr-3",
           "sub": null
-        },
-        {
+          },
+          {
           "order": 3,
-          "controllerName": "HomeUsuarios",
-          "actionName": "IndexRegistro",
-          "linkText": "Registro",
-          "iconText": "fa fa-registered mr-3",
-          "sub": null
-        },
-        {
-          "order": 4,
           "controllerName": "HomeUsuarios",
           "actionName": "BuscarExpedientes",
           "linkText": "Buscar Expedientes",
           "iconText": "fa fa-search mr-3",
           "sub": null
-        },
-        {
-          "order": 5,
+          },
+          {
+          "order": 4,
           "controllerName": "Concepto",
           "actionName": "Index",
           "linkText": "Conceptos",
           "iconText": "fa fa-clipboard mr-3",
           "sub": null
-        },
-        {
-          "order": 6,
+          },
+          {
+          "order": 5,
           "controllerName": "Consolidados",
           "actionName": "Index",
           "linkText": "Consolidados",
           "iconText": "fa fa-pie-chart",
           "sub": [
-            {
+              {
               "order": 1,
               "controllerName": "HomeAdministrator",
               "actionName": "Index",
               "linkText": "Municipios",
               "iconText": "fa fa-map-marker",
               "sub": null
-            },
-            {
+              },
+              {
               "order": 2,
               "controllerName": "HomeAdministrator",
               "actionName": "IndexDepto",
               "linkText": "Departamentos",
               "iconText": "fa fa-map",
               "sub": null
-            },
-            {
+              },
+              {
               "order": 3,
               "controllerName": "HomeAdministrator",
               "actionName": "ResumenAll",
               "linkText": "Totales",
               "iconText": "fa fa-globe",
               "sub": null
-            }
-
+              }
           ]
-
-        },
-        {
-          "order": 7,
+          },
+          {
+          "order": 6,
           "controllerName": "ActividadesDiarias",
           "actionName": "Crear",
           "linkText": "Res. Actividades",
           "iconText": "fa fa-tablet mr-3",
           "sub": null
-        },
-        {
-          "order": 8,
-          "controllerName": "CaracterizacionJuridica",
+          },
+          {
+          "order": 7,
+          "controllerName": "Caracterizacion",
           "actionName": "Index",
-          "linkText": "Carac. Juridica",
+          "linkText": "Caracterizaciones",
           "iconText": "fa fa-university mr-3",
-          "sub": null
-        },
-        {
-          "order": 9,
-          "controllerName": "CaracterizacionSolicitante",
-          "actionName": "Index",
-          "linkText": "Carac. Solicitante",
-          "iconText": "fa fa-address-card mr-3",
-          "sub": null
-        },
-        {
-          "order": 10,
-          "controllerName": "CaracterizacionJuridicaResumen",
-          "actionName": "Index",
-          "linkText": "Carac. Jurdica Resumen",
-          "iconText": "fa fa-gavel mr-3",
-          "sub": null
-        },
-        {
-          "order": 11,
+          "sub": [
+              {
+                  "order": 1,
+                  "controllerName": "HomeUsuarios",
+                  "actionName": "IndexRegistro",
+                  "linkText": "Registro",
+                  "iconText": "fa fa-registered mr-3",
+                  "sub": null
+              },
+              {
+                  "order": 1,
+                  "controllerName": "CaracterizacionJuridica",
+                  "actionName": "Index",
+                  "linkText": "Juridica",
+                  "iconText": "fa fa-address-card mr-3",
+                  "sub": null
+              },
+              {
+                  "order": 1,
+                  "controllerName": "CaracterizacionSolicitante",
+                  "actionName": "Index",
+                  "linkText": "Solicitante",
+                  "iconText": "fa fa-address-card mr-3",
+                  "sub": null
+              }
+          ]
+          },
+          {
+          "order": 8,
           "controllerName": "GeneracionDocumentos",
           "actionName": "Index",
           "linkText": "Validacion de Archivos",
           "iconText": "fa fa-file-text mr-3",
           "sub": null
-        }
+          }
       ]
-    },
-    {
+      },
+      {
       "role": "Catastral",
       "links": [
-        {
+          {
           "order": 1,
           "controllerName": "Dashboard",
           "actionName": "Index",
           "linkText": "Estadisticas",
           "iconText": "fa fa-line-chart mr-3",
           "sub": null
-        },
-        {
+          },
+          {
           "order": 2,
           "controllerName": "HomeTipificacion",
           "actionName": "Index",
           "linkText": "Tipificacion",
           "iconText": "fa fa-bar-chart mr-3",
           "sub": null
-        },
-        {
+          },
+          {
           "order": 3,
-          "controllerName": "HomeUsuarios",
-          "actionName": "IndexRegistro",
-          "linkText": "Registro",
-          "iconText": "fa fa-registered mr-3",
-          "sub": null
-        },
-        {
-          "order": 4,
           "controllerName": "HomeUsuarios",
           "actionName": "BuscarExpedientes",
           "linkText": "Buscar Expedientes",
           "iconText": "fa fa-search mr-3",
           "sub": null
-        },
-        {
-          "order": 5,
+          },
+          {
+          "order": 4,
           "controllerName": "Concepto",
           "actionName": "Index",
           "linkText": "Conceptos",
           "iconText": "fa fa-clipboard mr-3",
           "sub": null
-        },
-        {
-          "order": 6,
+          },
+          {
+          "order": 5,
           "controllerName": "Consolidados",
           "actionName": "Index",
           "linkText": "Consolidados",
           "iconText": "fa fa-pie-chart",
           "sub": [
-            {
+              {
               "order": 1,
               "controllerName": "HomeAdministrator",
               "actionName": "Index",
               "linkText": "Municipios",
               "iconText": "fa fa-map-marker",
               "sub": null
-            },
-            {
+              },
+              {
               "order": 2,
               "controllerName": "HomeAdministrator",
               "actionName": "IndexDepto",
               "linkText": "Departamentos",
               "iconText": "fa fa-map",
               "sub": null
-            },
-            {
+              },
+              {
               "order": 3,
               "controllerName": "HomeAdministrator",
               "actionName": "ResumenAll",
               "linkText": "Totales",
               "iconText": "fa fa-globe",
               "sub": null
-            }
-
+              }
           ]
-
-        },
-        {
-          "order": 7,
+          },
+          {
+          "order": 6,
           "controllerName": "ActividadesDiarias",
           "actionName": "Crear",
           "linkText": "Res. Actividades",
           "iconText": "fa fa-tablet mr-3",
           "sub": null
-        },
-        {
-          "order": 8,
-          "controllerName": "CaracterizacionJuridica",
+          },
+          {
+          "order": 7,
+          "controllerName": "Caracterizacion",
           "actionName": "Index",
-          "linkText": "Carac. Juridica",
+          "linkText": "Caracterizaciones",
           "iconText": "fa fa-university mr-3",
-          "sub": null
-        },
-        {
-          "order": 9,
-          "controllerName": "CaracterizacionSolicitante",
-          "actionName": "Index",
-          "linkText": "Carac. Solicitante",
-          "iconText": "fa fa-address-card mr-3",
-          "sub": null
-        },
-        {
-          "order": 10,
-          "controllerName": "CaracterizacionJuridicaResumen",
-          "actionName": "Index",
-          "linkText": "Carac. Jurdica Resumen",
-          "iconText": "fa fa-gavel mr-3",
-          "sub": null
-        },
-        {
-          "order": 11,
+          "sub": [
+              {
+                  "order": 1,
+                  "controllerName": "HomeUsuarios",
+                  "actionName": "IndexRegistro",
+                  "linkText": "Registro",
+                  "iconText": "fa fa-registered mr-3",
+                  "sub": null
+              },
+              {
+                  "order": 1,
+                  "controllerName": "CaracterizacionJuridica",
+                  "actionName": "Index",
+                  "linkText": "Juridica",
+                  "iconText": "fa fa-address-card mr-3",
+                  "sub": null
+              },
+              {
+                  "order": 1,
+                  "controllerName": "CaracterizacionSolicitante",
+                  "actionName": "Index",
+                  "linkText": "Solicitante",
+                  "iconText": "fa fa-address-card mr-3",
+                  "sub": null
+              }
+          ]
+          },
+          {
+          "order": 8,
           "controllerName": "GeneracionDocumentos",
           "actionName": "Index",
           "linkText": "Validacion de Archivos",
           "iconText": "fa fa-file-text mr-3",
           "sub": null
-        }
+          }
       ]
-    },
-    {
+      },
+      {
       "role": "Social",
       "links": [
-        {
+          {
           "order": 1,
           "controllerName": "Dashboard",
           "actionName": "Index",
           "linkText": "Estadisticas",
           "iconText": "fa fa-line-chart mr-3",
           "sub": null
-        },
-        {
+          },
+          {
           "order": 2,
           "controllerName": "HomeTipificacion",
           "actionName": "Index",
           "linkText": "Tipificacion",
           "iconText": "fa fa-bar-chart mr-3",
           "sub": null
-        },
-        {
+          },
+          {
           "order": 3,
-          "controllerName": "HomeUsuarios",
-          "actionName": "IndexRegistro",
-          "linkText": "Registro",
-          "iconText": "fa fa-registered mr-3",
-          "sub": null
-        },
-        {
-          "order": 4,
           "controllerName": "HomeUsuarios",
           "actionName": "BuscarExpedientes",
           "linkText": "Buscar Expedientes",
           "iconText": "fa fa-search mr-3",
           "sub": null
-        },
-        {
-          "order": 5,
+          },
+          {
+          "order": 4,
           "controllerName": "Concepto",
           "actionName": "Index",
           "linkText": "Conceptos",
           "iconText": "fa fa-clipboard mr-3",
           "sub": null
-        },
-        {
-          "order": 6,
+          },
+          {
+          "order": 5,
           "controllerName": "Consolidados",
           "actionName": "Index",
           "linkText": "Consolidados",
           "iconText": "fa fa-pie-chart",
           "sub": [
-            {
+              {
               "order": 1,
               "controllerName": "HomeAdministrator",
               "actionName": "Index",
               "linkText": "Municipios",
               "iconText": "fa fa-map-marker",
               "sub": null
-            },
-            {
+              },
+              {
               "order": 2,
               "controllerName": "HomeAdministrator",
               "actionName": "IndexDepto",
               "linkText": "Departamentos",
               "iconText": "fa fa-map",
               "sub": null
-            },
-            {
+              },
+              {
               "order": 3,
               "controllerName": "HomeAdministrator",
               "actionName": "ResumenAll",
               "linkText": "Totales",
               "iconText": "fa fa-globe",
               "sub": null
-            }
-
+              }
           ]
-
-        },
-        {
-          "order": 7,
+          },
+          {
+          "order": 6,
           "controllerName": "ActividadesDiarias",
           "actionName": "Crear",
           "linkText": "Res. Actividades",
           "iconText": "fa fa-tablet mr-3",
           "sub": null
-        },
-        {
-          "order": 8,
-          "controllerName": "CaracterizacionJuridica",
+          },
+          {
+          "order": 7,
+          "controllerName": "Caracterizacion",
           "actionName": "Index",
-          "linkText": "Carac. Juridica",
+          "linkText": "Caracterizaciones",
           "iconText": "fa fa-university mr-3",
-          "sub": null
-        },
-        {
-          "order": 9,
-          "controllerName": "CaracterizacionSolicitante",
-          "actionName": "Index",
-          "linkText": "Carac. Solicitante",
-          "iconText": "fa fa-address-card mr-3",
-          "sub": null
-        },
-        {
-          "order": 10,
-          "controllerName": "CaracterizacionJuridicaResumen",
-          "actionName": "Index",
-          "linkText": "Carac. Jurdica Resumen",
-          "iconText": "fa fa-gavel mr-3",
-          "sub": null
-        },
-        {
-          "order": 11,
+          "sub": [
+              {
+                  "order": 1,
+                  "controllerName": "HomeUsuarios",
+                  "actionName": "IndexRegistro",
+                  "linkText": "Registro",
+                  "iconText": "fa fa-registered mr-3",
+                  "sub": null
+              },
+              {
+                  "order": 1,
+                  "controllerName": "CaracterizacionJuridica",
+                  "actionName": "Index",
+                  "linkText": "Juridica",
+                  "iconText": "fa fa-address-card mr-3",
+                  "sub": null
+              },
+              {
+                  "order": 1,
+                  "controllerName": "CaracterizacionSolicitante",
+                  "actionName": "Index",
+                  "linkText": "Solicitante",
+                  "iconText": "fa fa-address-card mr-3",
+                  "sub": null
+              }
+          ]
+          },
+          {
+          "order": 8,
           "controllerName": "GeneracionDocumentos",
           "actionName": "Index",
           "linkText": "Validacion de Archivos",
           "iconText": "fa fa-file-text mr-3",
           "sub": null
-        }
+          }
       ]
-    },
-    {
+      },
+      {
       "role": "Invitado",
       "links": [
-        {
+          {
           "order": 1,
           "controllerName": "HomeUsuarios",
           "actionName": "BuscarExpedientes",
           "linkText": "Buscar Expedientes",
           "iconText": "fa fa-search mr-3",
           "sub": null
-        }
+          }
       ]
-    },
-    {
+      },
+      {
       "role": "Gestion Documental",
       "links": [
-        {
+          {
           "order": 1,
           "controllerName": "Dashboard",
           "actionName": "Index",
           "linkText": "Estadisticas",
           "iconText": "fa fa-line-chart mr-3",
           "sub": null
-        },
-        {
+          },
+          {
           "order": 2,
           "controllerName": "HomeTipificacion",
           "actionName": "Index",
           "linkText": "Tipificacion",
           "iconText": "fa fa-bar-chart mr-3",
           "sub": null
-        },
-        {
+          },
+          {
           "order": 3,
-          "controllerName": "HomeUsuarios",
-          "actionName": "IndexRegistro",
-          "linkText": "Registro",
-          "iconText": "fa fa-registered mr-3",
-          "sub": null
-        },
-        {
-          "order": 4,
           "controllerName": "HomeUsuarios",
           "actionName": "BuscarExpedientes",
           "linkText": "Buscar Expedientes",
           "iconText": "fa fa-search mr-3",
           "sub": null
-        },
-        {
-          "order": 5,
+          },
+          {
+          "order": 4,
           "controllerName": "Concepto",
           "actionName": "Index",
           "linkText": "Conceptos",
           "iconText": "fa fa-clipboard mr-3",
           "sub": null
-        },
-        {
-          "order": 6,
+          },
+          {
+          "order": 5,
           "controllerName": "Consolidados",
           "actionName": "Index",
           "linkText": "Consolidados",
           "iconText": "fa fa-pie-chart",
           "sub": [
-            {
+              {
               "order": 1,
               "controllerName": "HomeAdministrator",
               "actionName": "Index",
               "linkText": "Municipios",
               "iconText": "fa fa-map-marker",
               "sub": null
-            },
-            {
+              },
+              {
               "order": 2,
               "controllerName": "HomeAdministrator",
               "actionName": "IndexDepto",
               "linkText": "Departamentos",
               "iconText": "fa fa-map",
               "sub": null
-            },
-            {
+              },
+              {
               "order": 3,
               "controllerName": "HomeAdministrator",
               "actionName": "ResumenAll",
               "linkText": "Totales",
               "iconText": "fa fa-globe",
               "sub": null
-            }
-
+              }
           ]
-
-        },
-        {
-          "order": 7,
+          },
+          {
+          "order": 6,
           "controllerName": "ActividadesDiarias",
           "actionName": "Crear",
           "linkText": "Res. Actividades",
           "iconText": "fa fa-tablet mr-3",
           "sub": null
-        },
-        {
-          "order": 8,
-          "controllerName": "CaracterizacionJuridica",
+          },
+          {
+          "order": 7,
+          "controllerName": "Caracterizacion",
           "actionName": "Index",
-          "linkText": "Carac. Juridica",
+          "linkText": "Caracterizaciones",
           "iconText": "fa fa-university mr-3",
-          "sub": null
-        },
-        {
-          "order": 9,
-          "controllerName": "CaracterizacionSolicitante",
-          "actionName": "Index",
-          "linkText": "Carac. Solicitante",
-          "iconText": "fa fa-address-card mr-3",
-          "sub": null
-        },
-        {
-          "order": 10,
-          "controllerName": "CaracterizacionJuridicaResumen",
-          "actionName": "Index",
-          "linkText": "Carac. Jurdica Resumen",
-          "iconText": "fa fa-gavel mr-3",
-          "sub": null
-        },
-        {
-          "order": 11,
+          "sub": [
+              {
+                  "order": 1,
+                  "controllerName": "HomeUsuarios",
+                  "actionName": "IndexRegistro",
+                  "linkText": "Registro",
+                  "iconText": "fa fa-registered mr-3",
+                  "sub": null
+              },
+              {
+                  "order": 1,
+                  "controllerName": "CaracterizacionJuridica",
+                  "actionName": "Index",
+                  "linkText": "Juridica",
+                  "iconText": "fa fa-address-card mr-3",
+                  "sub": null
+              },
+              {
+                  "order": 1,
+                  "controllerName": "CaracterizacionSolicitante",
+                  "actionName": "Index",
+                  "linkText": "Solicitante",
+                  "iconText": "fa fa-address-card mr-3",
+                  "sub": null
+              }
+          ]
+          },
+          {
+          "order": 8,
           "controllerName": "GeneracionDocumentos",
           "actionName": "Index",
           "linkText": "Validacion de Archivos",
           "iconText": "fa fa-file-text mr-3",
           "sub": null
-        }
+          }
       ]
-    },
-    {
+      },
+      {
       "role": "User",
       "links": [
-        {
+          {
           "order": 1,
           "controllerName": "Dashboard",
           "actionName": "Index",
           "linkText": "Estadisticas",
           "iconText": "fa fa-line-chart mr-3",
           "sub": null
-        },
-        {
+          },
+          {
           "order": 2,
           "controllerName": "HomeTipificacion",
           "actionName": "Index",
           "linkText": "Tipificacion",
           "iconText": "fa fa-bar-chart mr-3",
           "sub": null
-        },
-        {
+          },
+          {
           "order": 3,
-          "controllerName": "HomeUsuarios",
-          "actionName": "IndexRegistro",
-          "linkText": "Registro",
-          "iconText": "fa fa-registered mr-3",
-          "sub": null
-        },
-        {
-          "order": 4,
           "controllerName": "HomeUsuarios",
           "actionName": "BuscarExpedientes",
           "linkText": "Buscar Expedientes",
           "iconText": "fa fa-search mr-3",
           "sub": null
-        },
-        {
-          "order": 5,
+          },
+          {
+          "order": 4,
           "controllerName": "Concepto",
           "actionName": "Index",
           "linkText": "Conceptos",
           "iconText": "fa fa-clipboard mr-3",
           "sub": null
-        },
-        {
-          "order": 6,
+          },
+          {
+          "order": 5,
           "controllerName": "Consolidados",
           "actionName": "Index",
           "linkText": "Consolidados",
           "iconText": "fa fa-pie-chart",
           "sub": [
-            {
+              {
               "order": 1,
               "controllerName": "HomeAdministrator",
               "actionName": "Index",
               "linkText": "Municipios",
               "iconText": "fa fa-map-marker",
               "sub": null
-            },
-            {
+              },
+              {
               "order": 2,
               "controllerName": "HomeAdministrator",
               "actionName": "IndexDepto",
               "linkText": "Departamentos",
               "iconText": "fa fa-map",
               "sub": null
-            },
-            {
+              },
+              {
               "order": 3,
               "controllerName": "HomeAdministrator",
               "actionName": "ResumenAll",
               "linkText": "Totales",
               "iconText": "fa fa-globe",
               "sub": null
-            }
-
+              }
           ]
-
-        },
-        {
-          "order": 7,
+          },
+          {
+          "order": 6,
           "controllerName": "ActividadesDiarias",
           "actionName": "Crear",
           "linkText": "Res. Actividades",
           "iconText": "fa fa-tablet mr-3",
           "sub": null
-        },
-        {
-          "order": 8,
-          "controllerName": "CaracterizacionJuridica",
+          },
+          {
+          "order": 7,
+          "controllerName": "Caracterizacion",
           "actionName": "Index",
-          "linkText": "Carac. Juridica",
+          "linkText": "Caracterizaciones",
           "iconText": "fa fa-university mr-3",
-          "sub": null
-        },
-        {
-          "order": 9,
-          "controllerName": "CaracterizacionSolicitante",
-          "actionName": "Index",
-          "linkText": "Carac. Solicitante",
-          "iconText": "fa fa-address-card mr-3",
-          "sub": null
-        },
-        {
-          "order": 10,
-          "controllerName": "CaracterizacionJuridicaResumen",
-          "actionName": "Index",
-          "linkText": "Carac. Jurdica Resumen",
-          "iconText": "fa fa-gavel mr-3",
-          "sub": null
-        },
-        {
-          "order": 11,
+          "sub": [
+              {
+                  "order": 1,
+                  "controllerName": "HomeUsuarios",
+                  "actionName": "IndexRegistro",
+                  "linkText": "Registro",
+                  "iconText": "fa fa-registered mr-3",
+                  "sub": null
+              },
+              {
+                  "order": 1,
+                  "controllerName": "CaracterizacionJuridica",
+                  "actionName": "Index",
+                  "linkText": "Juridica",
+                  "iconText": "fa fa-address-card mr-3",
+                  "sub": null
+              },
+              {
+                  "order": 1,
+                  "controllerName": "CaracterizacionSolicitante",
+                  "actionName": "Index",
+                  "linkText": "Solicitante",
+                  "iconText": "fa fa-address-card mr-3",
+                  "sub": null
+              }
+          ]
+          },
+          {
+          "order": 8,
           "controllerName": "GeneracionDocumentos",
           "actionName": "Index",
           "linkText": "Validacion de Archivos",
           "iconText": "fa fa-file-text mr-3",
           "sub": null
-        }
+          }
       ]
-    },
-    {
+      },
+      {
       "role": "Lider",
       "links": [
-        {
+          {
           "order": 1,
           "controllerName": "Dashboard",
           "actionName": "Index",
           "linkText": "Estadisticas",
           "iconText": "fa fa-line-chart mr-3",
           "sub": null
-        },
-        {
+          },
+          {
           "order": 2,
           "controllerName": "HomeTipificacion",
           "actionName": "Index",
           "linkText": "Tipificacion",
           "iconText": "fa fa-bar-chart mr-3",
           "sub": null
-        },
-        {
+          },
+          {
           "order": 3,
-          "controllerName": "HomeUsuarios",
-          "actionName": "IndexRegistro",
-          "linkText": "Registro",
-          "iconText": "fa fa-registered mr-3",
-          "sub": null
-        },
-        {
-          "order": 4,
           "controllerName": "HomeUsuarios",
           "actionName": "BuscarExpedientes",
           "linkText": "Buscar Expedientes",
           "iconText": "fa fa-search mr-3",
           "sub": null
-        },
-        {
-          "order": 5,
+          },
+          {
+          "order": 4,
           "controllerName": "Concepto",
           "actionName": "Index",
           "linkText": "Conceptos",
           "iconText": "fa fa-clipboard mr-3",
           "sub": null
-        },
-        {
-          "order": 6,
+          },
+          {
+          "order": 5,
           "controllerName": "Consolidados",
           "actionName": "Index",
           "linkText": "Consolidados",
           "iconText": "fa fa-pie-chart",
           "sub": [
-            {
+              {
               "order": 1,
               "controllerName": "HomeAdministrator",
               "actionName": "Index",
               "linkText": "Municipios",
               "iconText": "fa fa-map-marker",
               "sub": null
-            },
-            {
+              },
+              {
               "order": 2,
               "controllerName": "HomeAdministrator",
               "actionName": "IndexDepto",
               "linkText": "Departamentos",
               "iconText": "fa fa-map",
               "sub": null
-            },
-            {
+              },
+              {
               "order": 3,
               "controllerName": "HomeAdministrator",
               "actionName": "ResumenAll",
               "linkText": "Totales",
               "iconText": "fa fa-globe",
               "sub": null
-            }
-
+              }
           ]
-
-        },
-        {
-          "order": 7,
+          },
+          {
+          "order": 6,
           "controllerName": "ActividadesDiarias",
           "actionName": "Crear",
           "linkText": "Res. Actividades",
           "iconText": "fa fa-tablet mr-3",
           "sub": null
-        },
-        {
-          "order": 8,
-          "controllerName": "CaracterizacionJuridica",
+          },
+          {
+          "order": 7,
+          "controllerName": "Caracterizacion",
           "actionName": "Index",
-          "linkText": "Carac. Juridica ",
+          "linkText": "Caracterizaciones",
           "iconText": "fa fa-university mr-3",
-          "sub": null
-        },
-        {
-          "order": 9,
-          "controllerName": "CaracterizacionSolicitante",
-          "actionName": "Index",
-          "linkText": "Carac. Solicitante",
-          "iconText": "fa fa-address-card mr-3",
-          "sub": null
-        },
-        {
-          "order": 10,
-          "controllerName": "CaracterizacionJuridicaResumen",
-          "actionName": "Index",
-          "linkText": "Carac. Jurdica Resumen",
-          "iconText": "fa fa-gavel mr-3",
-          "sub": null
-        },
-        {
-          "order": 11,
+          "sub": [
+              {
+                  "order": 1,
+                  "controllerName": "HomeUsuarios",
+                  "actionName": "IndexRegistro",
+                  "linkText": "Registro",
+                  "iconText": "fa fa-registered mr-3",
+                  "sub": null
+              },
+              {
+                  "order": 1,
+                  "controllerName": "CaracterizacionJuridica",
+                  "actionName": "Index",
+                  "linkText": "Juridica",
+                  "iconText": "fa fa-address-card mr-3",
+                  "sub": null
+              },
+              {
+                  "order": 1,
+                  "controllerName": "CaracterizacionSolicitante",
+                  "actionName": "Index",
+                  "linkText": "Solicitante",
+                  "iconText": "fa fa-address-card mr-3",
+                  "sub": null
+              }
+          ]
+          },
+          {
+          "order": 8,
           "controllerName": "GeneracionDocumentos",
           "actionName": "Index",
           "linkText": "Validacion de Archivos",
           "iconText": "fa fa-file-text mr-3",
           "sub": null
-        }
+          }
       ]
-    }
+      }
   ]
-}
+  }
+  

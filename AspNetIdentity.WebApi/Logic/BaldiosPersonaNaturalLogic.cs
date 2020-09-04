@@ -1099,6 +1099,7 @@ namespace AspNetIdentity.WebApi.Logic
                         ResCtx.RutaArchivoOriginal = Path;
                         ResCtx.NombreArchivo = Nombre;
                         ResCtx.ArchivoVerificado = Tipo;
+                        ResCtx.FiltroJairo = 6999;
                         Ctx.SaveChanges();
                     }
                 }

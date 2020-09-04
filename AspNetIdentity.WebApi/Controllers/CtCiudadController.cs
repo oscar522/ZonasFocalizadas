@@ -17,7 +17,6 @@ namespace AspNetIdentity.WebApi.Controllers
             return a.ConsultarId(id);
         }
 
-        [Authorize]
         [Route("gethvctciudad/{IdP}")]
         public List<CtCiudadModel> Get(string IdP)
         {
