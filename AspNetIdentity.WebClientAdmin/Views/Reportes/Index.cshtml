@@ -1,0 +1,122 @@
+﻿
+
+@{ ViewBag.Title = "Index"; }
+@section Scripts
+             {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/ModalControl.js")
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            $(".cssReporte").click(function () {
+                $("#msnre").html("Preparando");
+              $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Registro")', // we are calling json method
+                dataType: 'json',
+                success: function (states) {
+                    //var a = document.createElement("a"); //Create <a>
+                    // a.href = "data:image/png;base64," + ImageBase64; //Image Base64 Goes here
+                    // a.download = "Image.png"; //File name Here
+                    //a.click(); //Downloaded file
+
+                    let csvContent = atob(states);
+                    debugger;
+                    var blob = new Blob([csvContent], { type: "data:application/octet-stream;base64" });
+                    var url = window.URL.createObjectURL(blob);
+                    debugger;
+
+                    // you need to precise a front-end button to have a name
+                    var dlnk = document.createElement("a");
+                    dlnk.download = "Registro.csv";
+                    dlnk.href = url;
+                    dlnk.click();
+                    $("#msnre").html("Descargando");
+
+                },
+                error: function (ex) {
+                    console.log(ex.responseText);
+                }
+            });
+            });
+
+            $(".cssReporteJuridica").click(function () {
+                $("#msncj").html("Preparando");
+                  $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("Juridica")', // we are calling json method
+                        dataType: 'json',
+                        success: function (states) {
+
+                            let csvContent = atob(states);
+                            debugger;
+                            var blob = new Blob([csvContent], { type: "data:application/octet-stream;base64" });
+                            var url = window.URL.createObjectURL(blob);
+                            debugger;
+
+                            // you need to precise a front-end button to have a name
+                            var dlnk = document.createElement("a");
+                            dlnk.download = "CaracterizaciónJuridica.csv";
+                            dlnk.href = url;
+                            dlnk.click();
+                            $("#msncj").html("Descargando");
+
+                        },
+                        error: function (ex) {
+                            console.log(ex.responseText);
+                        }
+                  });
+             });
+
+            $(".cssReporteSolicitante").click(function () {
+                $("#msncs").html("Preparando");
+                      $.ajax({
+                            type: 'POST',
+                            url: '@Url.Action("Solicitante")', // we are calling json method
+                            dataType: 'json',
+                            success: function (states) {
+
+                                let csvContent = atob(states);
+                                debugger;
+                                var blob = new Blob([csvContent], { type: "data:application/octet-stream;base64" });
+                                var url = window.URL.createObjectURL(blob);
+                                debugger;
+
+                                // you need to precise a front-end button to have a name
+                                var dlnk = document.createElement("a");
+                                dlnk.download = "CaracterizaciónDeSolicitante.csv";
+                                dlnk.href = url;
+                                dlnk.click();
+                                $("#msncs").html("Descargando");
+
+                             },
+                                error: function (ex) {
+                                console.log(ex.responseText);
+                                 }
+                      });
+             });
+        });
+</script>
+
+}
+<div class="card mb-4 wow fadeIn">
+
+    <!--Card content-->
+    <div class="card-body d-sm-flex justify-content-between">
+        <h3 class="card-title">Generacion de Csv </h3>
+    </div>
+
+</div>
+<div class="row wow fadeIn">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">  <a href="#" id="Crear_" class="cssReporte">Descargar caracterización de Registro</a><div id="msnre"></div></div>
+            <div class="card-header">  <a href="#" id="Crear_d" class="cssReporteJuridica">Descargar caracterización Juridica</a><div id="msncj"> </div></div>
+            <div class="card-header">  <a href="#" id="Crear_s" class="cssReporteSolicitante">Descargar caracterización De Solicitante</a><div id="msncs"> </div></div>
+            <div class="card-body">
+            </div>
+        </div>
+    </div>
+</div>
+
+
