@@ -1,13 +1,15 @@
 ﻿using AspNetIdentity.WebClientAdmin.Providers;
 using AspNetIdentity.Models;
-using AspNetIdentity.WebClientAdmin.Models;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.Collections.Generic;
 using System;
-using System.Net.Http;
 using System.Linq;
 using System.Configuration;
+
+using ExcelDataReader;
+using System.Data;
+using System.IO;
 
 namespace AspNetIdentity.WebClientAdmin.Controllers
 {
@@ -359,6 +361,257 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             }
         }
 
+        public ActionResult CrearExcel()
+        {
+            CrearBaldiosExcelMvcModel Modelo = new CrearBaldiosExcelMvcModel();
+            return View(Modelo);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> CrearExcel(CrearBaldiosExcelMvcModel Modelo)
+        {
+            string Controller = "BaldiosPersonaNatural";
+            string Method = "BaldiosPersonaNaturalcreate";
+
+            var fileName = Path.GetFileName(Modelo.Soporte.FileName);
+            var path = Path.Combine("C:\\ReportAnt\\", "Leer" + fileName);
+            string ruta = @"" + ConfigurationManager.AppSettings["PdfPath"]; // RUTA DE LOS ARCHIVOS
+
+            Modelo.Soporte.SaveAs(path);
+
+            using (var stream = System.IO.File.Open(path, FileMode.Open, FileAccess.Read))
+            {
+
+                IExcelDataReader excelDataReader = ExcelDataReader.ExcelReaderFactory.CreateReader(stream);
+
+                var conf = new ExcelDataSetConfiguration()
+                {
+                    ConfigureDataTable = a => new ExcelDataTableConfiguration
+                    {
+                        UseHeaderRow = true
+                    }
+                };
+
+                DataSet dataSet = excelDataReader.AsDataSet(conf);
+                DataRowCollection row = dataSet.Tables["Nuevos"].Rows;
+
+                if (row.Count == 0)
+                {
+                    Modelo.Errores = "El Excel no contiene filas";
+                   // return View(Modelo);
+                }
+                else {
+                    List<object> rowDataList = null;
+                    int i = 0;
+                    bool Valid = false;
+                    string Errores = "";
+                    foreach (DataRow itemExcel in row)
+                    {
+                        rowDataList = itemExcel.ItemArray.ToList(); //list of each rows
+                        i++;
+                        Errores = Errores + "Fila :" + i + "<br>";
+
+                        BaldiosPersonaNaturalModel ObjData = new BaldiosPersonaNaturalModel();
+
+                        if (rowDataList[0] == System.DBNull.Value)
+                        {
+                            Valid = true;
+                            Errores = Errores + "Numero Expediente : No puede estar en blanco" + "<br>";
+                        }
+                        else {
+                            ObjData.NumeroExpediente = rowDataList[0].ToString();
+                        }
+
+                        if (rowDataList[1] == System.DBNull.Value)
+                        {
+                            Valid = true;
+                            Errores = Errores + "Departamento : No puede estar en blanco" + "<br>";
+                        }
+                        else
+                        {
+                            ObjData.IdDepto = Convert.ToInt64(rowDataList[1]);
+                        }
+
+                        if (rowDataList[2] == System.DBNull.Value)
+                        {
+                            Valid = true;
+                            Errores = Errores + "Municipio : No puede estar en blanco" + "<br>";
+                        }
+                        else
+                        {
+                            ObjData.IdCiudad = Convert.ToInt64(rowDataList[2]);
+                        }
+
+                        if (rowDataList[3] == System.DBNull.Value)
+                        {
+                            Valid = true;
+                            Errores = Errores + "Vereda : No puede estar en blanco" + "<br>";
+                        }
+                        else
+                        {
+                            ObjData.Vereda = rowDataList[3].ToString();
+                        }
+
+                        if (rowDataList[4] == System.DBNull.Value)
+                        {
+                            Valid = true;
+                            Errores = Errores + "Nombre Predio : No puede estar en blanco" + "<br>";
+                        }
+                        else
+                        {
+                            ObjData.NombrePredio = rowDataList[4].ToString();
+                        }
+
+                        if (rowDataList[5] == System.DBNull.Value)
+                        {
+                            Valid = true;
+                            Errores = Errores + "Nombre Beneficiario : No puede estar en blanco" + "<br>";
+                        }
+                        else
+                        {
+                            ObjData.NombreBeneficiario = rowDataList[5].ToString(); ;
+                        }
+
+                        if (rowDataList[6] == System.DBNull.Value)
+                        {
+                            Valid = true;
+                            Errores = Errores + "Tipo Identificacion : No puede estar en blanco" + "<br>";
+                        }
+                        else
+                        {
+                            ObjData.IdTipoIdentificacion = Convert.ToInt32(rowDataList[6]);
+                        }
+
+                        if (rowDataList[7] == System.DBNull.Value)
+                        {
+                            Valid = true;
+                            Errores = Errores + "Identificacion : No puede estar en blanco" + "<br>";
+                        }
+                        else
+                        {
+                            ObjData.Identificacion = rowDataList[7].ToString();
+                        }
+
+                        if (rowDataList[8] == System.DBNull.Value)
+                        {
+                            Valid = true;
+                            Errores = Errores + "El Genero : No puede estar en blanco" + "<br>";
+                        }
+                        else
+                        {
+                            ObjData.IdGenero = Convert.ToInt32(rowDataList[8]);
+                        }
+
+                        if (rowDataList[9] == System.DBNull.Value)
+                        {
+                            Valid = true;
+                            Errores = Errores + "Tipo Identificacion Conyuge : No puede estar en blanco" + "<br>";
+                        }
+                        else
+                        {
+                            ObjData.IdTipoIdentificacionConyuge = Convert.ToInt32(rowDataList[9]);
+                        }
+
+                        if (rowDataList[10] == System.DBNull.Value)
+                        {
+                            Valid = true;
+                            Errores = Errores + "Identificacion Conyuge : No puede estar en blanco" + "<br>";
+                        }
+                        else
+                        {
+                            ObjData.IdentificacionConyuge = rowDataList[10].ToString();
+                        }
+
+                        if (rowDataList[11] == System.DBNull.Value)
+                        {
+                            Valid = true;
+                            Errores = Errores + "Identificacion Conyuge : No puede estar en blanco" + "<br>";
+                        }
+                        else
+                        {
+                            ObjData.NombreConyuge = rowDataList[11].ToString();
+                        }
+
+                        String rutaFullDepto = ruta + "/Deptos/" + ObjData.IdDepto + "/";
+                        String rutaFullMuni = rutaFullDepto + "/" + ObjData.IdCiudad;
+
+                        if (!Directory.Exists(rutaFullDepto)) // verificamos si el directorio de departamentos existe
+                        {
+                            Directory.CreateDirectory(rutaFullDepto);
+                            if (!Directory.Exists(rutaFullMuni)) // verificamos si el directorio de departamentos existe
+                            {
+                                Directory.CreateDirectory(rutaFullMuni);
+                            }
+                        }
+                        else {
+                            if (!Directory.Exists(rutaFullMuni)) // verificamos si el directorio de departamentos existe
+                            {
+                                Directory.CreateDirectory(rutaFullMuni);
+                            }
+                        }
+
+                        try
+                        {
+                            System.IO.File.Copy(rowDataList[13].ToString()+"/"+rowDataList[14].ToString(), rutaFullMuni + "/" + rowDataList[14].ToString());
+                        }
+                        catch (IOException copyError)
+                        {
+                            Console.WriteLine(copyError.Message);
+                        }
+                        ObjData.RutaArchivoOriginal = rutaFullMuni + "/" + rowDataList[14].ToString();
+                        ObjData.NombreArchivo = rowDataList[14].ToString();
+
+
+                        ObjData.NombreIdTipoIdentificacionConyuge = "N_A";
+                        ObjData.NombreIdTipoIdentificacion = "N_A";
+                        ObjData.NombreIdGenero = "N_A";
+                        ObjData.NombreIdDepto = "N_A";
+                        ObjData.NombreIdCiudad = "N_A";
+                        ObjData.EstadoInicialMigracion = "N_A";
+                        ObjData.IdAspNetUser = "N_A";
+                        ObjData.NombreIdAspNetUser = "N_A";
+                        ObjData.EstadoCaracterizacion = false;
+                        ObjData.TipoArchivo = "N_A";
+                        ObjData.NombreUsuario = "N_A";
+                        ObjData.RolUsuario = "N_A";
+                        ObjData.IdUsuario = "N_A";
+                        ObjData.Grupo = "N_A";
+
+                        if (Valid == true)
+                        {
+                           // return View(Modelo);
+                        }
+                        else {
+                            Errores = Errores + "Sin errores <br>";
+                            try
+                            {
+                                Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
+                                DictionaryModel ObjDictionary = new DictionaryModel();
+                                keyValuePairs = ObjDictionary.ToDictionary(ObjData);
+                                string Result = await employeeProvider.Post(keyValuePairs, Controller, Method);
+                                var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(Result);
+                                BaldiosPersonaNaturalModel processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<BaldiosPersonaNaturalModel>(jsonResult.ToString());
+                                if (processModel.NumeroExpediente.Equals(""))
+                                {
+                                    ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+                                    return View(ModelState);
+                                }
+                            }
+                            catch
+                            {
+                                ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+                                return View(ModelState);
+                            }
+                        }
+                    }
+                    Modelo.Errores = Errores;
+                }
+            }
+            Modelo.Status = "Se crearon los expedientes, valide los registros que presentan error ";
+            return View(Modelo);
+        }
+
+       
         public async Task<ActionResult> Edit(int IdTable)
         {
             string Id = IdTable.ToString();
