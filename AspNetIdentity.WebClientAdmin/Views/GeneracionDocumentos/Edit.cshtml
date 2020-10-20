@@ -46,8 +46,8 @@
         @Html.EditorFor(model => model.NumeroExpediente, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "@Model.NumeroExpediente" } })
         @Html.EditorFor(model => model.NombreIdAspNetUser, new { htmlAttributes = new { @class = "form-control", Style = "display : none" } })
 
-        @Html.EditorFor(model => model.Validacion9, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "1" } })
         @Html.EditorFor(model => model.Validacion10, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "1" } })
+        @Html.EditorFor(model => model.Validacion11, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "1" } })
         @Html.EditorFor(model => model.FechaCargue, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "1753-01-01" } })
         @Html.EditorFor(model => model.FechaModificacion, new { htmlAttributes = new { @class = "form-control", Style = "display : none", value = "1753-01-01" } })
 
@@ -86,6 +86,19 @@
                                                     <option value="2">no</option>
                                                 </select>
                                                 @Html.ValidationMessageFor(model => model.Validacion1, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <label class="control-label col-md-8"> ¿La información de la caracterización de registro, corresponde, a la información evidenciada dentro del estudio del expediente?</label>
+                                                <select id="Validacion9" name="Validacion9" class="form-control col-md-4 bool CLASSValidacion9">
+                                                    <option value="-2">Seleccione</option>
+                                                    <option value="1">Si</option>
+                                                    <option value="2">No</option>
+                                                </select>
+                                                @Html.ValidationMessageFor(model => model.Validacion9, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                     </div>
@@ -190,6 +203,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="row">
                                         <div class="col-md-12 text-md-center justify-content-md-center">
                                             <div class="row text-md-center justify-content-md-center">
@@ -282,6 +296,7 @@
                 if ("@Model.Validacion8" == "") $("#Validacion8").val("0"); else $("#Validacion8").val("@Model.Validacion8");
                 if ("@Model.Validacion9" == "") $("#Validacion9").val("0"); else $("#Validacion9").val("@Model.Validacion9");
                 if ("@Model.Validacion10" == "") $("#Validacion10").val("0"); else $("#Validacion10").val("@Model.Validacion10");
+                if ("@Model.Validacion11" == "") $("#Validacion11").val("0"); else $("#Validacion11").val("@Model.Validacion11");
 
 
             }
@@ -300,12 +315,12 @@
                     if ($("#Validacion6").val() == "-2" )$("#Validacion6" ).append('<option value="0">NA</option>');
                     if ($("#Validacion7").val() == "-2" )$("#Validacion7" ).append('<option value="0">NA</option>');
                     if ($("#Validacion8").val() == "-2" )$("#Validacion8" ).append('<option value="0">NA</option>');
-                    if ($("#Validacion9").val() == "" )$("#Validacion9" ).val('0');
+                    if ($("#Validacion9").val() == "-2" )$("#Validacion9" ).append('<option value="0">NA</option>');
                     if ($("#Validacion10").val() == "")$("#Validacion10").val('0');
+                    if ($("#Validacion11").val() == "")$("#Validacion11").val('0');
 
                     debugger;
 
-                    alert($("#Validacion8").val()+'-'+$("#Validacion9").val()+'-'+$("#Validacion10").val());
 
 
                     if(valid != "1"){

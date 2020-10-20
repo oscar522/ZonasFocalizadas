@@ -786,6 +786,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.CaracterizacionJuridicaResumen' n
     <Property Name="Validacion8" Type="int" />
     <Property Name="Validacion9" Type="int" />
     <Property Name="Validacion10" Type="int" />
+    <Property Name="Validacion11" Type="int" />
     <Property Name="Gestion" Type="int" />
     <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" />
     <Property Name="Estado" Type="bit" />

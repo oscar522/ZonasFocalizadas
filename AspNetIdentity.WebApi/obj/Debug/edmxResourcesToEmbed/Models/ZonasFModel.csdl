@@ -1205,5 +1205,6 @@
     <Property Name="Estado" Type="Boolean" />
     <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
     <Property Name="FechaCargue" Type="DateTime" Precision="3" />
+    <Property Name="Validacion11" Type="Int32" />
   </EntityType>
 </Schema>

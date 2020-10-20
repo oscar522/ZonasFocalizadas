@@ -353,6 +353,7 @@ namespace AspNetIdentity.WebApi.Logic
             GeneracionDocumentosModel_.Validacion8 = a.b.Validacion8;
             GeneracionDocumentosModel_.Validacion9 = a.b.Validacion9;
             GeneracionDocumentosModel_.Validacion10 = a.b.Validacion10;
+            GeneracionDocumentosModel_.Validacion11 = a.b.Validacion11;
             GeneracionDocumentosModel_.Gestion = a.b.Gestion;
             GeneracionDocumentosModel_.IdAspNetUser = a.b.IdAspNetUser;
             GeneracionDocumentosModel_.NombreIdAspNetUser = a.c.Name + " " + a.c.FirstName + " " + a.c.LastName;
@@ -380,6 +381,7 @@ namespace AspNetIdentity.WebApi.Logic
                     GeneracionDocumentosModel_.Validacion8 = a.Validacion8;
                     GeneracionDocumentosModel_.Validacion9 = a.Validacion9;
                     GeneracionDocumentosModel_.Validacion10 = a.Validacion10;
+                    GeneracionDocumentosModel_.Validacion11 = a.Validacion11;
                     GeneracionDocumentosModel_.Gestion = 1;
                     GeneracionDocumentosModel_.FechaModificacion = DateTime.Now;
                     Ctx.SaveChanges();
