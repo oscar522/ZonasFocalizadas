@@ -31,6 +31,8 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             }
         }
 
+      
+
         public async Task<ActionResult>Registro()
         {
             string Id = "0";

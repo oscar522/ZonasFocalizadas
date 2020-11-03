@@ -222,6 +222,7 @@
     <Compile Include="Controllers\CtTipoIdentificacionController.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\AsignacionController.cs" />
     <Compile Include="Controllers\ReportesController.cs" />
     <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -991,6 +992,7 @@
     <Content Include="Views\GeneracionDocumentos\Index.cshtml" />
     <Content Include="Views\Reportes\Index.cshtml" />
     <Content Include="Views\BaldiosPersonaNatural\CrearExcel.cshtml" />
+    <Content Include="Views\Asignacion\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

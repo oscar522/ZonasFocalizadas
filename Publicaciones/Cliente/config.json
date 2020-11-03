@@ -104,7 +104,7 @@
               "controllerName": "CaracterizacionSolicitante",
               "actionName": "Index",
               "linkText": "Solicitante",
-              "iconText": "fa fa-address-card mr-3",
+              "iconText": "fa-address-book| mr-3",
               "sub": null
             }
           ]
@@ -123,6 +123,14 @@
           "actionName": "Index",
           "linkText": "Reportes CSV",
           "iconText": "fa fa-cloud-download mr-3",
+          "sub": null
+        },
+        {
+          "order": 10,
+          "controllerName": "BaldiosPersonaNatural",
+          "actionName": "CrearExcel",
+          "linkText": "Cargar Nuevos Expedientes",
+          "iconText": "fa fa-cloud-upload mr-3",
           "sub": null
         }
       ]
@@ -231,7 +239,7 @@
               "controllerName": "CaracterizacionSolicitante",
               "actionName": "Index",
               "linkText": "Solicitante",
-              "iconText": "fa fa-address-card mr-3",
+              "iconText": "fa-address-book| mr-3",
               "sub": null
             }
           ]
@@ -250,6 +258,14 @@
           "actionName": "Index",
           "linkText": "Reportes CSV",
           "iconText": "fa fa-cloud-download mr-3",
+          "sub": null
+        },
+        {
+          "order": 10,
+          "controllerName": "BaldiosPersonaNatural",
+          "actionName": "CrearExcel",
+          "linkText": "Cargar Nuevos Expedientes",
+          "iconText": "fa fa-cloud-upload mr-3",
           "sub": null
         }
       ]
@@ -358,7 +374,7 @@
               "controllerName": "CaracterizacionSolicitante",
               "actionName": "Index",
               "linkText": "Solicitante",
-              "iconText": "fa fa-address-card mr-3",
+              "iconText": "fa-address-book| mr-3",
               "sub": null
             }
           ]
@@ -377,6 +393,14 @@
           "actionName": "Index",
           "linkText": "Reportes CSV",
           "iconText": "fa fa-cloud-download mr-3",
+          "sub": null
+        },
+        {
+          "order": 10,
+          "controllerName": "BaldiosPersonaNatural",
+          "actionName": "CrearExcel",
+          "linkText": "Cargar Nuevos Expedientes",
+          "iconText": "fa fa-cloud-upload mr-3",
           "sub": null
         }
       ]
@@ -485,7 +509,7 @@
               "controllerName": "CaracterizacionSolicitante",
               "actionName": "Index",
               "linkText": "Solicitante",
-              "iconText": "fa fa-address-card mr-3",
+              "iconText": "fa-address-book| mr-3",
               "sub": null
             }
           ]
@@ -504,6 +528,14 @@
           "actionName": "Index",
           "linkText": "Reportes CSV",
           "iconText": "fa fa-cloud-download mr-3",
+          "sub": null
+        },
+        {
+          "order": 10,
+          "controllerName": "BaldiosPersonaNatural",
+          "actionName": "CrearExcel",
+          "linkText": "Cargar Nuevos Expedientes",
+          "iconText": "fa fa-cloud-upload mr-3",
           "sub": null
         }
       ]
@@ -612,7 +644,7 @@
               "controllerName": "CaracterizacionSolicitante",
               "actionName": "Index",
               "linkText": "Solicitante",
-              "iconText": "fa fa-address-card mr-3",
+              "iconText": "fa-address-book| mr-3",
               "sub": null
             }
           ]
@@ -631,6 +663,14 @@
           "actionName": "Index",
           "linkText": "Reportes CSV",
           "iconText": "fa fa-cloud-download mr-3",
+          "sub": null
+        },
+        {
+          "order": 10,
+          "controllerName": "BaldiosPersonaNatural",
+          "actionName": "CrearExcel",
+          "linkText": "Cargar Nuevos Expedientes",
+          "iconText": "fa fa-cloud-upload mr-3",
           "sub": null
         }
       ]
@@ -752,7 +792,7 @@
               "controllerName": "CaracterizacionSolicitante",
               "actionName": "Index",
               "linkText": "Solicitante",
-              "iconText": "fa fa-address-card mr-3",
+              "iconText": "fa-address-book| mr-3",
               "sub": null
             }
           ]
@@ -771,6 +811,14 @@
           "actionName": "Index",
           "linkText": "Reportes CSV",
           "iconText": "fa fa-cloud-download mr-3",
+          "sub": null
+        },
+        {
+          "order": 10,
+          "controllerName": "BaldiosPersonaNatural",
+          "actionName": "CrearExcel",
+          "linkText": "Cargar Nuevos Expedientes",
+          "iconText": "fa fa-cloud-upload mr-3",
           "sub": null
         }
       ]
@@ -879,7 +927,7 @@
               "controllerName": "CaracterizacionSolicitante",
               "actionName": "Index",
               "linkText": "Solicitante",
-              "iconText": "fa fa-address-card mr-3",
+              "iconText": "fa-address-book| mr-3",
               "sub": null
             }
           ]
@@ -898,6 +946,14 @@
           "actionName": "Index",
           "linkText": "Reportes CSV",
           "iconText": "fa fa-cloud-download mr-3",
+          "sub": null
+        },
+        {
+          "order": 10,
+          "controllerName": "BaldiosPersonaNatural",
+          "actionName": "CrearExcel",
+          "linkText": "Cargar Nuevos Expedientes",
+          "iconText": "fa fa-cloud-upload mr-3",
           "sub": null
         }
       ]
@@ -1006,7 +1062,7 @@
               "controllerName": "CaracterizacionSolicitante",
               "actionName": "Index",
               "linkText": "Solicitante",
-              "iconText": "fa fa-address-card mr-3",
+              "iconText": "fa-address-book| mr-3",
               "sub": null
             }
           ]
@@ -1025,6 +1081,14 @@
           "actionName": "Index",
           "linkText": "Reportes CSV",
           "iconText": "fa fa-cloud-download mr-3",
+          "sub": null
+        },
+        {
+          "order": 10,
+          "controllerName": "BaldiosPersonaNatural",
+          "actionName": "CrearExcel",
+          "linkText": "Cargar Nuevos Expedientes",
+          "iconText": "fa fa-cloud-upload mr-3",
           "sub": null
         }
       ]

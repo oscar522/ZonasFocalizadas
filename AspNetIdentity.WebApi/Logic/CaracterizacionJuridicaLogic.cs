@@ -257,7 +257,7 @@ namespace AspNetIdentity.WebApi.Logic
             var tipo = Ctx.ResumenCaracterizacionJuridica(id).Select(c => c).ToList(); ; //NombrePredio
             var listaBaldios = Ctx.BaldiosPersonaNatural
                  .Join(Ctx.CaracterizacionJuridica, b => b.id, c => c.IdExpediente, (b, c) => new { b, c })
-                 .Where(w => w.c.IdAspNetUser == id).ToList();
+                 .Where(w => w.c.IdAspNetUser == id && w.c.Estado == true).ToList();
             #region Sql
             var lista = listaBaldios
                 //.Where(w => w.IdAspNetUser == IdP)
@@ -274,7 +274,7 @@ namespace AspNetIdentity.WebApi.Logic
                  .Where(w => w.MunicipioIdDepto == w.b.b.IdDepto)
                 .Select(c => new BaldiosPersonaNaturalModel
                 {
-                    id = c.b.b.id,
+                    id = c.b.c.Id,
                     NumeroExpediente = c.b.b.NumeroExpediente,
                     IdDepto = c.b.b.IdDepto,
                     IdCiudad = c.b.c.Gestion,

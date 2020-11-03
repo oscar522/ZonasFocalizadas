@@ -1,0 +1,453 @@
+﻿
+
+@{ ViewBag.Title = "Index"; }
+@section Scripts
+             {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/ModalControl.js")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+              var oTable = $('#table_idd').dataTable({
+
+                "order": [[1, "desc"]],
+                "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
+                "pageLength": 10,
+                "searching": true,
+                dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
+                buttons: [
+                    { "extend": 'pdf', "text": 'Pdf', "className": 'btn-outline-success' },
+                    { "extend": 'excel', "text": 'Exc', "className": ' btn-outline-success ' },
+                    { "extend": 'print', "text": 'Imp', "className": ' btn-outline-success ' }
+                ],
+               
+            });
+            ///////////////////////////////////////
+            ////// Catalogo de roles
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ListRoles","Concepto")', // we are calling json method
+                dataType: 'json',
+                success: function(states) {
+                    //   alert("ok_pais");
+                    $.each(states, function (i, state) {
+                        $("#IdRole").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    console.log(ex.responseText);
+                }
+            });
+
+            ///////////////////////////////////////
+            ////// catalaogo de usuarios dependiente de el combo rol
+            $("#IdRole").change(function () {
+                $("#UserAsociado").empty();
+                //  alert("okdepto" + $("#ID_CT_PAIS").val());
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListRolesUsuario" , "Concepto")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: $("#IdRole").val() },
+                        success: function(states) {
+                            //alert("okdepto");
+                            $.each(states, function (i, state) {
+                                    $("#UserAsociado").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                            });
+                        },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                return false;
+            });
+
+            //// Obtiene las tablas segun el usuario
+
+            function GetSol(){
+	            var idvalid = validar();
+                if (idvalid != true) {
+                    oTable.fnClearTable();
+                    $('#Proceso').text('Buscando informacion Caracterizacion de Solicitante, Por favor espere ....');
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("DataSolicitante")', // we are calling json method
+                        data: { id: $("#UserAsociado").val() },
+                        dataType: 'json',
+                        success: function (states) {
+                            console.log(states);
+                            oTable.fnClearTable();
+                            debugger;
+                            var Total = 0;
+                            $.each(states, function (i, obj) {
+                                Total++;
+                                var Gestion = "";
+                                var Estado = "";
+                                if (obj.Gestion == "1") {
+                                    Gestion = "Con Gestion"
+                                } else {
+                                    Gestion = "Sin Gestion"
+                                }
+                                if (obj.Estado == "1") {
+                                    Estado = "Activo"
+                                } else {
+                                    Estado = "InActivo"
+                                }
+                                oTable.fnAddData([
+                                    obj.Id,
+                                    obj.NumeroExpediente,
+                                    obj.NombreDepto,
+                                    obj.NombreMunicipio,
+                                    Gestion,
+                                    Estado,
+                                    "<DelSol title='Eliminar' Data='" + obj.Id + "' class='EliminaDoc' ><i class='fa fa-times'></i></z1>",
+                                ]);
+                            });
+                            debugger;
+                            $('#Proceso').text('Completo, Encontrados Solicitante : ' + Total);
+                        },
+                        error: function (ex) {
+                            console.log(ex.responseText);
+                        }
+                    });
+                }
+            }
+
+            function GetJur(){
+	        var idvalid = validar();
+            if (idvalid != true) {
+                oTable.fnClearTable();
+                $('#Proceso').text('Buscando informacion Caracterizacion Juridica, Por favor espere ....');
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("DataJuridica")', // we are calling json method
+                    data: { id: $("#UserAsociado").val() },
+                    dataType: 'json',
+                    success: function (states) {
+                        console.log(states);
+                        oTable.fnClearTable();
+                        debugger;
+                        var Total= 0;
+                        $.each(states, function (i, obj) {
+                            Total++;
+                            var Gestion = "";
+                            var Estado= "";
+
+                            if (obj.Gestion == "1") {
+                                Gestion = "Con Gestion"
+                            } else {
+                                Gestion = "Sin Gestion"
+                            }
+                            if (obj.Estado == "1") {
+                                    Estado = "InActivo"
+                                } else {
+                                    Estado = "Activo"
+                                }
+                            oTable.fnAddData([
+                                obj.id,
+                                obj.NumeroExpediente,
+                                obj.NombreIdDepto,
+                                obj.NombreIdCiudad,
+                                Gestion,
+                                Estado,
+                                "<DelJur title='Eliminar' Data='"+obj.Id+"' class='EliminaDoc' ><i class='fa fa-times'></i></z1>",
+                            ]);
+                        });
+                        debugger;
+                        $('#Proceso').text('Completo, Encontrados Juridica : '+Total);
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+            }
+        }
+
+            function GetReg(){
+	            var idvalid = validar();
+                if (idvalid != true) {
+                    oTable.fnClearTable();
+                    $('#Proceso').text('Buscando informacion Caracterizacion de Registro, Por favor espere ....');
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("DataRegistro")', // we are calling json method
+                        data: { id: $("#UserAsociado").val() },
+                        dataType: 'json',
+                        success: function (states) {
+                                console.log(states);
+                            oTable.fnClearTable();
+                            var Total= 0;
+                            debugger;
+                            $.each(states, function (i, obj) {
+                                Total++;
+                                var Gestion = "";
+                                var Estado = "";
+                                if (obj.Estado == "1") {
+                                    Gestion = "Con Gestion"
+                                } else {
+                                    Gestion = "Sin Gestion"
+                                }
+                                if (obj.EstadoRegistro == "1") {
+                                    Estado = "Activo"
+                                } else {
+                                    Estado = "InActivo"
+                                }
+                                oTable.fnAddData([
+                                    obj.Id,
+                                    obj.NumeroExpediente,
+                                    obj.NombreIdDepto,
+                                    obj.NombreIdMunicipio,
+                                    Gestion,
+                                    Estado,
+
+                                    "<DelReg title='Eliminar' Data='"+obj.EstadoRegistro+"' class='EliminaDoc' ><i class='fa fa-times'></i></z1>",
+                                ]);
+                            });
+                            $('#Proceso').text('Completo, Encontrados Registro : '+Total);
+                            debugger;
+                        },
+                        error: function (ex) {
+                            console.log(ex.responseText);
+                        }
+                    });
+                }
+            }
+
+            function GetGen(){
+	            var idvalid = validar();
+                if (idvalid != true) {
+                    oTable.fnClearTable();
+                    $('#Proceso').text('Buscando informacion Validacion de Archivo, Por favor espere ....');
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("DataGeneracion")', // we are calling json method
+                        data: { id: $("#UserAsociado").val() },
+                        dataType: 'json',
+                        success: function (states) {
+                                console.log(states);
+                            oTable.fnClearTable();
+                            var Total= 0;
+                            debugger;
+                            $.each(states, function (i, obj) {
+                                Total++;
+                                var Gestion = "";
+                                var Estado = "Activo";
+                                if (obj.Estado == "1") {
+                                    Gestion = "Con Gestion"
+                                } else {
+                                    Gestion = "Sin Gestion"
+                                }
+                                
+                                oTable.fnAddData([
+                                    obj.id,
+                                    obj.NumeroExpediente,
+                                    obj.NombreIdDepto,
+                                    obj.NombreIdCiudad,
+                                    Gestion,
+                                    Estado,
+                                    "<DelGen title='Eliminar' Data='"+obj.EstadoRegistro+"' class='EliminaDoc' ><i class='fa fa-times'></i></z1>",
+                                ]);
+                            });
+                            $('#Proceso').text('Completo, Encontrados Validacion : '+Total);
+                            debugger;
+                        },
+                        error: function (ex) {
+                            console.log(ex.responseText);
+                        }
+                    });
+                }
+            }
+
+            // click sobre el tipo de tabla 
+
+            
+            $("#Solicitante").click(function () {
+                GetSol();
+            });
+
+            $("#Juridica").click(function () {
+                GetJur();
+            });
+
+            $("#Registro").click(function () {
+                GetReg();
+            });
+
+            $("#Generacion").click(function () {
+                GetGen();
+            });
+
+            /// Delete item tables 
+
+            var Datatabla = $('#table_idd').DataTable();
+
+            $('#table_idd tbody').on('click', 'DelSol', function () {
+                var data = Datatabla.row($(this).parents('tr')).data();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("DelSol")',
+                    dataType: 'json',
+                    data: { IdTable: data[0] },
+                    success: function (s) {
+                        alert(s);
+                        GetSol();
+                    },
+                    error: function(e){
+                    }
+                });
+            });
+
+            $('#table_idd tbody').on('click', 'DelJur', function () {
+                var data = Datatabla.row($(this).parents('tr')).data();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("DelJur")',
+                    dataType: 'json',
+                    data: { IdTable: data[0] },
+                    success: function (s) {
+                        alert(s);
+                        GetJur();
+                    },
+                    error: function(e){
+                    }
+                });
+            });
+
+            $('#table_idd tbody').on('click', 'DelReg', function () {
+                var data = Datatabla.row($(this).parents('tr')).data();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("DelReg")',
+                    dataType: 'json',
+                    data: { IdTable: data[0] },
+                    success: function (s) {
+                        alert(s);
+                        GetReg();
+                    },
+                    error: function(e){
+                    }
+                });
+            });
+
+            $('#table_idd tbody').on('click', 'DelGen', function () {
+            var data = Datatabla.row($(this).parents('tr')).data();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("DelGen")',
+                dataType: 'json',
+                data: { IdTable: data[0] },
+                success: function (s) {
+                    alert(s);
+                    GetGen();
+                },
+                error: function(e){
+                }
+            });
+            });
+
+            function validar() {
+                var valid = false;
+                if ($("#UserAsociado").val() == '') {
+                    alert("Seleccione el Usuario");
+                    valid = true;
+                } 
+                return valid;
+            }
+        });
+
+    </script>
+
+}
+<div class="card mb-4 wow fadeIn">
+
+    <!--Card content-->
+    <div class="card-body d-sm-flex justify-content-between">
+        <h3 class="card-title">Generacion de Csv </h3>
+    </div>
+
+</div>
+<div class="row wow fadeIn">
+    <div class="col-md-12 p-2">
+        <div class="card">
+            <div class="card-header">  Seleccione el rol y el usuario</div>
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <label class="control-label col-sm-4"> Rol Usuario</label>
+                            @Html.DropDownList("IdRole", new SelectList(string.Empty, "Value", "Text"), "Seleccione", new { @class = "form-control col-sm-6" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <label class="control-label col-sm-4"> Usuario</label>
+                            @Html.DropDownList("UserAsociado", new SelectList(string.Empty, "Value", "Text"), "Seleccione", new { @class = "form-control col-sm-6" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 p-2">
+        <div class="card">
+            <div class="card-header">  Seleccione el Proceso </div>
+            <div class="card-body">
+
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <input type="radio" id="Solicitante" name="gender" value="male">
+                            <label for="other">Solicitante</label>
+
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="radio" id="Juridica" name="gender" value="male">
+                            <label for="other">Juridica</label>
+
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="radio" id="Registro" name="gender" value="male">
+                            <label for="other">Registro</label>
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="radio" id="Generacion" name="gender" value="male">
+                            <label for="other">Validacion de Arichos</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 p-2">
+        <div class="card">
+            <div class="card-header"> Data Proceso <div id="Proceso"></div> </div>
+            <div class="card-body">
+
+                <div class="col-sm-12">
+                        <table class="table " id="table_idd" width="100%">
+                            <thead>
+                                <tr>
+
+                                    <th> </th>
+                                    <th> Numero Expediente </th>
+                                    <th> Departamento </th>
+                                    <th> Municipio </th>
+                                    <th> Gestion </th>
+                                    <th> Estado </th>
+                                    <th></th>
+                                </tr>
+                            <thead>
+                            <tbody>
+                                  </tbody>
+                        </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
