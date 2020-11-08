@@ -7,6 +7,10 @@ using System.Collections.Generic;
 using System;
 using System.Net.Http;
 using System.Linq;
+using System.IO;
+using System.Configuration;
+using ExcelDataReader;
+using System.Data;
 
 namespace AspNetIdentity.WebClientAdmin.Controllers
 {
@@ -81,8 +85,74 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
         }
         public ActionResult Index()
         {
-            return View();
+            CrearBaldiosExcelMvcModel Modelo = new CrearBaldiosExcelMvcModel();
+            return View(Modelo);
         }
+
+        public async Task<ActionResult> CrearExcel(CrearBaldiosExcelMvcModel Modelo)
+        {
+            var fileName = Path.GetFileName(Modelo.Soporte.FileName);
+            var path = Path.Combine("C:\\ReportAnt\\", "Leer" + fileName);
+            string ruta = @"" + ConfigurationManager.AppSettings["PdfPath"]; // RUTA DE LOS ARCHIVOS
+
+            Modelo.Soporte.SaveAs(path);
+
+            using (var stream = System.IO.File.Open(path, FileMode.Open, FileAccess.Read))
+            {
+                IExcelDataReader excelDataReader = ExcelDataReader.ExcelReaderFactory.CreateReader(stream);
+                var conf = new ExcelDataSetConfiguration()
+                {
+                    ConfigureDataTable = a => new ExcelDataTableConfiguration
+                    {
+                        UseHeaderRow = true
+                    }
+                };
+                DataSet dataSet = excelDataReader.AsDataSet(conf);
+                DataRowCollection row = dataSet.Tables["Nuevos"].Rows;
+                if (row.Count == 0)
+                {
+                    Modelo.Errores = "El Excel no contiene filas";
+                }
+                else
+                {
+                    List<object> rowDataList = null;
+                    int i = 0;
+                    string Errores = "";
+                    foreach (DataRow itemExcel in row)
+                    {
+                        rowDataList = itemExcel.ItemArray.ToList(); //list of each rows
+                        i++;
+                        Errores = Errores + "Fila :" + i + "<br>";
+                        string NumeroExpediente = "";
+
+                        if (rowDataList[0] == System.DBNull.Value)
+                        {
+                            Errores = Errores + "Numero Expediente : No puede estar en blanco" + "<br>";
+                        }
+                        else
+                        {
+                            NumeroExpediente = rowDataList[0].ToString();
+                            Errores = Errores + "Sin errores <br>";
+
+                            string Controller = "Asignacion";
+                            string Method = "AsignacionType";
+                            string id = NumeroExpediente +"|"+Modelo.Status+"|"+Modelo.Errores;
+
+                            string result = await employeeProvider.Get(id, Controller, Method);
+                            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+                            Errores = Errores + jsonResult;
+
+
+                        }
+                    }
+                    Modelo.Errores = Errores;
+                }
+            }
+            Modelo.Status = "Se crearon los expedientes, valide los registros que presentan error ";
+
+            return View("index", Modelo);
+        }
+
 
         public async Task<ActionResult> DataSolicitante(string id)
         {

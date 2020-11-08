@@ -276,6 +276,7 @@
     <EntitySetMapping Name="Registro">
       <EntityTypeMapping TypeName="ZonasFModel.Registro">
         <MappingFragment StoreEntitySet="Registro">
+          <ScalarProperty Name="FechaInsercion" ColumnName="FechaInsercion" />
           <ScalarProperty Name="UsuarioActualiza" ColumnName="UsuarioActualiza" />
           <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
           <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />

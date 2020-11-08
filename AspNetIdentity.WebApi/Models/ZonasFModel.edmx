@@ -205,7 +205,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdExpediente" Type="bigint" Nullable="false" />
           <Property Name="INSPECCION_OCULAR_INSPECCION_OCULAR_53" Type="bit" />
           <Property Name="INSPECCION_OCULAR_FECHA_54" Type="datetime" />
@@ -579,9 +579,12 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.CaracterizacionJuridicaResumen' n
           <Property Name="Orden" Type="int" />
           <Property Name="NumeroExpediente" Type="varchar" MaxLength="100" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ZonasF.dbo.CaracterizacionSolicitante' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="CaracterizacionSolicitante">
           <Key>
             <PropertyRef Name="Id" />
+            
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdExpediente" Type="bigint" />
@@ -595,12 +598,12 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.CaracterizacionJuridicaResumen' n
           <Property Name="NombreConyuge" Type="varchar(max)" />
           <Property Name="TipoDocumentoConyuge" Type="int" />
           <Property Name="NumeroIdentificacionConyuge" Type="bigint" />
-          <Property Name="FechaExpedicionSolicitante" Type="date" />
-          <Property Name="FechaExpedicionConyuge" Type="date" />
+          <Property Name="FechaExpedicionSolicitante" Type="datetime" />
+          <Property Name="FechaExpedicionConyuge" Type="datetime" />
           <Property Name="FModificacionExp" Type="datetime" />
           <Property Name="VFechaSolicitante" Type="datetime" />
           <Property Name="VArchivoSolicitante" Type="varchar(max)" />
-          <Property Name="VFechaConyuge" Type="date" />
+          <Property Name="VFechaConyuge" Type="datetime" />
           <Property Name="VArchivoConyuge" Type="varchar(max)" />
           <Property Name="VVivoSolicitante" Type="int" />
           <Property Name="VVivoConyuge" Type="int" />
@@ -780,7 +783,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.CaracterizacionJuridicaResumen' n
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdExpediente" Type="int" />
+          <Property Name="IdExpediente" Type="bigint" />
           <Property Name="Validacion1" Type="int" />
           <Property Name="Validacion2" Type="int" />
           <Property Name="Validacion3" Type="int" />
@@ -791,12 +794,12 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.CaracterizacionJuridicaResumen' n
           <Property Name="Validacion8" Type="int" />
           <Property Name="Validacion9" Type="int" />
           <Property Name="Validacion10" Type="int" />
-          <Property Name="Validacion11" Type="int" />
           <Property Name="Gestion" Type="int" />
           <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" />
           <Property Name="Estado" Type="bit" />
           <Property Name="FechaModificacion" Type="datetime" />
           <Property Name="FechaCargue" Type="datetime" />
+          <Property Name="Validacion11" Type="int" />
         </EntityType>
         <EntityType Name="PlGestionTable">
           <Key>
@@ -860,6 +863,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.CaracterizacionJuridicaResumen' n
           <Property Name="EstadoRegistro" Type="bit" />
           <Property Name="UsuarioModifica" Type="nvarchar" MaxLength="128" />
           <Property Name="UsuarioActualiza" Type="nvarchar" MaxLength="128" />
+          <Property Name="FechaInsercion" Type="datetime" />
         </EntityType>
         <EntityType Name="ResumenTipificacion">
           <Key>
@@ -1021,7 +1025,6 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <EntitySet Name="BaldiosPersonaNatural" EntityType="Self.BaldiosPersonaNatural" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CaracterizacionJuridica" EntityType="Self.CaracterizacionJuridica" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CaracterizacionJuridicaCatalogos" EntityType="Self.CaracterizacionJuridicaCatalogos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CaracterizacionSolicitante" EntityType="Self.CaracterizacionSolicitante" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CoceptosExpediente" EntityType="Self.CoceptosExpediente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Concepto" EntityType="Self.Concepto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ConceptoAsociado" EntityType="Self.ConceptoAsociado" Schema="dbo" store:Type="Tables" />
@@ -1308,6 +1311,53 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
     [CaracterizacionJuridicaResumen].[Orden] AS [Orden], 
     [CaracterizacionJuridicaResumen].[NumeroExpediente] AS [NumeroExpediente]
     FROM [dbo].[CaracterizacionJuridicaResumen] AS [CaracterizacionJuridicaResumen]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CaracterizacionSolicitante" EntityType="Self.CaracterizacionSolicitante" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CaracterizacionSolicitante].[Id] AS [Id], 
+    [CaracterizacionSolicitante].[IdExpediente] AS [IdExpediente], 
+    [CaracterizacionSolicitante].[DocVisibleSol] AS [DocVisibleSol], 
+    [CaracterizacionSolicitante].[CedulaExpSol] AS [CedulaExpSol], 
+    [CaracterizacionSolicitante].[NombreSolicitante] AS [NombreSolicitante], 
+    [CaracterizacionSolicitante].[TipoDocumento] AS [TipoDocumento], 
+    [CaracterizacionSolicitante].[NumeroIdentificacion] AS [NumeroIdentificacion], 
+    [CaracterizacionSolicitante].[DocVisibleCon] AS [DocVisibleCon], 
+    [CaracterizacionSolicitante].[CedulaExpCon] AS [CedulaExpCon], 
+    [CaracterizacionSolicitante].[NombreConyuge] AS [NombreConyuge], 
+    [CaracterizacionSolicitante].[TipoDocumentoConyuge] AS [TipoDocumentoConyuge], 
+    [CaracterizacionSolicitante].[NumeroIdentificacionConyuge] AS [NumeroIdentificacionConyuge], 
+    [CaracterizacionSolicitante].[FechaExpedicionSolicitante] AS [FechaExpedicionSolicitante], 
+    [CaracterizacionSolicitante].[FechaExpedicionConyuge] AS [FechaExpedicionConyuge], 
+    [CaracterizacionSolicitante].[FModificacionExp] AS [FModificacionExp], 
+    [CaracterizacionSolicitante].[VFechaSolicitante] AS [VFechaSolicitante], 
+    [CaracterizacionSolicitante].[VArchivoSolicitante] AS [VArchivoSolicitante], 
+    [CaracterizacionSolicitante].[VFechaConyuge] AS [VFechaConyuge], 
+    [CaracterizacionSolicitante].[VArchivoConyuge] AS [VArchivoConyuge], 
+    [CaracterizacionSolicitante].[VVivoSolicitante] AS [VVivoSolicitante], 
+    [CaracterizacionSolicitante].[VVivoConyuge] AS [VVivoConyuge], 
+    [CaracterizacionSolicitante].[PFechaSolicitante] AS [PFechaSolicitante], 
+    [CaracterizacionSolicitante].[PArchivoSolicitante] AS [PArchivoSolicitante], 
+    [CaracterizacionSolicitante].[PInhabilidadSolicitante] AS [PInhabilidadSolicitante], 
+    [CaracterizacionSolicitante].[PFechaConyuge] AS [PFechaConyuge], 
+    [CaracterizacionSolicitante].[PArchivoConyuge] AS [PArchivoConyuge], 
+    [CaracterizacionSolicitante].[PInhabilidadConyuge] AS [PInhabilidadConyuge], 
+    [CaracterizacionSolicitante].[CFechaSolicitante] AS [CFechaSolicitante], 
+    [CaracterizacionSolicitante].[CArchivoSolicitante] AS [CArchivoSolicitante], 
+    [CaracterizacionSolicitante].[CInhabilidadSolicitante] AS [CInhabilidadSolicitante], 
+    [CaracterizacionSolicitante].[CFechaConyuge] AS [CFechaConyuge], 
+    [CaracterizacionSolicitante].[CArchivoConyuge] AS [CArchivoConyuge], 
+    [CaracterizacionSolicitante].[CInhabilidadConyuge] AS [CInhabilidadConyuge], 
+    [CaracterizacionSolicitante].[AFechaSolicitante] AS [AFechaSolicitante], 
+    [CaracterizacionSolicitante].[AArchivoSolicitante] AS [AArchivoSolicitante], 
+    [CaracterizacionSolicitante].[AInhabilidadSolicitante] AS [AInhabilidadSolicitante], 
+    [CaracterizacionSolicitante].[AFechaConyuge] AS [AFechaConyuge], 
+    [CaracterizacionSolicitante].[AArchivoConyuge] AS [AArchivoConyuge], 
+    [CaracterizacionSolicitante].[AInhabilidadConyuge] AS [AInhabilidadConyuge], 
+    [CaracterizacionSolicitante].[Gestion] AS [Gestion], 
+    [CaracterizacionSolicitante].[IdAspNetUser] AS [IdAspNetUser], 
+    [CaracterizacionSolicitante].[Estado] AS [Estado], 
+    [CaracterizacionSolicitante].[FechaModificacion] AS [FechaModificacion]
+    FROM [dbo].[CaracterizacionSolicitante] AS [CaracterizacionSolicitante]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ResumenTipificacionAll" EntityType="Self.ResumenTipificacionAll" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -1738,6 +1788,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Property Name="EstadoRegistro" Type="Boolean" />
           <Property Name="UsuarioModifica" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="UsuarioActualiza" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="FechaInsercion" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="ResumenTipificacion">
           <Key>
@@ -2104,12 +2155,12 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Property Name="NombreConyuge" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="TipoDocumentoConyuge" Type="Int32" />
           <Property Name="NumeroIdentificacionConyuge" Type="Int64" />
-          <Property Name="FechaExpedicionSolicitante" Type="DateTime" Precision="0" />
-          <Property Name="FechaExpedicionConyuge" Type="DateTime" Precision="0" />
+          <Property Name="FechaExpedicionSolicitante" Type="DateTime" Precision="3" />
+          <Property Name="FechaExpedicionConyuge" Type="DateTime" Precision="3" />
           <Property Name="FModificacionExp" Type="DateTime" Precision="3" />
           <Property Name="VFechaSolicitante" Type="DateTime" Precision="3" />
           <Property Name="VArchivoSolicitante" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="VFechaConyuge" Type="DateTime" Precision="0" />
+          <Property Name="VFechaConyuge" Type="DateTime" Precision="3" />
           <Property Name="VArchivoConyuge" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="VVivoSolicitante" Type="Int32" />
           <Property Name="VVivoConyuge" Type="Int32" />
@@ -2843,6 +2894,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <EntitySetMapping Name="Registro">
             <EntityTypeMapping TypeName="ZonasFModel.Registro">
               <MappingFragment StoreEntitySet="Registro">
+                <ScalarProperty Name="FechaInsercion" ColumnName="FechaInsercion" />
                 <ScalarProperty Name="UsuarioActualiza" ColumnName="UsuarioActualiza" />
                 <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
                 <ScalarProperty Name="EstadoRegistro" ColumnName="EstadoRegistro" />

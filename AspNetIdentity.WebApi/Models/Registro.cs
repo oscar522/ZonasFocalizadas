@@ -33,5 +33,6 @@ namespace AspNetIdentity.WebApi.Models
         public Nullable<bool> EstadoRegistro { get; set; }
         public string UsuarioModifica { get; set; }
         public string UsuarioActualiza { get; set; }
+        public Nullable<System.DateTime> FechaInsercion { get; set; }
     }
 }
