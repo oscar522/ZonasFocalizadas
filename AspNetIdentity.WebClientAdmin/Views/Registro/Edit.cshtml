@@ -33,7 +33,6 @@
 
                 if (estadoSelect =='@Model.Estado' ){
                     $(this).attr("selected", true);
-                    debugger;
                 }
              });
 
@@ -101,7 +100,6 @@
                             "<span style='color: #013ADF;'> Tipo Identificacion : </span>" + states.NombreIdTipoIdentificacion + " | " +
                             "<span style='color: #013ADF;'> Identificacion :  </span>" + states.Identificacion +
                             "</p> ";
-                        debugger;
                         $("#Info_Expediente").html(Data);
                         var Expediente = 'Expediente : <a target="_blank" href="http://'+UriPdf+'/Content/Pdfs/'+states.RutaArchivoOriginal+'#navpanes=1&view=FitH&pagemode=thumbs&page=1">@Model.NumeroExpediente</a>';
                         $("#LinkExpdPdf").html(Expediente);
@@ -219,7 +217,6 @@
                 // cuando el estado = con registro se activa todo y solo requerido matricula y fecha de apertura
 
                 var state = 0;
-                debugger;
 
                 if ($("#Estado").val() == "") { state = 1; $('span[data-valmsg-for="Estado"]').text("* Requerido"); }
 
@@ -230,6 +227,8 @@
 
                 if (state != 0) {
                     return false;
+                } else {
+                    $("#car-form :input").attr("disabled", false);
                 }
             });
         });
@@ -255,24 +254,26 @@
                 </p>
             </div>
             <div class="card-body">
-                @using (Html.BeginForm("EditJson", "Registro", FormMethod.Post, htmlAttributes: new { id = "car-form", @name = "car-form" }))
+                @using (Html.BeginForm("Edit", "Registro", FormMethod.Post, new { id = "car-form" }))
                 {
                     @Html.AntiForgeryToken()
 
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     @Html.HiddenFor(model => model.Id)
 
-                    @Html.EditorFor(model => model.IdExpediente, new { htmlAttributes = new { @class = "form-control", @Style = "display:none", @Value = @Model.IdExpediente } })
-                    @Html.EditorFor(model => model.IdAspNetUser, new { htmlAttributes = new { @class = "form-control", @Style = "display:none", @Value = @Model.IdAspNetUser } })
-                    @Html.EditorFor(model => model.UsuarioModifica, new { htmlAttributes = new { @class = "form-control", @Style = "display:none", @Value = @Model.IdAspNetUser } })
-                    @Html.EditorFor(model => model.UsuarioActualiza, new { htmlAttributes = new { @class = "form-control", @Style = "display:none", @Value = @Model.IdAspNetUser } })
-                    @Html.EditorFor(model => model.NumeroExpediente, new { htmlAttributes = new { @class = "form-control", @Style = "display:none", @Value = @Model.NumeroExpediente } })
-                    @Html.EditorFor(model => model.NombreIdMunicipio, new { htmlAttributes = new { @class = "form-control", @Style = "display:none", @Value = @Model.NombreIdMunicipio } })
-                    @Html.EditorFor(model => model.NombreIdDepto, new { htmlAttributes = new { @class = "form-control", @Style = "display:none", @Value = @Model.NombreIdDepto } })
-                    @Html.EditorFor(model => model.NombreUsuario, new { htmlAttributes = new { @class = "form-control", @Style = "display:none", @Value = "N_A" } })
-                    @Html.EditorFor(model => model.RolUsuario, new { htmlAttributes = new { @class = "form-control", @Style = "display:none",@Value = "N_A" } })
-                    @Html.EditorFor(model => model.EstadoRegistro, new { htmlAttributes = new { @class = "form-control", @Value = "true", @Style = "display:none" } })
-                    @Html.EditorFor(model => model.FVerificacion, new { htmlAttributes = new { @class = "form-control", @Style = "display:none" } })
+                    @Html.EditorFor(model => model.IdExpediente, new { htmlAttributes = new { @class = "form-control", Style = "display:none", value = "@Model.IdExpediente" } })
+
+
+                    @Html.EditorFor(model => model.IdAspNetUser, new { htmlAttributes = new { @class = "form-control", Style = "display:none", value = "@Model.IdAspNetUser" } })
+                    @Html.EditorFor(model => model.UsuarioModifica, new { htmlAttributes = new { @class = "form-control", Style = "display:none", value = "@Model.IdAspNetUser" } })
+                    @Html.EditorFor(model => model.UsuarioActualiza, new { htmlAttributes = new { @class = "form-control", Style = "display:none", value = "@Model.IdAspNetUser" } })
+                    @Html.EditorFor(model => model.NumeroExpediente, new { htmlAttributes = new { @class = "form-control", Style = "display:none", value = "@Model.NumeroExpediente" } })
+                    @Html.EditorFor(model => model.NombreIdMunicipio, new { htmlAttributes = new { @class = "form-control", Style = "display:none", value = "@Model.NombreIdMunicipio" } })
+                    @Html.EditorFor(model => model.NombreIdDepto, new { htmlAttributes = new { @class = "form-control", Style = "display:none", value = "@Model.NombreIdDepto" } })
+                    @Html.EditorFor(model => model.NombreUsuario, new { htmlAttributes = new { @class = "form-control", Style = "display:none", value = "N_A" } })
+                    @Html.EditorFor(model => model.RolUsuario, new { htmlAttributes = new { @class = "form-control", Style = "display:none", value = "N_A" } })
+                    @Html.EditorFor(model => model.EstadoRegistro, new { htmlAttributes = new { @class = "form-control", value = "true", Style = "display:none" } })
+                    @Html.EditorFor(model => model.FVerificacion, new { htmlAttributes = new { @class = "form-control",value = "1753-01-01",  Style = "display:none" } })
 
                     <div class="form-horizontal">
                         <div class="row">
@@ -343,8 +344,8 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-10">
-                                        @Html.LabelFor(model => model.Area, htmlAttributes: new { @class = "control-label col-md-12" })
-                                        @Html.EditorFor(model => model.Area, new { htmlAttributes = new { @class = "form-control", disabled = "true" } })
+                                        @Html.LabelFor(model => model.Area, htmlAttributes: new { @class = "control-label col-md-12"})
+                                        @Html.EditorFor(model => model.Area, new { htmlAttributes = new { @class = "form-control", disabled = "true", @value = "0" } })
                                         @Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
                                     </div>
                                 </div>

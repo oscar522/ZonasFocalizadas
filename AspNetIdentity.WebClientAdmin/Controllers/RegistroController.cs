@@ -159,30 +159,10 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> EditJson(RegistroModel ObjData)
+        public async Task<ActionResult> Edit(RegistroModel ObjData)
         {
-            string Id = GetTokenObject().nameid;
             string Controller = "Registro";
             string Method = "Registroupdate";
-
-            if (ObjData.FVerificacion == null) { ObjData.FVerificacion = ""; }
-            if (ObjData.Estado == null) { ObjData.Estado = false; }
-            if (ObjData.Matricula == null) { ObjData.Matricula = ""; }
-            if (ObjData.Fapertura == null) { ObjData.Fapertura = ""; }
-            if (ObjData.TipoDocumento == null) { ObjData.TipoDocumento = ""; }
-            if (ObjData.NumDocumento == null) { ObjData.NumDocumento = 0; }
-            if (ObjData.FDocumento == null) { ObjData.FDocumento = ""; }
-            if (ObjData.IdDepto == null) { ObjData.IdDepto = 0; }
-            if (ObjData.IdMunicipio == null) { ObjData.IdMunicipio = 0; }
-            if (ObjData.Area == null) { ObjData.Area = 0; }
-            if (ObjData.CcSolicitante == null) { ObjData.CcSolicitante = 0; }
-            if (ObjData.CcConyugue == null) { ObjData.CcConyugue = 0; }
-            if (ObjData.Conyuge == null) { ObjData.Conyuge = ""; }
-            if (ObjData.EstadoRegistro == null) { ObjData.EstadoRegistro = false; }
-            if (ObjData.UsuarioModifica == null) { ObjData.UsuarioModifica = ""; }
-            if (ObjData.UsuarioActualiza == null) { ObjData.UsuarioActualiza = ""; }
-            if (ObjData.NombreIdDepto == null) { ObjData.NombreIdDepto = ""; }
-            if (ObjData.NombreIdMunicipio == null) { ObjData.NombreIdMunicipio = ""; }
 
             if (ModelState.IsValid)
             {
@@ -193,37 +173,30 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
                     keyValuePairs = ObjDictionary.ToDictionary(ObjData);
                     string Result = await employeeProvider.Put(keyValuePairs, Controller, Method);
                     var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(Result);
-                    RegistroModel processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<RegistroModel>(jsonResult.ToString());
-                    if (processModel.Id.Equals(""))
+                    CaracterizacionJuridicaModel processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<CaracterizacionJuridicaModel>(jsonResult.ToString());
+                    if (processModel.Id == 0)
                     {
                         ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
-                        return View(ModelState);
+                        return View(ObjData);
                     }
                     else
                     {
                         return RedirectToAction("Index");
-
                     }
                 }
-                catch
+                catch(Exception e )
                 {
-                    ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
-                    return Json(ModelState);
+                    ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator. "+
+                        e.Message + " | "+ e.StackTrace + " | " + e.Source + " | " + e.InnerException + " | " + e.TargetSite + " | " + e.HelpLink + " | " + e.Data + " | " + e.HResult);
+                    return View(ObjData);
                 }
             }
             else
             {
-                ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
-                var errorList = (from item in ModelState
-                                 from error in item.Value.Errors
-                                 select new
-                                 {
-                                     Msg = error.ErrorMessage,
-                                     Cam = item.Key
-                                 }
-                    ).ToList();
-                return Json(errorList);
+                ModelState.AddModelError(string.Empty, "Todos los campos requeridos ");
+                return View(ObjData);
             }
+
         }
 
         public async Task<ActionResult> Details(int IdTable)

@@ -279,7 +279,7 @@ namespace AspNetIdentity.WebApi.Logic
                         ResCtx.IdDepto = a.IdDepto;
                         ResCtx.IdMunicipio = a.IdMunicipio;
                         ResCtx.Area = a.Area;
-                        ResCtx.CcSolicitante = a.CcSolicitante.Value;
+                        ResCtx.CcSolicitante = a.CcSolicitante;
                         ResCtx.CcConyugue = a.CcConyugue;
                         ResCtx.Conyuge = a.Conyuge;
                         ResCtx.EstadoRegistro = a.EstadoRegistro;

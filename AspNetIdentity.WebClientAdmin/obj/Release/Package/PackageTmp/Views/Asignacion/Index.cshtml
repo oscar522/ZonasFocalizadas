@@ -1,4 +1,5 @@
-﻿
+﻿@model AspNetIdentity.Models.CrearBaldiosExcelMvcModel
+
 
 @{ ViewBag.Title = "Index"; }
 @section Scripts
@@ -8,7 +9,49 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-              var oTable = $('#table_idd').dataTable({
+
+            /// ERRORES DE EXCEL CARGADO
+            var Errores = '@Model.Errores';
+            var Status = '@Model.Status';
+            $("#Err").html(Errores.replace(/&lt;br&gt;/g, '<br/>'));
+            debugger;
+            $("#Status").html( Status );
+            // ENVIAR ASIGNACION
+            $("#Cargar").click(function (event) {
+                var idvalid = validar();
+
+                var tipo = $('input:radio[name=gender]:checked').val();
+
+                if (tipo == undefined) {
+                    alert("Seleccione un tipo de caracaterizacion");
+                    idvalid = true;
+                }
+                var file = $("#Soporte").val();
+
+                if ($("#Soporte").val() == "") {
+                    alert("Seleccione un archivo ");
+                    idvalid = true;
+                } else {
+                    var extension = file.substr((file.lastIndexOf('.') + 1));
+                    if (extension != "xlsx") {
+                        idvalid = true;
+                        alert("Tipo de Archivo no permitida ");
+                    }
+                }
+
+                if (idvalid != true) {
+                    Status
+                    var Users = $("#UserAsociado").val();
+                    
+                    $("#Status").val(Users);
+                    $("#Errores").val(tipo);
+                    $("#CrearForm").submit();
+                }
+                event.preventDefault();
+                return false;
+            });
+            /// TABLA DE CARGAR
+            var oTable = $('#table_idd').dataTable({
 
                 "order": [[1, "desc"]],
                 "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
@@ -20,7 +63,7 @@
                     { "extend": 'excel', "text": 'Exc', "className": ' btn-outline-success ' },
                     { "extend": 'print', "text": 'Imp', "className": ' btn-outline-success ' }
                 ],
-               
+
             });
             ///////////////////////////////////////
             ////// Catalogo de roles
@@ -237,7 +280,7 @@
                                 } else {
                                     Gestion = "Sin Gestion"
                                 }
-                                
+
                                 oTable.fnAddData([
                                     obj.id,
                                     obj.NumeroExpediente,
@@ -258,9 +301,9 @@
                 }
             }
 
-            // click sobre el tipo de tabla 
+            // click sobre el tipo de tabla
 
-            
+
             $("#Solicitante").click(function () {
                 GetSol();
             });
@@ -277,7 +320,7 @@
                 GetGen();
             });
 
-            /// Delete item tables 
+            /// Delete item tables
 
             var Datatabla = $('#table_idd').DataTable();
 
@@ -350,9 +393,11 @@
                 if ($("#UserAsociado").val() == '') {
                     alert("Seleccione el Usuario");
                     valid = true;
-                } 
+                }
                 return valid;
             }
+
+
         });
 
     </script>
@@ -398,21 +443,21 @@
                 <div class="col-sm-12">
                     <div class="row">
                         <div class="col-sm-3">
-                            <input type="radio" id="Solicitante" name="gender" value="male">
+                            <input type="radio" id="Solicitante" name="gender" value="1">
                             <label for="other">Solicitante</label>
 
                         </div>
                         <div class="col-sm-3">
-                            <input type="radio" id="Juridica" name="gender" value="male">
+                            <input type="radio" id="Juridica" name="gender" value="2">
                             <label for="other">Juridica</label>
 
                         </div>
                         <div class="col-sm-3">
-                            <input type="radio" id="Registro" name="gender" value="male">
+                            <input type="radio" id="Registro" name="gender" value="3">
                             <label for="other">Registro</label>
                         </div>
                         <div class="col-sm-3">
-                            <input type="radio" id="Generacion" name="gender" value="male">
+                            <input type="radio" id="Generacion" name="gender" value="4">
                             <label for="other">Validacion de Arichos</label>
                         </div>
                     </div>
@@ -420,6 +465,33 @@
             </div>
         </div>
     </div>
+    
+        <div class="col-md-12 p-2">
+            <div class="card">
+                @using (Html.BeginForm("CrearExcel", "Asignacion", FormMethod.Post, new { enctype = "multipart/form-data", id = "CrearForm" }))
+                {
+                    <div class="card-header">  Cargar Expedientes </div>
+                    <div class="card-body">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <input type="hidden" id="Status" name="Status" value="_" />
+                                <input type="hidden" id="Errores" name="Errores" value="_" />
+                                @Html.AntiForgeryToken()
+                                <div class="col-md-6 text-center">
+                                    @Html.TextBoxFor(model => model.Soporte, new { type = "file", @class = "form-control" })
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    <input type="submit" value="Create" id="Cargar" class="btn btn-default" />
+                                </div>
+                                <div class="col-md-12 text-center">
+                                    <div id="Err"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                </div>
+        </div>
 
     <div class="col-md-12 p-2">
         <div class="card">
@@ -427,22 +499,22 @@
             <div class="card-body">
 
                 <div class="col-sm-12">
-                        <table class="table " id="table_idd" width="100%">
-                            <thead>
-                                <tr>
+                    <table class="table " id="table_idd" width="100%">
+                        <thead>
+                            <tr>
 
-                                    <th> </th>
-                                    <th> Numero Expediente </th>
-                                    <th> Departamento </th>
-                                    <th> Municipio </th>
-                                    <th> Gestion </th>
-                                    <th> Estado </th>
-                                    <th></th>
-                                </tr>
-                            <thead>
-                            <tbody>
-                                  </tbody>
-                        </table>
+                                <th> </th>
+                                <th> Numero Expediente </th>
+                                <th> Departamento </th>
+                                <th> Municipio </th>
+                                <th> Gestion </th>
+                                <th> Estado </th>
+                                <th></th>
+                            </tr>
+                        <thead>
+                        <tbody>
+                        </tbody>
+                    </table>
 
                 </div>
             </div>
