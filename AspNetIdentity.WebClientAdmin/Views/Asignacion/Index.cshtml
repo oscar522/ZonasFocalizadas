@@ -397,6 +397,25 @@
                 return valid;
             }
 
+             $.getJSON('@Url.Content("~/Content/ConfigPdfUri.json")', function (data) {
+                var UriLo = data.result[0].Uri;
+                var UriPdf ="";
+                var UriRe = data.result[0].UriRe;
+
+                var pathname = window.location.href;
+
+                if (pathname.indexOf(UriRe) > -1) {
+                    UriPdf = UriRe;
+                } else {
+                    UriPdf = UriLo;
+                }
+                    var Url = 'http://' + UriPdf + '/Content/Pdfs/Muestras/Leerasignar.xlsx';
+                    RutaConcat ='<a target="_blank" href="'+Url+'" style="color: #013ADF;""> Excel de Para Carga <i class="fa fa-eye">  </i></a></Br>';
+
+                    $('#RutasAll').html(RutaConcat);
+                    $('#Uri').val(UriPdf + '/Content/');
+            });
+
 
         });
 
@@ -477,11 +496,15 @@
                                 <input type="hidden" id="Status" name="Status" value="_" />
                                 <input type="hidden" id="Errores" name="Errores" value="_" />
                                 @Html.AntiForgeryToken()
-                                <div class="col-md-6 text-center">
+                                <div class="col-md-4 text-center">
                                     @Html.TextBoxFor(model => model.Soporte, new { type = "file", @class = "form-control" })
                                 </div>
-                                <div class="col-md-6 text-center">
-                                    <input type="submit" value="Create" id="Cargar" class="btn btn-default" />
+                                <div class="col-md-4 text-center">
+                                    <input type="submit" value="Cargar" id="Cargar" class="btn btn-default" />
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <div id="RutasAll"></div>
+                                    <div id="Uri"></div>
                                 </div>
                                 <div class="col-md-12 text-center">
                                     <div id="Err"></div>

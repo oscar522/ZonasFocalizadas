@@ -296,6 +296,8 @@
       <Parameter Name="IdAspNetUser" Mode="In" Type="String" />
     </FunctionImport>
     <EntitySet Name="GeneracionDocumentos" EntityType="ZonasFModel.GeneracionDocumentos" />
+    <EntitySet Name="CaracterizacionCatastralCatalogos" EntityType="ZonasFModel.CaracterizacionCatastralCatalogos" />
+    <EntitySet Name="CaracterizacionCatastral" EntityType="ZonasFModel.CaracterizacionCatastral" />
   </EntityContainer>
   <EntityType Name="ExpedienteDocumentos">
     <Key>
@@ -1207,5 +1209,115 @@
     <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
     <Property Name="FechaCargue" Type="DateTime" Precision="3" />
     <Property Name="Validacion11" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CaracterizacionCatastralCatalogos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="CaracterizacionCatastral">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="EXPEDIENTE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DEPARTAMEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MUNICIPIO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="VeredaExpe" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NombrePred" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Tipo_Ubica" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Restriccio" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TipoRestri" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Observacio" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PresuntaPr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Observac_1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NumeroPlan" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FechaPlano" Type="DateTime" Precision="3" />
+    <Property Name="DATUMplano" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Correponde" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NombreTopo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CumpleAcue" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="HojaPDFPla" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AreaTotalT" Type="Double" />
+    <Property Name="AreaRestri" Type="Double" />
+    <Property Name="AreaUtilTe" Type="Double" />
+    <Property Name="Restricc_1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CualResPla" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ExisteRTDL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Requerimie" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Requerim_1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Requerim_2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Requerim_3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Requerim_4" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Requerim_5" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Requerim_6" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FechaEdici" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioEdi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ExistePlan" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FISO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Inspeccion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="nPlanoIO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Colindante" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ResConcept" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ConceptoAm" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Recomienda" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TieneRTP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FechaRTP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PlanoAprob" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RTDL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AreaDescon" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ExisteInco" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FuenteRTDL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCAR" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CARConsult" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TieneRespu" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RespuestaC" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FechaURT" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DireccionC" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TieneRes_1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RespuestaU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FechaINVIA" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TieneRes_2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RespuestaI" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FechaANH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TieneRes_3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RespuestaA" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FechaANM" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TieneRes_4" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Respuest_1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Requerim_7" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FechaANI" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TieneRes_5" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Respuest_2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FechaAE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TieneRes_6" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Respuest_3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FechaZRC" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TieneRes_7" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RespuestaZ" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Esta_Georr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CualIncons" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CumpleGeom" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ObserNoCum" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CoorDigVsC" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ExacPosici" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RazonPlano" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TraslapeEx" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TranslapeC" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Fuente_Dat" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Desplazado" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Causa_Desp" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Causa_CDgV" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FechaInsercion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="Gestion" Type="Int32" />
+    <Property Name="IdAspNetUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IdAspNetUserModifica" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdExpediente" Type="Int64" />
+    <Property Name="Estado" Type="Int32" />
   </EntityType>
 </Schema>

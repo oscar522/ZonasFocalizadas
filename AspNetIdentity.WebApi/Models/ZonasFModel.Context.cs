@@ -69,6 +69,8 @@ namespace AspNetIdentity.WebApi.Models
         public virtual DbSet<PlGestionTable> PlGestionTable { get; set; }
         public virtual DbSet<CaracterizacionJuridicaResumen> CaracterizacionJuridicaResumen { get; set; }
         public virtual DbSet<GeneracionDocumentos> GeneracionDocumentos { get; set; }
+        public virtual DbSet<CaracterizacionCatastralCatalogos> CaracterizacionCatastralCatalogos { get; set; }
+        public virtual DbSet<CaracterizacionCatastral> CaracterizacionCatastral { get; set; }
     
         public virtual int AspNetUsers_Insertar(string firstName, string lastName, string email, string passwordHash, string id)
         {

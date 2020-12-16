@@ -196,11 +196,121 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="FiltroJairo" Type="int" />
     <Property Name="IdAsignacion" Type="int" />
   </EntityType>
+  <EntityType Name="CaracterizacionCatastral">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="EXPEDIENTE" Type="nvarchar" MaxLength="255" />
+    <Property Name="DEPARTAMEN" Type="nvarchar" MaxLength="255" />
+    <Property Name="MUNICIPIO" Type="nvarchar" MaxLength="255" />
+    <Property Name="VeredaExpe" Type="nvarchar" MaxLength="255" />
+    <Property Name="NombrePred" Type="nvarchar" MaxLength="255" />
+    <Property Name="Tipo_Ubica" Type="nvarchar" MaxLength="255" />
+    <Property Name="Restriccio" Type="nvarchar" MaxLength="255" />
+    <Property Name="TipoRestri" Type="nvarchar" MaxLength="255" />
+    <Property Name="Observacio" Type="nvarchar" MaxLength="255" />
+    <Property Name="PresuntaPr" Type="nvarchar" MaxLength="255" />
+    <Property Name="Observac_1" Type="nvarchar" MaxLength="255" />
+    <Property Name="NumeroPlan" Type="nvarchar" MaxLength="255" />
+    <Property Name="FechaPlano" Type="datetime" />
+    <Property Name="DATUMplano" Type="nvarchar" MaxLength="255" />
+    <Property Name="Correponde" Type="nvarchar" MaxLength="255" />
+    <Property Name="NombreTopo" Type="nvarchar" MaxLength="255" />
+    <Property Name="CumpleAcue" Type="nvarchar" MaxLength="255" />
+    <Property Name="HojaPDFPla" Type="nvarchar" MaxLength="255" />
+    <Property Name="AreaTotalT" Type="float" />
+    <Property Name="AreaRestri" Type="float" />
+    <Property Name="AreaUtilTe" Type="float" />
+    <Property Name="Restricc_1" Type="nvarchar" MaxLength="255" />
+    <Property Name="CualResPla" Type="nvarchar" MaxLength="255" />
+    <Property Name="ExisteRTDL" Type="nvarchar" MaxLength="255" />
+    <Property Name="Requerimie" Type="nvarchar" MaxLength="255" />
+    <Property Name="Requerim_1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Requerim_2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Requerim_3" Type="nvarchar" MaxLength="255" />
+    <Property Name="Requerim_4" Type="nvarchar" MaxLength="255" />
+    <Property Name="Requerim_5" Type="nvarchar" MaxLength="255" />
+    <Property Name="Requerim_6" Type="nvarchar" MaxLength="255" />
+    <Property Name="FechaEdici" Type="datetime" />
+    <Property Name="UsuarioEdi" Type="nvarchar" MaxLength="255" />
+    <Property Name="ExistePlan" Type="nvarchar" MaxLength="255" />
+    <Property Name="FISO" Type="nvarchar" MaxLength="255" />
+    <Property Name="Inspeccion" Type="nvarchar" MaxLength="255" />
+    <Property Name="nPlanoIO" Type="nvarchar" MaxLength="255" />
+    <Property Name="Colindante" Type="nvarchar" MaxLength="255" />
+    <Property Name="ResConcept" Type="nvarchar" MaxLength="255" />
+    <Property Name="ConceptoAm" Type="nvarchar" MaxLength="255" />
+    <Property Name="Recomienda" Type="nvarchar" MaxLength="255" />
+    <Property Name="TieneRTP" Type="nvarchar" MaxLength="255" />
+    <Property Name="FechaRTP" Type="nvarchar" MaxLength="255" />
+    <Property Name="PlanoAprob" Type="nvarchar" MaxLength="255" />
+    <Property Name="RTDL" Type="nvarchar" MaxLength="255" />
+    <Property Name="AreaDescon" Type="nvarchar" MaxLength="255" />
+    <Property Name="ExisteInco" Type="nvarchar" MaxLength="255" />
+    <Property Name="FuenteRTDL" Type="nvarchar" MaxLength="255" />
+    <Property Name="FechaCAR" Type="nvarchar" MaxLength="255" />
+    <Property Name="CARConsult" Type="nvarchar" MaxLength="255" />
+    <Property Name="TieneRespu" Type="nvarchar" MaxLength="255" />
+    <Property Name="RespuestaC" Type="nvarchar" MaxLength="255" />
+    <Property Name="FechaURT" Type="nvarchar" MaxLength="255" />
+    <Property Name="DireccionC" Type="nvarchar" MaxLength="255" />
+    <Property Name="TieneRes_1" Type="nvarchar" MaxLength="255" />
+    <Property Name="RespuestaU" Type="nvarchar" MaxLength="255" />
+    <Property Name="FechaINVIA" Type="nvarchar" MaxLength="255" />
+    <Property Name="TieneRes_2" Type="nvarchar" MaxLength="255" />
+    <Property Name="RespuestaI" Type="nvarchar" MaxLength="255" />
+    <Property Name="FechaANH" Type="nvarchar" MaxLength="255" />
+    <Property Name="TieneRes_3" Type="nvarchar" MaxLength="255" />
+    <Property Name="RespuestaA" Type="nvarchar" MaxLength="255" />
+    <Property Name="FechaANM" Type="nvarchar" MaxLength="255" />
+    <Property Name="TieneRes_4" Type="nvarchar" MaxLength="255" />
+    <Property Name="Respuest_1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Requerim_7" Type="nvarchar" MaxLength="255" />
+    <Property Name="FechaANI" Type="nvarchar" MaxLength="255" />
+    <Property Name="TieneRes_5" Type="nvarchar" MaxLength="255" />
+    <Property Name="Respuest_2" Type="nvarchar" MaxLength="255" />
+    <Property Name="FechaAE" Type="nvarchar" MaxLength="255" />
+    <Property Name="TieneRes_6" Type="nvarchar" MaxLength="255" />
+    <Property Name="Respuest_3" Type="nvarchar" MaxLength="255" />
+    <Property Name="FechaZRC" Type="nvarchar" MaxLength="255" />
+    <Property Name="TieneRes_7" Type="nvarchar" MaxLength="255" />
+    <Property Name="RespuestaZ" Type="nvarchar" MaxLength="255" />
+    <Property Name="Esta_Georr" Type="nvarchar" MaxLength="255" />
+    <Property Name="CualIncons" Type="nvarchar" MaxLength="255" />
+    <Property Name="CumpleGeom" Type="nvarchar" MaxLength="255" />
+    <Property Name="ObserNoCum" Type="nvarchar" MaxLength="255" />
+    <Property Name="CoorDigVsC" Type="nvarchar" MaxLength="255" />
+    <Property Name="ExacPosici" Type="nvarchar" MaxLength="255" />
+    <Property Name="RazonPlano" Type="nvarchar" MaxLength="255" />
+    <Property Name="TraslapeEx" Type="nvarchar" MaxLength="255" />
+    <Property Name="TranslapeC" Type="nvarchar" MaxLength="255" />
+    <Property Name="Fuente_Dat" Type="nvarchar" MaxLength="255" />
+    <Property Name="Desplazado" Type="nvarchar" MaxLength="255" />
+    <Property Name="Causa_Desp" Type="nvarchar" MaxLength="255" />
+    <Property Name="Causa_CDgV" Type="nvarchar" MaxLength="255" />
+    <Property Name="FechaInsercion" Type="datetime" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" />
+    <Property Name="Gestion" Type="int" />
+    <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" />
+    <Property Name="IdAspNetUserModifica" Type="nvarchar" MaxLength="128" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdExpediente" Type="bigint" />
+    <Property Name="Estado" Type="int" />
+  </EntityType>
+  <EntityType Name="CaracterizacionCatastralCatalogos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar(max)" />
+    <Property Name="Tipo" Type="varchar(max)" />
+    <Property Name="Estado" Type="bit" />
+  </EntityType>
   <EntityType Name="CaracterizacionJuridica">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="IdExpediente" Type="bigint" Nullable="false" />
     <Property Name="INSPECCION_OCULAR_INSPECCION_OCULAR_53" Type="bit" />
     <Property Name="INSPECCION_OCULAR_FECHA_54" Type="datetime" />
@@ -777,7 +887,7 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.CaracterizacionSolicitante' no ti
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdExpediente" Type="bigint" />
+    <Property Name="IdExpediente" Type="int" />
     <Property Name="Validacion1" Type="int" />
     <Property Name="Validacion2" Type="int" />
     <Property Name="Validacion3" Type="int" />
@@ -1017,6 +1127,8 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
     <EntitySet Name="ActDiaProceso" EntityType="Self.ActDiaProceso" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ActividadesDiarias" EntityType="Self.ActividadesDiarias" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BaldiosPersonaNatural" EntityType="Self.BaldiosPersonaNatural" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CaracterizacionCatastral" EntityType="Self.CaracterizacionCatastral" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CaracterizacionCatastralCatalogos" EntityType="Self.CaracterizacionCatastralCatalogos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CaracterizacionJuridica" EntityType="Self.CaracterizacionJuridica" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CaracterizacionJuridicaCatalogos" EntityType="Self.CaracterizacionJuridicaCatalogos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CoceptosExpediente" EntityType="Self.CoceptosExpediente" Schema="dbo" store:Type="Tables" />

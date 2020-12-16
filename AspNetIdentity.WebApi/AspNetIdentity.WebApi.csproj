@@ -249,6 +249,7 @@
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\AccountTableController.cs" />
     <Compile Include="Controllers\AsignacionController.cs" />
+    <Compile Include="Controllers\CaracterizacionCatastralController.cs" />
     <Compile Include="Controllers\GeneracionDocumentosController.cs" />
     <Compile Include="Controllers\ConceptosGestionController.cs" />
     <Compile Include="Controllers\CaracterizacionJuridicaController.cs" />
@@ -283,6 +284,7 @@
     <Compile Include="Infrastructure\RolesFromClaims.cs" />
     <Compile Include="Logic\AccountTableLogic.cs" />
     <Compile Include="Logic\AsignacionLogic.cs" />
+    <Compile Include="Logic\CaracterizacionCatastalLogic.cs" />
     <Compile Include="Logic\GeneracionDocumentosLogic.cs" />
     <Compile Include="Logic\ConceptoGestionLogic.cs" />
     <Compile Include="Logic\CaracterizacionJuridicaLogic.cs" />
@@ -343,6 +345,12 @@
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\BaldiosPersonaNatural.cs">
+      <DependentUpon>ZonasFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CaracterizacionCatastral.cs">
+      <DependentUpon>ZonasFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CaracterizacionCatastralCatalogos.cs">
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CaracterizacionJuridica.cs">

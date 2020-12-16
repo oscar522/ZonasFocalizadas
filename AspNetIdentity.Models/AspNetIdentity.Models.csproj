@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountTableModel.cs" />
+    <Compile Include="CaracterizacionCatastralModel.cs" />
+    <Compile Include="CaracterizacionCatastralCatalogosModel.cs" />
     <Compile Include="CaracterizacionJuridicaResumenModel.cs" />
     <Compile Include="PaginadorCustomersModel.cs" />
     <Compile Include="GeneracionDocumentosModel.cs" />

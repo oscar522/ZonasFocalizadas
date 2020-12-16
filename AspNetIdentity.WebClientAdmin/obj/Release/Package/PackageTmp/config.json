@@ -104,7 +104,15 @@
               "controllerName": "CaracterizacionSolicitante",
               "actionName": "Index",
               "linkText": "Solicitante",
-              "iconText": "fa-address-book| mr-3",
+              "iconText": "fa fa-address-book mr-3",
+              "sub": null
+            },
+            {
+              "order": 1,
+              "controllerName": "CaracterizacionCatastral",
+              "actionName": "Index",
+              "linkText": "Catastral",
+              "iconText": "fa fa-map-marker mr-3",
               "sub": null
             }
           ]
@@ -239,7 +247,15 @@
               "controllerName": "CaracterizacionSolicitante",
               "actionName": "Index",
               "linkText": "Solicitante",
-              "iconText": "fa-address-book| mr-3",
+              "iconText": "fa fa-address-book mr-3",
+              "sub": null
+            },
+            {
+              "order": 1,
+              "controllerName": "CaracterizacionCatastral",
+              "actionName": "Index",
+              "linkText": "Catastral",
+              "iconText": "fa fa-map-marker mr-3",
               "sub": null
             }
           ]
@@ -374,7 +390,15 @@
               "controllerName": "CaracterizacionSolicitante",
               "actionName": "Index",
               "linkText": "Solicitante",
-              "iconText": "fa-address-book| mr-3",
+              "iconText": "fa fa-address-book mr-3",
+              "sub": null
+            },
+            {
+              "order": 1,
+              "controllerName": "CaracterizacionCatastral",
+              "actionName": "Index",
+              "linkText": "Catastral",
+              "iconText": "fa fa-map-marker mr-3",
               "sub": null
             }
           ]
@@ -509,7 +533,15 @@
               "controllerName": "CaracterizacionSolicitante",
               "actionName": "Index",
               "linkText": "Solicitante",
-              "iconText": "fa-address-book| mr-3",
+              "iconText": "fa fa-address-book mr-3",
+              "sub": null
+            },
+            {
+              "order": 1,
+              "controllerName": "CaracterizacionCatastral",
+              "actionName": "Index",
+              "linkText": "Catastral",
+              "iconText": "fa fa-map-marker mr-3",
               "sub": null
             }
           ]
@@ -644,7 +676,15 @@
               "controllerName": "CaracterizacionSolicitante",
               "actionName": "Index",
               "linkText": "Solicitante",
-              "iconText": "fa-address-book| mr-3",
+              "iconText": "fa fa-address-book mr-3",
+              "sub": null
+            },
+            {
+              "order": 1,
+              "controllerName": "CaracterizacionCatastral",
+              "actionName": "Index",
+              "linkText": "Catastral",
+              "iconText": "fa fa-map-marker mr-3",
               "sub": null
             }
           ]
@@ -792,7 +832,15 @@
               "controllerName": "CaracterizacionSolicitante",
               "actionName": "Index",
               "linkText": "Solicitante",
-              "iconText": "fa-address-book| mr-3",
+              "iconText": "fa fa-address-book mr-3",
+              "sub": null
+            },
+            {
+              "order": 1,
+              "controllerName": "CaracterizacionCatastral",
+              "actionName": "Index",
+              "linkText": "\"Catastral",
+              "iconText": "fa fa-map-marker mr-3",
               "sub": null
             }
           ]
@@ -927,7 +975,15 @@
               "controllerName": "CaracterizacionSolicitante",
               "actionName": "Index",
               "linkText": "Solicitante",
-              "iconText": "fa-address-book| mr-3",
+              "iconText": "fa fa-address-book mr-3",
+              "sub": null
+            },
+            {
+              "order": 1,
+              "controllerName": "CaracterizacionCatastral",
+              "actionName": "Index",
+              "linkText": "Catastral",
+              "iconText": "fa fa-map-marker mr-3",
               "sub": null
             }
           ]
@@ -1062,7 +1118,15 @@
               "controllerName": "CaracterizacionSolicitante",
               "actionName": "Index",
               "linkText": "Solicitante",
-              "iconText": "fa-address-book| mr-3",
+              "iconText": "fa fa-address-book mr-3",
+              "sub": null
+            },
+            {
+              "order": 1,
+              "controllerName": "CaracterizacionCatastral",
+              "actionName": "Index",
+              "linkText": "Catastral",
+              "iconText": "fa fa-map-marker mr-3",
               "sub": null
             }
           ]

@@ -1,0 +1,1310 @@
+﻿@model AspNetIdentity.Models.CaracterizacionCatastralModel
+@section Scripts
+    {
+    @Scripts.Render("~/Scripts/ModalControl.js")
+    <script>
+        $(document).ready(function () { //
+            var ResDate = "";
+
+            $(".checkFecha").change(function () {
+                var Id = $(this).attr("Data");
+                if( $(this).prop('checked') ) {
+                    $('#'+Id).prop("disabled", true);
+                    $('#'+Id).val("1753-01-01");
+                }else{
+                    $('#'+Id).prop("disabled", false);
+                }
+            });
+            // LOCA 
+            //function DateConvert(date, tipo = "") {
+            //    if (date) {
+            //        console.log(date + ' - ' + tipo);
+            //        var res = date.split("/");
+            //        var Add1 = "";
+            //        var Add2 = "";
+            //        var Add3 = "";
+
+            //        if (res[0].length == 1) {
+            //            Add1 = "0";
+            //        }
+            //        if (res[1].length == 1) {
+            //            Add2 = "0";
+            //        }
+            //        if (res[2].length == 1) {
+            //            Add3 = "0";
+            //        }
+            //    ResDate = Add3+res[2].replace(" 00:00:00","").replace(" 12:00:00 a. m.","")+"-"+Add2+res[1]+"-"+Add1+res[0];      
+            //    }
+
+              // PRODUCCION 
+             function DateConvert(date, tipo = "") {
+                if (date) {
+                    console.log(date + ' - ' + tipo);
+                    var res = date.split("/");
+                    var Add1 = "";
+                    var Add2 = "";
+                    var Add3 = "";
+
+                    if (res[0].length == 1) {
+                        Add1 = "0";
+
+                    }
+                    if (res[1].length == 1) {
+                        Add2 = "0";
+                    }
+                    if (res[2].length == 1) {
+                        Add3 = "0";
+                    }
+                	ResDate = Add3+res[2].replace(" 00:00:00.000","").replace(" 12:00:00 a. m.","").replace(" 12:00:00 AM","") + 
+                		"-" + Add1+res[0] + 
+                		"-" + Add2+res[1];  
+                	 console.log(res + ' arra');
+                	 console.log(ResDate + ' ResDate');
+    
+                }
+                 //debugger;
+
+                return ResDate;
+            }
+            $('#FechaPlano').val(DateConvert('@Model.FechaPlano'));
+            $('#FechaEdici').val(DateConvert('@Model.FechaEdici'));
+            $('#FechaRTP').val(DateConvert('@Model.FechaRTP'));
+            $('#FechaCAR').val(DateConvert('@Model.FechaCAR'));
+            $('#FechaURT').val(DateConvert('@Model.FechaURT'));
+            $('#FechaINVIA').val(DateConvert('@Model.FechaINVIA'));
+            $('#FechaANH').val(DateConvert('@Model.FechaANH'));
+            $('#FechaANM').val(DateConvert('@Model.FechaANM'));
+            $('#FechaANI').val(DateConvert('@Model.FechaANI'));
+            $('#FechaZRC').val(DateConvert('@Model.FechaZRC'));
+            $('#FechaAE').val(DateConvert('@Model.FechaAE'));
+            
+
+
+            /// catalogos
+            function Catalogos(nombre) {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: nombre   },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+
+
+                            if (nombre == 'Causa_CDgV') {
+                                if (state.Value == "@Model.Causa_CDgV")
+                                    $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                            }
+                            else if (nombre == 'Causa_Desp') {
+                                if (state.Value == "@Model.Causa_Desp")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'CoorDigVsC') {
+                                if (state.Value == "@Model.CoorDigVsC")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'Correponde') {
+                                if (state.Value == "@Model.Correponde")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'CualIncons') {
+                                if (state.Value == "@Model.CualIncons")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'CualResPla') {
+                                if (state.Value == "@Model.CualResPla")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'CumpleAcue') {
+                                if (state.Value == "@Model.CumpleAcue")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'CumpleGeom') {
+                                if (state.Value == "@Model.CumpleGeom")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'DATUMplano') {
+                                if (state.Value == "@Model.DATUMplano")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'Desplazado') {
+                                if (state.Value == "@Model.Desplazado")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'Esta_Georr') {
+                                if (state.Value == "@Model.Esta_Georr")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'ExacPosici') {
+                                if (state.Value == "@Model.ExacPosici")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'ExisteInco') {
+                                if (state.Value == "@Model.ExisteInco")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'ExistePlan') {
+                                if (state.Value == "@Model.ExistePlan")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'ExisteRTDL') {
+                                if (state.Value == "@Model.ExisteRTDL")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'Fuente_Dat') {
+                                if (state.Value == "@Model.Fuente_Dat")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'FuenteRTDL') {
+                                if (state.Value == "@Model.FuenteRTDL")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'PresuntaPr') {
+                                if (state.Value == "@Model.PresuntaPr")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'RazonPlano') {
+                                if (state.Value == "@Model.RazonPlano")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'Requerim_1') {
+                                if (state.Value == "@Model.Requerim_1")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'Requerim_2') {
+                                if (state.Value == "@Model.Requerim_2")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'Requerim_3') {
+                                if (state.Value == "@Model.Requerim_3")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'Requerim_4') {
+                                if (state.Value == "@Model.Requerim_4")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'Requerim_5') {
+                                if (state.Value == "@Model.Requerim_5")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'Requerim_6') {
+                                if (state.Value == "@Model.Requerim_6")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'Requerimie') {
+                                if (state.Value == "@Model.Requerimie")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'Restricc_1') {
+                                if (state.Value == "@Model.Restricc_1")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'Restriccio') {
+                                if (state.Value == "@Model.Restriccio")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'RTDL') {
+                                if (state.Value == "@Model.RTDL")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'Tipo_Ubica') {
+                                if (state.Value == "@Model.Tipo_Ubica")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'TipoRestri') {
+                                if (state.Value == "@Model.TipoRestri")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'TranslapeC') {
+                                if (state.Value == "@Model.TranslapeC")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'TraslapeEx') {
+                                if (state.Value == "@Model.TraslapeEx")
+                                $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else
+                                $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                                                        }
+                            else if (nombre == 'UsuarioEdi') {
+                                  if (state.Value == "@Model.UsuarioEdi")
+                                        $("#" + nombre).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                    $("#" + nombre).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+
+                            }
+
+                            else {
+                                    $("#" + nombre).append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                            }
+
+
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+
+            }
+             Catalogos('Causa_CDgV');
+             Catalogos('Causa_Desp');
+             Catalogos('CoorDigVsC');
+             Catalogos('Correponde');
+             Catalogos('CualIncons');
+             Catalogos('CualResPla');
+             Catalogos('CumpleAcue');
+             Catalogos('CumpleGeom');
+             Catalogos('DATUMplano');
+             Catalogos('Desplazado');
+             Catalogos('Esta_Georr');
+             Catalogos('ExacPosici');
+             Catalogos('ExisteInco');
+             Catalogos('ExistePlan');
+             Catalogos('ExisteRTDL');
+             Catalogos('Fuente_Dat');
+             Catalogos('FuenteRTDL');
+             Catalogos('PresuntaPr');
+             Catalogos('RazonPlano');
+             Catalogos('Requerim_1');
+             Catalogos('Requerim_2');
+             Catalogos('Requerim_3');
+             Catalogos('Requerim_4');
+             Catalogos('Requerim_5');
+             Catalogos('Requerim_6');
+             Catalogos('Requerimie');
+             Catalogos('Restricc_1');
+             Catalogos('Restriccio');
+             Catalogos('RTDL');
+             Catalogos('Tipo_Ubica');
+             Catalogos('TipoRestri');
+             Catalogos('TranslapeC');
+             Catalogos('TraslapeEx');
+             Catalogos('UsuarioEdi');
+
+
+            ///
+            /// VALIDA GESTION
+
+
+
+            $(".field-validation-error").each(function(){
+                var IdClass = $(this).attr("class");
+                if( IdClass.indexOf("field-validation-error") != "-1"  ) {
+                    var Id = $(this).attr("data-valmsg-for");
+                    $('#'+Id).addClass("alert-danger");
+                    $('#'+Id).prop("disabled",false);
+                }
+            });
+        });
+    </script>
+}
+<div class="card mb-4 wow fadeIn">
+
+    <!--Card content-->
+    <div class="card-body d-sm-flex justify-content-between">
+        <h4 class="mb-2 mb-sm-0 pt-1">
+            <span>Caracterizacion Catastral</span>
+        </h4>
+        <h5 class="mb-2 mb-sm-0 pt-1">
+            <span>
+                Numero de Expediente :
+                <a target="_blank" href='@Url.Action("../HomeUsuarios/Details", "Details", new { IdTable = Model.IdExpediente })' style='color: #013ADF;'>
+                    @Model.EXPEDIENTE
+                    <i class='fa fa-eye' aria-hidden='true'></i>
+                </a>
+            </span>
+            <br />
+        </h5>
+        <h5 class="mb-2 mb-sm-0 pt-1">
+            <span>Responsable </span>
+            <br />
+            <span>Usuario : @Model.NombreIdAspNetUser</span>
+            <br />
+            <span>Rol : @Model.rol</span>
+            <br />
+        </h5>""
+    </div>
+
+</div>
+<div class="wow fadeIn">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class=" text-capitalize card">
+                            <div class=" text-capitalize card-header"><h5>1. DATOS BASICOS:</h5>  </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    @Html.LabelFor(model => model.EXPEDIENTE, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.EXPEDIENTE, new { htmlAttributes = new { @class = "form-control " } })
+                                        @Html.ValidationMessageFor(model => model.EXPEDIENTE, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.FISO, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.FISO, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.FISO, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.DEPARTAMEN, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.DEPARTAMEN, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.DEPARTAMEN, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.MUNICIPIO, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.MUNICIPIO, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.MUNICIPIO, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.VeredaExpe, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.VeredaExpe, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.VeredaExpe, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.NombrePred, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.NombrePred, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.NombrePred, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Tipo_Ubica, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Tipo_Ubica" name="Tipo_Ubica" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Tipo_Ubica, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="card">
+                            <div class="card-header"><h5>2. INSPECCIÓN OCULAR:</h5>  </div>
+                            <div class="card-body">
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Inspeccion, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Inspeccion, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Inspeccion, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.nPlanoIO, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.nPlanoIO, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.nPlanoIO, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Colindante, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Colindante, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Colindante, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Restriccio, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Restriccio" name="Restriccio" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Restriccio, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.TipoRestri, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="TipoRestri" name="TipoRestri" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.TipoRestri, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Observacio, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Observacio, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Observacio, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.ResConcept, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.ResConcept, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.ResConcept, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.ConceptoAm, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.ConceptoAm, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.ConceptoAm, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Recomienda, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Recomienda, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Recomienda, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <br />
+                        <div class="card">
+                            <div class="card-header"><h5>3. REVISIÓN TÉCNICA DE PLANOS</h5>  </div>
+                            <div class="card-body">
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.TieneRTP, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.TieneRTP, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.TieneRTP, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.FechaRTP, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6 row">
+                                        <input type="checkbox" class="checkFecha col-md-2" id="FechaRTPV" name="FechaRTPV" Data="FechaRTP">
+                                        @Html.EditorFor(model => model.FechaRTP, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-10" } })
+                                        @Html.ValidationMessageFor(model => model.FechaRTP, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.PresuntaPr, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="PresuntaPr" name="PresuntaPr" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.PresuntaPr, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Observac_1, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Observac_1, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Observac_1, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <br />
+                        <div class="card">
+                            <div class="card-header"><h5>4. PLANO</h5>  </div>
+                            <div class="card-body">
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.ExistePlan, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="ExistePlan" name="ExistePlan" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.ExistePlan, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.NumeroPlan, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.NumeroPlan, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.NumeroPlan, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.FechaPlano, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6 row">
+                                            <input type="checkbox" class="checkFecha col-md-2" id="FechaPlanoV" name="FechaPlanoV" Data="FechaPlano">
+                                            @Html.EditorFor(model => model.FechaPlano, new { htmlAttributes = new {Type ="date", @class = "form-control  col-md-10",  } })
+                                            @Html.ValidationMessageFor(model => model.FechaPlano, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Esta_Georr, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Esta_Georr" name="Esta_Georr" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Esta_Georr, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.CumpleGeom, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="CumpleGeom" name="CumpleGeom" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.CumpleGeom, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.ObserNoCum, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.ObserNoCum, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.ObserNoCum, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.CoorDigVsC, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="CoorDigVsC" name="CoorDigVsC" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.CoorDigVsC, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Causa_CDgV, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Causa_CDgV" name="Causa_CDgV" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Causa_CDgV, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.ExacPosici, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="ExacPosici" name="ExacPosici" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.ExacPosici, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.RazonPlano, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="RazonPlano" name="RazonPlano" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.RazonPlano, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.TraslapeEx, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="TraslapeEx" name="TraslapeEx" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.TraslapeEx, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.TranslapeC, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="TranslapeC" name="TranslapeC" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.TranslapeC, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Fuente_Dat, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Fuente_Dat" name="Fuente_Dat" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Fuente_Dat, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Desplazado, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Desplazado" name="Desplazado" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Desplazado, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Causa_Desp, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Causa_Desp" name="Causa_Desp" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Causa_Desp, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.DATUMplano, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="DATUMplano" name="DATUMplano" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.DATUMplano, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Correponde, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Correponde" name="Correponde" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Correponde, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.NombreTopo, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.NombreTopo, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.NombreTopo, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.CumpleAcue, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="CumpleAcue" name="CumpleAcue" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.CumpleAcue, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.PlanoAprob, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.PlanoAprob, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.PlanoAprob, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.HojaPDFPla, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.HojaPDFPla, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.HojaPDFPla, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.AreaTotalT, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.AreaTotalT, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.AreaTotalT, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.AreaRestri, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.AreaRestri, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.AreaRestri, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.AreaUtilTe, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.AreaUtilTe, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.AreaUtilTe, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Restricc_1, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Restricc_1" name="Restricc_1" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Restricc_1, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.CualResPla, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="CualResPla" name="CualResPla" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.CualResPla, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.AreaDescon, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.AreaDescon, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.AreaDescon, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <br />
+                        <div class="card">
+                            <div class="card-header"><h5>5. REDACCIÓN TÉCNICA DE LINDEROS</h5>  </div>
+                            <div class="card-body">
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.ExisteRTDL, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="ExisteRTDL" name="ExisteRTDL" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.ExisteRTDL, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.RTDL, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="RTDL" name="RTDL" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.RTDL, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.ExisteInco, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="ExisteInco" name="ExisteInco" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.ExisteInco, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.CualIncons, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="CualIncons" name="CualIncons" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.CualIncons, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.FuenteRTDL, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="FuenteRTDL" name="FuenteRTDL" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.FuenteRTDL, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header"><h5>SOLICITUDES INFORMACIÓN FUENTE EXTERNA</h5>  </div>
+                            <div class="card-body">
+                                <br />
+                                <div class="card-header"><h6>6. SOLICITUD  CAR</h6>  </div>
+                                <br />
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Requerimie, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Requerimie" name="Requerimie" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Requerimie, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    @Html.LabelFor(model => model.FechaCAR, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6 row">
+                                        <input type="checkbox" class="checkFecha col-md-2" id="FechaCARV" name="FechaCARV" Data="FechaCAR">
+                                        @Html.EditorFor(model => model.FechaCAR, new { htmlAttributes = new {Type = "date", @class = "form-control col-md-10" } })
+                                        @Html.ValidationMessageFor(model => model.FechaCAR, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.CARConsult, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.CARConsult, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.CARConsult, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.TieneRespu, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.TieneRespu, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.TieneRespu, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.RespuestaC, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.RespuestaC, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.RespuestaC, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="card-header"><h6>7. SOLICITUD  URT</h6>  </div>
+                                <br />
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Requerim_1, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Requerim_1" name="Requerim_1" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Requerim_1, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    @Html.LabelFor(model => model.FechaURT, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6 row" >
+                                        <input type="checkbox" class="checkFecha col-md-2" id="FechaURTV" name="FechaURTV" Data="FechaURT">
+
+                                        @Html.EditorFor(model => model.FechaURT, new { htmlAttributes = new { @class = "form-control col-md-10", Type = "date" } })
+                                        @Html.ValidationMessageFor(model => model.FechaURT, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.DireccionC, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.DireccionC, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.DireccionC, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.TieneRes_1, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.TieneRes_1, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.TieneRes_1, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.RespuestaU, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.RespuestaU, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.RespuestaU, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <br />
+                                <div class="card-header"><h6>8. SOLICITUD INVIAS</h6>  </div>
+                                <br />
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Requerim_2, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Requerim_2" name="Requerim_2" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Requerim_2, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.FechaINVIA, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6 row">
+                                        <input type="checkbox" class="checkFecha col-md-2" id="FechaINVIAV" name="FechaINVIAV" Data="FechaINVIA">
+                                        @Html.EditorFor(model => model.FechaINVIA, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-10" } })
+                                        @Html.ValidationMessageFor(model => model.FechaINVIA, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.TieneRes_2, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.TieneRes_2, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.TieneRes_2, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.RespuestaI, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.RespuestaI, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.RespuestaI, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <br />
+                                <div class="card-header"><h6>9. SOLICITUD ANH</h6>  </div>
+                                <br />
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Requerim_3, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Requerim_3" name="Requerim_3" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Requerim_3, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.FechaANH, htmlAttributes: new {Type = "date", @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6 row">
+                                        <input type="checkbox" class="checkFecha col-md-2" id="FechaANHV" name="FechaANHV" Data="FechaANH">
+
+                                        @Html.EditorFor(model => model.FechaANH, new { htmlAttributes = new {Type = "date", @class = "form-control col-md-10" } })
+                                        @Html.ValidationMessageFor(model => model.FechaANH, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.TieneRes_3, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.TieneRes_3, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.TieneRes_3, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.RespuestaA, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.RespuestaA, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.RespuestaA, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <br />
+                                <div class="card-header"><h6>10. SOLICITUD ANM</h6>  </div>
+                                <br />
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Requerim_4, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Requerim_4" name="Requerim_4" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Requerim_4, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.FechaANM, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6 row">
+                                        <input type="checkbox" class="checkFecha col-md-2" id="FechaANMV" name="FechaANMV" Data="FechaANM">
+                                        @Html.EditorFor(model => model.FechaANM, new { htmlAttributes = new { @class = "form-control col-md-10", Type = "date" } })
+                                        @Html.ValidationMessageFor(model => model.FechaANM, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.TieneRes_4, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.TieneRes_4, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.TieneRes_4, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Respuest_1, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Respuest_1, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Respuest_1, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <br />
+                                <div class="card-header"><h6>11. SOLICITUD ANI</h6>  </div>
+                                <br />
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Requerim_7, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Requerim_7, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Requerim_7, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.FechaANI, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6 row">
+                                        <input type="checkbox" class="checkFecha col-md-2" id="FechaANMV" name="FechaANMV" Data="FechaANM">
+                                        @Html.EditorFor(model => model.FechaANI, new { htmlAttributes = new { @class = "form-control col-md-10", Type = "date" } })
+                                        @Html.ValidationMessageFor(model => model.FechaANI, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.TieneRes_5, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.TieneRes_5, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.TieneRes_5, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Respuest_2, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Respuest_2, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Respuest_2, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <br />
+                                <div class="card-header"><h6>12. SOLICITUD ASUNTOS ETNICOS</h6>  </div>
+                                <br />
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Requerim_5, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Requerim_5" name="Requerim_5" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Requerim_5, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.FechaAE, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6 row">
+                                        <input type="checkbox" class="checkFecha col-md-2" id="FechaAEV" name="FechaAEV" Data="FechaAE">
+                                        @Html.EditorFor(model => model.FechaAE, new { htmlAttributes = new { @class = "form-control col-md-10", Type = "date" } })
+                                        @Html.ValidationMessageFor(model => model.FechaAE, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.TieneRes_6, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.TieneRes_6, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.TieneRes_6, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Respuest_3, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Respuest_3, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Respuest_3, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <br />
+                                <div class="card-header"><h6>13. SOLICITUD ZRC</h6>  </div>
+                                <br />
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.Requerim_6, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Requerim_6" name="Requerim_6" class="form-control">
+                                            <option value="0">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Requerim_6, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.FechaZRC, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6 row">
+                                        <input type="checkbox" class="checkFecha col-md-2" id="FechaZRCV" name="FechaZRCV" Data="FechaZRC">
+                                        @Html.EditorFor(model => model.FechaZRC, new { htmlAttributes = new { @class = "form-control col-md-10", Type = "date" } })
+                                        @Html.ValidationMessageFor(model => model.FechaZRC, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.TieneRes_7, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.TieneRes_7, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.TieneRes_7, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @Html.LabelFor(model => model.RespuestaZ, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.RespuestaZ, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.RespuestaZ, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+
+                            @Html.HiddenFor(model => model.IdAspNetUser)
+                            @Html.HiddenFor(model => model.Id)
+                            @Html.HiddenFor(model => model.NombreIdAspNetUser)
+                            @Html.HiddenFor(model => model.rol)
+                            @Html.HiddenFor(model => model.IdExpediente)
+                            @Html.HiddenFor(model => model.IdAspNetUserModifica)
+                            @Html.HiddenFor(model => model.FechaInsercion)
+                            @Html.HiddenFor(model => model.Gestion)
+                            @Html.HiddenFor(model => model.FechaModificacion)
+                            @Html.HiddenFor(model => model.Estado)
+
+                            @Html.HiddenFor(model => model.FechaEdici)
+                            @Html.HiddenFor(model => model.UsuarioEdi)
+                            @Html.HiddenFor(model => model.FechaInsercion)
+                            @Html.HiddenFor(model => model.FechaModificacion)
+
+
+
+                            <input type="submit" value="Guardar" class="btn btn-default" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    }
+</div>
+

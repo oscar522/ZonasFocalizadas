@@ -960,5 +960,117 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="CaracterizacionCatastralCatalogos">
+      <EntityTypeMapping TypeName="ZonasFModel.CaracterizacionCatastralCatalogos">
+        <MappingFragment StoreEntitySet="CaracterizacionCatastralCatalogos">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CaracterizacionCatastral">
+      <EntityTypeMapping TypeName="ZonasFModel.CaracterizacionCatastral">
+        <MappingFragment StoreEntitySet="CaracterizacionCatastral">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IdExpediente" ColumnName="IdExpediente" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdAspNetUserModifica" ColumnName="IdAspNetUserModifica" />
+          <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />
+          <ScalarProperty Name="Gestion" ColumnName="Gestion" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+          <ScalarProperty Name="FechaInsercion" ColumnName="FechaInsercion" />
+          <ScalarProperty Name="Causa_CDgV" ColumnName="Causa_CDgV" />
+          <ScalarProperty Name="Causa_Desp" ColumnName="Causa_Desp" />
+          <ScalarProperty Name="Desplazado" ColumnName="Desplazado" />
+          <ScalarProperty Name="Fuente_Dat" ColumnName="Fuente_Dat" />
+          <ScalarProperty Name="TranslapeC" ColumnName="TranslapeC" />
+          <ScalarProperty Name="TraslapeEx" ColumnName="TraslapeEx" />
+          <ScalarProperty Name="RazonPlano" ColumnName="RazonPlano" />
+          <ScalarProperty Name="ExacPosici" ColumnName="ExacPosici" />
+          <ScalarProperty Name="CoorDigVsC" ColumnName="CoorDigVsC" />
+          <ScalarProperty Name="ObserNoCum" ColumnName="ObserNoCum" />
+          <ScalarProperty Name="CumpleGeom" ColumnName="CumpleGeom" />
+          <ScalarProperty Name="CualIncons" ColumnName="CualIncons" />
+          <ScalarProperty Name="Esta_Georr" ColumnName="Esta_Georr" />
+          <ScalarProperty Name="RespuestaZ" ColumnName="RespuestaZ" />
+          <ScalarProperty Name="TieneRes_7" ColumnName="TieneRes_7" />
+          <ScalarProperty Name="FechaZRC" ColumnName="FechaZRC" />
+          <ScalarProperty Name="Respuest_3" ColumnName="Respuest_3" />
+          <ScalarProperty Name="TieneRes_6" ColumnName="TieneRes_6" />
+          <ScalarProperty Name="FechaAE" ColumnName="FechaAE" />
+          <ScalarProperty Name="Respuest_2" ColumnName="Respuest_2" />
+          <ScalarProperty Name="TieneRes_5" ColumnName="TieneRes_5" />
+          <ScalarProperty Name="FechaANI" ColumnName="FechaANI" />
+          <ScalarProperty Name="Requerim_7" ColumnName="Requerim_7" />
+          <ScalarProperty Name="Respuest_1" ColumnName="Respuest_1" />
+          <ScalarProperty Name="TieneRes_4" ColumnName="TieneRes_4" />
+          <ScalarProperty Name="FechaANM" ColumnName="FechaANM" />
+          <ScalarProperty Name="RespuestaA" ColumnName="RespuestaA" />
+          <ScalarProperty Name="TieneRes_3" ColumnName="TieneRes_3" />
+          <ScalarProperty Name="FechaANH" ColumnName="FechaANH" />
+          <ScalarProperty Name="RespuestaI" ColumnName="RespuestaI" />
+          <ScalarProperty Name="TieneRes_2" ColumnName="TieneRes_2" />
+          <ScalarProperty Name="FechaINVIA" ColumnName="FechaINVIA" />
+          <ScalarProperty Name="RespuestaU" ColumnName="RespuestaU" />
+          <ScalarProperty Name="TieneRes_1" ColumnName="TieneRes_1" />
+          <ScalarProperty Name="DireccionC" ColumnName="DireccionC" />
+          <ScalarProperty Name="FechaURT" ColumnName="FechaURT" />
+          <ScalarProperty Name="RespuestaC" ColumnName="RespuestaC" />
+          <ScalarProperty Name="TieneRespu" ColumnName="TieneRespu" />
+          <ScalarProperty Name="CARConsult" ColumnName="CARConsult" />
+          <ScalarProperty Name="FechaCAR" ColumnName="FechaCAR" />
+          <ScalarProperty Name="FuenteRTDL" ColumnName="FuenteRTDL" />
+          <ScalarProperty Name="ExisteInco" ColumnName="ExisteInco" />
+          <ScalarProperty Name="AreaDescon" ColumnName="AreaDescon" />
+          <ScalarProperty Name="RTDL" ColumnName="RTDL" />
+          <ScalarProperty Name="PlanoAprob" ColumnName="PlanoAprob" />
+          <ScalarProperty Name="FechaRTP" ColumnName="FechaRTP" />
+          <ScalarProperty Name="TieneRTP" ColumnName="TieneRTP" />
+          <ScalarProperty Name="Recomienda" ColumnName="Recomienda" />
+          <ScalarProperty Name="ConceptoAm" ColumnName="ConceptoAm" />
+          <ScalarProperty Name="ResConcept" ColumnName="ResConcept" />
+          <ScalarProperty Name="Colindante" ColumnName="Colindante" />
+          <ScalarProperty Name="nPlanoIO" ColumnName="nPlanoIO" />
+          <ScalarProperty Name="Inspeccion" ColumnName="Inspeccion" />
+          <ScalarProperty Name="FISO" ColumnName="FISO" />
+          <ScalarProperty Name="ExistePlan" ColumnName="ExistePlan" />
+          <ScalarProperty Name="UsuarioEdi" ColumnName="UsuarioEdi" />
+          <ScalarProperty Name="FechaEdici" ColumnName="FechaEdici" />
+          <ScalarProperty Name="Requerim_6" ColumnName="Requerim_6" />
+          <ScalarProperty Name="Requerim_5" ColumnName="Requerim_5" />
+          <ScalarProperty Name="Requerim_4" ColumnName="Requerim_4" />
+          <ScalarProperty Name="Requerim_3" ColumnName="Requerim_3" />
+          <ScalarProperty Name="Requerim_2" ColumnName="Requerim_2" />
+          <ScalarProperty Name="Requerim_1" ColumnName="Requerim_1" />
+          <ScalarProperty Name="Requerimie" ColumnName="Requerimie" />
+          <ScalarProperty Name="ExisteRTDL" ColumnName="ExisteRTDL" />
+          <ScalarProperty Name="CualResPla" ColumnName="CualResPla" />
+          <ScalarProperty Name="Restricc_1" ColumnName="Restricc_1" />
+          <ScalarProperty Name="AreaUtilTe" ColumnName="AreaUtilTe" />
+          <ScalarProperty Name="AreaRestri" ColumnName="AreaRestri" />
+          <ScalarProperty Name="AreaTotalT" ColumnName="AreaTotalT" />
+          <ScalarProperty Name="HojaPDFPla" ColumnName="HojaPDFPla" />
+          <ScalarProperty Name="CumpleAcue" ColumnName="CumpleAcue" />
+          <ScalarProperty Name="NombreTopo" ColumnName="NombreTopo" />
+          <ScalarProperty Name="Correponde" ColumnName="Correponde" />
+          <ScalarProperty Name="DATUMplano" ColumnName="DATUMplano" />
+          <ScalarProperty Name="FechaPlano" ColumnName="FechaPlano" />
+          <ScalarProperty Name="NumeroPlan" ColumnName="NumeroPlan" />
+          <ScalarProperty Name="Observac_1" ColumnName="Observac_1" />
+          <ScalarProperty Name="PresuntaPr" ColumnName="PresuntaPr" />
+          <ScalarProperty Name="Observacio" ColumnName="Observacio" />
+          <ScalarProperty Name="TipoRestri" ColumnName="TipoRestri" />
+          <ScalarProperty Name="Restriccio" ColumnName="Restriccio" />
+          <ScalarProperty Name="Tipo_Ubica" ColumnName="Tipo_Ubica" />
+          <ScalarProperty Name="NombrePred" ColumnName="NombrePred" />
+          <ScalarProperty Name="VeredaExpe" ColumnName="VeredaExpe" />
+          <ScalarProperty Name="MUNICIPIO" ColumnName="MUNICIPIO" />
+          <ScalarProperty Name="DEPARTAMEN" ColumnName="DEPARTAMEN" />
+          <ScalarProperty Name="EXPEDIENTE" ColumnName="EXPEDIENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

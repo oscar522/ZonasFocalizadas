@@ -2531,7 +2531,30 @@
         $(document).ready(function () { //
             var ResDate = "";
             Catalogos();
-            function DateConvert(date, tipo = "") {
+
+            // LOCA 
+            //function DateConvert(date, tipo = "") {
+            //    if (date) {
+            //        console.log(date + ' - ' + tipo);
+            //        var res = date.split("/");
+            //        var Add1 = "";
+            //        var Add2 = "";
+            //        var Add3 = "";
+
+            //        if (res[0].length == 1) {
+            //            Add1 = "0";
+            //        }
+            //        if (res[1].length == 1) {
+            //            Add2 = "0";
+            //        }
+            //        if (res[2].length == 1) {
+            //            Add3 = "0";
+            //        }
+            //    ResDate = Add3+res[2].replace(" 00:00:00","").replace(" 12:00:00 a. m.","")+"-"+Add2+res[1]+"-"+Add1+res[0];      
+            //    }
+
+              // PRODUCCION 
+             function DateConvert(date, tipo = "") {
                 if (date) {
                     console.log(date + ' - ' + tipo);
                     var res = date.split("/");
@@ -2541,6 +2564,7 @@
 
                     if (res[0].length == 1) {
                         Add1 = "0";
+
                     }
                     if (res[1].length == 1) {
                         Add2 = "0";
@@ -2548,7 +2572,12 @@
                     if (res[2].length == 1) {
                         Add3 = "0";
                     }
-                ResDate = Add3+res[2].replace(" 00:00:00","").replace(" 12:00:00 a. m.","")+"-"+Add2+res[1]+"-"+Add1+res[0];      
+                	ResDate = Add3+res[2].replace(" 00:00:00.000","").replace(" 12:00:00 a. m.","").replace(" 12:00:00 AM","") + 
+                		"-" + Add1+res[0] + 
+                		"-" + Add2+res[1];  
+                	 console.log(res + ' arra');
+                	 console.log(ResDate + ' ResDate');
+    
                 }
                  //debugger;
 
