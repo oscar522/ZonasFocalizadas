@@ -1,0 +1,1302 @@
+﻿@model AspNetIdentity.Models.CaracterizacionAgronomicaModel
+
+<div class="card mb-4 wow fadeIn">
+
+    <!--Card content-->
+    <div class="card-body d-sm-flex justify-content-between">
+        <h4 class="mb-2 mb-sm-0 pt-1">
+            <span>Caracterizacion Catastral</span>
+        </h4>
+        <h5 class="mb-2 mb-sm-0 pt-1">
+            <span>
+                Numero de FISO :
+                @*@Model.Validacion1*@
+            </span>
+            <br />
+        </h5>
+        <h5 class="mb-2 mb-sm-0 pt-1">
+            <span>Responsable </span>
+            <br />
+            @*<span>Usuario : @Model.NombreIdAspNetUser</span>*@
+            <br />
+            @*<span>Rol : @Model.rol</span>*@
+            <br />
+        </h5>""
+    </div>
+
+</div>
+
+<div class="wow fadeIn">
+
+    @using (Html.BeginForm("Crear", "CaracterizacionAgronomica", FormMethod.Post, htmlAttributes: new { id = "car-form", @name = "car-form" }))
+
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="row">
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-12">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class=" text-capitalize card">
+                            <div class=" text-capitalize card-header"><h5>Crear</h5>  </div>
+                            <div class="card-body">
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion61, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Validacion61, new { htmlAttributes = new { @class = "form-control " } })
+                                        @Html.ValidationMessageFor(model => model.Validacion61, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion1, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Validacion1, new { htmlAttributes = new { @class = "form-control " } })
+                                        @Html.ValidationMessageFor(model => model.Validacion1, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion2, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion2" name="Validacion2" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion2, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion3, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion3" name="Validacion3" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion3, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion4, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Validacion4, new { htmlAttributes = new { @class = "form-control " } })
+                                        @Html.ValidationMessageFor(model => model.Validacion4, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion5, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+
+                                        <select id="Validacion5" name="Validacion5" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+
+                                        @Html.ValidationMessageFor(model => model.Validacion5, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion6, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Validacion6, new { htmlAttributes = new { @class = "form-control " } })
+                                        @Html.ValidationMessageFor(model => model.Validacion6, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion7, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Validacion7, new { htmlAttributes = new { @class = "form-control " } })
+                                        @Html.ValidationMessageFor(model => model.Validacion7, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion8, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Validacion8, new { htmlAttributes = new { @class = "form-control " } })
+                                        @Html.ValidationMessageFor(model => model.Validacion8, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion9, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Validacion9, new { htmlAttributes = new { @class = "form-control " } })
+                                        @Html.ValidationMessageFor(model => model.Validacion9, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion10, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Validacion10, new { htmlAttributes = new { @class = "form-control " } })
+                                        @Html.ValidationMessageFor(model => model.Validacion10, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion11, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion11" name="Validacion11" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion11, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion12, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion12" name="Validacion12" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion12, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion13, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Validacion13, new { htmlAttributes = new { @class = "form-control " } })
+                                        @Html.ValidationMessageFor(model => model.Validacion13, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion14, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion14" name="Validacion14" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion14, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion15, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Validacion15, new { htmlAttributes = new { @class = "form-control " } })
+                                        @Html.ValidationMessageFor(model => model.Validacion15, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion16, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion16" name="Validacion16" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion16, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion17, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Validacion17, new { htmlAttributes = new { @class = "form-control " } })
+                                        @Html.ValidationMessageFor(model => model.Validacion17, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion18, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+
+                                    <div class="col-md-6">
+                                        <select id="Validacion18" name="Validacion18" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion18, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion19, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+
+                                        <select id="Validacion19" name="Validacion19" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion19, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion20, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion20" name="Validacion20" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion20, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion21, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion21" name="Validacion21" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion21, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion22, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Validacion22, new { htmlAttributes = new { @class = "form-control " } })
+                                        @Html.ValidationMessageFor(model => model.Validacion22, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion23, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion23" name="Validacion23" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion23, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion24, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion24" name="Validacion24" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion24, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion25, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion25" name="Validacion25" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion25, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion26, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+
+                                        <select id="Validacion26" name="Validacion26" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion26, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion27, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion27" name="Validacion27" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion27, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion28, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Validacion28, new { htmlAttributes = new { @class = "form-control " } })
+                                        @Html.ValidationMessageFor(model => model.Validacion28, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion29, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Validacion29, new { htmlAttributes = new { @class = "form-control " } })
+                                        @Html.ValidationMessageFor(model => model.Validacion29, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion30, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Validacion30, new { htmlAttributes = new { @class = "form-control " } })
+                                        @Html.ValidationMessageFor(model => model.Validacion30, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion31, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion31" name="Validacion31" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion31, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion32, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Validacion32, new { htmlAttributes = new { @class = "form-control " } })
+                                        @Html.ValidationMessageFor(model => model.Validacion32, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion33, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Validacion33, new { htmlAttributes = new { @class = "form-control " } })
+                                        @Html.ValidationMessageFor(model => model.Validacion33, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion34, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Validacion34, new { htmlAttributes = new { @class = "form-control " } })
+                                        @Html.ValidationMessageFor(model => model.Validacion34, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion35, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Validacion35, new { htmlAttributes = new { @class = "form-control " } })
+                                        @Html.ValidationMessageFor(model => model.Validacion35, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion36, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.Validacion36, new { htmlAttributes = new { @class = "form-control " } })
+                                        @Html.ValidationMessageFor(model => model.Validacion36, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion37, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion37" name="Validacion37" class="form-control">
+                                            <option >Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion37, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion38, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion38" name="Validacion38" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion38, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion39, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion39" name="Validacion39" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion39, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion40, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion40" name="Validacion40" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion40, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion41, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion41" name="Validacion41" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion41, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion42, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion42" name="Validacion42" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion42, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion43, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion43" name="Validacion43" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion43, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion44, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion44" name="Validacion44" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion44, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion45, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion45" name="Validacion45" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion45, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion46, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion46" name="Validacion46" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion46, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion47, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion47" name="Validacion47" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion47, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion48, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion48" name="Validacion48" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion48, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion49, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion49" name="Validacion49" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+
+                                        @Html.ValidationMessageFor(model => model.Validacion49, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion50, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion50" name="Validacion50" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion50, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion51, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion51" name="Validacion51" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion51, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion52, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion52" name="Validacion52" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion52, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion53, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion53" name="Validacion53" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion53, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion54, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion54" name="Validacion54" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion54, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion55, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion55" name="Validacion55" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion55, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion56, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion56" name="Validacion56" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion56, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion57, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion57" name="Validacion57" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion57, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion58, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion58" name="Validacion58" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion58, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion59, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion59" name="Validacion59" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion59, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.Validacion60, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <div class="col-md-6">
+                                        <select id="Validacion60" name="Validacion60" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.Validacion60, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row p-3 center ">
+                                    <div class="col-md-6">
+                                        .
+                                    </div>
+                                </div>
+
+                                <div class="row p-3 center ">
+                                    <div class="col-md-6">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="hidden" value="0" name="Validacion61" id="Validacion61" />
+                                            <input type="hidden" value="0" name="Validacion62" id="Validacion62" />
+                                            <input type="hidden" value="0" name="Validacion63" id="Validacion62" />
+                                            <input type="hidden" value="1" name="Id" id="Id" />
+                                            <input type="hidden" value="1753-01-01" name="FechaInsercion" id="FechaInsercion" />
+                                            <input type="hidden" value="1753-01-01" name="FechaModificacion" id="FechaModificacion" />
+                                            <input type="hidden" value="1" name="Gestion" id="Gestion" />
+                                            <input type="hidden" value="1" name="IdAspNetUser" id="IdAspNetUser" />
+                                            <input type="hidden" value="1" name="rol" id="rol" />
+                                            <input type="hidden" value="1" name="NombreIdAspNetUser" id="NombreIdAspNetUser" />
+                                            <input type="hidden" value="1" name="IdAspNetUserModifica" id="IdAspNetUserModifica" />
+                                            <input type="hidden" value="1" name="IdExpediente" id="IdExpediente" />
+                                            <input type="hidden" value="1" name="Estado" id="Estado" />
+                                            <input type="submit" value="Create" class="btn btn-default" />
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+@section Scripts
+    {
+    @Scripts.Render("~/Scripts/ModalControl.js")
+    <script>
+        $(document).ready(function () { //
+            var ResDate = "";
+
+            $(".checkFecha").change(function () {
+                var Id = $(this).attr("Data");
+                if( $(this).prop('checked') ) {
+                    $('#'+Id).prop("disabled", true);
+                    $('#'+Id).val("1753-01-01");
+                }else{
+                    $('#'+Id).prop("disabled", false);
+                }
+            });
+            // LOCA
+            //function DateConvert(date, tipo = "") {
+            //    if (date) {
+            //        console.log(date + ' - ' + tipo);
+            //        var res = date.split("/");
+            //        var Add1 = "";
+            //        var Add2 = "";
+            //        var Add3 = "";
+
+            //        if (res[0].length == 1) {
+            //            Add1 = "0";
+            //        }
+            //        if (res[1].length == 1) {
+            //            Add2 = "0";
+            //        }
+            //        if (res[2].length == 1) {
+            //            Add3 = "0";
+            //        }
+            //    ResDate = Add3+res[2].replace(" 00:00:00","").replace(" 12:00:00 a. m.","")+"-"+Add2+res[1]+"-"+Add1+res[0];
+            //    }
+
+              // PRODUCCION
+             function DateConvert(date, tipo = "") {
+                if (date) {
+                    console.log(date + ' - ' + tipo);
+                    var res = date.split("/");
+                    var Add1 = "";
+                    var Add2 = "";
+                    var Add3 = "";
+
+                    if (res[0].length == 1) {
+                        Add1 = "0";
+
+                    }
+                    if (res[1].length == 1) {
+                        Add2 = "0";
+                    }
+                    if (res[2].length == 1) {
+                        Add3 = "0";
+                    }
+                	ResDate = Add3+res[2].replace(" 00:00:00.000","").replace(" 12:00:00 a. m.","").replace(" 12:00:00 AM","") +
+                		"-" + Add1+res[0] +
+                		"-" + Add2+res[1];
+                	 console.log(res + ' arra');
+                	 console.log(ResDate + ' ResDate');
+
+                }
+                 //debugger;
+
+                return ResDate;
+            }
+            @*$('#FechaPlano').val(DateConvert('@Model.FechaPlano'));
+            $('#FechaEdici').val(DateConvert('@Model.FechaEdici'));
+            $('#FechaRTP').val(DateConvert('@Model.FechaRTP'));
+            $('#FechaCAR').val(DateConvert('@Model.FechaCAR'));
+            $('#FechaURT').val(DateConvert('@Model.FechaURT'));
+            $('#FechaINVIA').val(DateConvert('@Model.FechaINVIA'));
+            $('#FechaANH').val(DateConvert('@Model.FechaANH'));
+            $('#FechaANM').val(DateConvert('@Model.FechaANM'));
+            $('#FechaANI').val(DateConvert('@Model.FechaANI'));
+            $('#FechaZRC').val(DateConvert('@Model.FechaZRC'));
+            $('#FechaAE').val(DateConvert('@Model.FechaAE'));*@
+
+
+
+            /// catalogos
+            function Catalogos(nombre,campo) {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: nombre   },
+                    success: function (states) {    
+
+                        $.each(states, function (i, state) {
+
+                            if (campo == 'Validacion5') {
+
+
+                                if (state.Value == "@Model.Validacion5")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                else 
+                                    $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                               
+                            }
+                            if (campo == 'Validacion11') {
+
+                                if (state.Value == "@Model.Validacion11")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion12') {
+
+                                if (state.Value == "@Model.Validacion12")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion14') {
+
+                                if (state.Value == "@Model.Validacion14")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion16') {
+
+                                if (state.Value == "@Model.Validacion16")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion18') {
+
+                                if (state.Value == "@Model.Validacion18")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion19') {
+
+                                if (state.Value == "@Model.Validacion19")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion20') {
+
+                                if (state.Value == "@Model.Validacion20")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion21') {
+
+                                if (state.Value == "@Model.Validacion21")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion23') {
+
+                                if (state.Value == "@Model.Validacion23")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion24') {
+
+                                if (state.Value == "@Model.Validacion24")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion25') {
+
+                                if (state.Value == "@Model.Validacion25")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion26') {
+
+                                if (state.Value == "@Model.Validacion26")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion27') {
+
+                                if (state.Value == "@Model.Validacion27")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion31') {
+
+                                if (state.Value == "@Model.Validacion31")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion37') {
+
+                                if (state.Value == "@Model.Validacion37")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion38') {
+
+                                if (state.Value == "@Model.Validacion38")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion39') {
+
+                                if (state.Value == "@Model.Validacion39")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion40') {
+
+                                if (state.Value == "@Model.Validacion40")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion41') {
+
+                                if (state.Value == "@Model.Validacion41")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion42') {
+
+                                if (state.Value == "@Model.Validacion42")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion43') {
+
+                                if (state.Value == "@Model.Validacion43")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion44') {
+
+                                if (state.Value == "@Model.Validacion44")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion45') {
+
+                                if (state.Value == "@Model.Validacion45")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion46') {
+
+                                if (state.Value == "@Model.Validacion46")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+
+                            if (campo == 'Validacion47') {
+
+                                if (state.Value == "@Model.Validacion47")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+
+                            if (campo == 'Validacion48') {
+
+                                if (state.Value == "@Model.Validacion48")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+
+                             if (campo == 'Validacion49') {
+
+                                if (state.Value == "@Model.Validacion49")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+
+                             if (campo == 'Validacion50') {
+
+                                if (state.Value == "@Model.Validacion50")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+
+                             if (campo == 'Validacion51') {
+
+                                if (state.Value == "@Model.Validacion51")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+
+                             if (campo == 'Validacion52') {
+
+                                if (state.Value == "@Model.Validacion52")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+
+                             if (campo == 'Validacion53') {
+
+                                if (state.Value == "@Model.Validacion53")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+
+                             if (campo == 'Validacion54') {
+
+                                if (state.Value == "@Model.Validacion54")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion55') {
+
+                                if (state.Value == "@Model.Validacion55")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+
+                            if (campo == 'Validacion56') {
+
+                                if (state.Value == "@Model.Validacion56")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion57') {
+
+                                if (state.Value == "@Model.Validacion57")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion58') {
+
+                                if (state.Value == "@Model.Validacion58")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion59') {
+
+                                if (state.Value == "@Model.Validacion59")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+                            if (campo == 'Validacion60') {
+
+                                if (state.Value == "@Model.Validacion60")
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    else
+                                $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                            }
+
+                        });
+
+                       
+
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+            }
+            Catalogos('Tipo de Solicitud','Validacion5');
+            Catalogos('ITJD Régimen de Escogencia (SIT o Excel Barrido)','Validacion11');
+            Catalogos('ITJD Ubicación del Predio (Uso del Suelo, Excel Barrido)', 'Validacion12');
+            Catalogos('Cuenta con Inspecion Ocular', 'Validacion14');
+            Catalogos('Cuenta con Certificado de Uso del Suelo', 'Validacion16');//
+            Catalogos('Cuenta con Cáculo de UAF', 'Validacion18');//
+            Catalogos('El predio cuenta con Vivienda  (Si No)(FISO Información del Predio - Fotografías - Plano)', 'Validacion19');//
+            Catalogos('Tipo de explotacion (FISO 11_2 Clase de explotacion)', 'Validacion20');//
+            Catalogos('Años de ocupación o explotación (FISO)', 'Validacion21');//
+            Catalogos('ITJP (902) UAF PREDIAL UAF (ha) ', 'Validacion23');//
+            Catalogos('ITJP (Rango 160) UAF por ZRH UAF (ha) ', 'Validacion24');//
+            Catalogos('ITJD (160 Y 902) UAF (ha) ', 'Validacion25');//
+            Catalogos('El solicitante es propietarios de otros predios rurales (SiNo) (SIT- VUR - Abogado - Catrastral) ', 'Validacion26');//
+            Catalogos('Área registrada y encontrada en el VUR a nombre del solicitante', 'Validacion27');//
+            Catalogos('El cónyuge es propietario de otros predios rurales (Si_No) (SIT- VUR - Abogado - Catrastral', 'Validacion31');//
+
+            Catalogos('ITJP LITERAL C', 'Validacion37');//
+            Catalogos('ITJP LITERAL D', 'Validacion38');//
+            Catalogos('ITJP LITERAL E', 'Validacion39');//
+            Catalogos('ITJP LITERAL F', 'Validacion40');//
+            Catalogos('ITJP LITERAL G', 'Validacion41');//
+
+            Catalogos('ITJP UAF Predial Decreto 902', 'Validacion42');//
+            Catalogos('ITJP UAF Predial Excepción Decreto 902', 'Validacion43');//
+            Catalogos('ITJP Dentro del rango UAF – ZRHLey 160', 'Validacion44');//
+            Catalogos('ITJP Menor al rango de UAF – ZRH Ley 160', 'Validacion45');//
+            Catalogos('ITJP Menor al rango de UAF – ZRH EXCEPCIÓN Ley 160 (solo si llena la columna anterior AK)', 'Validacion46');//
+            Catalogos('ITJD Aval agronómico', 'Validacion47');//
+            Catalogos('ITJP 4_2_ USO', 'Validacion48');//
+
+            Catalogos('RESTRICCIÓN POR CAMBIO DE REGIMEN', 'Validacion49');//
+            Catalogos('RESTRICCIÓN POR ACUMULACIÓN DE UAF', 'Validacion50');//
+            Catalogos('RESTRICCIÓN POR AUSENCIA DE INSPECCIÓN OCULAR', 'Validacion51');//
+            Catalogos('RESTRICCIÓN POR AUSENCIA DE USO DE SUELO', 'Validacion52');//
+            Catalogos('RESTRICCIÓN POR AUSENCIA DE CÁLCULO DE UAF PREDIAL', 'Validacion53');//
+            Catalogos('RESTRICCIÓN POR AUSENCIA DE FOTOGRAFIAS  O INFORMACIÓN INCOMPLETA DE FISO', 'Validacion54');//
+            Catalogos('RESTRICCIÓN CONCEPTO AMBIENTAL', 'Validacion55');//
+            Catalogos('ALERTA RONDA HÍDRICA', 'Validacion56');//
+
+            Catalogos('OTROS (PROPIEDAD PRIVADA, CLARIDAD DEL CONYUGE, FISO REPETIDO, DOS SOLICITUES SOBRE EL MISMO PREDIO', 'Validacion57');//
+            Catalogos('IMPRIMIR RESOLUCIÓN DE APERTURA', 'Validacion58');//
+            Catalogos('IMPRIMIR RESOLUCIÓN DE CIERRE', 'Validacion59');//
+            Catalogos('ITJP e ITJD AGRONOMO RESPONSABLE', 'Validacion60');//
+            
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ListDepto", "Registro")', // we are calling json method
+                dataType: 'json',
+                success: function(states) {
+
+                    $.each(states, function (i, state) {
+                        //$("#IdDepto").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                        if ('@Model.Validacion2' == state.Value) {
+                            $("#Validacion2").append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                        } else {
+                            $("#Validacion2").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                        }
+                    });
+                },
+                error: function (ex) {
+                    console.log(ex.responseText);
+                }
+            });
+
+            $("#Validacion2").change(function () {
+                $("#Validacion3").empty();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListCiudadId", "Registro")', // we are calling json method
+                    dataType: 'json',
+                    data: { IdP: $("#Validacion2").val() },
+                    success: function(states) {
+                        //  alert("okdepto" + $("#ID_CT_DEPTO").val());
+                        $.each(states, function (i, state) {
+                            //  alert(state.Value);
+
+                            if ('@Model.Validacion3' == state.Value) {
+                                $("#Validacion3").append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                            } else {
+                                $("#Validacion3").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                            }
+
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                return false;
+            });
+            
+            $(".field-validation-error").each(function(){
+                var IdClass = $(this).attr("class");
+                if( IdClass.indexOf("field-validation-error") != "-1"  ) {
+                    var Id = $(this).attr("data-valmsg-for");
+                    $('#'+Id).addClass("alert-danger");
+                    $('#'+Id).prop("disabled",false);
+                }
+            });
+
+
+            // =============================================================
+            // =============================================================
+            // REGLAS 
+
+            $("#Validacion5").change(function () {
+                if ($("#Validacion5").val() == 1) {
+                    $("#Validacion8").val('N_A');
+                    $("#Validacion8").prop('disabled', true);
+                    $("#Validacion9").val('N_A');
+                    $("#Validacion9").prop('disabled', true);
+                    $("#Validacion31").val('N_A');
+                    $("#Validacion31").prop('disabled', true);
+                } else { }
+            });
+            $("#Validacion14").change(function () {
+                alert($("#Validacion14").val());
+                if ($("#Validacion14").val() == 8) {
+                    $("#Validacion15").val('N_A');
+                    $("#Validacion15").prop('disabled', true);
+                } else { }
+            });
+
+             $("#Validacion16").change(function () {
+                alert($("#Validacion16").val());
+                if ($("#Validacion16").val() == 10) {
+                    $("#Validacion17").val('N_A');
+                    $("#Validacion17").prop('disabled', true);
+                } else { }
+            });
+            
+        });
+    </script>
+}

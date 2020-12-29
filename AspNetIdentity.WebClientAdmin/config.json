@@ -114,6 +114,14 @@
               "linkText": "Catastral",
               "iconText": "fa fa-map-marker mr-3",
               "sub": null
+            },
+            {
+              "order": 1,
+              "controllerName": "CaracterizacionAgronomica",
+              "actionName": "Index",
+              "linkText": "Agronomica",
+              "iconText": "fa fa-pagelines mr-3",
+              "sub": null
             }
           ]
         },
@@ -256,6 +264,14 @@
               "actionName": "Index",
               "linkText": "Catastral",
               "iconText": "fa fa-map-marker mr-3",
+              "sub": null
+            },
+            {
+              "order": 1,
+              "controllerName": "CaracterizacionAgronomica",
+              "actionName": "Index",
+              "linkText": "Agronomica",
+              "iconText": "fa fa-pagelines mr-3",
               "sub": null
             }
           ]
@@ -400,6 +416,14 @@
               "linkText": "Catastral",
               "iconText": "fa fa-map-marker mr-3",
               "sub": null
+            },
+            {
+              "order": 1,
+              "controllerName": "CaracterizacionAgronomica",
+              "actionName": "Index",
+              "linkText": "Agronomica",
+              "iconText": "fa fa-pagelines mr-3",
+              "sub": null
             }
           ]
         },
@@ -543,6 +567,14 @@
               "linkText": "Catastral",
               "iconText": "fa fa-map-marker mr-3",
               "sub": null
+            },
+            {
+              "order": 1,
+              "controllerName": "CaracterizacionAgronomica",
+              "actionName": "Index",
+              "linkText": "Agronomica",
+              "iconText": "fa fa-pagelines mr-3",
+              "sub": null
             }
           ]
         },
@@ -685,6 +717,14 @@
               "actionName": "Index",
               "linkText": "Catastral",
               "iconText": "fa fa-map-marker mr-3",
+              "sub": null
+            },
+            {
+              "order": 1,
+              "controllerName": "CaracterizacionAgronomica",
+              "actionName": "Index",
+              "linkText": "Agronomica",
+              "iconText": "fa fa-pagelines mr-3",
               "sub": null
             }
           ]
@@ -985,6 +1025,14 @@
               "linkText": "Catastral",
               "iconText": "fa fa-map-marker mr-3",
               "sub": null
+            },
+            {
+              "order": 1,
+              "controllerName": "CaracterizacionAgronomica",
+              "actionName": "Index",
+              "linkText": "Agronomica",
+              "iconText": "fa fa-pagelines mr-3",
+              "sub": null
             }
           ]
         },
@@ -1128,6 +1176,14 @@
               "linkText": "Catastral",
               "iconText": "fa fa-map-marker mr-3",
               "sub": null
+            },
+            {
+              "order": 1,
+              "controllerName": "CaracterizacionAgronomica",
+              "actionName": "Index",
+              "linkText": "Agronomica",
+              "iconText": "fa fa-pagelines mr-3",
+              "sub": null
             }
           ]
         },
@@ -1159,4 +1215,3 @@
     }
   ]
 }
-  

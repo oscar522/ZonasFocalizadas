@@ -1072,5 +1072,92 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="CaracterizacionAgronomicaCatalogos">
+      <EntityTypeMapping TypeName="ZonasFModel.CaracterizacionAgronomicaCatalogos">
+        <MappingFragment StoreEntitySet="CaracterizacionAgronomicaCatalogos">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CaracterizacionAgronomica">
+      <EntityTypeMapping TypeName="ZonasFModel.CaracterizacionAgronomica">
+        <MappingFragment StoreEntitySet="CaracterizacionAgronomica">
+          <ScalarProperty Name="Validacion63" ColumnName="Validacion63" />
+          <ScalarProperty Name="Validacion62" ColumnName="Validacion62" />
+          <ScalarProperty Name="Validacion61" ColumnName="Validacion61" />
+          <ScalarProperty Name="Validacion60" ColumnName="Validacion60" />
+          <ScalarProperty Name="Validacion59" ColumnName="Validacion59" />
+          <ScalarProperty Name="Validacion58" ColumnName="Validacion58" />
+          <ScalarProperty Name="Validacion57" ColumnName="Validacion57" />
+          <ScalarProperty Name="Validacion56" ColumnName="Validacion56" />
+          <ScalarProperty Name="Validacion55" ColumnName="Validacion55" />
+          <ScalarProperty Name="Validacion54" ColumnName="Validacion54" />
+          <ScalarProperty Name="Validacion53" ColumnName="Validacion53" />
+          <ScalarProperty Name="Validacion52" ColumnName="Validacion52" />
+          <ScalarProperty Name="Validacion51" ColumnName="Validacion51" />
+          <ScalarProperty Name="Validacion50" ColumnName="Validacion50" />
+          <ScalarProperty Name="Validacion49" ColumnName="Validacion49" />
+          <ScalarProperty Name="Validacion48" ColumnName="Validacion48" />
+          <ScalarProperty Name="Validacion47" ColumnName="Validacion47" />
+          <ScalarProperty Name="Validacion46" ColumnName="Validacion46" />
+          <ScalarProperty Name="Validacion45" ColumnName="Validacion45" />
+          <ScalarProperty Name="Validacion44" ColumnName="Validacion44" />
+          <ScalarProperty Name="Validacion43" ColumnName="Validacion43" />
+          <ScalarProperty Name="Validacion42" ColumnName="Validacion42" />
+          <ScalarProperty Name="Validacion41" ColumnName="Validacion41" />
+          <ScalarProperty Name="Validacion40" ColumnName="Validacion40" />
+          <ScalarProperty Name="Validacion39" ColumnName="Validacion39" />
+          <ScalarProperty Name="Validacion38" ColumnName="Validacion38" />
+          <ScalarProperty Name="Validacion37" ColumnName="Validacion37" />
+          <ScalarProperty Name="Validacion36" ColumnName="Validacion36" />
+          <ScalarProperty Name="Validacion35" ColumnName="Validacion35" />
+          <ScalarProperty Name="Validacion34" ColumnName="Validacion34" />
+          <ScalarProperty Name="Validacion33" ColumnName="Validacion33" />
+          <ScalarProperty Name="Validacion32" ColumnName="Validacion32" />
+          <ScalarProperty Name="Validacion31" ColumnName="Validacion31" />
+          <ScalarProperty Name="Validacion30" ColumnName="Validacion30" />
+          <ScalarProperty Name="Validacion29" ColumnName="Validacion29" />
+          <ScalarProperty Name="Validacion28" ColumnName="Validacion28" />
+          <ScalarProperty Name="Validacion27" ColumnName="Validacion27" />
+          <ScalarProperty Name="Validacion26" ColumnName="Validacion26" />
+          <ScalarProperty Name="Validacion25" ColumnName="Validacion25" />
+          <ScalarProperty Name="Validacion24" ColumnName="Validacion24" />
+          <ScalarProperty Name="Validacion23" ColumnName="Validacion23" />
+          <ScalarProperty Name="Validacion22" ColumnName="Validacion22" />
+          <ScalarProperty Name="Validacion21" ColumnName="Validacion21" />
+          <ScalarProperty Name="Validacion20" ColumnName="Validacion20" />
+          <ScalarProperty Name="Validacion19" ColumnName="Validacion19" />
+          <ScalarProperty Name="Validacion18" ColumnName="Validacion18" />
+          <ScalarProperty Name="Validacion17" ColumnName="Validacion17" />
+          <ScalarProperty Name="Validacion16" ColumnName="Validacion16" />
+          <ScalarProperty Name="Validacion15" ColumnName="Validacion15" />
+          <ScalarProperty Name="Validacion14" ColumnName="Validacion14" />
+          <ScalarProperty Name="Validacion13" ColumnName="Validacion13" />
+          <ScalarProperty Name="Validacion12" ColumnName="Validacion12" />
+          <ScalarProperty Name="Validacion11" ColumnName="Validacion11" />
+          <ScalarProperty Name="Validacion10" ColumnName="Validacion10" />
+          <ScalarProperty Name="Validacion9" ColumnName="Validacion9" />
+          <ScalarProperty Name="Validacion8" ColumnName="Validacion8" />
+          <ScalarProperty Name="Validacion7" ColumnName="Validacion7" />
+          <ScalarProperty Name="Validacion6" ColumnName="Validacion6" />
+          <ScalarProperty Name="Validacion5" ColumnName="Validacion5" />
+          <ScalarProperty Name="Validacion4" ColumnName="Validacion4" />
+          <ScalarProperty Name="Validacion3" ColumnName="Validacion3" />
+          <ScalarProperty Name="Validacion2" ColumnName="Validacion2" />
+          <ScalarProperty Name="Validacion1" ColumnName="Validacion1" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IdExpediente" ColumnName="IdExpediente" />
+          <ScalarProperty Name="IdAspNetUserModifica" ColumnName="IdAspNetUserModifica" />
+          <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />
+          <ScalarProperty Name="Gestion" ColumnName="Gestion" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+          <ScalarProperty Name="FechaInsercion" ColumnName="FechaInsercion" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

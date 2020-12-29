@@ -298,6 +298,8 @@
     <EntitySet Name="GeneracionDocumentos" EntityType="ZonasFModel.GeneracionDocumentos" />
     <EntitySet Name="CaracterizacionCatastralCatalogos" EntityType="ZonasFModel.CaracterizacionCatastralCatalogos" />
     <EntitySet Name="CaracterizacionCatastral" EntityType="ZonasFModel.CaracterizacionCatastral" />
+    <EntitySet Name="CaracterizacionAgronomicaCatalogos" EntityType="ZonasFModel.CaracterizacionAgronomicaCatalogos" />
+    <EntitySet Name="CaracterizacionAgronomica" EntityType="ZonasFModel.CaracterizacionAgronomica" />
   </EntityContainer>
   <EntityType Name="ExpedienteDocumentos">
     <Key>
@@ -1319,5 +1321,90 @@
     <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IdExpediente" Type="Int64" />
     <Property Name="Estado" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CaracterizacionAgronomicaCatalogos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="CaracterizacionAgronomica">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FechaInsercion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="Gestion" Type="Int32" />
+    <Property Name="IdAspNetUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IdAspNetUserModifica" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IdExpediente" Type="Int64" />
+    <Property Name="Estado" Type="Int32" />
+    <Property Name="Validacion1" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion2" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion3" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion4" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion5" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion6" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion7" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion8" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion9" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion10" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion11" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion12" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion13" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion14" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion15" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion16" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion17" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion18" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion19" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion20" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion21" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion22" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion23" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion24" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion25" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion26" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion27" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion28" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion29" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion30" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion31" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion32" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion33" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion34" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion35" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion36" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion37" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion38" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion39" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion40" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion41" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion42" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion43" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion44" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion45" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion46" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion47" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion48" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion49" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion50" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion51" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion52" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion53" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion54" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion55" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion56" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion57" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion58" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion59" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion60" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion61" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion62" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Validacion63" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

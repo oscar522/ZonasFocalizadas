@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7bf23a5b4ccf451db53ce4687f87db1d" Name="Diagram1" ZoomLevel="33">
+      <Diagram DiagramId="7bf23a5b4ccf451db53ce4687f87db1d" Name="Diagram1" ZoomLevel="63">
         <EntityTypeShape EntityType="ZonasFModel.CtCiudad" Width="1.5" PointX="3.25" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ZonasFModel.CtDepto" Width="1.5" PointX="3.25" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ZonasFModel.CtGenero" Width="1.5" PointX="5.25" PointY="0.5" IsExpanded="true" />
@@ -49,6 +49,8 @@
         <EntityTypeShape EntityType="ZonasFModel.GeneracionDocumentos" Width="1.5" PointX="12.375" PointY="13.75" />
         <EntityTypeShape EntityType="ZonasFModel.CaracterizacionCatastralCatalogos" Width="1.5" PointX="14.375" PointY="13.75" />
         <EntityTypeShape EntityType="ZonasFModel.CaracterizacionCatastral" Width="1.5" PointX="16.375" PointY="7.75" />
+        <EntityTypeShape EntityType="ZonasFModel.CaracterizacionAgronomicaCatalogos" Width="1.5" PointX="18.375" PointY="7.75" />
+        <EntityTypeShape EntityType="ZonasFModel.CaracterizacionAgronomica" Width="1.5" PointX="8.375" PointY="17.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
