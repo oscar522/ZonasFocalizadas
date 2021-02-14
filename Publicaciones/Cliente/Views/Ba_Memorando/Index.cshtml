@@ -1,0 +1,304 @@
+﻿@model IEnumerable<AspNetIdentity.Models.Ba_MemorandoModel>
+@{
+    ViewBag.Title = "Index";
+}
+@section Scripts
+             {
+    @Scripts.Render("~/Scripts/ModalControl.js")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#table_idd').dataTable({
+                 dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
+                buttons: [
+                   { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
+                    { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
+                    { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
+                ],
+                "order": [[6, "asc"]],
+                "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
+                "pageLength": 10,
+                "paging": true
+            });  //Initialize the datatable
+
+        console.log("ready!");
+    });
+    </script>
+
+
+
+}
+<div class="card mb-4 wow fadeIn">
+
+    <!--Card content-->
+    <div class="card-body d-sm-flex justify-content-between">
+        <h3 class="card-title">Memorando</h3>
+        <a href='@Url.Action("../Ba_Memorando/Crear", "Crear")' title='Modificar' class="btn btn-default" style='color: #013ADF;'>Crear</a>
+        <div></div>
+    </div>
+
+</div>
+<div class="row wow fadeIn">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">  </div>
+            <div class="card-body">
+                <div class="table-responsive text-nowrap">
+                    <table class="table table-hover " id="table_idd">
+                        <thead>
+                            <tr>
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Validacion1)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Validacion2)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Validacion3)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Validacion4)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Validacion5)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Validacion6)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Validacion7)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Validacion8)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Validacion9)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Validacion10)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Validacion19)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Validacion20)
+                                </th>
+                                @*<th>
+            @Html.DisplayNameFor(model => model.Validacion11)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Validacion12)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Validacion13)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Validacion14)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Validacion15)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Validacion16)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Validacion17)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Validacion18)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Validacion19)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Validacion20)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Validacion21)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Validacion22)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Validacion23)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Validacion24)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Validacion25)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Validacion26)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Validacion27)
+        </th>*@
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.FechaInsercion)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.FechaModificacion)
+                                </th>
+                                @*<th>
+            @Html.DisplayNameFor(model => model.Gestion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdAspNetUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreIdAspNetUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdAspNetUserModifica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdExpediente)
+        </th>*@
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Estado)
+                                </th>
+
+                                <th></th>
+                            </tr></thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Validacion1)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Validacion2)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Validacion3)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Validacion28)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Validacion29)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Validacion6)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Validacion7)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Validacion8)
+                                </td>
+                                <td class="text-capitalize">
+                                    @Html.DisplayFor(modelItem => item.Validacion9)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Validacion10)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Validacion19)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Validacion20)
+                                </td>
+                                @*<td>
+            @Html.DisplayFor(modelItem => item.Validacion11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Validacion12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Validacion13)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Validacion14)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Validacion15)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Validacion16)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Validacion17)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Validacion18)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Validacion19)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Validacion20)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Validacion21)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Validacion22)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Validacion23)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Validacion24)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Validacion25)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Validacion26)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Validacion27)
+        </td>*@
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FechaInsercion)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FechaModificacion)
+                                </td>
+                                @*<td>
+            @Html.DisplayFor(modelItem => item.Gestion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdAspNetUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreIdAspNetUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdAspNetUserModifica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdExpediente)
+        </td>*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Estado)
+                                </td>
+
+                                <td>
+                                    <a href='@Url.Action("../Ba_Memorando/Edit", "Edit", new { IdTable = item.Id })' title='Modificar' style='color: #013ADF;'><i class='fa fa-refresh' aria-hidden='true'></i></a>
+
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

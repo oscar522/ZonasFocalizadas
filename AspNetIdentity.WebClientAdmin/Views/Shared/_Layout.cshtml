@@ -23,7 +23,13 @@
         @{ Html.RenderAction("Navbar", "Layout"); }
         <!-- Navbar -->
         <!-- Sidebar -->
-        @{ Html.RenderAction("Sidebar", "Layout"); }
+        <div id="DivRezago" style="display:none">
+            @{ Html.RenderAction("SidebarRezago", "Layout"); }
+        </div>
+        <div id="DivBarrido" style="display:none">
+            @{ Html.RenderAction("SidebarBarrido", "Layout"); }
+        </div>
+        
         <!-- Sidebar -->
 
     </header>
@@ -31,6 +37,31 @@
     <!--Main layout-->
     <main class="pt-5 mx-lg-5">
         <div class="container-fluid mt-5">
+            @*MODAL PARA DEFINIR EL MENU*@ 
+            <div id="exampleModalLong" class="modal  fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class=" alert-success">
+                            <div class="col-md-12 justify-content-center align-content-center text-center ">
+                                <br />
+                                <br />
+                                <br />
+                                <h1 class="">  En que quieres trabajar hoy ? </h1>
+                                <br />
+                                <br />
+                                @*<button type="button" class="btn btn-success" data-dismiss="modal" onclick="@Url.Action("../Dashboard/Rezago", "Rezago", new { IdTable = 1 })">Rezago</button>*@
+                                <a class="btn btn-success" id="BtnRezago" href='@Url.Action("../Dashboard/Rezago", "Rezago", new { IdTable = 1 })' title='Modificar'>Rezago</a>
+                                <a class="btn btn-success" id="BtnBarrido" href='@Url.Action("../Dashboard/Barrido", "Barrido", new { IdTable = 2 })' title='Modificar'>Barrido</a>
+                                    <input type="hidden" id="TypeSidebarHiden" name="TypeSidebarHiden" value="" />
+                                <br />
+                                <br />
+                                <br />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
 
             @RenderBody()
 
@@ -56,14 +87,39 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-        $('.child').hide(); //Hide children by default
+          
 
-        $('.parent').children().click(function () {
-            event.preventDefault();
-            $(this).children('.child').slideToggle('slow');
-            $(this).find('span').toggle();
-        });
-        console.log("ready!");
+            var ls;
+            ls = localStorage;
+
+            var custStr
+            custStr = ls.getItem("A123");
+            if (custStr == "2") {
+                $('#DivRezago').show();
+
+            } else if (custStr == "3") {
+                $('#DivBarrido').show();
+
+            }
+            //window.location.href ='@Url.Action("../CaracterizacionAgronomica/index", "index")';
+
+            $('#BtnRezago').click(function () {
+                $('#DivRezago').show();
+            });
+
+            $('#BtnBarrido').click(function () {
+                $('#DivBarrido').show();
+            });
+
+            $('.child').hide(); //Hide children by default
+
+            $('.parent').children().click(function () {
+                event.preventDefault();
+                $(this).children('.child').slideToggle('slow');
+                $(this).find('span').toggle();
+            });
+            console.log("ready!");
+
             $('.tableData').DataTable({
                 dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
                 buttons: [
@@ -76,38 +132,54 @@
                 "pageLength": 10,
                 "paging": true
             });
+
             $('.dataTables_length').addClass('bs-select');
-            $("#MenuClose").click(function () { $("#SidebarCustom").hide(); });
-            $(".navbar-brand").click(function () { $("#SidebarCustom").show(); return false; });
+
+            $("#MenuCloseBarrido").click(function () {
+                $("#SidebarCustomBarrido").hide();
+            });
+
+            $("#MenuCloseRezago").click(function () {
+                $("#SidebarCustomRezago").hide();
+            });
+
+            $(".navbar-brand").click(function () {
+                if (custStr == "2") {
+                    $("#SidebarCustomRezago").show(); return false;
+                } else if (custStr == "3") {
+                    $("#SidebarCustomBarrido").show(); return false;
+                }
+            });
+
             $('.modalUser').click(function () {
 
-                debugger;
+                    debugger;
 
-                var $buttonClicked = $(this);
-                var id = $buttonClicked.attr('data-id');
-                var options = { "backdrop": "static", keyboard: true };
+                    var $buttonClicked = $(this);
+                    var id = $buttonClicked.attr('data-id');
+                    var options = { "backdrop": "static", keyboard: true };
 
-                $.ajax({
-                    type: "GET",
-                    url: '/Users/UserModal',
-                    contentType: "application/json; charset=utf-8",
-                    data: { "Id": id },
-                    datatype: "json",
-                    success: function (data) {
-                        debugger;
-                        $('#myModalContent').html(data);
-                        $('#myModal').modal(options);
-                        $('#myModal').modal('show');
+                    $.ajax({
+                        type: "GET",
+                        url: '/Users/UserModal',
+                        contentType: "application/json; charset=utf-8",
+                        data: { "Id": id },
+                        datatype: "json",
+                        success: function (data) {
+                            debugger;
+                            $('#myModalContent').html(data);
+                            $('#myModal').modal(options);
+                            $('#myModal').modal('show');
 
-                    },
-                    error: function () {
-                        alert("Dynamic content load failed.");
-                    }
+                        },
+                        error: function () {
+                            alert("Dynamic content load failed.");
+                        }
+                    });
                 });
-            });
         });
-        // Animations initialization
-        new WOW().init();
+            // Animations initialization
+            new WOW().init();
     </script>
 
 

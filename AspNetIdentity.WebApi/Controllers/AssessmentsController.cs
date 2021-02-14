@@ -31,5 +31,14 @@ namespace AspNetIdentity.WebApi.Controllers
 
             return NotFound();
         }
+
+        [Authorize(Roles = "Administrator")]
+        [Route("getRole", Name = "getRole")]
+        public List<string> getRole()
+        {
+            List<string> result =assessmentsLogic.GetRole();
+
+            return result;
+        }
     }
 }

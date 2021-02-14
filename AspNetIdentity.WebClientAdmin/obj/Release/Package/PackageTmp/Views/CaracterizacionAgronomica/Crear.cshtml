@@ -5,7 +5,7 @@
     <!--Card content-->
     <div class="card-body d-sm-flex justify-content-between">
         <h4 class="mb-2 mb-sm-0 pt-1">
-            <span>Caracterizacion Catastral</span>
+            <span>Caracterizacion Agronomica</span>
         </h4>
         <h5 class="mb-2 mb-sm-0 pt-1">
             <span>
@@ -29,21 +29,20 @@
 <div class="wow fadeIn">
 
     @using (Html.BeginForm("Crear", "CaracterizacionAgronomica", FormMethod.Post, htmlAttributes: new { id = "car-form", @name = "car-form" }))
-
     {
         @Html.AntiForgeryToken()
-
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-12">
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
                         <div class=" text-capitalize card">
-                            <div class=" text-capitalize card-header"><h5>Crear</h5>  </div>
+                            <div class=" text-capitalize card-header"><h5>1. DATOS BASICOS</h5>  </div>
                             <div class="card-body">
 
                                 <div class="row p-3 center ">
+                                    <!--1|| -->
                                     @Html.LabelFor(model => model.Validacion61, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         @Html.EditorFor(model => model.Validacion61, new { htmlAttributes = new { @class = "form-control " } })
@@ -52,17 +51,15 @@
                                 </div>
 
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion1, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--2|| --> @Html.LabelFor(model => model.Validacion1, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         @Html.EditorFor(model => model.Validacion1, new { htmlAttributes = new { @class = "form-control " } })
                                         @Html.ValidationMessageFor(model => model.Validacion1, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion2, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--3|| --> @Html.LabelFor(model => model.Validacion2, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion2" name="Validacion2" class="form-control">
                                             <option value="">Seleccione</option>
@@ -71,10 +68,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion3, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--4|| --> @Html.LabelFor(model => model.Validacion3, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion3" name="Validacion3" class="form-control">
                                             <option value="">Seleccione</option>
@@ -83,20 +78,16 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion4, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--5|| --> @Html.LabelFor(model => model.Validacion4, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         @Html.EditorFor(model => model.Validacion4, new { htmlAttributes = new { @class = "form-control " } })
                                         @Html.ValidationMessageFor(model => model.Validacion4, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion5, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--6|| --> @Html.LabelFor(model => model.Validacion5, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
 
                                         <select id="Validacion5" name="Validacion5" class="form-control">
@@ -107,60 +98,55 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion6, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--7|| --> @Html.LabelFor(model => model.Validacion6, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         @Html.EditorFor(model => model.Validacion6, new { htmlAttributes = new { @class = "form-control " } })
                                         @Html.ValidationMessageFor(model => model.Validacion6, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion7, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--8|| --> @Html.LabelFor(model => model.Validacion7, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         @Html.EditorFor(model => model.Validacion7, new { htmlAttributes = new { @class = "form-control " } })
                                         @Html.ValidationMessageFor(model => model.Validacion7, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion8, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--9|| --> @Html.LabelFor(model => model.Validacion8, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         @Html.EditorFor(model => model.Validacion8, new { htmlAttributes = new { @class = "form-control " } })
                                         @Html.ValidationMessageFor(model => model.Validacion8, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion9, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--10|| --> @Html.LabelFor(model => model.Validacion9, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         @Html.EditorFor(model => model.Validacion9, new { htmlAttributes = new { @class = "form-control " } })
                                         @Html.ValidationMessageFor(model => model.Validacion9, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion10, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--11|| --> @Html.LabelFor(model => model.Validacion10, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         @Html.EditorFor(model => model.Validacion10, new { htmlAttributes = new { @class = "form-control " } })
                                         @Html.ValidationMessageFor(model => model.Validacion10, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
-
+                            </div>
+                        </div>
+                        <br />
+                        <div class=" text-capitalize card">
+                            <div class=" text-capitalize card-header"><h5>2. Datos Básicos del Predio </h5>  </div>
+                            <div>
 
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion11, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--12|| --> @Html.LabelFor(model => model.Validacion11, htmlAttributes: new { @class = "control-label text-capitalize col-md-6 " })
                                     <div class="col-md-6">
                                         <select id="Validacion11" name="Validacion11" class="form-control">
                                             <option value="">Seleccione</option>
@@ -169,10 +155,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion12, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--13|| --> @Html.LabelFor(model => model.Validacion12, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion12" name="Validacion12" class="form-control">
                                             <option value="">Seleccione</option>
@@ -181,20 +165,16 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion13, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--14|| --> @Html.LabelFor(model => model.Validacion13, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         @Html.EditorFor(model => model.Validacion13, new { htmlAttributes = new { @class = "form-control " } })
                                         @Html.ValidationMessageFor(model => model.Validacion13, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion14, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--15|| --> @Html.LabelFor(model => model.Validacion14, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion14" name="Validacion14" class="form-control">
                                             <option value="">Seleccione</option>
@@ -203,20 +183,16 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion15, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--16|| --> @Html.LabelFor(model => model.Validacion15, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         @Html.EditorFor(model => model.Validacion15, new { htmlAttributes = new { @class = "form-control " } })
                                         @Html.ValidationMessageFor(model => model.Validacion15, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion16, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--17|| --> @Html.LabelFor(model => model.Validacion16, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion16" name="Validacion16" class="form-control">
                                             <option value="">Seleccione</option>
@@ -225,20 +201,16 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion17, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--18|| --> @Html.LabelFor(model => model.Validacion17, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         @Html.EditorFor(model => model.Validacion17, new { htmlAttributes = new { @class = "form-control " } })
                                         @Html.ValidationMessageFor(model => model.Validacion17, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion18, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--19|| --> @Html.LabelFor(model => model.Validacion18, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
 
                                     <div class="col-md-6">
                                         <select id="Validacion18" name="Validacion18" class="form-control">
@@ -248,10 +220,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion19, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--20|| -->  @Html.LabelFor(model => model.Validacion19, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
 
                                         <select id="Validacion19" name="Validacion19" class="form-control">
@@ -261,10 +231,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion20, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--21|| --> @Html.LabelFor(model => model.Validacion20, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion20" name="Validacion20" class="form-control">
                                             <option value="">Seleccione</option>
@@ -273,10 +241,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion21, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--22|| --> @Html.LabelFor(model => model.Validacion21, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion21" name="Validacion21" class="form-control">
                                             <option value="">Seleccione</option>
@@ -285,10 +251,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion22, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--23|| --> @Html.LabelFor(model => model.Validacion22, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         @Html.EditorFor(model => model.Validacion22, new { htmlAttributes = new { @class = "form-control " } })
                                         @Html.ValidationMessageFor(model => model.Validacion22, "", new { @class = "text-danger" })
@@ -296,9 +260,15 @@
                                 </div>
 
 
+                            </div>
+                        </div>
+                        <br />
+                        <div class=" text-capitalize card">
+                            <div class=" text-capitalize card-header"><h5>3. Datos UAF  </h5>  </div>
+                            <div>
 
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion23, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--24|| --> @Html.LabelFor(model => model.Validacion23, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion23" name="Validacion23" class="form-control">
                                             <option value="">Seleccione</option>
@@ -307,34 +277,23 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion24, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--25|| -->  @Html.LabelFor(model => model.Validacion24, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
-                                        <select id="Validacion24" name="Validacion24" class="form-control">
-                                            <option value="">Seleccione</option>
-                                        </select>
+                                        @Html.EditorFor(model => model.Validacion24, new { htmlAttributes = new { @class = "form-control " } })
                                         @Html.ValidationMessageFor(model => model.Validacion24, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
-
-
-                                <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion25, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
-                                    <div class="col-md-6">
-                                        <select id="Validacion25" name="Validacion25" class="form-control">
-                                            <option value="">Seleccione</option>
-                                        </select>
-                                        @Html.ValidationMessageFor(model => model.Validacion25, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-
-
+                            </div>
+                        </div>
+                        <br />
+                        <div class=" text-capitalize card">
+                            <div class=" text-capitalize card-header"><h5>4. Revisión Agronómica de VUR  </h5>  </div>
+                            <div>
 
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion26, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--27|| -->  @Html.LabelFor(model => model.Validacion26, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
 
                                         <select id="Validacion26" name="Validacion26" class="form-control">
@@ -344,19 +303,14 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
                                     @Html.LabelFor(model => model.Validacion27, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
-                                        <select id="Validacion27" name="Validacion27" class="form-control">
-                                            <option value="">Seleccione</option>
-                                        </select>
-                                        @Html.ValidationMessageFor(model => model.Validacion27, "", new { @class = "text-danger" })
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Sol">
+                                            Agregar
+                                        </button>
                                     </div>
                                 </div>
-
-
 
                                 <div class="row p-3 center ">
                                     @Html.LabelFor(model => model.Validacion28, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
@@ -365,31 +319,24 @@
                                         @Html.ValidationMessageFor(model => model.Validacion28, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
-
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion29, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--30|| -->  @Html.LabelFor(model => model.Validacion29, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         @Html.EditorFor(model => model.Validacion29, new { htmlAttributes = new { @class = "form-control " } })
                                         @Html.ValidationMessageFor(model => model.Validacion29, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion30, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--31|| --> @Html.LabelFor(model => model.Validacion30, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         @Html.EditorFor(model => model.Validacion30, new { htmlAttributes = new { @class = "form-control " } })
                                         @Html.ValidationMessageFor(model => model.Validacion30, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion31, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--32|| --> @Html.LabelFor(model => model.Validacion31, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion31" name="Validacion31" class="form-control">
                                             <option value="">Seleccione</option>
@@ -398,17 +345,14 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
                                     @Html.LabelFor(model => model.Validacion32, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
-                                        @Html.EditorFor(model => model.Validacion32, new { htmlAttributes = new { @class = "form-control " } })
-                                        @Html.ValidationMessageFor(model => model.Validacion32, "", new { @class = "text-danger" })
+                                       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Con">
+                                           Agregar
+                                        </button>
                                     </div>
                                 </div>
-
-
 
                                 <div class="row p-3 center ">
                                     @Html.LabelFor(model => model.Validacion33, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
@@ -418,52 +362,49 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion34, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--35|| --> @Html.LabelFor(model => model.Validacion34, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         @Html.EditorFor(model => model.Validacion34, new { htmlAttributes = new { @class = "form-control " } })
                                         @Html.ValidationMessageFor(model => model.Validacion34, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion35, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--36|| --> @Html.LabelFor(model => model.Validacion35, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         @Html.EditorFor(model => model.Validacion35, new { htmlAttributes = new { @class = "form-control " } })
                                         @Html.ValidationMessageFor(model => model.Validacion35, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion36, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--37|| --> @Html.LabelFor(model => model.Validacion36, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         @Html.EditorFor(model => model.Validacion36, new { htmlAttributes = new { @class = "form-control " } })
                                         @Html.ValidationMessageFor(model => model.Validacion36, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
-
+                            </div>
+                        </div>
+                        <br />
+                        <div class=" text-capitalize card">
+                            <div class=" text-capitalize card-header danger-color"><h5>5. Literales para el Informe Técnico Jurídico.  </h5>  </div>
+                            <div>
 
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion37, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--38|| --> @Html.LabelFor(model => model.Validacion37, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion37" name="Validacion37" class="form-control">
-                                            <option >Seleccione</option>
+                                            <option>Seleccione</option>
                                         </select>
                                         @Html.ValidationMessageFor(model => model.Validacion37, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion38, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--39|| --> @Html.LabelFor(model => model.Validacion38, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion38" name="Validacion38" class="form-control">
                                             <option value="">Seleccione</option>
@@ -472,10 +413,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion39, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--40|| --> @Html.LabelFor(model => model.Validacion39, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion39" name="Validacion39" class="form-control">
                                             <option value="">Seleccione</option>
@@ -484,10 +423,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion40, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--41|| --> @Html.LabelFor(model => model.Validacion40, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion40" name="Validacion40" class="form-control">
                                             <option value="">Seleccione</option>
@@ -496,10 +433,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion41, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--42|| --> @Html.LabelFor(model => model.Validacion41, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion41" name="Validacion41" class="form-control">
                                             <option value="">Seleccione</option>
@@ -508,10 +443,15 @@
                                     </div>
                                 </div>
 
-
+                            </div>
+                        </div>
+                        <br />
+                        <div class=" text-capitalize card">
+                            <div class=" text-capitalize card-header"><h5>6. UAF y Excepciones   </h5>  </div>
+                            <div>
 
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion42, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--43|| --> @Html.LabelFor(model => model.Validacion42, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion42" name="Validacion42" class="form-control">
                                             <option value="">Seleccione</option>
@@ -520,10 +460,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion43, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--44|| --> @Html.LabelFor(model => model.Validacion43, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion43" name="Validacion43" class="form-control">
                                             <option value="">Seleccione</option>
@@ -532,10 +470,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion44, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--45|| --> @Html.LabelFor(model => model.Validacion44, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion44" name="Validacion44" class="form-control">
                                             <option value="">Seleccione</option>
@@ -544,10 +480,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion45, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--46|| --> @Html.LabelFor(model => model.Validacion45, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion45" name="Validacion45" class="form-control">
                                             <option value="">Seleccione</option>
@@ -556,10 +490,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion46, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--47|| --> @Html.LabelFor(model => model.Validacion46, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion46" name="Validacion46" class="form-control">
                                             <option value="">Seleccione</option>
@@ -568,10 +500,15 @@
                                     </div>
                                 </div>
 
-
+                            </div>
+                        </div>
+                        <br />
+                        <div class=" text-capitalize card">
+                            <div class=" text-capitalize card-header danger-color"><h5>7. Aval Agronómico   </h5>  </div>
+                            <div>
 
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion47, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--48|| --> @Html.LabelFor(model => model.Validacion47, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion47" name="Validacion47" class="form-control">
                                             <option value="">Seleccione</option>
@@ -580,10 +517,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion48, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--49|| --> @Html.LabelFor(model => model.Validacion48, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion48" name="Validacion48" class="form-control">
                                             <option value="">Seleccione</option>
@@ -592,10 +527,15 @@
                                     </div>
                                 </div>
 
-
+                            </div>
+                        </div>
+                        <br />
+                        <div class=" text-capitalize card">
+                            <div class=" text-capitalize card-header "><h5>8. Restricciones Agronómicas</h5>  </div>
+                            <div>
 
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion49, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--50|| --> @Html.LabelFor(model => model.Validacion49, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion49" name="Validacion49" class="form-control">
                                             <option value="">Seleccione</option>
@@ -605,10 +545,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion50, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--51|| --> @Html.LabelFor(model => model.Validacion50, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion50" name="Validacion50" class="form-control">
                                             <option value="">Seleccione</option>
@@ -617,10 +555,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion51, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--52|| --> @Html.LabelFor(model => model.Validacion51, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion51" name="Validacion51" class="form-control">
                                             <option value="">Seleccione</option>
@@ -629,10 +565,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion52, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--53|| --> @Html.LabelFor(model => model.Validacion52, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion52" name="Validacion52" class="form-control">
                                             <option value="">Seleccione</option>
@@ -641,10 +575,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion53, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--54|| --> @Html.LabelFor(model => model.Validacion53, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion53" name="Validacion53" class="form-control">
                                             <option value="">Seleccione</option>
@@ -653,10 +585,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion54, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--55|| --> @Html.LabelFor(model => model.Validacion54, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion54" name="Validacion54" class="form-control">
                                             <option value="">Seleccione</option>
@@ -665,10 +595,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion55, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--56|| --> @Html.LabelFor(model => model.Validacion55, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion55" name="Validacion55" class="form-control">
                                             <option value="">Seleccione</option>
@@ -677,10 +605,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion56, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--57|| --> @Html.LabelFor(model => model.Validacion56, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion56" name="Validacion56" class="form-control">
                                             <option value="">Seleccione</option>
@@ -689,10 +615,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion57, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--58|| --> @Html.LabelFor(model => model.Validacion57, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion57" name="Validacion57" class="form-control">
                                             <option value="">Seleccione</option>
@@ -701,10 +625,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion58, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--59|| --> @Html.LabelFor(model => model.Validacion58, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion58" name="Validacion58" class="form-control">
                                             <option value="">Seleccione</option>
@@ -713,10 +635,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion59, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--60|| --> @Html.LabelFor(model => model.Validacion59, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion59" name="Validacion59" class="form-control">
                                             <option value="">Seleccione</option>
@@ -725,10 +645,8 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row p-3 center ">
-                                    @Html.LabelFor(model => model.Validacion60, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
+                                    <!--61|| --> @Html.LabelFor(model => model.Validacion60, htmlAttributes: new { @class = "control-label text-capitalize col-md-6" })
                                     <div class="col-md-6">
                                         <select id="Validacion60" name="Validacion60" class="form-control">
                                             <option value="">Seleccione</option>
@@ -759,10 +677,13 @@
                                             <input type="hidden" value="1" name="IdAspNetUserModifica" id="IdAspNetUserModifica" />
                                             <input type="hidden" value="1" name="IdExpediente" id="IdExpediente" />
                                             <input type="hidden" value="1" name="Estado" id="Estado" />
+
+                                            <input type="hidden" value="1" name="Validacion25" id="Validacion25" />
+                                            <input type="hidden" value="1" name="Validacion27" id="Validacion27" />
+                                            <input type="hidden" value="1" name="Validacion32" id="Validacion32" />
+
+
                                             <input type="submit" value="Create" class="btn btn-default" />
-
-
-
 
                                         </div>
                                     </div>
@@ -773,19 +694,511 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12"></div>
+                </div>
+            </div>
         </div>
     }
 
 </div>
 
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="Sol" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">ANOTACIONES EN EL VUR</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                 <div class="row p-3 center ">
+                    Departamento
+                    <hr>
+                    <div class="col-md-6">
+                        <select id="DepSol" name="DepSol" class="form-control">
+                            <option value="">Seleccione</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row p-3 center ">
+                    Municipio
+                    <hr>
+                    <div class="col-md-6">
+                        <select id="MunSol" name="MunSol" class="form-control">
+                            <option value="">Seleccione</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row p-3 center ">
+                    Numero Registro
+                    <hr>
+                    <div class="col-md-6">
+                        <input type="text" id="NumVurSol" name="NumVurSol" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row p-3 center ">
+                    Area
+                    <hr>
+                    <div class="col-md-6">
+                        <input type="text" id="NumAreSol" name="NumAreSol" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row p-3 center ">
+                    <table id="TableSol" class="table">
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td>Departamento</td>
+                                <td>Municipio</td>
+                                <td>Numero</td>
+                                <td>Area</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+
+                          <tbody>
+                          </tbody>
+                    </table>
+                </div>
+
+                
+
+            </div>
+            <div class="modal-footer">
+                <button id="GuardarConVurSol" type="button" class="btn btn-primary" >Guardar </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="Con" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">ANOTACIONES EN EL VUR</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                 <div class="row p-3 center ">
+                    Departamento
+                    <hr>
+                    <div class="col-md-6">
+                        <select id="DepCon" name="DepCon" class="form-control">
+                            <option value="">Seleccione</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row p-3 center ">
+                    Municipio
+                    <hr>
+                    <div class="col-md-6">
+                        <select id="MunCon" name="MunCon" class="form-control">
+                            <option value="">Seleccione</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row p-3 center ">
+                    Numero Registro
+                    <hr>
+                    <div class="col-md-6">
+                        <input type="text" id="NumVurCon" name="NumVurCon" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row p-3 center ">
+                    Area
+                    <hr>
+                    <div class="col-md-6">
+                        <input type="text" id="NumAreCon" name="NumAreCon" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row p-3 center ">
+                    <table id="TableCon" class="table">
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td>Departamento</td>
+                                <td>Municipio</td>
+                                <td>Numero</td>
+                                <td>Area</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+
+                          <tbody>
+                          </tbody>
+                    </table>
+                </div>
+
+                
+
+            </div>
+            <div class="modal-footer">
+                <button id="GuardarConVurCon" type="button" class="btn btn-primary" >Guardar </button>
+            </div>
+        </div>
+    </div>
+</div>
 
 @section Scripts
     {
     @Scripts.Render("~/Scripts/ModalControl.js")
     <script>
         $(document).ready(function () { //
+
+            //////////////////////////////
+            ///////// INICIALES
+            //////////////////////////////
+
+            function iniciales(){
+
+                if ('@Model.Validacion5' == 1) {
+                    $("#Validacion8").val('N_A');               // Identificación Cónyuge
+                    $("#Validacion8").prop('disabled', true);   // Identificación Cónyuge
+
+                    $("#Validacion9").val('N_A');               // Nombre completo del Cónyuge
+                    $("#Validacion9").prop('disabled', true);   // Nombre completo del Cónyuge
+
+                    $("#Validacion31").val('41');               // El cónyuge es propietario de otros predios rurales
+                    $("#Validacion31").prop('disabled', true);  //El cónyuge es propietario de otros predios rurales
+
+                    $("#Validacion35").val('0');               // El cónyuge es propietario de otros predios rurales
+                    $("#Validacion35").prop('disabled', true);  //El cónyuge es propietario de otros predios rurales
+
+                    //$("#Validacion32").val('0');               // El cónyuge es propietario de otros predios rurales
+                    //$("#Validacion32").prop('disabled', true);  //El cónyuge es propietario de otros predios rurales
+
+                    //$("#Validacion33").val('0');               // El cónyuge es propietario de otros predios rurales
+                    //$("#Validacion33").prop('disabled', true);  //El cónyuge es propietario de otros predios rurales
+
+                } else {
+
+                    $("#Validacion8").prop('disabled', false);   // Identificación Cónyuge
+
+                    $("#Validacion9").prop('disabled', false);   // Nombre completo del Cónyuge
+
+                    $("#Validacion31").prop('disabled', false);  //El cónyuge es propietario de otros predios rurales
+
+                    $("#Validacion35").prop('disabled', false);  //El cónyuge es propietario de otros predios rurales
+
+                }
+
+                if ('@Model.Validacion11' == 3) {
+                    $("#Validacion18").val('230');               // Cuenta con Cáculo de UAF
+                    $("#Validacion18").prop('disabled', true);   // Cuenta con Cáculo de UAF
+
+                    $("#Validacion24").val('N_A');               // Nombre completo del Cónyuge
+                    $("#Validacion24").prop('disabled', true);   // Nombre completo del Cónyuge
+
+                    $("#Validacion42").val('231');               // El cónyuge es propietario de otros predios rurales
+                    $("#Validacion42").prop('disabled', true);  //El cónyuge es propietario de otros predios rurales
+
+                    $("#Validacion43").val('232');               // El cónyuge es propietario de otros predios rurales
+                    $("#Validacion43").prop('disabled', true);  //El cónyuge es propietario de otros predios rurales
+                } else if ('@Model.Validacion11' == 4)  {
+
+                    $("#Validacion18").prop('disabled', false);   // Cuenta con Cáculo de UAF
+                    $("#Validacion24").prop('disabled', false);   // Nombre completo del Cónyuge
+                    $("#Validacion42").prop('disabled', false);  //El cónyuge es propietario de otros predios rurales
+                    $("#Validacion43").prop('disabled', false);  //El cónyuge es propietario de otros predios rurales
+
+                    $("#Validacion23").val('26');               // UAF Por ZRH Rango 160 UAF * (Ha)
+                    $("#Validacion23").prop('disabled', true);  //UAF Por ZRH Rango 160 UAF * (Ha)
+
+                    $("#Validacion43").val('232');               // ITJP UAF Predial Excepción Decreto 902
+                    $("#Validacion43").prop('disabled', true);  //ITJP UAF Predial Excepción Decreto 902
+
+                    $("#Validacion44").val('233');               //ITJP Dentro Del Rango UAF – ZRH Ley 160
+                    $("#Validacion44").prop('disabled', true);  //ITJP Dentro Del Rango UAF – ZRH Ley 160
+
+                    $("#Validacion45").val('234');               // ITJP Menor Al Rango De UAF – ZRH Ley 160
+                    $("#Validacion45").prop('disabled', true);  //ITJP Menor Al Rango De UAF – ZRH Ley 160
+                } else {
+
+                    $("#Validacion18").prop('disabled', false);   // Cuenta con Cáculo de UAF
+                    $("#Validacion24").prop('disabled', false);   // Nombre completo del Cónyuge
+                    $("#Validacion42").prop('disabled', false);  //El cónyuge es propietario de otros predios rurales
+                    $("#Validacion43").prop('disabled', false);  //El cónyuge es propietario de otros predios rurales
+                    $("#Validacion23").prop('disabled', false);  //UAF Por ZRH Rango 160 UAF * (Ha)
+                    $("#Validacion43").prop('disabled', false);  //ITJP UAF Predial Excepción Decreto 902
+                    $("#Validacion44").prop('disabled', false);  //ITJP Dentro Del Rango UAF – ZRH Ley 160
+                    $("#Validacion45").prop('disabled', false);  //ITJP Menor Al Rango De UAF – ZRH Ley 160
+                }
+
+                if ('@Model.Validacion12' == 5) {
+
+                    $("#Validacion14").val('235');               // Cuenta con Inspecion Ocular
+                    $("#Validacion14").prop('disabled', true);  //Cuenta con Inspecion Ocular
+
+                    $("#Validacion16").val('236');               // ¿Cuenta Con Certificado De Uso Del Suelo ?
+                    $("#Validacion16").prop('disabled', true);  //¿Cuenta Con Certificado De Uso Del Suelo ?
+
+                    $("#Validacion18").val('230');               //¿Cuenta Con Cáculo De UAF ?
+                    $("#Validacion18").prop('disabled', true);  //¿Cuenta Con Cáculo De UAF ?
+
+                } else {
+                    $("#Validacion14").prop('disabled', false);  //Cuenta con Inspecion Ocular
+
+                    $("#Validacion16").prop('disabled', false);  //¿Cuenta Con Certificado De Uso Del Suelo ?
+
+                    $("#Validacion18").prop('disabled', false);  //¿Cuenta Con Cáculo De UAF ?
+
+                }
+
+                if ('@Model.Validacion13' >  0.2000) {
+                    $("#Validacion24").val('N_A');               //UAF PREDIAL UAF * (Ha)
+                    $("#Validacion24").prop('disabled', true);  //UAF PREDIAL UAF * (Ha)
+                } else {
+                    $("#Validacion24").prop('disabled', false);  //UAF PREDIAL UAF * (Ha)
+                }
+
+                if ('@Model.Validacion14' ==  8) {
+                    $("#Validacion15").val('N_A');               //UAF PREDIAL UAF * (Ha)
+                    $("#Validacion15").prop('disabled', true);  //UAF PREDIAL UAF * (Ha)
+                    $("#Validacion50").val('98');               //RESTRICCIÓN POR ACUMULACIÓN DE UAF
+                    $("#Validacion50").prop('disabled', true);  //RESTRICCIÓN POR ACUMULACIÓN DE UAF
+                } else {
+                    $("#Validacion15").prop('disabled', false);  //UAF PREDIAL UAF * (Ha)
+                    $("#Validacion50").prop('disabled', false);  //RESTRICCIÓN POR ACUMULACIÓN DE UAF
+                }
+            
+                if ('@Model.Validacion16' == 10) { // ¿Cuenta con Certificado de Uso del Suelo ?
+
+                    $("#Validacion17").val('N_A'); // Uso Principal Del Certificado De Uso De Suelo
+                    $("#Validacion17").prop('disabled', true); // Uso Principal Del Certificado De Uso De Suelo
+
+                    $("#Validacion51").val('101');               //RESTRICCIÓN POR AUSENCIA DE INSPECCIÓN OCULAR
+                    $("#Validacion51").prop('disabled', true);  //RESTRICCIÓN POR AUSENCIA DE INSPECCIÓN OCULAR
+
+                } else {
+
+                    $("#Validacion17").prop('disabled', false); // Uso Principal Del Certificado De Uso De Suelo
+                    $("#Validacion51").prop('disabled', false);  //RESTRICCIÓN POR AUSENCIA DE INSPECCIÓN OCULAR
+
+                }
+
+                if ('@Model.Validacion18' == 12) { // ¿Cuenta con Certificado de Uso del Suelo ?
+
+                    $("#Validacion24").val('N_A');               //UAF PREDIAL UAF * (Ha)
+                    $("#Validacion24").prop('disabled', true);  //UAF PREDIAL UAF * (Ha)
+
+                } else {
+
+                    $("#Validacion24").prop('disabled', false); // Uso Principal Del Certificado De Uso De Suelo
+
+                }
+
+            }
+
+            iniciales();
+
+            //////////////////////////////
+            ///////// GUARDA CONSULTA VUR 
+            //////////////////////////////
+
+            var ConsultaVurSol = [];
+            var ConsultaVurCon = [];
             var ResDate = "";
 
+            
+            $("#GuardarConVurSol").click(function () {
+                var status  = 0 ;
+                if ($('#MunSol').val() == '') { status = 1 ; } 
+                if ($('#DepSol').val() == '') { status = 1 ;} 
+                if ($('#NumVurSol').val() == '') { status = 1 ;}
+                if ($('#NumAreSol').val() == '') { status = 1 ;}
+
+                if (status == 1) {
+                    alert('Todos los campos son requeridos ');
+                } 
+
+                    else {
+
+                        var Item = { 
+                            MunSol : $('#MunSol').val() , 
+                            MunNomSol : $('#MunSol option:selected').text(), 
+                            DepSol : $('#DepSol').val() , 
+                            DepNomSol : $('#DepSol option:selected').text() ,
+                            NumVurSol : $('#NumVurSol').val(),
+                            NumAreSol : $('#NumAreSol').val(),
+                        }
+
+                        var i = 0 ;
+                        var Total = 0 ;
+                        var Guardar = '' ;
+
+                        ConsultaVurSol.push(Item);
+                        $("#TableSol").find("tr:gt(0)").remove();
+                        ConsultaVurSol.forEach(function(Item) {
+                            i ++ ;
+                            Total = Total +parseInt(Item.NumAreSol) ; 
+                            //Guardar = Guardar + '|'+$('#DepSol').val() +'_'+ $('#MunSol').val() +'_'+ $('#NumVurSol').val() +'_'+ $('#NumAreSol').val();
+                            $('#TableSol tr:last').after('<tr>'+
+                                                            '<td>'+i+'</td>'+
+                                                            '<td>'+Item.DepNomSol+'</td>'+
+                                                            '<td>'+Item.MunNomSol+'</td>'+
+                                                            '<td>'+Item.NumVurSol+'</td>'+
+                                                            '<td>'+Item.NumAreSol+'</td>'+
+                                                            '<td class="" data-serialnumber = "'+i+'">'+
+                                                                '<button  type="button" class=" DelVurSol"  title="" value="sd" >'+
+                                                                '<i class="fa fa-trash" aria-hidden="true"></i>'+
+                                                                '</button>'+
+                                                            '</td>'+
+                                                        '</tr>');
+                        });
+                    }
+
+
+               $("#Validacion28").val(Total);
+               //$("#Validacion27").val(Guardar);
+
+                return false;
+            });
+
+            $('#TableSol').on('click', '.DelVurSol', function () {
+                var $tr = $(this).closest('tr');
+                var serialNumber = $tr.find('td[data-serialnumber]').data('serialnumber');
+                alert(serialNumber );
+                ConsultaVurSol.splice(serialNumber - 1,1);
+                 $("#TableSol").find("tr:gt(0)").remove();
+                 var i =0;
+                 var Total =0;
+                ConsultaVurSol.forEach(function(Item) {
+                    i ++ ;
+                    Total = Total +parseInt(Item.NumAreSol) ; 
+
+                    $('#TableSol tr:last').after('<tr>'+
+                                                    '<td>'+i+'</td>'+
+                                                    '<td>'+Item.DepNomSol+'</td>'+
+                                                    '<td>'+Item.MunNomSol+'</td>'+
+                                                    '<td>'+Item.NumVurSol+'</td>'+
+                                                    '<td>'+Item.NumAreSol+'</td>'+
+                                                    '<td class="" data-serialnumber = "'+i+'">'+
+                                                        '<button  type="button" class=" DelVurSol"  title="" value="sd" >'+
+                                                        '<i class="fa fa-trash" aria-hidden="true"></i>'+
+                                                        '</button>'+
+                                                    '</td>'+
+
+
+                                                '</tr>');
+                  
+                });
+
+               $("#Validacion28").val(Total);
+                return false;
+            });
+
+            // guardar consulta en vur sol
+            $("#GuardarConVurCon").click(function () {
+                var status  = 0 ;
+                if ($('#MunCon').val() == '') { status = 1 ; } 
+                if ($('#DepCon').val() == '') { status = 1 ;} 
+                if ($('#NumVurCon').val() == '') { status = 1 ;}
+                if ($('#NumAreCon').val() == '') { status = 1 ;}
+
+                if (status == 1) {
+                    alert('Todos los campos son requeridos ');
+                } 
+
+                    else {
+
+                        var Item = { 
+                            MunCon : $('#MunCon').val() , 
+                            MunNomCon : $('#MunCon option:selected').text(), 
+                            DepCon : $('#DepCon').val() , 
+                            DepNomCon : $('#DepCon option:selected').text() ,
+                            NumVurCon : $('#NumVurCon').val(),
+                            NumAreCon : $('#NumAreCon').val(),
+                        }
+
+                        var i = 0 ;
+                        var Total = 0 ;
+                        var Guardar = '' ;
+
+                        ConsultaVurCon.push(Item);
+                        $("#TableCon").find("tr:gt(0)").remove();
+                        ConsultaVurCon.forEach(function(Item) {
+                            i ++ ;
+                            Total = Total +parseInt(Item.NumAreCon) ; 
+                            //Guardar = Guardar + '|'+$('#DepCon').val() +'_'+ $('#MunCon').val() +'_'+ $('#NumVurCon').val() +'_'+ $('#NumAreCon').val();
+                            $('#TableCon tr:last').after('<tr>'+
+                                                            '<td>'+i+'</td>'+
+                                                            '<td>'+Item.DepNomCon+'</td>'+
+                                                            '<td>'+Item.MunNomCon+'</td>'+
+                                                            '<td>'+Item.NumVurCon+'</td>'+
+                                                            '<td>'+Item.NumAreCon+'</td>'+
+                                                            '<td class="" data-serialnumber = "'+i+'">'+
+                                                                '<button  type="button" class=" DelVurCon"  title="" value="sd" >'+
+                                                                '<i class="fa fa-trash" aria-hidden="true"></i>'+
+                                                                '</button>'+
+                                                            '</td>'+
+                                                        '</tr>');
+                        });
+                    }
+
+
+               $("#Validacion33").val(Total);
+               //$("#Validacion27").val(Guardar);
+
+                return false;
+            });
+
+            $('#TableCon').on('click', '.DelVurCon', function () {
+                var $tr = $(this).closest('tr');
+                var serialNumber = $tr.find('td[data-serialnumber]').data('serialnumber');
+                alert(serialNumber );
+                ConsultaVurCon.splice(serialNumber - 1,1);
+                 $("#TableCon").find("tr:gt(0)").remove();
+                 var i =0;
+                 var Total =0;
+                ConsultaVurCon.forEach(function(Item) {
+                    i ++ ;
+                    Total = Total +parseInt(Item.NumAreCon) ; 
+
+                    $('#TableCon tr:last').after('<tr>'+
+                                                    '<td>'+i+'</td>'+
+                                                    '<td>'+Item.DepNomCon+'</td>'+
+                                                    '<td>'+Item.MunNomCon+'</td>'+
+                                                    '<td>'+Item.NumVurCon+'</td>'+
+                                                    '<td>'+Item.NumAreCon+'</td>'+
+                                                    '<td class="" data-serialnumber = "'+i+'">'+
+                                                        '<button  type="button" class=" DelVurCon"  title="" value="sd" >'+
+                                                        '<i class="fa fa-trash" aria-hidden="true"></i>'+
+                                                        '</button>'+
+                                                    '</td>'+
+
+
+                                                '</tr>');
+                  
+                });
+               $("#Validacion33").val(Total);
+
+                return false;
+            });
+
+
+
+            //////////////////////////////
+            ///////// CHECK FECHA INICIAL
+            //////////////////////////////
+            
             $(".checkFecha").change(function () {
                 var Id = $(this).attr("Data");
                 if( $(this).prop('checked') ) {
@@ -835,11 +1248,11 @@
                     if (res[2].length == 1) {
                         Add3 = "0";
                     }
-                	ResDate = Add3+res[2].replace(" 00:00:00.000","").replace(" 12:00:00 a. m.","").replace(" 12:00:00 AM","") +
-                		"-" + Add1+res[0] +
-                		"-" + Add2+res[1];
-                	 console.log(res + ' arra');
-                	 console.log(ResDate + ' ResDate');
+                    ResDate = Add3+res[2].replace(" 00:00:00.000","").replace(" 12:00:00 a. m.","").replace(" 12:00:00 AM","") +
+                        "-" + Add1+res[0] +
+                        "-" + Add2+res[1];
+                     console.log(res + ' arra');
+                     console.log(ResDate + ' ResDate');
 
                 }
                  //debugger;
@@ -860,14 +1273,17 @@
 
 
 
-            /// catalogos
+
+            //////////////////////////////
+            ///////// CATALOGOS
+            //////////////////////////////
             function Catalogos(nombre,campo) {
                 $.ajax({
                     type: 'POST',
                     url: '@Url.Action("ListTipos")', // we are calling json method
                     dataType: 'json',
                     data: { Id: nombre   },
-                    success: function (states) {    
+                    success: function (states) {
 
                         $.each(states, function (i, state) {
 
@@ -876,9 +1292,9 @@
 
                                 if (state.Value == "@Model.Validacion5")
                                     $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
-                                else 
+                                else
                                     $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
-                               
+
                             }
                             if (campo == 'Validacion11') {
 
@@ -1158,7 +1574,7 @@
 
                         });
 
-                       
+
 
                     },
                     error: function (ex) {
@@ -1175,8 +1591,8 @@
             Catalogos('El predio cuenta con Vivienda  (Si No)(FISO Información del Predio - Fotografías - Plano)', 'Validacion19');//
             Catalogos('Tipo de explotacion (FISO 11_2 Clase de explotacion)', 'Validacion20');//
             Catalogos('Años de ocupación o explotación (FISO)', 'Validacion21');//
-            Catalogos('ITJP (902) UAF PREDIAL UAF (ha) ', 'Validacion23');//
-            Catalogos('ITJP (Rango 160) UAF por ZRH UAF (ha) ', 'Validacion24');//
+            Catalogos('ITJP (902) UAF PREDIAL UAF (ha)', 'Validacion23');//
+            Catalogos('ITJP (Rango 160) UAF por ZRH UAF (ha)', 'Validacion24');//
             Catalogos('ITJD (160 Y 902) UAF (ha) ', 'Validacion25');//
             Catalogos('El solicitante es propietarios de otros predios rurales (SiNo) (SIT- VUR - Abogado - Catrastral) ', 'Validacion26');//
             Catalogos('Área registrada y encontrada en el VUR a nombre del solicitante', 'Validacion27');//
@@ -1209,7 +1625,10 @@
             Catalogos('IMPRIMIR RESOLUCIÓN DE APERTURA', 'Validacion58');//
             Catalogos('IMPRIMIR RESOLUCIÓN DE CIERRE', 'Validacion59');//
             Catalogos('ITJP e ITJD AGRONOMO RESPONSABLE', 'Validacion60');//
-            
+
+            //////////////////////////////
+            ///////// CATALOGOS DEPTO FORMULARI
+            //////////////////////////////
             $.ajax({
                 type: 'POST',
                 url: '@Url.Action("ListDepto", "Registro")', // we are calling json method
@@ -1229,6 +1648,34 @@
                     console.log(ex.responseText);
                 }
             });
+            
+            // VALIDA SI CARGA EL MUNICIPIO
+            if ('@Model.Validacion2' != '') {
+                
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListCiudadId", "Registro")', // we are calling json method
+                    dataType: 'json',
+                    data: { IdP: '@Model.Validacion2' },
+                    success: function(states) {
+                        //  alert("okdepto" + $("#ID_CT_DEPTO").val());
+                        $.each(states, function (i, state) {
+                            //  alert(state.Value);
+
+                            if ('@Model.Validacion3' == state.Value) {
+                                $("#Validacion3").append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                            } else {
+                                $("#Validacion3").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                            }
+
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+            } 
+
 
             $("#Validacion2").change(function () {
                 $("#Validacion3").empty();
@@ -1256,7 +1703,77 @@
                 });
                 return false;
             });
-            
+
+            //////////////////////////////
+            ///////// CATALOGOS DEPTO CONSULTA VUR
+            //////////////////////////////
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ListDepto", "Registro")', // we are calling json method
+                dataType: 'json',
+                success: function(states) {
+
+                    $.each(states, function (i, state) {
+                        //$("#IdDepto").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                            $("#DepSol").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                            $("#DepCon").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    console.log(ex.responseText);
+                }
+            });
+
+            $("#DepSol").change(function () {
+                $("#MunSol").empty();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListCiudadId", "Registro")', // we are calling json method
+                    dataType: 'json',
+                    data: { IdP: $("#DepSol").val() },
+                    success: function(states) {
+                        //  alert("okdepto" + $("#ID_CT_DEPTO").val());
+                        $.each(states, function (i, state) {
+                            //  alert(state.Value);
+
+                                $("#MunSol").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                return false;
+            });
+
+            $("#DepCon").change(function () {
+                $("#MunCon").empty();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListCiudadId", "Registro")', // we are calling json method
+                    dataType: 'json',
+                    data: { IdP: $("#DepCon").val() },
+                    success: function(states) {
+                        //  alert("okdepto" + $("#ID_CT_DEPTO").val());
+                        $.each(states, function (i, state) {
+                            //  alert(state.Value);
+
+                                $("#MunCon").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                return false;
+            });
+
+            //////////////////////////////
+            ///////// MUESTRA ERRORES
+            //////////////////////////////
+
             $(".field-validation-error").each(function(){
                 var IdClass = $(this).attr("class");
                 if( IdClass.indexOf("field-validation-error") != "-1"  ) {
@@ -1269,34 +1786,263 @@
 
             // =============================================================
             // =============================================================
-            // REGLAS 
+            // REGLAS
 
             $("#Validacion5").change(function () {
                 if ($("#Validacion5").val() == 1) {
-                    $("#Validacion8").val('N_A');
-                    $("#Validacion8").prop('disabled', true);
-                    $("#Validacion9").val('N_A');
-                    $("#Validacion9").prop('disabled', true);
-                    $("#Validacion31").val('N_A');
-                    $("#Validacion31").prop('disabled', true);
-                } else { }
-            });
-            $("#Validacion14").change(function () {
-                alert($("#Validacion14").val());
-                if ($("#Validacion14").val() == 8) {
-                    $("#Validacion15").val('N_A');
-                    $("#Validacion15").prop('disabled', true);
-                } else { }
+                    $("#Validacion8").val('N_A');               // Identificación Cónyuge
+                    $("#Validacion8").prop('disabled', true);   // Identificación Cónyuge
+
+                    $("#Validacion9").val('N_A');               // Nombre completo del Cónyuge
+                    $("#Validacion9").prop('disabled', true);   // Nombre completo del Cónyuge
+
+                    $("#Validacion31").val('41');               // El cónyuge es propietario de otros predios rurales
+                    $("#Validacion31").prop('disabled', true);  //El cónyuge es propietario de otros predios rurales
+
+                    $("#Validacion35").val('0');               // El cónyuge es propietario de otros predios rurales
+                    $("#Validacion35").prop('disabled', true);  //El cónyuge es propietario de otros predios rurales
+
+                    //$("#Validacion32").val('0');               // El cónyuge es propietario de otros predios rurales
+                    //$("#Validacion32").prop('disabled', true);  //El cónyuge es propietario de otros predios rurales
+
+                    //$("#Validacion33").val('0');               // El cónyuge es propietario de otros predios rurales
+                    //$("#Validacion33").prop('disabled', true);  //El cónyuge es propietario de otros predios rurales
+
+
+
+                } else {
+
+                    $("#Validacion8").prop('disabled', false);   // Identificación Cónyuge
+
+                    $("#Validacion9").prop('disabled', false);   // Nombre completo del Cónyuge
+
+                    $("#Validacion31").prop('disabled', false);  //El cónyuge es propietario de otros predios rurales
+
+                    $("#Validacion35").prop('disabled', false);  //El cónyuge es propietario de otros predios rurales
+
+
+                }
             });
 
-             $("#Validacion16").change(function () {
-                alert($("#Validacion16").val());
-                if ($("#Validacion16").val() == 10) {
-                    $("#Validacion17").val('N_A');
-                    $("#Validacion17").prop('disabled', true);
-                } else { }
+            $("#Validacion11").change(function () { // "Régimen de Escogencia"
+
+                if ($("#Validacion11").val() == 3) {
+                    $("#Validacion18").val('230');               // Cuenta con Cáculo de UAF
+                    $("#Validacion18").prop('disabled', true);   // Cuenta con Cáculo de UAF
+
+                    $("#Validacion24").val('N_A');               // Nombre completo del Cónyuge
+                    $("#Validacion24").prop('disabled', true);   // Nombre completo del Cónyuge
+
+                    $("#Validacion42").val('231');               // El cónyuge es propietario de otros predios rurales
+                    $("#Validacion42").prop('disabled', true);  //El cónyuge es propietario de otros predios rurales
+
+                    $("#Validacion43").val('232');               // El cónyuge es propietario de otros predios rurales
+                    $("#Validacion43").prop('disabled', true);  //El cónyuge es propietario de otros predios rurales
+                } else if ($("#Validacion11").val() == 4)  {
+
+                    $("#Validacion18").prop('disabled', false);   // Cuenta con Cáculo de UAF
+                    $("#Validacion24").prop('disabled', false);   // Nombre completo del Cónyuge
+                    $("#Validacion42").prop('disabled', false);  //El cónyuge es propietario de otros predios rurales
+                    $("#Validacion43").prop('disabled', false);  //El cónyuge es propietario de otros predios rurales
+
+                    $("#Validacion23").val('26');               // UAF Por ZRH Rango 160 UAF * (Ha)
+                    $("#Validacion23").prop('disabled', true);  //UAF Por ZRH Rango 160 UAF * (Ha)
+
+                    $("#Validacion43").val('232');               // ITJP UAF Predial Excepción Decreto 902
+                    $("#Validacion43").prop('disabled', true);  //ITJP UAF Predial Excepción Decreto 902
+
+                    $("#Validacion44").val('233');               //ITJP Dentro Del Rango UAF – ZRH Ley 160
+                    $("#Validacion44").prop('disabled', true);  //ITJP Dentro Del Rango UAF – ZRH Ley 160
+
+                    $("#Validacion45").val('234');               // ITJP Menor Al Rango De UAF – ZRH Ley 160
+                    $("#Validacion45").prop('disabled', true);  //ITJP Menor Al Rango De UAF – ZRH Ley 160
+                } else {
+
+                    $("#Validacion18").prop('disabled', false);   // Cuenta con Cáculo de UAF
+                    $("#Validacion24").prop('disabled', false);   // Nombre completo del Cónyuge
+                    $("#Validacion42").prop('disabled', false);  //El cónyuge es propietario de otros predios rurales
+                    $("#Validacion43").prop('disabled', false);  //El cónyuge es propietario de otros predios rurales
+                    $("#Validacion23").prop('disabled', false);  //UAF Por ZRH Rango 160 UAF * (Ha)
+                    $("#Validacion43").prop('disabled', false);  //ITJP UAF Predial Excepción Decreto 902
+                    $("#Validacion44").prop('disabled', false);  //ITJP Dentro Del Rango UAF – ZRH Ley 160
+                    $("#Validacion45").prop('disabled', false);  //ITJP Menor Al Rango De UAF – ZRH Ley 160
+                }
+
             });
-            
+
+            $("#Validacion12").change(function () {  //Ubicación del Predio
+
+                if ($("#Validacion12").val() == 5) {
+
+                    $("#Validacion14").val('235');               // Cuenta con Inspecion Ocular
+                    $("#Validacion14").prop('disabled', true);  //Cuenta con Inspecion Ocular
+
+                    $("#Validacion16").val('236');               // ¿Cuenta Con Certificado De Uso Del Suelo ?
+                    $("#Validacion16").prop('disabled', true);  //¿Cuenta Con Certificado De Uso Del Suelo ?
+
+                    $("#Validacion18").val('230');               //¿Cuenta Con Cáculo De UAF ?
+                    $("#Validacion18").prop('disabled', true);  //¿Cuenta Con Cáculo De UAF ?
+
+                } else {
+                    $("#Validacion14").prop('disabled', false);  //Cuenta con Inspecion Ocular
+
+                    $("#Validacion16").prop('disabled', false);  //¿Cuenta Con Certificado De Uso Del Suelo ?
+
+                    $("#Validacion18").prop('disabled', false);  //¿Cuenta Con Cáculo De UAF ?
+
+                }
+            });
+
+            $("#Validacion13").change(function () {
+                if ($("#Validacion13").val() >  0.2000) {
+                    $("#Validacion24").val('N_A');               //UAF PREDIAL UAF * (Ha)
+                    $("#Validacion24").prop('disabled', true);  //UAF PREDIAL UAF * (Ha)
+                } else {
+                    $("#Validacion24").val('');               //UAF PREDIAL UAF * (Ha)
+                    $("#Validacion24").prop('disabled', false);  //UAF PREDIAL UAF * (Ha)
+                }
+            });
+
+            $("#Validacion14").change(function () { // ¿Cuenta con Inspeción Ocular ?
+                if ($("#Validacion14").val() ==  8) {
+                    $("#Validacion15").val('N_A');               //UAF PREDIAL UAF * (Ha)
+                    $("#Validacion15").prop('disabled', true);  //UAF PREDIAL UAF * (Ha)
+                    $("#Validacion50").val('98');               //RESTRICCIÓN POR ACUMULACIÓN DE UAF
+                    $("#Validacion50").prop('disabled', true);  //RESTRICCIÓN POR ACUMULACIÓN DE UAF
+
+                } else {
+                    $("#Validacion15").val('');               //UAF PREDIAL UAF * (Ha)
+                    $("#Validacion15").prop('disabled', false);  //UAF PREDIAL UAF * (Ha)
+                    $("#Validacion50").prop('disabled', false);  //RESTRICCIÓN POR ACUMULACIÓN DE UAF
+                }
+            });
+
+            $("#Validacion16").change(function () { //¿Cuenta con Certificado de Uso del Suelo ?
+
+                if ($("#Validacion16").val() == 10) { // ¿Cuenta con Certificado de Uso del Suelo ?
+
+                    $("#Validacion17").val('N_A'); // Uso Principal Del Certificado De Uso De Suelo
+                    $("#Validacion17").prop('disabled', true); // Uso Principal Del Certificado De Uso De Suelo
+
+                    $("#Validacion51").val('101');               //RESTRICCIÓN POR AUSENCIA DE INSPECCIÓN OCULAR
+                    $("#Validacion51").prop('disabled', true);  //RESTRICCIÓN POR AUSENCIA DE INSPECCIÓN OCULAR
+
+                } else {
+
+                    $("#Validacion17").prop('disabled', false); // Uso Principal Del Certificado De Uso De Suelo
+                    $("#Validacion17").val(''); // Uso Principal Del Certificado De Uso De Suelo
+                    $("#Validacion51").prop('disabled', false);  //RESTRICCIÓN POR AUSENCIA DE INSPECCIÓN OCULAR
+
+                }
+            });
+
+            $("#Validacion18").change(function () { //¿Cuenta con Certificado de Uso del Suelo ?
+
+                if ($("#Validacion18").val() == 12) { // ¿Cuenta con Certificado de Uso del Suelo ?
+
+                    $("#Validacion24").val('N_A');               //UAF PREDIAL UAF * (Ha)
+                    $("#Validacion24").prop('disabled', true);  //UAF PREDIAL UAF * (Ha)
+
+                } else {
+
+                    $("#Validacion24").prop('disabled', false); // Uso Principal Del Certificado De Uso De Suelo
+                    $("#Validacion24").val(''); // Uso Principal Del Certificado De Uso De Suelo
+
+                }
+            });
+
+            //////////////////////////////
+            ///////// ENVIAR
+            //////////////////////////////
+            $( "#car-form" ).submit(function( event ) {
+                $("#Id").prop('disabled', false);
+                $("#FechaInsercion").prop('disabled', false);
+                $("#FechaModificacion").prop('disabled', false);
+                $("#Gestion").prop('disabled', false);
+                $("#IdAspNetUser").prop('disabled', false);
+                $("#IdAspNetUserModifica").prop('disabled', false);
+                $("#IdExpediente").prop('disabled', false);
+                $("#Estado").prop('disabled', false);
+                $("#Validacion1").prop('disabled', false);
+                $("#Validacion2").prop('disabled', false);
+                $("#Validacion3").prop('disabled', false);
+                $("#Validacion4").prop('disabled', false);
+                $("#Validacion5").prop('disabled', false);
+                $("#Validacion6").prop('disabled', false);
+                $("#Validacion7").prop('disabled', false);
+                $("#Validacion8").prop('disabled', false);
+                $("#Validacion9").prop('disabled', false);
+                $("#Validacion10").prop('disabled', false);
+                $("#Validacion11").prop('disabled', false);
+                $("#Validacion12").prop('disabled', false);
+                $("#Validacion13").prop('disabled', false);
+                $("#Validacion14").prop('disabled', false);
+                $("#Validacion15").prop('disabled', false);
+                $("#Validacion16").prop('disabled', false);
+                $("#Validacion17").prop('disabled', false);
+                $("#Validacion18").prop('disabled', false);
+                $("#Validacion19").prop('disabled', false);
+                $("#Validacion20").prop('disabled', false);
+                $("#Validacion21").prop('disabled', false);
+                $("#Validacion22").prop('disabled', false);
+                $("#Validacion23").prop('disabled', false);
+                $("#Validacion24").prop('disabled', false);
+                $("#Validacion25").prop('disabled', false);
+                $("#Validacion26").prop('disabled', false);
+                $("#Validacion27").prop('disabled', false);
+                $("#Validacion28").prop('disabled', false);
+                $("#Validacion29").prop('disabled', false);
+                $("#Validacion30").prop('disabled', false);
+                $("#Validacion31").prop('disabled', false);
+                $("#Validacion32").prop('disabled', false);
+                $("#Validacion33").prop('disabled', false);
+                $("#Validacion34").prop('disabled', false);
+                $("#Validacion35").prop('disabled', false);
+                $("#Validacion36").prop('disabled', false);
+                $("#Validacion37").prop('disabled', false);
+                $("#Validacion38").prop('disabled', false);
+                $("#Validacion39").prop('disabled', false);
+                $("#Validacion40").prop('disabled', false);
+                $("#Validacion41").prop('disabled', false);
+                $("#Validacion42").prop('disabled', false);
+                $("#Validacion43").prop('disabled', false);
+                $("#Validacion44").prop('disabled', false);
+                $("#Validacion45").prop('disabled', false);
+                $("#Validacion46").prop('disabled', false);
+                $("#Validacion47").prop('disabled', false);
+                $("#Validacion48").prop('disabled', false);
+                $("#Validacion49").prop('disabled', false);
+                $("#Validacion50").prop('disabled', false);
+                $("#Validacion51").prop('disabled', false);
+                $("#Validacion52").prop('disabled', false);
+                $("#Validacion53").prop('disabled', false);
+                $("#Validacion54").prop('disabled', false);
+                $("#Validacion55").prop('disabled', false);
+                $("#Validacion56").prop('disabled', false);
+                $("#Validacion57").prop('disabled', false);
+                $("#Validacion58").prop('disabled', false);
+                $("#Validacion59").prop('disabled', false);
+                $("#Validacion60").prop('disabled', false);
+                $("#Validacion61").prop('disabled', false);
+                $("#Validacion62").prop('disabled', false);
+                $("#Validacion63").prop('disabled', false);
+
+                var GuardarSolConVur = "";
+                ConsultaVurSol.forEach(function(Item) {
+                    GuardarSolConVur = GuardarSolConVur + '|' + Item.DepSol + '_' + Item.MunSol + '_' + Item.NumVurSol + '_' + Item.NumAreSol ;
+                });
+
+                $("#Validacion27").val(GuardarSolConVur);
+
+                var GuardarConConVur = "";
+                ConsultaVurCon.forEach(function(Item) {
+                    GuardarConConVur = GuardarConConVur + '|' + Item.DepCon + '_' + Item.MunCon + '_' + Item.NumVurCon + '_' + Item.NumAreCon ;
+                });
+
+                $("#Validacion32").val(GuardarConConVur);
+            });
+
+
         });
     </script>
 }

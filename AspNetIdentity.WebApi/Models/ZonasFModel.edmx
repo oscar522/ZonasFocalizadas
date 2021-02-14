@@ -174,6 +174,138 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
+        <EntityType Name="Ba_Memorando">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaInsercion" Type="datetime" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="Gestion" Type="int" />
+          <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" />
+          <Property Name="IdAspNetUserModifica" Type="nvarchar" MaxLength="128" />
+          <Property Name="IdExpediente" Type="bigint" />
+          <Property Name="Estado" Type="int" />
+          <Property Name="Validacion1" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion2" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion3" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion4" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion5" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion6" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion7" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion8" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion9" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion10" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion11" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion12" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion13" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion14" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion15" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion16" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion17" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion18" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion19" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion20" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion21" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion22" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion23" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion24" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion25" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion26" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion27" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion28" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion29" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion30" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion31" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion32" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion33" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion34" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion35" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion36" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion37" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion38" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion39" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion40" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion41" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion42" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion43" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion44" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion45" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion46" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion47" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion48" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion49" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion50" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion51" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion52" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion53" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion54" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion55" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion56" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion57" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion58" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion59" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion60" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion61" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion62" Type="nvarchar" MaxLength="128" />
+          <Property Name="Validacion63" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="Ba_Memorando_new">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="radicado" Type="nvarchar" MaxLength="128" />
+          <Property Name="cargaorfeo" Type="nvarchar" MaxLength="128" />
+          <Property Name="asignado" Type="nvarchar" MaxLength="128" />
+          <Property Name="Fechasignado" Type="datetime" />
+          <Property Name="feacharadicado" Type="datetime" />
+          <Property Name="fiso" Type="int" />
+          <Property Name="municipio" Type="nvarchar" MaxLength="128" />
+          <Property Name="departamento" Type="nvarchar" MaxLength="128" />
+          <Property Name="expediente" Type="nvarchar" MaxLength="128" />
+          <Property Name="fechafiso" Type="datetime" />
+          <Property Name="tiposolicitud" Type="nvarchar" MaxLength="128" />
+          <Property Name="solicitante" Type="nvarchar" MaxLength="128" />
+          <Property Name="docidentificacionsol" Type="nvarchar" MaxLength="128" />
+          <Property Name="copiadoc" Type="nvarchar" MaxLength="128" />
+          <Property Name="copiacertificadocurso" Type="nvarchar" MaxLength="128" />
+          <Property Name="declararentasol" Type="nvarchar" MaxLength="128" />
+          <Property Name="beneficiariosol" Type="nvarchar" MaxLength="128" />
+          <Property Name="propietariosol" Type="nvarchar" MaxLength="128" />
+          <Property Name="penjudicialessol" Type="nvarchar" MaxLength="128" />
+          <Property Name="ocupanteindebidosol" Type="nvarchar" MaxLength="128" />
+          <Property Name="victimadsol" Type="nvarchar" MaxLength="128" />
+          <Property Name="conyuge" Type="nvarchar" MaxLength="128" />
+          <Property Name="docidentificacioncony" Type="nvarchar" MaxLength="128" />
+          <Property Name="declararentacony" Type="nvarchar" MaxLength="128" />
+          <Property Name="beneficiariocony" Type="nvarchar" MaxLength="128" />
+          <Property Name="propietariocony" Type="nvarchar" MaxLength="128" />
+          <Property Name="penjudicialescony" Type="nvarchar" MaxLength="128" />
+          <Property Name="ocupanteindevidocony" Type="nvarchar" MaxLength="128" />
+          <Property Name="victimadcony" Type="nvarchar" MaxLength="128" />
+          <Property Name="inclusionreso" Type="nvarchar" MaxLength="128" />
+          <Property Name="respojuridico" Type="nvarchar" MaxLength="128" />
+          <Property Name="respoagronomo" Type="nvarchar" MaxLength="128" />
+          <Property Name="respocatastral" Type="nvarchar" MaxLength="128" />
+          <Property Name="responsable" Type="nvarchar" MaxLength="128" />
+          <Property Name="fechaediccion" Type="nvarchar" MaxLength="128" />
+          <Property Name="FechaInsercion" Type="datetime" Nullable="false" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="Gestion" Type="int" />
+          <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" />
+          <Property Name="IdAspNetUserModifica" Type="nvarchar" MaxLength="128" />
+          <Property Name="Estado" Type="int" />
+        </EntityType>
+        <EntityType Name="Ba_MemorandoCatalogos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="text" />
+          <Property Name="Tipo" Type="varchar(max)" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
         <EntityType Name="BaldiosPersonaNatural">
           <Key>
             <PropertyRef Name="id" />
@@ -285,6 +417,19 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
           <Property Name="Nombre" Type="text" />
           <Property Name="Tipo" Type="varchar(max)" />
           <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="CaracterizacionAgronomicaConsultaVur">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipo" Type="nchar" MaxLength="100" />
+          <Property Name="Departamento" Type="nchar" MaxLength="100" />
+          <Property Name="Municipio" Type="nchar" MaxLength="100" />
+          <Property Name="Numero" Type="nchar" MaxLength="100" />
+          <Property Name="Area" Type="nchar" MaxLength="100" />
+          <Property Name="Estado" Type="bit" />
+          <Property Name="idCaracterizacion" Type="int" />
         </EntityType>
         <EntityType Name="CaracterizacionCatastral">
           <Key>
@@ -1217,9 +1362,13 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <EntitySet Name="ActDiaModalidad" EntityType="Self.ActDiaModalidad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ActDiaProceso" EntityType="Self.ActDiaProceso" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ActividadesDiarias" EntityType="Self.ActividadesDiarias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ba_Memorando" EntityType="Self.Ba_Memorando" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ba_Memorando_new" EntityType="Self.Ba_Memorando_new" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ba_MemorandoCatalogos" EntityType="Self.Ba_MemorandoCatalogos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BaldiosPersonaNatural" EntityType="Self.BaldiosPersonaNatural" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CaracterizacionAgronomica" EntityType="Self.CaracterizacionAgronomica" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CaracterizacionAgronomicaCatalogos" EntityType="Self.CaracterizacionAgronomicaCatalogos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CaracterizacionAgronomicaConsultaVur" EntityType="Self.CaracterizacionAgronomicaConsultaVur" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CaracterizacionCatastral" EntityType="Self.CaracterizacionCatastral" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CaracterizacionCatastralCatalogos" EntityType="Self.CaracterizacionCatastralCatalogos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CaracterizacionJuridica" EntityType="Self.CaracterizacionJuridica" Schema="dbo" store:Type="Tables" />
@@ -1904,6 +2053,10 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <EntitySet Name="CaracterizacionCatastral" EntityType="ZonasFModel.CaracterizacionCatastral" />
           <EntitySet Name="CaracterizacionAgronomicaCatalogos" EntityType="ZonasFModel.CaracterizacionAgronomicaCatalogos" />
           <EntitySet Name="CaracterizacionAgronomica" EntityType="ZonasFModel.CaracterizacionAgronomica" />
+          <EntitySet Name="CaracterizacionAgronomicaConsultaVur" EntityType="ZonasFModel.CaracterizacionAgronomicaConsultaVur" />
+          <EntitySet Name="Ba_Memorando" EntityType="ZonasFModel.Ba_Memorando" />
+          <EntitySet Name="Ba_MemorandoCatalogos" EntityType="ZonasFModel.Ba_MemorandoCatalogos" />
+          <EntitySet Name="Ba_Memorando_new" EntityType="ZonasFModel.Ba_Memorando_new" />
         </EntityContainer>
         <EntityType Name="ExpedienteDocumentos">
           <Key>
@@ -3010,6 +3163,151 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
           <Property Name="Validacion61" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Validacion62" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Validacion63" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CaracterizacionAgronomicaConsultaVur">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Departamento" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Municipio" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Numero" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Area" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Estado" Type="Boolean" />
+          <Property Name="idCaracterizacion" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Ba_Memorando">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaInsercion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="Gestion" Type="Int32" />
+          <Property Name="IdAspNetUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IdAspNetUserModifica" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IdExpediente" Type="Int64" />
+          <Property Name="Estado" Type="Int32" />
+          <Property Name="Validacion1" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion2" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion3" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion4" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion5" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion6" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion7" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion8" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion9" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion10" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion11" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion12" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion13" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion14" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion15" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion16" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion17" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion18" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion19" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion20" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion21" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion22" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion23" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion24" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion25" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion26" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion27" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion28" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion29" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion30" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion31" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion32" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion33" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion34" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion35" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion36" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion37" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion38" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion39" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion40" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion41" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion42" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion43" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion44" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion45" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion46" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion47" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion48" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion49" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion50" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion51" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion52" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion53" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion54" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion55" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion56" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion57" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion58" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion59" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion60" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion61" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion62" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion63" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Ba_MemorandoCatalogos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Ba_Memorando_new">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="radicado" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="cargaorfeo" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="asignado" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Fechasignado" Type="DateTime" Precision="3" />
+          <Property Name="feacharadicado" Type="DateTime" Precision="3" />
+          <Property Name="fiso" Type="Int32" />
+          <Property Name="municipio" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="departamento" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="expediente" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="fechafiso" Type="DateTime" Precision="3" />
+          <Property Name="tiposolicitud" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="solicitante" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="docidentificacionsol" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="copiadoc" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="copiacertificadocurso" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="declararentasol" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="beneficiariosol" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="propietariosol" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="penjudicialessol" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ocupanteindebidosol" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="victimadsol" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="conyuge" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="docidentificacioncony" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="declararentacony" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="beneficiariocony" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="propietariocony" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="penjudicialescony" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ocupanteindevidocony" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="victimadcony" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="inclusionreso" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="respojuridico" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="respoagronomo" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="respocatastral" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="responsable" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="fechaediccion" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="FechaInsercion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="Gestion" Type="Int32" />
+          <Property Name="IdAspNetUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IdAspNetUserModifica" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -4171,6 +4469,155 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
                 <ScalarProperty Name="Gestion" ColumnName="Gestion" />
                 <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
                 <ScalarProperty Name="FechaInsercion" ColumnName="FechaInsercion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CaracterizacionAgronomicaConsultaVur">
+            <EntityTypeMapping TypeName="ZonasFModel.CaracterizacionAgronomicaConsultaVur">
+              <MappingFragment StoreEntitySet="CaracterizacionAgronomicaConsultaVur">
+                <ScalarProperty Name="idCaracterizacion" ColumnName="idCaracterizacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ba_Memorando">
+            <EntityTypeMapping TypeName="ZonasFModel.Ba_Memorando">
+              <MappingFragment StoreEntitySet="Ba_Memorando">
+                <ScalarProperty Name="Validacion63" ColumnName="Validacion63" />
+                <ScalarProperty Name="Validacion62" ColumnName="Validacion62" />
+                <ScalarProperty Name="Validacion61" ColumnName="Validacion61" />
+                <ScalarProperty Name="Validacion60" ColumnName="Validacion60" />
+                <ScalarProperty Name="Validacion59" ColumnName="Validacion59" />
+                <ScalarProperty Name="Validacion58" ColumnName="Validacion58" />
+                <ScalarProperty Name="Validacion57" ColumnName="Validacion57" />
+                <ScalarProperty Name="Validacion56" ColumnName="Validacion56" />
+                <ScalarProperty Name="Validacion55" ColumnName="Validacion55" />
+                <ScalarProperty Name="Validacion54" ColumnName="Validacion54" />
+                <ScalarProperty Name="Validacion53" ColumnName="Validacion53" />
+                <ScalarProperty Name="Validacion52" ColumnName="Validacion52" />
+                <ScalarProperty Name="Validacion51" ColumnName="Validacion51" />
+                <ScalarProperty Name="Validacion50" ColumnName="Validacion50" />
+                <ScalarProperty Name="Validacion49" ColumnName="Validacion49" />
+                <ScalarProperty Name="Validacion48" ColumnName="Validacion48" />
+                <ScalarProperty Name="Validacion47" ColumnName="Validacion47" />
+                <ScalarProperty Name="Validacion46" ColumnName="Validacion46" />
+                <ScalarProperty Name="Validacion45" ColumnName="Validacion45" />
+                <ScalarProperty Name="Validacion44" ColumnName="Validacion44" />
+                <ScalarProperty Name="Validacion43" ColumnName="Validacion43" />
+                <ScalarProperty Name="Validacion42" ColumnName="Validacion42" />
+                <ScalarProperty Name="Validacion41" ColumnName="Validacion41" />
+                <ScalarProperty Name="Validacion40" ColumnName="Validacion40" />
+                <ScalarProperty Name="Validacion39" ColumnName="Validacion39" />
+                <ScalarProperty Name="Validacion38" ColumnName="Validacion38" />
+                <ScalarProperty Name="Validacion37" ColumnName="Validacion37" />
+                <ScalarProperty Name="Validacion36" ColumnName="Validacion36" />
+                <ScalarProperty Name="Validacion35" ColumnName="Validacion35" />
+                <ScalarProperty Name="Validacion34" ColumnName="Validacion34" />
+                <ScalarProperty Name="Validacion33" ColumnName="Validacion33" />
+                <ScalarProperty Name="Validacion32" ColumnName="Validacion32" />
+                <ScalarProperty Name="Validacion31" ColumnName="Validacion31" />
+                <ScalarProperty Name="Validacion30" ColumnName="Validacion30" />
+                <ScalarProperty Name="Validacion29" ColumnName="Validacion29" />
+                <ScalarProperty Name="Validacion28" ColumnName="Validacion28" />
+                <ScalarProperty Name="Validacion27" ColumnName="Validacion27" />
+                <ScalarProperty Name="Validacion26" ColumnName="Validacion26" />
+                <ScalarProperty Name="Validacion25" ColumnName="Validacion25" />
+                <ScalarProperty Name="Validacion24" ColumnName="Validacion24" />
+                <ScalarProperty Name="Validacion23" ColumnName="Validacion23" />
+                <ScalarProperty Name="Validacion22" ColumnName="Validacion22" />
+                <ScalarProperty Name="Validacion21" ColumnName="Validacion21" />
+                <ScalarProperty Name="Validacion20" ColumnName="Validacion20" />
+                <ScalarProperty Name="Validacion19" ColumnName="Validacion19" />
+                <ScalarProperty Name="Validacion18" ColumnName="Validacion18" />
+                <ScalarProperty Name="Validacion17" ColumnName="Validacion17" />
+                <ScalarProperty Name="Validacion16" ColumnName="Validacion16" />
+                <ScalarProperty Name="Validacion15" ColumnName="Validacion15" />
+                <ScalarProperty Name="Validacion14" ColumnName="Validacion14" />
+                <ScalarProperty Name="Validacion13" ColumnName="Validacion13" />
+                <ScalarProperty Name="Validacion12" ColumnName="Validacion12" />
+                <ScalarProperty Name="Validacion11" ColumnName="Validacion11" />
+                <ScalarProperty Name="Validacion10" ColumnName="Validacion10" />
+                <ScalarProperty Name="Validacion9" ColumnName="Validacion9" />
+                <ScalarProperty Name="Validacion8" ColumnName="Validacion8" />
+                <ScalarProperty Name="Validacion7" ColumnName="Validacion7" />
+                <ScalarProperty Name="Validacion6" ColumnName="Validacion6" />
+                <ScalarProperty Name="Validacion5" ColumnName="Validacion5" />
+                <ScalarProperty Name="Validacion4" ColumnName="Validacion4" />
+                <ScalarProperty Name="Validacion3" ColumnName="Validacion3" />
+                <ScalarProperty Name="Validacion2" ColumnName="Validacion2" />
+                <ScalarProperty Name="Validacion1" ColumnName="Validacion1" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdExpediente" ColumnName="IdExpediente" />
+                <ScalarProperty Name="IdAspNetUserModifica" ColumnName="IdAspNetUserModifica" />
+                <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />
+                <ScalarProperty Name="Gestion" ColumnName="Gestion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="FechaInsercion" ColumnName="FechaInsercion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ba_MemorandoCatalogos">
+            <EntityTypeMapping TypeName="ZonasFModel.Ba_MemorandoCatalogos">
+              <MappingFragment StoreEntitySet="Ba_MemorandoCatalogos">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ba_Memorando_new">
+            <EntityTypeMapping TypeName="ZonasFModel.Ba_Memorando_new">
+              <MappingFragment StoreEntitySet="Ba_Memorando_new">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdAspNetUserModifica" ColumnName="IdAspNetUserModifica" />
+                <ScalarProperty Name="IdAspNetUser" ColumnName="IdAspNetUser" />
+                <ScalarProperty Name="Gestion" ColumnName="Gestion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="FechaInsercion" ColumnName="FechaInsercion" />
+                <ScalarProperty Name="fechaediccion" ColumnName="fechaediccion" />
+                <ScalarProperty Name="responsable" ColumnName="responsable" />
+                <ScalarProperty Name="respocatastral" ColumnName="respocatastral" />
+                <ScalarProperty Name="respoagronomo" ColumnName="respoagronomo" />
+                <ScalarProperty Name="respojuridico" ColumnName="respojuridico" />
+                <ScalarProperty Name="inclusionreso" ColumnName="inclusionreso" />
+                <ScalarProperty Name="victimadcony" ColumnName="victimadcony" />
+                <ScalarProperty Name="ocupanteindevidocony" ColumnName="ocupanteindevidocony" />
+                <ScalarProperty Name="penjudicialescony" ColumnName="penjudicialescony" />
+                <ScalarProperty Name="propietariocony" ColumnName="propietariocony" />
+                <ScalarProperty Name="beneficiariocony" ColumnName="beneficiariocony" />
+                <ScalarProperty Name="declararentacony" ColumnName="declararentacony" />
+                <ScalarProperty Name="docidentificacioncony" ColumnName="docidentificacioncony" />
+                <ScalarProperty Name="conyuge" ColumnName="conyuge" />
+                <ScalarProperty Name="victimadsol" ColumnName="victimadsol" />
+                <ScalarProperty Name="ocupanteindebidosol" ColumnName="ocupanteindebidosol" />
+                <ScalarProperty Name="penjudicialessol" ColumnName="penjudicialessol" />
+                <ScalarProperty Name="propietariosol" ColumnName="propietariosol" />
+                <ScalarProperty Name="beneficiariosol" ColumnName="beneficiariosol" />
+                <ScalarProperty Name="declararentasol" ColumnName="declararentasol" />
+                <ScalarProperty Name="copiacertificadocurso" ColumnName="copiacertificadocurso" />
+                <ScalarProperty Name="copiadoc" ColumnName="copiadoc" />
+                <ScalarProperty Name="docidentificacionsol" ColumnName="docidentificacionsol" />
+                <ScalarProperty Name="solicitante" ColumnName="solicitante" />
+                <ScalarProperty Name="tiposolicitud" ColumnName="tiposolicitud" />
+                <ScalarProperty Name="fechafiso" ColumnName="fechafiso" />
+                <ScalarProperty Name="expediente" ColumnName="expediente" />
+                <ScalarProperty Name="departamento" ColumnName="departamento" />
+                <ScalarProperty Name="municipio" ColumnName="municipio" />
+                <ScalarProperty Name="fiso" ColumnName="fiso" />
+                <ScalarProperty Name="feacharadicado" ColumnName="feacharadicado" />
+                <ScalarProperty Name="Fechasignado" ColumnName="Fechasignado" />
+                <ScalarProperty Name="asignado" ColumnName="asignado" />
+                <ScalarProperty Name="cargaorfeo" ColumnName="cargaorfeo" />
+                <ScalarProperty Name="radicado" ColumnName="radicado" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

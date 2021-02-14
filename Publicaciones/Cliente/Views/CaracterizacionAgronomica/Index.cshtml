@@ -34,6 +34,8 @@
     <!--Card content-->
     <div class="card-body d-sm-flex justify-content-between">
         <h3 class="card-title">Caracterizacion Agronomica </h3>
+        <a href='@Url.Action("../CaracterizacionAgronomica/Crear", "Crear")' title='Modificar' class="btn btn-default" style='color: #013ADF;'>Crear</a>
+        <div></div>
     </div>
 
 </div>
@@ -131,7 +133,7 @@
                                 </td>
 
                                 <td>
-                                    <a href='@Url.Action("../CaracterizacionCatastral/Edit", "Edit", new { IdTable = item.NombreIdAspNetUser })' title='Modificar' style='color: #013ADF;'><i class='fa fa-refresh' aria-hidden='true'></i></a>
+                                    <a href='@Url.Action("../CaracterizacionAgronomica/Edit", "Edit", new { IdTable = item.id })' title='Modificar' style='color: #013ADF;'><i class='fa fa-refresh' aria-hidden='true'></i></a>
                                 </td>
                             </tr>
                             }

@@ -59,17 +59,34 @@
 </style>
 
 <script type="text/javascript">
-  
 </script>
 
 
-<div id="SidebarCustom" class="sidebar-fixed position-fixed">
-    <a class="waves-effect">
-        <img src="http://sit.agenciadetierras.gov.co/web/Content/Images/login-logos.png" class="img-fluid" alt="">
-    </a>
-    <div id="MenuClose" class="align-content-xl-end">
-        <i class="fa fa-times-circle" aria-hidden="true"></i>
+<div id="SidebarCustomRezago" class="sidebar-fixed position-fixed">
+
+    <div class="row ">
+        <div class="col-md-12">
+            <img src="http://sit.agenciadetierras.gov.co/web/Content/Images/login-logos.png" class="img-fluid" alt="">
+        </div>
+        <div class="row col-md-12 green darken-3 text-white" style="background-color: #e3f2fd;">
+            <div id="MenuCloseRezago" class="col-md-2">
+                <i class="fa fa-times-circle" aria-hidden="true"></i>
+            </div>
+            <div class="col-md-8 text-center justify-content-center">
+                <h4>Rezago</h4>
+            </div>
+            <div class="col-md-2 text-center justify-content-center">
+                <a class="text-white"
+                   href='@Url.Action("../Dashboard/Barrido", "Barrido", new { IdTable = "2" })' 
+                  >
+                    <i class="fa fa-toggle-on" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+
     </div>
+
+
     <div id="no-waves" class="list-group list-group-flush">
         <div class="containerMenu">
             <ul class="">
@@ -111,11 +128,18 @@
                 }
 
             </ul>
-           
+
         </div>
     </div>
 
 </div>
+
+
+
+
+
+
+
 <div class="modal fade" id="centralModalLGInfoDemoSlim" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

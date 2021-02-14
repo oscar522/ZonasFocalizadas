@@ -1,0 +1,124 @@
+{
+  "menus": [
+    {
+      "role": "Abogados",
+      "links": [
+        {
+          "order": 1,
+          "controllerName": "Ba_Memorando",
+          "actionName": "Index",
+          "linkText": "Memorando",
+          "iconText": "fa fa-book  mr-3",
+          "sub": null
+        }
+      ]
+    },
+    {
+      "role": "Administrator",
+      "links": [
+        {
+          "order": 1,
+          "controllerName": "Ba_Memorando",
+          "actionName": "Index",
+          "linkText": "Memorando",
+          "iconText": "fa fa-book  mr-3",
+          "sub": null
+        }
+      ]
+    },
+    {
+      "role": "Agronomo",
+      "links": [
+        {
+          "order": 1,
+          "controllerName": "Ba_Memorando",
+          "actionName": "Index",
+          "linkText": "Memorando",
+          "iconText": "fa fa-book  mr-3",
+          "sub": null
+        }
+      ]
+    },
+    {
+      "role": "Catastral",
+      "links": 
+        [
+          {
+            "order": 1,
+            "controllerName": "Ba_Memorando",
+            "actionName": "Index",
+            "linkText": "Memorando",
+            "iconText": "fa fa-book  mr-3",
+            "sub": null
+          }
+        ]
+      },
+    {
+      "role": "Social",
+      "links": [
+        {
+          "order": 1,
+          "controllerName": "Ba_Memorando",
+          "actionName": "Index",
+          "linkText": "Memorando",
+          "iconText": "fa fa-book  mr-3",
+          "sub": null
+        }
+      ]
+
+    },
+    {
+      "role": "Invitado",
+      "links": [
+        {
+          "order": 1,
+          "controllerName": "HomeUsuarios",
+          "actionName": "BuscarExpedientes",
+          "linkText": "Buscar Expedientes",
+          "iconText": "fa fa-search mr-3",
+          "sub": null
+        }
+      ]
+    },
+    {
+      "role": "Gestion Documental",
+      "links": [
+        {
+          "order": 1,
+          "controllerName": "Ba_Memorando",
+          "actionName": "Index",
+          "linkText": "Memorando",
+          "iconText": "fa fa-book  mr-3",
+          "sub": null
+        }
+      ] 
+
+    },
+    {
+      "role": "User",
+      "links": [
+        {
+          "order": 1,
+          "controllerName": "Ba_Memorando",
+          "actionName": "Index",
+          "linkText": "Memorando",
+          "iconText": "fa fa-book  mr-3",
+          "sub": null
+        }
+      ]
+
+    },
+    {
+      "role": "Lider",
+      "links": [
+        {
+          "order": 1,
+          "controllerName": "Ba_Memorando",
+          "actionName": "Index",
+          "linkText": "Memorando",
+          "iconText": "fa fa-book  mr-3",
+          "sub": null
+        }
+      ]  }
+  ]
+}

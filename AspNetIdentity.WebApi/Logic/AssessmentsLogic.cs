@@ -24,5 +24,15 @@ namespace AspNetIdentity.WebApi.Logic
                 return JsonConvert.SerializeObject(result);
             }
         }
+
+        public List<string>  GetRole()
+        {
+            using (ZonasFEntities context = new ZonasFEntities())
+            {
+                var result = context.AspNetRoles.Select(x => x.Name).ToList();
+
+                return result;
+            }
+        }
     }
 }

@@ -249,6 +249,8 @@
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\AccountTableController.cs" />
     <Compile Include="Controllers\AsignacionController.cs" />
+    <Compile Include="Controllers\Ba_Memorando_newController.cs" />
+    <Compile Include="Controllers\Ba_MemorandoController.cs" />
     <Compile Include="Controllers\CaracterizacionAgronomicaController.cs" />
     <Compile Include="Controllers\CaracterizacionCatastralController.cs" />
     <Compile Include="Controllers\GeneracionDocumentosController.cs" />
@@ -285,6 +287,8 @@
     <Compile Include="Infrastructure\RolesFromClaims.cs" />
     <Compile Include="Logic\AccountTableLogic.cs" />
     <Compile Include="Logic\AsignacionLogic.cs" />
+    <Compile Include="Logic\Ba_Memorando_newLogic.cs" />
+    <Compile Include="Logic\Ba_MemorandoLogic.cs" />
     <Compile Include="Logic\CaracterizacionCatastalLogic.cs" />
     <Compile Include="Logic\CaracterizacionAgronomicaLogic.cs" />
     <Compile Include="Logic\GeneracionDocumentosLogic.cs" />
@@ -349,10 +353,22 @@
     <Compile Include="Models\BaldiosPersonaNatural.cs">
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Ba_Memorando.cs">
+      <DependentUpon>ZonasFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ba_MemorandoCatalogos.cs">
+      <DependentUpon>ZonasFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ba_Memorando_new.cs">
+      <DependentUpon>ZonasFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CaracterizacionAgronomica.cs">
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CaracterizacionAgronomicaCatalogos.cs">
+      <DependentUpon>ZonasFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CaracterizacionAgronomicaConsultaVur.cs">
       <DependentUpon>ZonasFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CaracterizacionCatastral.cs">
@@ -543,7 +559,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>63699</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:63699/</IISUrl>
+          <IISUrl>http://localhost:63698/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

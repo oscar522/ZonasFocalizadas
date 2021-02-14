@@ -50,7 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountTableModel.cs" />
+    <Compile Include="Ba_MemorandoCatalogosModel.cs" />
+    <Compile Include="Ba_Memorando_newModel.cs" />
     <Compile Include="CaracterizacionAgronomicaCatalogosModel.cs" />
+    <Compile Include="Ba_MemorandoModel.cs" />
     <Compile Include="CaracterizacionCatastralModel.cs" />
     <Compile Include="CaracterizacionCatastralCatalogosModel.cs" />
     <Compile Include="CaracterizacionAgronomicaModel.cs" />

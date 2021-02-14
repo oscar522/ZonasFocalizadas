@@ -203,6 +203,8 @@
     <Compile Include="Controllers\AssessmentsController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BaldiosPersonaNaturalController.cs" />
+    <Compile Include="Controllers\Ba_Memorando_newController.cs" />
+    <Compile Include="Controllers\Ba_MemorandoController.cs" />
     <Compile Include="Controllers\CaracterizacionAgronomicaController.cs" />
     <Compile Include="Controllers\CaracterizacionCatastralController.cs" />
     <Compile Include="Controllers\GeneracionDocumentosController.cs" />
@@ -599,9 +601,10 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="config.json" />
+    <Content Include="config_rezago.json" />
     <Content Include="Scripts\ConfigPdfUri.json" />
     <Content Include="Content\ConfigPdfUri.json" />
+    <Content Include="config_barrido.json" />
     <None Include="packages.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
@@ -643,7 +646,7 @@
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Views\Layout\Navbar.cshtml" />
-    <Content Include="Views\Layout\Sidebar.cshtml" />
+    <Content Include="Views\Layout\SidebarBarrido.cshtml" />
     <Content Include="Views\Reports\Index.cshtml" />
     <Content Include="Views\CtGenero\Crear.cshtml" />
     <Content Include="Views\CtGenero\Delete.cshtml" />
@@ -1002,6 +1005,20 @@
     <Content Include="Views\CaracterizacionCatastral\Delete.cshtml" />
     <Content Include="Views\CaracterizacionAgronomica\Index.cshtml" />
     <Content Include="Views\CaracterizacionAgronomica\Crear.cshtml" />
+    <Content Include="Views\CaracterizacionAgronomica\Edit.cshtml" />
+    <Content Include="Views\Dashboard\Rezago.cshtml" />
+    <Content Include="Views\Dashboard\Barrido.cshtml" />
+    <Content Include="Views\Layout\SidebarRezago.cshtml" />
+    <Content Include="Views\Ba_Memorando\Crear.cshtml" />
+    <Content Include="Views\Ba_Memorando\Edit.cshtml" />
+    <Content Include="Views\Ba_Memorando\Index.cshtml" />
+    <Content Include="Views\Ba_Memorando\Index2.cshtml" />
+    <Content Include="Views\Ba_Memorando_new\Crear_.cshtml" />
+    <Content Include="Views\Ba_Memorando_new\Edit_.cshtml" />
+    <Content Include="Views\Ba_Memorando_new\Index_.cshtml" />
+    <Content Include="Views\Ba_Memorando_new\Index.cshtml" />
+    <Content Include="Views\Ba_Memorando_new\Crear.cshtml" />
+    <Content Include="Views\Ba_Memorando_new\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -1034,7 +1051,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50213</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50213/</IISUrl>
+          <IISUrl>http://localhost:50212/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
@@ -1042,7 +1059,6 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties config_1json__JsonSchema="" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

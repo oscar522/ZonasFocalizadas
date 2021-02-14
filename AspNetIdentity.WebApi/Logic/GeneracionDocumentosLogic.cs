@@ -308,6 +308,14 @@ namespace AspNetIdentity.WebApi.Logic
         {
             ZonasFEntities Ctx = new ZonasFEntities();
 
+            var adasdasd = Ctx.GeneracionDocumentos
+                //.Join(Ctx.Users, b => b.IdAspNetUser, c => c.Id_Hash, (b, c) => new { b, c })
+                .Where(x => x.Id == id)
+                //.Join(Ctx.AspNetUserRoles, b => b.c.Id_Hash, c => c.UserId, (b, c) => new { c.RoleId, b.b, b.c })
+                //.Join(Ctx.AspNetRoles, b => b.RoleId, c => c.Id, (b, c) => new { b.b, b.c, c.Name })
+                //.Join(Ctx.BaldiosPersonaNatural, b => b.b.IdExpediente.Value, ll => ll.id, (b, ll) => new { b.b, b.c, ll, b.Name })
+                .FirstOrDefault();
+
             var a = Ctx.GeneracionDocumentos.Where(x => x.Id == id)
                 .Join(Ctx.Users, b => b.IdAspNetUser, c => c.Id_Hash, (b, c) => new { b, c })
                 .Join(Ctx.AspNetUserRoles, b => b.c.Id_Hash, c => c.UserId, (b, c) => new { c.RoleId, b.b, b.c })

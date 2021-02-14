@@ -73,6 +73,10 @@ namespace AspNetIdentity.WebApi.Models
         public virtual DbSet<CaracterizacionCatastral> CaracterizacionCatastral { get; set; }
         public virtual DbSet<CaracterizacionAgronomicaCatalogos> CaracterizacionAgronomicaCatalogos { get; set; }
         public virtual DbSet<CaracterizacionAgronomica> CaracterizacionAgronomica { get; set; }
+        public virtual DbSet<CaracterizacionAgronomicaConsultaVur> CaracterizacionAgronomicaConsultaVur { get; set; }
+        public virtual DbSet<Ba_Memorando> Ba_Memorando { get; set; }
+        public virtual DbSet<Ba_MemorandoCatalogos> Ba_MemorandoCatalogos { get; set; }
+        public virtual DbSet<Ba_Memorando_new> Ba_Memorando_new { get; set; }
     
         public virtual int AspNetUsers_Insertar(string firstName, string lastName, string email, string passwordHash, string id)
         {

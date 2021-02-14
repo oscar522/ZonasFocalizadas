@@ -1,0 +1,174 @@
+﻿@model List<AspNetIdentity.WebClientAdmin.Models.SidebarItem>
+
+<style>
+       ul {
+        list-style-type: none;
+        margin-left: 0%;
+    }
+
+    li {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    ul {
+        margin: 0px;
+        padding: 0px;
+    }
+.containerMenu {
+    height:100%;
+}
+.containerMenu a {
+}
+.containerMenu li {
+}
+.containerMenu ul {height:100%;}
+.containerMenu > ul {
+    position:relative;
+    overflow:visible;
+}
+.containerMenu > ul > li {}
+.containerMenu > ul > li:hover {}
+.containerMenu > ul > li > ul {
+    display:none;
+    right:-250px;
+    top:0;
+    background-color:#fff;
+}
+.containerMenu > ul > li:hover > ul {
+    display:block;
+}
+.containerMenu > ul > li > ul >li:hover {}
+.containerMenu > ul > li > ul > li > ul {
+    display:none;
+    position:absolute;
+    top:0;
+    background-color:#fff;
+}
+.containerMenu > ul > li > ul > li:hover ul {
+    display:block;
+}
+.containerMenu > ul > li > ul > li > ul > li:hover {}
+.containerMenu > ul > li > ul > li ul li ul li {
+    border-bottom:1px dotted #fff;
+    padding:20px;
+}
+
+    
+
+</style>
+
+<script type="text/javascript">
+</script>
+
+
+<div id="SidebarCustomBarrido" class="sidebar-fixed position-fixed">
+
+    <div class="row ">
+        <div class="col-md-12">
+            <img src="http://sit.agenciadetierras.gov.co/web/Content/Images/login-logos.png" class="img-fluid" alt="">
+        </div>
+        <div class="row col-md-12 green darken-3 text-white" style="background-color: #e3f2fd;">
+            <div id="MenuCloseBarrido" class="col-md-2">
+                <i class="fa fa-times-circle" aria-hidden="true"></i>
+            </div>
+            <div class="col-md-8">
+                <h4>Barrido</h4>
+            </div>
+            <div class="col-md-2 text-center justify-content-center">
+                <a class="text-white"
+                   href='@Url.Action("../Dashboard/Rezago", "Rezago", new { IdTable = "1" })'>
+                    <i class="fa fa-toggle-off" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="no-waves" class="list-group list-group-flush">
+        <div class="containerMenu">
+            <ul class="">
+
+                @foreach (AspNetIdentity.WebClientAdmin.Models.SidebarItem sidebarItem in Model)
+                {
+                    if (sidebarItem.Sub == null)
+                    {
+                        <li>
+                            <a href="@Url.Action(sidebarItem.actionName, sidebarItem.controllerName)" class=" nav-item list-group-item list-group-item-action waves-effect" id="@sidebarItem.id">
+                                <i class="@sidebarItem.iconText"></i>@sidebarItem.linkText
+                            </a>
+                        </li>
+
+                    }
+                    else
+                    {
+                        <li>
+                            <a tabindex="-1" class="nav-item list-group-item list-group-item-action waves-effect dropdown-toggle" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="@sidebarItem.id">
+                                <i class="@sidebarItem.iconText"></i>&nbsp; &nbsp;@sidebarItem.linkText
+                            </a>
+                            <ul class="">
+                                @foreach (AspNetIdentity.WebClientAdmin.Models.SidebarItem SubModel in sidebarItem.Sub)
+                                {
+                                    if (SubModel.Sub == null)
+                                    {
+                                        <li>
+                                            <a href="@Url.Action(SubModel.actionName, SubModel.controllerName)" class="dropdown-item " id="@SubModel.id">
+                                                <i class="@SubModel.iconText"></i>&nbsp; &nbsp;@SubModel.linkText
+                                            </a>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </li>
+
+
+                    }
+                }
+
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+<div class="modal fade" id="centralModalLGInfoDemoSlim" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-white green darken-">
+                <div id="H  eaderSlim" class="heading lead 3"></div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">×</span>
+                </button>
+            </div>
+            <div class="modal-body" id="BodySlim">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="centralModalLGInfoDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg modal-notify modal-info" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header text-white green darken-">
+                <p class="heading lead">Modal Info</p>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">×</span>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body">
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+                <a type="button" class="btn btn-outline-info waves-effect" data-dismiss="modal" onclick="location.reload()">Cerrar</a>
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+<!-- Modal: modalCart -->

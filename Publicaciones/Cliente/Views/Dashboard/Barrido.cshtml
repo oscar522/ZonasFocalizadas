@@ -1,0 +1,578 @@
+﻿@model IEnumerable<AspNetIdentity.Models.CaracterizacionSolicitanteModel>
+
+<div class="row wow  fadeIn">
+    <div class="col-md-12">
+
+        @*<div class="row">
+            <div class="col-md-12 card p-2">
+                <div class=" text-capitalize card-header"><h5>Numero total de Memorandos por localizacion</h5>  </div>
+            </div>
+            <div class="col-md-6  p-2 ">
+                <div class="card" id="Validacion4">
+                </div>
+            </div>
+            <div class="col-md-6   p-2  ">
+                <div class="card" id="Validacion5">
+                </div>
+            </div>
+        </div>*@
+        <div class="row">
+            <div class="col-md-12 card p-2">
+                <div class=" text-capitalize card-header"><h5> Informacion general</h5>  </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_cargaorfeo_">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_asignado_">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_municipio_">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_departamento_">
+                </div>
+            </div>
+
+           
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_tiposolicitud_">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_copiadoc_">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_copiacertificadocurso_">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_declararentasol_">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_beneficiariosol_">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_propietariosol_">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_penjudicialessol_">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_ocupanteindebidosol_">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_victimadsol_">
+                </div>
+            </div>
+
+           
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_declararentacony_">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_beneficiariocony_">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_propietariocony_">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_penjudicialescony_">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_ocupanteindevidocony_">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_victimadcony_">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_inclusionreso_">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_respojuridico_">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_respoagronomo_">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_respocatastral_">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Div_responsable_">
+                </div>
+            </div>
+
+           
+        </div>
+
+        @*<div class="row">
+            <div class="col-md-12 card p-2">
+                <div class=" text-capitalize card-header"><h5> Informacion general</h5>  </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Validacion8">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Validacion11">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Validacion12">
+                </div>
+            </div>
+
+            <div class="col-md-3 p-2">
+                <div class="card" id="Validacion27">
+                </div>
+            </div>
+        </div>*@
+
+        @*<div class="row">
+            <div class="col-md-12 card p-2">
+                <div class=" text-capitalize card-header"><h5> Informacion Solicitante</h5>  </div>
+            </div>
+
+            <div class="col-md-4 p-2">
+                <div class="card" id="Validacion13">
+                </div>
+            </div>
+
+            <div class="col-md-4 p-2">
+                <div class="card" id="Validacion14">
+                </div>
+            </div>
+
+            <div class="col-md-4 p-2">
+                <div class="card" id="Validacion15">
+                </div>
+            </div>
+
+
+            <div class="col-md-4 p-2">
+                <div class="card" id="Validacion16">
+                </div>
+            </div>
+
+            <div class="col-md-4 p-2">
+                <div class="card" id="Validacion17">
+                </div>
+            </div>
+
+            <div class="col-md-4 p-2">
+                <div class="card" id="Validacion18">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 card p-2">
+                <div class=" text-capitalize card-header"><h5> Informacion Conyuge</h5>  </div>
+            </div>
+
+            <div class="col-md-4 p-2">
+                <div class="card" id="Validacion21">
+                </div>
+            </div>
+
+            <div class="col-md-4 p-2">
+                <div class="card" id="Validacion22">
+                </div>
+            </div>
+
+            <div class="col-md-4 p-2">
+                <div class="card" id="Validacion23">
+                </div>
+            </div>
+
+
+            <div class="col-md-4 p-2">
+                <div class="card" id="Validacion24">
+                </div>
+            </div>
+
+            <div class="col-md-4 p-2">
+                <div class="card" id="Validacion25">
+                </div>
+            </div>
+
+            <div class="col-md-4 p-2">
+                <div class="card" id="Validacion26">
+                </div>
+            </div>
+
+        </div>*@
+
+
+
+
+    </div>
+        </div>
+@section Scripts
+{
+    @*<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/mapdata/countries/co/co-all.js"></script>
+
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>*@
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            /// -------
+            // CONTROLA EL MENU
+
+            var ls;
+            ls = localStorage;
+            var custStr
+            custStr = ls.getItem("A123");
+
+
+            if (custStr != "3") {
+                ls.setItem("A123", "3");
+            } else { }
+
+
+            //// -------
+
+            $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("GetAll","Ba_Memorando_new")',
+                    dataType: 'json',
+                    //data: { Depto: NameDeptoForm },
+                success: function (s) {
+
+                    console.log(s);
+                    var cargaorfeo_ = [];
+                    var asignado_ = [];
+                    var municipio_ = [];
+                    var departamento_ = [];
+                    var tiposolicitud_ = [];
+                    var copiadoc_ = [];
+                    var copiacertificadocurso_ = [];
+                    var declararentasol_ = [];
+                    var beneficiariosol_ = [];
+                    var propietariosol_ = [];
+                    var penjudicialessol_ = [];
+                    var ocupanteindebidosol_ = [];
+                    var victimadsol_ = [];
+                    var declararentacony_ = [];
+                    var beneficiariocony_ = [];
+                    var propietariocony_ = [];
+                    var penjudicialescony_ = [];
+                    var ocupanteindevidocony_ = [];
+                    var victimadcony_ = [];
+                    var inclusionreso_ = [];
+                    var respojuridico_ = [];
+                    var respoagronomo_ = [];
+                    var respocatastral_ = [];
+                    var responsable_ = [];
+
+
+                    $.each(s, function (i, obj) {
+                        var item = obj
+
+
+                        if (item.Tipo ==  'CARGA ORFEO' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        cargaorfeo_.push(dataEntity);
+                        } 
+
+
+                        if (item.Tipo ==  'ASIGNADO' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        asignado_.push(dataEntity);
+                        } 
+
+                        if (item.Tipo ==  'MUNICIPIO' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        municipio_.push(dataEntity);
+                        } 
+
+
+                        if (item.Tipo ==  'DEPARTAMENTO' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        departamento_.push(dataEntity);
+                        } 
+
+                        if (item.Tipo ==  'TIPO SOLICITUD' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        tiposolicitud_.push(dataEntity);
+                        } 
+
+                        if (item.Tipo ==  'COPIA DOCUMENTOS SOLICITANTE Y CONYUGE CARGADOS' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        copiadoc_.push(dataEntity);
+                        } 
+
+
+                        if (item.Tipo ==  'COPIA DE CURSO AGRONOMICO ENUNCIADO EN EL MEMORANDO' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        copiacertificadocurso_.push(dataEntity);
+                        } 
+
+
+                        if (item.Tipo ==  'DECLARA RENTA SOLICITANTE' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        declararentasol_.push(dataEntity);
+                        } 
+
+
+                        if (item.Tipo ==  'BENEFICIARIO DE OTRO PROGRAMA DE TIERRAS SOLICITANTE' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        beneficiariosol_.push(dataEntity);
+                        } 
+
+
+                        if (item.Tipo ==  'PROPIETARIO DE OTRO PREDIO SOLICITANTE' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        propietariosol_.push(dataEntity);
+                        } 
+
+
+                        if (item.Tipo ==  'PRESENTA PENDIENTES JUDICIALES SOLICITANTE' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        penjudicialessol_.push(dataEntity);
+                        } 
+
+                         
+                        if (item.Tipo ==  'OCUPANTE INDEBIDO SOLICITANTE' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        ocupanteindebidosol_.push(dataEntity);
+                        } 
+
+
+                        if (item.Tipo ==  'VICTIMA DEL CONFLICTO ARMADO SOLICITANTE' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        victimadsol_.push(dataEntity);
+                        } 
+
+                        if (item.Tipo ==  'DECLARA RENTA CONYUGE' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        declararentacony_.push(dataEntity);
+                        } 
+
+
+                        if (item.Tipo ==  'BENEFICIARIO DE OTRO PROGRAMA DE TIERRAS CONYUGE' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        beneficiariocony_.push(dataEntity);
+                        } 
+
+
+                        if (item.Tipo ==  'PROPIETARIO DE OTRO PREDIO CONYUGE' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        propietariocony_.push(dataEntity);
+                        } 
+
+
+                        if (item.Tipo ==  'PRESENTA PENDIENTES JUDICIALES CONYUGE' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        penjudicialescony_.push(dataEntity);
+                        } 
+
+
+                        if (item.Tipo ==  'OCUPANTE INDEBIDO CONYUGE' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        ocupanteindevidocony_.push(dataEntity);
+                        } 
+
+
+                        if (item.Tipo ==  'VICTIMA DEL CONFLICTO ARMADO CONYUGE' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        victimadcony_.push(dataEntity);
+                        } 
+
+
+                        if (item.Tipo ==  'INCLUSIÓN RESO' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        inclusionreso_.push(dataEntity);
+                        } 
+
+
+                        if (item.Tipo ==  'RESPOSABLE JURIDICO' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        respojuridico_.push(dataEntity);
+                        } 
+
+
+                        if (item.Tipo ==  'RESPOSABLE AGRONOMO' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        respoagronomo_.push(dataEntity);
+                        } 
+
+
+                        if (item.Tipo ==  'RESPOSABLE CATASTRAL' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        respocatastral_.push(dataEntity);
+                        } 
+
+
+                        if (item.Tipo ==  'RESPOSABLE' ) {
+                        var a = (Math.random() * 125) + 100;
+                        var dataEntity = {name : obj.Grupo, data: [obj.Total], color: "rgb(0," + a + ",0)" };
+                        responsable_.push(dataEntity);
+                        } 
+
+                        //console.log(item.Total);
+
+
+
+
+                    });
+
+                    GraficaCrear('Div_cargaorfeo_',cargaorfeo_, 'CARGA ORFEO');
+
+                    GraficaCrear('Div_asignado_',asignado_, 'ASIGNADO');
+
+                    GraficaCrear('Div_municipio_',municipio_, 'MUNICIPIO');
+
+                    GraficaCrear('Div_departamento_',departamento_, 'DEPARTAMENTO');
+
+                    GraficaCrear('Div_tiposolicitud_',tiposolicitud_, 'TIPO SOLICITUD');
+
+                    GraficaCrear('Div_copiadoc_',copiadoc_, 'COPIA DOCUMENTOS SOLICITANTE Y CONYUGE CARGADOS');
+
+                    GraficaCrear('Div_copiacertificadocurso_',copiacertificadocurso_, 'COPIA DE CURSO AGRONOMICO ENUNCIADO EN EL MEMORANDO');
+
+                    GraficaCrear('Div_declararentasol_',declararentasol_, 'DECLARA RENTA SOLICITANTE');
+
+                    GraficaCrear('Div_beneficiariosol_',beneficiariosol_, 'BENEFICIARIO DE OTRO PROGRAMA DE TIERRAS SOLICITANTE');
+
+                    GraficaCrear('Div_propietariosol_',propietariosol_, 'PROPIETARIO DE OTRO PREDIO SOLICITANTE');
+
+                    GraficaCrear('Div_penjudicialessol_',penjudicialessol_, 'PRESENTA PENDIENTES JUDICIALES SOLICITANTE');
+
+                    GraficaCrear('Div_ocupanteindebidosol_',ocupanteindebidosol_, 'OCUPANTE INDEBIDO SOLICITANTE');
+
+                    GraficaCrear('Div_victimadsol_',victimadsol_, 'VICTIMA DEL CONFLICTO ARMADO SOLICITANTE');
+
+                    GraficaCrear('Div_declararentacony_',declararentacony_, 'DECLARA RENTA CONYUGE');
+
+                    GraficaCrear('Div_beneficiariocony_',beneficiariocony_, 'BENEFICIARIO DE OTRO PROGRAMA DE TIERRAS CONYUGE');
+
+                    GraficaCrear('Div_propietariocony_',propietariocony_, 'PROPIETARIO DE OTRO PREDIO CONYUGE');
+
+                    GraficaCrear('Div_penjudicialescony_',penjudicialescony_, 'PRESENTA PENDIENTES JUDICIALES CONYUGE');
+
+                    GraficaCrear('Div_ocupanteindevidocony_',ocupanteindevidocony_, 'OCUPANTE INDEBIDO CONYUGE');
+
+                    GraficaCrear('Div_victimadcony_',victimadcony_, 'VICTIMA DEL CONFLICTO ARMADO CONYUGE');
+
+                    GraficaCrear('Div_inclusionreso_',inclusionreso_, 'INCLUSIÓN RESO');
+
+                    GraficaCrear('Div_respojuridico_',respojuridico_, 'RESPOSABLE JURIDICO');
+
+                    GraficaCrear('Div_respoagronomo_',respoagronomo_, 'RESPOSABLE AGRONOMO');
+
+                    GraficaCrear('Div_respocatastral_',respocatastral_, 'RESPOSABLE CATASTRAL');
+
+                    GraficaCrear('Div_responsable_',responsable_, 'RESPOSABLE');
+
+                },
+                error: function(e){
+                    oTable.fnClearTable();
+                }
+            });
+
+            function GraficaCrear(div, dataList, tipo) {
+                Highcharts.chart(div, {
+                    chart: {
+                        type: 'column'
+                    },
+                    title: {
+                        text: tipo
+                    },
+                    subtitle: {
+                        text: '',
+                    },
+                    xAxis: {
+                        categories: [''],
+                    },
+                    yAxis: {
+                        title: {
+                            text: ' ' 
+                        }
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    series: dataList,
+                });
+            }
+        });
+    </script>
+}

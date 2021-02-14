@@ -20,6 +20,9 @@ namespace AspNetIdentity.Models
         public Nullable<long> IdExpediente { get; set; }
         public Nullable<int> Estado { get; set; }
 
+
+        // DATOS BASICOS
+
         [Display(Name = "FISO")]
         [Required(ErrorMessage = ".")]
         public string Validacion61 { get; set; }
@@ -64,19 +67,21 @@ namespace AspNetIdentity.Models
         [Required(ErrorMessage = ".")]
         public string Validacion10 { get; set; }
 
-        [Display(Name = "ITJD Régimen de Escogencia (SIT o Excel Barrido")]
+        //  Datos Básicos del Predio
+
+        [Display(Name = "Régimen de Escogencia")]
         [Required(ErrorMessage = ".")]
         public string Validacion11 { get; set; }
 
-        [Display(Name = "ITJD Ubicación del Predio (Uso del Suelo, Excel Barrido")]
+        [Display(Name = "Ubicación del Predio")]
         [Required(ErrorMessage = ".")]
         public string Validacion12 { get; set; }
 
-        [Display(Name = "ITJD Área (ha)  Plano - (SIT")]
+        [Display(Name = "Área del predio ")]
         [Required(ErrorMessage = ".")]
         public string Validacion13 { get; set; }
 
-        [Display(Name = "¿Cuenta con Inspeción Ocular")]
+        [Display(Name = "¿Cuenta con Inspeción Ocular ?")]
         [Required(ErrorMessage = ".")]
         public string Validacion14 { get; set; }
 
@@ -96,7 +101,7 @@ namespace AspNetIdentity.Models
         [Required(ErrorMessage = ".")]
         public string Validacion18 { get; set; }
 
-        [Display(Name = "¿El predio cuenta con Vivienda?  (Si/No)(FISO Información del Predio - Fotografías - Plano ?")]
+        [Display(Name = "¿El predio cuenta con Vivienda? ")]
         [Required(ErrorMessage = ".")]
         public string Validacion19 { get; set; }
 
@@ -112,29 +117,24 @@ namespace AspNetIdentity.Models
         [Required(ErrorMessage = ".")]
         public string Validacion22 { get; set; }
 
-        [Display(Name = "ITJP (902) UAF PREDIAL UAF* (ha")]
+
+        // DATOS UAF
+
+        [Display(Name = "UAF por ZRH Rango 160 UAF * (ha)")]
         [Required(ErrorMessage = ".")]
         public string Validacion23 { get; set; }
 
-        [Display(Name = "ITJP (Rango 160) UAF por ZRH UAF* (ha")]
+        [Display(Name = "UAF PREDIAL UAF * (ha)")]
         [Required(ErrorMessage = ".")]
         public string Validacion24 { get; set; }
 
-        [Display(Name = "ITJD (160 Y 902) UAF* (ha")]
-        [Required(ErrorMessage = ".")]
-        public string Validacion25 { get; set; }
+        // 4. Revisión Agronómica de VUR 
 
-        [Display(Name = "¿El solicitante es propietarios de otros predios rurales? (Si/No) (SIT- VUR - Abogado - Catrastral")]
+        
+        [Display(Name = "¿El solicitante es propietarios de otros predios rurales?")]
         [Required(ErrorMessage = ".")]
         public string Validacion26 { get; set; }
 
-        [Display(Name = "Área registrada y encontrada en el VUR a nombre del solicitante")]
-        [Required(ErrorMessage = ".")]
-        public string Validacion27 { get; set; }
-
-        [Display(Name = "Área que suman los predios Privados del Solicitante (ha")]
-        [Required(ErrorMessage = ".")]
-        public string Validacion28 { get; set; }
 
         [Display(Name = "Número de solicitudes a nombre del Solicitante en el SIT")]
         [Required(ErrorMessage = ".")]
@@ -144,17 +144,9 @@ namespace AspNetIdentity.Models
         [Required(ErrorMessage = ".")]
         public string Validacion30 { get; set; }
 
-        [Display(Name = "¿El cónyuge es propietario de otros predios rurales? (Si/No) (SIT- VUR - Abogado - Catrastral")]
+        [Display(Name = "¿El cónyuge es propietario de otros predios rurales?")]
         [Required(ErrorMessage = ".")]
         public string Validacion31 { get; set; }
-
-        [Display(Name = "Área registrada y encontrada en el VUR a nombre del Cónyuge")]
-        [Required(ErrorMessage = ".")]
-        public string Validacion32 { get; set; }
-
-        [Display(Name = "Área que suman los predios privados del Cónyuge (ha")]
-        [Required(ErrorMessage = ".")]
-        public string Validacion33 { get; set; }
 
         [Display(Name = "Número de solicitudes a nombre del Cónyuge en el SIT")]
         [Required(ErrorMessage = ".")]
@@ -167,6 +159,10 @@ namespace AspNetIdentity.Models
         [Display(Name = "Suma de Áreas de Todos Los Predios (Privados + Solicitudes)(ha")]
         [Required(ErrorMessage = ".")]
         public string Validacion36 { get; set; }
+
+
+        // 5. Literales para el Informe Técnico Jurídico.
+
 
         [Display(Name = "ITJP LITERAL C")]
         [Required(ErrorMessage = ".")]
@@ -188,6 +184,11 @@ namespace AspNetIdentity.Models
         [Required(ErrorMessage = ".")]
         public string Validacion41 { get; set; }
 
+
+        /// <summary>
+        ///  6. UAF y Excepciones 
+        /// </summary>
+
         [Display(Name = "ITJP UAF Predial Decreto 902")]
         [Required(ErrorMessage = ".")]
         public string Validacion42 { get; set; }
@@ -208,13 +209,21 @@ namespace AspNetIdentity.Models
         [Required(ErrorMessage = ".")]
         public string Validacion46 { get; set; }
 
-        [Display(Name = "ITJD Aval agronómico")]
+        /// <summary>
+        /// 7. Aval Agronómico 
+        /// </summary>
+
+        [Display(Name = "Aval agronómico definitivo")]
         [Required(ErrorMessage = ".")]
         public string Validacion47 { get; set; }
 
         [Display(Name = "ITJP 4.2. USO")]
         [Required(ErrorMessage = ".")]
         public string Validacion48 { get; set; }
+
+        /// <summary>
+        /// 8. Restricciones Agronómicas
+        /// </summary>
 
         [Display(Name = "RESTRICCIÓN POR CAMBIO DE REGIMEN")]
         [Required(ErrorMessage = ".")]
@@ -272,8 +281,25 @@ namespace AspNetIdentity.Models
 
 
 
+        [Display(Name = "ITJD (160 Y 902) UAF* (ha")]
+        [Required(ErrorMessage = ".")]
+        public string Validacion25 { get; set; }
 
+        [Display(Name = "Área registrada y encontrada en el VUR a nombre del solicitante")]
+        [Required(ErrorMessage = ".")]
+        public string Validacion27 { get; set; }
 
+        [Display(Name = "Área que suman los predios Privados del Solicitante (ha")]
+        [Required(ErrorMessage = ".")]
+        public string Validacion28 { get; set; }
+
+        [Display(Name = "Área registrada y encontrada en el VUR a nombre del Cónyuge")]
+        [Required(ErrorMessage = ".")]
+        public string Validacion32 { get; set; }
+
+        [Display(Name = "Área que suman los predios privados del Cónyuge (ha")]
+        [Required(ErrorMessage = ".")]
+        public string Validacion33 { get; set; }
 
     }
 }

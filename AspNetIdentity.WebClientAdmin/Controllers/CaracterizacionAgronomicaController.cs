@@ -66,6 +66,7 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
         [HttpPost]
         public async Task<ActionResult> Crear(CaracterizacionAgronomicaModel ObjData)
         {
+           
             string Id = GetTokenObject().nameid;
             ObjData.IdAspNetUser = Id;
             ObjData.IdAspNetUserModifica = Id;

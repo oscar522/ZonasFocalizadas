@@ -59,6 +59,38 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
 
         }
 
+        public ActionResult Rezago(int IdTable)
+        {
+            //string Id = GetTokenObject().nameid;
+            //string Controller = "CaracterizacionSolicitante";
+            //string Method = "getCaracterizacionSolicitanteidUser";
+            //string result = await employeeProvider.Get(Id, Controller, Method);
+            //var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            //List<CaracterizacionSolicitanteModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CaracterizacionSolicitanteModel>>(jsonResult.ToString());
+            return View();
+
+        }
+
+        public ActionResult Barrido(int IdTable)
+        {
+            //string Id = GetTokenObject().nameid;
+            //string Controller = "CaracterizacionSolicitante";
+            //string Method = "getCaracterizacionSolicitanteidUser";
+            //string result = await employeeProvider.Get(Id, Controller, Method);
+            //var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            //List<CaracterizacionSolicitanteModel> processModel = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CaracterizacionSolicitanteModel>>(jsonResult.ToString());
+            return View();
+
+        }
+
+       
+
+
+        /// <summary>
+        /// viejo
+        /// </summary>
+        /// <returns></returns>
+
         public async Task<ActionResult> CountDepto()
         {
 

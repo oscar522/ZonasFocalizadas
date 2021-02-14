@@ -93,6 +93,63 @@ namespace AspNetIdentity.WebApi.Logic
 
                 Ctx.CaracterizacionAgronomica.Add(Nuevo);
                 Ctx.SaveChanges();
+
+                var ConsultaVurSolicitante = a.Validacion27.Split('|');
+
+                foreach (var DataSolicitante in ConsultaVurSolicitante ) {
+
+                    var DataSolicitante_ = DataSolicitante;
+                    var itemSolicitante = DataSolicitante.Split('_');
+
+                    if (itemSolicitante.Length == 4 ) {
+
+                        CaracterizacionAgronomicaConsultaVur ConsultaSolicitanteVur = new CaracterizacionAgronomicaConsultaVur
+                        {
+                            Departamento = itemSolicitante[0],
+                            Municipio = itemSolicitante[1],
+                            Numero = itemSolicitante[2],
+                            Area = itemSolicitante[3],
+                            Tipo = "Solicitante",
+                            idCaracterizacion = Convert.ToInt32(Nuevo.Id),
+                            Estado = true
+                        };
+
+                        Ctx.CaracterizacionAgronomicaConsultaVur.Add(ConsultaSolicitanteVur);
+                        Ctx.SaveChanges();
+
+                    } 
+
+                }
+
+                var ConsultaVurConyuge = a.Validacion32.Split('|');
+
+                foreach (var DataConyuge in ConsultaVurConyuge)
+                {
+
+                    var itemConyuge = DataConyuge.Split('_');
+
+                    if (itemConyuge.Length == 4)
+                    {
+
+                        CaracterizacionAgronomicaConsultaVur ConsultaSolicitanteVur = new CaracterizacionAgronomicaConsultaVur
+                        {
+                            Departamento = itemConyuge[0],
+                            Municipio = itemConyuge[1],
+                            Numero = itemConyuge[2],
+                            Area = itemConyuge[3],
+                            Tipo = "itemConyuge",
+                            idCaracterizacion = Convert.ToInt32(Nuevo.Id),
+                            Estado = true
+                        };
+
+                        Ctx.CaracterizacionAgronomicaConsultaVur.Add(ConsultaSolicitanteVur);
+                        Ctx.SaveChanges();
+
+                    }
+
+                }
+
+
                 return a;
             }
         }
@@ -183,7 +240,6 @@ namespace AspNetIdentity.WebApi.Logic
                 .Join(Ctx.Users, b => b.IdAspNetUser, c => c.Id_Hash, (b, c) => new { b, c })
                 .Join(Ctx.AspNetUserRoles, b => b.c.Id_Hash, c => c.UserId, (b, c) => new { c.RoleId, b.b, b.c })
                 .Join(Ctx.AspNetRoles, b => b.RoleId, c => c.Id, (b, c) => new { b.b, b.c, c.Name })
-                .Join(Ctx.BaldiosPersonaNatural, b => b.b.IdExpediente, ll => ll.id, (b, ll) => new { b.b, b.c, ll, b.Name })
                 .FirstOrDefault();
 
             CaracterizacionAgronomicaModel CaracterizacionAgronomicaModel_ = new CaracterizacionAgronomicaModel();

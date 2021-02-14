@@ -1,0 +1,992 @@
+﻿@model AspNetIdentity.Models.Ba_Memorando_newModel
+
+<div class="card mb-4 wow fadeIn">
+
+    <!--Card content-->
+    <div class="card-body d-sm-flex justify-content-between">
+        <h4 class="mb-2 mb-sm-0 pt-1">
+            <span>Creacion de Memorando</span>
+        </h4>
+        <h5 class="mb-2 mb-sm-0 pt-1">
+            <span>
+                NUMERO DE RADICADO :
+                @Model.radicado
+            </span>
+            <br />
+        </h5>
+        <h5 class="mb-2 mb-sm-0 pt-1">
+            <span>Responsable </span>
+            <br />
+            <span>Usuario : @Model.responsable</span>
+            <br />
+            <span>Rol : @Model.rol</span>
+            <br />
+        </h5>
+    </div>
+
+</div>
+
+<div class="wow fadeIn">
+
+    @using (Html.BeginForm("Crear", "Ba_Memorando_new", FormMethod.Post, htmlAttributes: new { id = "car-form", @name = "car-form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="col-mb-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-12">
+
+                        <div class=" text-capitalize card">
+                            <div class=" text-capitalize card-header"><h5> Datos Fiso </h5>  </div>
+                            <div class="card-body">
+
+
+                                <div class="form-horizontal">
+                                    @Html.HiddenFor(model => model.Id)
+
+                                    <div class="row p-3 center ">
+                                        @Html.LabelFor(model => model.radicado, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                        <div class="col-md-6">
+                                            @Html.EditorFor(model => model.radicado, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.radicado, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="row p-3 center ">
+                                        <label class = "control-label col-md-6 text-capitalize"> FECHA DE <BR>MEMORANDO </label>
+                                        <div class="col-md-6">
+                                            @Html.EditorFor(model => model.feacharadicado, new { htmlAttributes = new { @class = "form-control", type = "date"} })
+                                            @Html.ValidationMessageFor(model => model.feacharadicado, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="row p-3 center ">
+                                        @Html.LabelFor(model => model.fiso, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                        <div class="col-md-6">
+                                            @Html.EditorFor(model => model.fiso, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.fiso, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="row p-3 center ">
+                                        <label class = "control-label col-md-6 text-capitalize"> FECHA DE <BR>DILIGENCIAMIENTO FISO</label>
+                                        <div class="col-md-6">
+                                            @Html.EditorFor(model => model.fechafiso, new { htmlAttributes = new { @class = "form-control",type = "date"} })
+                                            @Html.ValidationMessageFor(model => model.fechafiso, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="row p-3 center ">
+                                        @Html.LabelFor(model => model.expediente, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                        <div class="col-md-6">
+                                            @Html.EditorFor(model => model.expediente, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.expediente, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <br />
+                        <div class=" text-capitalize card">
+                            <div class=" text-capitalize card-header"><h5>Datos Solicitante </h5>  </div>
+                            <div>
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.solicitante, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.solicitante, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.solicitante, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.docidentificacionsol, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.docidentificacionsol, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.docidentificacionsol, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.declararentasol, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                    <div class="col-md-6">
+                                        <select id="declararentasol" name="declararentasol" class="form-control">
+                                        <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.declararentasol, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.beneficiariosol, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                    <div class="col-md-6">
+                                        <select id="beneficiariosol" name="beneficiariosol" class="form-control">
+                                        <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.beneficiariosol, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.propietariosol, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                    <div class="col-md-6">
+                                        <select id="propietariosol" name="propietariosol" class="form-control">
+                                        <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.propietariosol, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.penjudicialessol, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                    <div class="col-md-6">
+                                        <select id="penjudicialessol" name="penjudicialessol" class="form-control">
+                                        <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.penjudicialessol, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.ocupanteindebidosol, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                    <div class="col-md-6">
+                                        <select id="ocupanteindebidosol" name="ocupanteindebidosol" class="form-control">
+                                        <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.ocupanteindebidosol, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.victimadsol, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                    <div class="col-md-6">
+                                        <select id="victimadsol" name="victimadsol" class="form-control">
+                                        <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.victimadsol, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.inclusionreso, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                    <div class="col-md-6">
+                                        <select id="inclusionreso" name="inclusionreso" class="form-control">
+                                        <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.inclusionreso, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-12">
+
+                        <div class=" text-capitalize card">
+                            <div class=" text-capitalize card-header"><h5> Datos Solicitud</h5>  </div>
+                            <div class="card-body">
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.departamento, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                    <div class="col-md-6">
+                                        <select id="departamento" name="departamento" class="form-control">
+                                        <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.departamento, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.municipio, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                    <div class="col-md-6">
+                                        <select id="municipio" name="municipio" class="form-control">
+                                        <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.municipio, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.tiposolicitud, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                    <div class="col-md-6">
+                                        <select id="tiposolicitud" name="tiposolicitud" class="form-control">
+                                        <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.tiposolicitud, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.copiadoc, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                    <div class="col-md-6">
+                                        <select id="copiadoc" name="copiadoc" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.copiadoc, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.copiacertificadocurso, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                    <div class="col-md-6">
+                                        <select id="copiacertificadocurso" name="copiacertificadocurso" class="form-control">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.copiacertificadocurso, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <br />
+                        <div class=" text-capitalize card">
+                            <div class=" text-capitalize card-header"><h5>Datos Conyuge </h5>  </div>
+                            <div>
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.conyuge, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.conyuge, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.conyuge, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.docidentificacioncony, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.docidentificacioncony, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.docidentificacioncony, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.declararentacony, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                    <div class="col-md-6">
+                                        <select id="declararentacony" name="declararentacony" class="form-control">
+                                        <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.declararentacony, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.beneficiariocony, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                    <div class="col-md-6">
+                                        <select id="beneficiariocony" name="beneficiariocony" class="form-control">
+                                        <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.beneficiariocony, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.propietariocony, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                    <div class="col-md-6">
+                                        <select id="propietariocony" name="propietariocony" class="form-control">
+                                        <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.propietariocony, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.penjudicialescony, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                    <div class="col-md-6">
+                                        <select id="penjudicialescony" name="penjudicialescony" class="form-control">
+                                        <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.penjudicialescony, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.ocupanteindevidocony, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                    <div class="col-md-6">
+                                        <select id="ocupanteindevidocony" name="ocupanteindevidocony" class="form-control">
+                                        <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.ocupanteindevidocony, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row p-3 center ">
+                                    @Html.LabelFor(model => model.victimadcony, htmlAttributes: new { @class = "control-label col-md-6 text-capitalize" })
+                                    <div class="col-md-6">
+                                        <select id="victimadcony" name="victimadcony" class="form-control">
+                                        <option value="">Seleccione</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.victimadcony, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-mb-12">
+            <br />
+            <div class=" text-capitalize card">
+                <div class=" text-capitalize card-header">
+
+                                <input type="hidden" value="1" name="cargaorfeo" id="cargaorfeo" />
+
+                                <input type="hidden" value="1" name="asignado" id="asignado" />
+
+                                <input type="hidden" value="1753-01-01" name="Fechasignado" id="Fechasignado" />
+
+                                <input type="hidden" value="1" name="respojuridico" id="respojuridico" />
+
+                                <input type="hidden" value="1" name="respoagronomo" id="respoagronomo" />
+
+                                <input type="hidden" value="1" name="respocatastral" id="respocatastral" />
+
+                                <input type="hidden" value="1" name="responsable" id="responsable" />
+
+                                <input type="hidden" value="1" name="fechaediccion" id="fechaediccion" />
+
+
+
+                                <input type="hidden" value="1" name="Id" id="Id" />
+                                <input type="hidden" value="1753-01-01" name="FechaInsercion" id="FechaInsercion" />
+                                <input type="hidden" value="1753-01-01" name="FechaModificacion" id="FechaModificacion" />
+                                <input type="hidden" value="1" name="Gestion" id="Gestion" />
+                                <input type="hidden" value="1" name="IdAspNetUser" id="IdAspNetUser" />
+                                <input type="hidden" value="1" name="rol" id="rol" />
+                                <input type="hidden" value="1" name="NombreIdAspNetUser" id="NombreIdAspNetUser" />
+                                <input type="hidden" value="1" name="IdAspNetUserModifica" id="IdAspNetUserModifica" />
+                                <input type="hidden" value="1" name="IdExpediente" id="IdExpediente" />
+                                <input type="hidden" value="1" name="Estado" id="Estado" />
+
+                                <input type="submit" value="Create" class="btn btn-default" />
+
+                            </div>
+                        </div>
+                    </div>
+    }
+
+</div>
+
+
+@section Scripts
+    {
+    @Scripts.Render("~/Scripts/ModalControl.js")
+    <script>
+        $(document).ready(function () { //
+
+            //////////////////////////////
+            ///////// INICIALES
+            //////////////////////////////
+
+            function iniciales(){
+
+                
+
+            }
+
+            iniciales();
+
+
+            //////////////////////////////
+            ///////// CHECK FECHA INICIAL
+            //////////////////////////////
+            
+            $(".checkFecha").change(function () {
+                var Id = $(this).attr("Data");
+                if( $(this).prop('checked') ) {
+                    $('#'+Id).prop("disabled", true);
+                    $('#'+Id).val("1753-01-01");
+                }else{
+                    $('#'+Id).prop("disabled", false);
+                }
+            });
+
+          // LOCA 
+            function DateConvert(date, tipo = "") {
+                if (date) {
+                    console.log(date + ' - ' + tipo);
+                    var res = date.split("/");
+                    var Add1 = "";
+                    var Add2 = "";
+                    var Add3 = "";
+
+                    if (res[0].length == 1) {
+                        Add1 = "0";
+                    }
+                    if (res[1].length == 1) {
+                        Add2 = "0";
+                    }
+                    if (res[2].length == 1) {
+                        Add3 = "0";
+                    }
+                    ResDate = Add3+res[2].replace(" 00:00:00","").replace(" 12:00:00 a. m.","")+"-"+Add2+res[1]+"-"+Add1+res[0];      
+                }
+            }
+
+              // PRODUCCION 
+            // function DateConvert(date, tipo = "") {
+            //    if (date) {
+            //        console.log(date + ' - ' + tipo);
+            //        var res = date.split("/");
+            //        var Add1 = "";
+            //        var Add2 = "";
+            //        var Add3 = "";
+
+            //        if (res[0].length == 1) {
+            //            Add1 = "0";
+
+            //        }
+            //        if (res[1].length == 1) {
+            //            Add2 = "0";
+            //        }
+            //        if (res[2].length == 1) {
+            //            Add3 = "0";
+            //        }
+            //    	ResDate = Add3+res[2].replace(" 00:00:00.000","").replace(" 12:00:00 a. m.","").replace(" 12:00:00 AM","") + 
+            //    		"-" + Add1+res[0] + 
+            //    		"-" + Add2+res[1];  
+            //    	 console.log(res + ' arra');
+            //    	 console.log(ResDate + ' ResDate');
+    
+            //    }
+            //     //debugger;
+
+            //    return ResDate;
+            //}
+            
+
+
+            //////////////////////////////
+            ///////// CATALOGOS
+            //////////////////////////////
+            function Catalogos(nombre,campo) {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: nombre   },
+                    success: function (states) {
+
+                        $.each(states, function (i, state) {
+
+                            if (campo == 'asignado' ) {
+                                if(state.Value == '@Model.asignado'){
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    //*****
+                                }else{
+                                    $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                                    //++++++
+                                }
+                            } 
+                            if (campo == 'copiadoc' ) {
+                                if(state.Value == '@Model.copiadoc'){
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    //*****
+                                }else{
+                                    $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                                    //++++++
+                                }
+                            } 
+                            if (campo == 'copiacertificadocurso' ) {
+                                if(state.Value == '@Model.copiacertificadocurso'){
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    //*****
+                                }else{
+                                    $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                                    //++++++
+                                }
+                            } 
+                            if (campo == 'declararentasol' ) {
+                                if(state.Value == '@Model.declararentasol'){
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    //*****
+                                }else{
+                                    $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                                    //++++++
+                                }
+                            } 
+                            if (campo == 'beneficiariosol' ) {
+                                if(state.Value == '@Model.beneficiariosol'){
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    //*****
+                                }else{
+                                    $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                                    //++++++
+                                }
+                            } 
+                            if (campo == 'propietariosol' ) {
+                                if(state.Value == '@Model.propietariosol'){
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    //*****
+                                }else{
+                                    $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                                    //++++++
+                                }
+                            } 
+                            if (campo == 'penjudicialessol' ) {
+                                if(state.Value == '@Model.penjudicialessol'){
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    //*****
+                                }else{
+                                    $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                                    //++++++
+                                }
+                            } 
+                            if (campo == 'ocupanteindebidosol' ) {
+                                if(state.Value == '@Model.ocupanteindebidosol'){
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    //*****
+                                }else{
+                                    $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                                    //++++++
+                                }
+                            } 
+                            if (campo == 'victimadsol' ) {
+                                if(state.Value == '@Model.victimadsol'){
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    //*****
+                                }else{
+                                    $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                                    //++++++
+                                }
+                            } 
+                            if (campo == 'declararentacony' ) {
+                                if(state.Value == '@Model.declararentacony'){
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    //*****
+                                }else{
+                                    $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                                    //++++++
+                                }
+                            } 
+                            if (campo == 'beneficiariocony' ) {
+                                if(state.Value == '@Model.beneficiariocony'){
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    //*****
+                                }else{
+                                    $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                                    //++++++
+                                }
+                            } 
+                            if (campo == 'propietariocony' ) {
+                                if(state.Value == '@Model.propietariocony'){
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    //*****
+                                }else{
+                                    $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                                    //++++++
+                                }
+                            } 
+                            if (campo == 'penjudicialescony' ) {
+                                if(state.Value == '@Model.penjudicialescony'){
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    //*****
+                                }else{
+                                    $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                                    //++++++
+                                }
+                            } 
+                            if (campo == 'ocupanteindevidocony' ) {
+                                if(state.Value == '@Model.ocupanteindevidocony'){
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    //*****
+                                }else{
+                                    $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                                    //++++++
+                                }
+                            } 
+                            if (campo == 'victimadcony' ) {
+                                if(state.Value == '@Model.victimadcony'){
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    //*****
+                                }else{
+                                    $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                                    //++++++
+                                }
+                            } 
+                            if (campo == 'inclusionreso' ) {
+                                if(state.Value == '@Model.inclusionreso'){
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    //*****
+                                }else{
+                                    $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                                    //++++++
+                                }
+                            } 
+
+                            if (campo == 'tiposolicitud' ) {
+
+                                if(state.Value == '@Model.tiposolicitud'){
+                                    $("#" + campo).append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                                    //*****
+                                }else{
+                                    $("#" + campo).append('<option value="' + state.Value + '" >' + state.Text + '</option>');
+                                    //++++++
+                                }
+                            } 
+
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+            }
+            
+            //Catalagos('asignado','asignado');
+            Catalogos('copiadoc','copiadoc');
+            Catalogos('copiacertificadocurso','copiacertificadocurso');
+            Catalogos('declararentasol','declararentasol');
+            Catalogos('beneficiariosol','beneficiariosol');
+            Catalogos('propietariosol','propietariosol');
+            Catalogos('penjudicialessol','penjudicialessol');
+            Catalogos('ocupanteindebidosol','ocupanteindebidosol');
+            Catalogos('victimadsol','victimadsol');
+            Catalogos('declararentacony','declararentacony');
+            Catalogos('beneficiariocony','beneficiariocony');
+            Catalogos('propietariocony','propietariocony');
+            Catalogos('penjudicialescony','penjudicialescony');
+            Catalogos('ocupanteindevidocony','ocupanteindevidocony');
+            Catalogos('victimadcony','victimadcony');
+            Catalogos('inclusionreso','inclusionreso');
+            Catalogos('tiposolicitud','tiposolicitud');
+
+            //////////////////////////////
+            ///////// CATALOGOS DEPTO FORMULARI
+            //////////////////////////////
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ListDepto", "Registro")', // we are calling json method
+                dataType: 'json',
+                success: function(states) {
+
+                    $.each(states, function (i, state) {
+                        //$("#IdDepto").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                        if ('@Model.departamento' == state.Value) {
+                            $("#departamento").append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                        } else {
+                            $("#departamento").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                        }
+                    });
+                },
+                error: function (ex) {
+                    console.log(ex.responseText);
+                }
+            });
+            
+            // VALIDA SI CARGA EL MUNICIPIO
+            if ('@Model.municipio' != '') {
+                
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListCiudadId", "Registro")', // we are calling json method
+                    dataType: 'json',
+                    data: { IdP: '@Model.departamento' },
+                    success: function(states) {
+                        //  alert("okdepto" + $("#ID_CT_DEPTO").val());
+                        $.each(states, function (i, state) {
+                            //  alert(state.Value);
+
+                            if ('@Model.municipio' == state.Value) {
+                                $("#municipio").append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                            } else {
+                                $("#municipio").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                            }
+
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+            } 
+
+
+            $("#departamento").change(function () {
+                $("#municipio").empty();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListCiudadId", "Registro")', // we are calling json method
+                    dataType: 'json',
+                    data: { IdP: $("#departamento").val() },
+                    success: function(states) {
+                        //  alert("okdepto" + $("#ID_CT_DEPTO").val());
+                        $.each(states, function (i, state) {
+                            //  alert(state.Value);
+
+                            if ('@Model.municipio' == state.Value) {
+                                $("#municipio").append('<option value="' + state.Value + '" selected>' + state.Text + '</option>');
+                            } else {
+                                $("#municipio").append('<option value="' + state.Value + '">' + state.Text + '</option>');
+                            }
+
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                return false;
+            });
+
+         
+
+            //////////////////////////////
+            ///////// MUESTRA ERRORES
+            //////////////////////////////
+
+            $(".field-validation-error").each(function(){
+                var IdClass = $(this).attr("class");
+                if( IdClass.indexOf("field-validation-error") != "-1"  ) {
+                    var Id = $(this).attr("data-valmsg-for");
+                    $('#'+Id).addClass("alert-danger");
+                    $('#'+Id).prop("disabled",false);
+                }
+            });
+
+
+            // =============================================================
+            // =============================================================
+            // REGLAS
+
+            //$("#Validacion5").change(function () {
+            //    if ($("#Validacion5").val() == 1) {
+            //        $("#Validacion8").val('N_A');               // Identificación Cónyuge
+            //        $("#Validacion8").prop('disabled', true);   // Identificación Cónyuge
+
+            //        $("#Validacion9").val('N_A');               // Nombre completo del Cónyuge
+            //        $("#Validacion9").prop('disabled', true);   // Nombre completo del Cónyuge
+
+            //        $("#Validacion31").val('41');               // El cónyuge es propietario de otros predios rurales
+            //        $("#Validacion31").prop('disabled', true);  //El cónyuge es propietario de otros predios rurales
+
+            //        $("#Validacion35").val('0');               // El cónyuge es propietario de otros predios rurales
+            //        $("#Validacion35").prop('disabled', true);  //El cónyuge es propietario de otros predios rurales
+
+            //        //$("#Validacion32").val('0');               // El cónyuge es propietario de otros predios rurales
+            //        //$("#Validacion32").prop('disabled', true);  //El cónyuge es propietario de otros predios rurales
+
+            //        //$("#Validacion33").val('0');               // El cónyuge es propietario de otros predios rurales
+            //        //$("#Validacion33").prop('disabled', true);  //El cónyuge es propietario de otros predios rurales
+
+
+
+            //    } else {
+
+            //        $("#Validacion8").prop('disabled', false);   // Identificación Cónyuge
+
+            //        $("#Validacion9").prop('disabled', false);   // Nombre completo del Cónyuge
+
+            //        $("#Validacion31").prop('disabled', false);  //El cónyuge es propietario de otros predios rurales
+
+            //        $("#Validacion35").prop('disabled', false);  //El cónyuge es propietario de otros predios rurales
+
+
+            //    }
+            //});
+
+            //$("#Validacion11").change(function () { // "Régimen de Escogencia"
+
+            //    if ($("#Validacion11").val() == 3) {
+            //        $("#Validacion18").val('230');               // Cuenta con Cáculo de UAF
+            //        $("#Validacion18").prop('disabled', true);   // Cuenta con Cáculo de UAF
+
+            //        $("#Validacion24").val('N_A');               // Nombre completo del Cónyuge
+            //        $("#Validacion24").prop('disabled', true);   // Nombre completo del Cónyuge
+
+            //        $("#Validacion42").val('231');               // El cónyuge es propietario de otros predios rurales
+            //        $("#Validacion42").prop('disabled', true);  //El cónyuge es propietario de otros predios rurales
+
+            //        $("#Validacion43").val('232');               // El cónyuge es propietario de otros predios rurales
+            //        $("#Validacion43").prop('disabled', true);  //El cónyuge es propietario de otros predios rurales
+            //    } else if ($("#Validacion11").val() == 4)  {
+
+            //        $("#Validacion18").prop('disabled', false);   // Cuenta con Cáculo de UAF
+            //        $("#Validacion24").prop('disabled', false);   // Nombre completo del Cónyuge
+            //        $("#Validacion42").prop('disabled', false);  //El cónyuge es propietario de otros predios rurales
+            //        $("#Validacion43").prop('disabled', false);  //El cónyuge es propietario de otros predios rurales
+
+            //        $("#Validacion23").val('26');               // UAF Por ZRH Rango 160 UAF * (Ha)
+            //        $("#Validacion23").prop('disabled', true);  //UAF Por ZRH Rango 160 UAF * (Ha)
+
+            //        $("#Validacion43").val('232');               // ITJP UAF Predial Excepción Decreto 902
+            //        $("#Validacion43").prop('disabled', true);  //ITJP UAF Predial Excepción Decreto 902
+
+            //        $("#Validacion44").val('233');               //ITJP Dentro Del Rango UAF – ZRH Ley 160
+            //        $("#Validacion44").prop('disabled', true);  //ITJP Dentro Del Rango UAF – ZRH Ley 160
+
+            //        $("#Validacion45").val('234');               // ITJP Menor Al Rango De UAF – ZRH Ley 160
+            //        $("#Validacion45").prop('disabled', true);  //ITJP Menor Al Rango De UAF – ZRH Ley 160
+            //    } else {
+
+            //        $("#Validacion18").prop('disabled', false);   // Cuenta con Cáculo de UAF
+            //        $("#Validacion24").prop('disabled', false);   // Nombre completo del Cónyuge
+            //        $("#Validacion42").prop('disabled', false);  //El cónyuge es propietario de otros predios rurales
+            //        $("#Validacion43").prop('disabled', false);  //El cónyuge es propietario de otros predios rurales
+            //        $("#Validacion23").prop('disabled', false);  //UAF Por ZRH Rango 160 UAF * (Ha)
+            //        $("#Validacion43").prop('disabled', false);  //ITJP UAF Predial Excepción Decreto 902
+            //        $("#Validacion44").prop('disabled', false);  //ITJP Dentro Del Rango UAF – ZRH Ley 160
+            //        $("#Validacion45").prop('disabled', false);  //ITJP Menor Al Rango De UAF – ZRH Ley 160
+            //    }
+
+            //});
+
+            //$("#Validacion12").change(function () {  //Ubicación del Predio
+
+            //    if ($("#Validacion12").val() == 5) {
+
+            //        $("#Validacion14").val('235');               // Cuenta con Inspecion Ocular
+            //        $("#Validacion14").prop('disabled', true);  //Cuenta con Inspecion Ocular
+
+            //        $("#Validacion16").val('236');               // ¿Cuenta Con Certificado De Uso Del Suelo ?
+            //        $("#Validacion16").prop('disabled', true);  //¿Cuenta Con Certificado De Uso Del Suelo ?
+
+            //        $("#Validacion18").val('230');               //¿Cuenta Con Cáculo De UAF ?
+            //        $("#Validacion18").prop('disabled', true);  //¿Cuenta Con Cáculo De UAF ?
+
+            //    } else {
+            //        $("#Validacion14").prop('disabled', false);  //Cuenta con Inspecion Ocular
+
+            //        $("#Validacion16").prop('disabled', false);  //¿Cuenta Con Certificado De Uso Del Suelo ?
+
+            //        $("#Validacion18").prop('disabled', false);  //¿Cuenta Con Cáculo De UAF ?
+
+            //    }
+            //});
+
+            //$("#Validacion13").change(function () {
+            //    if ($("#Validacion13").val() >  0.2000) {
+            //        $("#Validacion24").val('N_A');               //UAF PREDIAL UAF * (Ha)
+            //        $("#Validacion24").prop('disabled', true);  //UAF PREDIAL UAF * (Ha)
+            //    } else {
+            //        $("#Validacion24").val('');               //UAF PREDIAL UAF * (Ha)
+            //        $("#Validacion24").prop('disabled', false);  //UAF PREDIAL UAF * (Ha)
+            //    }
+            //});
+
+            //$("#Validacion14").change(function () { // ¿Cuenta con Inspeción Ocular ?
+            //    if ($("#Validacion14").val() ==  8) {
+            //        $("#Validacion15").val('N_A');               //UAF PREDIAL UAF * (Ha)
+            //        $("#Validacion15").prop('disabled', true);  //UAF PREDIAL UAF * (Ha)
+            //        $("#Validacion50").val('98');               //RESTRICCIÓN POR ACUMULACIÓN DE UAF
+            //        $("#Validacion50").prop('disabled', true);  //RESTRICCIÓN POR ACUMULACIÓN DE UAF
+
+            //    } else {
+            //        $("#Validacion15").val('');               //UAF PREDIAL UAF * (Ha)
+            //        $("#Validacion15").prop('disabled', false);  //UAF PREDIAL UAF * (Ha)
+            //        $("#Validacion50").prop('disabled', false);  //RESTRICCIÓN POR ACUMULACIÓN DE UAF
+            //    }
+            //});
+
+            //$("#Validacion16").change(function () { //¿Cuenta con Certificado de Uso del Suelo ?
+
+            //    if ($("#Validacion16").val() == 10) { // ¿Cuenta con Certificado de Uso del Suelo ?
+
+            //        $("#Validacion17").val('N_A'); // Uso Principal Del Certificado De Uso De Suelo
+            //        $("#Validacion17").prop('disabled', true); // Uso Principal Del Certificado De Uso De Suelo
+
+            //        $("#Validacion51").val('101');               //RESTRICCIÓN POR AUSENCIA DE INSPECCIÓN OCULAR
+            //        $("#Validacion51").prop('disabled', true);  //RESTRICCIÓN POR AUSENCIA DE INSPECCIÓN OCULAR
+
+            //    } else {
+
+            //        $("#Validacion17").prop('disabled', false); // Uso Principal Del Certificado De Uso De Suelo
+            //        $("#Validacion17").val(''); // Uso Principal Del Certificado De Uso De Suelo
+            //        $("#Validacion51").prop('disabled', false);  //RESTRICCIÓN POR AUSENCIA DE INSPECCIÓN OCULAR
+
+            //    }
+            //});
+
+            //$("#Validacion18").change(function () { //¿Cuenta con Certificado de Uso del Suelo ?
+
+            //    if ($("#Validacion18").val() == 12) { // ¿Cuenta con Certificado de Uso del Suelo ?
+
+            //        $("#Validacion24").val('N_A');               //UAF PREDIAL UAF * (Ha)
+            //        $("#Validacion24").prop('disabled', true);  //UAF PREDIAL UAF * (Ha)
+
+            //    } else {
+
+            //        $("#Validacion24").prop('disabled', false); // Uso Principal Del Certificado De Uso De Suelo
+            //        $("#Validacion24").val(''); // Uso Principal Del Certificado De Uso De Suelo
+
+            //    }
+            //});
+
+            //////////////////////////////
+            ///////// ENVIAR
+            //////////////////////////////
+            $( "#car-form" ).submit(function( event ) {
+               
+
+                $("#Id").prop('disabled', false);
+                $("#radicado").prop('disabled', false);
+                $("#cargaorfeo").prop('disabled', false);
+                $("#asignado").prop('disabled', false);
+                $("#Fechasignado").prop('disabled', false);
+                $("#feacharadicado").prop('disabled', false);
+
+                if ($("#feacharadicado").val() == '1/1/0001 00:00:00') {
+                    $("#feacharadicado").val("");
+                } 
+
+                $("#fiso").prop('disabled', false);
+                if ($("#fiso").val() == '0') {
+                    $("#fiso").val("");
+                } 
+                $("#municipio").prop('disabled', false);
+                $("#departamento").prop('disabled', false);
+                $("#expediente").prop('disabled', false);
+                $("#fechafiso").prop('disabled', false);
+                if ($("#fechafiso").val() == '1/1/0001 00:00:00') {
+                    $("#fechafiso").val("");
+                } 
+                $("#tiposolicitud").prop('disabled', false);
+                $("#solicitante").prop('disabled', false);
+                $("#docidentificacionsol").prop('disabled', false);
+                $("#copiadoc").prop('disabled', false);
+                $("#copiacertificadocurso").prop('disabled', false);
+                $("#declararentasol").prop('disabled', false);
+                $("#beneficiariosol").prop('disabled', false);
+                $("#propietariosol").prop('disabled', false);
+                $("#penjudicialessol").prop('disabled', false);
+                $("#ocupanteindebidosol").prop('disabled', false);
+                $("#victimadsol").prop('disabled', false);
+                $("#conyuge").prop('disabled', false);
+                $("#docidentificacioncony").prop('disabled', false);
+                $("#declararentacony").prop('disabled', false);
+                $("#beneficiariocony").prop('disabled', false);
+                $("#propietariocony").prop('disabled', false);
+                $("#penjudicialescony").prop('disabled', false);
+                $("#ocupanteindevidocony").prop('disabled', false);
+                $("#victimadcony").prop('disabled', false);
+                $("#inclusionreso").prop('disabled', false);
+                $("#respojuridico").prop('disabled', false);
+                $("#respoagronomo").prop('disabled', false);
+                $("#respocatastral").prop('disabled', false);
+                $("#responsable").prop('disabled', false);
+                $("#fechaediccion").prop('disabled', false);
+                $("#FechaInsercion").prop('disabled', false);
+                $("#FechaModificacion").prop('disabled', false);
+                $("#Gestion").prop('disabled', false);
+                $("#IdAspNetUser").prop('disabled', false);
+                $("#IdAspNetUserModifica").prop('disabled', false);
+                $("#Estado").prop('disabled', false);
+
+
+            });
+
+
+        });
+    </script>
+}

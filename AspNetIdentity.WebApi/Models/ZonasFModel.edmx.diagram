@@ -51,6 +51,10 @@
         <EntityTypeShape EntityType="ZonasFModel.CaracterizacionCatastral" Width="1.5" PointX="16.375" PointY="7.75" />
         <EntityTypeShape EntityType="ZonasFModel.CaracterizacionAgronomicaCatalogos" Width="1.5" PointX="18.375" PointY="7.75" />
         <EntityTypeShape EntityType="ZonasFModel.CaracterizacionAgronomica" Width="1.5" PointX="8.375" PointY="17.75" />
+        <EntityTypeShape EntityType="ZonasFModel.CaracterizacionAgronomicaConsultaVur" Width="1.5" PointX="18.375" PointY="10.75" />
+        <EntityTypeShape EntityType="ZonasFModel.Ba_Memorando" Width="1.5" PointX="18.375" PointY="14.75" />
+        <EntityTypeShape EntityType="ZonasFModel.Ba_MemorandoCatalogos" Width="1.5" PointX="10.375" PointY="19.75" />
+        <EntityTypeShape EntityType="ZonasFModel.Ba_Memorando_new" Width="1.5" PointX="12.375" PointY="19.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

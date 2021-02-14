@@ -94,11 +94,18 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
             return converted;
         }
 
-        public GeneralConfigurations GetConfig()
+        public GeneralConfigurations GetConfig( int id )
         {
             GeneralConfigurations generalConfigurations = new GeneralConfigurations();
+            string TypeSidebar = "";
 
-            using (StreamReader r = new StreamReader(Server.MapPath("~/config.json")))
+            if (id == 1 ) {
+                TypeSidebar = "~/config_rezago.json";
+            } else { 
+                TypeSidebar = "~/config_Barrido.json";
+            }
+
+            using (StreamReader r = new StreamReader(Server.MapPath(TypeSidebar)))
             {
                 string json = r.ReadToEnd();
                 generalConfigurations = JsonConvert.DeserializeObject<GeneralConfigurations>(json);

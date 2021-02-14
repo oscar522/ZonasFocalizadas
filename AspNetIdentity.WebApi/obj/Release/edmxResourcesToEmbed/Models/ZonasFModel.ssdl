@@ -169,6 +169,138 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="AccessFailedCount" Type="int" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
   </EntityType>
+  <EntityType Name="Ba_Memorando">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FechaInsercion" Type="datetime" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" />
+    <Property Name="Gestion" Type="int" />
+    <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" />
+    <Property Name="IdAspNetUserModifica" Type="nvarchar" MaxLength="128" />
+    <Property Name="IdExpediente" Type="bigint" />
+    <Property Name="Estado" Type="int" />
+    <Property Name="Validacion1" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion2" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion3" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion4" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion5" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion6" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion7" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion8" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion9" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion10" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion11" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion12" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion13" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion14" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion15" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion16" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion17" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion18" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion19" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion20" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion21" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion22" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion23" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion24" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion25" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion26" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion27" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion28" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion29" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion30" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion31" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion32" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion33" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion34" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion35" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion36" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion37" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion38" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion39" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion40" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion41" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion42" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion43" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion44" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion45" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion46" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion47" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion48" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion49" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion50" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion51" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion52" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion53" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion54" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion55" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion56" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion57" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion58" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion59" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion60" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion61" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion62" Type="nvarchar" MaxLength="128" />
+    <Property Name="Validacion63" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="Ba_Memorando_new">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="radicado" Type="nvarchar" MaxLength="128" />
+    <Property Name="cargaorfeo" Type="nvarchar" MaxLength="128" />
+    <Property Name="asignado" Type="nvarchar" MaxLength="128" />
+    <Property Name="Fechasignado" Type="datetime" />
+    <Property Name="feacharadicado" Type="datetime" />
+    <Property Name="fiso" Type="int" />
+    <Property Name="municipio" Type="nvarchar" MaxLength="128" />
+    <Property Name="departamento" Type="nvarchar" MaxLength="128" />
+    <Property Name="expediente" Type="nvarchar" MaxLength="128" />
+    <Property Name="fechafiso" Type="datetime" />
+    <Property Name="tiposolicitud" Type="nvarchar" MaxLength="128" />
+    <Property Name="solicitante" Type="nvarchar" MaxLength="128" />
+    <Property Name="docidentificacionsol" Type="nvarchar" MaxLength="128" />
+    <Property Name="copiadoc" Type="nvarchar" MaxLength="128" />
+    <Property Name="copiacertificadocurso" Type="nvarchar" MaxLength="128" />
+    <Property Name="declararentasol" Type="nvarchar" MaxLength="128" />
+    <Property Name="beneficiariosol" Type="nvarchar" MaxLength="128" />
+    <Property Name="propietariosol" Type="nvarchar" MaxLength="128" />
+    <Property Name="penjudicialessol" Type="nvarchar" MaxLength="128" />
+    <Property Name="ocupanteindebidosol" Type="nvarchar" MaxLength="128" />
+    <Property Name="victimadsol" Type="nvarchar" MaxLength="128" />
+    <Property Name="conyuge" Type="nvarchar" MaxLength="128" />
+    <Property Name="docidentificacioncony" Type="nvarchar" MaxLength="128" />
+    <Property Name="declararentacony" Type="nvarchar" MaxLength="128" />
+    <Property Name="beneficiariocony" Type="nvarchar" MaxLength="128" />
+    <Property Name="propietariocony" Type="nvarchar" MaxLength="128" />
+    <Property Name="penjudicialescony" Type="nvarchar" MaxLength="128" />
+    <Property Name="ocupanteindevidocony" Type="nvarchar" MaxLength="128" />
+    <Property Name="victimadcony" Type="nvarchar" MaxLength="128" />
+    <Property Name="inclusionreso" Type="nvarchar" MaxLength="128" />
+    <Property Name="respojuridico" Type="nvarchar" MaxLength="128" />
+    <Property Name="respoagronomo" Type="nvarchar" MaxLength="128" />
+    <Property Name="respocatastral" Type="nvarchar" MaxLength="128" />
+    <Property Name="responsable" Type="nvarchar" MaxLength="128" />
+    <Property Name="fechaediccion" Type="nvarchar" MaxLength="128" />
+    <Property Name="FechaInsercion" Type="datetime" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" />
+    <Property Name="Gestion" Type="int" />
+    <Property Name="IdAspNetUser" Type="nvarchar" MaxLength="128" />
+    <Property Name="IdAspNetUserModifica" Type="nvarchar" MaxLength="128" />
+    <Property Name="Estado" Type="int" />
+  </EntityType>
+  <EntityType Name="Ba_MemorandoCatalogos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="text" />
+    <Property Name="Tipo" Type="varchar(max)" />
+    <Property Name="Estado" Type="bit" />
+  </EntityType>
   <EntityType Name="BaldiosPersonaNatural">
     <Key>
       <PropertyRef Name="id" />
@@ -280,6 +412,19 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.AspNetUsers' no tiene definida ni
     <Property Name="Nombre" Type="text" />
     <Property Name="Tipo" Type="varchar(max)" />
     <Property Name="Estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="CaracterizacionAgronomicaConsultaVur">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tipo" Type="nchar" MaxLength="100" />
+    <Property Name="Departamento" Type="nchar" MaxLength="100" />
+    <Property Name="Municipio" Type="nchar" MaxLength="100" />
+    <Property Name="Numero" Type="nchar" MaxLength="100" />
+    <Property Name="Area" Type="nchar" MaxLength="100" />
+    <Property Name="Estado" Type="bit" />
+    <Property Name="idCaracterizacion" Type="int" />
   </EntityType>
   <EntityType Name="CaracterizacionCatastral">
     <Key>
@@ -1211,9 +1356,13 @@ advertencia 6002: La tabla o vista 'ZonasF.dbo.Temp_AspNetUsersTests_Details' no
     <EntitySet Name="ActDiaModalidad" EntityType="Self.ActDiaModalidad" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ActDiaProceso" EntityType="Self.ActDiaProceso" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ActividadesDiarias" EntityType="Self.ActividadesDiarias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ba_Memorando" EntityType="Self.Ba_Memorando" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ba_Memorando_new" EntityType="Self.Ba_Memorando_new" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ba_MemorandoCatalogos" EntityType="Self.Ba_MemorandoCatalogos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BaldiosPersonaNatural" EntityType="Self.BaldiosPersonaNatural" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CaracterizacionAgronomica" EntityType="Self.CaracterizacionAgronomica" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CaracterizacionAgronomicaCatalogos" EntityType="Self.CaracterizacionAgronomicaCatalogos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CaracterizacionAgronomicaConsultaVur" EntityType="Self.CaracterizacionAgronomicaConsultaVur" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CaracterizacionCatastral" EntityType="Self.CaracterizacionCatastral" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CaracterizacionCatastralCatalogos" EntityType="Self.CaracterizacionCatastralCatalogos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CaracterizacionJuridica" EntityType="Self.CaracterizacionJuridica" Schema="dbo" store:Type="Tables" />

@@ -1,0 +1,285 @@
+﻿@model IEnumerable<AspNetIdentity.Models.Ba_Memorando_newModel>
+@{
+    ViewBag.Title = "Index";
+}
+@section Scripts
+             {
+    @Scripts.Render("~/Scripts/ModalControl.js")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#table_idd').dataTable({
+                 dom: "B<'row'<'col-sm-6'l><'col-sm-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'<'#colvis'>p>>",
+                buttons: [
+                   { "extend": 'pdf', "text":'Pdf',"className": 'btn-outline-success' },
+                    { "extend": 'excel', "text":'Exc',"className": ' btn-outline-success ' },
+                    { "extend": 'print', "text":'Imp',"className": ' btn-outline-success ' }
+                ],
+                "order": [[6, "asc"]],
+                "language": { "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json" },
+                "pageLength": 10,
+                "paging": true
+            });  //Initialize the datatable
+
+        console.log("ready!");
+    });
+    </script>
+
+
+
+}
+<div class="card mb-4 wow fadeIn">
+
+    <!--Card content-->
+    <div class="card-body d-sm-flex justify-content-between">
+        <h3 class="card-title">Memorando</h3>
+        <a href='@Url.Action("../Ba_Memorando_new/Crear", "Crear")' title='Modificar' class="btn btn-default" style='color: #013ADF;'>Crear</a>
+        <div></div>
+    </div>
+
+</div>
+<div class="row wow fadeIn">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">  </div>
+            <div class="card-body">
+                <div class="table-responsive text-nowrap">
+                    <table class="table table-hover " id="table_idd">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.radicado)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.cargaorfeo)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.asignado)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Fechasignado)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.feacharadicado)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.fiso)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.municipio)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.departamento)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.expediente)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.fechafiso)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.tiposolicitud)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.solicitante)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.docidentificacionsol)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.copiadoc)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.copiacertificadocurso)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.declararentasol)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.beneficiariosol)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.propietariosol)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.penjudicialessol)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ocupanteindebidosol)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.victimadsol)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.conyuge)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.docidentificacioncony)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.declararentacony)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.beneficiariocony)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.propietariocony)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.penjudicialescony)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ocupanteindevidocony)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.victimadcony)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.inclusionreso)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.respojuridico)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.respoagronomo)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.respocatastral)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.responsable)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.fechaediccion)
+                                </th>
+                                
+                                <th></th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.radicado)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.cargaorfeo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.asignado)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Fechasignado)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.feacharadicado)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.fiso)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.municipio)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.departamento)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.expediente)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.fechafiso)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.tiposolicitud)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.solicitante)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.docidentificacionsol)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.copiadoc)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.copiacertificadocurso)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.declararentasol)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.beneficiariosol)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.propietariosol)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.penjudicialessol)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ocupanteindebidosol)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.victimadsol)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.conyuge)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.docidentificacioncony)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.declararentacony)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.beneficiariocony)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.propietariocony)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.penjudicialescony)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ocupanteindevidocony)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.victimadcony)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.inclusionreso)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.respojuridico)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.respoagronomo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.respocatastral)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.responsable)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.fechaediccion)
+                                    </td>
+                                  
+                                    <td>
+                                        <a href='@Url.Action("../Ba_Memorando_new/Edit", "Edit", new { IdTable = item.Id })' title='Modificar' style='color: #013ADF;'><i class='fa fa-refresh' aria-hidden='true'></i></a>
+
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
