@@ -80,6 +80,22 @@ namespace AspNetIdentity.WebClientAdmin.Controllers
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
         }
+
+        public async Task<ActionResult> Actividades()
+        {
+            string Id = "0";
+            string Controller = "Reportes";
+            string Method = "getActividades";
+            string result = await employeeProvider.Get(Id, Controller, Method);
+            var jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
+            string processModel = jsonResult.ToString();
+            return new JsonResult()
+            {
+                Data = processModel,
+                MaxJsonLength = 86753090,
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
+        }
         public async Task<ActionResult> Index()
         {
            

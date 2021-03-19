@@ -601,8 +601,43 @@ namespace AspNetIdentity.Models
         [Required(ErrorMessage = ".")]
         public Nullable<bool> DESISTIMIENTO_FIRMADO { get; set; }
 
+        /// <summary>
+        ///  
+        /// </summary>
 
+        [Required(ErrorMessage = ".")]
+        public Nullable<bool> AUTO_INADMITE_SOLICITUD { get; set; }
 
+        [Required(ErrorMessage = ".")]
+        public Nullable<int> AUTO_INADMITE_DOCUMENTO_VISIBLE { get; set; }
+
+        [Required(ErrorMessage = ".")]
+        public Nullable<System.DateTime> AUTO_INADMITE_FECHA { get; set; }
+        
+        [Required(ErrorMessage = ".")]
+        public Nullable<bool> AUTO_INADMITE_FIRMA { get; set; }
+        
+        [Required(ErrorMessage = ".")]
+        public Nullable<bool> AUTO_INADMITE_NOMBRE_CORRECTOS { get; set; }
+        
+        [Required(ErrorMessage = ".")]
+        public Nullable<int> AUTO_INADMITE_RAZON_ { get; set; }
+        
+        [Required(ErrorMessage = ".")]
+        public Nullable<bool> AUTO_INADMITE_NOTIFICADO { get; set; }
+        
+        [Required(ErrorMessage = ".")]
+        public Nullable<System.DateTime> AUTO_INADMITE_NOTIFICADO_FECHA { get; set; }
+        
+        [Required(ErrorMessage = ".")]
+        public Nullable<bool> AUTO_INADMITE_NOTIFICADO_MINISTERIO { get; set; }
+        
+        [Required(ErrorMessage = ".")]
+        public Nullable<System.DateTime> AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public string NombreINSPECCION_OCULAR_CONCEPTO_57 { get; set; }
         public string NombreACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61 { get; set; }
         public string NombreFORMATO_DE_REVISION_JURIDICA_CONCEPTO_73 { get; set; }

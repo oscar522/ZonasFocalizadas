@@ -94,6 +94,34 @@
                                 console.log(ex.responseText);
                                  }
                       });
+            });
+
+             $(".cssReporteActividades").click(function () {
+                $("#msnca").html("Preparando");
+                      $.ajax({
+                            type: 'POST',
+                            url: '@Url.Action("Actividades")', // we are calling json method
+                            dataType: 'json',
+                            success: function (states) {
+
+                                let csvContent = atob(states);
+                                debugger;
+                                var blob = new Blob([csvContent], { type: "data:application/octet-stream;base64" });
+                                var url = window.URL.createObjectURL(blob);
+                                debugger;
+
+                                // you need to precise a front-end button to have a name
+                                var dlnk = document.createElement("a");
+                                dlnk.download = "Actividades.csv";
+                                dlnk.href = url;
+                                dlnk.click();
+                                $("#msnca").html("Descargando");
+
+                             },
+                                error: function (ex) {
+                                console.log(ex.responseText);
+                                 }
+                      });
              });
         });
 </script>
@@ -113,6 +141,7 @@
             <div class="card-header">  <a href="#" id="Crear_" class="cssReporte">Descargar caracterización de Registro</a><div id="msnre"></div></div>
             <div class="card-header">  <a href="#" id="Crear_d" class="cssReporteJuridica">Descargar caracterización Juridica</a><div id="msncj"> </div></div>
             <div class="card-header">  <a href="#" id="Crear_s" class="cssReporteSolicitante">Descargar caracterización De Solicitante</a><div id="msncs"> </div></div>
+            <div class="card-header">  <a href="#" id="Crear_a" class="cssReporteActividades">Descargar Actividades Diarias </a><div id="msnca"> </div></div>
             <div class="card-body">
             </div>
         </div>

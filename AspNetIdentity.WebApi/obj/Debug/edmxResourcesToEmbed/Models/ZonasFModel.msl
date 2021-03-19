@@ -480,6 +480,16 @@
     <EntitySetMapping Name="CaracterizacionJuridica">
       <EntityTypeMapping TypeName="ZonasFModel.CaracterizacionJuridica">
         <MappingFragment StoreEntitySet="CaracterizacionJuridica">
+          <ScalarProperty Name="AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA" ColumnName="AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA" />
+          <ScalarProperty Name="AUTO_INADMITE_NOTIFICADO_MINISTERIO" ColumnName="AUTO_INADMITE_NOTIFICADO_MINISTERIO" />
+          <ScalarProperty Name="AUTO_INADMITE_NOTIFICADO_FECHA" ColumnName="AUTO_INADMITE_NOTIFICADO_FECHA" />
+          <ScalarProperty Name="AUTO_INADMITE_NOTIFICADO" ColumnName="AUTO_INADMITE_NOTIFICADO" />
+          <ScalarProperty Name="AUTO_INADMITE_RAZON_" ColumnName="AUTO_INADMITE_RAZON_" />
+          <ScalarProperty Name="AUTO_INADMITE_NOMBRE_CORRECTOS" ColumnName="AUTO_INADMITE_NOMBRE_CORRECTOS" />
+          <ScalarProperty Name="AUTO_INADMITE_FIRMA" ColumnName="AUTO_INADMITE_FIRMA" />
+          <ScalarProperty Name="AUTO_INADMITE_FECHA" ColumnName="AUTO_INADMITE_FECHA" />
+          <ScalarProperty Name="AUTO_INADMITE_DOCUMENTO_VISIBLE" ColumnName="AUTO_INADMITE_DOCUMENTO_VISIBLE" />
+          <ScalarProperty Name="AUTO_INADMITE_SOLICITUD" ColumnName="AUTO_INADMITE_SOLICITUD" />
           <ScalarProperty Name="SUSPENCION_FIRMADO" ColumnName="SUSPENCION_FIRMADO" />
           <ScalarProperty Name="SUSPENCION_FECHA" ColumnName="SUSPENCION_FECHA" />
           <ScalarProperty Name="SUSPENCION_VISIBLE" ColumnName="SUSPENCION_VISIBLE" />

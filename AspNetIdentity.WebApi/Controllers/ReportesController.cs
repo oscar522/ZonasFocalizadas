@@ -51,6 +51,8 @@ namespace AspNetIdentity.WebApi.Controllers
             return file;
         }
 
+       
+
         //[Authorize]
         [Route("getSolicitante")] //metodo del controlador
         public string GetSolicitante()
@@ -69,5 +71,24 @@ namespace AspNetIdentity.WebApi.Controllers
 
             return file;
         }
+
+        ////[Authorize]
+        //[Route("getActividades")] //metodo del controlador
+        //public string GetActividades()
+        //{
+        //    ReporteLogic a = new ReporteLogic();
+
+        //    var key = System.Guid.NewGuid().ToString();
+        //    using (var writer = new StreamWriter("C:\\ReportAnt\\ReporteActividades" + key + ".csv"))
+        //    using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+        //    {
+        //        ReporteLogic Report_ = new ReporteLogic();
+        //        csv.WriteRecords(Report_.ConsultaActividades());
+        //    }
+        //    Byte[] bytes = File.ReadAllBytes("C:\\ReportAnt\\ReporteActividades" + key + ".csv");
+        //    String file = Convert.ToBase64String(bytes);
+
+        //    return file;
+        //}
     }
 }

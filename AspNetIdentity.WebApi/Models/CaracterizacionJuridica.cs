@@ -192,5 +192,15 @@ namespace AspNetIdentity.WebApi.Models
         public Nullable<int> SUSPENCION_VISIBLE { get; set; }
         public Nullable<System.DateTime> SUSPENCION_FECHA { get; set; }
         public Nullable<bool> SUSPENCION_FIRMADO { get; set; }
+        public Nullable<bool> AUTO_INADMITE_SOLICITUD { get; set; }
+        public Nullable<int> AUTO_INADMITE_DOCUMENTO_VISIBLE { get; set; }
+        public Nullable<System.DateTime> AUTO_INADMITE_FECHA { get; set; }
+        public Nullable<bool> AUTO_INADMITE_FIRMA { get; set; }
+        public Nullable<bool> AUTO_INADMITE_NOMBRE_CORRECTOS { get; set; }
+        public Nullable<int> AUTO_INADMITE_RAZON_ { get; set; }
+        public Nullable<bool> AUTO_INADMITE_NOTIFICADO { get; set; }
+        public Nullable<System.DateTime> AUTO_INADMITE_NOTIFICADO_FECHA { get; set; }
+        public Nullable<bool> AUTO_INADMITE_NOTIFICADO_MINISTERIO { get; set; }
+        public Nullable<System.DateTime> AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA { get; set; }
     }
 }

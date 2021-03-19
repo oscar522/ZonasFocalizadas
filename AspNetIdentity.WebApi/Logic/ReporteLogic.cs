@@ -552,6 +552,22 @@ namespace AspNetIdentity.WebApi.Logic
             return lista;
         }
 
+        public object ConsultaActividades()
+        {
+            ZonasFEntities Ctx = new ZonasFEntities();
+            var lista = Ctx.ActividadesDiarias // y caracterizacion solicitante
+                                                        //.Join(Ctx.CaracterizacionJuridica, b => b.id, j => j.IdExpediente, (b, j) => new { b, j })
+                .Where(a => a.Estado == true)
+                .Select(a => new { a.Observacion })
+                //{
+
+                //})
+                .ToList();
+
+            //var obj = JObject.Parse(data);
+
+            return lista;
+        }
 
     }
 }

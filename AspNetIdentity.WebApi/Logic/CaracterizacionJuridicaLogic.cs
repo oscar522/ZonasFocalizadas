@@ -502,6 +502,10 @@ namespace AspNetIdentity.WebApi.Logic
             CaracterizacionJuridicaModel_.PUBLICACIONES_EMISORAFIRMA = a.b.PUBLICACIONES_EMISORAFIRMA;
             CaracterizacionJuridicaModel_.PUBLICACIONES_VISIBLE_EMISORA = a.b.PUBLICACIONES_VISIBLE_EMISORA;
 
+
+
+
+
             CaracterizacionJuridicaModel_.INSPECCION_OCULAR_VISIBLE = a.b.INSPECCION_OCULAR_VISIBLE;
             CaracterizacionJuridicaModel_.ACLARACION_DE_INSPECCION_VISIBLE = a.b.ACLARACION_DE_INSPECCION_VISIBLE;
             CaracterizacionJuridicaModel_.FIJACION_EN_LISTA_VISIBLE = a.b.FIJACION_EN_LISTA_VISIBLE;
@@ -539,13 +543,34 @@ namespace AspNetIdentity.WebApi.Logic
             CaracterizacionJuridicaModel_.SUSPENCION_FECHA = a.b.SUSPENCION_FECHA;
             CaracterizacionJuridicaModel_.SUSPENCION_FIRMADO = a.b.SUSPENCION_FIRMADO;
 
+
+            //AUTO INADMITE
+
+            CaracterizacionJuridicaModel_.AUTO_INADMITE_SOLICITUD = a.b.AUTO_INADMITE_SOLICITUD;
+            CaracterizacionJuridicaModel_.AUTO_INADMITE_DOCUMENTO_VISIBLE = a.b.AUTO_INADMITE_DOCUMENTO_VISIBLE;
+            CaracterizacionJuridicaModel_.AUTO_INADMITE_FECHA = a.b.AUTO_INADMITE_FECHA;
+            CaracterizacionJuridicaModel_.AUTO_INADMITE_FIRMA = a.b.AUTO_INADMITE_FIRMA;
+            CaracterizacionJuridicaModel_.AUTO_INADMITE_NOMBRE_CORRECTOS = a.b.AUTO_INADMITE_NOMBRE_CORRECTOS;
+            CaracterizacionJuridicaModel_.AUTO_INADMITE_RAZON_ = a.b.AUTO_INADMITE_RAZON_;
+            CaracterizacionJuridicaModel_.AUTO_INADMITE_NOTIFICADO = a.b.AUTO_INADMITE_NOTIFICADO;
+            CaracterizacionJuridicaModel_.AUTO_INADMITE_NOTIFICADO_FECHA = a.b.AUTO_INADMITE_NOTIFICADO_FECHA;
+            CaracterizacionJuridicaModel_.AUTO_INADMITE_NOTIFICADO_MINISTERIO = a.b.AUTO_INADMITE_NOTIFICADO_MINISTERIO;
+            CaracterizacionJuridicaModel_.AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA = a.b.AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA;
+
+
             CaracterizacionJuridicaModel_.Estado = true;
             CaracterizacionJuridicaModel_.IdAspNetUser = a.b.IdAspNetUser;
             CaracterizacionJuridicaModel_.rol = a.Name;
             CaracterizacionJuridicaModel_.NombreIdAspNetUser = a.c.Name + " " + a.c.FirstName + " " + a.c.LastName;
             CaracterizacionJuridicaModel_.FechaModificacion = a.b.FechaModificacion;
             CaracterizacionJuridicaModel_.Gestion = a.b.Gestion;
+
+
+
+
             return CaracterizacionJuridicaModel_;
+
+
         }
 
         public CaracterizacionJuridicaModel ConsultarIdExp(int id)
@@ -787,6 +812,20 @@ namespace AspNetIdentity.WebApi.Logic
                 CaracterizacionJuridicaModel_.SUSPENCION_FECHA = a.b.SUSPENCION_FECHA;
                 CaracterizacionJuridicaModel_.SUSPENCION_FIRMADO = a.b.SUSPENCION_FIRMADO;
 
+
+                /// AUTO INADMITE
+                CaracterizacionJuridicaModel_.AUTO_INADMITE_SOLICITUD = a.b.AUTO_INADMITE_SOLICITUD;
+                CaracterizacionJuridicaModel_.AUTO_INADMITE_DOCUMENTO_VISIBLE = a.b.AUTO_INADMITE_DOCUMENTO_VISIBLE;
+                CaracterizacionJuridicaModel_.AUTO_INADMITE_FECHA = a.b.AUTO_INADMITE_FECHA;
+                CaracterizacionJuridicaModel_.AUTO_INADMITE_FIRMA = a.b.AUTO_INADMITE_FIRMA;
+                CaracterizacionJuridicaModel_.AUTO_INADMITE_NOMBRE_CORRECTOS = a.b.AUTO_INADMITE_NOMBRE_CORRECTOS;
+                CaracterizacionJuridicaModel_.AUTO_INADMITE_RAZON_ = a.b.AUTO_INADMITE_RAZON_;
+                CaracterizacionJuridicaModel_.AUTO_INADMITE_NOTIFICADO = a.b.AUTO_INADMITE_NOTIFICADO;
+                CaracterizacionJuridicaModel_.AUTO_INADMITE_NOTIFICADO_FECHA = a.b.AUTO_INADMITE_NOTIFICADO_FECHA;
+                CaracterizacionJuridicaModel_.AUTO_INADMITE_NOTIFICADO_MINISTERIO = a.b.AUTO_INADMITE_NOTIFICADO_MINISTERIO;
+                CaracterizacionJuridicaModel_.AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA = a.b.AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA;
+
+
                 CaracterizacionJuridicaModel_.Estado = true;
                 CaracterizacionJuridicaModel_.IdAspNetUser = a.b.IdAspNetUser;
                 CaracterizacionJuridicaModel_.rol = a.Name;
@@ -1002,6 +1041,19 @@ namespace AspNetIdentity.WebApi.Logic
                     ResCtx.SUSPENCION_VISIBLE = a.SUSPENCION_VISIBLE;
                     ResCtx.SUSPENCION_FECHA = a.SUSPENCION_FECHA;
                     ResCtx.SUSPENCION_FIRMADO = a.SUSPENCION_FIRMADO;
+
+                    //.AUTO_INADMITE
+
+                    ResCtx.AUTO_INADMITE_SOLICITUD = a.AUTO_INADMITE_SOLICITUD;
+                    ResCtx.AUTO_INADMITE_DOCUMENTO_VISIBLE = a.AUTO_INADMITE_DOCUMENTO_VISIBLE;
+                    ResCtx.AUTO_INADMITE_FECHA = a.AUTO_INADMITE_FECHA;
+                    ResCtx.AUTO_INADMITE_FIRMA = a.AUTO_INADMITE_FIRMA;
+                    ResCtx.AUTO_INADMITE_NOMBRE_CORRECTOS = a.AUTO_INADMITE_NOMBRE_CORRECTOS;
+                    ResCtx.AUTO_INADMITE_RAZON_ = a.AUTO_INADMITE_RAZON_;
+                    ResCtx.AUTO_INADMITE_NOTIFICADO = a.AUTO_INADMITE_NOTIFICADO;
+                    ResCtx.AUTO_INADMITE_NOTIFICADO_FECHA = a.AUTO_INADMITE_NOTIFICADO_FECHA;
+                    ResCtx.AUTO_INADMITE_NOTIFICADO_MINISTERIO = a.AUTO_INADMITE_NOTIFICADO_MINISTERIO;
+                    ResCtx.AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA = a.AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA;
 
                     ResCtx.FechaModificacion = DateTime.Now;
                     ResCtx.Gestion = 1;

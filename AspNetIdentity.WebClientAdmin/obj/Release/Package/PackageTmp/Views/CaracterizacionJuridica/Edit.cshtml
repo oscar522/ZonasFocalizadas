@@ -304,6 +304,139 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
+                                <div class="card-header"><h5>AUTO INADMITE SOLICITUD</h5>  </div>
+                                <div class="card-body">
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <label class="control-label col-md-6"> Auto inadmite solicitud</label>
+                                                <select id="AUTO_INADMITE_SOLICITUD" name="AUTO_INADMITE_SOLICITUD" class="form-control col-md-6 bool CLASSAUTO_INADMITE_SOLICITUD">
+                                                    <option value="">Seleccione</option>
+                                                    <option value="True">Si</option>
+                                                    <option value="False">no</option>
+                                                </select>
+                                                @Html.ValidationMessageFor(model => model.AUTO_INADMITE_SOLICITUD, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div id="DivAUTOINADMITE" class="col-md-12">
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <label class="control-label col-md-6"> Documento Visible ? </label>
+                                                    <select id="AUTO_INADMITE_DOCUMENTO_VISIBLE" name="AUTO_INADMITE_DOCUMENTO_VISIBLE" class="form-control col-md-6 CLASSAUTO_INADMITE_SOLICITUD">
+                                                         <option value="">Seleccione</option>
+                                                        <option value="1">Si</option>
+                                                        <option value="2">no</option>
+                                                    </select>
+                                                    @Html.ValidationMessageFor(model => model.AUTO_INADMITE_DOCUMENTO_VISIBLE, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <label class="control-label col-md-6">Fecha</label>
+                                                    <div class="col-md-1 justify-content-center text-center align-content-center ">
+                                                        <div class="custom-control custom-checkbox  ">
+                                                            <input type="checkbox" class="custom-control-input checkFecha" id="AUTO_INADMITE_FECHAV" name="AUTO_INADMITE_FECHAV" Data="AUTO_INADMITE_FECHA">
+                                                            <label class="custom-control-label" for="AUTO_INADMITE_FECHAV"></label>
+                                                        </div>
+                                                    </div>
+                                                    @Html.EditorFor(model => model.AUTO_INADMITE_FECHA, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-5" } })
+                                                    @Html.ValidationMessageFor(model => model.AUTO_INADMITE_FECHA, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <label class="control-label col-md-6">Firma</label>
+                                                    <select id="AUTO_INADMITE_FIRMA" name="AUTO_INADMITE_FIRMA" class="form-control col-md-6">
+                                                        <option value="">Seleccione</option>
+                                                        <option value="True">Si</option>
+                                                        <option value="False">no</option>
+                                                    </select>
+                                                    @Html.ValidationMessageFor(model => model.AUTO_INADMITE_FIRMA, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <label class="control-label col-md-6"> Los nombres de los solicitantes son correctos? </label>
+                                                    <select id="AUTO_INADMITE_NOMBRE_CORRECTOS" name="AUTO_INADMITE_NOMBRE_CORRECTOS" class="form-control col-md-6 CLASSAUTODEACEPTACION_AUTODEACEPTACION">
+                                                         <option value="">Seleccione</option>
+                                                        <option value="True">Si</option>
+                                                        <option value="False">no</option>
+                                                    </select>
+                                                    @Html.ValidationMessageFor(model => model.AUTO_INADMITE_NOMBRE_CORRECTOS, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <label class="control-label col-md-6">Razón inadmite </label>
+                                                    <select id="AUTO_INADMITE_RAZON_" name="AUTO_INADMITE_RAZON_" class="form-control col-md-6">
+                                                        <option value="">Seleccione</option>
+                                                    </select>
+                                                    @Html.ValidationMessageFor(model => model.AUTO_INADMITE_RAZON_, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <label class="control-label col-md-6">El Auto esta notificado al solicitante ?</label>
+                                                    <select id="AUTO_INADMITE_NOTIFICADO" name="AUTO_INADMITE_NOTIFICADO" class="form-control col-md-6">
+                                                        <option value="">Seleccione</option>
+                                                        <option value="True">Si</option>
+                                                        <option value="False">no</option>
+                                                    </select>
+                                                    @Html.ValidationMessageFor(model => model.AUTO_INADMITE_NOTIFICADO, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <label class="control-label col-md-6">Fecha notificación Solicitante</label>
+                                                    <div class="col-md-1 justify-content-center text-center align-content-center ">
+                                                        <div class="custom-control custom-checkbox  ">
+                                                            <input type="checkbox" class="custom-control-input checkFecha" id="AUTO_INADMITE_NOTIFICADO_FECHAV" name="AUTO_INADMITE_NOTIFICADO_FECHAV" Data="AUTO_INADMITE_NOTIFICADO_FECHA">
+                                                            <label class="custom-control-label" for="AUTO_INADMITE_NOTIFICADO_FECHAV"></label>
+                                                        </div>
+                                                    </div>
+                                                    @Html.EditorFor(model => model.AUTO_INADMITE_NOTIFICADO_FECHA, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-5" } })
+                                                    @Html.ValidationMessageFor(model => model.AUTO_INADMITE_NOTIFICADO_FECHA, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <label class="control-label col-md-6">El Auto esta notificado al Ministerio Publico ?</label>
+                                                    <select id="AUTO_INADMITE_NOTIFICADO_MINISTERIO" name="AUTO_INADMITE_NOTIFICADO_MINISTERIO" class="form-control col-md-6">
+                                                        <option value="">Seleccione</option>
+                                                        <option value="True">Si</option>
+                                                        <option value="False">no</option>
+                                                    </select>
+                                                    @Html.ValidationMessageFor(model => model.AUTO_INADMITE_NOTIFICADO_MINISTERIO, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <label class="control-label col-md-6">Fecha notificación Ministerio Publico</label>
+                                                    <div class="col-md-1 justify-content-center text-center align-content-center ">
+                                                        <div class="custom-control custom-checkbox  ">
+                                                            <input type="checkbox" class="custom-control-input checkFecha" id="AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHAV" name="AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHAV" Data="AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA">
+                                                            <label class="custom-control-label" for="AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHAV"></label>
+                                                        </div>
+                                                    </div>
+                                                    @Html.EditorFor(model => model.AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA, new { htmlAttributes = new { Type = "date", @class = "form-control col-md-5" } })
+                                                    @Html.ValidationMessageFor(model => model.AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
                                 <div class="card-header"><h5>COMUNICACIONES</h5>  </div>
                                 <div class="card-body">
                                     <div class="row">
@@ -2531,30 +2664,8 @@
         $(document).ready(function () { //
             var ResDate = "";
             Catalogos();
-
-            // LOCA 
-            //function DateConvert(date, tipo = "") {
-            //    if (date) {
-            //        console.log(date + ' - ' + tipo);
-            //        var res = date.split("/");
-            //        var Add1 = "";
-            //        var Add2 = "";
-            //        var Add3 = "";
-
-            //        if (res[0].length == 1) {
-            //            Add1 = "0";
-            //        }
-            //        if (res[1].length == 1) {
-            //            Add2 = "0";
-            //        }
-            //        if (res[2].length == 1) {
-            //            Add3 = "0";
-            //        }
-            //    ResDate = Add3+res[2].replace(" 00:00:00","").replace(" 12:00:00 a. m.","")+"-"+Add2+res[1]+"-"+Add1+res[0];      
-            //    }
-
-              // PRODUCCION 
-             function DateConvert(date, tipo = "") {
+            function DateConvert(date, tipo = "")
+            {
                 if (date) {
                     console.log(date + ' - ' + tipo);
                     var res = date.split("/");
@@ -2572,483 +2683,518 @@
                     if (res[2].length == 1) {
                         Add3 = "0";
                     }
-                	ResDate = Add3+res[2].replace(" 00:00:00.000","").replace(" 12:00:00 a. m.","").replace(" 12:00:00 AM","") + 
+                	ResDate = Add3+res[2].replace(" 00:00:00","").replace(" 12:00:00 a. m.","").replace(" 00:00:00.000","").replace(" 12:00:00 a. m.","").replace(" 12:00:00 AM","") + 
                 		"-" + Add1+res[0] + 
                 		"-" + Add2+res[1];  
                 	 console.log(res + ' arra');
                 	 console.log(ResDate + ' ResDate');
     
                 }
-                 //debugger;
-
                 return ResDate;
             }
             /// catalogos
-                function Catalogos(){
-                    $.ajax({
-                        type: 'POST',
-                        url: '@Url.Action("ListTipos")', // we are calling json method
-                        dataType: 'json',
-                        data: { Id: 109 },
-                        success: function(states) {
-                            $.each(states, function (i, state) {
+            function Catalogos(){
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 109 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
 
-                                if (state.Value=="@Model.RESOLUCION_RAZON_NEGACION" && '@Model.RESOLUCION_DECISION_78' == '8') $("#RESOLUCION_RAZON_NEGACION").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
-                                else $("#RESOLUCION_RAZON_NEGACION").append('<option value="' + state.Value + '">' +state.Text + '</option>');
-                            });
-                        },
-                        error: function (ex) {
-                            console.log(ex.responseText);
-                        }
-                    });
-                    $.ajax({
-                        type: 'POST',
-                        url: '@Url.Action("ListTipos")', // we are calling json method
-                        dataType: 'json',
-                        data: { Id: 57 },
-                        success: function(states) {
-                            $.each(states, function (i, state) {
-                                if (state.Value=="@Model.INSPECCION_OCULAR_CONCEPTO_57") $("#INSPECCION_OCULAR_CONCEPTO_57").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
-                                else $("#INSPECCION_OCULAR_CONCEPTO_57").append('<option value="' + state.Value + '">' +state.Text + '</option>');
-                            });
-                        },
-                        error: function (ex) {
-                            console.log(ex.responseText);
-                        }
-                    });
-                
-                    @* $.ajax({
-                        type: 'POST',
-                        url: '@Url.Action("ListTipos")', // we are calling json method
-                        dataType: 'json',
-                        data: { Id: 61 },
-                        success: function(states) {
-                            $.each(states, function (i, state) {
-                                if (state.Value=="@Model.ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61") $("#ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
-                                else $("#ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61").append('<option value="' + state.Value + '">' +state.Text + '</option>');
-                            });
-                        },
-                        error: function (ex) {
-                            console.log(ex.responseText);
-                        }
-                    }); *@
-                    //
-                    $.ajax({
-                        type: 'POST',
-                        url: '@Url.Action("ListTipos")', // we are calling json method
-                        dataType: 'json',
-                        data: { Id: 73 },
-                        success: function(states) {
-                            $.each(states, function (i, state) {
-                                if (state.Value=="@Model.FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73") $("#FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
-                                else $("#FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                            if (state.Value=="@Model.RESOLUCION_RAZON_NEGACION" && '@Model.RESOLUCION_DECISION_78' == '8') $("#RESOLUCION_RAZON_NEGACION").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#RESOLUCION_RAZON_NEGACION").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 57 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.INSPECCION_OCULAR_CONCEPTO_57") $("#INSPECCION_OCULAR_CONCEPTO_57").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#INSPECCION_OCULAR_CONCEPTO_57").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+            
+                @* $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 61 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61") $("#ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#ACLARACION_DE_INSPECCION_OCULAR_CONCEPTO_61").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                }); *@
+                //
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 73 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73") $("#FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#FORMATO_DE_REVISION_JURIDICA_CONCEPTO_73").append('<option value="' + state.Value + '">' +state.Text + '</option>');
 
-                            });
-                        },
-                        error: function (ex) {
-                            console.log(ex.responseText);
-                        }
-                    });
-                    //
-                    $.ajax({
-                        type: 'POST',
-                        url: '@Url.Action("ListTipos")', // we are calling json method
-                        dataType: 'json',
-                        data: { Id: 78 },
-                        success: function(states) {
-                            $.each(states, function (i, state) {
-                                if (state.Value=="@Model.RESOLUCION_DECISION_78") $("#RESOLUCION_DECISION_78").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
-                                else $("#RESOLUCION_DECISION_78").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                //
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 78 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.RESOLUCION_DECISION_78") $("#RESOLUCION_DECISION_78").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#RESOLUCION_DECISION_78").append('<option value="' + state.Value + '">' +state.Text + '</option>');
 
-                            });
-                        },
-                        error: function (ex) {
-                            console.log(ex.responseText);
-                        }
-                    }); //
-                    $.ajax({
-                        type: 'POST',
-                        url: '@Url.Action("ListTipos")', // we are calling json method
-                        dataType: 'json',
-                        data: { Id: 80 },
-                        success: function(states) {
-                            $.each(states, function (i, state) {
-                                if (state.Value=="@Model.RESOLUCION_CONJUNTA_INDIVIDUAL_80") $("#RESOLUCION_CONJUNTA_INDIVIDUAL_80").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
-                                else $("#RESOLUCION_CONJUNTA_INDIVIDUAL_80").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                }); //
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 80 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.RESOLUCION_CONJUNTA_INDIVIDUAL_80") $("#RESOLUCION_CONJUNTA_INDIVIDUAL_80").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#RESOLUCION_CONJUNTA_INDIVIDUAL_80").append('<option value="' + state.Value + '">' +state.Text + '</option>');
 
-                            });
-                        },
-                        error: function (ex) {
-                            console.log(ex.responseText);
-                        }
-                    });
-                    //
-                    $.ajax({
-                        type: 'POST',
-                        url: '@Url.Action("ListTipos")', // we are calling json method
-                        dataType: 'json',
-                        data: { Id: 89 },
-                        success: function(states) {
-                            $.each(states, function (i, state) {
-                                if (state.Value=="@Model.RECURSO_SOLICITANTE_ACTO_89") $("#RECURSO_SOLICITANTE_ACTO_89").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
-                                else $("#RECURSO_SOLICITANTE_ACTO_89").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                //
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 89 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.RECURSO_SOLICITANTE_ACTO_89") $("#RECURSO_SOLICITANTE_ACTO_89").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#RECURSO_SOLICITANTE_ACTO_89").append('<option value="' + state.Value + '">' +state.Text + '</option>');
 
-                            });
-                        },
-                        error: function (ex) {
-                            console.log(ex.responseText);
-                        }
-                    });
-                    $.ajax({
-                        type: 'POST',
-                        url: '@Url.Action("ListTipos")', // we are calling json method
-                        dataType: 'json',
-                        data: { Id: 89 },
-                        success: function(states) {
-                            $.each(states, function (i, state) {
-                                if (state.Value=="@Model.RECURSO_MINISTERIO_ACTO_89") $("#RECURSO_MINISTERIO_ACTO_89").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
-                                else $("#RECURSO_MINISTERIO_ACTO_89").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 89 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.RECURSO_MINISTERIO_ACTO_89") $("#RECURSO_MINISTERIO_ACTO_89").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#RECURSO_MINISTERIO_ACTO_89").append('<option value="' + state.Value + '">' +state.Text + '</option>');
 
-                            });
-                        },
-                        error: function (ex) {
-                            console.log(ex.responseText);
-                        }
-                    });
-                    //
-                    $.ajax({
-                        type: 'POST',
-                        url: '@Url.Action("ListTipos")', // we are calling json method
-                        dataType: 'json',
-                        data: { Id: 92 },
-                        success: function(states) {
-                            $.each(states, function (i, state) {
-                                if (state.Value=="@Model.RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92") $("#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
-                                else $("#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92").append('<option value="' + state.Value + '">' +state.Text + '</option>');
-                            });
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                //// AUTO INADMITE SOLICITUD
 
-                            if($('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').val() != "16" ){
-                                $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
-                                $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
-                                $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
-                                $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
-                                $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
-                                $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled",true);
-                                $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled",true);
-                                $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
-                                $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
-                                $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
-                                $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
-                            }else{
-                                $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",false);
-                                $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",false);
-                                $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",false);
-                                $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",false);
-                                $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",false);
-                                $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled",false);
-                                $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled",false);
-                                $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",false);
-                                $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",false);
-                                $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",false);
-                                $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",false);
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 110 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.AUTO_INADMITE_RAZON_") $("#AUTO_INADMITE_RAZON_").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#AUTO_INADMITE_RAZON_").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                //
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 92 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92") $("#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                        });
+
+                        if($('#RECURSO_SOLICITANTE_DECISION_SOBRE_LA_ADJUDICAICON_92').val() != "16" ){
+                            $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
+                        }else{
+                            $('#RECURSO_SOLICITANTE_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_AREA_ADJUDICADA_N_6').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_CONJUNA_IND_N_7').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",false);
+                            $('#RECURSO_SOLICITANTE_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",false);
+                        }
+
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 92 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92") $("#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+
+                        });
+
+                        if($('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92').val() != "16" ){
+                            $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
+                        }else{
+                            $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",false);
+                            $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",false);
+                        }
+
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+            
+                //
+            
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 105 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+
+                            if (state.Value=="@Model.SOLICITUD_TIPO_SOLICITUD")
+                            {
+                                $("#SOLICITUD_TIPO_SOLICITUD").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            } 
+                            else {
+                                $("#SOLICITUD_TIPO_SOLICITUD").append('<option value="' + state.Value + '">' +state.Text + '</option>');   
                             }
 
-                        },
-                        error: function (ex) {
-                            console.log(ex.responseText);
-                        }
-                    });
-                    $.ajax({
-                        type: 'POST',
-                        url: '@Url.Action("ListTipos")', // we are calling json method
-                        dataType: 'json',
-                        data: { Id: 92 },
-                        success: function(states) {
-                            $.each(states, function (i, state) {
-                                if (state.Value=="@Model.RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92") $("#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
-                                else $("#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92").append('<option value="' + state.Value + '">' +state.Text + '</option>');
-
-                            });
-
-                            if($('#RECURSO_MINISTERIO_DECISION_SOBRE_LA_ADJUDICAICON_92').val() != "16" ){
-                                $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",true);
-                                $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",true);
-                                $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",true);
-                                $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",true);
-                                $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",true);
-                                $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled",true);
-                                $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled",true);
-                                $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",true);
-                                $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",true);
-                                $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",true);
-                                $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",true);
-                            }else{
-                                $('#RECURSO_MINISTERIO_RESOLUCION_DESPUES_PRUEBA_N_2').prop("disabled",false);
-                                $('#RECURSO_MINISTERIO_NUMERO_RESOLUCION_DESPUES_PRUEBA_N_3').prop("disabled",false);
-                                $('#RECURSO_MINISTERIO_FECHA_RESOLUCION_PRUEBAS_N_4').prop("disabled",false);
-                                $('#RECURSO_MINISTERIO_FIRMA_RESOLUCION_PRUEBAS_N_5').prop("disabled",false);
-                                $('#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6').prop("disabled",false);
-                                $('#RECURSO_MINISTERIO_AREA_ADJUDICADA_N_6').prop("disabled",false);
-                                $('#RECURSO_MINISTERIO_CONJUNA_IND_N_7').prop("disabled",false);
-                                $('#RECURSO_MINISTERIO_NOTIFICACION_SOLICITANTES_N_8').prop("disabled",false);
-                                $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_SOLICITANTES_N_9').prop("disabled",false);
-                                $('#RECURSO_MINISTERIO_NOTIFICACION_MINISTERIO_PUBLICO_N_10').prop("disabled",false);
-                                $('#RECURSO_MINISTERIO_FECHA_DE_NOTIFICACION_MINISTERIO_PUBLICO_N_11').prop("disabled",false);
+                            if ($("#SOLICITUD_TIPO_SOLICITUD").val() == "25") { // individual
+                                $('#SOLICITUD_CEDULA_CONYUGE').prop("disabled", true);
+                                $('#SOLICITUD_CEDULA_PARIENTE').prop("disabled", true);
+                            }else if($("#SOLICITUD_TIPO_SOLICITUD").val() == "24"){ // conjunta
+                                $('#SOLICITUD_CEDULA_PARIENTE').prop("disabled", true);
+                            }else if($("#SOLICITUD_TIPO_SOLICITUD").val() == "26"){ // pariente
+                                $('#SOLICITUD_CEDULA_CONYUGE').prop("disabled", true);
                             }
 
-                        },
-                        error: function (ex) {
-                            console.log(ex.responseText);
-                        }
-                    });
-                
-                    //
-                
-                    $.ajax({
-                        type: 'POST',
-                        url: '@Url.Action("ListTipos")', // we are calling json method
-                        dataType: 'json',
-                        data: { Id: 105 },
-                        success: function(states) {
-                            $.each(states, function (i, state) {
 
-                                if (state.Value=="@Model.SOLICITUD_TIPO_SOLICITUD")
-                                {
-                                    $("#SOLICITUD_TIPO_SOLICITUD").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
-                                } 
-                                else {
-                                    $("#SOLICITUD_TIPO_SOLICITUD").append('<option value="' + state.Value + '">' +state.Text + '</option>');   
-                                }
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
 
-                                if ($("#SOLICITUD_TIPO_SOLICITUD").val() == "25") { // individual
-                                    $('#SOLICITUD_CEDULA_CONYUGE').prop("disabled", true);
-                                    $('#SOLICITUD_CEDULA_PARIENTE').prop("disabled", true);
-                                }else if($("#SOLICITUD_TIPO_SOLICITUD").val() == "24"){ // conjunta
-                                    $('#SOLICITUD_CEDULA_PARIENTE').prop("disabled", true);
-                                }else if($("#SOLICITUD_TIPO_SOLICITUD").val() == "26"){ // pariente
-                                    $('#SOLICITUD_CEDULA_CONYUGE').prop("disabled", true);
-                                }
-
-
-                            });
-                        },
-                        error: function (ex) {
-                            console.log(ex.responseText);
-                        }
-                    });
-
-                    $.ajax({
-                        type: 'POST',
-                        url: '@Url.Action("ListTipos")', // we are calling json method
-                        dataType: 'json',
-                        data: { Id: 106 },
-                        success: function(states) {
-                            $.each(states, function (i, state) {
-                                if (state.Value=="@Model.RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6") $("#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
-                                else $("#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6").append('<option value="' + state.Value + '">' +state.Text + '</option>');
-                            });
-                        },
-                        error: function (ex) {
-                            console.log(ex.responseText);
-                        }
-                    });
-                    $.ajax({
-                        type: 'POST',
-                        url: '@Url.Action("ListTipos")', // we are calling json method
-                        dataType: 'json',
-                        data: { Id: 106 },
-                        success: function(states) {
-                            $.each(states, function (i, state) {
-                                if (state.Value=="@Model.RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6") $("#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
-                                else $("#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6").append('<option value="' + state.Value + '">' +state.Text + '</option>');
-                            });
-                        },
-                        error: function (ex) {
-                            console.log(ex.responseText);
-                        }
-                    });
-                    $.ajax({
-                        type: 'POST',
-                        url: '@Url.Action("ListTipos")', // we are calling json method
-                        dataType: 'json',
-                        data: { Id: 107 },
-                        success: function(states) {
-                            $.each(states, function (i, state) {
-                                if (state.Value=="@Model.RECURSO_SOLICITANTE_CONJUNA_IND_N_7") $("#RECURSO_SOLICITANTE_CONJUNA_IND_N_7").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
-                                else $("#RECURSO_SOLICITANTE_CONJUNA_IND_N_7").append('<option value="' + state.Value + '">' +state.Text + '</option>');
-                            });
-                        },
-                        error: function (ex) {
-                            console.log(ex.responseText);
-                        }
-                    });
-                    $.ajax({
-                        type: 'POST',
-                        url: '@Url.Action("ListTipos")', // we are calling json method
-                        dataType: 'json',
-                        data: { Id: 107 },
-                        success: function(states) {
-                            $.each(states, function (i, state) {
-                                if (state.Value=="@Model.RECURSO_MINISTERIO_CONJUNA_IND_N_7") $("#RECURSO_MINISTERIO_CONJUNA_IND_N_7").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
-                                else $("#RECURSO_MINISTERIO_CONJUNA_IND_N_7").append('<option value="' + state.Value + '">' +state.Text + '</option>');
-                            });
-                        },
-                        error: function (ex) {
-                            console.log(ex.responseText);
-                        }
-                    });
-                    $.ajax({
-                        type: 'POST',
-                        url: '@Url.Action("ListTipos")', // we are calling json method
-                        dataType: 'json',
-                        data: { Id: 108 },
-                        success: function(states) {
-                            $.each(states, function (i, state) {
-                                if (state.Value=="@Model.RECURSO_SOLICITANTE_DECISION_N_1") $("#RECURSO_SOLICITANTE_DECISION_N_1").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
-                                else $("#RECURSO_SOLICITANTE_DECISION_N_1").append('<option value="' + state.Value + '">' +state.Text + '</option>');
-                            });
-                        },
-                        error: function (ex) {
-                            console.log(ex.responseText);
-                        }
-                    });
-                    $.ajax({
-                        type: 'POST',
-                        url: '@Url.Action("ListTipos")', // we are calling json method
-                        dataType: 'json',
-                        data: { Id: 108 },
-                        success: function(states) {
-                            $.each(states, function (i, state) {
-                                if (state.Value=="@Model.RECURSO_MINISTERIO_DECISION_N_1") $("#RECURSO_MINISTERIO_DECISION_N_1").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
-                                else $("#RECURSO_MINISTERIO_DECISION_N_1").append('<option value="' + state.Value + '">' +state.Text + '</option>');
-                            });
-                        },
-                        error: function (ex) {
-                            console.log(ex.responseText);
-                        }
-                    });
-                }
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 106 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6") $("#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#RECURSO_SOLICITANTE_DECISION_RESOLUCION_PRUEBAS_N_6").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 106 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6") $("#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#RECURSO_MINISTERIO_DECISION_RESOLUCION_PRUEBAS_N_6").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 107 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.RECURSO_SOLICITANTE_CONJUNA_IND_N_7") $("#RECURSO_SOLICITANTE_CONJUNA_IND_N_7").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#RECURSO_SOLICITANTE_CONJUNA_IND_N_7").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 107 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.RECURSO_MINISTERIO_CONJUNA_IND_N_7") $("#RECURSO_MINISTERIO_CONJUNA_IND_N_7").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#RECURSO_MINISTERIO_CONJUNA_IND_N_7").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 108 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.RECURSO_SOLICITANTE_DECISION_N_1") $("#RECURSO_SOLICITANTE_DECISION_N_1").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#RECURSO_SOLICITANTE_DECISION_N_1").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ListTipos")', // we are calling json method
+                    dataType: 'json',
+                    data: { Id: 108 },
+                    success: function(states) {
+                        $.each(states, function (i, state) {
+                            if (state.Value=="@Model.RECURSO_MINISTERIO_DECISION_N_1") $("#RECURSO_MINISTERIO_DECISION_N_1").append('<option selected value="' + state.Value + '">' +state.Text + '</option>');
+                            else $("#RECURSO_MINISTERIO_DECISION_N_1").append('<option value="' + state.Value + '">' +state.Text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex.responseText);
+                    }
+                });
+            }
             ///
             function iniciales(){
                 /// SOLICITUD
+                if (($("#SOLICITUD_SOLICITUD").val() == "False" || $("#SOLICITUD_SOLICITUD").val() == "") || ($("#SOLICITUD_VISIBLE").val() == "0" || $("#SOLICITUD_VISIBLE").val() == "2") )  {
+                    //$('#SOLICITUD_VISIBLE').prop("disabled", true);
+                    $('#SOLICITUD_FECHA').prop("disabled", true);
+                    $('#SOLICITUD_FIRMA').prop("disabled", true);
+                    $('#SOLICITUD_TIPO_SOLICITUD').prop("disabled", true);
+                    $('#SOLICITUD_CEDULA_SOLICITANTE').prop("disabled", true);
+                    $('#SOLICITUD_CEDULA_CONYUGE').prop("disabled", true);
+                    $('#SOLICITUD_CEDULA_PARIENTE').prop("disabled", true);
+                    $('#SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA').prop("disabled", true);
+                }else{
+                    $('#SOLICITUD_VISIBLE').prop("disabled", false);
+                    $('#SOLICITUD_FECHA').prop("disabled", false);
+                    $('#SOLICITUD_FIRMA').prop("disabled", false);
+                    $('#SOLICITUD_TIPO_SOLICITUD').prop("disabled", false);
+                    $('#SOLICITUD_CEDULA_SOLICITANTE').prop("disabled", false);
+                    $('#SOLICITUD_CEDULA_CONYUGE').prop("disabled", false);
+                    $('#SOLICITUD_CEDULA_PARIENTE').prop("disabled", false);
+                    $('#SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA').prop("disabled", false);
+                }
+                /// AUTODEACEPTACION_
+                if (($("#AUTODEACEPTACION_AUTODEACEPTACION").val() == "False" || $("#AUTODEACEPTACION_AUTODEACEPTACION").val() == "") || ($("#AUTODEACEPTACION_VISIBLE").val() == "0" || $("#AUTODEACEPTACION_VISIBLE").val() == "2") )  {
 
-                    if (($("#SOLICITUD_SOLICITUD").val() == "False" || $("#SOLICITUD_SOLICITUD").val() == "") || ($("#SOLICITUD_VISIBLE").val() == "0" || $("#SOLICITUD_VISIBLE").val() == "2") )  {
-                        //$('#SOLICITUD_VISIBLE').prop("disabled", true);
-                        $('#SOLICITUD_FECHA').prop("disabled", true);
-                        $('#SOLICITUD_FIRMA').prop("disabled", true);
-                        $('#SOLICITUD_TIPO_SOLICITUD').prop("disabled", true);
-                        $('#SOLICITUD_CEDULA_SOLICITANTE').prop("disabled", true);
-                        $('#SOLICITUD_CEDULA_CONYUGE').prop("disabled", true);
-                        $('#SOLICITUD_CEDULA_PARIENTE').prop("disabled", true);
-                        $('#SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA').prop("disabled", true);
-                    }else{
-                        $('#SOLICITUD_VISIBLE').prop("disabled", false);
-                        $('#SOLICITUD_FECHA').prop("disabled", false);
-                        $('#SOLICITUD_FIRMA').prop("disabled", false);
-                        $('#SOLICITUD_TIPO_SOLICITUD').prop("disabled", false);
-                        $('#SOLICITUD_CEDULA_SOLICITANTE').prop("disabled", false);
-                        $('#SOLICITUD_CEDULA_CONYUGE').prop("disabled", false);
-                        $('#SOLICITUD_CEDULA_PARIENTE').prop("disabled", false);
-                        $('#SOLICITUD_FECHADESDELACUALOCUPAEXPLOTA').prop("disabled", false);
-                    }
-                 /// AUTODEACEPTACION_
-                    if (($("#AUTODEACEPTACION_AUTODEACEPTACION").val() == "False" || $("#AUTODEACEPTACION_AUTODEACEPTACION").val() == "") || ($("#AUTODEACEPTACION_VISIBLE").val() == "0" || $("#AUTODEACEPTACION_VISIBLE").val() == "2") )  {
+                    //$('#AUTODEACEPTACION_VISIBLE').prop("disabled", true);
+                    $('#AUTODEACEPTACION_FECHA').prop("disabled", true);
+                    $('#AUTODEACEPTACION_FIRMA').prop("disabled", true);
+                    $('#AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO').prop("disabled", true);
+                    $('#AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO').prop("disabled", true);
+                    $('#AUTODEACEPTACION_DATOSPREDIOSCORRECTO').prop("disabled", true);
+                    $('#AUTODEACEPTACION_COLINDANTE_CORRECTO').prop("disabled", true);
+                }else{
+                    $('#AUTODEACEPTACION_VISIBLE').prop("disabled", false);
+                    $('#AUTODEACEPTACION_FECHA').prop("disabled", false);
+                    $('#AUTODEACEPTACION_FIRMA').prop("disabled", false);
+                    $('#AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO').prop("disabled", false);
+                    $('#AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO').prop("disabled", false);
 
-                        //$('#AUTODEACEPTACION_VISIBLE').prop("disabled", true);
-                        $('#AUTODEACEPTACION_FECHA').prop("disabled", true);
-                        $('#AUTODEACEPTACION_FIRMA').prop("disabled", true);
-                        $('#AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO').prop("disabled", true);
-                        $('#AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO').prop("disabled", true);
-                        $('#AUTODEACEPTACION_DATOSPREDIOSCORRECTO').prop("disabled", true);
-                        $('#AUTODEACEPTACION_COLINDANTE_CORRECTO').prop("disabled", true);
-                        
-                    }else{
-                        $('#AUTODEACEPTACION_VISIBLE').prop("disabled", false);
-                        $('#AUTODEACEPTACION_FECHA').prop("disabled", false);
-                        $('#AUTODEACEPTACION_FIRMA').prop("disabled", false);
-                        $('#AUTODEACEPTACION_ELNUMEROFECHADESOLICITUDCORRECTO').prop("disabled", false);
-                        $('#AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO').prop("disabled", false);
-
-                        $('#AUTODEACEPTACION_DATOSPREDIOSCORRECTO').prop("disabled", false);
-                        $('#AUTODEACEPTACION_COLINDANTE_CORRECTO').prop("disabled", false);
-                    }
+                    $('#AUTODEACEPTACION_DATOSPREDIOSCORRECTO').prop("disabled", false);
+                    $('#AUTODEACEPTACION_COLINDANTE_CORRECTO').prop("disabled", false);
+                }
+                ///AUTO INADMITE SOLICITUD
+                if (($("#AUTO_INADMITE_SOLICITUD").val() == "False" || $("#AUTO_INADMITE_SOLICITUD").val() == "") || ($("#AUTO_INADMITE_SOLICITUD").val() == "0" || $("#AUTO_INADMITE_DOCUMENTO_VISIBLE").val() == "2" || $("#AUTO_INADMITE_DOCUMENTO_VISIBLE").val() == "") )  {
+                    //$('#AUTO_INADMITE_SOLICITUD').prop("disabled", true);
+                    //$('#AUTO_INADMITE_DOCUMENTO_VISIBLE').prop("disabled", true);
+                    $('#AUTO_INADMITE_FECHA').prop("disabled", true);
+                    $('#AUTO_INADMITE_FIRMA').prop("disabled", true);
+                    $('#AUTO_INADMITE_NOMBRE_CORRECTOS').prop("disabled", true);
+                    $('#AUTO_INADMITE_RAZON_').prop("disabled", true);
+                    $('#AUTO_INADMITE_NOTIFICADO').prop("disabled", true);
+                    $('#AUTO_INADMITE_NOTIFICADO_FECHA').prop("disabled", true);
+                    $('#AUTO_INADMITE_NOTIFICADO_MINISTERIO').prop("disabled", true);
+                    $('#AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA').prop("disabled", true);
+                }else{
+                    //$('#AUTO_INADMITE_SOLICITUD').prop("disabled", true);
+                    //$('#AUTO_INADMITE_DOCUMENTO_VISIBLE').prop("disabled", false);
+                    $('#AUTO_INADMITE_FECHA').prop("disabled", false);
+                    $('#AUTO_INADMITE_FIRMA').prop("disabled", false);
+                    $('#AUTO_INADMITE_NOMBRE_CORRECTOS').prop("disabled", false);
+                    $('#AUTO_INADMITE_RAZON_').prop("disabled", false);
+                    $('#AUTO_INADMITE_NOTIFICADO').prop("disabled", false);
+                    $('#AUTO_INADMITE_NOTIFICADO_FECHA').prop("disabled", false);
+                    $('#AUTO_INADMITE_NOTIFICADO_MINISTERIO').prop("disabled", false);
+                    $('#AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA').prop("disabled", false);
+                }
                 /// COMUNICACIONES_
-                    @* if (($("#COMUNICACIONES_SOLICITANTE").val() == "False" || $("#COMUNICACIONES_SOLICITANTE").val() == "") || ($("#COMUNICACIONES_VISIBLE").val() == "0" || $("#COMUNICACIONES_VISIBLE").val() == "2") )  {
+                @* if (($("#COMUNICACIONES_SOLICITANTE").val() == "False" || $("#COMUNICACIONES_SOLICITANTE").val() == "") || ($("#COMUNICACIONES_VISIBLE").val() == "0" || $("#COMUNICACIONES_VISIBLE").val() == "2") )  {
 
-                        $('#COMUNICACIONES_SOLICITANTEFECHA').prop("disabled", true);
-                        $('#COMUNICACIONES_SOLICITANTEFIRMA').prop("disabled", true);
-                        $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').prop("disabled", true);
-                        $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", true);
-                        $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", true);
-                        $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", true);
-                        $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", true);
+                    $('#COMUNICACIONES_SOLICITANTEFECHA').prop("disabled", true);
+                    $('#COMUNICACIONES_SOLICITANTEFIRMA').prop("disabled", true);
+                    $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').prop("disabled", true);
+                    $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", true);
+                    $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", true);
+                    $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", true);
+                    $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", true);
+                    $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", true);
+                    $('#COMUNICACIONES_COLINDATESFECHA').prop("disabled", true);
+                    $('#COMUNICACIONES_COLINDATESFIRMA').prop("disabled", true);
+                    //$('#COMUNICACIONES_VISIBLE').prop("disabled", true);
+                    
+                    if ($("#COMUNICACIONES_COLINDATES").val() != "3") {
                         $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", true);
-                        $('#COMUNICACIONES_COLINDATESFECHA').prop("disabled", true);
-                        $('#COMUNICACIONES_COLINDATESFIRMA').prop("disabled", true);
-                        //$('#COMUNICACIONES_VISIBLE').prop("disabled", true);
-                        
-                        if ($("#COMUNICACIONES_COLINDATES").val() != "3") {
-                            $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", true);
-                        }else{
-                            $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", false);
-                        }
-
-                        if ($("#COMUNICACIONES_PROCURADOR").val() != "False") {
-                            $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", false);
-                            $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", false);
-                        }else{
-                            $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", true);
-                            $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", true);
-                        }
-
-                        if ($("#COMUNICACIONES_AUTORIDADAMBIENTAL").val() != "False") {
-                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", false);
-                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", false);
-                        }else{
-                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", true);
-                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", true);
-                        }
-
-
                     }else{
-                        $('#COMUNICACIONES_VISIBLE').prop("disabled", false);
+                        $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", false);
+                    }
 
-                        $('#COMUNICACIONES_SOLICITANTEFECHA').prop("disabled", false);
-                        $('#COMUNICACIONES_SOLICITANTEFIRMA').prop("disabled", false);
-                        $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').prop("disabled", false);
-                        $('#COMUNICACIONES_PROCURADOR').prop("disabled", false);
+                    if ($("#COMUNICACIONES_PROCURADOR").val() != "False") {
                         $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", false);
                         $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", false);
-                        $('#COMUNICACIONES_AUTORIDADAMBIENTAL').prop("disabled", false);
+                    }else{
+                        $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", true);
+                        $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", true);
+                    }
+
+                    if ($("#COMUNICACIONES_AUTORIDADAMBIENTAL").val() != "False") {
                         $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", false);
                         $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", false);
-                        $('#COMUNICACIONES_COLINDATES').prop("disabled", false);
+                    }else{
+                        $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", true);
+                        $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", true);
+                    }
+                }else{
+                    $('#COMUNICACIONES_VISIBLE').prop("disabled", false);
+
+                    $('#COMUNICACIONES_SOLICITANTEFECHA').prop("disabled", false);
+                    $('#COMUNICACIONES_SOLICITANTEFIRMA').prop("disabled", false);
+                    $('#COMUNICACIONES_FECHAINSPECCIONOCULAR').prop("disabled", false);
+                    $('#COMUNICACIONES_PROCURADOR').prop("disabled", false);
+                    $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", false);
+                    $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", false);
+                    $('#COMUNICACIONES_AUTORIDADAMBIENTAL').prop("disabled", false);
+                    $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", false);
+                    $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", false);
+                    $('#COMUNICACIONES_COLINDATES').prop("disabled", false);
+                    $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", false);
+                    $('#COMUNICACIONES_COLINDATESFECHA').prop("disabled", false);
+                    $('#COMUNICACIONES_COLINDATESFIRMA').prop("disabled", false);
+                    if ($("#COMUNICACIONES_COLINDATES").val() != "3") {
+                        $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", true);
+                    }else{
                         $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", false);
-                        $('#COMUNICACIONES_COLINDATESFECHA').prop("disabled", false);
-                        $('#COMUNICACIONES_COLINDATESFIRMA').prop("disabled", false);
-                        if ($("#COMUNICACIONES_COLINDATES").val() != "3") {
-                            $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", true);
-                        }else{
-                            $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", false);
-                        }
+                    }
 
-                        if ($("#COMUNICACIONES_PROCURADOR").val() != "False") {
-                            $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", false);
-                            $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", false);
-                        }else{
-                            $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", true);
-                            $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", true);
-                        }
+                    if ($("#COMUNICACIONES_PROCURADOR").val() != "False") {
+                        $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", false);
+                        $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", false);
+                    }else{
+                        $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", true);
+                        $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", true);
+                    }
 
-                        if ($("#COMUNICACIONES_AUTORIDADAMBIENTAL").val() != "False") {
-                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", false);
-                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", false);
-                        }else{
-                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", true);
-                            $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", true);
-                        }
-
-                    } *@
+                    if ($("#COMUNICACIONES_AUTORIDADAMBIENTAL").val() != "False") {
+                        $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", false);
+                        $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", false);
+                    }else{
+                        $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", true);
+                        $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", true);
+                    }
+                } *@
 
                     if (($("#COMUNICACIONES_SOLICITANTE").val() == "False" || $("#COMUNICACIONES_SOLICITANTE").val() == "") || ($("#COMUNICACIONES_SOLICITANTE").val() == "0" || $("#COMUNICACIONES_SOLICITANTE").val() == "2") )  {
                         if ($("#COMUNICACIONES_VISIBLE").val() != "2" && $("#COMUNICACIONES_VISIBLE").val() != "0") {
@@ -3143,8 +3289,6 @@
                             $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", true);
                             
                         }
-
-                        
                     }else{
                         if ($("#COMUNICACIONES_COLINDATES").val() != "3") {
                             $('#COMUNICACIONES_COLINDATES_INCOMPLETOS').prop("disabled", true);
@@ -3188,8 +3332,6 @@
                             $('#COMUNICACIONES_AUTORIDADAMBIENTALFECHA').prop("disabled", true);
                             $('#COMUNICACIONES_AUTORIDADAMBIENTALFIRMA').prop("disabled", true);
                         }
-
-
                     }else{
                         $('#COMUNICACIONES_VISIBLE').prop("disabled", false);
                         $("#COMUNICACIONES_SOLICITANTE").prop("disabled", false);
@@ -3231,9 +3373,6 @@
                             $('#COMUNICACIONES_PROCURADORFECHA').prop("disabled", true);
                             $('#COMUNICACIONES_PROCURADORFIRMA').prop("disabled", true);
                         }
-
-                       
-
                     } *@
                 /// PUBLICACIONES
                     if (($("#PUBLICACIONES_ALCALDIA").val() == "False" || $("#PUBLICACIONES_ALCALDIA").val() == "") || ($("#PUBLICACIONES_VISIBLE").val() == "0" || $("#PUBLICACIONES_VISIBLE").val() == "2") )  {
@@ -3753,6 +3892,7 @@
 
                 $('#DivSolicitud').hide();
                 $('#DivAUTODEACEPTACION').hide();
+                $('#DivAUTOINADMITE').hide();
                 $('#DivCOMUNICACIONES').hide();
                 $('#DivPUBLICACIONES').hide();
                 $('#DivINSPECCION_OCULAR').hide();
@@ -3776,6 +3916,7 @@
 
                     $('#DivSolicitud').show("1000");
                     $('#DivAUTODEACEPTACION').show("1000");
+                    $('#DivAUTOINADMITE').show("1000");
                     $('#DivCOMUNICACIONES').show("1000");
                     $('#DivPUBLICACIONES').show("1000");
                     $('#DivINSPECCION_OCULAR').show("1000");
@@ -3855,6 +3996,17 @@
                         $('#AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO').val("@Model.AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO");
                         $('#AUTODEACEPTACION_DATOSPREDIOSCORRECTO').val("@Model.AUTODEACEPTACION_DATOSPREDIOSCORRECTO");
                         $('#AUTODEACEPTACION_COLINDANTE_CORRECTO').val("@Model.AUTODEACEPTACION_COLINDANTE_CORRECTO");
+                    /// AUTO_INADMITE_
+                        $('#AUTO_INADMITE_SOLICITUD').val("@Model.AUTO_INADMITE_SOLICITUD");
+                        $('#AUTO_INADMITE_DOCUMENTO_VISIBLE').val("@Model.AUTO_INADMITE_DOCUMENTO_VISIBLE");
+                        $('#AUTO_INADMITE_FECHA').val(DateConvert("@Model.AUTO_INADMITE_FECHA"));
+                        $('#AUTO_INADMITE_FIRMA').val("@Model.AUTO_INADMITE_FIRMA");
+                        $('#AUTO_INADMITE_NOMBRE_CORRECTOS').val("@Model.AUTO_INADMITE_NOMBRE_CORRECTOS");
+                        $('#AUTO_INADMITE_RAZON_').val("@Model.AUTO_INADMITE_RAZON_");
+                        $('#AUTO_INADMITE_NOTIFICADO').val("@Model.AUTO_INADMITE_NOTIFICADO");
+                        $('#AUTO_INADMITE_NOTIFICADO_FECHA').val(DateConvert("@Model.AUTO_INADMITE_NOTIFICADO_FECHA"));
+                        $('#AUTO_INADMITE_NOTIFICADO_MINISTERIO').val("@Model.AUTO_INADMITE_NOTIFICADO_MINISTERIO");
+                        $('#AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA').val(DateConvert("@Model.AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA"));
 
                     /// COMUNICACIONES
                         $('#COMUNICACIONES_SOLICITANTE').val("@Model.COMUNICACIONES_SOLICITANTE");
@@ -4117,6 +4269,24 @@
                                         $('#AUTODEACEPTACION_NOMBRESOLICITANTECONYUGECORRECTO').val("False");
                                         $('#AUTODEACEPTACION_DATOSPREDIOSCORRECTO').val("False");
                                         $('#AUTODEACEPTACION_COLINDANTE_CORRECTO').val("False");
+
+
+                                }
+                            /// AUTO_INADMITE_SOLICITUD
+
+                                if ($('#AUTO_INADMITE_SOLICITUD').val() == "False" || $('#AUTO_INADMITE_SOLICITUD').val() == "" || $('#AUTO_INADMITE_DOCUMENTO_VISIBLE').val() == "False" ) {
+
+
+                                        $('#AUTO_INADMITE_SOLICITUD').val("False");
+                                        $('#AUTO_INADMITE_DOCUMENTO_VISIBLE').val("2");
+                                        $('#AUTO_INADMITE_FECHA').val("1753-01-01");
+                                        $('#AUTO_INADMITE_FIRMA').val("False");
+                                        $('#AUTO_INADMITE_NOMBRE_CORRECTOS').val("False");
+                                        $('#AUTO_INADMITE_RAZON_').val("51");
+                                        $('#AUTO_INADMITE_NOTIFICADO').val("False");
+                                        $('#AUTO_INADMITE_NOTIFICADO_FECHA').val("1753-01-01");
+                                        $('#AUTO_INADMITE_NOTIFICADO_MINISTERIO').val("False");
+                                        $('#AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA').val("1753-01-01");
 
 
                                 }
@@ -4705,6 +4875,101 @@
                             $('#AUTODEACEPTACION_VISIBLE').prop("disabled", false);
                         }
                     });
+
+                /// AUTO_INADMITE_SOLICITUD
+
+                    $(".CLASSAUTO_INADMITE_SOLICITUD").change(function () {
+
+                        if ($(this).val() == "False"  || $(this).val() == "" || $(this).val() == "0" || $(this).val() == "2") {
+
+                            if( $('#AUTO_INADMITE_DOCUMENTO_VISIBLE').val() == "2" || $('#AUTO_INADMITE_DOCUMENTO_VISIBLE').val() == "" ){
+
+
+                                $('#AUTO_INADMITE_FECHA').prop("disabled", true);
+                                $('#AUTO_INADMITE_FIRMA').prop("disabled", true);
+                                $('#AUTO_INADMITE_NOMBRE_CORRECTOS').prop("disabled", true);
+                                $('#AUTO_INADMITE_RAZON_').prop("disabled", true);
+                                $('#AUTO_INADMITE_NOTIFICADO').prop("disabled", true);
+                                $('#AUTO_INADMITE_NOTIFICADO_FECHA').prop("disabled", true);
+                                $('#AUTO_INADMITE_NOTIFICADO_MINISTERIO').prop("disabled", true);
+                                $('#AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA').prop("disabled", true);
+
+                                $('#AUTO_INADMITE_FECHA').val("1753-01-01");
+                                $('#AUTO_INADMITE_FIRMA').val("False");
+                                $('#AUTO_INADMITE_NOMBRE_CORRECTOS').val("False");
+                                $('#AUTO_INADMITE_RAZON_').val("51");
+                                $('#AUTO_INADMITE_NOTIFICADO').val("False");
+                                $('#AUTO_INADMITE_NOTIFICADO_FECHA').val("1753-01-01");
+                                $('#AUTO_INADMITE_NOTIFICADO_MINISTERIO').val("False");
+                                $('#AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA').val("1753-01-01");
+
+
+                            }
+
+                            if( $('#AUTO_INADMITE_SOLICITUD').val() == "False" || $('#AUTO_INADMITE_SOLICITUD').val() == ""){
+                                $('#DivAUTOINADMITE').hide("1000");
+                            }
+                        }else{
+                            
+                            $('#AUTO_INADMITE_FECHA').prop("disabled", false);
+                            $('#AUTO_INADMITE_FIRMA').prop("disabled", false  );
+                            $('#AUTO_INADMITE_NOMBRE_CORRECTOS').prop("disabled", false);
+                            $('#AUTO_INADMITE_RAZON_').prop("disabled", false );
+                            $('#AUTO_INADMITE_NOTIFICADO').prop("disabled", false );
+                            $('#AUTO_INADMITE_NOTIFICADO_FECHA').prop("disabled", false);
+                            $('#AUTO_INADMITE_NOTIFICADO_MINISTERIO').prop("disabled", false  );
+                            $('#AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA').prop("disabled", false);
+
+
+                            if( $('#AUTO_INADMITE_DOCUMENTO_VISIBLE').val() == "2" || $('#AUTO_INADMITE_DOCUMENTO_VISIBLE').val() == "0"  || $('#AUTO_INADMITE_DOCUMENTO_VISIBLE').val() == "False" || $('#AUTO_INADMITE_DOCUMENTO_VISIBLE').val() == ""){
+                                
+                                $('#AUTO_INADMITE_FECHA').prop("disabled", true);
+                                $('#AUTO_INADMITE_FIRMA').prop("disabled", true);
+                                $('#AUTO_INADMITE_NOMBRE_CORRECTOS').prop("disabled", true);
+                                $('#AUTO_INADMITE_RAZON_').prop("disabled", true);
+                                $('#AUTO_INADMITE_NOTIFICADO').prop("disabled", true);
+                                $('#AUTO_INADMITE_NOTIFICADO_FECHA').prop("disabled", true);
+                                $('#AUTO_INADMITE_NOTIFICADO_MINISTERIO').prop("disabled", true);
+                                $('#AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA').prop("disabled", true);
+
+                                $('#AUTO_INADMITE_FECHA').val("1753-01-01");
+                                $('#AUTO_INADMITE_FIRMA').val("False");
+                                $('#AUTO_INADMITE_NOMBRE_CORRECTOS').val("False");
+                                $('#AUTO_INADMITE_RAZON_').val("51");
+                                $('#AUTO_INADMITE_NOTIFICADO').val("False");
+                                $('#AUTO_INADMITE_NOTIFICADO_FECHA').val("1753-01-01");
+                                $('#AUTO_INADMITE_NOTIFICADO_MINISTERIO').val("False");
+                                $('#AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA').val("1753-01-01");
+
+                            }
+
+                            if( $('#AUTO_INADMITE_SOLICITUD').val() != "False" || $('#AUTO_INADMITE_SOLICITUD').val() != ""){
+                                $('#DivAUTOINADMITE').show("1000");
+                            }
+
+                        }
+                        if($('#AUTO_INADMITE_SOLICITUD').val() == "False" || $('#AUTO_INADMITE_SOLICITUD').val() == ""){
+                            $('#AUTO_INADMITE_DOCUMENTO_VISIBLE').prop("disabled", true);
+                        }else{
+                            $('#AUTO_INADMITE_DOCUMENTO_VISIBLE').prop("disabled", false);
+                        }
+                    });
+
+                    $("#AUTO_INADMITE_NOTIFICADO").change(function () { 
+                        if ($(this).val() != "True") {
+                            $('#AUTO_INADMITE_NOTIFICADO_FECHA').prop("disabled", true);
+                            $('#AUTO_INADMITE_NOTIFICADO_FECHA').val("1753-01-01");
+                        }
+                    });
+
+                    $("#AUTO_INADMITE_NOTIFICADO_MINISTERIO").change(function () { 
+                        if ($(this).val() != "True") {
+                            $('#AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA').prop("disabled", true);
+                            $('#AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA').val("1753-01-01");
+                        }
+                    });
+
+
                 /// COMUNICACIONES_
 
 

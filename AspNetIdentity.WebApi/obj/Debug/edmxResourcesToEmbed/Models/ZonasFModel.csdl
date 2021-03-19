@@ -741,6 +741,16 @@
     <Property Name="SUSPENCION_VISIBLE" Type="Int32" />
     <Property Name="SUSPENCION_FECHA" Type="DateTime" Precision="3" />
     <Property Name="SUSPENCION_FIRMADO" Type="Boolean" />
+    <Property Name="AUTO_INADMITE_SOLICITUD" Type="Boolean" />
+    <Property Name="AUTO_INADMITE_DOCUMENTO_VISIBLE" Type="Int32" />
+    <Property Name="AUTO_INADMITE_FECHA" Type="DateTime" Precision="3" />
+    <Property Name="AUTO_INADMITE_FIRMA" Type="Boolean" />
+    <Property Name="AUTO_INADMITE_NOMBRE_CORRECTOS" Type="Boolean" />
+    <Property Name="AUTO_INADMITE_RAZON_" Type="Int32" />
+    <Property Name="AUTO_INADMITE_NOTIFICADO" Type="Boolean" />
+    <Property Name="AUTO_INADMITE_NOTIFICADO_FECHA" Type="DateTime" Precision="3" />
+    <Property Name="AUTO_INADMITE_NOTIFICADO_MINISTERIO" Type="Boolean" />
+    <Property Name="AUTO_INADMITE_NOTIFICADO_MINISTERIO_FECHA" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="CaracterizacionSolicitante">
     <Key>
@@ -1549,7 +1559,7 @@
     <Property Name="respocatastral" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="responsable" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="fechaediccion" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="FechaInsercion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaInsercion" Type="DateTime" Precision="3" />
     <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
     <Property Name="Gestion" Type="Int32" />
     <Property Name="IdAspNetUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />

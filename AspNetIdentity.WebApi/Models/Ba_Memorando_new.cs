@@ -50,7 +50,7 @@ namespace AspNetIdentity.WebApi.Models
         public string respocatastral { get; set; }
         public string responsable { get; set; }
         public string fechaediccion { get; set; }
-        public System.DateTime FechaInsercion { get; set; }
+        public Nullable<System.DateTime> FechaInsercion { get; set; }
         public Nullable<System.DateTime> FechaModificacion { get; set; }
         public Nullable<int> Gestion { get; set; }
         public string IdAspNetUser { get; set; }
